@@ -15,7 +15,7 @@
 #' @importFrom jsonlite toJSON
 #' @importFrom data.table split
 
-to_json_list <- function(df){
+json_list <- function(df){
 
   # Object df must be a dataframe
   if(typeof(df) != "list"){
@@ -35,4 +35,4 @@ to_json_list <- function(df){
   return(df)
 }
 
-print("to_json_list extracted")
+print("json_list extracted")
