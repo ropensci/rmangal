@@ -18,7 +18,7 @@
 json_list <- function(df){
 
   # Object df must be a dataframe
-  if(typeof(df) != "list"){
+  if(class(df) != "data.frame"){
 
     stop(" 'df' must be a dataframe")
   }

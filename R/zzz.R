@@ -1,2 +1,2 @@
-.onAttach <- function(libname, "mangal package name"){
-    packageStartupMessage("Message")
+#.onAttach <- function(libname, "mangal package name"){
+#    packageStartupMessage("Message")
