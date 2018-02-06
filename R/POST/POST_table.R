@@ -13,7 +13,7 @@
 #'
 #' @keywords database
 #'
-#' @importFrom httr status_code
+#' @importFrom httr http_error
 #' @importFrom httr http_status
 
 POST_table <- function(data_lst, table) {
@@ -31,7 +31,7 @@ POST_table <- function(data_lst, table) {
     resp <- POST_line(data_lst[[j]], table)
 
     # Check if status code other than "Created"
-    if(httr::status_code(resp) != 201){
+    if(httr::http_error(resp) = TRUE){
 
       # If so, paste line + status message
       status[length(status)+1] <- paste(j, httr::http_status(resp)[[3]])
