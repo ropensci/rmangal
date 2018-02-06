@@ -1,6 +1,6 @@
 #' @title Dataframe into json list
 #'
-#' @description Convert a dataframe into a list with json data
+#' @description Convert a dataframe into a list of json data
 #'
 #' @param df A dataframe, header must be the names of attributes
 #'
@@ -18,19 +18,13 @@
 json_list <- function(df){
 
   # Object df must be a dataframe
-  if(class(df) != "data.frame"){
-
-    stop(" 'df' must be a dataframe")
-  }
+  if(class(df) != "data.frame") stop(" 'df' must be a dataframe")
 
   # Set df into a list with attribute names as levels
-  df <- as.list(setNames(data.table::split(df, seq(nrow(df))), rownames(df)))
+  df <- as.list(setNames(split(df, seq(nrow(df))), rownames(df)))
 
   # Set each list level into json
-  for (i in 1:length(df)) {
-
-    df[[i]] <- jsonlite::toJSON(df[[i]])
-  }
+  for (i in 1:length(df)) df[[i]] <- jsonlite::toJSON(df[[i]])
 
   return(df)
 }
