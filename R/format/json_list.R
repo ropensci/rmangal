@@ -18,7 +18,7 @@
 json_list <- function(df){
 
   # Object df must be a dataframe
-  if(class(df) != "data.frame") stop(" 'df' must be a dataframe")
+  if(class(df) != "data.frame") stop(" 'df' must be a data.frame")
 
   # Set df into a list with attribute names as levels
   df <- as.list(setNames(split(df, seq(nrow(df))), rownames(df)))
