@@ -18,6 +18,8 @@
 
 POST_table <- function(data_lst, table) {
 
+  if(class(data_lst) != "list") stop("data_lst must be a list")
+
   # Create vector of status that will contain line + error message
   status <- vector()
 
@@ -31,16 +33,16 @@ POST_table <- function(data_lst, table) {
     resp <- POST_line(data_lst[[j]], table)
 
     # Check if status code other than "Created"
-    if(httr::http_error(resp) = TRUE){
+    if(httr::http_error(resp) == TRUE){
 
       # If so, paste line + status message
       status[length(status)+1] <- paste(j, httr::http_status(resp)[[3]])
     }
   }
   # View wich request failed
-  if(length(status) != 0){
-    print(status)
-  }
+  if(length(status) != 0) print(paste("Entries that failed:", status))
+
+  else print("No entry failed")
 }
 
 print("POST_table extracted")

@@ -36,7 +36,9 @@ GET_fkey <- function(table, attribute, value){
   # Get data into vector
   data <- unlist(data)
 
-  print(data[[1]])
+  if(is.null(data[[1]])) stop("wrong attribute or value inexistant")
+
+  else print(data[[1]])
 }
 
 print("GET_fkey extracted")

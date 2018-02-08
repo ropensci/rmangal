@@ -15,15 +15,13 @@
 #'
 #' @importFrom httr modify_url
 #' @importFrom httr POST
+#' @importFrom httr add_headers
 
 # Table must be inside " "
 POST_line <- function (table_lst_line, table) {
 
   # Data.line must be of class JSON
-  if(class(table_lst_line) != "json"){
-
-    print(" 'data.line' must be a json")
-  }
+  if(class(table_lst_line) != "json") stop(" 'table_lst_line' must be a json")
 
   # Connect to API
   server <- "http://localhost:3000"
