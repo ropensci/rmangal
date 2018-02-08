@@ -20,33 +20,35 @@
 #' @importFrom httr add_headers
 
 ## Create and inject environments table ##
+POST_environments <- function(){
 
-# Check if the environments already exist
-server <- "http://localhost:3000"
+  # Check if the environments already exist
+  server <- "http://localhost:3000"
 
-config <- httr::add_headers("Content-type" = "application/json")
+  config <- httr::add_headers("Content-type" = "application/json")
 
-path <- httr::modify_url(server, path = paste0("/api/v0/",
+  path <- httr::modify_url(server, path = paste0("/api/v0/",
                                                "environments/?name=",
                                                enviro[[1]]))
 
-# Is retreived content == 0 -> in this case inject data
-if (length(content(httr::GET(url = path, config = config))) == 0) {
+  # Is retreived content == 0 -> in this case inject data
+  if (length(content(httr::GET(url = path, config = config))) == 0) {
 
-  # Retrive foreign key
-  enviro <- c(enviro, attr_id = GET_fkey("attributes", "name", attr[[1]]))
-  enviro <- c(enviro, ref_id = GET_fkey("refs", "doi", refs[[1]]))
+    # Retrive foreign key
+    enviro <- c(enviro, attr_id = GET_fkey("attributes", "name", attr[[1]]))
+    enviro <- c(enviro, ref_id = GET_fkey("refs", "doi", refs[[1]]))
 
-  # Environments_df as a json list
-  environments_lst <- json_list(data.frame(enviro))
+    # Environments_df as a json list
+    environments_lst <- json_list(data.frame(enviro))
 
-  # Inject to environment table
-  POST_table(environments_lst, "environments")
+    # Inject to environment table
+    POST_table(environments_lst, "environments")
 
-  print("enviro done")
+    print("enviro done")
 
-} else {
+  } else {
 
-  print("enviro already in mangal")
+    print("enviro already in mangal")
 
+  }
 }

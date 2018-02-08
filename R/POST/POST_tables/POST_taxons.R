@@ -13,15 +13,17 @@
 #' @keywords database
 
 ## Create and inject taxons table ##
+POST_taxons <- function(){
 
-# Retrive foreign key
-## trait_id
-taxons_df[,6] <- GET_fkey("traits", "name", traits[[1]])
+  # Retrive foreign key
+  ## trait_id
+  taxons_df[,6] <- GET_fkey("traits", "name", traits[[1]])
 
-# taxon_df as a json list
-taxons_lst <- json_list(taxons_df)
+  # taxon_df as a json list
+  taxons_lst <- json_list(taxons_df)
 
-# Inject to networks table
-POST_table(taxons_lst, "taxons")
+  # Inject to networks table
+  POST_table(taxons_lst, "taxons")
 
-print("taxon done")
+  print("taxon done")
+}

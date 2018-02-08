@@ -17,27 +17,29 @@
 #' @importFrom httr add_headers
 
 ## Create and inject refs table ##
+POST_refs <- function(){
 
-# Check if the refs already exist
-server <- "http://localhost:3000"
+  # Check if the refs already exist
+  server <- "http://localhost:3000"
 
-config <- add_headers("Content-type" = "application/json")
+  config <- add_headers("Content-type" = "application/json")
 
-path <- modify_url(server, path = paste0("/api/v0/","refs/?doi=",refs[[1]]))
+  path <- modify_url(server, path = paste0("/api/v0/","refs/?doi=",refs[[1]]))
 
-# Is retreived content == 0 -> in this case inject data
-if (length(content(GET(url = path, config = config))) == 0) {
+  # Is retreived content == 0 -> in this case inject data
+  if (length(content(GET(url = path, config = config))) == 0) {
 
-  # Refs_df as a json list
-  refs_lst <- json_list(data.frame(refs))
+    # Refs_df as a json list
+    refs_lst <- json_list(data.frame(refs))
 
-  # Inject to refs table
-  POST_table(refs_lst, "refs")
+    # Inject to refs table
+    POST_table(refs_lst, "refs")
 
-  print("ref done")
+    print("ref done")
 
-} else {
+  } else {
 
-  print("ref already in mangal")
+    print("ref already in mangal")
 
+  }
 }

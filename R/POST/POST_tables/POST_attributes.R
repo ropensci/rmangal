@@ -17,28 +17,30 @@
 #' @importFrom httr add_headers
 
 ## Create and inject attributes table ##
+POST_attributes <- function(){
 
-# Check if the attribute already exist
-server <- "http://localhost:3000"
+  # Check if the attribute already exist
+  server <- "http://localhost:3000"
 
-config <- httr::add_headers("Content-type" = "application/json")
+  config <- httr::add_headers("Content-type" = "application/json")
 
-path <- httr::modify_url(server, path = paste0("/api/v0/",
+  path <- httr::modify_url(server, path = paste0("/api/v0/",
                                                "attributes/?name=",attr[[1]]))
 
-# Is retreived content == 0 -> in this case inject data
-if (length(content(httr::GET(url = path, config = config))) == 0) {
+  # Is retreived content == 0 -> in this case inject data
+  if (length(content(httr::GET(url = path, config = config))) == 0) {
 
-  # Attibutes_df as a json list
-  attributes_lst <- json_list(data.frame(attr))
+    # Attibutes_df as a json list
+    attributes_lst <- json_list(data.frame(attr))
 
-  # Inject to attributes table
-  POST_table(attributes_lst, "attributes")
+    # Inject to attributes table
+    POST_table(attributes_lst, "attributes")
 
-  print("attr done")
+    print("attr done")
 
-} else {
+  } else {
 
-  print("attr already in mangal")
+    print("attr already in mangal")
 
+ }
 }

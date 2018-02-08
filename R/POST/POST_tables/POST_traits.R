@@ -20,32 +20,34 @@
 #' @importFrom httr add_headers
 
 ## Create and inject traits table ##
+POST_traits <- function(){
 
-# Check if the traits already exist
-server <- "http://localhost:3000"
+  # Check if the traits already exist
+  server <- "http://localhost:3000"
 
-config <- httr::add_headers("Content-type" = "application/json")
+  config <- httr::add_headers("Content-type" = "application/json")
 
-path <- httr::modify_url(server, path = paste0("/api/v0/","traits/?name=",
+  path <- httr::modify_url(server, path = paste0("/api/v0/","traits/?name=",
                                                traits[[1]]))
 
-# Is retreived content == 0 -> in this case inject data
-if (length(content(httr::GET(url = path, config = config))) == 0) {
+  # Is retreived content == 0 -> in this case inject data
+  if (length(content(httr::GET(url = path, config = config))) == 0) {
 
-  # Retrive foreign key
-  traits <- c(traits, attr_id = GET_fkey("attributes", "name", attr[[1]]))
-  traits <- c(traits, ref_id = GET_fkey("refs", "doi", refs[[1]]))
+    # Retrive foreign key
+    traits <- c(traits, attr_id = GET_fkey("attributes", "name", attr[[1]]))
+    traits <- c(traits, ref_id = GET_fkey("refs", "doi", refs[[1]]))
 
-  # traits_df as a json list
-  traits_lst <- json_list(data.frame(traits))
+    # traits_df as a json list
+    traits_lst <- json_list(data.frame(traits))
 
-  # Inject to traits table
-  POST_table(traits_lst, "traits")
+    # Inject to traits table
+    POST_table(traits_lst, "traits")
 
-  print("trait done")
+    print("trait done")
 
-} else {
+  } else {
 
-  print("trait already in mangal")
+    print("trait already in mangal")
 
+  }
 }
