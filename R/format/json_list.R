@@ -28,5 +28,3 @@ json_list <- function(df){
 
   return(df)
 }
-
-print("json_list extracted")

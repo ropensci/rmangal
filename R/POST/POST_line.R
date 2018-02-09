@@ -32,5 +32,3 @@ POST_line <- function (table_lst_line, table) {
   # Post a line of data
   httr::POST(path, body = substr(table_lst_line, 2, (nchar(table_lst_line))-1), config = add_headers("Content-type" = "application/json"))
 }
-
-print("POST_line extracted")

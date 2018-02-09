@@ -38,7 +38,5 @@ GET_fkey <- function(table, attribute, value){
 
   if(is.null(data[[1]])) stop("wrong attribute or value inexistant")
 
-  else print(data[[1]])
+  else return(data[[1]])
 }
-
-print("GET_fkey extracted")
