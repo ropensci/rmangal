@@ -28,6 +28,8 @@ POST_datasets <- function(){
 
   path <- httr::modify_url(server, path = paste0("/api/v0/","datasets/?name=",
                                          datasets[[1]]))
+  # Change space in url by "_"
+  path <- gsub(" ", "%20", path)
 
   # Is retreived content == 0 -> in this case inject data
   if (length(content(httr::GET(url = path, config = config))) == 0) {

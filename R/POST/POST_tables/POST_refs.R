@@ -26,6 +26,9 @@ POST_refs <- function(){
 
   path <- modify_url(server, path = paste0("/api/v0/","refs/?doi=",refs[[1]]))
 
+  # Change space in url by "_"
+  path <- gsub(" ", "%20", path)
+
   # Is retreived content == 0 -> in this case inject data
   if (length(content(GET(url = path, config = config))) == 0) {
 
