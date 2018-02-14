@@ -36,7 +36,13 @@ GET_fkey <- function(table, attribute, value){
   # Get data into vector
   data <- unlist(data)
 
-  if(is.null(data[[1]])) stop("wrong attribute or value inexistant")
+  if(is.null(data[[1]] == TRUE)){
 
-  else return(data[[1]])
+    print("wrong attribute, check spelling; value or table inexistant, no associated id")
+
+  } else {
+
+    return(data[[1]])
+
+    }
 }
