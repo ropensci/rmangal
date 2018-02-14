@@ -45,7 +45,7 @@ POST_interactions <- function(inter_df){
                     data.table::setDT(as.data.frame(inter)))
 
   # inter_df as a json list
-  inter_lst <- json_list(as.data.frame(inter_df))
+  inter_lst <- json_list(inter_df)
 
   # Inject to interactions table
   POST_table(inter_lst, "interactions")
