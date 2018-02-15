@@ -38,13 +38,21 @@ POST_networks <- function(){
   if (length(content(httr::GET(url = path, config = config))) == 0) {
 
     # Retrive foreign key
-    networks <- c(networks, dataset_id = GET_fkey("datasets", "name",
-                                                  datasets[[1]]))
-    networks <- c(networks, ref_id = GET_fkey("refs", "doi", refs[[1]]))
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/datasets/?name=", datasets[[1]])), config = config))) != 0){
+      networks <- c(networks, dataset_id = GET_fkey("datasets", "name", datasets[[1]]))
+    }
 
-    networks <- c(networks, environment_id = GET_fkey("environments",
-                                                      "name", enviro[[1]]))
-    networks <- c(networks, user_id = GET_fkey("users", "name", users[[1]]))
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/refs/?doi=", refs[[1]])), config = config))) != 0){
+      networks <- c(networks, ref_id = GET_fkey("refs", "doi", refs[[1]]))
+    }
+
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/environments/?name=", enviro[[1]])), config = config))) != 0){
+      networks <- c(networks, environment_id = GET_fkey("environments", "name", enviro[[1]]))
+    }
+
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/users/?name=", users[[1]])), config = config))) != 0){
+      networks <- c(networks, user_id = GET_fkey("users", "name", users[[1]]))
+    }
 
     # networks_df as a json list
     networks_lst <- json_list(data.frame(networks))

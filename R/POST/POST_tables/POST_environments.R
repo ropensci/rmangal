@@ -37,8 +37,13 @@ POST_environments <- function(){
   if (length(content(httr::GET(url = path, config = config))) == 0) {
 
     # Retrive foreign key
-    enviro <- c(enviro, attr_id = GET_fkey("attributes", "name", attr[[1]]))
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/attributes/?name=", attr[[1]])), config = config))) != 0){
+      enviro <- c(enviro, attr_id = GET_fkey("attributes", "name", attr[[1]]))
+    }
+
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/refs/?doi=", refs[[1]])), config = config))) != 0){
     enviro <- c(enviro, ref_id = GET_fkey("refs", "doi", refs[[1]]))
+    }
 
     # Environments_df as a json list
     environments_lst <- json_list(data.frame(enviro))

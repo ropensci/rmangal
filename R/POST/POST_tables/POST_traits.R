@@ -36,8 +36,13 @@ POST_traits <- function(){
   if (length(content(httr::GET(url = path, config = config))) == 0) {
 
     # Retrive foreign key
-    traits <- c(traits, attr_id = GET_fkey("attributes", "name", attr[[1]]))
-    traits <- c(traits, ref_id = GET_fkey("refs", "doi", refs[[1]]))
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/attributes/?name=", attr[[1]])), config = config))) != 0){
+      traits <- c(traits, attr_id = GET_fkey("attributes", "name", attr[[1]]))
+    }
+
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/refs/?doi=", attr[[1]])), config = config))) != 0){
+      traits <- c(traits, ref_id = GET_fkey("refs", "doi", refs[[1]]))
+    }
 
     # traits_df as a json list
     traits_lst <- json_list(data.frame(traits))

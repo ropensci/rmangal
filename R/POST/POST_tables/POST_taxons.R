@@ -17,7 +17,9 @@ POST_taxons <- function(){
 
   # Retrive foreign key
   ## trait_id
-  taxons_df[,6] <- GET_fkey("traits", "name", traits[[1]])
+  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/traits/?name=", trait[[1]])), config = config))) != 0){
+    taxons_df[,6] <- GET_fkey("traits", "name", traits[[1]])
+  }
 
   # taxon_df as a json list
   taxons_lst <- json_list(taxons_df)

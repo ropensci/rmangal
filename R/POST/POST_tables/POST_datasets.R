@@ -35,8 +35,13 @@ POST_datasets <- function(){
   if (length(content(httr::GET(url = path, config = config))) == 0) {
 
     # Retrive foreign key
-    datasets <- c(datasets, user_id = GET_fkey("users","name", users[[1]]))
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/users/?name=", users[[1]])), config = config))) != 0){
+      datasets <- c(datasets, user_id = GET_fkey("users","name", users[[1]]))
+    }
+
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/refs/?doi=", refs[[1]])), config = config))) != 0){
     datasets <- c(datasets, ref_id = GET_fkey("refs", "doi", refs[[1]]))
+    }
 
     # Datasets_df as a json list
     datasets_lst <- json_list(data.frame(datasets))
