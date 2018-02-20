@@ -18,7 +18,7 @@
 json_list <- function(df){
 
   # Object df must be a dataframe
-  if(any(class(df) == "data.frame")) stop(" 'df' must be a data.frame")
+  if(any(class(df) == "data.frame")){
 
   # Set df into a list with attribute names as levels
   df <- as.list(setNames(split(df, seq(nrow(df))), rownames(df)))
@@ -27,4 +27,8 @@ json_list <- function(df){
   for (i in 1:length(df)) df[[i]] <- jsonlite::toJSON(df[[i]])
 
   return(df)
+
+  } else { stop(" 'df' must be a data.frame") }
+
 }
+
