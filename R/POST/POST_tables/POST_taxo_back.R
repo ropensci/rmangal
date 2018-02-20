@@ -18,7 +18,7 @@ POST_taxo_back <- function(){
   taxo_back_lst <- json_list(taxo_back_df)
 
   # Inject to networks table
-  POST_table(taxo_back_lst, "taxo_back")
+  POST_table(taxo_back_lst, "taxo_backs")
 
   print("taxo_back done")
 }

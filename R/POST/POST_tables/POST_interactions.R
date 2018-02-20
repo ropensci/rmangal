@@ -27,8 +27,8 @@ POST_interactions <- function(inter_df){
   inter_df[, "taxon_2"] <- NA
 
   for (i in 1:nrow(inter_df)) {
-    try(inter_df[i, "taxon_1"] <- GET_fkey("taxons", "name", inter_df[i,1]))
-    try(inter_df[i, "taxon_2"] <- GET_fkey("taxons", "name", inter_df[i,2]))
+    try(inter_df[i, "taxon_1"] <- GET_fkey("taxons", "original_name", as.character(inter_df[i,1])))
+    try(inter_df[i, "taxon_2"] <- GET_fkey("taxons", "original_name", as.character(inter_df[i,2])))
   }
 
   if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/attributes/?name=", attr[[1]])), config = config))) != 0){
@@ -63,6 +63,8 @@ POST_interactions <- function(inter_df){
 
   # Inject to interactions table
   POST_table(inter_lst, "interactions")
+
+  rm(inter_lst)
 
  print("interactions done")
 }
