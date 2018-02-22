@@ -20,41 +20,61 @@
 #' @importFrom httr add_headers
 
 ## Create and inject traits table ##
-POST_traits <- function(){
+POST_traits <- function(traits_df){
 
-  # Check if the traits already exist
   server <- "http://localhost:3000"
 
   config <- httr::add_headers("Content-type" = "application/json")
 
-  path <- httr::modify_url(server, path = paste0("/api/v0/","traits/?name=",
-                                               traits[[1]]))
-  # Change space in url by "_"
-  path <- gsub(" ", "%20", path)
+  # Retreive fkey for ref_id, taxon_id and attr_id
+  traits_df[, "ref_id"] <- GET_fkey("refs", "doi", refs[[1]])
 
-  # Is retreived content == 0 -> in this case inject data
-  if (length(content(httr::GET(url = path, config = config))) == 0) {
+  traits_df[, "taxon_id"] <- NA
+  traits_df[, "attr_id"] <- NA
 
-    # Retrive foreign key
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/attributes/?name=", attr[[1]])), config = config))) != 0){
-      traits <- c(traits, attr_id = GET_fkey("attributes", "name", attr[[1]]))
+  for (i in 1:nrow(traits_df)) {
+
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/taxons/?original_name=",
+                                                             traits_df[i, "taxon"])), config = config))) == 0){
+
+      print(paste0(traits_df[i, "taxon"], " is not in taxons table, entry was skip"))
+
+      } else {
+
+      traits_df[i, "taxon_id"] <- GET_fkey("taxons", "original_name", as.character(traits_df[i, "taxon"]))
+
+      }
+  }
+
+  for (i in 1:nrow(traits_df)) {
+
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/attributes/?name=",
+                                                              traits_df[i, "name"])), config = config))) == 0){
+
+      print(paste0(traits_df[i, "name"], " is not in attributes table, entry was skip"))
+
+      } else {
+
+      traits_df[i, "attr_id"] <- GET_fkey("attributes", "name", as.character(traits_df[i, "name"]))
+
     }
-
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/refs/?doi=", attr[[1]])), config = config))) != 0){
-      traits <- c(traits, ref_id = GET_fkey("refs", "doi", refs[[1]]))
-    }
-
-    # traits_df as a json list
-    traits_lst <- json_list(data.frame(traits))
-
-    # Inject to traits table
-    POST_table(traits_lst, "traits")
-
-    print("trait done")
-
-  } else {
-
-    print("trait already in mangal")
 
   }
+
+  # Remove taxon column
+  traits_df <- traits_df[, -1]
+
+  # Add metadata
+  traits_df <- cbind(data.table::setDT(traits_df),
+                    data.table::setDT(as.data.frame(traits)))
+
+  # traits_df as a json list
+  traits_lst <- json_list(data.frame(traits_df))
+
+  # Inject to traits table
+  POST_table(traits_lst, "traits")
+
+  print("trait done")
+
 }
+
