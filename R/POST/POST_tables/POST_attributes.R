@@ -17,7 +17,7 @@
 #' @importFrom httr add_headers
 
 ## Create and inject attributes table ##
-POST_attributes <- function(){
+POST_attributes <- function(attr){
 
   # Check if the attribute already exist
   server <- "http://localhost:3000"
