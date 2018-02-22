@@ -31,16 +31,16 @@ POST_interactions <- function(inter_df){
     try(inter_df[i, "taxon_2"] <- GET_fkey("taxons", "original_name", as.character(inter_df[i,2])))
   }
 
+  server <- "http://localhost:3000"
+
+  config <- httr::add_headers("Content-type" = "application/json")
+
   if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/attributes/?name=", attr[[1]])), config = config))) != 0){
-    inter_df[, "attr_id"]        <- GET_fkey("attributes", "name", attr[[1]])
+    inter_df[, "attr_id"] <- GET_fkey("attributes", "name", attr[[1]])
   }
 
   if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/environments/?name=", enviro[[1]])), config = config))) != 0){
     inter_df[, "environment_id"] <- GET_fkey("environments", "name", enviro[[1]])
-  }
-
-  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/networks/?name=", networks[[1]])), config = config))) != 0){
-    inter_df[, "network_id"]     <- GET_fkey("networks", "name", networks[[1]])
   }
 
   if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/refs/?doi=", refs[[1]])), config = config))) != 0){
