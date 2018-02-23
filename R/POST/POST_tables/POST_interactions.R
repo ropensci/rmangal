@@ -35,8 +35,8 @@ POST_interactions <- function(inter_df){
 
   config <- httr::add_headers("Content-type" = "application/json")
 
-  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/attributes/?name=", attr[[1]])), config = config))) != 0){
-    inter_df[, "attr_id"] <- GET_fkey("attributes", "name", attr[[1]])
+  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/attributes/?name=", attr_inter[[1]])), config = config))) != 0){
+    inter_df[, "attr_id"] <- GET_fkey("attributes", "name", attr_inter[[1]])
   }
 
   if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/environments/?name=", enviro[[1]])), config = config))) != 0){
@@ -54,17 +54,23 @@ POST_interactions <- function(inter_df){
   # Remove unused column
   inter_df <- inter_df[,3:ncol(inter_df)]
 
+  print("keys added")
+
   # Add metadata
   inter_df <- cbind(data.table::setDT(inter_df),
                     data.table::setDT(as.data.frame(inter)))
 
+  print("metadata added")
+
   # inter_df as a json list
   inter_lst <- json_list(inter_df)
+
+  print("df to list")
 
   # Inject to interactions table
   POST_table(inter_lst, "interactions")
 
   rm(inter_lst)
 
- print("interactions done")
+  print("interactions done")
 }
