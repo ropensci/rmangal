@@ -17,8 +17,29 @@ POST_taxo_back <- function(){
   # taxon_df as a json list
   taxo_back_lst <- json_list(taxo_back_df)
 
-  # Inject to networks table
-  POST_table(taxo_back_lst, "taxo_backs")
+  # Is retreived content == 0 -> in this case inject taxo_back
+  server <- "http://localhost:3000"
+
+  config <- httr::add_headers("Content-type" = "application/json")
+
+  for(i in 1:length(taxo_back_lst)){
+
+    path <- httr::modify_url(server, path = gsub(" ", "%20", paste0("/api/v0/","taxo_backs/?name=",
+                                                                    taxo_back_df[i, "name"])))
+
+    # Is retreived content == 0 -> in this case inject data
+    if (length(content(httr::GET(url = path, config = config))) == 0) {
+
+      # Inject to networks table
+      POST_line(taxo_back_lst[[i]], "taxo_backs")
+
+    } else {
+
+      print(paste0(taxo_back_df[i, "name"], " is already in Mangal, entry was skip"))
+
+    }
+
+  }
 
   print("taxo_back done")
 }
