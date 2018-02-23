@@ -11,6 +11,9 @@
 #' @author Gabriel Bergeron
 #'
 #' @keywords database
+#'
+#' @importFrom httr GET
+#' @importFrom httr add_headers
 
 ## Create and inject taxons table ##
 POST_taxons <- function(){

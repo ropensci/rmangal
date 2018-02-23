@@ -10,6 +10,10 @@
 #' @author Gabriel Bergeron
 #'
 #' @keywords database
+#'
+#' @importFrom httr modify_url
+#' @importFrom httr GET
+#' @importFrom httr add_headers
 
 ## Create and inject taxo_back table ##
 POST_taxo_back <- function(){

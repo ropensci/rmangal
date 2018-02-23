@@ -17,6 +17,8 @@
 #' @keywords database
 #'
 #' @importFrom data.table setDT
+#' @importFrom httr add_headers
+#' @importFrom httr GET
 
 # Create and inject interactions table ##
 POST_interactions <- function(inter_df){
