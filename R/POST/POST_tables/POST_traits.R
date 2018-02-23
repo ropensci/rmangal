@@ -4,11 +4,12 @@
 #'    the metadata associated. 'attributes' and 'refs' tables must be POST
 #'    before.
 #'
+#' @param traits_df A dataframe with three columns: taxon, name (of the trait) and value
+#'
 #' @return
 #'
 #' The status of the injection:
-#' 'trait already in mangal' means that the environment name already have an
-#' id
+#' 'trait already in mangal' means that the environment name already have an id
 #' 'trait done' an id has been created and the injection is succesfull
 #'
 #' @author Gabriel Bergeron

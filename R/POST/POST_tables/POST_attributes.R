@@ -2,6 +2,8 @@
 #'
 #' @description POST the metadata associated whit the attributes table
 #'
+#' @param attr A list of four levels: name, table_owner, description and unit
+#'
 #' @return
 #'
 #' The status of the injection:
