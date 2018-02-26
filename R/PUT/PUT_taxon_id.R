@@ -2,15 +2,17 @@
 #'
 #' @description GET the foreign key 'taxon_id' from the table taxo_backs and update it in the table taxons
 #'
-#' @return
-#'
-#'
-#'
 #' @author Gabriel Bergeron
 #'
 #' @keywords database
 #'
 #' @importFrom RPostgreSQL dbSendQuery
+#' @importFrom RPostgreSQL dbConnect
+#' @importFrom httr add_headers
+#' @importFrom httr modify_url
+#' @importFrom httr GET
+#' @importFrom jsonlite toJSON
+#' @importFrom stringr word
 
 ## Update taxon_id
 PUT_taxon_id <- function(){
@@ -19,30 +21,28 @@ PUT_taxon_id <- function(){
 
   config <- httr::add_headers("Content-type" = "application/json")
 
-  con <- dbConnect(PostgreSQL(),
-                   host = "localhost",
-                   port = 5432,
-                   dbname = "mangal_dev",
-                   password = "postgres",
-                   user = "postgres")
+  con <- RPostgreSQL::dbConnect(PostgreSQL(),
+                                host = "localhost",
+                                port = 5432,
+                                dbname = "mangal_dev",
+                                password = "postgres",
+                                user = "postgres")
 
   L <- "SELECT count(*)
           FROM taxons;"
 
-  L <- dbGetQuery(con, L)
+  L <- RPostgreSQL::dbGetQuery(con, L)[1, 1]
 
-  for (i in 1:L[1,1]) {
+  for (i in 1:L) {
 
+    path <- httr::modify_url(server, path = paste0("/api/v0/taxon/", i ))
 
+    taxon <- as.vector(content(GET(path))[[2]])
 
-    ============= Rendu ici =================
+    if(str_detect(taxon, "[123456789._]") == TRUE) taxon <- stringr::word(taxon, start = 1)
 
+    id <- jsonlite::toJSON(data.frame(taxo_id = GET_fkey("taxo_backs", "name", taxon)))
 
-
-    path <- httr::modify_url(server, path = gsub(" ", "%20", paste0("/api/v0/taxon/", i )))
-
-    taxon <- content(GET(path))
-
-    PUT(url, body = GET_fkey("Du taxon i vers la table taxo_back"), config = config)
+    if(id != 0) PUT(url = path, body = substr(id, 2, (nchar(id))-1), config = config)
   }
 }
