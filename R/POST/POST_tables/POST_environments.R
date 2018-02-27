@@ -46,10 +46,10 @@ POST_environments <- function(){
     }
 
     # Environments_df as a json list
-    environments_lst <- json_list(data.frame(enviro))
+    environments_lst <- toJSON(enviro, auto_unbox = TRUE)
 
     # Inject to environment table
-    POST_table(environments_lst, "environments")
+    POST_line(environments_lst, "environments")
 
     print("enviro done")
 

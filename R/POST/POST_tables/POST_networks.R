@@ -18,6 +18,7 @@
 #' @importFrom httr modify_url
 #' @importFrom httr GET
 #' @importFrom httr add_headers
+#' @importFrom jsonlite toJSON
 
 ### BUG : ne saisie pas datasets_id ###
 
@@ -55,10 +56,10 @@ POST_networks <- function(){
     }
 
     # networks_df as a json list
-    networks_lst <- json_list(data.frame(networks))
+    networks_lst <- toJSON(networks, auto_unbox = TRUE)
 
     # Inject to networks table
-    POST_table(networks_lst, "networks")
+    POST_line(networks_lst, "networks")
 
     print("network done")
 
