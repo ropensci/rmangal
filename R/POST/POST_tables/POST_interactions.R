@@ -58,16 +58,21 @@ POST_interactions <- function(inter_df){
 
   print("keys added")
 
-  # Add metadata
-  inter_df <- cbind(data.table::setDT(inter_df),
-                    data.table::setDT(as.data.frame(inter)))
+  # Set list of interaction + metadata
+
+  inter_lst <- list()
+
+  for (i in 1:nrow(inter_df)) {
+
+    inter_lst[[i]] <- as.list(inter_df[i, ])
+
+    inter_lst[[i]] <- c(inter_lst[[i]], inter)
+
+    # to JSON
+    inter_lst[[i]] <- toJSON(inter_lst[[i]], auto_unbox = TRUE)
+  }
 
   print("metadata added")
-
-  # inter_df as a json list
-  inter_lst <- json_list(inter_df)
-
-  print("df to list")
 
   # Inject to interactions table
   POST_table(inter_lst, "interactions")
