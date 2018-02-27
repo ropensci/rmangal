@@ -24,7 +24,7 @@ json_list <- function(df){
   df <- as.list(setNames(split(df, seq(nrow(df))), rownames(df)))
 
   # Set each list level into json
-  for (i in 1:length(df)) df[[i]] <- jsonlite::toJSON(df[[i]])
+  for (i in 1:length(df)) df[[i]] <- jsonlite::toJSON(df[[i]], auto_unbox = TRUE)
 
   return(df)
 
