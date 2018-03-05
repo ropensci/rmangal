@@ -19,6 +19,8 @@
 #' @importFrom httr modify_url
 #' @importFrom httr GET
 #' @importFrom httr add_headers
+#'
+#' @export
 
 ## Create and inject traits table ##
 POST_traits <- function(traits_df){

@@ -17,6 +17,8 @@
 #' @importFrom httr POST
 #' @importFrom httr add_headers
 #' @importFrom jsonlite unbox
+#'
+#' @export
 
 # Table must be inside " "
 POST_line <- function (table_lst_line, table) {
@@ -31,5 +33,10 @@ POST_line <- function (table_lst_line, table) {
   path <- httr::modify_url(server, path = paste0("/api/v0/",table))
 
   # Post a line of data
-  httr::POST(path, body = unbox(table_lst_line), config = add_headers("Content-type" = "application/json"))
+  if ((any(grepl("\\[\\{", table_lst_line))) == TRUE) {
+    httr::POST(path, body = substr(table_lst_line, 2, (nchar(table_lst_line))-1), config = add_headers("Content-type" = "application/json"))
+
+  } else {
+    httr::POST(path, body = table_lst_line, config = add_headers("Content-type" = "application/json"))
+  }
 }

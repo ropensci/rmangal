@@ -14,6 +14,8 @@
 #'
 #' @importFrom jsonlite toJSON
 #' @importFrom data.table split
+#'
+#' @export
 
 json_list <- function(df){
 
@@ -24,11 +26,19 @@ json_list <- function(df){
   df <- as.list(setNames(split(df, seq(nrow(df))), rownames(df)))
 
   # Set each list level into json
-  for (i in 1:length(df)) df[[i]] <- jsonlite::toJSON(df[[i]], auto_unbox = TRUE)
+  for (i in 1:length(df)) df[[i]] <- jsonlite::toJSON(df[[i]], auto_unbox = TRUE, digits = 12)
 
   return(df)
 
-  } else { stop(" 'df' must be a data.frame") }
+  } else {
+
+    ls <- list()
+
+    ls[[1]] <- jsonlite::toJSON(df, auto_unbox = TRUE, digits = 12)
+
+    return(ls)
+
+    }
 
 }
 

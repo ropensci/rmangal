@@ -14,9 +14,11 @@
 #'
 #' @importFrom httr GET
 #' @importFrom httr add_headers
+#'
+#' @export
 
 ## Create and inject taxons table ##
-POST_taxons <- function(){
+POST_taxons <- function(taxons_df = taxons_df){
 
   server <- "http://localhost:3000"
 
@@ -25,20 +27,21 @@ POST_taxons <- function(){
   # Get taxo_id from taxo_back table
   for (i in 1:nrow(taxons_df)) {
 
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/taxo_backs/?name=",
-                                                               taxons_df[i, "name_clear"])), config = config))) == 0){
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/taxo_backs/?name=", taxons_df[i, "name_clear"])), config = config))) == 0){
 
-      print(paste0(taxons_df[i, "original_name"], " is not in taxo_backbone, entry was skip"))
+      print(paste0(taxons_df[i, "original_name"], " is not in taxo_backbone, no taxo_id"))
 
       } else {
 
-        taxons_df[i, "id_sp"] <- GET_fkey("taxo_backs", "name", taxons_df[i, "name_clear"])
+        taxons_df[i, "taxo_id"] <- GET_fkey("taxo_backs", "name", taxons_df[i, "name_clear"])
 
       }
 
     }
 
   taxons_df[, "network_id"] <- GET_fkey("networks", "name", networks[[1]])
+
+  print("key added")
 
   # taxon_df as a json list
   taxons_lst <- json_list(taxons_df)

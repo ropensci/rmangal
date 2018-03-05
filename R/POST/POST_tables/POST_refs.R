@@ -15,6 +15,8 @@
 #' @importFrom httr modify_url
 #' @importFrom httr GET
 #' @importFrom httr add_headers
+#'
+#' @export
 
 ## Create and inject refs table ##
 POST_refs <- function(){

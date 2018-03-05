@@ -15,6 +15,8 @@
 #' @importFrom httr modify_url
 #' @importFrom httr GET
 #' @importFrom httr add_headers
+#'
+#' @export
 
 ### This is a test ###
 ## Create and inject users table ##

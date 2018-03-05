@@ -18,9 +18,11 @@
 #' @importFrom httr modify_url
 #' @importFrom httr GET
 #' @importFrom httr add_headers
+#'
+#' @export
 
 ## Create and inject environments table ##
-POST_environments <- function(){
+POST_environments <- function(enviro = enviro, attr = attr){
 
   # Check if the environments already exist
   server <- "http://localhost:3000"
@@ -45,11 +47,17 @@ POST_environments <- function(){
     enviro <- c(enviro, ref_id = GET_fkey("refs", "doi", refs[[1]]))
     }
 
-    # Environments_df as a json list
-    environments_lst <- toJSON(enviro, auto_unbox = TRUE)
+    # attach location to the environment
+    geoloc <- geojsonio::geojson_list(c(enviro$lat,enviro$lon))$features[[1]]$geometry
+    geoloc$crs <- list(type="name",properties=list(name=paste0("EPSG:",enviro$srid)))
+    enviro$localisation <- geoloc
+
+    # enviro as a json list
+    enviro[c("lat","lon","srid")] <- NULL
+    environments_lst <- json_list(enviro)
 
     # Inject to environment table
-    POST_line(environments_lst, "environments")
+    POST_table(environments_lst, "environments")
 
     print("enviro done")
 

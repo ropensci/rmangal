@@ -17,6 +17,8 @@
 #' @importFrom httr modify_url
 #' @importFrom httr GET
 #' @importFrom httr content
+#'
+#' @export
 
 GET_fkey <- function(table, attribute, value){
 

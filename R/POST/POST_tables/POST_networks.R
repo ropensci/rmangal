@@ -19,8 +19,13 @@
 #' @importFrom httr GET
 #' @importFrom httr add_headers
 #' @importFrom jsonlite toJSON
+#' @importFrom geojsonio geojson_list
+#'
+#' @export
 
 ### BUG : ne saisie pas datasets_id ###
+
+POST_networks(networks_lst)
 
 ## Create and inject networks table ##
 POST_networks <- function(){
@@ -55,11 +60,17 @@ POST_networks <- function(){
       networks <- c(networks, user_id = GET_fkey("users", "name", users[[1]]))
     }
 
+    # attach location to the network
+    geoloc <- geojsonio::geojson_list(c(networks$lat,networks$lon))$features[[1]]$geometry
+    geoloc$crs <- list(type="name",properties=list(name=paste0("EPSG:",networks$srid)))
+    networks$localisation <- geoloc
+
     # networks_df as a json list
-    networks_lst <- toJSON(networks, auto_unbox = TRUE)
+    networks[c("lat","lon","srid")] <- NULL
+    networks_lst <- json_list(networks)
 
     # Inject to networks table
-    POST_line(networks_lst, "networks")
+    POST_table(networks_lst, "networks")
 
     print("network done")
 

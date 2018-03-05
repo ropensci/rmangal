@@ -19,6 +19,8 @@
 #' @importFrom data.table setDT
 #' @importFrom httr add_headers
 #' @importFrom httr GET
+#'
+#' @export
 
 # Create and inject interactions table ##
 POST_interactions <- function(inter_df){
@@ -58,8 +60,15 @@ POST_interactions <- function(inter_df){
 
   print("keys added")
 
-  # Set list of interaction + metadata
+  # attach location to the interaction metadata
+  geoloc <- geojsonio::geojson_list(c(inter$lat,inter$lon))$features[[1]]$geometry
+  geoloc$crs <- list(type="name",properties=list(name=paste0("EPSG:",inter$srid)))
 
+  inter$localisation <- geoloc
+
+  inter[c("lat","lon","srid")] <- NULL
+
+  # Set list of interaction + metadata
   inter_lst <- list()
 
   for (i in 1:nrow(inter_df)) {
@@ -69,7 +78,7 @@ POST_interactions <- function(inter_df){
     inter_lst[[i]] <- c(inter_lst[[i]], inter)
 
     # to JSON
-    inter_lst[[i]] <- toJSON(inter_lst[[i]], auto_unbox = TRUE)
+    inter_lst[[i]] <- toJSON(inter_lst[[i]], auto_unbox = TRUE, digits = 12)
   }
 
   print("metadata added")

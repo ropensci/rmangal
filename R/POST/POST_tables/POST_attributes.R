@@ -17,9 +17,11 @@
 #' @importFrom httr modify_url
 #' @importFrom httr GET
 #' @importFrom httr add_headers
+#'
+#' @export
 
 ## Create and inject attributes table ##
-POST_attributes <- function(attr){
+POST_attributes <- function(data){
 
   # Check if the attribute already exist
   server <- "http://localhost:3000"
@@ -27,7 +29,7 @@ POST_attributes <- function(attr){
   config <- httr::add_headers("Content-type" = "application/json")
 
   path <- httr::modify_url(server, path = paste0("/api/v0/",
-                                               "attributes/?name=",attr[[1]]))
+                                               "attributes/?name=",data[[1]]))
   # Change space in url by "_"
   path <- gsub(" ", "%20", path)
 
@@ -35,15 +37,15 @@ POST_attributes <- function(attr){
   if (length(content(httr::GET(url = path, config = config))) == 0) {
 
     # Attibutes_df as a json list
-    attributes_lst <- json_list(data.frame(attr))
+    attributes_lst <- json_list(as.data.frame(data))
 
     # Inject to attributes table
     POST_table(attributes_lst, "attributes")
 
-    print("attr done")
+    print(paste0(data$name, " attribute done"))
 
   } else {
 
-    print("attr already in mangal")
+    print("attributes already in mangal")
  }
 }

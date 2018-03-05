@@ -15,6 +15,8 @@
 #'
 #' @importFrom httr http_error
 #' @importFrom httr http_status
+#'
+#' @export
 
 POST_table <- function(data_lst, table) {
 
