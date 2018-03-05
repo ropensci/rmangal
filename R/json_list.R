@@ -13,7 +13,6 @@
 #' @keywords manip
 #'
 #' @importFrom jsonlite toJSON
-#' @importFrom data.table split
 #'
 #' @export
 
