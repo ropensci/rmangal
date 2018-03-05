@@ -67,7 +67,7 @@ POST_networks <- function(){
 
     # networks_df as a json list
     networks_lst[c("lat","lon","srid")] <- NULL
-    networks_lst <- json_list(networks)
+    networks_lst <- json_list(networks_lst)
 
     # Inject to networks table
     POST_table(networks_lst, "networks")
