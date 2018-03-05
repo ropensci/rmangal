@@ -25,12 +25,8 @@
 #'
 #' @export
 
-### BUG : ne saisie pas datasets_id ###
-
-POST_networks(networks_lst)
-
 ## Create and inject networks table ##
-POST_networks <- function(){
+POST_networks <- function(networks_lst){
 
   # Check if the networks already exist
   server <- "http://localhost:3000"
