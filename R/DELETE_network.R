@@ -15,9 +15,9 @@
 #'
 #' @keywords database
 #'
-#' @importFrom httr
-#' @importFrom httr
-#' @importFrom httr
+#' @importFrom httr modify_url
+#' @importFrom httr DELETE
+#' @importFrom httr http_status
 
 DELETE_network <- function(id, name){
 
