@@ -14,6 +14,7 @@
 #'
 #' @importFrom httr GET
 #' @importFrom httr add_headers
+#' @importFrom httr content
 #'
 #' @export
 
@@ -27,7 +28,7 @@ POST_taxons <- function(taxons_df = taxons_df){
   # Get taxo_id from taxo_back table
   for (i in 1:nrow(taxons_df)) {
 
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/taxo_backs/?name=", taxons_df[i, "name_clear"])), config = config))) == 0){
+    if (length(httr::content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/taxo_backs/?name=", taxons_df[i, "name_clear"])), config = config))) == 0){
 
       print(paste0(taxons_df[i, "original_name"], " is not in taxo_backbone, no taxo_id"))
 
