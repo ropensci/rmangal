@@ -4,6 +4,8 @@
 #'  metadata associated. 'environments', 'users', 'datasets' and 'refs' tables
 #'  must be POST before.
 #'
+#' @param networks_lst A list with the network metadata
+#'
 #' @return
 #'
 #' The status of the injection:
