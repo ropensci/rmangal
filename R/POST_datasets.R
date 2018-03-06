@@ -41,8 +41,8 @@ POST_datasets <- function(){
       datasets <- c(datasets, user_id = GET_fkey("users","name", users[[1]]))
     }
 
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/refs/?doi=", refs[[1]])), config = config))) != 0){
-    datasets <- c(datasets, ref_id = GET_fkey("refs", "doi", refs[[1]]))
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/refs/?bibtex=", refs[["bibtex"]])), config = config))) != 0){
+    datasets <- c(datasets, ref_id = GET_fkey("refs", "bibtex", refs[["bibtex"]]))
     }
 
     # Datasets_df as a json list

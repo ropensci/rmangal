@@ -43,8 +43,8 @@ POST_environments <- function(enviro = enviro, attr = attr){
       enviro <- c(enviro, attr_id = GET_fkey("attributes", "name", attr[[1]]))
     }
 
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/refs/?doi=", refs[[1]])), config = config))) != 0){
-    enviro <- c(enviro, ref_id = GET_fkey("refs", "doi", refs[[1]]))
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/refs/?bibtex=", refs[["bibtex"]])), config = config))) != 0){
+    enviro <- c(enviro, ref_id = GET_fkey("refs", "bibtex", refs[["bibtex"]]))
     }
 
     # attach location to the environment
