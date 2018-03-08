@@ -42,20 +42,20 @@ POST_networks <- function(networks_lst){
   if (length(content(httr::GET(url = path, config = config))) == 0) {
 
     # Retrive foreign key
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/datasets/?name=", datasets[[1]])), config = config))) != 0){
-      networks_lst <- c(networks_lst, dataset_id = GET_fkey("datasets", "name", datasets[[1]]))
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/datasets/?name=", datasets[["name"]])), config = config))) != 0){
+      networks_lst <- c(networks_lst, dataset_id = GET_fkey("datasets", "name", datasets[["name"]]))
     }
 
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/refs/?bibtex=", refs[["bibtex"]])), config = config))) != 0){
-      networks_lst <- c(networks_lst, ref_id = GET_fkey("refs", "bibtex", refs[["bibtex"]]))
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/refs/?data_url=", refs[["data_url"]])), config = config))) != 0){
+      networks_lst <- c(networks_lst, ref_id = GET_fkey("refs", "data_url", refs[["data_url"]]))
     }
 
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/environments/?name=", enviro[[1]])), config = config))) != 0){
-      networks_lst <- c(networks_lst, environment_id = GET_fkey("environments", "name", enviro[[1]]))
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/environments/?name=", enviro[["name"]])), config = config))) != 0){
+      networks_lst <- c(networks_lst, environment_id = GET_fkey("environments", "name", enviro[["name"]]))
     }
 
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/users/?name=", users[[1]])), config = config))) != 0){
-      networks_lst <- c(networks_lst, user_id = GET_fkey("users", "name", users[[1]]))
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/users/?name=", users[["name"]])), config = config))) != 0){
+      networks_lst <- c(networks_lst, user_id = GET_fkey("users", "name", users[["name"]]))
     }
 
     # attach location to the network

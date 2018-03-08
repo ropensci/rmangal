@@ -31,28 +31,28 @@ POST_interactions <- function(inter_df){
   inter_df[, "taxon_2"] <- NA
 
   for (i in 1:nrow(inter_df)) {
-    try(inter_df[i, "taxon_1"] <- GET_fkey("taxons", "original_name", as.character(inter_df[i,1])))
-    try(inter_df[i, "taxon_2"] <- GET_fkey("taxons", "original_name", as.character(inter_df[i,2])))
+    try(inter_df[i, "taxon_1"] <- GET_fkey("taxons", "original_name", as.character(inter_df[i, "sp_taxon_1"])))
+    try(inter_df[i, "taxon_2"] <- GET_fkey("taxons", "original_name", as.character(inter_df[i, "sp_taxon_2"])))
   }
 
   server <- "http://localhost:3000"
 
   config <- httr::add_headers("Content-type" = "application/json")
 
-  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/attributes/?name=", attr_inter[[1]])), config = config))) != 0){
-    inter_df[, "attr_id"] <- GET_fkey("attributes", "name", attr_inter[[1]])
+  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/attributes/?name=", attr_inter[["name"]])), config = config))) != 0){
+    inter_df[, "attr_id"] <- GET_fkey("attributes", "name", attr_inter[["name"]])
   }
 
-  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/environments/?name=", enviro[[1]])), config = config))) != 0){
-    inter_df[, "environment_id"] <- GET_fkey("environments", "name", enviro[[1]])
+  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/environments/?name=", enviro[["name"]])), config = config))) != 0){
+    inter_df[, "environment_id"] <- GET_fkey("environments", "name", enviro[["name"]])
   }
 
-  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/refs/?bibtex=", refs[["bibtex"]])), config = config))) != 0){
-    inter_df[, "ref_id"]         <- GET_fkey("refs", "bibtex", refs[["bibtex"]])
+  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/refs/?data_url=", refs[["data_url"]])), config = config))) != 0){
+    inter_df[, "ref_id"]         <- GET_fkey("refs", "bibtex", refs[["data_url"]])
   }
 
-  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/users/?name=", users[[1]])), config = config))) != 0){
-    inter_df[, "user_id"]        <- GET_fkey("users", "name", users[[1]])
+  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/users/?name=", users[["name"]])), config = config))) != 0){
+    inter_df[, "user_id"]        <- GET_fkey("users", "name", users[["name"]])
   }
 
   # Remove unused column

@@ -30,7 +30,7 @@ POST_traits <- function(traits_df){
   config <- httr::add_headers("Content-type" = "application/json")
 
   # Retreive fkey for ref_id, taxon_id and attr_id
-  traits_df[, "ref_id"] <- GET_fkey("refs", "bibtex", refs[["bibtex"]])
+  traits_df[, "ref_id"] <- GET_fkey("refs", "data_url", refs[["data_url"]])
 
   traits_df[, "taxon_id"] <- NA
   traits_df[, "attr_id"] <- NA
