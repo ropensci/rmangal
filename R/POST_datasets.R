@@ -41,7 +41,7 @@ POST_datasets <- function(){
       datasets <- c(datasets, user_id = GET_fkey("users","name", users[["name"]]))
     }
 
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/refs/?data_url=", refs[["data_url"]])), config = config))) != 0){
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/refs/?author=", refs[["author"]], "&year=", refs[["year"]])), config = config))) != 0){
     datasets <- c(datasets, ref_id = GET_fkey("refs", c("author", "year"), c(refs[["author"]], refs[["year"]])))
     }
 
