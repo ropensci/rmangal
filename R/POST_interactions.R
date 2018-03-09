@@ -31,8 +31,8 @@ POST_interactions <- function(inter_df){
   inter_df[, "taxon_2"] <- NA
 
   for (i in 1:nrow(inter_df)) {
-    try(inter_df[i, "taxon_1"] <- GET_fkey("taxons", C("original_name", "network_id"), c(as.character(inter_df[i, "sp_taxon_1"]), GET_fkey("networks", "name", networks[["name"]])))
-    try(inter_df[i, "taxon_2"] <- GET_fkey("taxons", c("original_name", "network_id"), c(as.character(inter_df[i, "sp_taxon_2"]), GET_fkey("networks", "name", networks[["name"]])))
+    try(inter_df[i, "taxon_1"] <- GET_fkey("taxons", C("original_name", "network_id"), c(as.character(inter_df[i, "sp_taxon_1"]), GET_fkey("networks", "name", networks[["name"]]))))
+    try(inter_df[i, "taxon_2"] <- GET_fkey("taxons", c("original_name", "network_id"), c(as.character(inter_df[i, "sp_taxon_2"]), GET_fkey("networks", "name", networks[["name"]]))))
   }
 
   server <- "http://localhost:3000"
