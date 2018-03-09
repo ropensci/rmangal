@@ -22,18 +22,30 @@
 
 GET_fkey <- function(table, attribute, value){
 
+  if(length(attribute) != length(value)) stop("attribute and value not of the same length")
+
   # Connect to API
   server <- "http://localhost:3000"
 
   # Set the table and name as path
-  url <- httr::modify_url(server, path = paste0("/api/v0/", table, "?", attribute, "=", value))
+  url <- httr::modify_url(server, path = paste0("/api/v0/", table, "/?"))
+
+  # If lenght of attribute & value > 1, then proceed to complex request
+  if((length(attribute) == 1 & length(value) == 1) == TRUE){
 
   # Change space in url by "_"
-  url <- gsub(" ", "%20", url)
+  url <- gsub(" ", "%20", paste0(url, attribute, "=", value))
+
+  } else {
+
+    url <- gsub(" ", "%20", paste0(url, paste0(attribute, "=", value, collapse = "&")))
+  }
 
   # Retreive data from Mangal
   data <- httr::GET(url)
   data <- httr::content(data)
+
+  if((length(data) > 1) == TRUE) stop(paste0("more than one entry for ",  url))
 
   # Get data into vector
   data <- unlist(data)
