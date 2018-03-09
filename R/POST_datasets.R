@@ -42,7 +42,7 @@ POST_datasets <- function(){
     }
 
     if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/refs/?data_url=", refs[["data_url"]])), config = config))) != 0){
-    datasets <- c(datasets, ref_id = GET_fkey("refs", "data_url", refs[["data_url"]]))
+    datasets <- c(datasets, ref_id = GET_fkey("refs", c("author", "year"), c(refs[["author"]], refs[["year"]])))
     }
 
     # Datasets_df as a json list
