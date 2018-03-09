@@ -34,7 +34,7 @@ POST_networks <- function(networks_lst){
   config <- httr::add_headers("Content-type" = "application/json")
 
   path <- httr::modify_url(server, path = paste0("/api/v0/","networks/?name=",
-                                          networks_lst[[1]]))
+                                          networks_lst[["name"]]))
   # Change space in url by "_"
   path <- gsub(" ", "%20", path)
 
@@ -44,10 +44,6 @@ POST_networks <- function(networks_lst){
     # Retrive foreign key
     if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/datasets/?name=", datasets[["name"]])), config = config))) != 0){
       networks_lst <- c(networks_lst, dataset_id = GET_fkey("datasets", "name", datasets[["name"]]))
-    }
-
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/refs/?data_url=", refs[["data_url"]])), config = config))) != 0){
-      networks_lst <- c(networks_lst, ref_id = GET_fkey("refs", "data_url", refs[["data_url"]]))
     }
 
     if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/environments/?name=", enviro[["name"]])), config = config))) != 0){

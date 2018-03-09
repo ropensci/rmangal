@@ -47,10 +47,6 @@ POST_interactions <- function(inter_df){
     inter_df[, "environment_id"] <- GET_fkey("environments", "name", enviro[["name"]])
   }
 
-  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/refs/?data_url=", refs[["data_url"]])), config = config))) != 0){
-    inter_df[, "ref_id"]         <- GET_fkey("refs", "bibtex", refs[["data_url"]])
-  }
-
   if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/users/?name=", users[["name"]])), config = config))) != 0){
     inter_df[, "user_id"]        <- GET_fkey("users", "name", users[["name"]])
   }

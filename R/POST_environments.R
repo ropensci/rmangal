@@ -43,10 +43,6 @@ POST_environments <- function(enviro = enviro, attr = attr){
       enviro <- c(enviro, attr_id = GET_fkey("attributes", "name", attr[["name"]]))
     }
 
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/refs/?data_url=", refs[["data_url"]])), config = config))) != 0){
-    enviro <- c(enviro, ref_id = GET_fkey("refs", "data_url", refs[["data_url"]]))
-    }
-
     # attach location to the environment
     geoloc <- geojsonio::geojson_list(c(enviro$lat,enviro$lon))$features[[1]]$geometry
     geoloc$crs <- list(type="name",properties=list(name=paste0("EPSG:",enviro$srid)))
