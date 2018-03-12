@@ -40,7 +40,7 @@ POST_taxons <- function(taxons_df = taxons_df){
 
     }
 
-  taxons_df[, "network_id"] <- GET_fkey("networks", "name", networks[[1]])
+  taxons_df[, "network_id"] <- GET_fkey("networks", "name", networks[["name"]])
 
   print("key added")
 
