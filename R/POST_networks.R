@@ -26,7 +26,7 @@
 #' @export
 
 ## Create and inject networks table ##
-POST_networks <- function(networks_lst){
+POST_networks <- function(networks_lst, enviro = enviro){
 
   # Check if the networks already exist
   server <- "http://localhost:3000"
