@@ -29,9 +29,8 @@ POST_environments <- function(enviro = enviro, attr = attr){
 
   config <- httr::add_headers("Content-type" = "application/json")
 
-  path <- httr::modify_url(server, path = paste0("/api/v0/",
-                                               "environments/?name=",
-                                               enviro[[1]]))
+  path <- httr::modify_url(server, path = paste0("/api/v0/environments/?name=", enviro[["name"]], "&date=", enviro[["date"]], "&value=", enviro[["value"]]))
+
   # Change space in url by "_"
   path <- gsub(" ", "%20", path)
 
@@ -39,8 +38,8 @@ POST_environments <- function(enviro = enviro, attr = attr){
   if (length(content(httr::GET(url = path, config = config))) == 0) {
 
     # Retrive foreign key
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/attributes/?name=", attr[["name"]])), config = config))) != 0){
-      enviro <- c(enviro, attr_id = GET_fkey("attributes", "name", attr[["name"]]))
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/attributes/?name=", attr[["name"]], "&unit=", attr[["unit"]])), config = config))) != 0){
+      enviro <- c(enviro, attr_id = GET_fkey("attributes", c("name", "unit"), c(attr[["name"]], attr[["unit"]])))
     }
 
     # attach location to the environment

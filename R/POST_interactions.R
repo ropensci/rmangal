@@ -23,7 +23,7 @@
 #' @export
 
 # Create and inject interactions table ##
-POST_interactions <- function(inter_df = data, enviro = enviro){
+POST_interactions <- function(inter_df = data, enviro = enviro, attr = attr_inter){
 
   # Retrive foreign keys
   ## taxon_1 & taxon_2
@@ -39,12 +39,12 @@ POST_interactions <- function(inter_df = data, enviro = enviro){
 
   config <- httr::add_headers("Content-type" = "application/json")
 
-  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/attributes/?name=", attr_inter[["name"]])), config = config))) != 0){
-    inter_df[, "attr_id"] <- GET_fkey("attributes", "name", attr_inter[["name"]])
+  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/attributes/?name=", attr[["name"]], "&unit=", attr[["unit"]])), config = config))) != 0){
+    inter_df[, "attr_id"] <- GET_fkey("attributes", c("name", "unit"), c(attr[["name"]], attr[["unit"]]))
   }
 
-  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/environments/?name=", enviro[["name"]])), config = config))) != 0){
-    inter_df[, "environment_id"] <- GET_fkey("environments", "name", enviro[["name"]])
+  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/environments/?name=", enviro[["name"]], "&date=", enviro[["date"]], "&value=", enviro[[value]])), config = config))) != 0){
+    inter_df[, "environment_id"] <- GET_fkey("environments", c("name", "date", "value"), c(enviro[["name"]], envrio[["date"]], enviro[["value"]]))
   }
 
   if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/users/?name=", users[["name"]])), config = config))) != 0){

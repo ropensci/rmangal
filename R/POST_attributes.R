@@ -28,9 +28,9 @@ POST_attributes <- function(data){
 
   config <- httr::add_headers("Content-type" = "application/json")
 
-  path <- httr::modify_url(server, path = paste0("/api/v0/",
-                                               "attributes/?name=",data[[1]]))
-  # Change space in url by "_"
+  path <- httr::modify_url(server, path = paste0("/api/v0/attributes/?name=",data[["name"]], "&unit=", data[["unit"]]))
+
+   # Change space in url by "_"
   path <- gsub(" ", "%20", path)
 
   # Is retreived content == 0 -> in this case inject data

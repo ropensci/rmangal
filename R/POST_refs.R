@@ -26,7 +26,7 @@ POST_refs <- function(){
 
   config <- add_headers("Content-type" = "application/json")
 
-  path <- modify_url(server, path = paste0("/api/v0/","refs/?doi=",refs[[1]]))
+  path <- modify_url(server, path = paste0("/api/v0/refs/?author=",refs[["author"]], "&years=", refs[["years"]]))
 
   # Change space in url by "_"
   path <- gsub(" ", "%20", path)
