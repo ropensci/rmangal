@@ -25,10 +25,10 @@ GET_fkey <- function(table, attribute, value){
   if(length(attribute) != length(value)) stop("attribute and value not of the same length")
 
   # Connect to API
-  server <- "http://localhost:3000"
+  server <- mangal.env$prod$server
 
   # Set the table and name as path
-  url <- httr::modify_url(server, path = paste0("/api/v0/", table, "/?"))
+  url <- httr::modify_url(server, path = paste0(mangal.env$base, "/", table, "/?"))
 
   # If lenght of attribute & value > 1, then proceed to complex request
   if((length(attribute) == 1 & length(value) == 1) == TRUE){

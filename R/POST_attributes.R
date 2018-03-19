@@ -24,11 +24,11 @@
 POST_attributes <- function(data){
 
   # Check if the attribute already exist
-  server <- "http://localhost:3000"
+  server <- mangal.env$prod$server
 
   config <- httr::add_headers("Content-type" = "application/json")
 
-  path <- httr::modify_url(server, path = paste0("/api/v0/attributes/?name=",data[["name"]], "&unit=", data[["unit"]]))
+  path <- httr::modify_url(server, path = paste0(mangal.env$base, "/attributes/?name=",data[["name"]], "&unit=", data[["unit"]]))
 
    # Change space in url by "_"
   path <- gsub(" ", "%20", path)

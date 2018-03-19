@@ -29,11 +29,11 @@
 POST_networks <- function(networks_lst, enviro = enviro){
 
   # Check if the networks already exist
-  server <- "http://localhost:3000"
+  server <- mangal.env$prod$server
 
   config <- httr::add_headers("Content-type" = "application/json")
 
-  path <- httr::modify_url(server, path = paste0("/api/v0/networks/?name=",
+  path <- httr::modify_url(server, path = paste0(mangal.env$base, "/networks/?name=",
                                           networks_lst[["name"]]))
   # Change space in url by "_"
   path <- gsub(" ", "%20", path)
@@ -42,15 +42,15 @@ POST_networks <- function(networks_lst, enviro = enviro){
   if (length(content(httr::GET(url = path, config = config))) == 0) {
 
     # Retrive foreign key
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/datasets/?name=", datasets[["name"]])), config = config))) != 0){
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/datasets/?name=", datasets[["name"]])), config = config))) != 0){
       networks_lst <- c(networks_lst, dataset_id = GET_fkey("datasets", "name", datasets[["name"]]))
     }
 
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/environments/?name=", enviro[["name"]], "&date=", enviro[["date"]], "&value=", enviro[["value"]])), config = config))) != 0){
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/environments/?name=", enviro[["name"]], "&date=", enviro[["date"]], "&value=", enviro[["value"]])), config = config))) != 0){
       networks_lst <- c(networks_lst, environment_id = GET_fkey("environments", c("name", "date", "value"), c(enviro[["name"]], enviro[["date"]], enviro[["value"]])))
     }
 
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/users/?name=", users[["name"]])), config = config))) != 0){
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/users/?name=", users[["name"]])), config = config))) != 0){
       networks_lst <- c(networks_lst, user_id = GET_fkey("users", "name", users[["name"]]))
     }
 

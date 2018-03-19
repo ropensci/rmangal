@@ -25,7 +25,7 @@
 ## Create and inject traits table ##
 POST_traits <- function(traits_df){
 
-  server <- "http://localhost:3000"
+  server <- mangal.env$prod$server
 
   config <- httr::add_headers("Content-type" = "application/json")
 
@@ -35,7 +35,7 @@ POST_traits <- function(traits_df){
 
   for (i in 1:nrow(traits_df)) {
 
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/taxons/?original_name=",
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/taxons/?original_name=",
                                                              traits_df[i, "taxon"])), config = config))) == 0){
 
       print(paste0(traits_df[i, "taxon"], " is not in taxons table, entry was skip"))
@@ -49,7 +49,7 @@ POST_traits <- function(traits_df){
 
   for (i in 1:nrow(traits_df)) {
 
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/attributes/?name=",
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/attributes/?name=",
                                                               traits_df[i, "name"])), config = config))) == 0){
 
       print(paste0(traits_df[i, "name"], " is not in attributes table, entry was skip"))
@@ -78,4 +78,3 @@ POST_traits <- function(traits_df){
   print("trait done")
 
 }
-

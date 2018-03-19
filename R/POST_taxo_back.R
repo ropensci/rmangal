@@ -24,13 +24,13 @@ POST_taxo_back <- function(){
   taxo_back_lst <- json_list(taxo_back_df)
 
   # Is retreived content == 0 -> in this case inject taxo_back
-  server <- "http://localhost:3000"
+  server <- mangal.env$prod$server
 
   config <- httr::add_headers("Content-type" = "application/json")
 
   for(i in 1:length(taxo_back_lst)){
 
-    path <- httr::modify_url(server, path = gsub(" ", "%20", paste0("/api/v0/","taxo_backs/?name=",
+    path <- httr::modify_url(server, path = gsub(" ", "%20", paste0(mangal.env$base, "/taxo_backs/?name=",
                                                                     taxo_back_df[i, "name"])))
 
     # Is retreived content == 0 -> in this case inject data

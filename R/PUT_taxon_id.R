@@ -17,7 +17,7 @@
 ## Update taxon_id
 PUT_taxon_id <- function(){
 
-  server <- "http://localhost:3000"
+  server <- mangal.env$prod$server
 
   config <- httr::add_headers("Content-type" = "application/json")
 
@@ -35,7 +35,7 @@ PUT_taxon_id <- function(){
 
   for (i in 1:L) {
 
-    path <- httr::modify_url(server, path = paste0("/api/v0/taxon/", i ))
+    path <- httr::modify_url(server, path = paste0(mangal.env$base, "/taxon/", i ))
 
     taxon <- as.vector(content(GET(path))[[2]])
 

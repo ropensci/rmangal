@@ -21,14 +21,14 @@
 ## Create and inject taxons table ##
 POST_taxons <- function(taxons_df = taxons_df){
 
-  server <- "http://localhost:3000"
+  server <- mangal.env$prod$server
 
   config <- httr::add_headers("Content-type" = "application/json")
 
   # Get taxo_id from taxo_back table
   for (i in 1:nrow(taxons_df)) {
 
-    if (length(httr::content(httr::GET(url = gsub(" ", "%20", paste0(server, "/api/v0/taxo_backs/?name=", taxons_df[i, "name_clear"])), config = config))) == 0){
+    if (length(httr::content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/taxo_backs/?name=", taxons_df[i, "name_clear"])), config = config))) == 0){
 
       print(paste0(taxons_df[i, "original_name"], " is not in taxo_backbone, no taxo_id"))
 

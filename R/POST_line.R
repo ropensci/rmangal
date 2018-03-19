@@ -27,10 +27,10 @@ POST_line <- function (table_lst_line, table) {
   if(class(table_lst_line) != "json") stop(" 'table_lst_line' must be a json")
 
   # Connect to API
-  server <- "http://localhost:3000"
+  server <- mangal.env$prod$server
 
   # Set the "table" as path
-  path <- httr::modify_url(server, path = paste0("/api/v0/",table))
+  path <- httr::modify_url(server, path = paste0(mangal.env$base, "/",table))
 
   # Post a line of data
   if ((any(grepl("\\[\\{", table_lst_line))) == TRUE) {
