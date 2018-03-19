@@ -39,7 +39,9 @@ PUT_taxon_id <- function(){
 
     taxon <- as.vector(content(GET(path))[[2]])
 
-    if(str_detect(taxon, "[123456789._]") == TRUE) taxon <- stringr::word(taxon, start = 1)
+    if((str_detect(taxon, "[123456789.]") == TRUE & str_detect(taxon, "sp") == TRUE) || str_detect(taxon, "n.i.") == TRUE){
+      taxon <- stringr::word(taxon, start = 1)
+    }
 
     id <- jsonlite::toJSON(data.frame(taxo_id = GET_fkey("taxo_backs", "name", taxon)))
 
