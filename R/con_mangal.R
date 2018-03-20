@@ -6,7 +6,7 @@ mangal.env$prod <- list()
 
 # Config
 mangal.env$base <- "/api/v0"
-mangal.env$bearer <- "" # oauth
+mangal.env$bearer <- readRDS(".httr-oauth") # oauth
 
 # Production environment
 mangal.env$prod$server <- "http://localhost:3000"
