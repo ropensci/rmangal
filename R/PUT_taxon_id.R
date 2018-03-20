@@ -39,7 +39,11 @@ PUT_taxon_id <- function(){
 
     taxon <- as.vector(content(GET(path))[[2]])
 
-    if((str_detect(taxon, "[123456789.]") == TRUE & str_detect(taxon, "sp") == TRUE) || str_detect(taxon, "n.i.") == TRUE){
+    if(((str_detect(taxon, "[:digit:]") == TRUE || str_detect(taxon, "[:punct:]") == TRUE) &
+         str_detect(taxon, "sp") == TRUE) ||
+         str_detect(taxon, "n\\.i\\.") == TRUE ||
+         str_detect(taxon, "sp$") == TRUE){
+
       taxon <- stringr::word(taxon, start = 1)
     }
 
