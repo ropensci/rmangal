@@ -25,7 +25,7 @@ PUT_taxon_id <- function(){
                                 host = "poisotlab.biol.umontreal.ca",
                                 port = 5432,
                                 dbname = "mangal_dev",
-                                password = "3chO^",
+                                password = "3cho^",
                                 user = "mangal")
 
   L <- "SELECT count(*)
