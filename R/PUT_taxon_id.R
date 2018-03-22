@@ -22,11 +22,11 @@ PUT_taxon_id <- function(){
   config <- httr::add_headers("Content-type" = "application/json")
 
   con <- RPostgreSQL::dbConnect(PostgreSQL(),
-                                host = "localhost",
+                                host = "poisotlab.biol.umontreal.ca",
                                 port = 5432,
                                 dbname = "mangal_dev",
-                                password = "postgres",
-                                user = "postgres")
+                                password = "3chO^",
+                                user = "mangal")
 
   L <- "SELECT count(*)
           FROM taxons;"
