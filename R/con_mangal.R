@@ -9,4 +9,4 @@ mangal.env$base <- "/api/v0"
 mangal.env$bearer <- readRDS(".httr-oauth") # oauth
 
 # Production environment
-mangal.env$prod$server <- "http://localhost:3000"
+mangal.env$prod$server <- "http://http://poisotlab.biol.umontreal.ca"
