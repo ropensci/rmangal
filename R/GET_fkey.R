@@ -42,9 +42,10 @@ GET_fkey <- function(table, attribute, value){
   }
 
   # Retreive data from Mangal
-  data <- httr::GET(url)
+  data <- httr::GET(url, config = mangal.env$headers)
+  if(http_error(data) == TRUE) stop(paste("Bad request for", url))
+  
   data <- httr::content(data)
-
   if((length(data) > 1) == TRUE) stop(paste0("more than one entry for ",  url))
 
   # Get data into vector

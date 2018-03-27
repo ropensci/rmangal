@@ -48,7 +48,7 @@ POST_traits <- function(traits_df){
   for (i in 1:nrow(traits_df)) {
 
     if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/attributes/?name=",
-                                                              traits_df[i, "name"])), config = config))) == 0){
+                                                              traits_df[i, "name"])), config = mangal.env$headers))) == 0){
 
       print(paste0(traits_df[i, "name"], " is not in attributes table, entry was skip"))
 

@@ -35,11 +35,11 @@ POST_datasets <- function(){
   if (length(content(httr::GET(url = path, config = mangal.env$headers))) == 0) {
 
     # Retrive foreign key
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/users/?name=", users[["name"]])), config = config))) != 0){
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/users/?name=", users[["name"]])), config = mangal.env$headers))) != 0){
       datasets <- c(datasets, user_id = GET_fkey("users","name", users[["name"]]))
     }
 
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/refs/?author=", refs[["author"]], "&year=", refs[["year"]])), config = config))) != 0){
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/refs/?author=", refs[["author"]], "&year=", refs[["year"]])), config = mangal.env$headers))) != 0){
     datasets <- c(datasets, ref_id = GET_fkey("refs", c("author", "year"), c(refs[["author"]], refs[["year"]])))
     }
 
