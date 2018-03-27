@@ -34,7 +34,7 @@ POST_line <- function (table_lst_line, table) {
 
   # Post a line of data
   if ((any(grepl("\\[\\{", table_lst_line))) == TRUE) {
-    httr::POST(path, body = substr(table_lst_line, 2, (nchar(table_lst_line))-1), config = add_headers("Content-type" = "application/json"))
+    httr::POST(path, body = substr(table_lst_line, 2, (nchar(table_lst_line))-1), config = mangal.env$headers))
 
   } else {
     httr::POST(path, body = table_lst_line, config = add_headers("Content-type" = "application/json"))

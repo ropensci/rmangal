@@ -17,10 +17,6 @@
 ## Update taxon_id
 PUT_taxon_id <- function(){
 
-  server <- mangal.env$prod$server
-
-  config <- httr::add_headers("Content-type" = "application/json")
-
   con <- RPostgreSQL::dbConnect(PostgreSQL(),
                                 host = "poisotlab.biol.umontreal.ca",
                                 port = 5432,
@@ -35,7 +31,7 @@ PUT_taxon_id <- function(){
 
   for (i in 1:L) {
 
-    path <- httr::modify_url(server, path = paste0(mangal.env$base, "/taxon/", i ))
+    path <- httr::modify_url(mangal.env$prod$server, path = paste0(mangal.env$base, "/taxon/", i ))
 
     taxon <- as.vector(content(GET(path))[[2]])
 
@@ -49,6 +45,6 @@ PUT_taxon_id <- function(){
 
     id <- jsonlite::toJSON(data.frame(taxo_id = GET_fkey("taxo_backs", "name", taxon)))
 
-    if(id != 0) PUT(url = path, body = substr(id, 2, (nchar(id))-1), config = config)
+    if(id != 0) PUT(url = path, body = substr(id, 2, (nchar(id))-1), config = mangal.env$headers)
   }
 }

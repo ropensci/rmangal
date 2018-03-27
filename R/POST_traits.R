@@ -27,8 +27,6 @@ POST_traits <- function(traits_df){
 
   server <- mangal.env$prod$server
 
-  config <- httr::add_headers("Content-type" = "application/json")
-
   # Retreive fkey for taxon_id and attr_id
   traits_df[, "taxon_id"] <- NA
   traits_df[, "attr_id"] <- NA
@@ -36,7 +34,7 @@ POST_traits <- function(traits_df){
   for (i in 1:nrow(traits_df)) {
 
     if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/taxons/?original_name=",
-                                                             traits_df[i, "taxon"])), config = config))) == 0){
+                                                             traits_df[i, "taxon"])), config = mangal.env$headers))) == 0){
 
       print(paste0(traits_df[i, "taxon"], " is not in taxons table, entry was skip"))
 

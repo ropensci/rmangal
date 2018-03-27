@@ -27,15 +27,13 @@ POST_environments <- function(enviro = enviro, attr = attr){
   # Check if the environments already exist
   server <- mangal.env$prod$server
 
-  config <- httr::add_headers("Content-type" = "application/json")
-
   path <- httr::modify_url(server, path = paste0(mangal.env$base, "/environments/?name=", enviro[["name"]], "&date=", enviro[["date"]], "&value=", enviro[["value"]]))
 
   # Change space in url by "_"
   path <- gsub(" ", "%20", path)
 
   # Is retreived content == 0 -> in this case inject data
-  if (length(content(httr::GET(url = path, config = config))) == 0) {
+  if (length(content(httr::GET(url = path, config = mangal.env$headers))) == 0) {
 
     # Retrive foreign key
     if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/attributes/?name=", attr[["name"]], "&unit=", attr[["unit"]])), config = config))) != 0){

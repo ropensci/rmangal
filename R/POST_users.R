@@ -25,15 +25,13 @@ POST_users <- function(){
   # Check if the users already exist
   server <- mangal.env$prod$server
 
-  config <- add_headers("Content-type" = "application/json")
-
   path <- httr::modify_url(server, path = paste0(mangal.env$base,"/users/?name=",users[[1]]))
 
   # Change space in url by "_"
   path <- gsub(" ", "%20", path)
 
   # Is retreived content == 0 -> in this case inject data
-  if (length(content(httr::GET(url = path, config = config))) == 0) {
+  if (length(content(httr::GET(url = path, config = mangal.env$headers))) == 0) {
 
     # users_df as a json list
     users_lst <- json_list(data.frame(users))

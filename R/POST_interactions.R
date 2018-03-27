@@ -37,17 +37,15 @@ POST_interactions <- function(inter_df = data, enviro = enviro, attr = attr_inte
 
   server <- mangal.env$prod$server
 
-  config <- httr::add_headers("Content-type" = "application/json")
-
-  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/attributes/?name=", attr[["name"]], "&unit=", attr[["unit"]])), config = config))) != 0){
+  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/attributes/?name=", attr[["name"]], "&unit=", attr[["unit"]])), config = mangal.env$headers))) != 0){
     inter_df[, "attr_id"] <- GET_fkey("attributes", c("name", "unit"), c(attr[["name"]], attr[["unit"]]))
   }
 
-  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/environments/?name=", enviro[["name"]], "&date=", enviro[["date"]], "&value=", enviro[["value"]])), config = config))) != 0){
+  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/environments/?name=", enviro[["name"]], "&date=", enviro[["date"]], "&value=", enviro[["value"]])), config = mangal.env$headers))) != 0){
     inter_df[, "environment_id"] <- GET_fkey("environments", c("name", "date", "value"), c(enviro[["name"]], enviro[["date"]], enviro[["value"]]))
   }
 
-  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/users/?name=", users[["name"]])), config = config))) != 0){
+  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/users/?name=", users[["name"]])), config = mangal.env$headers))) != 0){
     inter_df[, "user_id"]        <- GET_fkey("users", "name", users[["name"]])
   }
 

@@ -26,15 +26,13 @@ POST_attributes <- function(data){
   # Check if the attribute already exist
   server <- mangal.env$prod$server
 
-  config <- httr::add_headers("Content-type" = "application/json")
-
   path <- httr::modify_url(server, path = paste0(mangal.env$base, "/attributes/?name=",data[["name"]], "&unit=", data[["unit"]]))
 
    # Change space in url by "_"
   path <- gsub(" ", "%20", path)
 
   # Is retreived content == 0 -> in this case inject data
-  if (length(content(httr::GET(url = path, config = config))) == 0) {
+  if (length(content(httr::GET(url = path, config = mangal.env$headers))) == 0) {
 
     # Attibutes_df as a json list
     attributes_lst <- json_list(as.data.frame(data))

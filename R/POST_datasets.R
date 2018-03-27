@@ -26,15 +26,13 @@ POST_datasets <- function(){
   # Check if the datasets already exist
   server <- mangal.env$prod$server
 
-  config <- httr::add_headers("Content-type" = "application/json")
-
   path <- httr::modify_url(server, path = paste0(mangal.env$base, "/datasets/?name=",
                                          datasets[[1]]))
   # Change space in url by "_"
   path <- gsub(" ", "%20", path)
 
   # Is retreived content == 0 -> in this case inject data
-  if (length(content(httr::GET(url = path, config = config))) == 0) {
+  if (length(content(httr::GET(url = path, config = mangal.env$headers))) == 0) {
 
     # Retrive foreign key
     if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/users/?name=", users[["name"]])), config = config))) != 0){
