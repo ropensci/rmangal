@@ -14,6 +14,7 @@
 #' @importFrom httr modify_url
 #' @importFrom httr GET
 #' @importFrom httr add_headers
+#' @importFrom httr content
 #'
 #' @export
 
