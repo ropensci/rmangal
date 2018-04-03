@@ -11,7 +11,7 @@ mangal.env <- new.env(parent = emptyenv())
 mangal.env$prod <- list()
 
 # Config
-mangal.env$base <- "/api/v0"
+mangal.env$base <- "/api/v2"
 mangal.env$headers <- httr::add_headers("Content-type" = "application/json",
                                         "Authorization" = paste("bearer", readRDS(".httr-oauth")))
 
