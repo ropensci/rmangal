@@ -36,7 +36,7 @@ POST_environments <- function(enviro = enviro, attr = attr){
   if (length(content(httr::GET(url = path, config = mangal.env$headers))) == 0) {
 
     # Retrive foreign key
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/attributes/?name=", attr[["name"]], "&unit=", attr[["unit"]])), config = config))) != 0){
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/attributes/?name=", attr[["name"]], "&unit=", attr[["unit"]])), config = mangal.env$headers))) != 0){
       enviro <- c(enviro, attr_id = GET_fkey("attributes", c("name", "unit"), c(attr[["name"]], attr[["unit"]])))
     }
 
