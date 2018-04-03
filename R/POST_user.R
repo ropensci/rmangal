@@ -20,7 +20,7 @@
 
 ### This is a test ###
 ## Create and inject users table ##
-POST_users <- function(){
+POST_user <- function(){
 
   # Check if the users already exist
   server <- mangal.env$prod$server
