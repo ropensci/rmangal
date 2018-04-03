@@ -23,55 +23,55 @@
 #' @export
 
 ## Create and inject traits table ##
-POST_traits <- function(traits_df){
+POST_trait <- function(trait_df){
 
   server <- mangal.env$prod$server
 
   # Retreive fkey for taxon_id and attr_id
-  traits_df[, "taxon_id"] <- NA
-  traits_df[, "attr_id"] <- NA
+  trait_df[, "taxon_id"] <- NA
+  trait_df[, "attr_id"]  <- NA
 
-  for (i in 1:nrow(traits_df)) {
+  for (i in 1:nrow(trait_df)) {
 
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/taxons/?original_name=",
-                                                             traits_df[i, "taxon"])), config = mangal.env$headers))) == 0){
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/taxa/?original_name=",
+                                                             trait_df[i, "taxa"])), config = mangal.env$headers))) == 0){
 
-      print(paste0(traits_df[i, "taxon"], " is not in taxons table, entry was skip"))
+      print(paste0(trait_df[i, "taxon"], " is not in taxa table, entry was skip"))
 
       } else {
 
-      traits_df[i, "taxon_id"] <- GET_fkey("taxons", "original_name", as.character(traits_df[i, "taxon"]))
+      trait_df[i, "taxon_id"] <- GET_fkey("taxa", "original_name", as.character(trait_df[i, "taxa"]))
 
       }
   }
 
-  for (i in 1:nrow(traits_df)) {
+  for (i in 1:nrow(trait_df)) {
 
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/attributes/?name=",
-                                                              traits_df[i, "name"])), config = mangal.env$headers))) == 0){
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/attribute/?name=",
+                                                              trait_df[i, "name"])), config = mangal.env$headers))) == 0){
 
-      print(paste0(traits_df[i, "name"], " is not in attributes table, entry was skip"))
+      print(paste0(trait_df[i, "name"], " is not in attributes table, entry was skip"))
 
       } else {
 
-      traits_df[i, "attr_id"] <- GET_fkey("attributes", "name", as.character(traits_df[i, "name"]))
+      trait_df[i, "attr_id"] <- GET_fkey("attribute", "name", as.character(trait_df[i, "name"]))
 
     }
 
   }
 
   # Remove taxon column
-  traits_df <- traits_df[, -1]
+  trait_df <- trait_df[, -1]
 
   # Add metadata
-  traits_df <- cbind(data.table::setDT(traits_df),
-                    data.table::setDT(as.data.frame(traits)))
+  trait_df <- cbind(data.table::setDT(trait_df),
+                    data.table::setDT(as.data.frame(trait)))
 
   # traits_df as a json list
-  traits_lst <- json_list(data.frame(traits_df))
+  trait_lst <- json_list(data.frame(trait_df))
 
   # Inject to traits table
-  POST_table(traits_lst, "traits")
+  POST_table(trait_lst, "trait")
 
   print("trait done")
 

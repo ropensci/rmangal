@@ -19,34 +19,34 @@
 #' @export
 
 ## Create and inject taxons table ##
-POST_taxons <- function(taxons_df = taxons_df){
+POST_taxon <- function(taxon_df = taxon_df){
 
   server <- mangal.env$prod$server
 
   # Get taxo_id from taxo_back table
-  for (i in 1:nrow(taxons_df)) {
+  for (i in 1:nrow(taxon_df)) {
 
-    if (length(httr::content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/taxo_backs/?name=", taxons_df[i, "name_clear"])), config = mangal.env$headers))) == 0){
+    if (length(httr::content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/taxa_back/?name=", taxon_df[i, "name_clear"])), config = mangal.env$headers))) == 0){
 
-      print(paste0(taxons_df[i, "original_name"], " is not in taxo_backbone, no taxo_id"))
+      print(paste0(taxon_df[i, "original_name"], " is not in taxa_backbone, no taxo_id"))
 
       } else {
 
-        taxons_df[i, "taxo_id"] <- GET_fkey("taxo_backs", "name", taxons_df[i, "name_clear"])
+        taxon_df[i, "taxo_id"] <- GET_fkey("taxa_back", "name", taxon_df[i, "name_clear"])
 
       }
 
     }
 
-  taxons_df[, "network_id"] <- GET_fkey("networks", "name", networks[["name"]])
+  taxon_df[, "network_id"] <- GET_fkey("network", "name", network[["name"]])
 
   print("key added")
 
   # taxon_df as a json list
-  taxons_lst <- json_list(taxons_df)
+  taxon_lst <- json_list(taxon_df)
 
   # Inject to networks table
-  POST_table(taxons_lst, "taxons")
+  POST_table(taxon_lst, "taxon")
 
-  print("taxons done")
+  print("taxon done")
 }

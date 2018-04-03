@@ -23,7 +23,7 @@
 #' @export
 
 # Create and inject interactions table ##
-POST_interactions <- function(inter_df = data, enviro = enviro, attr = attr_inter){
+POST_interaction <- function(inter_df = data, enviro = enviro, attr = attr_inter){
 
   # Retrive foreign keys
   ## taxon_1 & taxon_2
@@ -31,22 +31,22 @@ POST_interactions <- function(inter_df = data, enviro = enviro, attr = attr_inte
   inter_df[, "taxon_2"] <- NA
 
   for (i in 1:nrow(inter_df)) {
-    try(inter_df[i, "taxon_1"] <- GET_fkey("taxons", c("original_name", "network_id"), c(as.character(inter_df[i, "sp_taxon_1"]), GET_fkey("networks", "name", networks[["name"]]))))
-    try(inter_df[i, "taxon_2"] <- GET_fkey("taxons", c("original_name", "network_id"), c(as.character(inter_df[i, "sp_taxon_2"]), GET_fkey("networks", "name", networks[["name"]]))))
+    try(inter_df[i, "taxon_1"] <- GET_fkey("taxa", c("original_name", "network_id"), c(as.character(inter_df[i, "sp_taxon_1"]), GET_fkey("network", "name", network[["name"]]))))
+    try(inter_df[i, "taxon_2"] <- GET_fkey("taxa", c("original_name", "network_id"), c(as.character(inter_df[i, "sp_taxon_2"]), GET_fkey("network", "name", network[["name"]]))))
   }
 
   server <- mangal.env$prod$server
 
-  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/attributes/?name=", attr[["name"]], "&unit=", attr[["unit"]])), config = mangal.env$headers))) != 0){
-    inter_df[, "attr_id"] <- GET_fkey("attributes", c("name", "unit"), c(attr[["name"]], attr[["unit"]]))
+  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/attribute/?name=", attr[["name"]], "&unit=", attr[["unit"]])), config = mangal.env$headers))) != 0){
+    inter_df[, "attr_id"] <- GET_fkey("attribute", c("name", "unit"), c(attr[["name"]], attr[["unit"]]))
   }
 
-  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/environments/?name=", enviro[["name"]], "&date=", enviro[["date"]], "&value=", enviro[["value"]])), config = mangal.env$headers))) != 0){
-    inter_df[, "environment_id"] <- GET_fkey("environments", c("name", "date", "value"), c(enviro[["name"]], enviro[["date"]], enviro[["value"]]))
+  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/environment/?name=", enviro[["name"]], "&date=", enviro[["date"]], "&value=", enviro[["value"]])), config = mangal.env$headers))) != 0){
+    inter_df[, "environment_id"] <- GET_fkey("environment", c("name", "date", "value"), c(enviro[["name"]], enviro[["date"]], enviro[["value"]]))
   }
 
-  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/users/?name=", users[["name"]])), config = mangal.env$headers))) != 0){
-    inter_df[, "user_id"]        <- GET_fkey("users", "name", users[["name"]])
+  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/user/?name=", user[["name"]])), config = mangal.env$headers))) != 0){
+    inter_df[, "user_id"] <- GET_fkey("user", "name", user[["name"]])
   }
 
   # Remove unused column
@@ -78,9 +78,9 @@ POST_interactions <- function(inter_df = data, enviro = enviro, attr = attr_inte
   print("metadata added")
 
   # Inject to interactions table
-  POST_table(inter_lst, "interactions")
+  POST_table(inter_lst, "interaction")
 
   rm(inter_lst)
 
-  print("interactions done")
+  print("interaction done")
 }

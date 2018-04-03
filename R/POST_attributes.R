@@ -21,12 +21,12 @@
 #' @export
 
 ## Create and inject attributes table ##
-POST_attributes <- function(data){
+POST_attribute <- function(data){
 
   # Check if the attribute already exist
   server <- mangal.env$prod$server
 
-  path <- httr::modify_url(server, path = paste0(mangal.env$base, "/attributes/?name=",data[["name"]], "&unit=", data[["unit"]]))
+  path <- httr::modify_url(server, path = paste0(mangal.env$base, "/attribute/?name=",data[["name"]], "&unit=", data[["unit"]]))
 
    # Change space in url by "_"
   path <- gsub(" ", "%20", path)
@@ -35,15 +35,15 @@ POST_attributes <- function(data){
   if (length(content(httr::GET(url = path, config = mangal.env$headers))) == 0) {
 
     # Attibutes_df as a json list
-    attributes_lst <- json_list(as.data.frame(data))
+    attribute_lst <- json_list(as.data.frame(data))
 
     # Inject to attributes table
-    POST_table(attributes_lst, "attributes")
+    POST_table(attribute_lst, "attributes")
 
     print(paste0(data$name, " attribute done"))
 
   } else {
 
-    print("attributes already in mangal")
+    print("attribute already in mangal")
  }
 }

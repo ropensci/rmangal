@@ -21,13 +21,13 @@
 #' @export
 
 ## Create and inject datasets table ##
-POST_datasets <- function(){
+POST_dataset <- function(){
 
   # Check if the datasets already exist
   server <- mangal.env$prod$server
 
-  path <- httr::modify_url(server, path = paste0(mangal.env$base, "/datasets/?name=",
-                                         datasets[[1]]))
+  path <- httr::modify_url(server, path = paste0(mangal.env$base, "/dataset/?name=",
+                                         dataset[[1]]))
   # Change space in url by "_"
   path <- gsub(" ", "%20", path)
 
@@ -35,21 +35,21 @@ POST_datasets <- function(){
   if (length(content(httr::GET(url = path, config = mangal.env$headers))) == 0) {
 
     # Retrive foreign key
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/users/?name=", users[["name"]])), config = mangal.env$headers))) != 0){
-      datasets <- c(datasets, user_id = GET_fkey("users","name", users[["name"]]))
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/user/?name=", user[["name"]])), config = mangal.env$headers))) != 0){
+      dataset <- c(dataset, user_id = GET_fkey("user","name", user[["name"]]))
     }
 
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/refs/?author=", refs[["author"]], "&year=", refs[["year"]])), config = mangal.env$headers))) != 0){
-    datasets <- c(datasets, ref_id = GET_fkey("refs", c("author", "year"), c(refs[["author"]], refs[["year"]])))
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/ref/?author=", ref[["author"]], "&year=", ref[["year"]])), config = mangal.env$headers))) != 0){
+    dataset <- c(dataset, ref_id = GET_fkey("ref", c("author", "year"), c(ref[["author"]], ref[["year"]])))
     }
 
     # Datasets_df as a json list
-    datasets_lst <- json_list(data.frame(datasets))
+    dataset_lst <- json_list(data.frame(dataset))
 
     # Inject  to datasets table
-    POST_table(datasets_lst, "datasets")
+    POST_table(dataset_lst, "dataset")
 
-    print("datasets done")
+    print("dataset done")
 
   } else {
 
