@@ -23,7 +23,7 @@
 #' @export
 
 # Create and inject interactions table ##
-POST_interaction <- function(inter_df = data, enviro = enviro, attr = attr_inter){
+POST_interaction <- function(inter_df = data, enviro = NA, attr = NA){
 
   # Retrive foreign keys
   ## taxon_1 & taxon_2
