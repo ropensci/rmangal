@@ -38,7 +38,7 @@ POST_attribute <- function(data){
     attribute_lst <- json_list(as.data.frame(data))
 
     # Inject to attributes table
-    POST_table(attribute_lst, "attributes")
+    POST_table(attribute_lst, "attribute")
 
     print(paste0(data$name, " attribute done"))
 

@@ -24,7 +24,7 @@ POST_ref <- function(){
   # Check if the refs already exist
   server <- mangal.env$prod$server
 
-  path <- modify_url(server, path = paste0(mangal.env$base, "/ref/?author=",ref[["author"]], "&years=", refs[["years"]]))
+  path <- modify_url(server, path = paste0(mangal.env$base, "/ref/?author=",ref[["author"]], "&years=", ref[["years"]]))
 
   # Change space in url by "_"
   path <- gsub(" ", "%20", path)
