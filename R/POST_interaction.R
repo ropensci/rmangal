@@ -5,6 +5,8 @@
 #'    and 'users' tables must be POST before.
 #'
 #' @param inter_df A dataframe with three columns: taxon_1, taxon_2 and value
+#' @param enviro A list containing the metadata of the environment; must have levels: name, date, value
+#' @param attr A list containing the metadate of the attribute; must have levels: name, unit
 #'
 #' @return
 #'
@@ -23,7 +25,7 @@
 #' @export
 
 # Create and inject interactions table ##
-POST_interaction <- function(inter_df = data, enviro = NA, attr = NA){
+POST_interaction <- function(inter_df = data, enviro = NA, attr = NULL){
 
   # Retrive foreign keys
   ## taxon_1 & taxon_2
@@ -45,8 +47,8 @@ POST_interaction <- function(inter_df = data, enviro = NA, attr = NA){
     inter_df[, "environment_id"] <- GET_fkey("environment", c("name", "date", "value"), c(enviro[["name"]], enviro[["date"]], enviro[["value"]]))
   }
 
-  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/user/?name=", user[["name"]])), config = mangal.env$headers))) != 0){
-    inter_df[, "user_id"] <- GET_fkey("user", "name", user[["name"]])
+  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/users/?name=", users[["name"]])), config = mangal.env$headers))) != 0){
+    inter_df[, "user_id"] <- GET_fkey("users", "name", users[["name"]])
   }
 
   # Remove unused column

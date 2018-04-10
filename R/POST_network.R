@@ -48,8 +48,8 @@ POST_network <- function(network_lst, enviro = enviro){
       network_lst <- c(network_lst, environment_id = GET_fkey("environment", c("name", "date", "value"), c(enviro[["name"]], enviro[["date"]], enviro[["value"]])))
     }
 
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/user/?name=", user[["name"]])), config = mangal.env$headers))) != 0){
-      network_lst <- c(network_lst, user_id = GET_fkey("user", "name", users[["name"]]))
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/users/?name=", users[["name"]])), config = mangal.env$headers))) != 0){
+      network_lst <- c(network_lst, user_id = GET_fkey("users", "name", users[["name"]]))
     }
 
     # attach location to the network
@@ -62,7 +62,7 @@ POST_network <- function(network_lst, enviro = enviro){
     network_lst <- json_list(network_lst)
 
     # Inject to networks table
-    POST_table(network_lst, "networks")
+    POST_table(network_lst, "network")
 
     print("network done")
 

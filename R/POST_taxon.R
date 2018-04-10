@@ -46,7 +46,7 @@ POST_taxon <- function(taxon_df = taxon_df){
   taxon_lst <- json_list(taxon_df)
 
   # Inject to networks table
-  POST_table(taxon_lst, "taxon")
+  POST_table(taxon_lst, "taxa")
 
   print("taxon done")
 }
