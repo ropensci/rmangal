@@ -4,7 +4,8 @@
 #'    the metadata associated. 'attributes' and 'refs' tables must be POST
 #'    before.
 #'
-#' @param traits_df A dataframe with three columns: taxon, name (of the trait) and value
+#' @param traits_df A dataframe with three columns: taxa, name (of the trait) and value
+#' @param network A list containing the metadate of the network; must have level: name
 #'
 #' @return
 #'
@@ -23,7 +24,7 @@
 #' @export
 
 ## Create and inject traits table ##
-POST_trait <- function(trait_df){
+POST_trait <- function(trait_df, network){
 
   server <- mangal.env$prod$server
 
@@ -40,7 +41,7 @@ POST_trait <- function(trait_df){
 
       } else {
 
-      trait_df[i, "taxon_id"] <- GET_fkey("taxa", "original_name", as.character(trait_df[i, "taxa"]))
+      trait_df[i, "taxon_id"] <- GET_fkey("taxa", c("original_name", "network_id"), c(as.character(trait_df[i, "taxa"]), GET_fkey("network", "name", network[["name"]])))
 
       }
   }
@@ -59,9 +60,6 @@ POST_trait <- function(trait_df){
     }
 
   }
-
-  # Remove taxon column
-  trait_df <- trait_df[, -1]
 
   # Add metadata
   trait_df <- cbind(data.table::setDT(trait_df),
