@@ -17,3 +17,6 @@ mangal.env$headers <- httr::add_headers("Content-type" = "application/json",
 
 # Production environment
 mangal.env$prod$server <- "http://poisotlab.biol.umontreal.ca"
+
+# Test environment
+#mangal.env$prod$server <- "http://localhost:3000"
