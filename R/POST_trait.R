@@ -37,7 +37,7 @@ POST_trait <- function(trait_df, network){
     if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/taxa/?original_name=",
                                                              trait_df[i, "taxa"])), config = mangal.env$headers))) == 0){
 
-      print(paste0(trait_df[i, "taxon"], " is not in taxa table, entry was skip"))
+      print(paste0(trait_df[i, "taxa"], " is not in taxa table, entry was skip"))
 
       } else {
 
