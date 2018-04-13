@@ -27,6 +27,11 @@
 # Create and inject interactions table ##
 POST_interaction <- function(inter_df = data, enviro = NA, attr = NULL){
 
+  # Put attribute in lowercase
+  attr[["name"]] <- tolower(attr[["name"]])
+  if(attr[["value"]] != "NA") attr[["value"]] <- tolower(attr[["value"]])
+
+
   # Retrive foreign keys
   ## taxon_1 & taxon_2
   inter_df[, "taxon_1"] <- NA

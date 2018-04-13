@@ -23,11 +23,14 @@
 ## Create and inject datasets table ##
 POST_dataset <- function(){
 
+  # Put attribute in lowercase
+  dataset[["name"]] <- tolower(dataset[["name"]])
+
   # Check if the datasets already exist
   server <- mangal.env$prod$server
 
   path <- httr::modify_url(server, path = paste0(mangal.env$base, "/dataset/?name=",
-                                         dataset[[1]]))
+                                         dataset[["name"]]))
   # Change space in url by "_"
   path <- gsub(" ", "%20", path)
 
@@ -39,8 +42,8 @@ POST_dataset <- function(){
       dataset <- c(dataset, user_id = GET_fkey("users","name", users[["name"]]))
     }
 
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/ref/?author=", ref[["author"]], "&year=", ref[["year"]])), config = mangal.env$headers))) != 0){
-    dataset <- c(dataset, ref_id = GET_fkey("ref", c("author", "year"), c(ref[["author"]], ref[["year"]])))
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/ref/?author=", tolower(ref[["author"]]), "&year=", ref[["year"]])), config = mangal.env$headers))) != 0){
+    dataset <- c(dataset, ref_id = GET_fkey("ref", c("author", "year"), c(tolower(ref[["author"]]), ref[["year"]])))
     }
 
     # Datasets_df as a json list

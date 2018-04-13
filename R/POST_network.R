@@ -28,6 +28,9 @@
 ## Create and inject networks table ##
 POST_network <- function(network_lst, enviro = enviro){
 
+  # Put attribute in lowercase
+  networks_lst[["name"]] <- tolower(networks_lst[["name"]])
+
   # Check if the networks already exist
   server <- mangal.env$prod$server
 
@@ -40,12 +43,12 @@ POST_network <- function(network_lst, enviro = enviro){
   if (length(content(httr::GET(url = path, config = mangal.env$headers))) == 0) {
 
     # Retrive foreign key
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/dataset/?name=", dataset[["name"]])), config = mangal.env$headers))) != 0){
-      network_lst <- c(network_lst, dataset_id = GET_fkey("dataset", "name", dataset[["name"]]))
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/dataset/?name=", tolower(dataset[["name"]]))), config = mangal.env$headers))) != 0){
+      network_lst <- c(network_lst, dataset_id = GET_fkey("dataset", "name", tolower(dataset[["name"]])))
     }
 
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/environment/?name=", enviro[["name"]], "&date=", enviro[["date"]], "&value=", enviro[["value"]])), config = mangal.env$headers))) != 0){
-      network_lst <- c(network_lst, environment_id = GET_fkey("environment", c("name", "date", "value"), c(enviro[["name"]], enviro[["date"]], enviro[["value"]])))
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/environment/?name=", tolower(enviro[["name"]]), "&date=", enviro[["date"]], "&value=", enviro[["value"]])), config = mangal.env$headers))) != 0){
+      network_lst <- c(network_lst, environment_id = GET_fkey("environment", c("name", "date", "value"), c(tolower(enviro[["name"]]), enviro[["date"]], enviro[["value"]])))
     }
 
     if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/users/?name=", users[["name"]])), config = mangal.env$headers))) != 0){

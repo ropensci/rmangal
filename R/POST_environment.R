@@ -23,6 +23,12 @@
 ## Create and inject environments table ##
 POST_environment <- function(enviro = enviro, attr = attr){
 
+  # Put attribute in lowercase
+  attr[["name"]] <- tolower(attr[["name"]])
+  if(attr[["value"]] != "NA") attr[["value"]] <- tolower(attr[["value"]])
+
+  enviro[["name"]] <- tolower(envrio[["name"]])
+
   # Check if the environments already exist
   server <- mangal.env$prod$server
 

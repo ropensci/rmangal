@@ -38,7 +38,7 @@ POST_taxon <- function(taxon_df = taxon_df){
 
     }
 
-  taxon_df[, "network_id"] <- GET_fkey("network", "name", network[["name"]])
+  taxon_df[, "network_id"] <- GET_fkey("network", "name", tolower(network[["name"]]))
 
   print("key added")
 

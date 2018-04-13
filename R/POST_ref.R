@@ -21,6 +21,9 @@
 ## Create and inject refs table ##
 POST_ref <- function(){
 
+  # Put attribute in lowercase
+  ref[["author"]] <- tolower(ref[["author"]])
+
   # Check if the refs already exist
   server <- mangal.env$prod$server
 

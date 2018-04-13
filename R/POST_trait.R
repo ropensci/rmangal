@@ -26,6 +26,9 @@
 ## Create and inject traits table ##
 POST_trait <- function(trait_df, network){
 
+  # Put attribute in lowercase
+  trait_df[, "name"] <- tolower(trait_df[, "name"])
+
   server <- mangal.env$prod$server
 
   # Retreive fkey for taxon_id and attr_id

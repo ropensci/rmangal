@@ -23,10 +23,15 @@
 ## Create and inject attributes table ##
 POST_attribute <- function(data){
 
+  # Put attribute in lowercase
+  data[["name"]] <- tolower(data[["name"]])
+  if(data[["value"]] != "NA") data[["value"]] <- tolower(data[["value"]])
+
   # Check if the attribute already exist
   server <- mangal.env$prod$server
 
-  path <- httr::modify_url(server, path = paste0(mangal.env$base, "/attribute/?name=",data[["name"]], "&unit=", data[["unit"]]))
+  path <- httr::modify_url(server, path = paste0(mangal.env$base, "/attribute/?name=",data[["name"]],
+                                                 "&unit=", data[["unit"]]))
 
    # Change space in url by "_"
   path <- gsub(" ", "%20", path)
