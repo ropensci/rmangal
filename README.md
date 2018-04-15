@@ -1,6 +1,6 @@
 # mangal
 
-A package containing functions to interact with the mangal API and database. 
+A package containing functions to interact with the mangal API and database.
 
 ## Getting Started
 
@@ -11,6 +11,15 @@ Go to [this page](poisotlab.biol.umontreal.ca/auth) to retrieve your acces_token
 * **Steve Vissault** - *Initial work* - [SteveViss](https://github.com/SteveViss)
 * **Timothee Poisot** - *Initial work* - [tpoisot](https://github.com/tpoisot)
 * **Gabriel Bergeron** - *Package developper* - [gabrielbouleau](https://github.com/gabrielbouleau)
+
+## TODO
+
+- [ ] Function - Template boilerplate for importation
+- [ ] Function - Add convert function igraph object
+- [ ] Vignette - Import dataset
+- [ ] Vignette - Access data
+- [ ] Quality - reduce code redundancies
+- [ ] Quality - Add testthat and code coverage
 
 ## License
 

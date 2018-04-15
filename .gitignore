@@ -1,3 +1,6 @@
-inst/doc
 .Rproj.user
 .httr-oauth
+.mangal.Rproj
+.DS_Store
+.RData
+.Rhistory

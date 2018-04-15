@@ -1,13 +1,17 @@
 Package: mangal
 Type: Package
-Title: Mangal Data Export
-Version: 0.0.0.9000
-Author: person(given = "Gabriel", family = "Bergeron",
-    email = "gabriel.bergeron3@usherbrooke.ca", role = "aut")
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: Template used to export datasets to the Mangal database
-    It's used to speed the exportation and insure proper format
-License: What license is it under?
+Title: R mangal package.
+Version: 0.0.8
+URL: https://github.com/mangal-wg/rmangal
+Author@R: c(
+    person(given = "Gabriel", family = "Bergeron",
+      email = "gabriel.bergeron3@usherbrooke.ca", role = c("auth")),
+    person(given = "Steve", family = "Vissault",
+      email = "steve.vissault@usherbrooke.ca", role = c("auth","cre")),
+    person(given = "Timothée", family = "Poisot",
+      email = "timothee.poisot@umontreal.ca", role = c("auth","cre"))
+Description: This package is designed to interact with the mangal v2 web api.
+License: MIT
 Encoding: UTF-8
 LazyData: true
 Imports:
