@@ -14,6 +14,7 @@ Go to [this page](https://poisotlab.biol.umontreal.ca/auth) to retrieve your acc
 
 ## TODO
 
+- [ ] Function - cover all GET methods
 - [ ] Function - Template boilerplate for importation
 - [ ] Function - Add convert function igraph object
 - [ ] Extension - Add rmangal package to alien package
