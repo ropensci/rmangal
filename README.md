@@ -4,7 +4,7 @@ A package containing functions to interact with the mangal API and database.
 
 ## Getting Started
 
-Go to [this page](poisotlab.biol.umontreal.ca/auth) to retrieve your acces_token. You will have to create an Orcid account if you don't have one. Once you have registered, you will be directed to a page with your orcid id and a acces_token. Copy your acces_token. Create the ```.httr-oauth``` file in the package directory ```../mangal.package/R``` with ```saveRDS('your acces_token')```.
+Go to [this page](https://poisotlab.biol.umontreal.ca/auth) to retrieve your acces_token. You will have to create an Orcid account if you don't have one. Once you have registered, you will be directed to a page with your orcid id and a acces_token. Copy your acces_token. Create the ```.httr-oauth``` file in the package directory ```../mangal.package/R``` with ```saveRDS('your acces_token')```.
 
 ## Authors
 
@@ -16,9 +16,10 @@ Go to [this page](poisotlab.biol.umontreal.ca/auth) to retrieve your acces_token
 
 - [ ] Function - Template boilerplate for importation
 - [ ] Function - Add convert function igraph object
+- [ ] Extension - Add rmangal package to alien package
 - [ ] Vignette - Import dataset
 - [ ] Vignette - Access data
-- [ ] Quality - reduce code redundancies
+- [ ] Quality - Reduce code redundancies
 - [ ] Quality - Add testthat and code coverage
 
 ## License
