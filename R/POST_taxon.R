@@ -2,6 +2,10 @@
 #'
 #' @description GET foreign keys needed for the 'taxons' table then POST
 #'    the metadata associated.
+#'    
+#' @param taxon_df A dataframe of two columns:\cr
+#' 'original_name': name of the taxa as found in the publication\cr
+#' 'name_clear': clean taxonomy, name of the taxa without numbers, punctuations or 'sp'
 #'
 #' @return
 #'

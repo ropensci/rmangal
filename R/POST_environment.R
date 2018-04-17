@@ -3,6 +3,14 @@
 #' @description GET foreign keys needed for the 'environments' table then POST
 #'    the metadata associated. 'attributes' and 'refs' tables must be POST
 #'    before.
+#'    
+#' @param enviro A list with these levels:\cr
+#' 'name': the name of the attribute\cr
+#' 'lat', 'lon' and 'srid': spatial coordinates and the spacial reference identifier (SRID)\cr
+#' 'date': YYYY-MM-DD\cr
+#' 'value': value of the environmental attribute\cr
+#' 
+#' @param attr A list of the attribute's metadata; must have the levels 'name' and 'unit'
 #'
 #' @return
 #'

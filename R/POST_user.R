@@ -1,6 +1,8 @@
 #' @title POST data into the Mangal users table
 #'
 #' @description POST the metadata associated with the users table.
+#' 
+#' @param users A list of the attribute's metadata; must have these levels: 'name' and 'orcid'
 #'
 #' @return
 #'
@@ -20,7 +22,7 @@
 
 ### This is a test ###
 ## Create and inject users table ##
-POST_user <- function(){
+POST_user <- function(users){
 
   # Check if the users already exist
   server <- mangal.env$prod$server

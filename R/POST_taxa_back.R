@@ -2,6 +2,13 @@
 #'
 #' @description POST the metadata associated to the taxonomic backbone.
 #'
+#' @param taxa_back A dataframe with five columns: \cr
+#' 'name': clean taxonomy, name of the taxa without numbers or 'sp'\cr
+#' 'bold': BOLD taxa id\cr
+#' 'eol': Encyclopedia of life taxa id\cr
+#' 'tsn': ITIS taxa id\cr
+#' 'ncbi': NCBI taxa id\cr
+#'
 #' @return
 #'
 #' The status of the injection:
@@ -19,10 +26,10 @@
 #' @export
 
 ## Create and inject taxo_back table ##
-POST_taxa_back <- function(){
+POST_taxa_back <- function(taxa_back = taxa_back){
 
   # taxon_df as a json list
-  taxa_back_lst <- json_list(taxa_back_df)
+  taxa_back_lst <- json_list(taxa_back)
 
   # Is retreived content == 0 -> in this case inject taxo_back
   server <- mangal.env$prod$server

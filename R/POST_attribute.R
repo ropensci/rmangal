@@ -2,13 +2,17 @@
 #'
 #' @description POST the metadata associated whit the attributes table
 #'
-#' @param attr A list of four levels: name, table_owner, description and unit
+#' @param attr A list of the attribute's metadata; must have four levels:\cr
+#' 'name': name of the attribute\cr
+#' 'table_owner': 'interaction', 'trait' or 'environment'\cr
+#' 'description': description of the attribute; how is it mesured\cr
+#' 'unit': what is the unit of mesure? ("NA" if none)\cr
 #'
 #' @return
 #'
-#' The status of the injection:
-#' 'attr already in mangal' means that the attribute name already have an id
-#' 'attr done' an id has been created and the injection is succesfull
+#' The status of the injection: \cr
+#' 'attr already in mangal' means that the attribute name already have an id \cr
+#' 'attr done' an id has been created and the injection is succesfull \cr
 #'
 #' @author Gabriel Bergeron
 #'
@@ -21,17 +25,17 @@
 #' @export
 
 ## Create and inject attributes table ##
-POST_attribute <- function(data){
+POST_attribute <- function(attr){
 
   # Put attribute in lowercase
-  data[["name"]] <- tolower(data[["name"]])
-  if(data[["value"]] != "NA") data[["value"]] <- tolower(data[["value"]])
+  attr[["name"]] <- tolower(attr[["name"]])
+  if(attr[["value"]] != "NA") attr[["value"]] <- tolower(attr[["value"]])
 
   # Check if the attribute already exist
   server <- mangal.env$prod$server
 
-  path <- httr::modify_url(server, path = paste0(mangal.env$base, "/attribute/?name=",data[["name"]],
-                                                 "&unit=", data[["unit"]]))
+  path <- httr::modify_url(server, path = paste0(mangal.env$base, "/attribute/?name=",attr[["name"]],
+                                                 "&unit=", attr[["unit"]]))
 
    # Change space in url by "_"
   path <- gsub(" ", "%20", path)
@@ -40,12 +44,12 @@ POST_attribute <- function(data){
   if (length(content(httr::GET(url = path, config = mangal.env$headers))) == 0) {
 
     # Attibutes_df as a json list
-    attribute_lst <- json_list(as.data.frame(data))
+    attribute_lst <- json_list(as.data.frame(attr))
 
     # Inject to attributes table
     POST_table(attribute_lst, "attribute")
 
-    print(paste0(data$name, " attribute done"))
+    print(paste0(attr$name, " attribute done"))
 
   } else {
 

@@ -4,14 +4,23 @@
 #'  metadata associated. 'environments', 'users', 'datasets' and 'refs' tables
 #'  must be POST before.
 #'
-#' @param networks_lst A list with the network metadata
+#' @param network_lst A list of the network's metadata; must have these levels:\cr
+#' 'name': name of the network\cr
+#' 'date': YYYY-MM-DD\cr
+#' 'lat', 'lon' and 'srid': spatial coordinates and spatial reference id (SRID)\cr
+#' 'description': description of the network collected\cr
+#' 'public': boolean\cr
+#' 'all_interactions': boolean\cr
+#' 
+#' @param enviro A list of the environement's metadata; must have the levels 'name', 'date' and 'value'
+#' @param dataset A list of the dataset's metadata; must have the level 'name'
+#' @param users A list of the user's metadata; must have the level 'name'
 #'
 #' @return
 #'
-#' The status of the injection:
-#' 'network already in mangal' means that the environment name already have an
-#' id
-#' 'network done' an id has been created and the injection is succesfull
+#' The status of the injection:\cr
+#' 'network already in mangal' means that the environment name already have an id\cr
+#' 'network done' an id has been created and the injection is succesfull\cr
 #'
 #' @author Gabriel Bergeron
 #'
@@ -26,7 +35,7 @@
 #' @export
 
 ## Create and inject networks table ##
-POST_network <- function(network_lst, enviro = enviro){
+POST_network <- function(network_lst, enviro = enviro, dataset = dataset, users = users){
 
   # Put attribute in lowercase
   networks_lst[["name"]] <- tolower(networks_lst[["name"]])

@@ -1,6 +1,16 @@
 #' @title POST data into the Mangal refs table
 #'
 #' @description POST the metadata associated with the ref table.
+#' 
+#' @param ref A list of the reference's metadata; must have these levels:\cr
+#' 'doi': DOI of the attached publication\cr
+#' 'jstor': JSTOR of the attached publication\cr
+#' 'pmid': PMID of the attached publication\cr
+#' 'paper_url': URL of the attached publication\cr
+#' 'data_url': URL of the attached data\cr
+#' 'author': first author name\cr
+#' 'year': year of publication\cr
+#' 'bibtex': BibTex of the attached publication\cr
 #'
 #' @return
 #'
@@ -19,7 +29,7 @@
 #' @export
 
 ## Create and inject refs table ##
-POST_ref <- function(){
+POST_ref <- function(ref = ref){
 
   # Put attribute in lowercase
   ref[["author"]] <- tolower(ref[["author"]])

@@ -4,8 +4,12 @@
 #'    the metadata associated. 'attributes' and 'refs' tables must be POST
 #'    before.
 #'
-#' @param traits_df A dataframe with three columns: taxa, name (of the trait) and value
-#' @param network A list containing the metadate of the network; must have level: name
+#' @param traits_df A dataframe with three columns:\cr
+#' 'taxa': taxa name as found in the taxa table
+#' 'name': name of the trait as found in the attribute table\cr
+#' 'value': value of the trait
+#' 
+#' @param network A list the network's metadata; must have the 'name' level
 #'
 #' @return
 #'

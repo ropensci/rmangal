@@ -4,9 +4,23 @@
 #'    the metadata associated. 'attributes', 'environments', 'networks', 'refs'
 #'    and 'users' tables must be POST before.
 #'
-#' @param inter_df A dataframe with three columns: taxon_1, taxon_2 and value
-#' @param enviro A list containing the metadata of the environment; must have levels: name, date, value
-#' @param attr A list containing the metadate of the attribute; must have levels: name, unit
+#' @param inter_df A dataframe with three columns:\cr
+#' 'taxon_1' and 'taxon_2': names of the taxa as they appear in the taxa table\cr
+#' 'value': value of the measured interaction\cr
+#' 
+#' @param inter A list of the interaction's metadata; must have these levels:\cr
+#' 'taxon_1_level' and 'taxon_2_level': taxonomic level of the taxa ('taxon', 'population' or 'individual')\cr
+#' 'date': YYYY-MM-DD\cr
+#' 'direction': direction of the interaction ('directed', 'undirected' of 'unknown')\cr
+#' 'type': type of biological interaction ('competition', 'amensalism', 'neutralism', 'commensalism', 'mutualism', 'parasitism', 'predation', 'herbivory', 'symbiosis', 'scavenger', 'unknown')\cr
+#' 'method': how the interaction was recorded\cr
+#' 'value': value of the interaction
+#' 'lat', 'lon' and 'srid': spacial coordinates and spacial reference id (SRID) of the interaction\cr
+#' 'public': boolean\cr
+#' 
+#' @param enviro A list of the environement's metadata; must have the levels 'name', 'date' and 'value'
+#' @param attr A list of the interaction's attribute; must have the levels 'name' and 'unit'
+#' @param users A list of the user's metadata; must have the level 'name'
 #'
 #' @return
 #'
@@ -25,7 +39,7 @@
 #' @export
 
 # Create and inject interactions table ##
-POST_interaction <- function(inter_df = data, enviro = NA, attr = NULL){
+POST_interaction <- function(inter_df = data, inter = inter, enviro = NA, attr = NULL, users = users){
 
   # Put attribute in lowercase
   attr[["name"]] <- tolower(attr[["name"]])

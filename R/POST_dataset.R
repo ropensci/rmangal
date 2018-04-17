@@ -4,10 +4,19 @@
 #'    the metadata associated. 'users' and 'refs' tables must be POST
 #'    before.
 #'
+#' @param dataset A list of the dataset's metadata; must have four levels:\cr
+#' 'name': name of the dataset\cr
+#' 'date': YYYY-MM-DD\cr
+#' 'description': description of the dataset\cr
+#' 'public': Boolean\cr
+#' 
+#' @param users A list of the user's metadata; must have 'name' as one of the levels
+#' @param ref A list of the reference's metadata; must have the levels 'author' and 'year'
+#'
 #' @return
 #'
 #' The status of the injection:
-#' 'dataset' already in mangal' means that the dataset name already have an id
+#' 'dataset already in mangal' means that the dataset name already have an id
 #' 'dataset done' an id has been created and the injection is succesfull
 #'
 #' @author Gabriel Bergeron
@@ -21,7 +30,7 @@
 #' @export
 
 ## Create and inject datasets table ##
-POST_dataset <- function(){
+POST_dataset <- function(dataset = dataset, users = users, ref = ref){
 
   # Put attribute in lowercase
   dataset[["name"]] <- tolower(dataset[["name"]])
