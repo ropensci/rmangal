@@ -4,15 +4,19 @@
 \alias{POST_attribute}
 \title{POST data into the Mangal attributes table}
 \usage{
-POST_attribute(data)
+POST_attribute(attr)
 }
 \arguments{
-\item{attr}{A list of four levels: name, table_owner, description and unit}
+\item{attr}{A list of the attribute's metadata; must have four levels:\cr
+'name': name of the attribute\cr
+'table_owner': 'interaction', 'trait' or 'environment'\cr
+'description': description of the attribute; how is it mesured\cr
+'unit': what is the unit of mesure? ("NA" if none)\cr}
 }
 \value{
-The status of the injection:
-'attr already in mangal' means that the attribute name already have an id
-'attr done' an id has been created and the injection is succesfull
+The status of the injection: \cr
+'attr already in mangal' means that the attribute name already have an id \cr
+'attr done' an id has been created and the injection is succesfull \cr
 }
 \description{
 POST the metadata associated whit the attributes table

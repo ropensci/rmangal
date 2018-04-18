@@ -4,11 +4,22 @@
 \alias{POST_dataset}
 \title{POST data into the Mangal datasets table}
 \usage{
-POST_dataset()
+POST_dataset(dataset = dataset, users = users, ref = ref)
+}
+\arguments{
+\item{dataset}{A list of the dataset's metadata; must have four levels:\cr
+'name': name of the dataset\cr
+'date': YYYY-MM-DD\cr
+'description': description of the dataset\cr
+'public': Boolean\cr}
+
+\item{users}{A list of the user's metadata; must have 'name' as one of the levels}
+
+\item{ref}{A list of the reference's metadata; must have the levels 'author' and 'year'}
 }
 \value{
 The status of the injection:
-'dataset' already in mangal' means that the dataset name already have an id
+'dataset already in mangal' means that the dataset name already have an id
 'dataset done' an id has been created and the injection is succesfull
 }
 \description{

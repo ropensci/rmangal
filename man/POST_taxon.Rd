@@ -6,6 +6,11 @@
 \usage{
 POST_taxon(taxon_df = taxon_df)
 }
+\arguments{
+\item{taxon_df}{A dataframe of two columns:\cr
+'original_name': name of the taxa as found in the publication\cr
+'name_clear': clean taxonomy, name of the taxa without numbers, punctuations or 'sp'}
+}
 \value{
 The status of the injection:
 'taxon done' ids have been created and the injection is succesfull

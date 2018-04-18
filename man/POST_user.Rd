@@ -4,7 +4,10 @@
 \alias{POST_user}
 \title{POST data into the Mangal users table}
 \usage{
-POST_user()
+POST_user(users)
+}
+\arguments{
+\item{users}{A list of the attribute's metadata; must have these levels: 'name' and 'orcid'}
 }
 \value{
 The status of the injection:

@@ -6,6 +6,15 @@
 \usage{
 POST_environment(enviro = enviro, attr = attr)
 }
+\arguments{
+\item{enviro}{A list with these levels:\cr
+'name': the name of the attribute\cr
+'lat', 'lon' and 'srid': spatial coordinates and the spacial reference identifier (SRID)\cr
+'date': YYYY-MM-DD\cr
+'value': value of the environmental attribute\cr}
+
+\item{attr}{A list of the attribute's metadata; must have the levels 'name' and 'unit'}
+}
 \value{
 The status of the injection:
 'enviro already in mangal' means that the environment name already have an id

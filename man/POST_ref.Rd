@@ -4,7 +4,18 @@
 \alias{POST_ref}
 \title{POST data into the Mangal refs table}
 \usage{
-POST_ref()
+POST_ref(ref = ref)
+}
+\arguments{
+\item{ref}{A list of the reference's metadata; must have these levels:\cr
+'doi': DOI of the attached publication\cr
+'jstor': JSTOR of the attached publication\cr
+'pmid': PMID of the attached publication\cr
+'paper_url': URL of the attached publication\cr
+'data_url': URL of the attached data\cr
+'author': first author name\cr
+'year': year of publication\cr
+'bibtex': BibTex of the attached publication\cr}
 }
 \value{
 The status of the injection:

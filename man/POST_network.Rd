@@ -4,16 +4,28 @@
 \alias{POST_network}
 \title{POST data into the Mangal networks table}
 \usage{
-POST_network(network_lst, enviro = enviro)
+POST_network(network_lst, enviro = enviro, dataset = dataset,
+  users = users)
 }
 \arguments{
-\item{networks_lst}{A list with the network metadata}
+\item{network_lst}{A list of the network's metadata; must have these levels:\cr
+'name': name of the network\cr
+'date': YYYY-MM-DD\cr
+'lat', 'lon' and 'srid': spatial coordinates and spatial reference id (SRID)\cr
+'description': description of the network collected\cr
+'public': boolean\cr
+'all_interactions': boolean\cr}
+
+\item{enviro}{A list of the environement's metadata; must have the levels 'name', 'date' and 'value'}
+
+\item{dataset}{A list of the dataset's metadata; must have the level 'name'}
+
+\item{users}{A list of the user's metadata; must have the level 'name'}
 }
 \value{
-The status of the injection:
-'network already in mangal' means that the environment name already have an
-id
-'network done' an id has been created and the injection is succesfull
+The status of the injection:\cr
+'network already in mangal' means that the environment name already have an id\cr
+'network done' an id has been created and the injection is succesfull\cr
 }
 \description{
 GET foreign keys needed for the 'networks' table then POST the

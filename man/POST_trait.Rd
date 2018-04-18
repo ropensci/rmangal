@@ -4,10 +4,15 @@
 \alias{POST_trait}
 \title{POST data into the Mangal traits table}
 \usage{
-POST_trait(trait_df)
+POST_trait(trait_df, network)
 }
 \arguments{
-\item{traits_df}{A dataframe with three columns: taxon, name (of the trait) and value}
+\item{network}{A list the network's metadata; must have the 'name' level}
+
+\item{traits_df}{A dataframe with three columns:\cr
+'taxa': taxa name as found in the taxa table
+'name': name of the trait as found in the attribute table\cr
+'value': value of the trait}
 }
 \value{
 The status of the injection:
