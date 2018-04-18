@@ -15,11 +15,16 @@
 ## Update taxon_id
 PUT_taxa_id <- function(){
 
+  server <- mangal.env$prod$server
+  url <- httr::modify_url(server, path = paste0(mangal.env$base, "/taxa"))
+  
+  L <- as.numeric(sub('.*/', '', httr::headers(httr::GET(url, config = mangal.env$headers))$`content-range`))
+  
   for (i in 1:L) {
 
-    path <- httr::modify_url(mangal.env$prod$server, path = paste0(mangal.env$base, "/taxa/", i ))
+    path <- httr::modify_url(mangal.env$prod$server, path = paste0(mangal.env$base, "/taxa/?id=", i ))
 
-    taxon <- as.vector(content(GET(path))[[2]])
+    taxon <- as.vector(content(GET(path, config = mangal.env$headers))[[1]]$'original_name')
 
     if(((str_detect(taxon, "[:digit:]") == TRUE || str_detect(taxon, "[:punct:]") == TRUE) &
          str_detect(taxon, "sp") == TRUE) ||
