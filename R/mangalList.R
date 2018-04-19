@@ -18,9 +18,15 @@ mangalList <- function(table, filtering, attribute){
   
   if(tolower(httr::http_status(request)$category) == "success"){
   
-    if(length(filtering) != 0) attribute <- unique(c(attribute, filtering))
+    if(length(filtering) != 0) attribute <- c(attribute, filtering)
 
-    return(lapply(content(request), "[", attribute))
+    request <- lapply(content(request), "[", unique(attribute))
+    
+    for(i in 1:(length(request))){ 
+      if(sum(is.na(names(request[[i]]))) >= 1) request[[i]][[which(is.na(names(request[[i]])))]] <- NULL
+    } # To improve
+    
+    return(request)
   
   } else {
       

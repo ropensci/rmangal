@@ -11,7 +11,7 @@
 
 mangalGet <- function(id, table, filtering, attribute){
   
-  if((class(id) == "numeric") == TRUE | (length(id) != 1) == TRUE) stop(stringr::str_c("'id' must contain only one numeric")
+  if((class(id) != "numeric") == TRUE | (length(id) != 1) == TRUE) stop(stringr::str_c("'id' must contain only one numeric"))
   
   server <- stringr::str_c(mangal.env$prod$server, mangal.env$base)
   
@@ -23,7 +23,13 @@ mangalGet <- function(id, table, filtering, attribute){
     
     if(length(filtering) != 0) attribute <- c(attribute, filtering)
     
-    return(lapply(content(request), "[", attribute))
+    request <- lapply(content(request), "[", unique(attribute))
+    
+    for(i in 1:(length(request))){ 
+      if(sum(is.na(names(request[[i]]))) >= 1) request[[i]][[which(is.na(names(request[[i]])))]] <- NULL
+    } # To improve
+    
+    return(request)
     
   } else {
     
