@@ -3,7 +3,7 @@
 #' @description GET foreign keys needed for the 'taxons' table then POST
 #'    the metadata associated.
 #'    
-#' @param taxon_df A dataframe of two columns:\cr
+#' @param taxa_df A dataframe of two columns:\cr
 #' 'original_name': name of the taxa as found in the publication\cr
 #' 'name_clear': clean taxonomy, name of the taxa without numbers, punctuations or 'sp'
 #'
@@ -23,31 +23,31 @@
 #' @export
 
 ## Create and inject taxons table ##
-POST_taxon <- function(taxon_df = taxon_df){
+POST_taxon <- function(taxa_df = taxa_df){
 
   server <- mangal.env$prod$server
 
   # Get taxo_id from taxo_back table
-  for (i in 1:nrow(taxon_df)) {
+  for (i in 1:nrow(taxa_df)) {
 
-    if (length(httr::content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/taxa_back/?name=", taxon_df[i, "name_clear"])), config = mangal.env$headers))) == 0){
+    if (length(httr::content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/taxa_back/?name=", taxa_df[i, "name_clear"])), config = mangal.env$headers))) == 0){
 
-      print(paste0(taxon_df[i, "original_name"], " is not in taxa_backbone, no taxo_id"))
+      print(paste0(taxa_df[i, "original_name"], " is not in taxa_backbone, no taxo_id"))
 
       } else {
 
-        taxon_df[i, "taxo_id"] <- GET_fkey("taxa_back", "name", taxon_df[i, "name_clear"])
+        taxa_df[i, "taxo_id"] <- GET_fkey("taxa_back", "name", taxa_df[i, "name_clear"])
 
       }
 
     }
 
-  taxon_df[, "network_id"] <- GET_fkey("network", "name", tolower(network[["name"]]))
+  taxa_df[, "network_id"] <- GET_fkey("network", "name", tolower(network[["name"]]))
 
   print("key added")
 
-  # taxon_df as a json list
-  taxon_lst <- json_list(taxon_df)
+  # taxa_df as a json list
+  taxon_lst <- json_list(taxa_df)
 
   # Inject to networks table
   POST_table(taxon_lst, "taxa")
