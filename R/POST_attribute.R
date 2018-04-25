@@ -29,7 +29,7 @@ POST_attribute <- function(attr){
 
   # Put attribute in lowercase
   attr[["name"]] <- tolower(attr[["name"]])
-  if(attr[["value"]] != "NA") attr[["value"]] <- tolower(attr[["value"]])
+  if(attr[["unit"]] != "NA") attr[["unit"]] <- tolower(attr[["unit"]])
 
   # Check if the attribute already exist
   server <- mangal.env$prod$server
