@@ -36,7 +36,7 @@ POST_user <- function(users){
   if (length(content(httr::GET(url = path, config = mangal.env$headers))) == 0) {
 
     # users_df as a json list
-    user_lst <- json_list(data.frame(user))
+    user_lst <- json_list(data.frame(users))
 
     # Inject to users table
     POST_table(user_lst, "users")

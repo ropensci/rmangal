@@ -43,7 +43,7 @@ POST_interaction <- function(inter_df = data, inter = inter, enviro = NA, attr =
 
   # Put attribute in lowercase
   attr[["name"]] <- tolower(attr[["name"]])
-  if(attr[["value"]] != "NA") attr[["value"]] <- tolower(attr[["value"]])
+  if(attr[["unit"]] != "NA") attr[["unit"]] <- tolower(attr[["unit"]])
 
 
   # Retrive foreign keys
@@ -52,14 +52,14 @@ POST_interaction <- function(inter_df = data, inter = inter, enviro = NA, attr =
   inter_df[, "taxon_2"] <- NA
 
   for (i in 1:nrow(inter_df)) {
-    try(inter_df[i, "taxon_1"] <- GET_fkey("taxa", c("original_name", "network_id"), c(as.character(inter_df[i, "sp_taxon_1"]), GET_fkey("network", "name", network[["name"]]))))
-    try(inter_df[i, "taxon_2"] <- GET_fkey("taxa", c("original_name", "network_id"), c(as.character(inter_df[i, "sp_taxon_2"]), GET_fkey("network", "name", network[["name"]]))))
+    try(inter_df[i, "taxon_1"] <- GET_fkey("taxa", c("original_name", "network_id"), c(as.character(inter_df[i, "sp_taxon_1"]), GET_fkey("network", "name", tolower(network[["name"]])))))
+    try(inter_df[i, "taxon_2"] <- GET_fkey("taxa", c("original_name", "network_id"), c(as.character(inter_df[i, "sp_taxon_2"]), GET_fkey("network", "name", tolower(network[["name"]])))))
   }
 
   server <- mangal.env$prod$server
 
-  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/attribute/?name=", attr[["name"]], "&unit=", attr[["unit"]])), config = mangal.env$headers))) != 0){
-    inter_df[, "attr_id"] <- GET_fkey("attribute", c("name", "unit"), c(attr[["name"]], attr[["unit"]]))
+  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/attribute/?name=", tolower(attr[["name"]]), "&unit=", attr[["unit"]])), config = mangal.env$headers))) != 0){
+    inter_df[, "attr_id"] <- GET_fkey("attribute", c("name", "unit"), c(tolower(attr[["name"]]), attr[["unit"]]))
   }
 
   if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/environment/?name=", enviro[["name"]], "&date=", enviro[["date"]], "&value=", enviro[["value"]])), config = mangal.env$headers))) != 0){
