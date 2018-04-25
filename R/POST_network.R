@@ -1,6 +1,6 @@
-#' @title POST data into the Mangal networks table
+#' @title POST data into the Mangal network table
 #'
-#' @description GET foreign keys needed for the 'networks' table then POST the
+#' @description GET foreign keys needed for the 'network' table then POST the
 #'  metadata associated. 'environments', 'users', 'datasets' and 'refs' tables
 #'  must be POST before.
 #'
@@ -34,13 +34,13 @@
 #'
 #' @export
 
-## Create and inject networks table ##
+## Create and inject network table ##
 POST_network <- function(network_lst, enviro = enviro, dataset = dataset, users = users){
 
   # Put attribute in lowercase
-  networks_lst[["name"]] <- tolower(networks_lst[["name"]])
+  network_lst[["name"]] <- tolower(network_lst[["name"]])
 
-  # Check if the networks already exist
+  # Check if the network already exist
   server <- mangal.env$prod$server
 
   path <- httr::modify_url(server, path = paste0(mangal.env$base, "/network/?name=",
@@ -69,11 +69,11 @@ POST_network <- function(network_lst, enviro = enviro, dataset = dataset, users 
     geoloc$crs <- list(type="name",properties=list(name=paste0("EPSG:",network_lst$srid)))
     network_lst$localisation <- geoloc
 
-    # networks_df as a json list
+    # network_df as a json list
     network_lst[c("lat","lon","srid")] <- NULL
     network_lst <- json_list(network_lst)
 
-    # Inject to networks table
+    # Inject to network table
     POST_table(network_lst, "network")
 
     print("network done")
