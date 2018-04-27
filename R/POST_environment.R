@@ -64,7 +64,7 @@ POST_environment <- function(enviro = enviro, attr = attr){
       } else { geometry <- "point"
     }
     
-    geoloc <- geojsonio::geojson_list(, geometry = geometry)$features[[1]]$geometry
+    geoloc <- geojsonio::geojson_list(coordinates, geometry = geometry)$features[[1]]$geometry
     geoloc$crs <- list(type="name",properties=list(name=paste0("EPSG:",enviro$srid)))
     enviro$localisation <- geoloc
 
