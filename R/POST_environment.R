@@ -54,7 +54,17 @@ POST_environment <- function(enviro = enviro, attr = attr){
     }
 
     # attach location to the environment
-    geoloc <- geojsonio::geojson_list(c(enviro$lat,enviro$lon))$features[[1]]$geometry
+    coordinates <- list()
+    for(i in 1:length(enviro$lat)) { coordinates <- c(coordinates, list(c(enviro$lat[i], enviro$lon[i])))}
+    
+    if(length(enviro$lat) > 1 & length(enviro$lon) > 1){
+      geometry <- "polygon"
+      coordinates <- c(coordinates, list(c(enviro$lat[1], enviro$lon[1])))
+      
+      } else { geometry <- "point"
+    }
+    
+    geoloc <- geojsonio::geojson_list(, geometry = geometry)$features[[1]]$geometry
     geoloc$crs <- list(type="name",properties=list(name=paste0("EPSG:",enviro$srid)))
     enviro$localisation <- geoloc
 

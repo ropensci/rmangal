@@ -76,9 +76,18 @@ POST_interaction <- function(inter_df = data, inter = inter, enviro = NA, attr =
   print("keys added")
 
   # attach location to the interaction metadata
-  geoloc <- geojsonio::geojson_list(c(inter$lat,inter$lon))$features[[1]]$geometry
+  coordinates <- list()
+  for(i in 1:length(inter$lat)) { coordinates <- c(coordinates, list(c(inter$lat[i], inter$lon[i])))}
+  
+  if(length(inter$lat) > 1 & length(inter$lon) > 1){
+    geometry <- "polygon"
+    coordinates <- c(coordinates, list(c(inter$lat[1], inter$lon[1])))
+    
+    } else { geometry <- "point"
+  }
+  
+  geoloc <- geojsonio::geojson_list(coordinates, geometry = geometry)$features[[1]]$geometry
   geoloc$crs <- list(type="name",properties=list(name=paste0("EPSG:",inter$srid)))
-
   inter$localisation <- geoloc
 
   inter[c("lat","lon","srid")] <- NULL

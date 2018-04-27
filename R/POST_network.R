@@ -64,8 +64,18 @@ POST_network <- function(network_lst, enviro = enviro, dataset = dataset, users 
       network_lst <- c(network_lst, user_id = GET_fkey("users", "name", users[["name"]]))
     }
 
-    # attach location to the network
-    geoloc <- geojsonio::geojson_list(c(network_lst$lat,network_lst$lon))$features[[1]]$geometry
+    # attach location to the networ
+    coordinates <- list()
+    for(i in 1:length(network_lst$lat)) { coordinates <- c(coordinates, list(c(network_lst$lat[i], network_lst$lon[i])))}
+  
+    if(length(network_lst$lat) > 1 & length(network_lst$lon) > 1){
+      geometry <- "polygon"
+      coordinates <- c(coordinates, list(c(network_lst$lat[1], network_lst$lon[1])))
+    
+      } else { geometry <- "point"
+    }
+      
+    geoloc <- geojsonio::geojson_list(coordinates, geometry = geometry)$features[[1]]$geometry
     geoloc$crs <- list(type="name",properties=list(name=paste0("EPSG:",network_lst$srid)))
     network_lst$localisation <- geoloc
 
