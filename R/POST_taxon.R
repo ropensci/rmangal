@@ -30,13 +30,13 @@ POST_taxon <- function(taxa_df = taxa_df){
   # Get taxo_id from taxo_back table
   for (i in 1:nrow(taxa_df)) {
 
-    if (length(httr::content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/taxa_back/?name=", taxa_df[i, "name_clear"])), config = mangal.env$headers))) == 0){
+    if (length(httr::content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/taxonomy/?name=", taxa_df[i, "name_clear"])), config = mangal.env$headers))) == 0){
 
       print(paste0(taxa_df[i, "original_name"], " is not in taxa_backbone, no taxo_id"))
 
       } else {
 
-        taxa_df[i, "taxo_id"] <- GET_fkey("taxa_back", "name", taxa_df[i, "name_clear"])
+        taxa_df[i, "taxo_id"] <- GET_fkey("taxonomy", "name", taxa_df[i, "name_clear"])
 
       }
 
@@ -50,7 +50,7 @@ POST_taxon <- function(taxa_df = taxa_df){
   taxon_lst <- json_list(taxa_df)
 
   # Inject to networks table
-  POST_table(taxon_lst, "taxa")
+  POST_table(taxon_lst, "node")
 
   print("taxon done")
 }

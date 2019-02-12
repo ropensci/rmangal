@@ -36,7 +36,7 @@ POST_taxa_back <- function(taxa_back = taxa_back){
 
   for(i in 1:length(taxa_back_lst)){
 
-    path <- httr::modify_url(server, path = gsub(" ", "%20", paste0(mangal.env$base, "/taxa_back/?name=",
+    path <- httr::modify_url(server, path = gsub(" ", "%20", paste0(mangal.env$base, "/taxonomy/?name=",
                                                                     taxa_back[i, "name"])))
 
     # Is retreived content == 0 -> in this case inject data
