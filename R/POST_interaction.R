@@ -66,13 +66,6 @@ POST_interaction <- function(inter_df, inter, enviro = NA, attr = NULL, users, n
     inter_df[, "environment_id"] <- GET_fkey("environment", c("name", "date", "value"), c(enviro[["name"]], enviro[["date"]], enviro[["value"]]))
   }
 
-<<<<<<< HEAD
-=======
-  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/user/?name=", users[["name"]])), config = mangal.env$headers))) != 0){
-    inter_df[, "user_id"] <- GET_fkey("users", "name", users[["name"]])
-  }
-
->>>>>>> 186be47f9a5cc51999a6c291ab6121cafe79a18d
   # Remove unused column
   inter_df <- inter_df[,3:ncol(inter_df)]
 

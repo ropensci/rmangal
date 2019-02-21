@@ -51,5 +51,5 @@ POST_node <- function(node_df, network){
   # Inject to networks table
   POST_table(node_lst, "node")
 
-  print("taxon done")
+  print("node done")
 }
