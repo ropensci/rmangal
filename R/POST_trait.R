@@ -5,7 +5,7 @@
 #'    before.
 #'
 #' @param traits_df A dataframe with three columns:\cr
-#' 'taxa': taxa name as found in the taxa table
+#' 'taxon': taxa name as found in the taxa table
 #' 'name': name of the trait as found in the attribute table\cr
 #' 'value': value of the trait
 #'
@@ -36,29 +36,29 @@ POST_trait <- function(trait_df, network){
   server <- mangal.env$prod$server
 
   # Retreive fkey for taxon_id and attr_id
-  trait_df[, "taxon_id"] <- NA
+  trait_df[, "node_id"] <- NA
   trait_df[, "attr_id"]  <- NA
 
   for (i in 1:nrow(trait_df)) {
 
     if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/node?original_name=",
-                                                             trait_df[i, "taxa"])), config = mangal.env$headers))) == 0){
+                                                             trait_df[i, "taxon"])), config = mangal.env$headers))) == 0){
 
-      print(paste0(trait_df[i, "taxa"], " is not in taxa table, entry was skip"))
+      print(paste0(trait_df[i, "taxon"], " is not in node table, entry was skip"))
 
       } else {
 
-      trait_df[i, "taxon_id"] <- GET_fkey("taxa", c("original_name", "network_id"), c(as.character(trait_df[i, "taxa"]), GET_fkey("network", "name", network[["name"]])))
+      trait_df[i, "node_id"] <- GET_fkey("node", c("original_name", "network_id"), c(as.character(trait_df[i, "taxon"]), GET_fkey("network", "name", network[["name"]])))
 
       }
   }
 
   for (i in 1:nrow(trait_df)) {
 
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/attribute/?name=",
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/attribute?name=",
                                                               trait_df[i, "name"])), config = mangal.env$headers))) == 0){
 
-      print(paste0(trait_df[i, "name"], " is not in attributes table, entry was skip"))
+      print(paste0(trait_df[i, "name"], " is not in attribute table, entry was skip"))
 
       } else {
 

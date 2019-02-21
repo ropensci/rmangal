@@ -20,7 +20,6 @@
 #' 
 #' @param enviro A list of the environement's metadata; must have the levels 'name', 'date' and 'value'
 #' @param attr A list of the interaction's attribute; must have the levels 'name' and 'unit'
-#' @param users A list of the user's metadata; must have the level 'name'
 #'
 #' @return
 #'

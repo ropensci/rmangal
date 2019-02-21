@@ -36,13 +36,8 @@ POST_taxonomy <- function(taxo){
 
   for(i in 1:length(taxo_lst)){
 
-<<<<<<< HEAD:R/POST_taxonomy.R
     path <- httr::modify_url(server, path = gsub(" ", "%20", paste0(mangal.env$base, "/taxonomy?name=",
                                                                     taxo[i, "name"])))
-=======
-    path <- httr::modify_url(server, path = gsub(" ", "%20", paste0(mangal.env$base, "/taxonomy/?name=",
-                                                                    taxa_back[i, "name"])))
->>>>>>> 186be47f9a5cc51999a6c291ab6121cafe79a18d:R/POST_taxa_back.R
 
     # Is retreived content == 0 -> in this case inject data
     if (length(content(httr::GET(url = path, config = mangal.env$headers))) == 0) {
