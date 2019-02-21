@@ -26,32 +26,32 @@
 #' @export
 
 ## Create and inject taxo_back table ##
-POST_taxa_back <- function(taxa_back = taxa_back){
+POST_taxonomy <- function(taxo){
 
   # taxon_df as a json list
-  taxa_back_lst <- json_list(taxa_back)
+  taxo_lst <- json_list(taxo)
 
   # Is retreived content == 0 -> in this case inject taxo_back
   server <- mangal.env$prod$server
 
-  for(i in 1:length(taxa_back_lst)){
+  for(i in 1:length(taxo_lst)){
 
-    path <- httr::modify_url(server, path = gsub(" ", "%20", paste0(mangal.env$base, "/taxa_back/?name=",
-                                                                    taxa_back[i, "name"])))
+    path <- httr::modify_url(server, path = gsub(" ", "%20", paste0(mangal.env$base, "/taxonomy?name=",
+                                                                    taxo[i, "name"])))
 
     # Is retreived content == 0 -> in this case inject data
     if (length(content(httr::GET(url = path, config = mangal.env$headers))) == 0) {
 
       # Inject to networks table
-      POST_line(taxa_back_lst[[i]], "taxa_back")
+      POST_line(taxo_lst[[i]], "taxonomy")
 
     } else {
 
-      print(paste0(taxa_back_df[i, "name"], " is already in Mangal, entry was skip"))
+      print(paste0(taxo[i, "name"], " is already in Mangal, entry was skip"))
 
     }
 
   }
 
-  print("taxa_back done")
+  print("taxonomy done")
 }

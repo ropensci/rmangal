@@ -34,7 +34,7 @@ POST_attribute <- function(attr){
   # Check if the attribute already exist
   server <- mangal.env$prod$server
 
-  path <- httr::modify_url(server, path = paste0(mangal.env$base, "/attribute/?name=",attr[["name"]],
+  path <- httr::modify_url(server, path = paste0(mangal.env$base, "/attribute?name=",attr[["name"]],
                                                  "&unit=", attr[["unit"]]))
 
    # Change space in url by "_"
@@ -44,7 +44,7 @@ POST_attribute <- function(attr){
   if (length(content(httr::GET(url = path, config = mangal.env$headers))) == 0) {
 
     # Attibutes_df as a json list
-    attribute_lst <- json_list(as.data.frame(attr))
+    attribute_lst <- json_list(as.data.frame(attr, stringAsFactors = F))
 
     # Inject to attributes table
     POST_table(attribute_lst, "attribute")

@@ -37,7 +37,7 @@ POST_ref <- function(ref = ref){
   # Check if the refs already exist
   server <- mangal.env$prod$server
 
-  path <- modify_url(server, path = paste0(mangal.env$base, "/ref/?author=",ref[["author"]], "&year=", ref[["year"]]))
+  path <- modify_url(server, path = paste0(mangal.env$base, "/reference?author=",ref[["author"]], "&year=", ref[["year"]]))
 
   # Change space in url by "_"
   path <- gsub(" ", "%20", path)
@@ -46,10 +46,10 @@ POST_ref <- function(ref = ref){
   if (length(content(GET(url = path, config = mangal.env$headers))) == 0) {
 
     # Refs_df as a json list
-    refs_lst <- json_list(data.frame(ref))
+    refs_lst <- json_list(data.frame(ref, stringsAsFactors = F))
 
     # Inject to refs table
-    POST_table(refs_lst, "ref")
+    POST_table(refs_lst, "reference")
 
     print("ref done")
 

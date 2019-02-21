@@ -22,4 +22,4 @@ mangal.env$prod$server <- "http://poisotlab.biol.umontreal.ca"
 #mangal.env$prod$server <- "http://localhost:3000"
 
 # List table
-mangal.env$table <- c("attribute", "ref", "environment", "users", "dataset", "trait", "network", "taxa", "taxa_back", "interaction")
+mangal.env$table <- c("attribute", "ref", "environment", "users", "dataset", "trait", "network", "node", "taxonomy", "interaction")

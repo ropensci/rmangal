@@ -1,7 +1,7 @@
 #' @title POST data into the Mangal datasets table
 #'
 #' @description GET foreign keys needed for the 'datasets' table then POST
-#'    the metadata associated. 'users' and 'refs' tables must be POST
+#'    the metadata associated. 'users' and 'reference' tables must be POST
 #'    before.
 #'
 #' @param dataset A list of the dataset's metadata; must have four levels:\cr
@@ -38,8 +38,8 @@ POST_dataset <- function(dataset = dataset, users = users, ref = ref){
   # Check if the datasets already exist
   server <- mangal.env$prod$server
 
-  path <- httr::modify_url(server, path = paste0(mangal.env$base, "/dataset/?name=",
-                                         dataset[["name"]]))
+  path <- httr::modify_url(server, path = paste0(mangal.env$base, "/dataset?name=",
+                                          dataset[["name"]]))
   # Change space in url by "_"
   path <- gsub(" ", "%20", path)
 
@@ -47,12 +47,12 @@ POST_dataset <- function(dataset = dataset, users = users, ref = ref){
   if (length(content(httr::GET(url = path, config = mangal.env$headers))) == 0) {
 
     # Retrive foreign key
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/users/?name=", users[["name"]])), config = mangal.env$headers))) != 0){
-      dataset <- c(dataset, user_id = GET_fkey("users","name", users[["name"]]))
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/users?name=", users[["name"]])), config = mangal.env$headers))) != 0){
+      dataset <- c(dataset, user_id = GET_fkey("user","name", users[["name"]]))
     }
 
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/ref/?author=", tolower(ref[["author"]]), "&year=", ref[["year"]])), config = mangal.env$headers))) != 0){
-    dataset <- c(dataset, ref_id = GET_fkey("ref", c("author", "year"), c(tolower(ref[["author"]]), ref[["year"]])))
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/reference?author=", tolower(ref[["author"]]), "&year=", ref[["year"]])), config = mangal.env$headers))) != 0){
+    dataset <- c(dataset, ref_id = GET_fkey("reference", c("author", "year"), c(tolower(ref[["author"]]), ref[["year"]])))
     }
 
     # Datasets_df as a json list

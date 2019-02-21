@@ -28,7 +28,7 @@ GET_fkey <- function(table, attribute, value){
   server <- mangal.env$prod$server
 
   # Set the table and name as path
-  url <- httr::modify_url(server, path = paste0(mangal.env$base, "/", table, "/?"))
+  url <- httr::modify_url(server, path = paste0(mangal.env$base, "/", table, "?"))
 
   # If lenght of attribute & value > 1, then proceed to complex request
   if((length(attribute) == 1 & length(value) == 1) == TRUE){

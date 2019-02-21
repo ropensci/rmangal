@@ -43,7 +43,7 @@ POST_network <- function(network_lst, enviro = enviro, dataset = dataset, users 
   # Check if the network already exist
   server <- mangal.env$prod$server
 
-  path <- httr::modify_url(server, path = paste0(mangal.env$base, "/network/?name=",
+  path <- httr::modify_url(server, path = paste0(mangal.env$base, "/network?name=",
                                           network_lst[["name"]]))
   # Change space in url by "_"
   path <- gsub(" ", "%20", path)
@@ -52,16 +52,16 @@ POST_network <- function(network_lst, enviro = enviro, dataset = dataset, users 
   if (length(content(httr::GET(url = path, config = mangal.env$headers))) == 0) {
 
     # Retrive foreign key
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/dataset/?name=", tolower(dataset[["name"]]))), config = mangal.env$headers))) != 0){
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/dataset?name=", tolower(dataset[["name"]]))), config = mangal.env$headers))) != 0){
       network_lst <- c(network_lst, dataset_id = GET_fkey("dataset", "name", tolower(dataset[["name"]])))
     }
 
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/environment/?name=", tolower(enviro[["name"]]), "&date=", enviro[["date"]], "&value=", enviro[["value"]])), config = mangal.env$headers))) != 0){
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/environment?name=", tolower(enviro[["name"]]), "&date=", enviro[["date"]], "&value=", enviro[["value"]])), config = mangal.env$headers))) != 0){
       network_lst <- c(network_lst, environment_id = GET_fkey("environment", c("name", "date", "value"), c(tolower(enviro[["name"]]), enviro[["date"]], enviro[["value"]])))
     }
 
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/users/?name=", users[["name"]])), config = mangal.env$headers))) != 0){
-      network_lst <- c(network_lst, user_id = GET_fkey("users", "name", users[["name"]]))
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/users?name=", users[["name"]])), config = mangal.env$headers))) != 0){
+      network_lst <- c(network_lst, user_id = GET_fkey("user", "name", users[["name"]]))
     }
 
     # attach location to the networ
