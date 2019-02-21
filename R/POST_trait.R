@@ -8,7 +8,7 @@
 #' 'taxa': taxa name as found in the taxa table
 #' 'name': name of the trait as found in the attribute table\cr
 #' 'value': value of the trait
-#' 
+#'
 #' @param network A list the network's metadata; must have the 'name' level
 #'
 #' @return
@@ -41,7 +41,7 @@ POST_trait <- function(trait_df, network){
 
   for (i in 1:nrow(trait_df)) {
 
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/taxa/?original_name=",
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/node?original_name=",
                                                              trait_df[i, "taxa"])), config = mangal.env$headers))) == 0){
 
       print(paste0(trait_df[i, "taxa"], " is not in taxa table, entry was skip"))

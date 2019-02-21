@@ -27,7 +27,11 @@ POST_users <- function(users){
   # Check if the users already exist
   server <- mangal.env$prod$server
 
+<<<<<<< HEAD
   path <- httr::modify_url(server, path = paste0(mangal.env$base, "/users?name=", users[[1]]))
+=======
+  path <- httr::modify_url(server, path = paste0(mangal.env$base, "/user/?name=", users[[1]]))
+>>>>>>> 186be47f9a5cc51999a6c291ab6121cafe79a18d
 
   # Change space in url by "_"
   path <- gsub(" ", "%20", path)
