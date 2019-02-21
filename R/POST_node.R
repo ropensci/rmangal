@@ -30,22 +30,13 @@ POST_node <- function(node_df, network){
   # Get taxo_id from taxo_back table
   for (i in 1:nrow(node_df)) {
 
-<<<<<<< HEAD:R/POST_node.R
-    if (length(httr::content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/taxonomy?name=", node_df[i, "name_clear"])), config = mangal.env$headers))) == 0){
-=======
-    if (length(httr::content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/taxonomy/?name=", taxa_df[i, "name_clear"])), config = mangal.env$headers))) == 0){
->>>>>>> 186be47f9a5cc51999a6c291ab6121cafe79a18d:R/POST_taxon.R
+      if (length(httr::content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/taxonomy?name=", node_df[i, "name_clear"])), config = mangal.env$headers))) == 0){
 
       print(paste0(node_df[i, "original_name"], " is not in taxonomy, no taxo_id"))
 
       } else {
 
-<<<<<<< HEAD:R/POST_node.R
         node_df[i, "taxonomy_id"] <- GET_fkey("taxonomy", "name", node_df[i, "name_clear"])
-=======
-        taxa_df[i, "taxo_id"] <- GET_fkey("taxonomy", "name", taxa_df[i, "name_clear"])
->>>>>>> 186be47f9a5cc51999a6c291ab6121cafe79a18d:R/POST_taxon.R
-
       }
 
     }
@@ -58,7 +49,7 @@ POST_node <- function(node_df, network){
   node_lst <- json_list(node_df)
 
   # Inject to networks table
-  POST_table(taxon_lst, "node")
+  POST_table(node_lst, "node")
 
   print("taxon done")
 }
