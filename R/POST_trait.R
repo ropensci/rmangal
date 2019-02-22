@@ -69,8 +69,10 @@ POST_trait <- function(trait_df, network){
   }
 
   # Add metadata
+  if(length(trait) != 0){
   trait_df <- cbind(data.table::setDT(trait_df),
                     data.table::setDT(as.data.frame(trait)))
+  }
 
   # traits_df as a json list
   trait_lst <- json_list(data.frame(trait_df))
