@@ -29,13 +29,13 @@
 #' @export
 
 ## Create and inject environments table ##
-POST_environment <- function(enviro = enviro, attr = attr){
+POST_environment <- function(enviro = enviro, attr = attr, network = network){
 
   # Put attribute in lowercase
   attr[["name"]] <- tolower(attr[["name"]])
-  if(attr[["value"]] != "NA") attr[["value"]] <- tolower(attr[["value"]])
+  if(attr[["unit"]] != "NA") attr[["unit"]] <- tolower(attr[["unit"]])
 
-  enviro[["name"]] <- tolower(envrio[["name"]])
+  enviro[["name"]] <- tolower(enviro[["name"]])
 
   # Check if the environments already exist
   server <- mangal.env$prod$server
@@ -49,10 +49,14 @@ POST_environment <- function(enviro = enviro, attr = attr){
   if (length(content(httr::GET(url = path, config = mangal.env$headers))) == 0) {
 
     # Retrive foreign key
-    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/attribute/?name=", attr[["name"]], "&unit=", attr[["unit"]])), config = mangal.env$headers))) != 0){
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/attribute?name=", attr[["name"]], "&unit=", attr[["unit"]])), config = mangal.env$headers))) != 0){
       enviro <- c(enviro, attr_id = GET_fkey("attribute", c("name", "unit"), c(attr[["name"]], attr[["unit"]])))
     }
 
+    if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/network?name=", network[["name"]], "&date=", network[["date"]])), config = mangal.env$headers))) != 0){
+      enviro <- c(enviro, network_id = GET_fkey("network", c("name", "date"), c(network[["name"]], network[["date"]])))
+    }
+    
     # attach location to the environment
     coordinates <- list()
     for(i in 1:length(enviro$lat)) { coordinates <- c(coordinates, list(c(enviro$lat[i], enviro$lon[i])))}
