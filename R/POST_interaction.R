@@ -65,7 +65,7 @@ POST_interaction <- function(inter_df, inter, enviro = NA, attr = NULL, users, n
     inter_df[, "environment_id"] <- GET_fkey("environment", c("name", "date", "value"), c(enviro[["name"]], enviro[["date"]], enviro[["value"]]))
   }
   
-  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/network?name=", network[["name"]], "&date=", network[["date"]], )), config = mangal.env$headers))) != 0){
+  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/network?name=", network[["name"]], "&date=", network[["date"]])), config = mangal.env$headers))) != 0){
     inter_df[, "network_id"] <- GET_fkey("network", c("name", "date"), c(network[["name"]], network[["date"]]))
   }
   
