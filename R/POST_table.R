@@ -38,11 +38,11 @@ POST_table <- function(data_lst, table) {
     if(httr::http_error(resp) == TRUE){
 
       # If so, paste line + status message
-      status[length(status)+1] <- paste(j, httr::http_status(resp)[[3]])
+      status[length(status)+1] <- paste(j, httr::http_status(resp)[[3]], "\nReason :", httr::content(resp)[[2]][1])
     }
   }
   # View wich request failed
-  if(length(status) != 0) print(paste("Entries that failed:",status))
+  if(length(status) != 0) cat(paste0("----------------------------\nEntries that failed: ",status,"\n----------------------------"), sep = "")
 
   else print("No entry failed")
 }
