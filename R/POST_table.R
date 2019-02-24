@@ -32,18 +32,23 @@ POST_table <- function(data_lst, table) {
   for (j in 1:length(data_lst)) {
 
     # Get the status of the POST in resp
-    resp <- POST_line(data_lst[[j]], table)
+    resp <- POST_line(data_lst[[i]], table)
 
     # Check if status code other than "Created"
     if(httr::http_error(resp) == TRUE){
 
       # If so, paste line + status message
-      status[length(status)+1] <- paste(j, httr::http_status(resp)[[3]], "\nReason :", httr::content(resp)$errors)
+      error_code <- httr::http_status(resp)[[3]]
+      error_content <- unlist(sapply(httr::content(resp)$errors, "[", 2))
+      
+      for(k in 1: length(error_content)){
+        status[length(status)+k] <- paste(j, error_code, "\nReason :", error_content[k])
+      }
     }
   }
   # View wich request failed
   
-  if(length(status) != 0) cat(paste0("----------------------------\nEntries that failed: ",status,"\n----------------------------"), sep = "")
+  if(length(status) != 0) cat(paste0("----------------------------\nEntries that failed: ",na.omit(status),"\n----------------------------"), sep = "")
 
   else print("No entry failed")
 }
