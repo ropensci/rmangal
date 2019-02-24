@@ -32,7 +32,7 @@ POST_table <- function(data_lst, table) {
   for (j in 1:length(data_lst)) {
 
     # Get the status of the POST in resp
-    resp <- POST_line(data_lst[[i]], table)
+    resp <- POST_line(data_lst[[j]], table)
 
     # Check if status code other than "Created"
     if(httr::http_error(resp) == TRUE){
