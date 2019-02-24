@@ -66,11 +66,11 @@ POST_network <- function(network_lst, enviro = enviro, dataset = dataset, users 
 
     # attach location to the networ
     coordinates <- list()
-    for(i in 1:length(network_lst$lat)) { coordinates <- c(coordinates, list(c(network_lst$lat[i], network_lst$lon[i])))}
+    for(i in 1:length(network_lst$lat)) { coordinates <- c(coordinates, list(c(network_lst$lon[i], network_lst$lat[i])))}
   
-    if(length(network_lst$lat) > 1 & length(network_lst$lon) > 1){
+    if(length(network_lst$lon) > 1 & length(network_lst$lat) > 1){
       geometry <- "polygon"
-      coordinates <- c(coordinates, list(c(network_lst$lat[1], network_lst$lon[1])))
+      coordinates <- c(coordinates, list(c(network_lst$lon[1], network_lst$lat[1])))
     
       } else { geometry <- "point"
     }
