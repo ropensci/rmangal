@@ -39,12 +39,14 @@
 
 # Create and inject interactions table ##
 POST_interaction <- function(inter_df, inter, enviro = NA, attr = NULL, users, network){
-
+# inter_df <- FW_name[[1]];interx <- inter[[1]];enviro<-NA;users <- users;network <- network[[1]];attr <- attr_inter
   # Put attribute in lowercase
   attr[["name"]] <- tolower(attr[["name"]])
   if(attr[["unit"]] != "NA") attr[["unit"]] <- tolower(attr[["unit"]])
 
-
+  # Put network name in lowercase to match network[["name"]] already in DB
+  network[["name"]] <- tolower(network[["name"]])
+  
   # Retrive foreign keys
   ## node_from & node_to
   inter_df[, "node_from"] <- NA
@@ -61,9 +63,9 @@ POST_interaction <- function(inter_df, inter, enviro = NA, attr = NULL, users, n
     inter_df[, "attr_id"] <- GET_fkey("attribute", c("name", "unit"), c(tolower(attr[["name"]]), attr[["unit"]]))
   }
 
-  if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/environment?name=", enviro[["name"]], "&date=", enviro[["date"]], "&value=", enviro[["value"]])), config = mangal.env$headers))) != 0){
-    inter_df[, "environment_id"] <- GET_fkey("environment", c("name", "date", "value"), c(enviro[["name"]], enviro[["date"]], enviro[["value"]]))
-  }
+  # if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/environment?name=", enviro[["name"]], "&date=", enviro[["date"]], "&value=", enviro[["value"]])), config = mangal.env$headers))) != 0){
+  #   inter_df[, "environment_id"] <- GET_fkey("environment", c("name", "date", "value"), c(enviro[["name"]], enviro[["date"]], enviro[["value"]]))
+  # }
   
   if (length(content(httr::GET(url = gsub(" ", "%20", paste0(server, mangal.env$base, "/network?name=", network[["name"]], "&date=", network[["date"]])), config = mangal.env$headers))) != 0){
     inter_df[, "network_id"] <- GET_fkey("network", c("name", "date"), c(network[["name"]], network[["date"]]))
