@@ -2,27 +2,22 @@
 #'
 #' @description GET primary key of a table entry specified by the user
 #'
-#' @param table A element, must be the name of the targeted table with ""
-#' @param attribute A element, must be the name of the targeted attribute with ""
+#' @param enpoint A element, must be the name of the targeted table with ""
+#' @param param A element, must be the name of the targeted attribute with ""
 #' @param value A element, must be the value of the targeted attribute with ""
 #'
 #' @return
 #'
 #' The value of the primary key of a specified entry
 #'
-#' @author Gabriel Bergeron
+#' @author Gabriel Bergeron & Steve Vissault
 #'
-#' @keywords database
-#'
-#' @importFrom httr modify_url
-#' @importFrom httr GET
-#' @importFrom httr content
 #'
 #' @export
 
-GET_fkey <- function(table, attribute, value){
+GET_fkey <- function(url = NULL, params = ){
 
-  if(length(attribute) != length(value)) stop("attribute and value not of the same length")
+  if(length(attribute) != length(value)) stop("attributes and values not the same vectors length")
 
   # Connect to API
   server <- mangal.env$prod$server
@@ -33,13 +28,6 @@ GET_fkey <- function(table, attribute, value){
   # If lenght of attribute & value > 1, then proceed to complex request
   if((length(attribute) == 1 & length(value) == 1) == TRUE){
 
-  # Change space in url by "_"
-  url <- gsub(" ", "%20", paste0(url, attribute, "=", value))
-
-  } else {
-
-    url <- gsub(" ", "%20", paste0(url, paste0(attribute, "=", value, collapse = "&")))
-  }
 
   # Retreive data from Mangal
   data <- httr::GET(url, config = mangal.env$headers)
