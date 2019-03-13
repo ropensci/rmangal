@@ -1,36 +1,5 @@
-language: r
-warnings_are_errors: true
-sudo: required
+# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
+
+language: R
+sudo: false
 cache: packages
-
-
-matrix:
-  include:
-    - os: linux
-      r: oldrel
-      env: NOT_CRAN=false
-    - os: linux
-      r: release
-      env: NOT_CRAN=true
-    - os: osx
-      r: release
-      env: NOT_CRAN=true
-    - os: linux
-      r: devel
-      env: NOT_CRAN=false
-
-
-notifications:
-  email:
-    on_success: change
-    on_failure: change
-    recipients:
-      - kcazelle@uoguelph.ca
-      - steve.vissault@usherbrook.ca
-
-r_github_packages:
-  - r-lib/covr
-
-after_success:
-  - Rscript -e 'covr::codecov()'
-  - Rscript -e 'covr::coveralls()'
