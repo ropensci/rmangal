@@ -1,25 +1,18 @@
-#' Coerce 
+#' Coerce mangalGetResp to data.frame
 #'
-#' @param responses liste de réponse des fonctions de GET/POST
+#' @param responses mangalGetResp class
 #' @export
 
 as.data.frame.mangalGetResp <- function(responses=responses, ...){
-
-    return(tibble::as_tibble(all_body <- do.call(
-        plyr::rbind.fill,
-        lapply(responses, function(page){
-        return(page$body)
-        })
-    )))
-
+    return(dplyr::bind_rows(purrr::map(responses, "body")))
 }
 
-#' Class test `coleoGetResp` (Objet S3)
+#' Test on class `coleoGetResp` (Objet S3)
 #' @param x Objet à tester
 #' @export
-is.mangalGetResp <- function(x) inherits(x,'mangalGetResp')
+is.mangalGetResp <- function(x) inherits(x,'mangalGet')
 
-#' Class test `coleoPostResp` (Objet S3)
+#' Test on class `coleoPostResp` (Objet S3)
 #' @param x Objet à tester
 #' @export
-is.mangalPostResp <- function(x) inherits(x,'mangalPostResp')
+is.mangalPostResp <- function(x) inherits(x,'mangalPost')
