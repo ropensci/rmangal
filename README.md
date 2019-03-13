@@ -16,9 +16,10 @@ See, http://poisotlab.biol.umontreal.ca/#/
 
 The development version can be installed via the devtools package:
 
+```r
 devtools::install_github("ropensci/rcites")
 library("rcites")
-
+```
 
 ## License
 
