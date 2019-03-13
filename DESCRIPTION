@@ -1,16 +1,22 @@
-Package: mangal
+Package: rmangal
 Type: Package
-Title: R mangal package.
+Title: rmangal - ecological interactions database
 Version: 1.0.0
 URL: https://github.com/mangal-wg/rmangal
 Author@R: c(
-    person(given = "Gabriel", family = "Bergeron",
-      email = "gabriel.bergeron3@usherbrooke.ca", role = c("auth")),
     person(given = "Steve", family = "Vissault",
       email = "steve.vissault@usherbrooke.ca", role = c("auth","cre")),
+    person(given = "Gabriel", family = "Bergeron",
+      email = "gabriel.bergeron3@usherbrooke.ca", role = c("auth","cre")),
+    person(given = "Benjamin", family = "Mercier",
+      email = "Benjamin.B.Mercier@usherbrooke.ca", role = c("auth","cre")),
+    person(given = "Clément", family = "Violet",
+      email = "Clement.Violet@etudiant.univ-brest.fr", role = c("auth","cre")),
+    person(given = "Kevin", family = "Cazelles",
+      email = "kcazelle@uoguelph.ca", role = c("auth","cre")),
     person(given = "Timothée", family = "Poisot",
-      email = "timothee.poisot@umontreal.ca", role = c("auth","cre"))
-Description: This package is designed to interact with the mangal v2 web api.
+      email = "timothee.poisot@umontreal.ca", role = c("auth"))
+Description: Exploring mangal (v2) web API (http://poisotlab.biol.umontreal.ca/#/)
 License: MIT
 Encoding: UTF-8
 LazyData: true
