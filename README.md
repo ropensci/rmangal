@@ -1,27 +1,17 @@
 # mangal
 
-A package containing functions to interact with the mangal API and database.
+A package to retrieve and explore data from the ecological interaction database MANGAL.
+See, http://poisotlab.biol.umontreal.ca/#/
 
-## Getting Started
+## Installation
 
-Go to this page: `poisotlab.biol.umontreal.ca/auth` to retrieve your acces_token. You will have to create an Orcid account if you don't have one. Once you have registered, you will be directed to a page with your orcid id and an access_token. Copy your access_token. Create the ```.httr-oauth``` file in the package directory ```../mangal.package``` with ```saveRDS('your access_token')```.
+### Development
 
-## Authors
+The development version can be installed via the devtools package:
 
-* **Steve Vissault** - *Initial work* - [SteveViss](https://github.com/SteveViss)
-* **Timothee Poisot** - *Initial work* - [tpoisot](https://github.com/tpoisot)
-* **Gabriel Bergeron** - *Package developer* - [gabrielbouleau](https://github.com/gabrielbouleau)
+devtools::install_github("ropensci/rcites")
+library("rcites")
 
-## TODO
-
-- [ ] Function - cover all GET methods
-- [ ] Function - Template boilerplate for importation
-- [ ] Function - Add convert function igraph object
-- [ ] Extension - Add rmangal package to alien package
-- [ ] Vignette - Import dataset
-- [ ] Vignette - Access data
-- [ ] Quality - Reduce code redundancies
-- [ ] Quality - Add testthat and code coverage
 
 ## License
 
