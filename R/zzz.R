@@ -165,6 +165,32 @@ get_singletons <- function(endpoint = NULL, ids = NULL, output = "list", flatten
 
 }
 
+#' GET entries corresponding to foreign key
+#'
+#' @param endpoint `character` API entry point
+#' @param column `character` column which contain the fkey
+#' @param id `numeric` foreign key
+#' @param ... get_gen options, see [rmangal::get_gen()]
+#' @return
+#' Object returned by [rmangal::get_gen()]
+#' @details
+#' See endpoints available with `print(endpoints)`
+#' @examples
+#' @export
+
+get_fkey <- function(endpoint = NULL, column = NULL, id = NULL,  ...) {
+
+  stopifnot(!is.null(endpoint) & !is.null(ids) & is.numeric(ids)  & !is.null(column) & is.column(column))
+
+  # set query  
+  query <- list()
+  query[column] <- id
+
+  return(get_gen(endpoint = endpoint, query = query))
+
+}
+
+
 #' Coerce body return by the API to an sf object
 #'
 #' @param body `data.frame` return by the API call
