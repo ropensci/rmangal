@@ -1,11 +1,11 @@
-# Config de base
+# Basic
 server <- function() "http://poisotlab.biol.umontreal.ca"
 #server <- function() "http://localhost:8080" # dev purpose
 base <- function() "/api/v2"
 bearer <- function() ifelse(file.exists(".httr-oauth"), as.character(readRDS(".httr-oauth")), NA)
 ua <- httr::user_agent("rmangal")
 
-# Point d'entrées de l'API
+# Endpoints
 endpoints <- function(){
   list(
     dataset = "/dataset",
@@ -20,19 +20,22 @@ endpoints <- function(){
   )
 }
 
+# Spatial columns of mangal DB
+sf_columns <- function(x) return(c("geom.type","geom.coordinates"))
 
 #' GET generic function
 #'
 #' @param endpoint `character` API entry point
 #' @param query `list` list of params passed to the API
 #' @param limit `integer` number of entries return by the API (max: 1000)
-#' @param flatten `logical` flatten nested data.frame, see [jsonlite::flatten()]
-#' @param output `character` output type: `data.frame`, `list`, `json`
+#' @param flatten `logical` flatten nested data.frame, see [jsonlite::flatten()]; default: `TRUE`
+#' @param output `character` output type (`data.frame`, `list`, `spatial`, `raw`) return (default: data.frame)
 #' @param ... httr options, see [httr::GET()]
 #' @return
-#' Object of class `getSuccess` or `getError`.
-#' `getSuccess` is a list with the body [httr::content()] and the server response [httr::response()]. 
-#' `getError` has the exact same structure with the body empty.
+#' Object of class `mgGetResponses` whithin each level is a page.
+#' Each item of the list `mgGetResponses` corresponds to an API call. Each call returns an object:
+#' - `getSuccess` which is a list with the body [httr::content()] and the server response [httr::response()]. 
+#' - `getError` which has the exact same structure with an empty body.
 #' @details
 #' See endpoints available with `print(endpoints)`
 #' @examples
@@ -40,7 +43,7 @@ endpoints <- function(){
 
 get_gen <- function(endpoint = NULL, query = NULL, limit =100, flatten = TRUE, output = 'data.frame', ...) {
 
-  stopifnot(exists("endpoint") | is.null(endpoint))
+  stopifnot(!is.null(endpoint))
 
   url <- httr::modify_url(server(), path = paste0(base(), endpoint))
 
@@ -49,12 +52,7 @@ get_gen <- function(endpoint = NULL, query = NULL, limit =100, flatten = TRUE, o
   
   # Prep output object
   responses <- list()
-  class(responses) <- "mangalGet"
-
-  # Cover status is 401
-  if(httr::status_code(resp) == 401){
-    stop(httr::content(resp)$message)
-  }
+  class(responses) <- "mgGetResponses"
 
   # Get number of page
   rg <- as.numeric(stringr::str_extract_all(httr::headers(resp)["content-range"],
@@ -70,15 +68,6 @@ get_gen <- function(endpoint = NULL, query = NULL, limit =100, flatten = TRUE, o
 
     resp <- httr::GET(url, config = httr::add_headers(`Content-type` = "application/json"), ua, query = query, ...)
 
-    # prep output
-    if(output == 'json'){
-      body <- httr::content(resp, type = "text", encoding = "UTF-8")
-    } else if(output == 'list') {
-      body <- httr::content(resp)
-    } else if(output == 'data.frame') {
-      body <- tibble::as_tibble(jsonlite::fromJSON(httr::content(resp, type = "text", encoding = "UTF-8"), flatten = flatten))
-    }
-
     if (httr::http_error(resp)) {
       message(sprintf("API request failed: [%s]\n%s", httr::status_code(resp),
         body$message), call. = FALSE)
@@ -88,6 +77,18 @@ get_gen <- function(endpoint = NULL, query = NULL, limit =100, flatten = TRUE, o
 
     } else {
 
+       # coerce body to output desired
+      if(output == 'raw') {
+        body <- httr::content(resp, type = "text", encoding = "UTF-8")
+      } else if(output == 'list') {
+        body <- httr::content(resp)
+      } else if(output == 'data.frame') {
+        body <- tibble::as_tibble(jsonlite::fromJSON(httr::content(resp, type = "text", encoding = "UTF-8"), flatten = flatten))
+      } else if( output == 'spatial') {
+        b <- tibble::as_tibble(jsonlite::fromJSON(httr::content(resp, type = "text", encoding = "UTF-8"), flatten = TRUE))
+        body <- mg_to_sf(b)
+      }
+
       responses[[page + 1]] <- structure(list(body = body, response = resp),
         class = "getSuccess")
 
@@ -96,5 +97,111 @@ get_gen <- function(endpoint = NULL, query = NULL, limit =100, flatten = TRUE, o
   }
 
   return(responses)
+
+}
+
+#' GET singletons
+#'
+#' @param endpoint `character` API entry point
+#' @param ids `numeric` vector of ids 
+#' @param output `character` output type (`data.frame`, `list`, `spatial`, `raw`) return; default: `list`
+#' @param flatten `logical` flatten nested data.frame, see [jsonlite::flatten()]; default: `TRUE`
+#' @param ... httr options, see [httr::GET()]
+#' @return
+#' Object of class `mgGetResponses` whithin each level is the specific ID called.
+#' Each item of the `mgGetResponses` list corresponds to an API call. Each call returns an object:
+#' - `getSuccess` which is a list with the body [httr::content()] and the server response [httr::response()]. 
+#' - `getError` which has the exact same structure with an empty body.
+#' @details
+#' See endpoints available with `print(endpoints)`
+#' @examples
+#' @export
+
+get_singletons <- function(endpoint = NULL, ids = NULL, output = "list", flatten = TRUE, ...) {
+
+  stopifnot(!is.null(endpoint) & !is.null(ids) & is.numeric(ids))
+
+  # Prep output object
+  responses <- list()
+  class(responses) <- "mgGetResponses"
+
+  # Loop over ids 
+  for(i in 1:length(ids)){
+    
+    # Set url
+    url <- httr::modify_url(server(), path = paste0(base(), endpoint, "/", ids[i]))
+    
+    # Call on the API
+    resp <- httr::GET(url, config = httr::add_headers(`Content-type` = "application/json"),ua, ...)
+  
+    if (httr::http_error(resp)) {
+      message(sprintf("API request failed: [%s]\n%s", httr::status_code(resp),
+        body$message), call. = FALSE)
+
+      responses[[i]]  <- structure(list(body = NULL, response = resp),
+          class = "getError")
+
+    } else {
+
+      # coerce body to output desired
+      if(output == 'raw') {
+        body <- httr::content(resp, type = "text", encoding = "UTF-8")
+      } else if(output == 'list') {
+        body <- httr::content(resp)
+      } else if(output == 'data.frame') {
+        body <- tibble::as_tibble(jsonlite::fromJSON(httr::content(resp, type = "text", encoding = "UTF-8"), flatten = flatten))
+      } else if( output == 'spatial') {
+        b <- tibble::as_tibble(jsonlite::fromJSON(httr::content(resp, type = "text", encoding = "UTF-8"), flatten = TRUE))
+        body <- mg_to_sf(b)
+      }
+    
+      responses[[i]]  <- structure(list(body = body, response = resp),
+        class = "getSuccess")
+
+    }
+  }
+
+  return(responses)
+
+}
+
+#' Coerce body return by the API to an sf object
+#'
+#' @param body `data.frame` return by the API call
+#' @return 
+#' sf object
+
+mg_to_sf <- function(body) {
+
+  if(all(!sf_columns() %in% names(body))){
+    stop(sprintf("%s columns not in body columns [%s]\n", sf_columns(),names(body)))
+  }
+
+  # build individual feature
+  features <- apply(body, 1, function(f){
+    if(is.na(f$geom.type) | is.null(f$geom.coordinates)){
+      return(NULL)
+    } else {
+      return(list(type="Feature", geometry=list(type=f$geom.type,coordinates=f$geom.coordinates)))
+    }
+  })
+
+  # sf reads features collection
+  geom_s <- sf::read_sf(
+    jsonlite::toJSON(
+      list(
+        type="FeatureCollection",
+        features=features),
+        auto_unbox=TRUE
+    )
+  )
+
+  # remove spatial columns
+  geom_df <- dplyr::select(body, -dplyr::one_of(sf_columns()))
+
+  # bind spatial feature with attributes table
+  geom_sdf <- sf::st_sf(dplyr::bind_cols(geom_df,geom_s))
+
+  return(geom_sdf)
 
 }
