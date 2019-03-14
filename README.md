@@ -1,3 +1,4 @@
+<img src="docs/reference/figures/logo.svg" width="130" height="150" align="right"/>
 
 [![Travis-CI Build Status](https://travis-ci.org/mangal-wg/rmangal.svg?branch=master)](https://travis-ci.org/mangal-wg/rmangal)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/mangal-wg/rmangal?branch=master&svg=true)](https://ci.appveyor.com/project/mangal-wg/rmangal)
