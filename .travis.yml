@@ -5,4 +5,4 @@ sudo: false
 cache: packages
 
 before_install:
-  - sudo apt-get install -y libprotobuf-dev protobuf-compiler libudunits2-dev libnode-dev libv8-dev
+  - sudo apt-get install -y libprotobuf-dev protobuf-compiler libudunits2-dev libv8-dev
