@@ -119,7 +119,7 @@ get_gen <- function(endpoint = NULL, query = NULL, limit =100, flatten = TRUE, o
 
 get_singletons <- function(endpoint = NULL, ids = NULL, output = "list", flatten = TRUE, ...) {
 
-  stopifnot(!is.null(endpoint) & !is.null(ids) & is.numeric(ids))
+  stopifnot(!is.null(endpoint) & !is.null(ids))
 
   # Prep output object
   responses <- list()
@@ -180,13 +180,13 @@ get_singletons <- function(endpoint = NULL, ids = NULL, output = "list", flatten
 
 get_fkey <- function(endpoint = NULL, column = NULL, id = NULL,  ...) {
 
-  stopifnot(!is.null(endpoint) & !is.null(ids) & is.numeric(ids)  & !is.null(column) & is.column(column))
+  stopifnot(!is.null(endpoint) & !is.null(id)  & !is.null(column) & is.character(column))
 
   # set query  
   query <- list()
   query[column] <- id
 
-  return(get_gen(endpoint = endpoint, query = query))
+  return(get_gen(endpoint = endpoint, query = query, ...))
 
 }
 
