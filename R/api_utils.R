@@ -29,5 +29,3 @@ is.mgGetResponses <- function(x) inherits(x,"mgGetResponses")
 #' Summary of response status
 #' TODO: Improve display by providing calls that are failed
 summary.mgGetResponses <- function(responses) table(purrr::map_chr(x,class))
-
-purrr::map(test,"body",class)

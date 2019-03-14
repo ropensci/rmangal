@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>GET generic function — get_gen • rmangal</title>
+<title>GET singletons — get_singletons • rmangal</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="GET generic function — get_gen" />
+<meta property="og:title" content="GET singletons — get_singletons" />
 
-<meta property="og:description" content="GET generic function" />
+<meta property="og:description" content="GET singletons" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -109,19 +109,19 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>GET generic function</h1>
+    <h1>GET singletons</h1>
     <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/zzz.R'><code>R/zzz.R</code></a></small>
-    <div class="hidden name"><code>get_gen.Rd</code></div>
+    <div class="hidden name"><code>get_singletons.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>GET generic function</p>
+    <p>GET singletons</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>get_gen</span>(<span class='kw'>endpoint</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>query</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>limit</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>flatten</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>output</span> <span class='kw'>=</span> <span class='st'>"data.frame"</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>get_singletons</span>(<span class='kw'>endpoint</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ids</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>output</span> <span class='kw'>=</span> <span class='st'>"list"</span>,
+  <span class='kw'>flatten</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -131,20 +131,16 @@
       <td><p><code>character</code> API entry point</p></td>
     </tr>
     <tr>
-      <th>query</th>
-      <td><p><code>list</code> list of params passed to the API</p></td>
+      <th>ids</th>
+      <td><p><code>numeric</code> vector of ids</p></td>
     </tr>
     <tr>
-      <th>limit</th>
-      <td><p><code>integer</code> number of entries return by the API (max: 1000)</p></td>
+      <th>output</th>
+      <td><p><code>character</code> output type (<code>data.frame</code>, <code>list</code>, <code>spatial</code>, <code>raw</code>) return; default: <code>list</code></p></td>
     </tr>
     <tr>
       <th>flatten</th>
       <td><p><code>logical</code> flatten nested data.frame, see <code><a href='http://www.rdocumentation.org/packages/jsonlite/topics/flatten'>jsonlite::flatten()</a></code>; default: <code>TRUE</code></p></td>
-    </tr>
-    <tr>
-      <th>output</th>
-      <td><p><code>character</code> output type (<code>data.frame</code>, <code>list</code>, <code>spatial</code>, <code>raw</code>) return (default: data.frame)</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -154,8 +150,8 @@
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Object of class <code>mgGetResponses</code> whithin each level is a page.
-Each item of the list <code>mgGetResponses</code> corresponds to an API call. Each call returns an object:</p><ul>
+    <p>Object of class <code>mgGetResponses</code> whithin each level is the specific ID called.
+Each item of the <code>mgGetResponses</code> list corresponds to an API call. Each call returns an object:</p><ul>
 <li><p><code>getSuccess</code> which is a list with the body <code><a href='http://www.rdocumentation.org/packages/httr/topics/content'>httr::content()</a></code> and the server response <code><a href='http://www.rdocumentation.org/packages/httr/topics/response'>httr::response()</a></code>.</p></li>
 <li><p><code>getError</code> which has the exact same structure with an empty body.</p></li>
 </ul>

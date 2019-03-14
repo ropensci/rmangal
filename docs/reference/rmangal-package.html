@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>GET generic function — get_gen • rmangal</title>
+<title>rmangal: rmangal - Explore the ecological interactions database — rmangal-package • rmangal</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="GET generic function — get_gen" />
+<meta property="og:title" content="rmangal: rmangal - Explore the ecological interactions database — rmangal-package" />
 
-<meta property="og:description" content="GET generic function" />
+<meta property="og:description" content="Retrieve and explore data from the ecological interaction database MANGAL" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -109,73 +109,48 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>GET generic function</h1>
-    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/zzz.R'><code>R/zzz.R</code></a></small>
-    <div class="hidden name"><code>get_gen.Rd</code></div>
+    <h1>rmangal: rmangal - Explore the ecological interactions database</h1>
+    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/mangal-package.R'><code>R/mangal-package.R</code></a></small>
+    <div class="hidden name"><code>rmangal-package.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>GET generic function</p>
+    <p>Retrieve and explore data from the ecological interaction database MANGAL</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>get_gen</span>(<span class='kw'>endpoint</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>query</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>limit</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>flatten</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>output</span> <span class='kw'>=</span> <span class='st'>"data.frame"</span>, <span class='no'>...</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>endpoint</th>
-      <td><p><code>character</code> API entry point</p></td>
-    </tr>
-    <tr>
-      <th>query</th>
-      <td><p><code>list</code> list of params passed to the API</p></td>
-    </tr>
-    <tr>
-      <th>limit</th>
-      <td><p><code>integer</code> number of entries return by the API (max: 1000)</p></td>
-    </tr>
-    <tr>
-      <th>flatten</th>
-      <td><p><code>logical</code> flatten nested data.frame, see <code><a href='http://www.rdocumentation.org/packages/jsonlite/topics/flatten'>jsonlite::flatten()</a></code>; default: <code>TRUE</code></p></td>
-    </tr>
-    <tr>
-      <th>output</th>
-      <td><p><code>character</code> output type (<code>data.frame</code>, <code>list</code>, <code>spatial</code>, <code>raw</code>) return (default: data.frame)</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>httr options, see <code><a href='http://www.rdocumentation.org/packages/httr/topics/GET'>httr::GET()</a></code></p></td>
-    </tr>
-    </table>
-    
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+        
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>Object of class <code>mgGetResponses</code> whithin each level is a page.
-Each item of the list <code>mgGetResponses</code> corresponds to an API call. Each call returns an object:</p><ul>
-<li><p><code>getSuccess</code> which is a list with the body <code><a href='http://www.rdocumentation.org/packages/httr/topics/content'>httr::content()</a></code> and the server response <code><a href='http://www.rdocumentation.org/packages/httr/topics/response'>httr::response()</a></code>.</p></li>
-<li><p><code>getError</code> which has the exact same structure with an empty body.</p></li>
-</ul>
-
-    
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>See endpoints available with <code>print(endpoints)</code></p>
+    <div class='dont-index'><p>Useful links:</p><ul>
+<li><p><a href='http://poisotlab.biol.umontreal.ca/#/'>http://poisotlab.biol.umontreal.ca/#/</a></p></li>
+<li><p><a href='https://github.com/mangal-wg/rmangal'>https://github.com/mangal-wg/rmangal</a></p></li>
+<li><p>Report bugs at <a href='https://github.com/mangal-wg/rmangal/issues'>https://github.com/mangal-wg/rmangal/issues</a></p></li>
+</ul></div>
     
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#details">Details</a></li>
+      <li><a href="#see-also">See also</a></li>
           </ul>
+
+    <h2>Author</h2>
+    
+<strong>Maintainer</strong>: Steve Vissault <a href='mailto:steve.vissault@usherbrooke.ca'>steve.vissault@usherbrooke.ca</a>
+
+Authors:
+<ul>
+<li><p>Gabriel Bergeron <a href='mailto:gabriel.bergeron3@usherbrooke.ca'>gabriel.bergeron3@usherbrooke.ca</a> [contributor]</p></li>
+<li><p>Benjamin Mercier <a href='mailto:Benjamin.B.Mercier@usherbrooke.ca'>Benjamin.B.Mercier@usherbrooke.ca</a> [contributor]</p></li>
+<li><p>Clément Violet <a href='mailto:Clement.Violet@etudiant.univ-brest.fr'>Clement.Violet@etudiant.univ-brest.fr</a> [contributor]</p></li>
+<li><p>Kevin Cazelles <a href='mailto:kcazelle@uoguelph.ca'>kcazelle@uoguelph.ca</a> [contributor]</p></li>
+<li><p>Timothée Poisot <a href='mailto:timothee.poisot@umontreal.ca'>timothee.poisot@umontreal.ca</a> [contributor]</p></li>
+</ul>
+
 
   </div>
 </div>

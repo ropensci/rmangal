@@ -4,7 +4,7 @@
 \alias{as.data.frame.mgGetResponses}
 \title{Coerce mangalGetResp to data.frame}
 \usage{
-\method{as.data.frame}{mgGetResponses}(responses = responses)
+\method{as.data.frame}{mgGetResponses}(responses)
 }
 \arguments{
 \item{responses}{mangalGetResp class}

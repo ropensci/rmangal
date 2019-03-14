@@ -12,7 +12,7 @@ get_singletons(endpoint = NULL, ids = NULL, output = "list",
 
 \item{ids}{\code{numeric} vector of ids}
 
-\item{output}{\code{character} output type (\code{data.frame}, \code{list}, \code{sf}, \code{raw}) return; default: \code{list}}
+\item{output}{\code{character} output type (\code{data.frame}, \code{list}, \code{spatial}, \code{raw}) return; default: \code{list}}
 
 \item{flatten}{\code{logical} flatten nested data.frame, see \code{\link[jsonlite:flatten]{jsonlite::flatten()}}; default: \code{TRUE}}
 

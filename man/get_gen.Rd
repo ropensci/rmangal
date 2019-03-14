@@ -16,7 +16,7 @@ get_gen(endpoint = NULL, query = NULL, limit = 100, flatten = TRUE,
 
 \item{flatten}{\code{logical} flatten nested data.frame, see \code{\link[jsonlite:flatten]{jsonlite::flatten()}}; default: \code{TRUE}}
 
-\item{output}{\code{character} output type (\code{data.frame}, \code{list}, \code{sf}, \code{raw}) return (default: data.frame)}
+\item{output}{\code{character} output type (\code{data.frame}, \code{list}, \code{spatial}, \code{raw}) return (default: data.frame)}
 
 \item{...}{httr options, see \code{\link[httr:GET]{httr::GET()}}}
 }

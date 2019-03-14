@@ -2,7 +2,7 @@
 % Please edit documentation in R/zzz.R
 \name{mg_to_sf}
 \alias{mg_to_sf}
-\title{Coerce body return by the API to a sf object}
+\title{Coerce body return by the API to an sf object}
 \usage{
 mg_to_sf(body)
 }
@@ -13,5 +13,5 @@ mg_to_sf(body)
 sf object
 }
 \description{
-Coerce body return by the API to a sf object
+Coerce body return by the API to an sf object
 }

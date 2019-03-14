@@ -1,4 +1,4 @@
 library(testthat)
-library(mangal)
+library(rmangal)
 
-test_check("mangal")
+test_check("rmangal")
