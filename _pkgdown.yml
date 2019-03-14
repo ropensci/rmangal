@@ -1,0 +1,17 @@
+template:
+  params:
+    bootswatch: cosmo
+
+authors:
+  Steve Vissault:
+    href: https://steveviss.github.io/
+  Gabriel Bergeron:
+    href: https://github.com/gabrielbouleau
+  Clément Violet:
+    href: https://github.com/clementviolet
+  Benjamin Mercier:
+    href: https://github.com/BenMerSci
+  Kevin Cazelles:
+    href: https://kevcaz.github.io/
+  Timothée Poisot:
+    href: https://github.com/tpoisot
