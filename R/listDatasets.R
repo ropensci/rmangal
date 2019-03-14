@@ -5,11 +5,12 @@
 #' @details
 #' See endpoints available with `print(endpoints)`
 #' @examples
+#' listDatasets()
 #' @export
 
 listDatasets <- function( ... ) {
 
-    datasets <- as.data.frame(get_gen(endpoints()$dataset))
+    datasets <- as.data.frame(get_gen(endpoints()$dataset), ...)
     networks <- list()
     references <- list()
 
