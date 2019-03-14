@@ -2,6 +2,7 @@
 #'
 #' @param ... arguments from [rmangal::get_gen()]
 #' @return
+#' `data.frame` of datasets with all networks and the original reference.
 #' @details
 #' See endpoints available with `print(endpoints)`
 #' @examples

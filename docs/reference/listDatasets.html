@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • rmangal</title>
+<title>List of datasets with networks and reference attached — listDatasets • rmangal</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,7 +30,10 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="List of datasets with networks and reference attached — listDatasets" />
+
+<meta property="og:description" content="List of datasets with networks and reference attached" />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -46,7 +49,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -104,85 +107,68 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>List of datasets with networks and reference attached</h1>
+    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/listDatasets.R'><code>R/listDatasets.R</code></a></small>
+    <div class="hidden name"><code>listDatasets.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p>List of datasets with networks and reference attached</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
-
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="as.data.frame.mgGetResponses.html">as.data.frame(<i>&lt;mgGetResponses&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>Coerce mangalGetResp to data.frame</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_fkey.html">get_fkey()</a></code> </p>
-        </td>
-        <td><p>GET entries corresponding to foreign key</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_gen.html">get_gen()</a></code> </p>
-        </td>
-        <td><p>GET generic function</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_singletons.html">get_singletons()</a></code> </p>
-        </td>
-        <td><p>GET singletons</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="is.mgGetResponses.html">is.mgGetResponses()</a></code> </p>
-        </td>
-        <td><p>Test on class <code>coleoGetResponses</code> (Objet S3)</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="listDatasets.html">listDatasets()</a></code> </p>
-        </td>
-        <td><p>List of datasets with networks and reference attached</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="mg_to_sf.html">mg_to_sf()</a></code> </p>
-        </td>
-        <td><p>Coerce body return by the API to an sf object</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="summary.mgGetResponses.html">summary(<i>&lt;mgGetResponses&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>Summary of response status
-TODO: Improve display by providing calls that are failed</p></td>
-      </tr>
-    </tbody>
+    <pre class="usage"><span class='fu'>listDatasets</span>(<span class='no'>...</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>...</th>
+      <td><p>arguments from <code>rmangal::get_gen()</code></p></td>
+    </tr>
     </table>
-  </div>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p><code>data.frame</code> of datasets with all networks and the original reference.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>See endpoints available with <code>print(endpoints)</code></p>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>listDatasets</span>()</div><div class='output co'>#&gt; # A tibble: 145 x 11
+#&gt;       id name  date  description public created_at updated_at ref_id user_id
+#&gt;    &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;       &lt;lgl&gt;  &lt;chr&gt;      &lt;chr&gt;       &lt;int&gt;   &lt;int&gt;
+#&gt;  1     2 howk… 1963… Insect act… TRUE   2019-02-2… 2019-02-2…      2       2
+#&gt;  2     7 lund… 2002… Pollnator … TRUE   2019-02-2… 2019-02-2…      7       2
+#&gt;  3     9 elbe… 1994… Flower-vis… TRUE   2019-02-2… 2019-02-2…      9       2
+#&gt;  4    14 john… 1956… Predation … TRUE   2019-02-2… 2019-02-2…     14       3
+#&gt;  5    15 have… 1984… Pelagic co… TRUE   2019-02-2… 2019-02-2…     15       3
+#&gt;  6    16 kemp… 1977… Food web f… TRUE   2019-02-2… 2019-02-2…     16       3
+#&gt;  7    17 brad… 1978… Food web o… TRUE   2019-02-2… 2019-02-2…     17       3
+#&gt;  8    18 patt… 1979… Food web o… TRUE   2019-02-2… 2019-02-2…     18       3
+#&gt;  9    19 clar… 1965… Food web o… TRUE   2019-02-2… 2019-02-2…     19       3
+#&gt; 10    20 van_… 1975… Food web o… TRUE   2019-02-2… 2019-02-2…     20       3
+#&gt; # … with 135 more rows, and 2 more variables: networks &lt;list&gt;,
+#&gt; #   references &lt;list&gt;</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
     </ul>
+
   </div>
 </div>
 
