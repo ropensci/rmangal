@@ -1,33 +1,38 @@
-Package: mangal
+Package: rmangal
 Type: Package
-Title: rmangal - ecological interactions database
-Version: 1.0.0
-URL: https://github.com/mangal-wg/rmangal
-Author@R: c(
+Title: rmangal - Explore the ecological interactions database
+Version: 0.6.0
+Authors@R: c(
     person(given = "Steve", family = "Vissault",
-      email = "steve.vissault@usherbrooke.ca", role = c("auth","cre")),
+      email = "steve.vissault@usherbrooke.ca", role = c("aut","cre")),
     person(given = "Gabriel", family = "Bergeron",
-      email = "gabriel.bergeron3@usherbrooke.ca", role = c("auth","ctb")),
+      email = "gabriel.bergeron3@usherbrooke.ca", role = c("aut","ctb")),
     person(given = "Benjamin", family = "Mercier",
-      email = "Benjamin.B.Mercier@usherbrooke.ca", role = c("auth","ctb")),
+      email = "Benjamin.B.Mercier@usherbrooke.ca", role = c("aut","ctb")),
     person(given = "Clément", family = "Violet",
-      email = "Clement.Violet@etudiant.univ-brest.fr", role = c("auth","ctb")),
+      email = "Clement.Violet@etudiant.univ-brest.fr", role = c("aut","ctb")),
     person(given = "Kevin", family = "Cazelles",
-      email = "kcazelle@uoguelph.ca", role = c("auth","cre")),
+      email = "kcazelle@uoguelph.ca", role = c("aut","ctb")),
     person(given = "Timothée", family = "Poisot",
-      email = "timothee.poisot@umontreal.ca", role = c("auth","ctb"))
-Author: Steve Vissault <steve.vissault@usherbrooke.ca>
-Maintainer: Steve Vissault <steve.vissault@usherbrooke.ca>
-Description: Exploring mangal (v2) web API (http://poisotlab.biol.umontreal.ca/#/)
-License: MIT
+      email = "timothee.poisot@umontreal.ca", role = c("aut","ctb")))
+Description: Retrieve and explore data from the ecological interaction database MANGAL
+URL: http://poisotlab.biol.umontreal.ca/#/, https://github.com/mangal-wg/rmangal
+BugReports: https://github.com/mangal-wg/rmangal/issues
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
     httr (>= 1.3.1),
     jsonlite (>= 1.5),
-    geojsonio
+    geojsonio,
+    dplyr,
+    purrr,
+    sf,
+    stringr,
+    tibble    
 RoxygenNote: 6.1.0
 Suggests: knitr,
     rmarkdown,
     testthat
 VignetteBuilder: knitr
+Roxygen: list(markdown = TRUE)
