@@ -14,8 +14,8 @@ listDatasets <- function( ... ) {
     references <- list()
 
     for(i in 1:nrow(datasets)){ 
-        networks[[i]] <- purrr::map(get_fkey(endpoints()$network, column = "dataset_id", id = datasets[i,"id"]), "body")
-        references[[i]] <- purrr::map(get_singletons(endpoints()$reference, ids =  datasets[i,"ref_id"], output = "data.frame"), "body")
+        networks[[i]] <- purrr::map_df(get_fkey(endpoints()$network, column = "dataset_id", id = datasets[i,"id"]), "body")
+        references[[i]] <- purrr::map_df(get_singletons(endpoints()$reference, ids =  datasets[i,"ref_id"], output = "data.frame"), "body")
     }
 
     datasets$networks <- networks
