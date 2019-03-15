@@ -135,8 +135,7 @@ get_singletons <- function(endpoint = NULL, ids = NULL, output = "list", flatten
     resp <- httr::GET(url, config = httr::add_headers(`Content-type` = "application/json"),ua, ...)
   
     if (httr::http_error(resp)) {
-      message(sprintf("API request failed: [%s]\n%s", httr::status_code(resp),
-        body$message), call. = FALSE)
+      message(sprintf("API request failed: [%s]\n", httr::status_code(resp)), call. = FALSE)
 
       responses[[i]]  <- structure(list(body = NULL, response = resp),
           class = "getError")
