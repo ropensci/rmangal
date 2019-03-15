@@ -19,7 +19,7 @@ List mangal datasets with networks and reference attached
 }
 \details{
 See endpoints available with \code{print(endpoints)}
-With \code{search} argument, the % can be used to represent any character or set of characters before or after the keyword (e.g '%lagoon%')
+With \code{search} argument, the '%' can be used to represent any character or set of characters before or after the keyword (e.g '%lagoon%')
 }
 \examples{
 list_datasets()

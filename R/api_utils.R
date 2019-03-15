@@ -1,6 +1,6 @@
-#' Coerce mangalGetResp to data.frame
+#' Coerce mgGetResponses to data.frame
 #'
-#' @param responses mangalGetResp class
+#' @param responses mgGetResponses class
 #' @export
 
 as.data.frame.mgGetResponses <- function(responses){
@@ -9,18 +9,19 @@ as.data.frame.mgGetResponses <- function(responses){
 
     # Use the proper binding function based on body classes
     if("sf" %in% classes){
-        return(purrr::reduce(purrr::map(responses,"body"), sf:::rbind.sf)) 
+        return(purrr::reduce(purrr::map(responses,"body"), sf::rbind.sf)) 
     } else {
         return(dplyr::bind_rows(purrr::map(responses,"body")))        
     }
 }
 
-#' Test on class `coleoGetResponses` (Objet S3)
+#' Test class `coleoGetResponses` 
 #' @param x R object to test
 #' @export
 is.mgGetResponses <- function(x) inherits(x,"mgGetResponses")
 
 
 #' Summary of response status
-#' TODO: Improve display by providing calls that are failed
+#' @param responses mgGetResponses class
+#' @export
 summary.mgGetResponses <- function(responses) table(purrr::map_chr(x,class))

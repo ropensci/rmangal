@@ -2,13 +2,13 @@
 % Please edit documentation in R/api_utils.R
 \name{as.data.frame.mgGetResponses}
 \alias{as.data.frame.mgGetResponses}
-\title{Coerce mangalGetResp to data.frame}
+\title{Coerce mgGetResponses to data.frame}
 \usage{
 \method{as.data.frame}{mgGetResponses}(responses)
 }
 \arguments{
-\item{responses}{mangalGetResp class}
+\item{responses}{mgGetResponses class}
 }
 \description{
-Coerce mangalGetResp to data.frame
+Coerce mgGetResponses to data.frame
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/api_utils.R
 \name{is.mgGetResponses}
 \alias{is.mgGetResponses}
-\title{Test on class \code{coleoGetResponses} (Objet S3)}
+\title{Test class \code{coleoGetResponses}}
 \usage{
 is.mgGetResponses(x)
 }
@@ -10,5 +10,5 @@ is.mgGetResponses(x)
 \item{x}{R object to test}
 }
 \description{
-Test on class \code{coleoGetResponses} (Objet S3)
+Test class \code{coleoGetResponses}
 }
