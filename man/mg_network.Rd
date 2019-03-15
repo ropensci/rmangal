@@ -2,7 +2,7 @@
 % Please edit documentation in R/mg_network.R
 \name{mg_network}
 \alias{mg_network}
-\title{Retrieve full network (edges and nodes)}
+\title{Retrieve mangal network including the nodes and the edges}
 \usage{
 mg_network(id = NULL, ...)
 }
@@ -18,7 +18,7 @@ object `mgNetwork:
 }
 }
 \description{
-Retrieve full network (edges and nodes)
+Retrieve mangal network including the nodes and the edges
 }
 \examples{
 mg_network(id = 18)

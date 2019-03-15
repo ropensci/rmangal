@@ -2,7 +2,7 @@
 % Please edit documentation in R/list_datasets.R
 \name{list_datasets}
 \alias{list_datasets}
-\title{List of datasets with networks and reference attached}
+\title{List mangal datasets with networks and reference attached}
 \usage{
 list_datasets(search = NULL, ...)
 }
@@ -15,7 +15,7 @@ list_datasets(search = NULL, ...)
 object \code{data.frame}: Datasets with all networks and the original reference attached.
 }
 \description{
-List of datasets with networks and reference attached
+List mangal datasets with networks and reference attached
 }
 \details{
 See endpoints available with \code{print(endpoints)}
