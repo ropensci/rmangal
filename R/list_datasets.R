@@ -1,5 +1,6 @@
 #' List of datasets with networks and reference attached
 #'
+#' @param search `character` keyword to search (case sensitive)
 #' @param ... arguments from [rmangal::get_gen()]
 #' @return
 #' `data.frame` of datasets with all networks and the original reference.
@@ -9,9 +10,9 @@
 #' listDatasets()
 #' @export
 
-listDatasets <- function( ... ) {
+list_datasets <- function( search , ... ) {
 
-    datasets <- as.data.frame(get_gen(endpoints()$dataset), ...)
+    datasets <- as.data.frame(get_gen(endpoints()$dataset, query = list( q = paste0('%',search,'%') )), ...)
     networks <- list()
     references <- list()
 
