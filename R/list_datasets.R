@@ -1,18 +1,23 @@
 #' List of datasets with networks and reference attached
 #'
-#' @param search `character` keyword to search (case sensitive)
+#' @param search `character` keyword to search (case sensitive). 
 #' @param ... arguments from [rmangal::get_gen()]
 #' @return
 #' `data.frame` of datasets with all networks and the original reference.
 #' @details
 #' See endpoints available with `print(endpoints)`
+#' With `search` argument, the % can be used to represent any character or set of characters before or after the keyword (e.g '%lagoon%')
 #' @examples
 #' listDatasets()
 #' @export
 
-list_datasets <- function( search , ... ) {
+list_datasets <- function( search = NULL, ... ) {
 
-    datasets <- as.data.frame(get_gen(endpoints()$dataset, query = list( q = paste0('%',search,'%') )), ...)
+    datasets <- as.data.frame(get_gen(endpoints()$dataset, query = list( q = search), ...))
+    
+    if(!is.null(search)) message(sprintf("Found %s dataset(s) for keywork: %s", nrow(datasets), search))
+
+    # Attached reference and network
     networks <- list()
     references <- list()
 
