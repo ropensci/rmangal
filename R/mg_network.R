@@ -1,10 +1,13 @@
 #' Retrieve full network (edges and nodes)
 #'
-#' @param id `character` API entry point
-#' @param ... httr options, see [httr::GET()]
-#' @return
-#' @details
+#' @param id `numeric` mangal ID network
+#' @return 
+#' object `mgNetwork: 
+#' - network: `list` of all generic informations on the network
+#' - nodes: `data.frame` of all nodes with taxonomic informations
+#' - edges: `data.frame` of all edges (ecological interactions), with the attribute used to describe the interaction
 #' @examples
+#' mg_network(id = 18)
 #' @export
 
 

@@ -3,12 +3,13 @@
 #' @param search `character` keyword to search (case sensitive). 
 #' @param ... arguments from [rmangal::get_gen()]
 #' @return
-#' `data.frame` of datasets with all networks and the original reference.
+#' object `data.frame`: Datasets with all networks and the original reference attached.
 #' @details
 #' See endpoints available with `print(endpoints)`
 #' With `search` argument, the % can be used to represent any character or set of characters before or after the keyword (e.g '%lagoon%')
 #' @examples
-#' listDatasets()
+#' list_datasets()
+#' list_datasets(search="%lagoon%")
 #' @export
 
 list_datasets <- function( search = NULL, ... ) {
