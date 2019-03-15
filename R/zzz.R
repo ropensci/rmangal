@@ -23,7 +23,7 @@ endpoints <- function(){
 # Spatial columns of mangal DB
 sf_columns <- function(x) return(c("geom.type","geom.coordinates"))
 
-#' GET generic function
+#' GET generic API function to retrieve several entries
 #'
 #' @param endpoint `character` API entry point
 #' @param query `list` list of params passed to the API
@@ -38,8 +38,6 @@ sf_columns <- function(x) return(c("geom.type","geom.coordinates"))
 #' - `getError` which has the exact same structure with an empty body.
 #' @details
 #' See endpoints available with `print(endpoints)`
-#' @examples
-#' @export
 
 get_gen <- function(endpoint = NULL, query = NULL, limit =100, flatten = TRUE, output = 'data.frame', ...) {
 
@@ -100,7 +98,7 @@ get_gen <- function(endpoint = NULL, query = NULL, limit =100, flatten = TRUE, o
 
 }
 
-#' GET singletons
+#' GET generic API function to retrieve singletons
 #'
 #' @param endpoint `character` API entry point
 #' @param ids `numeric` vector of ids 
@@ -114,8 +112,6 @@ get_gen <- function(endpoint = NULL, query = NULL, limit =100, flatten = TRUE, o
 #' - `getError` which has the exact same structure with an empty body.
 #' @details
 #' See endpoints available with `print(endpoints)`
-#' @examples
-#' @export
 
 get_singletons <- function(endpoint = NULL, ids = NULL, output = "list", flatten = TRUE, ...) {
 
@@ -164,7 +160,7 @@ get_singletons <- function(endpoint = NULL, ids = NULL, output = "list", flatten
 
 }
 
-#' GET entries corresponding to foreign key
+#' GET entries based on foreign key
 #'
 #' @param endpoint `character` API entry point
 #' @param column `character` column which contain the fkey
@@ -174,8 +170,6 @@ get_singletons <- function(endpoint = NULL, ids = NULL, output = "list", flatten
 #' Object returned by [rmangal::get_gen()]
 #' @details
 #' See endpoints available with `print(endpoints)`
-#' @examples
-#' @export
 
 get_fkey <- function(endpoint = NULL, column = NULL, id = NULL,  ...) {
 

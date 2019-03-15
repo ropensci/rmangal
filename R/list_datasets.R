@@ -1,4 +1,4 @@
-#' List of datasets with networks and reference attached
+#' List mangal datasets with networks and reference attached
 #'
 #' @param search `character` keyword to search (case sensitive). 
 #' @param ... arguments from [rmangal::get_gen()]

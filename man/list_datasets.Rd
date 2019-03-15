@@ -4,22 +4,24 @@
 \alias{list_datasets}
 \title{List of datasets with networks and reference attached}
 \usage{
-list_datasets(search, ...)
+list_datasets(search = NULL, ...)
 }
 \arguments{
-\item{search}{\code{character} keyword to search (case sensitive)}
+\item{search}{\code{character} keyword to search (case sensitive).}
 
 \item{...}{arguments from \code{\link[rmangal:get_gen]{rmangal::get_gen()}}}
 }
 \value{
-\code{data.frame} of datasets with all networks and the original reference.
+object \code{data.frame}: Datasets with all networks and the original reference attached.
 }
 \description{
 List of datasets with networks and reference attached
 }
 \details{
 See endpoints available with \code{print(endpoints)}
+With \code{search} argument, the % can be used to represent any character or set of characters before or after the keyword (e.g '%lagoon%')
 }
 \examples{
-listDatasets()
+list_datasets()
+list_datasets(search="\%lagoon\%")
 }

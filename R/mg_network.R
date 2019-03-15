@@ -1,4 +1,4 @@
-#' Retrieve full network (edges and nodes)
+#' Retrieve mangal network including the nodes and the edges
 #'
 #' @param id `numeric` mangal ID network
 #' @return 
