@@ -23,7 +23,7 @@ endpoints <- function(){
 # Spatial columns of mangal DB
 sf_columns <- function(x) return(c("geom.type","geom.coordinates"))
 
-#' GET generic function
+#' GET generic API function to retrieve several entries
 #'
 #' @param endpoint `character` API entry point
 #' @param query `list` list of params passed to the API
@@ -38,8 +38,6 @@ sf_columns <- function(x) return(c("geom.type","geom.coordinates"))
 #' - `getError` which has the exact same structure with an empty body.
 #' @details
 #' See endpoints available with `print(endpoints)`
-#' @examples
-#' @export
 
 get_gen <- function(endpoint = NULL, query = NULL, limit =100, flatten = TRUE, output = 'data.frame', ...) {
 
@@ -100,7 +98,7 @@ get_gen <- function(endpoint = NULL, query = NULL, limit =100, flatten = TRUE, o
 
 }
 
-#' GET singletons
+#' GET generic API function to retrieve singletons
 #'
 #' @param endpoint `character` API entry point
 #' @param ids `numeric` vector of ids 
@@ -114,12 +112,10 @@ get_gen <- function(endpoint = NULL, query = NULL, limit =100, flatten = TRUE, o
 #' - `getError` which has the exact same structure with an empty body.
 #' @details
 #' See endpoints available with `print(endpoints)`
-#' @examples
-#' @export
 
 get_singletons <- function(endpoint = NULL, ids = NULL, output = "list", flatten = TRUE, ...) {
 
-  stopifnot(!is.null(endpoint) & !is.null(ids) & is.numeric(ids))
+  stopifnot(!is.null(endpoint) & !is.null(ids))
 
   # Prep output object
   responses <- list()
@@ -135,8 +131,7 @@ get_singletons <- function(endpoint = NULL, ids = NULL, output = "list", flatten
     resp <- httr::GET(url, config = httr::add_headers(`Content-type` = "application/json"),ua, ...)
   
     if (httr::http_error(resp)) {
-      message(sprintf("API request failed: [%s]\n%s", httr::status_code(resp),
-        body$message), call. = FALSE)
+      message(sprintf("API request failed: [%s]\n", httr::status_code(resp)), call. = FALSE)
 
       responses[[i]]  <- structure(list(body = NULL, response = resp),
           class = "getError")
@@ -164,6 +159,30 @@ get_singletons <- function(endpoint = NULL, ids = NULL, output = "list", flatten
   return(responses)
 
 }
+
+#' GET entries based on foreign key
+#'
+#' @param endpoint `character` API entry point
+#' @param column `character` column which contain the fkey
+#' @param id `numeric` foreign key
+#' @param ... get_gen options, see [rmangal::get_gen()]
+#' @return
+#' Object returned by [rmangal::get_gen()]
+#' @details
+#' See endpoints available with `print(endpoints)`
+
+get_fkey <- function(endpoint = NULL, column = NULL, id = NULL,  ...) {
+
+  stopifnot(!is.null(endpoint) & !is.null(id)  & !is.null(column) & is.character(column))
+
+  # set query  
+  query <- list()
+  query[column] <- id
+
+  return(get_gen(endpoint = endpoint, query = query, ...))
+
+}
+
 
 #' Coerce body return by the API to an sf object
 #'

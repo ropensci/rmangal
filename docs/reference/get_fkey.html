@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Test on class <code>coleoPostResp</code> (Objet S3) — is.mangalPostResp • mangal</title>
+<title>GET entries based on foreign key — get_fkey • rmangal</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Test on class <code>coleoPostResp</code> (Objet S3) — is.mangalPostResp" />
+<meta property="og:title" content="GET entries based on foreign key — get_fkey" />
 
-<meta property="og:description" content="Test on class coleoPostResp (Objet S3)" />
+<meta property="og:description" content="GET entries based on foreign key" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -60,7 +60,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">mangal</a>
+        <a class="navbar-link" href="../index.html">rmangal</a>
         <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.6.0</span>
       </span>
     </div>
@@ -109,27 +109,47 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Test on class <code>coleoPostResp</code> (Objet S3)</h1>
-    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/api_utils.R'><code>R/api_utils.R</code></a></small>
-    <div class="hidden name"><code>is.mangalPostResp.Rd</code></div>
+    <h1>GET entries based on foreign key</h1>
+    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/zzz.R'><code>R/zzz.R</code></a></small>
+    <div class="hidden name"><code>get_fkey.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Test on class <code>coleoPostResp</code> (Objet S3)</p>
+    <p>GET entries based on foreign key</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>is.mangalPostResp</span>(<span class='no'>x</span>)</pre>
+    <pre class="usage"><span class='fu'>get_fkey</span>(<span class='kw'>endpoint</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>column</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>id</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x</th>
-      <td><p>Objet à tester</p></td>
+      <th>endpoint</th>
+      <td><p><code>character</code> API entry point</p></td>
+    </tr>
+    <tr>
+      <th>column</th>
+      <td><p><code>character</code> column which contain the fkey</p></td>
+    </tr>
+    <tr>
+      <th>id</th>
+      <td><p><code>numeric</code> foreign key</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>get_gen options, see <code>rmangal::get_gen()</code></p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>Object returned by <code>rmangal::get_gen()</code></p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>See endpoints available with <code>print(endpoints)</code></p>
     
 
   </div>
@@ -137,14 +157,18 @@
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+          </ul>
 
   </div>
 </div>
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='https://steveviss.github.io/'>Steve Vissault</a>, <a href='https://github.com/gabrielbouleau'>Gabriel Bergeron</a>, <a href='TODO'>Benjamin Mercier</a>, <a href='https://github.com/clementviolet'>Clément Violet</a>, <a href='https://kevcaz.github.io/'>Kevin Cazelles</a>, Timothée Poisot.</p>
+  <p>Developed by <a href='https://steveviss.github.io/'>Steve Vissault</a>, <a href='https://github.com/gabrielbouleau'>Gabriel Bergeron</a>, <a href='https://github.com/BenMerSci'>Benjamin Mercier</a>, <a href='https://github.com/clementviolet'>Clément Violet</a>, <a href='https://kevcaz.github.io/'>Kevin Cazelles</a>, <a href='https://github.com/tpoisot'>Timothée Poisot</a>.</p>
 </div>
 
 <div class="pkgdown">

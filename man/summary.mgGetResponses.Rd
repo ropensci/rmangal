@@ -2,12 +2,13 @@
 % Please edit documentation in R/api_utils.R
 \name{summary.mgGetResponses}
 \alias{summary.mgGetResponses}
-\title{Summary of response status
-TODO: Improve display by providing calls that are failed}
+\title{Summary of response status}
 \usage{
 \method{summary}{mgGetResponses}(responses)
 }
+\arguments{
+\item{responses}{mgGetResponses class}
+}
 \description{
 Summary of response status
-TODO: Improve display by providing calls that are failed
 }
