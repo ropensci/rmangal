@@ -6,7 +6,7 @@
 \alias{rmangal-package}
 \title{rmangal: rmangal - Explore the ecological interactions database}
 \description{
-Retrieve and explore data from the ecological interaction database MANGAL
+Retrieve and explore data from the ecological interaction database MANGAL.
 }
 \seealso{
 Useful links:

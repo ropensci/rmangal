@@ -14,17 +14,21 @@
 
 list_datasets <- function( search = NULL, ... ) {
 
-    datasets <- as.data.frame(get_gen(endpoints()$dataset, query = list( q = search), ...))
+    datasets <- as.data.frame(get_gen(endpoints()$dataset,
+      query = list( q = search), ...))
 
-    if(!is.null(search)) message(sprintf("Found %s dataset(s) for keywork: %s", nrow(datasets), search))
+    if (!is.null(search)) message(
+      sprintf("Found %s dataset(s) for keywork: %s", nrow(datasets), search))
 
     # Attached reference and network
     networks <- list()
     references <- list()
 
-    for(i in 1:nrow(datasets)){
-        networks[[i]] <- purrr::map_df(get_fkey(endpoints()$network, column = "dataset_id", id = datasets[i,"id"]), "body")
-        references[[i]] <- purrr::map_df(get_singletons(endpoints()$reference, ids =  datasets[i,"ref_id"], output = "data.frame"), "body")
+    for(i in seq_len(nrow(datasets))) {
+        networks[[i]] <- purrr::map_df(get_fkey(endpoints()$network,
+          column = "dataset_id", id = datasets[i,"id"]), "body")
+        references[[i]] <- purrr::map_df(get_singletons(endpoints()$reference,
+          ids =  datasets[i,"ref_id"], output = "data.frame"), "body")
     }
 
     datasets$networks <- networks

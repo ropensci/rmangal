@@ -15,7 +15,7 @@ Authors@R: c(
       email = "kcazelle@uoguelph.ca", role = c("aut","ctb")),
     person(given = "Timothée", family = "Poisot",
       email = "timothee.poisot@umontreal.ca", role = c("aut","ctb")))
-Description: Retrieve and explore data from the ecological interaction database MANGAL
+Description: Retrieve and explore data from the ecological interaction database MANGAL.
 URL: http://poisotlab.biol.umontreal.ca/#/, https://github.com/mangal-wg/rmangal
 BugReports: https://github.com/mangal-wg/rmangal/issues
 License: MIT + file LICENSE
@@ -24,7 +24,6 @@ LazyData: true
 Imports:
     httr (>= 1.3.1),
     jsonlite (>= 1.5),
-    geojsonio,
     dplyr,
     purrr,
     sf,

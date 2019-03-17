@@ -2,11 +2,12 @@
 server <- function() "http://poisotlab.biol.umontreal.ca"
 # server <- function() "http://localhost:8080" # dev purpose
 base <- function() "/api/v2"
-bearer <- function() ifelse(file.exists(".httr-oauth"), as.character(readRDS(".httr-oauth")), NA)
+bearer <- function() ifelse(file.exists(".httr-oauth"),
+  as.character(readRDS(".httr-oauth")), NA)
 ua <- httr::user_agent("rmangal")
 
 # Endpoints
-endpoints <- function(){
+endpoints <- function() {
   list(
     dataset = "/dataset",
     environment = "/environment",
@@ -22,6 +23,25 @@ endpoints <- function(){
 
 # Spatial columns of mangal DB
 sf_columns <- function(x) c("geom.type","geom.coordinates")
+
+#
+coerce_body <- function(x, resp, flatten) {
+  switch(
+    x,
+    raw = httr::content(resp, type = "text", encoding = "UTF-8"),
+    list = httr::content(resp),
+    data.frame = tibble::as_tibble(
+      jsonlite::fromJSON(httr::content(resp, type = "text",
+      encoding = "UTF-8"), flatten = flatten)),
+    spatial = mg_to_sf(
+     tibble::as_tibble(
+       jsonlite::fromJSON(
+         httr::content(resp, type = "text", encoding = "UTF-8"),
+         flatten = TRUE)
+       )
+     )
+   )
+}
 
 #' GET generic API function to retrieve several entries
 #'
@@ -69,7 +89,9 @@ get_gen <- function(endpoint, query = NULL, limit =100, flatten = TRUE,
   for (page in 0:pages) {
     query$page <- page
 
-    resp <- httr::GET(url, config = httr::add_headers(`Content-type` = "application/json"), ua, query = query, ...)
+    resp <- httr::GET(url,
+      config = httr::add_headers(`Content-type` = "application/json"), ua,
+      query = query, ...)
 
     if (httr::http_error(resp)) {
       message(sprintf("API request failed: [%s]\n%s", httr::status_code(resp),
@@ -80,17 +102,8 @@ get_gen <- function(endpoint, query = NULL, limit =100, flatten = TRUE,
 
     } else {
 
-       # coerce body to output desired
-      if(output == 'raw') {
-        body <- httr::content(resp, type = "text", encoding = "UTF-8")
-      } else if(output == 'list') {
-        body <- httr::content(resp)
-      } else if(output == 'data.frame') {
-        body <- tibble::as_tibble(jsonlite::fromJSON(httr::content(resp, type = "text", encoding = "UTF-8"), flatten = flatten))
-      } else if( output == 'spatial') {
-        b <- tibble::as_tibble(jsonlite::fromJSON(httr::content(resp, type = "text", encoding = "UTF-8"), flatten = TRUE))
-        body <- mg_to_sf(b)
-      }
+      # coerce body to output desired
+      body <- coerce_body(output, resp, flatten)
 
       responses[[page + 1]] <- structure(list(body = body, response = resp),
         class = "getSuccess")
@@ -118,7 +131,8 @@ get_gen <- function(endpoint, query = NULL, limit =100, flatten = TRUE,
 #' @details
 #' See endpoints available with `print(endpoints)`
 
-get_singletons <- function(endpoint = NULL, ids = NULL, output = "list", flatten = TRUE, ...) {
+get_singletons <- function(endpoint = NULL, ids = NULL, output = "list",
+flatten = TRUE, ...) {
 
   stopifnot(!is.null(endpoint) & !is.null(ids))
 
@@ -127,16 +141,20 @@ get_singletons <- function(endpoint = NULL, ids = NULL, output = "list", flatten
   class(responses) <- "mgGetResponses"
 
   # Loop over ids
-  for(i in 1:length(ids)){
+  for (i in seq_len(length(ids))) {
 
     # Set url
-    url <- httr::modify_url(server(), path = paste0(base(), endpoint, "/", ids[i]))
+    url <- httr::modify_url(server(), path = paste0(base(), endpoint, "/",
+      ids[i]))
 
     # Call on the API
-    resp <- httr::GET(url, config = httr::add_headers(`Content-type` = "application/json"),ua, ...)
+    resp <- httr::GET(url,
+      config = httr::add_headers(`Content-type` = "application/json"), ua,
+      ...)
 
     if (httr::http_error(resp)) {
-      message(sprintf("API request failed: [%s]\n", httr::status_code(resp)), call. = FALSE)
+      message(sprintf("API request failed: [%s]\n", httr::status_code(resp)),
+      call. = FALSE)
 
       responses[[i]]  <- structure(list(body = NULL, response = resp),
           class = "getError")
@@ -144,16 +162,7 @@ get_singletons <- function(endpoint = NULL, ids = NULL, output = "list", flatten
     } else {
 
       # coerce body to output desired
-      if(output == 'raw') {
-        body <- httr::content(resp, type = "text", encoding = "UTF-8")
-      } else if(output == 'list') {
-        body <- httr::content(resp)
-      } else if(output == 'data.frame') {
-        body <- tibble::as_tibble(jsonlite::fromJSON(httr::content(resp, type = "text", encoding = "UTF-8"), flatten = flatten))
-      } else if( output == 'spatial') {
-        b <- tibble::as_tibble(jsonlite::fromJSON(httr::content(resp, type = "text", encoding = "UTF-8"), flatten = TRUE))
-        body <- mg_to_sf(b)
-      }
+      body <- coerce_body(output, resp, flatten)
 
       responses[[i]]  <- structure(list(body = body, response = resp),
         class = "getSuccess")
@@ -168,7 +177,7 @@ get_singletons <- function(endpoint = NULL, ids = NULL, output = "list", flatten
 #' GET entries based on foreign key
 #'
 #' @param endpoint `character` API entry point
-#' @param column `character` column which contain the fkey
+#' @param column `character` column which contains the fkey
 #' @param id `numeric` foreign key
 #' @param ... get_gen options, see [rmangal::get_gen()]
 #' @return
@@ -176,9 +185,9 @@ get_singletons <- function(endpoint = NULL, ids = NULL, output = "list", flatten
 #' @details
 #' See endpoints available with `print(endpoints)`
 
-get_fkey <- function(endpoint = NULL, column = NULL, id = NULL,  ...) {
+get_fkey <- function(endpoint, column, id, ...) {
 
-  stopifnot(!is.null(endpoint) & !is.null(id)  & !is.null(column) & is.character(column))
+  stopifnot(is.character(column))
 
   # set query
   query <- list()
@@ -198,7 +207,8 @@ get_fkey <- function(endpoint = NULL, column = NULL, id = NULL,  ...) {
 mg_to_sf <- function(body) {
 
   if(all(!sf_columns() %in% names(body))){
-    stop(sprintf("%s columns not in body columns [%s]\n", sf_columns(),names(body)))
+    stop(sprintf("%s columns not in body columns [%s]\n",
+      sf_columns(),names(body)))
   }
 
   # build individual feature
@@ -206,7 +216,8 @@ mg_to_sf <- function(body) {
     if(is.na(f$geom.type) | is.null(f$geom.coordinates)){
       return(NULL)
     } else {
-      return(list(type="Feature", geometry=list(type=f$geom.type,coordinates=f$geom.coordinates)))
+      return(list(type="Feature", geometry=list(
+        type=f$geom.type,coordinates=f$geom.coordinates)))
     }
   })
 
@@ -214,9 +225,9 @@ mg_to_sf <- function(body) {
   geom_s <- sf::read_sf(
     jsonlite::toJSON(
       list(
-        type="FeatureCollection",
-        features=features),
-        auto_unbox=TRUE
+        type = "FeatureCollection",
+        features = features),
+        auto_unbox = TRUE
     )
   )
 
@@ -224,7 +235,7 @@ mg_to_sf <- function(body) {
   geom_df <- dplyr::select(body, -dplyr::one_of(sf_columns()))
 
   # bind spatial feature with attributes table
-  geom_sdf <- sf::st_sf(dplyr::bind_cols(geom_df,geom_s))
+  geom_sdf <- sf::st_sf(dplyr::bind_cols(geom_df, geom_s))
 
   geom_sdf
 
