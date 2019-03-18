@@ -4,12 +4,12 @@
 \alias{get_fkey}
 \title{GET entries based on foreign key}
 \usage{
-get_fkey(endpoint = NULL, column = NULL, id = NULL, ...)
+get_fkey(endpoint, column, id, ...)
 }
 \arguments{
 \item{endpoint}{\code{character} API entry point}
 
-\item{column}{\code{character} column which contain the fkey}
+\item{column}{\code{character} column which contains the fkey}
 
 \item{id}{\code{numeric} foreign key}
 

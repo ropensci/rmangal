@@ -4,10 +4,12 @@
 \alias{mg_network}
 \title{Retrieve mangal network including the nodes and the edges}
 \usage{
-mg_network(id = NULL, ...)
+mg_network(id, ...)
 }
 \arguments{
 \item{id}{\code{numeric} mangal ID network}
+
+\item{...}{to be documented or droped.}
 }
 \value{
 object `mgNetwork:
