@@ -57,7 +57,7 @@ coerce_body <- function(x, resp, flatten) {
 #' - `getSuccess` which is a list with the body [httr::content()] and the server response [httr::response()].
 #' - `getError` which has the exact same structure with an empty body.
 #' @details
-#' See endpoints available with `print(endpoints)`
+#' See endpoints available with `endpoints()`
 
 get_gen <- function(endpoint, query = NULL, limit =100, flatten = TRUE,
   output = 'data.frame', ...) {
@@ -124,7 +124,7 @@ get_gen <- function(endpoint, query = NULL, limit =100, flatten = TRUE,
 #' - `getSuccess` which is a list with the body [httr::content()] and the server response [httr::response()].
 #' - `getError` which has the exact same structure with an empty body.
 #' @details
-#' See endpoints available with `print(endpoints)`
+#' See endpoints available with `endpoints()`
 
 get_singletons <- function(endpoint = NULL, ids = NULL, output = "list",
 flatten = TRUE, ...) {
@@ -180,7 +180,7 @@ flatten = TRUE, ...) {
 #' @return
 #' Object returned by [rmangal::get_gen()]
 #' @details
-#' See endpoints available with `print(endpoints)`
+#' See endpoints available with `endpoints()`
 
 get_from_fkey <- function(endpoint, ...) {
   query = list(...)
