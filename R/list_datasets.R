@@ -4,18 +4,27 @@
 #' @param ... arguments from [rmangal::get_gen()]
 #' @return
 #' object `data.frame`: Datasets with all networks and the original reference attached.
-#' @details
-#' See endpoints available with `print(endpoints)`
-#' With `search` argument, the '%' can be used to represent any character or set of characters before or after the keyword (e.g '%lagoon%')
 #' @examples
 #' list_datasets()
-#' list_datasets(search="%lagoon%")
+#' list_datasets(search = "lagoon")
+#' list_datasets(search = "2011")
 #' @export
 
 list_datasets <- function( search = NULL, ... ) {
 
+    ellipsis <- list(...)
+    
+    # Allow custom query 
+    if(!is.null(ellipsis$query)){
+      query <- ellipsis$query
+      ellipsis['query'] <- NULL
+      message('Custom query mode')
+    } else {
+      query <- list( q = search )
+    }
+
     datasets <- as.data.frame(get_gen(endpoints()$dataset,
-      query = list( q = search ), ...))
+      query = q, ellipsis))
 
     if (!is.null(search)) message(
       sprintf("Found %s dataset(s) for keyword: %s", nrow(datasets), search))
