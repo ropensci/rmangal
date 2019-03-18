@@ -89,8 +89,8 @@ get_gen <- function(endpoint, query = NULL, limit =100, flatten = TRUE,
       query = query, ...)
 
     if (httr::http_error(resp)) {
-      message(sprintf("API request failed: [%s]\n%s", httr::status_code(resp),
-        body$message), call. = FALSE)
+      message(sprintf("API request failed (%s): %s", httr::status_code(resp),
+        httr::content(resp)$message))
 
       responses[[page + 1]] <- structure(list(body = NULL, response = resp),
           class = "getError")
@@ -148,8 +148,8 @@ flatten = TRUE, ...) {
       ...)
 
     if (httr::http_error(resp)) {
-      message(sprintf("API request failed: [%s]\n", httr::status_code(resp)),
-      call. = FALSE)
+      message(sprintf("API request failed (%s): %s", httr::status_code(resp),
+        httr::content(resp)$message))
 
       responses[[i]]  <- structure(list(body = NULL, response = resp),
           class = "getError")
