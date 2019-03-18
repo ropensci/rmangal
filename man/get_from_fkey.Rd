@@ -21,5 +21,7 @@ GET entries based on foreign key
 See endpoints available with \code{print(endpoints)}
 }
 \examples{
+\dontrun{
 get_from_fkey(endpoints()$node, network_id = 926)
+}
 }

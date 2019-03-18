@@ -174,7 +174,9 @@ flatten = TRUE, ...) {
 #' @param endpoint `character` API entry point
 #' @param ... foreign key column name with the id
 #' @examples
+#'\dontrun{
 #' get_from_fkey(endpoints()$node, network_id = 926)
+#'}
 #' @return
 #' Object returned by [rmangal::get_gen()]
 #' @details
