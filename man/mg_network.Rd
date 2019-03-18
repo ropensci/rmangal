@@ -9,10 +9,10 @@ mg_network(id, ...)
 \arguments{
 \item{id}{\code{numeric} mangal ID network}
 
-\item{...}{to be documented or droped.}
+\item{...}{arguments from \code{\link[rmangal:get_singletons]{rmangal::get_singletons()}}}
 }
 \value{
-object `mgNetwork:
+object \code{mgNetwork}:
 \itemize{
 \item network: \code{list} of all generic informations on the network
 \item nodes: \code{data.frame} of all nodes with taxonomic informations

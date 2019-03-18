@@ -77,11 +77,6 @@ get_gen <- function(endpoint, query = NULL, limit =100, flatten = TRUE,
   tmp <- unlist(strsplit(httr::headers(resp)$"content-range", split = "\\D"))
   rg <- as.numeric(tmp[grepl("\\d", tmp)])
 
-
-  sub("\\D", "", httr::headers(resp)["content-range"])
-    mat <- regexec("\\(?[0-9,.]+\\)?", httr::headers(resp)["content-range"])
-    ref <- regmatches(httr::headers(resp)["content-range"], mat)
-
   # Prep iterator over pages
   pages <- ifelse(rg[3] < limit, 0, floor(rg[3] / limit))
 
@@ -177,26 +172,18 @@ flatten = TRUE, ...) {
 #' GET entries based on foreign key
 #'
 #' @param endpoint `character` API entry point
-#' @param column `character` column which contains the fkey
-#' @param id `numeric` foreign key
-#' @param ... get_gen options, see [rmangal::get_gen()]
+#' @param ... foreign key column name with the id
+#' @examples
+#' get_from_fkey(endpoints()$node, network_id = 926)
 #' @return
 #' Object returned by [rmangal::get_gen()]
 #' @details
 #' See endpoints available with `print(endpoints)`
 
-get_fkey <- function(endpoint, column, id, ...) {
-
-  stopifnot(is.character(column))
-
-  # set query
-  query <- list()
-  query[column] <- id
-
-  get_gen(endpoint = endpoint, query = query, ...)
-
+get_from_fkey <- function(endpoint, ...) {
+  query = list(...)
+  get_gen(endpoint = endpoint, query = query)
 }
-
 
 #' Coerce body return by the API to an sf object
 #'

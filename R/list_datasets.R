@@ -1,4 +1,4 @@
-#' List mangal datasets with networks and reference attached
+#' List mangal datasets
 #'
 #' @param search `character` keyword to search (case sensitive).
 #' @param ... arguments from [rmangal::get_gen()]
@@ -15,18 +15,18 @@
 list_datasets <- function( search = NULL, ... ) {
 
     datasets <- as.data.frame(get_gen(endpoints()$dataset,
-      query = list( q = search), ...))
+      query = list( q = search ), ...))
 
     if (!is.null(search)) message(
-      sprintf("Found %s dataset(s) for keywork: %s", nrow(datasets), search))
+      sprintf("Found %s dataset(s) for keyword: %s", nrow(datasets), search))
 
     # Attached reference and network
     networks <- list()
     references <- list()
 
     for(i in seq_len(nrow(datasets))) {
-        networks[[i]] <- purrr::map_df(get_fkey(endpoints()$network,
-          column = "dataset_id", id = datasets[i,"id"]), "body")
+        networks[[i]] <- purrr::map_df(get_from_fkey(endpoints()$network,
+          dataset_id = datasets[i,"id"]), "body")
         references[[i]] <- purrr::map_df(get_singletons(endpoints()$reference,
           ids =  datasets[i,"ref_id"], output = "data.frame"), "body")
     }
