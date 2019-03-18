@@ -24,10 +24,12 @@ list_datasets <- function( search = NULL, ... ) {
     }
 
     datasets <- as.data.frame(get_gen(endpoints()$dataset,
-      query = q, ellipsis))
+      query = query, ... = ellipsis))
 
-    if (!is.null(search)) message(
-      sprintf("Found %s dataset(s) for keyword: %s", nrow(datasets), search))
+    if (!is.null(query)) {
+      message(
+      sprintf("Found %s dataset(s) for query: %s", nrow(datasets), query))
+    } 
 
     # Attached reference and network
     networks <- list()
@@ -40,9 +42,10 @@ list_datasets <- function( search = NULL, ... ) {
           ids =  datasets[i,"ref_id"], output = "data.frame"), "body")
     }
 
-    datasets$networks <- networks
-    datasets$references <- references
-
+    if(nrow(datasets) > 0){
+      datasets$networks <- networks
+      datasets$references <-references
+    }
     datasets
 
 }
