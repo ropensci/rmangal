@@ -4,7 +4,7 @@
 \alias{get_gen}
 \title{GET generic API function to retrieve several entries}
 \usage{
-get_gen(endpoint, query, limit = 100, flatten = TRUE,
+get_gen(endpoint, query = NULL, limit = 100, flatten = TRUE,
   output = "data.frame", ...)
 }
 \arguments{
