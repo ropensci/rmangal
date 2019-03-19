@@ -47,10 +47,8 @@ search_datasets <- function(query = NULL, ... ) {
       datasets$networks <- networks
       datasets$references <- references
     }
-    
-    class(datasets) <- "mangalSearch"
-    attr(datasets, "nRecords") <- nrow(datasets)
 
+    class(datasets) <- append(class(datasets),"mgSearchDatasets")
     datasets
 
 }

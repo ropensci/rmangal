@@ -21,10 +21,9 @@ search_networks <- function( query = NULL, polygon = NULL, ... ) {
     # Making sure polygon is sf class
     stopifnot("sf" %in% class(polygon))
     # Making sure projection are WGS84
-    stopifnot(sf::st_crs((polygon) != "4236"))
+    stopifnot(sf::st_crs(polygon)$epsg == "4326")
 
-    networks <- sf::st_intersects(sp_networks, polygon)
-    # TODO: Finished the function here
+    networks <- sf::st_intersection(sp_networks, polygon)
 
   } else {
 
@@ -33,10 +32,10 @@ search_networks <- function( query = NULL, polygon = NULL, ... ) {
       query <- list( q = query )
     }
 
-    networks <- as.data.frame(get_gen(endpoints()$network, query = query, ...))
+    networks <- as.data.frame(get_gen(endpoints()$network, query = query,  ...))
 
   }
 
+  class(networks) <- append(class(networks),"mgSearchNetworks")
   networks
-
 }
