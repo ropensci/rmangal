@@ -6,7 +6,8 @@
 #' @return
 #' object `data.frame`: Networks.
 #' @examples
-#' 
+#' search_networks(query="insect%")
+#' # Spatial exemple
 #' @export
 
 search_networks <- function( query = NULL, polygon = NULL, ... ) {

@@ -43,7 +43,7 @@ coerce_body <- function(x, resp, flatten) {
      )
    )
 
-  if(x == "data.frame") class(db) <- c("tbl_df", "tbl", "data.frame")
+  if(x == "data.frame") class(cb) <- c("tbl_df", "tbl", "data.frame")
 
   cb
 
