@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Retrieve mangal networks collection — get_collection • rmangal</title>
+<title>Get collection of networks — get_collection • rmangal</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Retrieve mangal networks collection — get_collection" />
+<meta property="og:title" content="Get collection of networks — get_collection" />
 
-<meta property="og:description" content="Retrieve mangal networks collection" />
+<meta property="og:description" content="Get collection of networks" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -109,25 +109,34 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Retrieve mangal networks collection</h1>
+    <h1>Get collection of networks</h1>
     <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/get_collection.R'><code>R/get_collection.R</code></a></small>
     <div class="hidden name"><code>get_collection.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Retrieve mangal networks collection</p>
+    <p>Get collection of networks</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>get_collection</span>(<span class='no'>ids</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>get_collection</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for default</span>
+<span class='fu'>get_collection</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mgSearchDatasets</span>
+<span class='fu'>get_collection</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mgSearchNetworks</span>
+<span class='fu'>get_collection</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>ids</th>
-      <td><p><code>numeric</code> vector of mangal network IDs or object <code>mangalSearch</code> returned by functions <code>search_*</code></p></td>
+      <th>x</th>
+      <td><p><code>numeric</code> vector of mangal network IDs or object return by functions <code>search_*</code></p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -137,489 +146,26 @@
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    
-<ul>
-<li><p>networks: <code>list</code> of object <code>mgNetwork</code> (see <code>rmangal::get_network_by_id()</code>)</p></li>
+    <p>object <code>mgNetworksCollection</code>:</p><ul>
+<li><p>collection of networks: <code>list</code> of object <code>mgNetwork</code> (see <code>rmangal::get_network_by_id()</code>)</p></li>
 </ul>
 
     
+    <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
+
+    <ul>
+<li><p><code>default</code>: Get collection of networks (default)</p></li>
+<li><p><code>mgSearchDatasets</code>: Get collection of networks</p></li>
+<li><p><code>mgSearchNetworks</code>: Get collection of networks</p></li>
+</ul>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>get_collection</span>(<span class='kw'>ids</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1035</span>:<span class='fl'>1037</span>))</div><div class='output co'>#&gt; $networks
-#&gt; $networks[[1]]
-#&gt; $network
-#&gt; $network$id
-#&gt; [1] 1035
-#&gt; 
-#&gt; $network$name
-#&gt; [1] "hadfield_2014_20140201_1035"
-#&gt; 
-#&gt; $network$date
-#&gt; [1] "2014-02-01T05:00:00.000Z"
-#&gt; 
-#&gt; $network$geom
-#&gt; $network$geom$type
-#&gt; [1] "Point"
-#&gt; 
-#&gt; $network$geom$coordinates
-#&gt; $network$geom$coordinates[[1]]
-#&gt; [1] 45.41222
-#&gt; 
-#&gt; $network$geom$coordinates[[2]]
-#&gt; [1] 39.20889
-#&gt; 
-#&gt; 
-#&gt; 
-#&gt; $network$description
-#&gt; [1] "Flea distribution and abundance on small mammals (Soricomorpha and Rodentia) at Nakhichevan"
-#&gt; 
-#&gt; $network$public
-#&gt; [1] TRUE
-#&gt; 
-#&gt; $network$all_interactions
-#&gt; [1] FALSE
-#&gt; 
-#&gt; $network$created_at
-#&gt; [1] "2019-02-26T19:28:02.957Z"
-#&gt; 
-#&gt; $network$updated_at
-#&gt; [1] "2019-02-26T21:02:24.670Z"
-#&gt; 
-#&gt; $network$dataset_id
-#&gt; [1] 72
-#&gt; 
-#&gt; $network$user_id
-#&gt; [1] 2
-#&gt; 
-#&gt; 
-#&gt; $nodes
-#&gt; # A tibble: 19 x 16
-#&gt;       id original_name node_level network_id taxonomy_id created_at updated_at
-#&gt;    &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;           &lt;int&gt;       &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;     
-#&gt;  1 12263 Microtus arv… taxon            1035        3543 2019-02-2… 2019-02-2…
-#&gt;  2 12264 Arvicola ter… taxon            1035        3415 2019-02-2… 2019-02-2…
-#&gt;  3 12265 Dryomys nite… taxon            1035        3488 2019-02-2… 2019-02-2…
-#&gt;  4 12266 Neomys schel… taxon            1035        3565 2019-02-2… 2019-02-2…
-#&gt;  5 12267 Ctenophthalm… taxon            1035        3480 2019-02-2… 2019-02-2…
-#&gt;  6 12268 Ceratophyllu… taxon            1035        3429 2019-02-2… 2019-02-2…
-#&gt;  7 12269 Amphipsylla … taxon            1035        3403 2019-02-2… 2019-02-2…
-#&gt;  8 12270 Frontopsylla… taxon            1035        3495 2019-02-2… 2019-02-2…
-#&gt;  9 12271 Megabothris … taxon            1035        3526 2019-02-2… 2019-02-2…
-#&gt; 10 12272 Ctenophthalm… taxon            1035        3457 2019-02-2… 2019-02-2…
-#&gt; 11 12273 Neopsylla pl… taxon            1035        3573 2019-02-2… 2019-02-2…
-#&gt; 12 12274 Nosopsyllus … taxon            1035        3578 2019-02-2… 2019-02-2…
-#&gt; 13 12275 Hystrichopsy… taxon            1035        3507 2019-02-2… 2019-02-2…
-#&gt; 14 12276 Palaeopsylla… taxon            1035        3598 2019-02-2… 2019-02-2…
-#&gt; 15 12277 Callopsylla … taxon            1035        3418 2019-02-2… 2019-02-2…
-#&gt; 16 12278 Leptopsylla … taxon            1035        3514 2019-02-2… 2019-02-2…
-#&gt; 17 12279 Peromyscopsy… taxon            1035        3616 2019-02-2… 2019-02-2…
-#&gt; 18 12280 Rhadinopsyll… taxon            1035        3637 2019-02-2… 2019-02-2…
-#&gt; 19 12281 Stenoponia i… taxon            1035        3676 2019-02-2… 2019-02-2…
-#&gt; # … with 9 more variables: taxonomy.id &lt;int&gt;, taxonomy.name &lt;chr&gt;,
-#&gt; #   taxonomy.ncbi &lt;int&gt;, taxonomy.tsn &lt;int&gt;, taxonomy.eol &lt;int&gt;,
-#&gt; #   taxonomy.bold &lt;int&gt;, taxonomy.status &lt;chr&gt;, taxonomy.created_at &lt;chr&gt;,
-#&gt; #   taxonomy.updated_at &lt;chr&gt;
-#&gt; 
-#&gt; $edges
-#&gt; # A tibble: 19 x 20
-#&gt;       id node_from node_to date  direction type  method attr_id value geom 
-#&gt;    &lt;int&gt;     &lt;int&gt;   &lt;int&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;    &lt;int&gt; &lt;int&gt; &lt;lgl&gt;
-#&gt;  1 61705     12267   12263 2014… directed  para… field…      19    88 NA   
-#&gt;  2 61706     12267   12264 2014… directed  para… field…      19     3 NA   
-#&gt;  3 61707     12268   12265 2014… directed  para… field…      19    67 NA   
-#&gt;  4 61708     12269   12263 2014… directed  para… field…      19    39 NA   
-#&gt;  5 61709     12270   12263 2014… directed  para… field…      19    14 NA   
-#&gt;  6 61710     12270   12264 2014… directed  para… field…      19     2 NA   
-#&gt;  7 61711     12271   12264 2014… directed  para… field…      19     9 NA   
-#&gt;  8 61712     12272   12263 2014… directed  para… field…      19     7 NA   
-#&gt;  9 61713     12272   12266 2014… directed  para… field…      19     1 NA   
-#&gt; 10 61714     12273   12263 2014… directed  para… field…      19     6 NA   
-#&gt; 11 61715     12274   12263 2014… directed  para… field…      19     4 NA   
-#&gt; 12 61716     12274   12264 2014… directed  para… field…      19     1 NA   
-#&gt; 13 61717     12275   12263 2014… directed  para… field…      19     2 NA   
-#&gt; 14 61718     12276   12266 2014… directed  para… field…      19     2 NA   
-#&gt; 15 61719     12277   12263 2014… directed  para… field…      19     1 NA   
-#&gt; 16 61720     12278   12265 2014… directed  para… field…      19     1 NA   
-#&gt; 17 61721     12279   12263 2014… directed  para… field…      19     1 NA   
-#&gt; 18 61722     12280   12263 2014… directed  para… field…      19     1 NA   
-#&gt; 19 61723     12281   12263 2014… directed  para… field…      19     1 NA   
-#&gt; # … with 10 more variables: public &lt;lgl&gt;, network_id &lt;int&gt;, created_at &lt;chr&gt;,
-#&gt; #   updated_at &lt;chr&gt;, attribute.id &lt;int&gt;, attribute.name &lt;chr&gt;,
-#&gt; #   attribute.description &lt;chr&gt;, attribute.unit &lt;chr&gt;,
-#&gt; #   attribute.created_at &lt;chr&gt;, attribute.updated_at &lt;chr&gt;
-#&gt; 
-#&gt; $dataset
-#&gt; $dataset$id
-#&gt; [1] 72
-#&gt; 
-#&gt; $dataset$name
-#&gt; [1] "hadfield_2014"
-#&gt; 
-#&gt; $dataset$date
-#&gt; [1] "2014-02-01T05:00:00.000Z"
-#&gt; 
-#&gt; $dataset$description
-#&gt; [1] "Flea distribution and abundance on small mammals (Soricomorpha and Rodentia) in 51 different regions of the Palearctic"
-#&gt; 
-#&gt; $dataset$public
-#&gt; [1] TRUE
-#&gt; 
-#&gt; $dataset$created_at
-#&gt; [1] "2019-02-26T19:15:35.831Z"
-#&gt; 
-#&gt; $dataset$updated_at
-#&gt; [1] "2019-02-26T19:15:35.831Z"
-#&gt; 
-#&gt; $dataset$ref_id
-#&gt; [1] 71
-#&gt; 
-#&gt; $dataset$user_id
-#&gt; [1] 2
-#&gt; 
-#&gt; 
-#&gt; $reference
-#&gt; $reference$id
-#&gt; [1] 71
-#&gt; 
-#&gt; $reference$doi
-#&gt; [1] "10.1086/674445"
-#&gt; 
-#&gt; $reference$author
-#&gt; [1] "hadfield"
-#&gt; 
-#&gt; $reference$year
-#&gt; [1] "2014"
-#&gt; 
-#&gt; $reference$jstor
-#&gt; [1] "NA"
-#&gt; 
-#&gt; $reference$pmid
-#&gt; [1] "NA"
-#&gt; 
-#&gt; $reference$bibtex
-#&gt; [1] "@article{doi:10.1086/674445,author = {Jarrod D. Hadfield and Boris R. Krasnov and Robert Poulin and Shinichi Nakagawa},title = {A Tale of Two Phylogenies: Comparative Analyses of Ecological Interactions.},journal = {The American Naturalist},volume = {183},number = {2},pages = {174-187},year = {2014},doi = {10.1086/674445},note ={PMID: 24464193},URL = {https://doi.org/10.1086/674445},eprint = { https://doi.org/10.1086/674445}}"
-#&gt; 
-#&gt; $reference$paper_url
-#&gt; [1] "http://www.jstor.org/stable/10.1086/674445"
-#&gt; 
-#&gt; $reference$data_url
-#&gt; [1] "https://datadryad.org/resource/doi:10.5061/dryad.jf3tj"
-#&gt; 
-#&gt; $reference$created_at
-#&gt; [1] "2019-02-26T19:15:31.321Z"
-#&gt; 
-#&gt; $reference$updated_at
-#&gt; [1] "2019-02-26T19:15:31.321Z"
-#&gt; 
-#&gt; 
-#&gt; attr(,"class")
-#&gt; [1] "mgNetwork"
-#&gt; 
-#&gt; $networks[[2]]
-#&gt; $network
-#&gt; $network$id
-#&gt; [1] 1036
-#&gt; 
-#&gt; $network$name
-#&gt; [1] "hadfield_2014_20140201_1036"
-#&gt; 
-#&gt; $network$date
-#&gt; [1] "2014-02-01T05:00:00.000Z"
-#&gt; 
-#&gt; $network$geom
-#&gt; $network$geom$type
-#&gt; [1] "Point"
-#&gt; 
-#&gt; $network$geom$coordinates
-#&gt; $network$geom$coordinates[[1]]
-#&gt; [1] 74.6
-#&gt; 
-#&gt; $network$geom$coordinates[[2]]
-#&gt; [1] 42.86667
-#&gt; 
-#&gt; 
-#&gt; 
-#&gt; $network$description
-#&gt; [1] "Flea distribution and abundance on small mammals (Soricomorpha and Rodentia) at North Kyrgyzstan"
-#&gt; 
-#&gt; $network$public
-#&gt; [1] TRUE
-#&gt; 
-#&gt; $network$all_interactions
-#&gt; [1] FALSE
-#&gt; 
-#&gt; $network$created_at
-#&gt; [1] "2019-02-26T19:28:10.743Z"
-#&gt; 
-#&gt; $network$updated_at
-#&gt; [1] "2019-02-26T21:02:24.719Z"
-#&gt; 
-#&gt; $network$dataset_id
-#&gt; [1] 72
-#&gt; 
-#&gt; $network$user_id
-#&gt; [1] 2
-#&gt; 
-#&gt; 
-#&gt; $nodes
-#&gt; # A tibble: 49 x 16
-#&gt;       id original_name node_level network_id taxonomy_id created_at updated_at
-#&gt;    &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;           &lt;int&gt;       &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;     
-#&gt;  1 12282 Spermophilus… taxon            1036        3667 2019-02-2… 2019-02-2…
-#&gt;  2 12283 Meriones tam… taxon            1036        3530 2019-02-2… 2019-02-2…
-#&gt;  3 12284 Allactaga el… taxon            1036        3373 2019-02-2… 2019-02-2…
-#&gt;  4 12285 Marmota caud… taxon            1036        3517 2019-02-2… 2019-02-2…
-#&gt;  5 12286 Cricetulus m… taxon            1036        3448 2019-02-2… 2019-02-2…
-#&gt;  6 12287 Allactaga ma… taxon            1036        3374 2019-02-2… 2019-02-2…
-#&gt;  7 12288 Microtus soc… taxon            1036        3553 2019-02-2… 2019-02-2…
-#&gt;  8 12289 Apodemus ura… taxon            1036        3414 2019-02-2… 2019-02-2…
-#&gt;  9 12290 Marmota baib… taxon            1036        3515 2019-02-2… 2019-02-2…
-#&gt; 10 12291 Microtus gre… taxon            1036        3546 2019-02-2… 2019-02-2…
-#&gt; # … with 39 more rows, and 9 more variables: taxonomy.id &lt;int&gt;,
-#&gt; #   taxonomy.name &lt;chr&gt;, taxonomy.ncbi &lt;int&gt;, taxonomy.tsn &lt;int&gt;,
-#&gt; #   taxonomy.eol &lt;int&gt;, taxonomy.bold &lt;int&gt;, taxonomy.status &lt;chr&gt;,
-#&gt; #   taxonomy.created_at &lt;chr&gt;, taxonomy.updated_at &lt;chr&gt;
-#&gt; 
-#&gt; $edges
-#&gt; # A tibble: 79 x 20
-#&gt;       id node_from node_to date  direction type  method attr_id value geom 
-#&gt;    &lt;int&gt;     &lt;int&gt;   &lt;int&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;    &lt;int&gt; &lt;int&gt; &lt;lgl&gt;
-#&gt;  1 61724     12297   12282 2014… directed  para… field…      19  1879 NA   
-#&gt;  2 61725     12297   12283 2014… directed  para… field…      19     3 NA   
-#&gt;  3 61726     12298   12282 2014… directed  para… field…      19  1367 NA   
-#&gt;  4 61727     12299   12282 2014… directed  para… field…      19  1184 NA   
-#&gt;  5 61728     12299   12283 2014… directed  para… field…      19     7 NA   
-#&gt;  6 61729     12299   12284 2014… directed  para… field…      19     2 NA   
-#&gt;  7 61730     12300   12285 2014… directed  para… field…      19  1154 NA   
-#&gt;  8 61731     12301   12282 2014… directed  para… field…      19    18 NA   
-#&gt;  9 61732     12301   12283 2014… directed  para… field…      19   709 NA   
-#&gt; 10 61733     12301   12286 2014… directed  para… field…      19     4 NA   
-#&gt; # … with 69 more rows, and 10 more variables: public &lt;lgl&gt;, network_id &lt;int&gt;,
-#&gt; #   created_at &lt;chr&gt;, updated_at &lt;chr&gt;, attribute.id &lt;int&gt;,
-#&gt; #   attribute.name &lt;chr&gt;, attribute.description &lt;chr&gt;, attribute.unit &lt;chr&gt;,
-#&gt; #   attribute.created_at &lt;chr&gt;, attribute.updated_at &lt;chr&gt;
-#&gt; 
-#&gt; $dataset
-#&gt; $dataset$id
-#&gt; [1] 72
-#&gt; 
-#&gt; $dataset$name
-#&gt; [1] "hadfield_2014"
-#&gt; 
-#&gt; $dataset$date
-#&gt; [1] "2014-02-01T05:00:00.000Z"
-#&gt; 
-#&gt; $dataset$description
-#&gt; [1] "Flea distribution and abundance on small mammals (Soricomorpha and Rodentia) in 51 different regions of the Palearctic"
-#&gt; 
-#&gt; $dataset$public
-#&gt; [1] TRUE
-#&gt; 
-#&gt; $dataset$created_at
-#&gt; [1] "2019-02-26T19:15:35.831Z"
-#&gt; 
-#&gt; $dataset$updated_at
-#&gt; [1] "2019-02-26T19:15:35.831Z"
-#&gt; 
-#&gt; $dataset$ref_id
-#&gt; [1] 71
-#&gt; 
-#&gt; $dataset$user_id
-#&gt; [1] 2
-#&gt; 
-#&gt; 
-#&gt; $reference
-#&gt; $reference$id
-#&gt; [1] 71
-#&gt; 
-#&gt; $reference$doi
-#&gt; [1] "10.1086/674445"
-#&gt; 
-#&gt; $reference$author
-#&gt; [1] "hadfield"
-#&gt; 
-#&gt; $reference$year
-#&gt; [1] "2014"
-#&gt; 
-#&gt; $reference$jstor
-#&gt; [1] "NA"
-#&gt; 
-#&gt; $reference$pmid
-#&gt; [1] "NA"
-#&gt; 
-#&gt; $reference$bibtex
-#&gt; [1] "@article{doi:10.1086/674445,author = {Jarrod D. Hadfield and Boris R. Krasnov and Robert Poulin and Shinichi Nakagawa},title = {A Tale of Two Phylogenies: Comparative Analyses of Ecological Interactions.},journal = {The American Naturalist},volume = {183},number = {2},pages = {174-187},year = {2014},doi = {10.1086/674445},note ={PMID: 24464193},URL = {https://doi.org/10.1086/674445},eprint = { https://doi.org/10.1086/674445}}"
-#&gt; 
-#&gt; $reference$paper_url
-#&gt; [1] "http://www.jstor.org/stable/10.1086/674445"
-#&gt; 
-#&gt; $reference$data_url
-#&gt; [1] "https://datadryad.org/resource/doi:10.5061/dryad.jf3tj"
-#&gt; 
-#&gt; $reference$created_at
-#&gt; [1] "2019-02-26T19:15:31.321Z"
-#&gt; 
-#&gt; $reference$updated_at
-#&gt; [1] "2019-02-26T19:15:31.321Z"
-#&gt; 
-#&gt; 
-#&gt; attr(,"class")
-#&gt; [1] "mgNetwork"
-#&gt; 
-#&gt; $networks[[3]]
-#&gt; $network
-#&gt; $network$id
-#&gt; [1] 1037
-#&gt; 
-#&gt; $network$name
-#&gt; [1] "hadfield_2014_20140201_1037"
-#&gt; 
-#&gt; $network$date
-#&gt; [1] "2014-02-01T05:00:00.000Z"
-#&gt; 
-#&gt; $network$geom
-#&gt; $network$geom$type
-#&gt; [1] "Point"
-#&gt; 
-#&gt; $network$geom$coordinates
-#&gt; $network$geom$coordinates[[1]]
-#&gt; [1] 148.7109
-#&gt; 
-#&gt; $network$geom$coordinates[[2]]
-#&gt; [1] 65.69448
-#&gt; 
-#&gt; 
-#&gt; 
-#&gt; $network$description
-#&gt; [1] "Flea distribution and abundance on small mammals (Soricomorpha and Rodentia) at North Russian Far East"
-#&gt; 
-#&gt; $network$public
-#&gt; [1] TRUE
-#&gt; 
-#&gt; $network$all_interactions
-#&gt; [1] FALSE
-#&gt; 
-#&gt; $network$created_at
-#&gt; [1] "2019-02-26T19:28:40.600Z"
-#&gt; 
-#&gt; $network$updated_at
-#&gt; [1] "2019-02-26T21:02:24.750Z"
-#&gt; 
-#&gt; $network$dataset_id
-#&gt; [1] 72
-#&gt; 
-#&gt; $network$user_id
-#&gt; [1] 2
-#&gt; 
-#&gt; 
-#&gt; $nodes
-#&gt; # A tibble: 29 x 16
-#&gt;       id original_name node_level network_id taxonomy_id created_at updated_at
-#&gt;    &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;           &lt;int&gt;       &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;     
-#&gt;  1 12331 Clethrionomy… taxon            1037        3441 2019-02-2… 2019-02-2…
-#&gt;  2 12332 Microtus oec… taxon            1037        3552 2019-02-2… 2019-02-2…
-#&gt;  3 12333 Clethrionomy… taxon            1037        3440 2019-02-2… 2019-02-2…
-#&gt;  4 12334 Tamias sibir… taxon            1037        3686 2019-02-2… 2019-02-2…
-#&gt;  5 12335 Sorex caecut… taxon            1037        3657 2019-02-2… 2019-02-2…
-#&gt;  6 12336 Alticola mac… taxon            1037        3381 2019-02-2… 2019-02-2…
-#&gt;  7 12337 Lemmus sibir… taxon            1037        3510 2019-02-2… 2019-02-2…
-#&gt;  8 12338 Sorex daphae… taxon            1037        3659 2019-02-2… 2019-02-2…
-#&gt;  9 12339 Sorex minuti… taxon            1037        3661 2019-02-2… 2019-02-2…
-#&gt; 10 12340 Sorex robora… taxon            1037        3663 2019-02-2… 2019-02-2…
-#&gt; # … with 19 more rows, and 9 more variables: taxonomy.id &lt;int&gt;,
-#&gt; #   taxonomy.name &lt;chr&gt;, taxonomy.ncbi &lt;int&gt;, taxonomy.tsn &lt;int&gt;,
-#&gt; #   taxonomy.eol &lt;int&gt;, taxonomy.bold &lt;int&gt;, taxonomy.status &lt;chr&gt;,
-#&gt; #   taxonomy.created_at &lt;chr&gt;, taxonomy.updated_at &lt;chr&gt;
-#&gt; 
-#&gt; $edges
-#&gt; # A tibble: 51 x 20
-#&gt;       id node_from node_to date  direction type  method attr_id value geom 
-#&gt;    &lt;int&gt;     &lt;int&gt;   &lt;int&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;    &lt;int&gt; &lt;int&gt; &lt;lgl&gt;
-#&gt;  1 61803     12345   12331 2014… directed  para… field…      19   153 NA   
-#&gt;  2 61804     12345   12332 2014… directed  para… field…      19    13 NA   
-#&gt;  3 61805     12345   12333 2014… directed  para… field…      19    49 NA   
-#&gt;  4 61806     12345   12334 2014… directed  para… field…      19     3 NA   
-#&gt;  5 61807     12345   12335 2014… directed  para… field…      19     2 NA   
-#&gt;  6 61808     12345   12336 2014… directed  para… field…      19     3 NA   
-#&gt;  7 61809     12345   12337 2014… directed  para… field…      19     7 NA   
-#&gt;  8 61810     12346   12331 2014… directed  para… field…      19    48 NA   
-#&gt;  9 61811     12346   12332 2014… directed  para… field…      19   112 NA   
-#&gt; 10 61812     12346   12333 2014… directed  para… field…      19    34 NA   
-#&gt; # … with 41 more rows, and 10 more variables: public &lt;lgl&gt;, network_id &lt;int&gt;,
-#&gt; #   created_at &lt;chr&gt;, updated_at &lt;chr&gt;, attribute.id &lt;int&gt;,
-#&gt; #   attribute.name &lt;chr&gt;, attribute.description &lt;chr&gt;, attribute.unit &lt;chr&gt;,
-#&gt; #   attribute.created_at &lt;chr&gt;, attribute.updated_at &lt;chr&gt;
-#&gt; 
-#&gt; $dataset
-#&gt; $dataset$id
-#&gt; [1] 72
-#&gt; 
-#&gt; $dataset$name
-#&gt; [1] "hadfield_2014"
-#&gt; 
-#&gt; $dataset$date
-#&gt; [1] "2014-02-01T05:00:00.000Z"
-#&gt; 
-#&gt; $dataset$description
-#&gt; [1] "Flea distribution and abundance on small mammals (Soricomorpha and Rodentia) in 51 different regions of the Palearctic"
-#&gt; 
-#&gt; $dataset$public
-#&gt; [1] TRUE
-#&gt; 
-#&gt; $dataset$created_at
-#&gt; [1] "2019-02-26T19:15:35.831Z"
-#&gt; 
-#&gt; $dataset$updated_at
-#&gt; [1] "2019-02-26T19:15:35.831Z"
-#&gt; 
-#&gt; $dataset$ref_id
-#&gt; [1] 71
-#&gt; 
-#&gt; $dataset$user_id
-#&gt; [1] 2
-#&gt; 
-#&gt; 
-#&gt; $reference
-#&gt; $reference$id
-#&gt; [1] 71
-#&gt; 
-#&gt; $reference$doi
-#&gt; [1] "10.1086/674445"
-#&gt; 
-#&gt; $reference$author
-#&gt; [1] "hadfield"
-#&gt; 
-#&gt; $reference$year
-#&gt; [1] "2014"
-#&gt; 
-#&gt; $reference$jstor
-#&gt; [1] "NA"
-#&gt; 
-#&gt; $reference$pmid
-#&gt; [1] "NA"
-#&gt; 
-#&gt; $reference$bibtex
-#&gt; [1] "@article{doi:10.1086/674445,author = {Jarrod D. Hadfield and Boris R. Krasnov and Robert Poulin and Shinichi Nakagawa},title = {A Tale of Two Phylogenies: Comparative Analyses of Ecological Interactions.},journal = {The American Naturalist},volume = {183},number = {2},pages = {174-187},year = {2014},doi = {10.1086/674445},note ={PMID: 24464193},URL = {https://doi.org/10.1086/674445},eprint = { https://doi.org/10.1086/674445}}"
-#&gt; 
-#&gt; $reference$paper_url
-#&gt; [1] "http://www.jstor.org/stable/10.1086/674445"
-#&gt; 
-#&gt; $reference$data_url
-#&gt; [1] "https://datadryad.org/resource/doi:10.5061/dryad.jf3tj"
-#&gt; 
-#&gt; $reference$created_at
-#&gt; [1] "2019-02-26T19:15:31.321Z"
-#&gt; 
-#&gt; $reference$updated_at
-#&gt; [1] "2019-02-26T19:15:31.321Z"
-#&gt; 
-#&gt; 
-#&gt; attr(,"class")
-#&gt; [1] "mgNetwork"
-#&gt; 
-#&gt; 
-#&gt; attr(,"class")
-#&gt; [1] "mgNetworksCollection"</div></pre>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='fu'>get_collection</span>(<span class='fu'>c</span>(<span class='fl'>1035</span>:<span class='fl'>1036</span>))
+<span class='fu'>get_collection</span>(<span class='fu'>search_networks</span>(<span class='kw'>query</span><span class='kw'>=</span><span class='st'>"insect%"</span>))
+<span class='fu'>get_collection</span>(<span class='fu'>search_datasets</span>(<span class='kw'>query</span><span class='kw'>=</span><span class='st'>"lagoon%"</span>))
+<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -627,6 +173,8 @@
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#methods-by-class-">Methods (by class)</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

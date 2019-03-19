@@ -7,7 +7,13 @@
 #' object `data.frame`: Networks.
 #' @examples
 #' search_networks(query="insect%")
-#' # Spatial exemple
+#' \dontrun{
+#' # Spatial query
+#' library(USAboundaries) 
+#' area <- us_states(state="california")
+#' networks_in_area <- search_networks(polygon=area)
+#' plot(networks_in_area)
+#' }
 #' @export
 
 search_networks <- function( query = NULL, polygon = NULL, ... ) {

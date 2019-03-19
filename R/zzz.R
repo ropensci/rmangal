@@ -24,29 +24,23 @@ endpoints <- function() {
 # Spatial columns of mangal DB
 sf_columns <- function(x) c("geom.type","geom.coordinates")
 
-# Coerce API body to expected format
+#
 coerce_body <- function(x, resp, flatten) {
-
-  cb <- switch(
+  switch(
     x,
     raw = httr::content(resp, type = "text", encoding = "UTF-8"),
     list = httr::content(resp),
-    data.frame = as.data.frame(
+    data.frame = tibble::as_tibble(
       jsonlite::fromJSON(httr::content(resp, type = "text",
       encoding = "UTF-8"), flatten = flatten)),
     spatial = mg_to_sf(
-     as.data.frame(
+     tibble::as_tibble(
        jsonlite::fromJSON(
          httr::content(resp, type = "text", encoding = "UTF-8"),
          flatten = TRUE)
        )
      )
    )
-
-  if(x == "data.frame") class(cb) <- c("tbl_df", "tbl", "data.frame")
-
-  cb
-
 }
 
 #' GET generic API function to retrieve several entries

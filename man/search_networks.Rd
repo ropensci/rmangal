@@ -21,5 +21,11 @@ Search mangal networks
 }
 \examples{
 search_networks(query="insect\%")
-# Spatial exemple
+\dontrun{
+# Spatial query
+library(USAboundaries) 
+area <- us_states(state="california")
+networks_in_area <- search_networks(polygon=area)
+plot(networks_in_area)
+}
 }

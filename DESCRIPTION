@@ -26,10 +26,12 @@ Imports:
     jsonlite (>= 1.5),
     dplyr,
     purrr,
-    sf
+    sf,
+    tibble
 RoxygenNote: 6.1.1
 Suggests: knitr,
     rmarkdown,
-    testthat
+    testthat,
+    USABoundaries
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)

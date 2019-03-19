@@ -2,9 +2,18 @@
 % Please edit documentation in R/get_collection.R
 \name{get_collection}
 \alias{get_collection}
-\title{Retrieve mangal networks collection}
+\alias{get_collection.default}
+\alias{get_collection.mgSearchDatasets}
+\alias{get_collection.mgSearchNetworks}
+\title{Get collection of networks}
 \usage{
 get_collection(x, ...)
+
+\method{get_collection}{default}(x, ...)
+
+\method{get_collection}{mgSearchDatasets}(x, ...)
+
+\method{get_collection}{mgSearchNetworks}(x, ...)
 }
 \arguments{
 \item{x}{\code{numeric} vector of mangal network IDs or object return by functions \code{search_*}}
@@ -12,15 +21,27 @@ get_collection(x, ...)
 \item{...}{arguments from \code{\link[rmangal:get_network_by_id]{rmangal::get_network_by_id()}}}
 }
 \value{
+object \code{mgNetworksCollection}:
 \itemize{
-\item networks: \code{list} of object \code{mgNetwork} (see \code{\link[rmangal:get_network_by_id]{rmangal::get_network_by_id()}})
+\item collection of networks: \code{list} of object \code{mgNetwork} (see \code{\link[rmangal:get_network_by_id]{rmangal::get_network_by_id()}})
 }
 }
 \description{
-Retrieve mangal networks collection
+Get collection of networks
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{default}: Get collection of networks (default)
+
+\item \code{mgSearchDatasets}: Get collection of networks
+
+\item \code{mgSearchNetworks}: Get collection of networks
+}}
+
 \examples{
-get_collection(c(1035:1037))
+\dontrun{
+get_collection(c(1035:1036))
 get_collection(search_networks(query="insect\%"))
 get_collection(search_datasets(query="lagoon\%"))
+}
 }
