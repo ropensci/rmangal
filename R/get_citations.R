@@ -9,7 +9,7 @@
 
 get_citations <- function (collection){
     stopifnot("mgNetworksCollection" %in% class(collection))
-    references <- purrr::map(collection, "reference")
+    references <- purrr::map(collection$networks, "reference")
     bibtex <- unique(purrr::map_chr(references,"bibtex"))
     bibtex
 }
