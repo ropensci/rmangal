@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>GET generic API function to retrieve singletons — get_singletons • rmangal</title>
+<title>Search mangal networks — get_citations • rmangal</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="GET generic API function to retrieve singletons — get_singletons" />
+<meta property="og:title" content="Search mangal networks — get_citations" />
 
-<meta property="og:description" content="GET generic API function to retrieve singletons" />
+<meta property="og:description" content="Search mangal networks" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -109,58 +109,35 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>GET generic API function to retrieve singletons</h1>
-    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/zzz.R'><code>R/zzz.R</code></a></small>
-    <div class="hidden name"><code>get_singletons.Rd</code></div>
+    <h1>Search mangal networks</h1>
+    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/get_citations.R'><code>R/get_citations.R</code></a></small>
+    <div class="hidden name"><code>get_citations.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>GET generic API function to retrieve singletons</p>
+    <p>Search mangal networks</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>get_singletons</span>(<span class='no'>endpoint</span>, <span class='no'>ids</span>, <span class='kw'>output</span> <span class='kw'>=</span> <span class='st'>"list"</span>, <span class='kw'>flatten</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>get_citations</span>(<span class='no'>collection</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>endpoint</th>
-      <td><p><code>character</code> API entry point</p></td>
-    </tr>
-    <tr>
-      <th>ids</th>
-      <td><p><code>numeric</code> vector of ids</p></td>
-    </tr>
-    <tr>
-      <th>output</th>
-      <td><p><code>character</code> output type (<code>data.frame</code>, <code>list</code>, <code>spatial</code>, <code>raw</code>) return; default: <code>list</code></p></td>
-    </tr>
-    <tr>
-      <th>flatten</th>
-      <td><p><code>logical</code> flatten nested data.frame, see <code><a href='http://www.rdocumentation.org/packages/jsonlite/topics/flatten'>jsonlite::flatten()</a></code>; default: <code>TRUE</code></p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>httr options, see <code><a href='http://www.rdocumentation.org/packages/httr/topics/GET'>httr::GET()</a></code></p></td>
+      <th>collection</th>
+      <td><p><code>mgNetworksCollection</code> object class.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Object of class <code>mgGetResponses</code> whithin each level is the specific ID called.
-Each item of the <code>mgGetResponses</code> list corresponds to an API call. Each call returns an object:</p><ul>
-<li><p><code>getSuccess</code> which is a list with the body <code><a href='http://www.rdocumentation.org/packages/httr/topics/content'>httr::content()</a></code> and the server response <code><a href='http://www.rdocumentation.org/packages/httr/topics/response'>httr::response()</a></code>.</p></li>
-<li><p><code>getError</code> which has the exact same structure with an empty body.</p></li>
-</ul>
-
-    
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>See endpoints available with <code>endpoints()</code></p>
+    <p><code>list</code> of bibtex for all references attached to the network collection</p>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='no'>lagoon_datasets</span> <span class='kw'>&lt;-</span> <span class='fu'>search_datasets</span>(<span class='st'>"lagoon"</span>)</div><div class='output co'>#&gt; <span class='message'>Found 2 dataset(s) for query: lagoon</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -168,9 +145,9 @@ Each item of the <code>mgGetResponses</code> list corresponds to an API call. Ea
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-
-      <li><a href="#details">Details</a></li>
-          </ul>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

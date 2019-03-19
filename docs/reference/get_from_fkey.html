@@ -141,46 +141,13 @@
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>See endpoints available with <code>print(endpoints)</code></p>
+    <p>See endpoints available with <code>endpoints()</code></p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>get_from_fkey</span>(<span class='fu'>endpoints</span>()$<span class='no'>node</span>, <span class='kw'>network_id</span> <span class='kw'>=</span> <span class='fl'>926</span>)</div><div class='output co'>#&gt; [[1]]
-#&gt; $body
-#&gt; # A tibble: 13 x 16
-#&gt;       id original_name node_level network_id taxonomy_id created_at updated_at
-#&gt;    &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;           &lt;int&gt;       &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;     
-#&gt;  1  6443 micro-        taxon             926        4804 2019-02-2… 2019-02-2…
-#&gt;  2  6444 meio-benthos  taxon             926        4805 2019-02-2… 2019-02-2…
-#&gt;  3  6445 mollusks      taxon             926        4336 2019-02-2… 2019-02-2…
-#&gt;  4  6446 zooplankton   taxon             926        4277 2019-02-2… 2019-02-2…
-#&gt;  5  6447 insects       taxon             926        4650 2019-02-2… 2019-02-2…
-#&gt;  6  6448 Callinectes   taxon             926        3823 2019-02-2… 2019-02-2…
-#&gt;  7  6449 Penaeus       taxon             926        4806 2019-02-2… 2019-02-2…
-#&gt;  8  6450 fishes (type… taxon             926        4173 2019-02-2… 2019-02-2…
-#&gt;  9  6451 fishes (type… taxon             926        4304 2019-02-2… 2019-02-2…
-#&gt; 10  6452 fishes (type… taxon             926        4807 2019-02-2… 2019-02-2…
-#&gt; 11  6453 benthic algae taxon             926        4309 2019-02-2… 2019-02-2…
-#&gt; 12  6454 detritus      taxon             926        3828 2019-02-2… 2019-02-2…
-#&gt; 13  6455 phytoplankton taxon             926        4310 2019-02-2… 2019-02-2…
-#&gt; # … with 9 more variables: taxonomy.id &lt;int&gt;, taxonomy.name &lt;chr&gt;,
-#&gt; #   taxonomy.ncbi &lt;int&gt;, taxonomy.tsn &lt;int&gt;, taxonomy.eol &lt;int&gt;,
-#&gt; #   taxonomy.bold &lt;int&gt;, taxonomy.status &lt;chr&gt;, taxonomy.created_at &lt;chr&gt;,
-#&gt; #   taxonomy.updated_at &lt;chr&gt;
-#&gt; 
-#&gt; $response
-#&gt; Response [http://poisotlab.biol.umontreal.ca/api/v2/node?network_id=926&amp;page=0]
-#&gt;   Date: 2019-03-18 14:42
-#&gt;   Status: 200
-#&gt;   Content-Type: application/json; charset=utf-8
-#&gt;   Size: 4.84 kB
-#&gt; 
-#&gt; 
-#&gt; attr(,"class")
-#&gt; [1] "getSuccess"
-#&gt; 
-#&gt; attr(,"class")
-#&gt; [1] "mgGetResponses"</div></pre>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='fu'>get_from_fkey</span>(<span class='fu'>endpoints</span>()$<span class='no'>node</span>, <span class='kw'>network_id</span> <span class='kw'>=</span> <span class='fl'>926</span>)
+<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

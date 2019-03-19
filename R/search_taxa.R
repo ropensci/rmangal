@@ -1,4 +1,4 @@
-#' List mangal datasets
+#' Search mangal taxa
 #'
 #' @param query `character` keyword used to search (case sensitive), or `list` of custom query.
 #' @param ... arguments from [rmangal::get_gen()]

@@ -2,7 +2,7 @@
 % Please edit documentation in R/search_taxa.R
 \name{search_taxa}
 \alias{search_taxa}
-\title{List mangal datasets}
+\title{Search mangal taxa}
 \usage{
 search_taxa(query = NULL, ...)
 }
@@ -15,5 +15,5 @@ search_taxa(query = NULL, ...)
 object \code{data.frame}: Taxa information with all interactions in which the taxa occurs.
 }
 \description{
-List mangal datasets
+Search mangal taxa
 }
