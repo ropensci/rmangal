@@ -4,8 +4,7 @@
 \alias{get_singletons}
 \title{GET generic API function to retrieve singletons}
 \usage{
-get_singletons(endpoint = NULL, ids = NULL, output = "list",
-  flatten = TRUE, ...)
+get_singletons(endpoint, ids, output = "list", flatten = TRUE, ...)
 }
 \arguments{
 \item{endpoint}{\code{character} API entry point}
@@ -30,5 +29,5 @@ Each item of the \code{mgGetResponses} list corresponds to an API call. Each cal
 GET generic API function to retrieve singletons
 }
 \details{
-See endpoints available with \code{print(endpoints)}
+See endpoints available with \code{endpoints()}
 }

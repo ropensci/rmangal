@@ -2,6 +2,10 @@
 
 S3method(as.data.frame,mgGetResponses)
 S3method(summary,mgGetResponses)
+export(get_citations)
+export(get_collection)
+export(get_network_by_id)
 export(is.mgGetResponses)
-export(list_datasets)
-export(mg_network)
+export(search_datasets)
+export(search_networks)
+export(search_taxa)

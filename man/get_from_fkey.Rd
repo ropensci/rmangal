@@ -18,7 +18,7 @@ Object returned by \code{\link[rmangal:get_gen]{rmangal::get_gen()}}
 GET entries based on foreign key
 }
 \details{
-See endpoints available with \code{print(endpoints)}
+See endpoints available with \code{endpoints()}
 }
 \examples{
 \dontrun{
