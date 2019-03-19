@@ -59,7 +59,7 @@ coerce_body <- function(x, resp, flatten) {
 #' @details
 #' See endpoints available with `endpoints()`
 
-get_gen <- function(endpoint, query = NULL, limit =100, flatten = TRUE,
+get_gen <- function(endpoint, query, limit =100, flatten = TRUE,
   output = 'data.frame', ...) {
 
   url <- httr::modify_url(server(), path = paste0(base(), endpoint))
@@ -92,7 +92,7 @@ get_gen <- function(endpoint, query = NULL, limit =100, flatten = TRUE,
       message(sprintf("API request failed (%s): %s", httr::status_code(resp),
         httr::content(resp)$message))
 
-      responses[[page + 1]] <- structure(list(body = NULL, response = resp),
+      responses[[page + 1]] <- structure(list(response = resp),
           class = "getError")
 
     } else {
@@ -126,7 +126,7 @@ get_gen <- function(endpoint, query = NULL, limit =100, flatten = TRUE,
 #' @details
 #' See endpoints available with `endpoints()`
 
-get_singletons <- function(endpoint = NULL, ids = NULL, output = "list",
+get_singletons <- function(endpoint, ids, output = "list",
 flatten = TRUE, ...) {
 
   stopifnot(!is.null(endpoint) & !is.null(ids))
@@ -151,7 +151,7 @@ flatten = TRUE, ...) {
       message(sprintf("API request failed (%s): %s", httr::status_code(resp),
         httr::content(resp)$message))
 
-      responses[[i]]  <- structure(list(body = NULL, response = resp),
+      responses[[i]]  <- structure(list(response = resp),
           class = "getError")
 
     } else {
