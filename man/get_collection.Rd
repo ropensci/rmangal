@@ -4,10 +4,10 @@
 \alias{get_collection}
 \title{Retrieve mangal networks collection}
 \usage{
-get_collection(ids, ...)
+get_collection(x, ...)
 }
 \arguments{
-\item{ids}{\code{numeric} vector of mangal network IDs or object \code{mangalSearch} returned by functions \code{search_*}}
+\item{x}{\code{numeric} vector of mangal network IDs or object return by functions \code{search_*}}
 
 \item{...}{arguments from \code{\link[rmangal:get_network_by_id]{rmangal::get_network_by_id()}}}
 }
@@ -20,5 +20,7 @@ get_collection(ids, ...)
 Retrieve mangal networks collection
 }
 \examples{
-get_collection(ids = c(1035:1037))
+get_collection(c(1035:1037))
+get_collection(search_networks(query="insect\%"))
+get_collection(search_datasets(query="lagoon\%"))
 }

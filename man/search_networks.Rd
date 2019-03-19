@@ -20,5 +20,6 @@ object \code{data.frame}: Networks.
 Search mangal networks
 }
 \examples{
-
+search_networks(query="insect\%")
+# Spatial exemple
 }
