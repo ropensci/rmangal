@@ -11,13 +11,13 @@
 
 get_collection <- function(ids , ... ) {
 
-    # Create empty structure of mgNetworksCollections
-    mg_networks_collection <- structure(
-      list(
-        networks = list() # list of mgNetwork class
-      ),
-      class = "mgNetworksCollection"
-    )
+  # Object S3 declaration
+  mg_networks_collection <- structure(
+    list(
+      networks = list() # list of mgNetwork class
+    ),
+    class = "mgNetworksCollection"
+  )
   
   for(i in seq_len(length(ids))){
     mg_networks_collection$networks[[i]] <- get_network_by_id(ids[i], ...)
