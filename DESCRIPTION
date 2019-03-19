@@ -26,8 +26,7 @@ Imports:
     jsonlite (>= 1.5),
     dplyr,
     purrr,
-    sf,
-    tibble
+    sf
 RoxygenNote: 6.1.1
 Suggests: knitr,
     rmarkdown,
