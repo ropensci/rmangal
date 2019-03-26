@@ -34,13 +34,13 @@ get_network_by_id <- function(id, ... ) {
     dataset <- get_singletons(endpoints()$dataset, ids = unique(mg_network$network$dataset_id))
 
     # Assign dataset informations to mg_network
-    mg_network$dataset <- unlist(purrr::map(dataset,"body"), recursive = FALSE)
+    mg_network$dataset <- purrr::flatten(purrr::map(dataset,"body"))
 
     # retrieve REFERENCE 
     reference <- get_singletons(endpoints()$reference, ids = mg_network$dataset$ref_id)
 
     # Assign dataset informations to mg_network
-    mg_network$reference <- unlist(purrr::map(reference,"body"), recursive = FALSE)
+    mg_network$reference <- purrr::flatten(purrr::map(reference,"body"))
 
     mg_network
 }
