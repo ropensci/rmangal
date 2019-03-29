@@ -151,7 +151,6 @@ flatten = TRUE, ...) {
 
   # Loop over ids
   for (i in seq_len(length(ids))) {
-    i = 1
     # Set url
     url <- httr::modify_url(server(), path = paste0(base(), endpoint, "/",
       ids[i]))
