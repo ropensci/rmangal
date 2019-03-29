@@ -24,20 +24,31 @@ endpoints <- function() {
 # Spatial columns of mangal DB
 sf_columns <- function(x) c("geom.type","geom.coordinates")
 
+# Handle NULL to coerce into tibble
+null_to_na <- function(x) {
+    if (is.list(x)) {
+        return(lapply(x, null_to_na))
+    } else {
+        return(ifelse(is.null(x), NA, x))
+    }
+}
+
 #
 coerce_body <- function(x, resp, flatten) {
   switch(
     x,
     raw = httr::content(resp, type = "text", encoding = "UTF-8"),
     list = httr::content(resp),
-    data.frame = tibble::as_tibble(
+    data.frame = tibble::as_tibble(null_to_na(
       jsonlite::fromJSON(httr::content(resp, type = "text",
-      encoding = "UTF-8"), flatten = flatten)),
+      encoding = "UTF-8"), flatten = flatten))),
     spatial = mg_to_sf(
      tibble::as_tibble(
+       null_to_na(
        jsonlite::fromJSON(
          httr::content(resp, type = "text", encoding = "UTF-8"),
          flatten = TRUE)
+       )
        )
      )
    )
@@ -129,6 +140,9 @@ get_gen <- function(endpoint, query = NULL, limit =100, flatten = TRUE,
 get_singletons <- function(endpoint = NULL, ids = NULL, output = "list",
 flatten = TRUE, ...) {
 
+  ids = c(16)
+  endpoint = endpoints()$reference
+
   stopifnot(!is.null(endpoint) & !is.null(ids))
 
   # Prep output object
@@ -137,7 +151,7 @@ flatten = TRUE, ...) {
 
   # Loop over ids
   for (i in seq_len(length(ids))) {
-
+    i = 1
     # Set url
     url <- httr::modify_url(server(), path = paste0(base(), endpoint, "/",
       ids[i]))
