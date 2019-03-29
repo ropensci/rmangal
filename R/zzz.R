@@ -26,10 +26,13 @@ sf_columns <- function(x) c("geom.type","geom.coordinates")
 
 # Handle NULL to coerce into tibble
 null_to_na <- function(x) {
-    if (is.list(x)) {
-        return(lapply(x, null_to_na))
+    if (is.data.frame(x)) {
+      # NULL already handle
+      return(x)
+    } else if( is.list(x)) {
+      return(lapply(x, null_to_na)) 
     } else {
-        return(ifelse(is.null(x), NA, x))
+      return(ifelse(is.null(x), NA, x))
     }
 }
 
@@ -79,7 +82,7 @@ get_gen <- function(endpoint, query = NULL, limit =100, flatten = TRUE,
   resp <- httr::GET(url,
       config = httr::add_headers(`Content-type` = "application/json"), ua,
       query = query, ...)
-
+  
   # Prep output object
   responses <- list()
   class(responses) <- "mgGetResponses"
@@ -229,6 +232,7 @@ mg_to_sf <- function(body) {
         auto_unbox = TRUE
     )
   )
+
 
   # remove spatial columns
   geom_df <- dplyr::select(body, -dplyr::one_of(sf_columns()))

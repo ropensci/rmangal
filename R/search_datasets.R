@@ -1,6 +1,6 @@
 #' Search mangal datasets
 #'
-#' @param query `character` keyword used to search (case sensitive), or `list` of custom query.
+#' @param query `character` keyword used to search (case sensitive), or `list` of custom query (see examples).
 #' @param ... arguments from [rmangal::get_gen()]
 #' @return
 #' object `data.frame`: Datasets with all networks and the original reference attached.
