@@ -140,9 +140,6 @@ get_gen <- function(endpoint, query = NULL, limit =100, flatten = TRUE,
 get_singletons <- function(endpoint = NULL, ids = NULL, output = "list",
 flatten = TRUE, ...) {
 
-  ids = c(16)
-  endpoint = endpoints()$reference
-
   stopifnot(!is.null(endpoint) & !is.null(ids))
 
   # Prep output object
