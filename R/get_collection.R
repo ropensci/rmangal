@@ -1,7 +1,7 @@
-#' Get collection of networks
+#' Get a collection of networks
 #'
-#' @param x `numeric` vector of mangal network IDs or object return by functions `search_*`
-#' @param ... arguments from [rmangal::get_network_by_id()]
+#' @param x `numeric` vector of mangal network IDs or object return by functions `search_*`.
+#' @param ... arguments to be passed on to [rmangal::get_network_by_id()].
 #' @return
 #' object `mgNetworksCollection`:
 #' - collection of networks: `list` of object `mgNetwork` (see [rmangal::get_network_by_id()])
@@ -17,7 +17,7 @@ get_collection <- function(x, ...) {
   UseMethod("get_collection", x)
 }
 
-#' @describeIn get_collection Get collection of networks (default)
+#' @describeIn get_collection Get a collection of networks (default).
 #' @export
 get_collection.default <- function(x, ...) {
 
@@ -31,7 +31,7 @@ get_collection.default <- function(x, ...) {
 
 }
 
-#' @describeIn get_collection Get collection of networks
+#' @describeIn get_collection Get a collection of networks from a `mgSearchDatasets` object.
 #' @export
 get_collection.mgSearchDatasets <- function(x, ...) {
 
@@ -40,7 +40,7 @@ get_collection.mgSearchDatasets <- function(x, ...) {
 
   # Get networks ids
   net_ids <- unlist(purrr::map(x$networks,"id"))
-  
+
   for (i in seq_len(length(net_ids))) {
     mg_net_collection[[i]] <- get_network_by_id(net_ids[i], ...)
   }
@@ -49,7 +49,7 @@ get_collection.mgSearchDatasets <- function(x, ...) {
 
 }
 
-#' @describeIn get_collection Get collection of networks
+#' @describeIn get_collection Get a collection of networks from a `.mgSearchNetworks` object. 
 #' @export
 get_collection.mgSearchNetworks <- function(x, ...) {
 

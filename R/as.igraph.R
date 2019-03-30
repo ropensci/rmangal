@@ -1,8 +1,8 @@
-#' Coerce `mgNetworksCollection` or `mgNetwork` to `igraph` object
+#' Coerce `mgNetworksCollection` or `mgNetwork` objects to `igraph` objects
 #'
-#' @param x `mgNetworksCollection` or `mgNetwork` object 
+#' @param x `mgNetworksCollection` or `mgNetwork` object
 #' @return
-#' object `igraph` returned by [igraph::graph_from_data_frame()]
+#' An `igraph` object returned by [igraph::graph_from_data_frame()].
 #' @examples
 #' \dontrun{
 #' insects_networks <- get_collection(search_networks(query='insect%'))
@@ -15,26 +15,27 @@
 #' plot(ig_network)
 #' plot(ig_network, vertex.label = insects_network$nodes$taxonomy.name)
 #' }
+#'
 #' @export
 as.igraph <- function(x) {
   UseMethod("as.igraph", x)
 }
 
-#' @describeIn as.igraph Coerce `mgNetworksCollection` to `igraph` object
+#' @describeIn as.igraph Coerce `mgNetworksCollection` to `igraph` object.
 #' @export
 as.igraph.mgNetworksCollection <- function(x) {
     lapply(x, as.igraph)
 }
 
-#' @describeIn as.igraph Coerce `mgNetwork` to `igraph` object
+#' @describeIn as.igraph Coerce `mgNetwork` to `igraph` object.
 #' @export
 as.igraph.mgNetwork <- function(x) {
-    
+
     # Simple test to know if the graph is directed or undirected
     directed <- ifelse(unique(x$edges$direction) == "directed", TRUE, FALSE)
 
     # Move id edge to the last column
-    x$edges <- x$edges[,c(2:ncol(x$edges),1)]
+    x$edges <- x$edges[, c(2:ncol(x$edges),1)]
 
     igraph::graph_from_data_frame(d = x$edges, directed = directed, vertices = x$nodes)
 
