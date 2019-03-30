@@ -38,9 +38,8 @@ get_collection.mgSearchDatasets <- function(x, ...) {
   # Object S3 declaration
   mg_net_collection <- structure(list(), class= "mgNetworksCollection")
 
-  # Retrieve networks owned by the dataset
-  networks <- sapply(x$id,function(x) get_from_fkey(endpoints()$network, dataset_id = x))
-  net_ids <- do.call(rbind,purrr::map(networks,"body"))$id
+  # Get networks ids
+  net_ids <- unlist(purrr::map(x$networks,"id"))
   
   for (i in seq_len(length(net_ids))) {
     mg_net_collection$networks[[i]] <- get_network_by_id(net_ids[i], ...)
@@ -53,6 +52,8 @@ get_collection.mgSearchDatasets <- function(x, ...) {
 #' @describeIn get_collection Get collection of networks
 #' @export
 get_collection.mgSearchNetworks <- function(x, ...) {
+
+  x = search_networks(query="insect%")
 
   # Object S3 declaration
   mg_net_collection <- structure(list(), class= "mgNetworksCollection")
