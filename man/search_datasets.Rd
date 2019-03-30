@@ -12,13 +12,15 @@ search_datasets(query = NULL, ...)
 \item{...}{further arguments to be passed to \code{\link[rmangal:get_gen]{rmangal::get_gen()}}.}
 }
 \value{
-object \code{data.frame}: Datasets with all networks and the original reference attached.
+\code{data.frame} object with all datasets corresponding to the query. For each entries in the data.frame, the networks and the original reference are attached - class \code{mgSearchNetworks}
+Class returned \code{mgSearchDatasets}
 }
 \description{
 Search mangal datasets
 }
 \examples{
 \dontrun{
+# Return all dataset
 all_datasets <- search_datasets()
 all_datasets
 class(all_datasets)

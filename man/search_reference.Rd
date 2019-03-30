@@ -2,18 +2,20 @@
 % Please edit documentation in R/search_reference.R
 \name{search_reference}
 \alias{search_reference}
-\title{Search mangal taxons}
+\title{Search for a specific reference with DOI}
 \usage{
-search_reference(doi = NULL, pmid = NULL, jstor = NULL)
+search_reference(doi = NULL)
 }
 \arguments{
-\item{doi}{\code{character} keyword used to search (case sensitive), or \code{list} of custom query.}
-
-\item{pmid}{}
+\item{doi}{\code{character} Digital Object Identifier of the article which the network is attached.}
 }
 \value{
-object \code{data.frame}: Taxa information with all interactions in which the taxa occurs.
+\code{data.frame} object with the reference corresponding to the query. All datasets and networks related to the publication are also attached to the \code{data.frame}.
+Class returned \code{mgSearchReference}
 }
 \description{
-Search mangal taxons
+Search for a specific reference with DOI
+}
+\examples{
+search_reference(doi = "10.2307/3225248")
 }

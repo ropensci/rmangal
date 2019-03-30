@@ -3,9 +3,11 @@
 #' @param query a `character` string containing a keyword used to search (case sensitive), or `list`of custom query (see examples).
 #' @param ... further arguments to be passed to [rmangal::get_gen()].
 #' @return
-#' object `data.frame`: Datasets with all networks and the original reference attached.
+#' `data.frame` object with all datasets corresponding to the query. For each entries in the data.frame, the networks and the original reference are attached - class `mgSearchNetworks`
+#'  Class returned `mgSearchDatasets`
 #' @examples
 #' \dontrun{
+#' # Return all dataset
 #' all_datasets <- search_datasets()
 #' all_datasets
 #' class(all_datasets)
@@ -26,9 +28,7 @@ search_datasets <- function(query = NULL, ...) {
 
   datasets <- as.data.frame(get_gen(endpoints()$dataset, query = query, ...))
 
-  if (!is.null(query)) {
-    message(sprintf("Found %s dataset(s) for query: %s", nrow(datasets), query))
-  }
+  message(sprintf("Found %s datasets", nrow(datasets)))
 
   # Attached reference and network
   networks <- list()
