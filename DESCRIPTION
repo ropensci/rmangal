@@ -25,10 +25,8 @@ Imports:
     httr (>= 1.3.1),
     jsonlite (>= 1.5),
     igraph,
-    dplyr,
     purrr,
-    sf,
-    tibble
+    sf
 RoxygenNote: 6.1.1
 Suggests: knitr,
     rmarkdown,
