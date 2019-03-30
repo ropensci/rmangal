@@ -32,7 +32,7 @@ before_install:
   - if [[ $TRAVIS_OS_NAME == "linux" ]]; then sudo add-apt-repository ppa:ubuntugis/ppa --yes; fi
   - if [[ $TRAVIS_OS_NAME == "linux" ]]; then sudo apt-get --yes --force-yes update -qq; fi
   - if [[ $TRAVIS_OS_NAME == "linux" ]]; then sudo apt-get install --yes libudunits2-dev libproj-dev libgeos-dev libgdal-dev; fi
-  - if [[ $TRAVIS_OS_NAME == "linux" ]]; R -e 'install.packages("rgdal", repos=c("http://R-Forge.R-project.org", "http://cran.rstudio.com"))'; fi
+  - RScript -e 'install.packages("rgdal", repos=c("http://R-Forge.R-project.org", "http://cran.rstudio.com"))'
   # - sudo apt-get install --yes libudunits2-dev libproj-dev libgeos-dev libgdal-dev
   # - sudo apt-get install -y libprotobuf-dev protobuf-compiler libv8-dev libjq-dev
 
