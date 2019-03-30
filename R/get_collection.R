@@ -24,7 +24,7 @@ get_collection.default <- function(x, ...) {
   mg_net_collection <- structure(list(), class= "mgNetworksCollection")
 
   for (i in seq_len(length(x))) {
-    mg_net_collection[[i]] <- get_network_by_id(x[i])
+    mg_net_collection[[i]] <- get_network_by_id(x[i], ...)
   }
 
   mg_net_collection
