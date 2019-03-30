@@ -21,13 +21,12 @@ get_collection <- function(x, ...) {
 #' @export
 get_collection.default <- function(x, ...) {
 
-  mg_net_collection <- list()
+  mg_net_collection <- structure(list(), class= "mgNetworksCollection")
 
   for (i in seq_len(length(x))) {
-    mg_net_collection$networks[[i]] <- get_network_by_id(x[i], ...)
+    mg_net_collection[[i]] <- get_network_by_id(x[i])
   }
 
-  class(mg_net_collection) <- "mgNetworksCollection"
   mg_net_collection
 
 }
@@ -37,7 +36,7 @@ get_collection.default <- function(x, ...) {
 get_collection.mgSearchDatasets <- function(x, ...) {
 
   # Object S3 declaration
-  mg_net_collection <- list()
+  mg_net_collection <- structure(list(), class= "mgNetworksCollection")
 
   ids <- purrr::flatten_int(purrr::map(x$networks, "id"))
 
@@ -45,7 +44,6 @@ get_collection.mgSearchDatasets <- function(x, ...) {
     mg_net_collection$networks[[i]] <- get_network_by_id(ids[i], ...)
   }
 
-  class(mg_net_collection) <- "mgNetworksCollection"
   mg_net_collection
 
 }
@@ -55,13 +53,12 @@ get_collection.mgSearchDatasets <- function(x, ...) {
 get_collection.mgSearchNetworks <- function(x, ...) {
 
   # Object S3 declaration
-  mg_net_collection <- list()
+  mg_net_collection <- structure(list(), class= "mgNetworksCollection")
 
   for (i in seq_len(length(x$id))) {
     mg_net_collection$networks[[i]] <- get_network_by_id(x$id[i], ...)
   }
 
-  class(mg_net_collection) <- "mgNetworksCollection"
   mg_net_collection
 
 }
