@@ -30,5 +30,5 @@ Each item of the \code{mgGetResponses} list corresponds to an API call. Each cal
 GET generic API function to retrieve singletons
 }
 \details{
-See endpoints available with \code{print(endpoints)}
+See endpoints available with \code{endpoints()}
 }

@@ -18,7 +18,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Steve Vissault \email{steve.vissault@usherbrooke.ca}
+\strong{Maintainer}: Steve Vissault \email{steve.vissault@usherbrooke.ca} (0000-0002-0866-4376)
 
 Authors:
 \itemize{

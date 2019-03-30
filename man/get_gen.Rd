@@ -32,5 +32,5 @@ Each item of the list \code{mgGetResponses} corresponds to an API call. Each cal
 GET generic API function to retrieve several entries
 }
 \details{
-See endpoints available with \code{print(endpoints)}
+See endpoints available with \code{endpoints()}
 }

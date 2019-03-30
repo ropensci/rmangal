@@ -24,20 +24,34 @@ endpoints <- function() {
 # Spatial columns of mangal DB
 sf_columns <- function(x) c("geom.type","geom.coordinates")
 
+# Handle NULL to coerce into tibble
+null_to_na <- function(x) {
+    if (is.data.frame(x)) {
+      # NULL already handle
+      return(x)
+    } else if( is.list(x)) {
+      return(lapply(x, null_to_na))
+    } else {
+      return(ifelse(is.null(x), NA, x))
+    }
+}
+
 #
 coerce_body <- function(x, resp, flatten) {
   switch(
     x,
     raw = httr::content(resp, type = "text", encoding = "UTF-8"),
     list = httr::content(resp),
-    data.frame = tibble::as_tibble(
+    data.frame = tibble::as_tibble(null_to_na(
       jsonlite::fromJSON(httr::content(resp, type = "text",
-      encoding = "UTF-8"), flatten = flatten)),
+      encoding = "UTF-8"), flatten = flatten))),
     spatial = mg_to_sf(
      tibble::as_tibble(
+       null_to_na(
        jsonlite::fromJSON(
          httr::content(resp, type = "text", encoding = "UTF-8"),
          flatten = TRUE)
+       )
        )
      )
    )
@@ -57,7 +71,7 @@ coerce_body <- function(x, resp, flatten) {
 #' - `getSuccess` which is a list with the body [httr::content()] and the server response [httr::response()].
 #' - `getError` which has the exact same structure with an empty body.
 #' @details
-#' See endpoints available with `print(endpoints)`
+#' See endpoints available with `endpoints()`
 
 get_gen <- function(endpoint, query = NULL, limit =100, flatten = TRUE,
   output = 'data.frame', ...) {
@@ -77,11 +91,6 @@ get_gen <- function(endpoint, query = NULL, limit =100, flatten = TRUE,
   tmp <- unlist(strsplit(httr::headers(resp)$"content-range", split = "\\D"))
   rg <- as.numeric(tmp[grepl("\\d", tmp)])
 
-
-  sub("\\D", "", httr::headers(resp)["content-range"])
-    mat <- regexec("\\(?[0-9,.]+\\)?", httr::headers(resp)["content-range"])
-    ref <- regmatches(httr::headers(resp)["content-range"], mat)
-
   # Prep iterator over pages
   pages <- ifelse(rg[3] < limit, 0, floor(rg[3] / limit))
 
@@ -94,8 +103,8 @@ get_gen <- function(endpoint, query = NULL, limit =100, flatten = TRUE,
       query = query, ...)
 
     if (httr::http_error(resp)) {
-      message(sprintf("API request failed: [%s]\n%s", httr::status_code(resp),
-        body$message), call. = FALSE)
+      message(sprintf("API request failed (%s): %s", httr::status_code(resp),
+        httr::content(resp)$message))
 
       responses[[page + 1]] <- structure(list(body = NULL, response = resp),
           class = "getError")
@@ -111,9 +120,7 @@ get_gen <- function(endpoint, query = NULL, limit =100, flatten = TRUE,
     }
 
   }
-
   responses
-
 }
 
 #' GET generic API function to retrieve singletons
@@ -129,7 +136,7 @@ get_gen <- function(endpoint, query = NULL, limit =100, flatten = TRUE,
 #' - `getSuccess` which is a list with the body [httr::content()] and the server response [httr::response()].
 #' - `getError` which has the exact same structure with an empty body.
 #' @details
-#' See endpoints available with `print(endpoints)`
+#' See endpoints available with `endpoints()`
 
 get_singletons <- function(endpoint = NULL, ids = NULL, output = "list",
 flatten = TRUE, ...) {
@@ -142,7 +149,6 @@ flatten = TRUE, ...) {
 
   # Loop over ids
   for (i in seq_len(length(ids))) {
-
     # Set url
     url <- httr::modify_url(server(), path = paste0(base(), endpoint, "/",
       ids[i]))
@@ -153,8 +159,8 @@ flatten = TRUE, ...) {
       ...)
 
     if (httr::http_error(resp)) {
-      message(sprintf("API request failed: [%s]\n", httr::status_code(resp)),
-      call. = FALSE)
+      message(sprintf("API request failed (%s): %s", httr::status_code(resp),
+        httr::content(resp)$message))
 
       responses[[i]]  <- structure(list(body = NULL, response = resp),
           class = "getError")
@@ -166,37 +172,29 @@ flatten = TRUE, ...) {
 
       responses[[i]]  <- structure(list(body = body, response = resp),
         class = "getSuccess")
-
     }
   }
 
   responses
-
 }
 
 #' GET entries based on foreign key
 #'
 #' @param endpoint `character` API entry point
-#' @param column `character` column which contains the fkey
-#' @param id `numeric` foreign key
-#' @param ... get_gen options, see [rmangal::get_gen()]
+#' @param ... foreign key column name with the id
+#' @examples
+#'\dontrun{
+#' get_from_fkey(endpoints()$node, network_id = 926)
+#'}
 #' @return
 #' Object returned by [rmangal::get_gen()]
 #' @details
-#' See endpoints available with `print(endpoints)`
+#' See endpoints available with `endpoints()`
 
-get_fkey <- function(endpoint, column, id, ...) {
-
-  stopifnot(is.character(column))
-
-  # set query
-  query <- list()
-  query[column] <- id
-
-  get_gen(endpoint = endpoint, query = query, ...)
-
+get_from_fkey <- function(endpoint, ...) {
+  query = list(...)
+  get_gen(endpoint = endpoint, query = query)
 }
-
 
 #' Coerce body return by the API to an sf object
 #'
@@ -235,8 +233,6 @@ mg_to_sf <- function(body) {
   geom_df <- dplyr::select(body, -dplyr::one_of(sf_columns()))
 
   # bind spatial feature with attributes table
-  geom_sdf <- sf::st_sf(dplyr::bind_cols(geom_df, geom_s))
-
-  geom_sdf
+  sf::st_sf(dplyr::bind_cols(geom_df, geom_s))
 
 }

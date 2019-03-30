@@ -3,7 +3,7 @@ Type: Package
 Title: rmangal - Explore the ecological interactions database
 Version: 0.6.0
 Authors@R: c(
-    person(given = "Steve", family = "Vissault",
+    person(given = "Steve", family = "Vissault", comment = c(ORCID = "0000-0002-0866-4376"),
       email = "steve.vissault@usherbrooke.ca", role = c("aut","cre")),
     person(given = "Gabriel", family = "Bergeron",
       email = "gabriel.bergeron3@usherbrooke.ca", role = c("aut","ctb")),

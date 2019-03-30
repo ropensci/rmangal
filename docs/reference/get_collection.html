@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>List mangal datasets — list_datasets • rmangal</title>
+<title>Get collection of networks — get_collection • rmangal</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="List mangal datasets — list_datasets" />
+<meta property="og:title" content="Get collection of networks — get_collection" />
 
-<meta property="og:description" content="List mangal datasets" />
+<meta property="og:description" content="Get collection of networks" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -109,63 +109,63 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>List mangal datasets</h1>
-    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/list_datasets.R'><code>R/list_datasets.R</code></a></small>
-    <div class="hidden name"><code>list_datasets.Rd</code></div>
+    <h1>Get collection of networks</h1>
+    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/get_collection.R'><code>R/get_collection.R</code></a></small>
+    <div class="hidden name"><code>get_collection.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>List mangal datasets</p>
+    <p>Get collection of networks</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>list_datasets</span>(<span class='kw'>search</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>get_collection</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for default</span>
+<span class='fu'>get_collection</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mgSearchDatasets</span>
+<span class='fu'>get_collection</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mgSearchNetworks</span>
+<span class='fu'>get_collection</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>search</th>
-      <td><p><code>character</code> keyword to search (case sensitive).</p></td>
+      <th>x</th>
+      <td><p><code>numeric</code> vector of mangal network IDs or object return by functions <code>search_*</code></p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>arguments from <code>rmangal::get_gen()</code></p></td>
+      <td><p>arguments from <code>rmangal::get_network_by_id()</code></p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>object <code>data.frame</code>: Datasets with all networks and the original reference attached.</p>
-    
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <p>object <code>mgNetworksCollection</code>:</p><ul>
+<li><p>collection of networks: <code>list</code> of object <code>mgNetwork</code> (see <code>rmangal::get_network_by_id()</code>)</p></li>
+</ul>
 
-    <p>See endpoints available with <code>print(endpoints)</code>
-With <code>search</code> argument, the '<!-- %' can be used to represent any character or set of characters before or after the keyword (e.g '%lagoon%') --></p>
+    
+    <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
+
+    <ul>
+<li><p><code>default</code>: Get collection of networks (default)</p></li>
+<li><p><code>mgSearchDatasets</code>: Get collection of networks</p></li>
+<li><p><code>mgSearchNetworks</code>: Get collection of networks</p></li>
+</ul>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>list_datasets</span>()</div><div class='output co'>#&gt; # A tibble: 151 x 11
-#&gt;       id name  date  description public created_at updated_at ref_id user_id
-#&gt;    &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;       &lt;lgl&gt;  &lt;chr&gt;      &lt;chr&gt;       &lt;int&gt;   &lt;int&gt;
-#&gt;  1     2 howk… 1963… Insect act… TRUE   2019-02-2… 2019-02-2…      2       2
-#&gt;  2     7 lund… 2002… Pollnator … TRUE   2019-02-2… 2019-02-2…      7       2
-#&gt;  3     9 elbe… 1994… Flower-vis… TRUE   2019-02-2… 2019-02-2…      9       2
-#&gt;  4    14 john… 1956… Predation … TRUE   2019-02-2… 2019-02-2…     14       3
-#&gt;  5    15 have… 1984… Pelagic co… TRUE   2019-02-2… 2019-02-2…     15       3
-#&gt;  6    16 kemp… 1977… Food web f… TRUE   2019-02-2… 2019-02-2…     16       3
-#&gt;  7    17 brad… 1978… Food web o… TRUE   2019-02-2… 2019-02-2…     17       3
-#&gt;  8    18 patt… 1979… Food web o… TRUE   2019-02-2… 2019-02-2…     18       3
-#&gt;  9    19 clar… 1965… Food web o… TRUE   2019-02-2… 2019-02-2…     19       3
-#&gt; 10    20 van_… 1975… Food web o… TRUE   2019-02-2… 2019-02-2…     20       3
-#&gt; # … with 141 more rows, and 2 more variables: networks &lt;list&gt;,
-#&gt; #   references &lt;list&gt;</div><div class='input'><span class='fu'>list_datasets</span>(<span class='kw'>search</span><span class='kw'>=</span><span class='st'>"%lagoon%"</span>)</div><div class='output co'>#&gt; <span class='message'>Found 2 dataset(s) for keyword: %lagoon%</span></div><div class='output co'>#&gt; # A tibble: 2 x 11
-#&gt;      id name  date  description public created_at updated_at ref_id user_id
-#&gt;   &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;       &lt;lgl&gt;  &lt;chr&gt;      &lt;chr&gt;       &lt;int&gt;   &lt;int&gt;
-#&gt; 1    22 zeti… 2003… Dietary ma… TRUE   2019-02-2… 2019-02-2…     22       3
-#&gt; 2    52 yane… 1973… Food web o… TRUE   2019-02-2… 2019-02-2…     53       3
-#&gt; # … with 2 more variables: networks &lt;list&gt;, references &lt;list&gt;</div></pre>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='fu'>get_collection</span>(<span class='fu'>c</span>(<span class='fl'>1035</span>:<span class='fl'>1036</span>))
+<span class='fu'>get_collection</span>(<span class='fu'>search_networks</span>(<span class='kw'>query</span><span class='kw'>=</span><span class='st'>"insect%"</span>))
+<span class='fu'>get_collection</span>(<span class='fu'>search_datasets</span>(<span class='kw'>query</span><span class='kw'>=</span><span class='st'>"lagoon%"</span>))
+<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -174,7 +174,7 @@ With <code>search</code> argument, the '<!-- %' can be used to represent any cha
       
       <li><a href="#value">Value</a></li>
 
-      <li><a href="#details">Details</a></li>
+      <li><a href="#methods-by-class-">Methods (by class)</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>
