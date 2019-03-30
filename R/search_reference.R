@@ -10,7 +10,6 @@
 
 search_reference <- function( doi = NULL ) {
 
-
     stopifnot(is.character(doi) & length(doi) == 1)
 
     ref <- as.data.frame(get_gen(endpoints()$reference, query = list( doi = doi )))
