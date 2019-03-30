@@ -1,18 +1,32 @@
-# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
-warnings_are_errors: false
-
 language: r
-cache: packages
+warnings_are_errors: true
 sudo: required
-dist: trusty
+cache: packages
 
-repos: 
-  CRAN: https://cran.rstudio.com
-  rforge: http://R-Forge.R-project.org
+matrix:
+  include:
+    - os: linux
+      r: release
+      env: NOT_CRAN=true
+    - os: osx
+      r: release
+      env: NOT_CRAN=true
+    - os: linux
+      r: devel
+      env: NOT_CRAN=false
 
-before_install:
-  - sudo add-apt-repository ppa:ubuntugis/ppa --yes
-  - sudo apt-get --yes --force-yes update -qq
-  - sudo apt-get install --yes libudunits2-dev libproj-dev libgeos-dev libgdal-dev
-  - sudo apt-get install -y libprotobuf-dev protobuf-compiler libv8-dev libjq-dev
-  - R -e 'install.packages("rgdal", repos=c("http://R-Forge.R-project.org", "http://cran.rstudio.com"))'
+notifications:
+  slack:
+    rooms: insileco:c6N7g4s36dNHpAxrI2QdattF
+    on_success: always
+    on_failure: always # change or never
+    template:
+      - "%{repository} (%{commit}) : %{message} %{foo} "
+      - "See on Travis: %{build_url}"
+      - "duration: %{duration}"
+
+r_github_packages:
+  - r-lib/covr
+
+after_success:
+  - Rscript -e 'covr::codecov()'
