@@ -16,11 +16,8 @@ matrix:
     - os: osx
       r: release
       env: NOT_CRAN=true
-    - os: windows
-      r: release
-      env: NOT_CRAN=true
     - os: linux
-      dist: xenial
+      dist: trusty
       r: devel
       env: NOT_CRAN=false
 
@@ -34,12 +31,14 @@ notifications:
       - "See on Travis: %{build_url}"
       - "duration: %{duration}"
 
+
 before_install:
-  - sudo add-apt-repository ppa:ubuntugis/ppa --yes
-  - sudo apt-get --yes --force-yes update -qq
-  - sudo apt-get install --yes libudunits2-dev libproj-dev libgeos-dev libgdal-dev
-  - sudo apt-get install -y libprotobuf-dev protobuf-compiler libv8-dev libjq-dev
-  - R -e 'install.packages("rgdal", repos=c("http://R-Forge.R-project.org", "http://cran.rstudio.com"))'
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo add-apt-repository ppa:ubuntugis/ppa --yes; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get --yes --force-yes update -qq; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install --yes libudunits2-dev libproj-dev libgeos-dev libgdal-dev; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; R -e 'install.packages("rgdal", repos=c("http://R-Forge.R-project.org", "http://cran.rstudio.com"))'; fi
+  # - sudo apt-get install --yes libudunits2-dev libproj-dev libgeos-dev libgdal-dev
+  # - sudo apt-get install -y libprotobuf-dev protobuf-compiler libv8-dev libjq-dev
 
 r_github_packages:
   - r-lib/covr
