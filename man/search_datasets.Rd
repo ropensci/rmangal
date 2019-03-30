@@ -7,9 +7,9 @@
 search_datasets(query = NULL, ...)
 }
 \arguments{
-\item{query}{\code{character} keyword used to search (case sensitive), or \code{list} of custom query.}
+\item{query}{a \code{character} string containing a keyword used to search (case sensitive), or \code{list}of custom query (see examples).}
 
-\item{...}{arguments from \code{\link[rmangal:get_gen]{rmangal::get_gen()}}}
+\item{...}{further arguments to be passed to \code{\link[rmangal:get_gen]{rmangal::get_gen()}}.}
 }
 \value{
 object \code{data.frame}: Datasets with all networks and the original reference attached.
@@ -24,8 +24,8 @@ all_datasets
 class(all_datasets)
 }
 # Search with keyword
-search_datasets(query = "lagoon")
-search_datasets(query = "2011")
+search_datasets(query = 'lagoon')
+search_datasets(query = '2011')
 # Search with custom query (specific column)
-search_datasets(query = list(name = "kemp_1977"))
+search_datasets(query = list(name = 'kemp_1977'))
 }

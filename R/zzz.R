@@ -30,7 +30,7 @@ null_to_na <- function(x) {
       # NULL already handle
       return(x)
     } else if( is.list(x)) {
-      return(lapply(x, null_to_na)) 
+      return(lapply(x, null_to_na))
     } else {
       return(ifelse(is.null(x), NA, x))
     }
@@ -77,12 +77,12 @@ get_gen <- function(endpoint, query = NULL, limit =100, flatten = TRUE,
   output = 'data.frame', ...) {
 
   url <- httr::modify_url(server(), path = paste0(base(), endpoint))
-  
+
   # First call used to set pages
   resp <- httr::GET(url,
       config = httr::add_headers(`Content-type` = "application/json"), ua,
       query = query, ...)
-  
+
   # Prep output object
   responses <- list()
   class(responses) <- "mgGetResponses"
@@ -120,9 +120,7 @@ get_gen <- function(endpoint, query = NULL, limit =100, flatten = TRUE,
     }
 
   }
-
   responses
-
 }
 
 #' GET generic API function to retrieve singletons
@@ -174,12 +172,10 @@ flatten = TRUE, ...) {
 
       responses[[i]]  <- structure(list(body = body, response = resp),
         class = "getSuccess")
-
     }
   }
 
   responses
-
 }
 
 #' GET entries based on foreign key
@@ -233,13 +229,10 @@ mg_to_sf <- function(body) {
     )
   )
 
-
   # remove spatial columns
   geom_df <- dplyr::select(body, -dplyr::one_of(sf_columns()))
 
   # bind spatial feature with attributes table
-  geom_sdf <- sf::st_sf(dplyr::bind_cols(geom_df, geom_s))
-
-  geom_sdf
+  sf::st_sf(dplyr::bind_cols(geom_df, geom_s))
 
 }

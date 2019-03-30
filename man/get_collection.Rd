@@ -41,7 +41,7 @@ Get collection of networks
 \examples{
 \dontrun{
 get_collection(c(1035:1036))
-get_collection(search_networks(query="insect\%"))
-get_collection(search_datasets(query="lagoon\%"))
+get_collection(search_networks(query='insect\%'))
+get_collection(search_datasets(query='lagoon\%'))
 }
 }

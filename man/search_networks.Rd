@@ -23,7 +23,7 @@ Search mangal networks
 search_networks(query="insect\%")
 \dontrun{
 # Spatial query
-library(USAboundaries) 
+library(USAboundaries)
 area <- us_states(state="california")
 networks_in_area <- search_networks(polygon=area)
 plot(networks_in_area)

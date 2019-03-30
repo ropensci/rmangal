@@ -9,7 +9,7 @@
 #' search_networks(query="insect%")
 #' \dontrun{
 #' # Spatial query
-#' library(USAboundaries) 
+#' library(USAboundaries)
 #' area <- us_states(state="california")
 #' networks_in_area <- search_networks(polygon=area)
 #' plot(networks_in_area)
@@ -21,10 +21,11 @@ search_networks <- function( query = NULL, polygon = NULL, ... ) {
   if(!is.null(polygon)){
 
     message("Spatial query mode")
-    
-    # API doesn't allow spatial search - patch with R 
-    sp_networks <- as.data.frame(get_gen(endpoints()$network, output = "spatial"))
-    
+
+    # API doesn't allow spatial search - patch with R
+    sp_networks <- as.data.frame(get_gen(
+      endpoints()$network, output = "spatial"))
+
     # Making sure polygon is sf class
     stopifnot("sf" %in% class(polygon))
     # Making sure projection are WGS84
@@ -43,6 +44,6 @@ search_networks <- function( query = NULL, polygon = NULL, ... ) {
 
   }
 
-  class(networks) <- append(class(networks),"mgSearchNetworks")
+  class(networks) <- append(class(networks), "mgSearchNetworks")
   networks
 }
