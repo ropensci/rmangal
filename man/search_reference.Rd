@@ -10,8 +10,6 @@ search_reference(doi = NULL, pmid = NULL, jstor = NULL)
 \item{doi}{\code{character} keyword used to search (case sensitive), or \code{list} of custom query.}
 
 \item{pmid}{}
-
-\item{...}{arguments from \code{\link[rmangal:get_gen]{rmangal::get_gen()}}}
 }
 \value{
 object \code{data.frame}: Taxa information with all interactions in which the taxa occurs.
