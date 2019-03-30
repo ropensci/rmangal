@@ -2,19 +2,19 @@
 % Please edit documentation in R/search_reference.R
 \name{search_reference}
 \alias{search_reference}
-\title{Search for a specific reference with DOI}
+\title{Search for a specific data sset reference with DOI}
 \usage{
 search_reference(doi = NULL)
 }
 \arguments{
-\item{doi}{\code{character} Digital Object Identifier of the article which the network is attached.}
+\item{doi}{\code{character} a Digital Object Identifier of the article which the
+network is attached.}
 }
 \value{
-\code{data.frame} object with the reference corresponding to the query. All datasets and networks related to the publication are also attached to the \code{data.frame}.
-Class returned \code{mgSearchReference}
+An object of class mgSearchReference\code{, which is essentially a }data.frame\code{object with the reference corresponding to the query. Note that all datasets and networks related to the publication are also attached to the}data.frame`.
 }
 \description{
-Search for a specific reference with DOI
+Search for a specific data sset reference with DOI
 }
 \examples{
 search_reference(doi = "10.2307/3225248")
