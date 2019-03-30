@@ -13,3 +13,8 @@ test_that("errors caught", {
 test_that("expected behavior", {
   expect_equal(dim(res1), c(2, 11))
 })
+
+ressf <- search_networks(query="insect%", output="spatial")
+test_that("expected behavior", {
+  expect_equal(dim(ressf), c(14, 11))
+})

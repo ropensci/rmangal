@@ -12,7 +12,8 @@ as.data.frame.mgGetResponses <- function(x, ...) {
     if ("sf" %in% classes){
         return(purrr::reduce(purrr::map(x, "body"), rbind))
     } else {
-        return(dplyr::bind_rows(purrr::map(x, "body")))
+        tmp <- do.call(rbind, purrr::map(x, "body"))
+        if (is.null(tmp)) return(data.frame(NULL)) else return(tmp)
     }
 }
 
