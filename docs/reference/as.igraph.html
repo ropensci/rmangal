@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get entries based on foreign key — get_from_fkey • rmangal</title>
+<title>Coerce <code>mgNetworksCollection</code> or <code>mgNetwork</code> objects to <code>igraph</code> objects — as.igraph • rmangal</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Get entries based on foreign key — get_from_fkey" />
+<meta property="og:title" content="Coerce <code>mgNetworksCollection</code> or <code>mgNetwork</code> objects to <code>igraph</code> objects — as.igraph" />
 
-<meta property="og:description" content="Get entries based on foreign key" />
+<meta property="og:description" content="Coerce mgNetworksCollection or mgNetwork objects to igraph objects" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -109,45 +109,59 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get entries based on foreign key</h1>
-    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/zzz.R'><code>R/zzz.R</code></a></small>
-    <div class="hidden name"><code>get_from_fkey.Rd</code></div>
+    <h1>Coerce <code>mgNetworksCollection</code> or <code>mgNetwork</code> objects to <code>igraph</code> objects</h1>
+    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/as.igraph.R'><code>R/as.igraph.R</code></a></small>
+    <div class="hidden name"><code>as.igraph.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Get entries based on foreign key</p>
+    <p>Coerce <code>mgNetworksCollection</code> or <code>mgNetwork</code> objects to <code>igraph</code> objects</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>get_from_fkey</span>(<span class='no'>endpoint</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>as.igraph</span>(<span class='no'>x</span>)
+
+<span class='co'># S3 method for mgNetworksCollection</span>
+<span class='fu'>as.igraph</span>(<span class='no'>x</span>)
+
+<span class='co'># S3 method for mgNetwork</span>
+<span class='fu'>as.igraph</span>(<span class='no'>x</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>endpoint</th>
-      <td><p><code>character</code> API entry point</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>foreign key column name with the id</p></td>
+      <th>x</th>
+      <td><p><code>mgNetworksCollection</code> or <code>mgNetwork</code> object</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Object returned by <code>rmangal::get_gen()</code></p>
+    <p>An <code>igraph</code> object returned by <code><a href='http://www.rdocumentation.org/packages/igraph/topics/graph_from_data_frame'>igraph::graph_from_data_frame()</a></code>.</p>
     
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
 
-    <p>See endpoints available with <code>endpoints()</code></p>
+    <ul>
+<li><p><code>mgNetworksCollection</code>: Coerce <code>mgNetworksCollection</code> to <code>igraph</code> object.</p></li>
+<li><p><code>mgNetwork</code>: Coerce <code>mgNetwork</code> to <code>igraph</code> object.</p></li>
+</ul>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='fu'>get_from_fkey</span>(<span class='fu'>endpoints</span>()$<span class='no'>node</span>, <span class='kw'>network_id</span> <span class='kw'>=</span> <span class='fl'>926</span>)
-<span class='co'># }</span></pre>
+<span class='no'>insects_networks</span> <span class='kw'>&lt;-</span> <span class='fu'>get_collection</span>(<span class='fu'>search_networks</span>(<span class='kw'>query</span><span class='kw'>=</span><span class='st'>'insect%'</span>))
+<span class='co'># Apply as.igraph on one specific network</span>
+<span class='no'>insects_network</span> <span class='kw'>&lt;-</span> <span class='no'>insects_networks</span><span class='kw'>[[</span><span class='fl'>1</span>]]
+<span class='no'>ig_network</span> <span class='kw'>&lt;-</span> <span class='fu'>as.igraph</span>(<span class='no'>insects_network</span>)
+<span class='co'># Apply as.igraph on networks collection</span>
+<span class='no'>ig_coll_networks</span> <span class='kw'>&lt;-</span> <span class='fu'>as.igraph</span>(<span class='no'>insects_networks</span>)
+<span class='co'># Plot igraph object with vertex label</span>
+<span class='fu'>plot</span>(<span class='no'>ig_network</span>)
+<span class='fu'>plot</span>(<span class='no'>ig_network</span>, <span class='kw'>vertex.label</span> <span class='kw'>=</span> <span class='no'>insects_network</span>$<span class='no'>nodes</span>$<span class='no'>taxonomy.name</span>)
+<span class='co'># }</span><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -156,7 +170,7 @@
       
       <li><a href="#value">Value</a></li>
 
-      <li><a href="#details">Details</a></li>
+      <li><a href="#methods-by-class-">Methods (by class)</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

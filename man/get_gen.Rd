@@ -2,7 +2,7 @@
 % Please edit documentation in R/zzz.R
 \name{get_gen}
 \alias{get_gen}
-\title{GET generic API function to retrieve several entries}
+\title{Generic API function to retrieve several entries}
 \usage{
 get_gen(endpoint, query = NULL, limit = 100, flatten = TRUE,
   output = "data.frame", ...)
@@ -29,7 +29,7 @@ Each item of the list \code{mgGetResponses} corresponds to an API call. Each cal
 }
 }
 \description{
-GET generic API function to retrieve several entries
+Generic API function to retrieve several entries
 }
 \details{
 See endpoints available with \code{endpoints()}

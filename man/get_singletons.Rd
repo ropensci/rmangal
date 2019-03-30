@@ -2,7 +2,7 @@
 % Please edit documentation in R/zzz.R
 \name{get_singletons}
 \alias{get_singletons}
-\title{GET generic API function to retrieve singletons}
+\title{Generic API function to retrieve singletons}
 \usage{
 get_singletons(endpoint = NULL, ids = NULL, output = "list",
   flatten = TRUE, ...)
@@ -27,7 +27,7 @@ Each item of the \code{mgGetResponses} list corresponds to an API call. Each cal
 }
 }
 \description{
-GET generic API function to retrieve singletons
+Generic API function to retrieve singletons
 }
 \details{
 See endpoints available with \code{endpoints()}
