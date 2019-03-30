@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Search mangal datasets — search_datasets • rmangal</title>
+<title>Coerce <code>mgNetworksCollection</code> or <code>mgNetwork</code> objects to <code>igraph</code> objects — as.igraph • rmangal</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Search mangal datasets — search_datasets" />
+<meta property="og:title" content="Coerce <code>mgNetworksCollection</code> or <code>mgNetwork</code> objects to <code>igraph</code> objects — as.igraph" />
 
-<meta property="og:description" content="Search mangal datasets" />
+<meta property="og:description" content="Coerce mgNetworksCollection or mgNetwork objects to igraph objects" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -109,66 +109,59 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Search mangal datasets</h1>
-    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/search_datasets.R'><code>R/search_datasets.R</code></a></small>
-    <div class="hidden name"><code>search_datasets.Rd</code></div>
+    <h1>Coerce <code>mgNetworksCollection</code> or <code>mgNetwork</code> objects to <code>igraph</code> objects</h1>
+    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/as.igraph.R'><code>R/as.igraph.R</code></a></small>
+    <div class="hidden name"><code>as.igraph.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Search mangal datasets</p>
+    <p>Coerce <code>mgNetworksCollection</code> or <code>mgNetwork</code> objects to <code>igraph</code> objects</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>search_datasets</span>(<span class='kw'>query</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>as.igraph</span>(<span class='no'>x</span>)
+
+<span class='co'># S3 method for mgNetworksCollection</span>
+<span class='fu'>as.igraph</span>(<span class='no'>x</span>)
+
+<span class='co'># S3 method for mgNetwork</span>
+<span class='fu'>as.igraph</span>(<span class='no'>x</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>query</th>
-      <td><p>a <code>character</code> string containing a keyword used to search (case sensitive), or <code>list</code>of custom query (see examples).</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>further arguments to be passed to <code>rmangal::get_gen()</code>.</p></td>
+      <th>x</th>
+      <td><p><code>mgNetworksCollection</code> or <code>mgNetwork</code> object</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>object <code>data.frame</code>: Datasets with all networks and the original reference attached.</p>
+    <p>An <code>igraph</code> object returned by <code><a href='http://www.rdocumentation.org/packages/igraph/topics/graph_from_data_frame'>igraph::graph_from_data_frame()</a></code>.</p>
+    
+    <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
+
+    <ul>
+<li><p><code>mgNetworksCollection</code>: Coerce <code>mgNetworksCollection</code> to <code>igraph</code> object.</p></li>
+<li><p><code>mgNetwork</code>: Coerce <code>mgNetwork</code> to <code>igraph</code> object.</p></li>
+</ul>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='no'>all_datasets</span> <span class='kw'>&lt;-</span> <span class='fu'>search_datasets</span>()
-<span class='no'>all_datasets</span>
-<span class='fu'>class</span>(<span class='no'>all_datasets</span>)
-<span class='co'># }</span><div class='input'><span class='co'># Search with keyword</span>
-<span class='fu'>search_datasets</span>(<span class='kw'>query</span> <span class='kw'>=</span> <span class='st'>'lagoon'</span>)</div><div class='output co'>#&gt; <span class='message'>Found 2 dataset(s) for query: lagoon</span></div><div class='output co'>#&gt; # A tibble: 2 x 11
-#&gt;      id name  date  description public created_at updated_at ref_id user_id
-#&gt;   &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;       &lt;lgl&gt;  &lt;chr&gt;      &lt;chr&gt;       &lt;int&gt;   &lt;int&gt;
-#&gt; 1    22 zeti… 2003… Dietary ma… TRUE   2019-02-2… 2019-02-2…     22       3
-#&gt; 2    52 yane… 1973… Food web o… TRUE   2019-02-2… 2019-02-2…     53       3
-#&gt; # … with 2 more variables: networks &lt;list&gt;, references &lt;list&gt;</div><div class='input'><span class='fu'>search_datasets</span>(<span class='kw'>query</span> <span class='kw'>=</span> <span class='st'>'2011'</span>)</div><div class='output co'>#&gt; <span class='message'>Found 9 dataset(s) for query: 2011</span></div><div class='output co'>#&gt; # A tibble: 9 x 11
-#&gt;      id name  date  description public created_at updated_at ref_id user_id
-#&gt;   &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;       &lt;lgl&gt;  &lt;chr&gt;      &lt;chr&gt;       &lt;int&gt;   &lt;int&gt;
-#&gt; 1    32 gont… 2007… Food web o… TRUE   2019-02-2… 2019-02-2…     32       3
-#&gt; 2    70 kohl… 2011… Hummingbir… TRUE   2019-02-2… 2019-02-2…     69       2
-#&gt; 3    73 filg… 2000… Food web o… TRUE   2019-02-2… 2019-02-2…     72       3
-#&gt; 4    74 baet… 1993… Food web o… TRUE   2019-02-2… 2019-02-2…     73       3
-#&gt; 5    79 doug… 2011… Food web o… TRUE   2019-02-2… 2019-02-2…     78       3
-#&gt; 6    94 feta… 2007… Food web s… TRUE   2019-03-0… 2019-03-0…     93       4
-#&gt; 7    97 hamp… 2004… Food web s… TRUE   2019-03-0… 2019-03-0…     96       4
-#&gt; 8   155 filg… 2000… Food web s… TRUE   2019-03-1… 2019-03-1…    152       4
-#&gt; 9   163 stew… 1987… Food web s… TRUE   2019-03-2… 2019-03-2…    160       4
-#&gt; # … with 2 more variables: networks &lt;list&gt;, references &lt;list&gt;</div><div class='input'><span class='co'># Search with custom query (specific column)</span>
-<span class='fu'>search_datasets</span>(<span class='kw'>query</span> <span class='kw'>=</span> <span class='fu'>list</span>(<span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>'kemp_1977'</span>))</div><div class='output co'>#&gt; <span class='message'>Found 1 dataset(s) for query: kemp_1977</span></div><div class='output co'>#&gt; # A tibble: 1 x 11
-#&gt;      id name  date  description public created_at updated_at ref_id user_id
-#&gt;   &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;       &lt;lgl&gt;  &lt;chr&gt;      &lt;chr&gt;       &lt;int&gt;   &lt;int&gt;
-#&gt; 1    16 kemp… 1977… Food web f… TRUE   2019-02-2… 2019-02-2…     16       3
-#&gt; # … with 2 more variables: networks &lt;list&gt;, references &lt;list&gt;</div></pre>
+<span class='no'>insects_networks</span> <span class='kw'>&lt;-</span> <span class='fu'>get_collection</span>(<span class='fu'>search_networks</span>(<span class='kw'>query</span><span class='kw'>=</span><span class='st'>'insect%'</span>))
+<span class='co'># Apply as.igraph on one specific network</span>
+<span class='no'>insects_network</span> <span class='kw'>&lt;-</span> <span class='no'>insects_networks</span><span class='kw'>[[</span><span class='fl'>1</span>]]
+<span class='no'>ig_network</span> <span class='kw'>&lt;-</span> <span class='fu'>as.igraph</span>(<span class='no'>insects_network</span>)
+<span class='co'># Apply as.igraph on networks collection</span>
+<span class='no'>ig_coll_networks</span> <span class='kw'>&lt;-</span> <span class='fu'>as.igraph</span>(<span class='no'>insects_networks</span>)
+<span class='co'># Plot igraph object with vertex label</span>
+<span class='fu'>plot</span>(<span class='no'>ig_network</span>)
+<span class='fu'>plot</span>(<span class='no'>ig_network</span>, <span class='kw'>vertex.label</span> <span class='kw'>=</span> <span class='no'>insects_network</span>$<span class='no'>nodes</span>$<span class='no'>taxonomy.name</span>)
+<span class='co'># }</span><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -176,6 +169,8 @@
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#methods-by-class-">Methods (by class)</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>
