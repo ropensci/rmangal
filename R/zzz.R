@@ -24,37 +24,36 @@ endpoints <- function() {
 # Spatial columns of mangal DB
 sf_columns <- function(x) c("geom.type","geom.coordinates")
 
-# Handle NULL to coerce into tibble
+# NULL to NA
 null_to_na <- function(x) {
-    if (is.data.frame(x)) {
-      # NULL already handle
-      return(x)
-    } else if( is.list(x)) {
+    if (is.list(x)) {
       return(lapply(x, null_to_na))
     } else {
       return(ifelse(is.null(x), NA, x))
     }
 }
 
-#
-coerce_body <- function(x, resp, flatten) {
+## to data frame
+json_to_df <- function(resp, flatten, null_to_na) {
+  out <- jsonlite::fromJSON(
+      httr::content(resp, type = "text", encoding = "UTF-8"), flatten = flatten
+    )
+  if (null_to_na) out <- null_to_na(out)
+  out <- as.data.frame(out)
+  class(out) <- c("tbl_df", "tbl", "data.frame")
+  out
+}
+
+
+## response
+coerce_body <- function(x, resp, flatten, null_to_na = FALSE) {
   switch(
     x,
     raw = httr::content(resp, type = "text", encoding = "UTF-8"),
     list = httr::content(resp),
-    data.frame = tibble::as_tibble(null_to_na(
-      jsonlite::fromJSON(httr::content(resp, type = "text",
-      encoding = "UTF-8"), flatten = flatten))),
-    spatial = mg_to_sf(
-     tibble::as_tibble(
-       null_to_na(
-       jsonlite::fromJSON(
-         httr::content(resp, type = "text", encoding = "UTF-8"),
-         flatten = TRUE)
-       )
-       )
-     )
-   )
+    data.frame = json_to_df(resp, flatten, null_to_na),
+    spatial = mg_to_sf(json_to_df(resp, flatten, null_to_na))
+  )
 }
 
 #' GET generic API function to retrieve several entries
@@ -73,7 +72,7 @@ coerce_body <- function(x, resp, flatten) {
 #' @details
 #' See endpoints available with `endpoints()`
 
-get_gen <- function(endpoint, query = NULL, limit =100, flatten = TRUE,
+get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE,
   output = 'data.frame', ...) {
 
   url <- httr::modify_url(server(), path = paste0(base(), endpoint))
@@ -105,20 +104,15 @@ get_gen <- function(endpoint, query = NULL, limit =100, flatten = TRUE,
     if (httr::http_error(resp)) {
       message(sprintf("API request failed (%s): %s", httr::status_code(resp),
         httr::content(resp)$message))
-
+      ##
       responses[[page + 1]] <- structure(list(body = NULL, response = resp),
           class = "getError")
-
     } else {
-
       # coerce body to output desired
       body <- coerce_body(output, resp, flatten)
-
       responses[[page + 1]] <- structure(list(body = body, response = resp),
         class = "getSuccess")
-
     }
-
   }
   responses
 }
@@ -168,7 +162,7 @@ flatten = TRUE, ...) {
     } else {
 
       # coerce body to output desired
-      body <- coerce_body(output, resp, flatten)
+      body <- coerce_body(output, resp, flatten, null_to_na = TRUE)
 
       responses[[i]]  <- structure(list(body = body, response = resp),
         class = "getSuccess")
