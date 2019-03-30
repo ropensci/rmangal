@@ -38,10 +38,12 @@ get_collection.mgSearchDatasets <- function(x, ...) {
   # Object S3 declaration
   mg_net_collection <- structure(list(), class= "mgNetworksCollection")
 
-  ids <- purrr::flatten_int(purrr::map(x$networks, "id"))
-
-  for (i in seq_len(nrow(x))) {
-    mg_net_collection$networks[[i]] <- get_network_by_id(ids[i], ...)
+  # Retrieve networks owned by the dataset
+  networks <- sapply(x$id,function(x) get_from_fkey(endpoints()$network, dataset_id = x))
+  net_ids <- do.call(rbind,purrr::map(networks,"body"))$id
+  
+  for (i in seq_len(length(net_ids))) {
+    mg_net_collection$networks[[i]] <- get_network_by_id(net_ids[i], ...)
   }
 
   mg_net_collection
