@@ -5,7 +5,7 @@
 \alias{get_collection.default}
 \alias{get_collection.mgSearchDatasets}
 \alias{get_collection.mgSearchNetworks}
-\title{Get collection of networks}
+\title{Get a collection of networks}
 \usage{
 get_collection(x, ...)
 
@@ -16,9 +16,9 @@ get_collection(x, ...)
 \method{get_collection}{mgSearchNetworks}(x, ...)
 }
 \arguments{
-\item{x}{\code{numeric} vector of mangal network IDs or object return by functions \code{search_*}}
+\item{x}{\code{numeric} vector of mangal network IDs or object return by functions \code{search_*}.}
 
-\item{...}{arguments from \code{\link[rmangal:get_network_by_id]{rmangal::get_network_by_id()}}}
+\item{...}{arguments to be passed on to \code{\link[rmangal:get_network_by_id]{rmangal::get_network_by_id()}}.}
 }
 \value{
 object \code{mgNetworksCollection}:
@@ -27,15 +27,15 @@ object \code{mgNetworksCollection}:
 }
 }
 \description{
-Get collection of networks
+Get a collection of networks
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{default}: Get collection of networks (default)
+\item \code{default}: Get a collection of networks (default).
 
-\item \code{mgSearchDatasets}: Get collection of networks
+\item \code{mgSearchDatasets}: Get a collection of networks from a \code{mgSearchDatasets} object.
 
-\item \code{mgSearchNetworks}: Get collection of networks
+\item \code{mgSearchNetworks}: Get a collection of networks from a \code{.mgSearchNetworks} object.
 }}
 
 \examples{
