@@ -13,8 +13,11 @@ Authors@R: c(
       email = "Clement.Violet@etudiant.univ-brest.fr", role = c("aut","ctb")),
     person(given = "Kevin", family = "Cazelles", comment = c(ORCID = "0000-0001-6619-9874"),
       email = "kcazelle@uoguelph.ca", role = c("aut","ctb")),
+    person(given = "Dominique", family = "Gravel",
+      email = "dominique.gravel@usherbrooke.ca", role = c("aut")),
     person(given = "Timothée", family = "Poisot",
-      email = "timothee.poisot@umontreal.ca", role = c("aut","ctb")))
+      email = "timothee.poisot@umontreal.ca", role = c("aut","ctb"))
+      )
 Description: Retrieve and explore data from the ecological interaction database MANGAL.
 URL: http://poisotlab.biol.umontreal.ca/#/, https://github.com/mangal-wg/rmangal
 BugReports: https://github.com/mangal-wg/rmangal/issues
@@ -28,8 +31,10 @@ Imports:
     purrr,
     sf
 RoxygenNote: 6.1.1
-Suggests: knitr,
+Suggests:
+    knitr,
     rmarkdown,
-    testthat
+    testthat,
+    USAboundaries
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)

@@ -1,6 +1,8 @@
 #' Search mangal datasets
 #'
-#' @param query a `character` string containing a keyword used to search (case sensitive), or `list`of custom query (see examples).
+#' @param query a `character` string containing a keyword used to search (case sensitive),
+#' or a `list` containiing a custom query  custom query (see examples).
+#' @param verbose a logical. Should extra information be reported on progress?
 #' @param ... further arguments to be passed to [rmangal::get_gen()].
 #' @return
 #' `data.frame` object with all datasets corresponding to the query. For each entries in the data.frame, the networks and the original reference are attached - class `mgSearchNetworks`
@@ -19,7 +21,7 @@
 #' search_datasets(query = list(name = 'kemp_1977'))
 #' @export
 
-search_datasets <- function(query = NULL, ...) {
+search_datasets <- function(query = NULL, verbose = TRUE, ...) {
 
   # Full search
   if (is.character(query)) {
@@ -28,15 +30,21 @@ search_datasets <- function(query = NULL, ...) {
 
   datasets <- as.data.frame(get_gen(endpoints()$dataset, query = query, ...))
 
+<<<<<<< HEAD
   message(sprintf("Found %s datasets", nrow(datasets)))
+=======
+  if (verbose) message(sprintf("Found %s datasets", nrow(datasets)))
+>>>>>>> origin/master
 
   # Attached reference and network
   networks <- list()
   references <- list()
 
   for (i in seq_len(nrow(datasets))) {
-    networks[[i]] <- purrr::map(get_from_fkey(endpoints()$network, dataset_id = datasets[i, "id"]), "body")
-    references[[i]] <- purrr::map(get_singletons(endpoints()$reference, ids = datasets[i, "ref_id"], output = "data.frame"), "body")
+    networks[[i]] <- purrr::map(get_from_fkey(endpoints()$network,
+      dataset_id = datasets[i, "id"]), "body")
+    references[[i]] <- purrr::map(get_singletons(endpoints()$reference,
+      ids = datasets[i, "ref_id"], output = "data.frame"), "body")
   }
 
   if (nrow(datasets) > 0) {

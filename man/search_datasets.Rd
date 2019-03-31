@@ -4,10 +4,13 @@
 \alias{search_datasets}
 \title{Search mangal datasets}
 \usage{
-search_datasets(query = NULL, ...)
+search_datasets(query = NULL, verbose = TRUE, ...)
 }
 \arguments{
-\item{query}{a \code{character} string containing a keyword used to search (case sensitive), or \code{list}of custom query (see examples).}
+\item{query}{a \code{character} string containing a keyword used to search (case sensitive),
+or a \code{list} containiing a custom query  custom query (see examples).}
+
+\item{verbose}{a logical. Should extra information be reported on progress?}
 
 \item{...}{further arguments to be passed to \code{\link[rmangal:get_gen]{rmangal::get_gen()}}.}
 }

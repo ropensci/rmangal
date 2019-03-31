@@ -13,7 +13,11 @@ as.data.frame.mgGetResponses <- function(x, ...) {
         return(purrr::reduce(purrr::map(x, "body"), rbind))
     } else {
         tmp <- do.call(rbind, purrr::map(x, "body"))
-        if (is.null(tmp)) return(data.frame(NULL)) else return(tmp)
+        if (is.null(tmp)) {
+          tmp <- data.frame(NULL)
+          class(tmp) <- c("tbl_df", "tbl", "data.frame")
+          return(tmp)
+        } else return(tmp)
     }
 }
 
