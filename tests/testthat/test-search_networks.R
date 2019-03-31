@@ -1,5 +1,6 @@
 context("test-search_networks")
 
+library(sf)
 res1 <- search_networks("lagoon")
 area <- USAboundaries::us_states(state="california")
 res2 <- search_networks(area)
