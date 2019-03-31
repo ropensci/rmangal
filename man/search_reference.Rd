@@ -13,7 +13,7 @@ network is attached.}
 \item{verbose}{a logical. Should extra information be reported on progress?}
 }
 \value{
-An object of class mgSearchReference\code{, which is essentially a }data.frame\code{object with the reference corresponding to the query. Note that all datasets and networks related to the publication are also attached to the}data.frame`.
+An object of class mgSearchReference\code{, which is essentially a}data.frame\code{object with the reference corresponding to the query. Note that all datasets and networks related to the publication are also attached to the}data.frame`.
 }
 \description{
 Search for a specific data sset reference with DOI
