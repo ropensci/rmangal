@@ -14,7 +14,8 @@ search_networks(query = NULL, polygon = NULL, ...)
 \item{...}{arguments from \code{\link[rmangal:get_gen]{rmangal::get_gen()}}, ignored for spatial query}
 }
 \value{
-object \code{data.frame}: Networks.
+\code{data.frame} object with all networks informations
+Class returned \code{mgSearchNetworks}
 }
 \description{
 Search mangal networks

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get collection of networks — get_collection • rmangal</title>
+<title>Get a collection of networks — get_collection • rmangal</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Get collection of networks — get_collection" />
+<meta property="og:title" content="Get a collection of networks — get_collection" />
 
-<meta property="og:description" content="Get collection of networks" />
+<meta property="og:description" content="Get a collection of networks" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -109,14 +109,14 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get collection of networks</h1>
+    <h1>Get a collection of networks</h1>
     <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/get_collection.R'><code>R/get_collection.R</code></a></small>
     <div class="hidden name"><code>get_collection.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Get collection of networks</p>
+    <p>Get a collection of networks</p>
     
     </div>
 
@@ -136,11 +136,11 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p><code>numeric</code> vector of mangal network IDs or object return by functions <code>search_*</code></p></td>
+      <td><p><code>numeric</code> vector of mangal network IDs or object return by functions <code>search_*</code>.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>arguments from <code>rmangal::get_network_by_id()</code></p></td>
+      <td><p>arguments to be passed on to <code>rmangal::get_network_by_id()</code>.</p></td>
     </tr>
     </table>
     
@@ -154,17 +154,17 @@
     <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
 
     <ul>
-<li><p><code>default</code>: Get collection of networks (default)</p></li>
-<li><p><code>mgSearchDatasets</code>: Get collection of networks</p></li>
-<li><p><code>mgSearchNetworks</code>: Get collection of networks</p></li>
+<li><p><code>default</code>: Get a collection of networks (default).</p></li>
+<li><p><code>mgSearchDatasets</code>: Get a collection of networks from a <code>mgSearchDatasets</code> object.</p></li>
+<li><p><code>mgSearchNetworks</code>: Get a collection of networks from a <code>.mgSearchNetworks</code> object.</p></li>
 </ul>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='co'># NOT RUN {</span>
 <span class='fu'>get_collection</span>(<span class='fu'>c</span>(<span class='fl'>1035</span>:<span class='fl'>1036</span>))
-<span class='fu'>get_collection</span>(<span class='fu'>search_networks</span>(<span class='kw'>query</span><span class='kw'>=</span><span class='st'>"insect%"</span>))
-<span class='fu'>get_collection</span>(<span class='fu'>search_datasets</span>(<span class='kw'>query</span><span class='kw'>=</span><span class='st'>"lagoon%"</span>))
+<span class='fu'>get_collection</span>(<span class='fu'>search_networks</span>(<span class='kw'>query</span><span class='kw'>=</span><span class='st'>'insect%'</span>))
+<span class='fu'>get_collection</span>(<span class='fu'>search_datasets</span>(<span class='kw'>query</span><span class='kw'>=</span><span class='st'>'lagoon%'</span>))
 <span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

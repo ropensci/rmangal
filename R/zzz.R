@@ -56,7 +56,7 @@ coerce_body <- function(x, resp, flatten, null_to_na = FALSE) {
   )
 }
 
-#' GET generic API function to retrieve several entries
+#' Generic API function to retrieve several entries
 #'
 #' @param endpoint `character` API entry point
 #' @param query `list` list of params passed to the API
@@ -117,7 +117,7 @@ get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE,
   responses
 }
 
-#' GET generic API function to retrieve singletons
+#' Generic API function to retrieve singletons
 #'
 #' @param endpoint `character` API entry point
 #' @param ids `numeric` vector of ids
@@ -172,7 +172,7 @@ flatten = TRUE, ...) {
   responses
 }
 
-#' GET entries based on foreign key
+#' Get entries based on foreign key
 #'
 #' @param endpoint `character` API entry point
 #' @param ... foreign key column name with the id

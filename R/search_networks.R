@@ -4,7 +4,8 @@
 #' @param polygon `sf` object used to search in a specific geographical area.
 #' @param ... arguments from [rmangal::get_gen()], ignored for spatial query
 #' @return
-#' object `data.frame`: Networks.
+#' `data.frame` object with all networks informations
+#'  Class returned `mgSearchNetworks`
 #' @examples
 #' search_networks(query="insect%")
 #' \dontrun{
@@ -43,6 +44,8 @@ search_networks <- function( query = NULL, polygon = NULL, ... ) {
     networks <- as.data.frame(get_gen(endpoints()$network, query = query,  ...))
 
   }
+
+  message(sprintf("Found %s networks", nrow(networks)))
 
   class(networks) <- append(class(networks), "mgSearchNetworks")
   networks
