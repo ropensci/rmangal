@@ -4,7 +4,7 @@
 \alias{get_singletons}
 \title{Generic API function to retrieve singletons}
 \usage{
-get_singletons(endpoint = NULL, ids = NULL, output = "list",
+get_singletons(endpoint = NULL, ids = NULL, output = "data.frame",
   flatten = TRUE, ...)
 }
 \arguments{

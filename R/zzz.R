@@ -24,6 +24,23 @@ endpoints <- function() {
 # Spatial columns of mangal DB
 sf_columns <- function(x) c("geom.type","geom.coordinates")
 
+# List of interaction types contains in mangal-db 
+interaction_type <- function() c(
+  "competition",
+  "amensalism",
+  "neutralism",
+  "commensalism",
+  "mutualism",
+  "parasitism",
+  "predation",
+  "herbivory",
+  "symbiosis",
+  "scavenger",
+  "detritivore",
+  "unspecified"
+)
+
+
 # NULL to NA
 null_to_na <- function(x) {
     if (is.list(x)) {
@@ -49,8 +66,6 @@ json_to_df <- function(resp, flatten, null_to_na) {
 coerce_body <- function(x, resp, flatten, null_to_na = FALSE) {
   switch(
     x,
-    raw = httr::content(resp, type = "text", encoding = "UTF-8"),
-    list = httr::content(resp),
     data.frame = json_to_df(resp, flatten, null_to_na),
     spatial = mg_to_sf(json_to_df(resp, flatten, null_to_na))
   )
@@ -132,7 +147,7 @@ get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE,
 #' @details
 #' See endpoints available with `endpoints()`
 
-get_singletons <- function(endpoint = NULL, ids = NULL, output = "list",
+get_singletons <- function(endpoint = NULL, ids = NULL, output = "data.frame",
 flatten = TRUE, ...) {
 
   stopifnot(!is.null(endpoint) & !is.null(ids))
@@ -228,5 +243,5 @@ mg_to_sf <- function(body) {
   # remove spatial columns
   geom_df <- body[which(!names(body) %in% sf_columns())]
   # bind spatial feature with attributes table
-  sf::st_sf(sf::st_geometry(geom_s), geom_df)
+  sf::st_sf(geometry=sf::st_geometry(geom_s), geom_df)
 }

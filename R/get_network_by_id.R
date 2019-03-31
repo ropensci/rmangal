@@ -16,6 +16,8 @@
 
 get_network_by_id <- function(id, ... ) {
 
+    stopifnot(length(id) == 1)
+
     # Object S3 declaration
     mg_network <- structure(
       list(
@@ -25,22 +27,16 @@ get_network_by_id <- function(id, ... ) {
     )
 
     # nodes and edges associated with the network
-    mg_network$nodes <- as.data.frame(get_gen(endpoints()$node,
-      query = list( network_id = mg_network$network$id )))
-    mg_network$edges <- as.data.frame(get_gen(endpoints()$interaction,
-      query = list( network_id = mg_network$network$id )))
+    mg_network$nodes <- as.data.frame(get_from_fkey(endpoints()$node, 
+                  network_id = mg_network$network$id))
+    mg_network$edges <- as.data.frame(get_from_fkey(endpoints()$interaction, 
+                  network_id = mg_network$network$id))
 
-    # retrieve DATASET informations
-    dataset <- get_singletons(endpoints()$dataset, ids = unique(mg_network$network$dataset_id))
+    # retrieve dataset informations
+    mg_network$dataset <- as.data.frame(get_singletons(endpoints()$dataset, ids = unique(mg_network$network$dataset_id)))
 
-    # Assign dataset informations to mg_network
-    mg_network$dataset <- purrr::flatten(purrr::map(dataset,"body"))
-
-    # retrieve REFERENCE 
-    reference <- get_singletons(endpoints()$reference, ids = mg_network$dataset$ref_id)
-
-    # Assign dataset informations to mg_network
-    mg_network$reference <- purrr::flatten(purrr::map(reference,"body"))
+    # retrieve reference
+    mg_network$reference <- as.data.frame(get_singletons(endpoints()$reference, ids = mg_network$dataset$ref_id))
 
     mg_network
 }

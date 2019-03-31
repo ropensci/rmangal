@@ -2,23 +2,22 @@
 % Please edit documentation in R/search_networks.R
 \name{search_networks}
 \alias{search_networks}
-\title{Search mangal networks}
+\title{Search over all networks using keyword or spatial object}
 \usage{
 search_networks(query = NULL, verbose = TRUE, ...)
 }
 \arguments{
 \item{query}{\code{character} keyword used to search (case sensitive) or a \code{sf} object used to search in a specific geographical area.}
 
-\item{verbose}{a logical. Should extra information be reported on progress?}
+\item{verbose}{a \code{logical}. Should extra information be reported on progress?}
 
-\item{...}{arguments from \code{\link[rmangal:get_gen]{rmangal::get_gen()}}, ignored for spatial query.}
+\item{...}{further arguments to be passed to \code{\link[rmangal:get_gen]{rmangal::get_gen()}}.}
 }
 \value{
-\code{data.frame} object with all networks informations
-Class returned \code{mgSearchNetworks}
+An object of class \code{mgSearchNetworks}, which is a \code{data.frame} object with all networks informations
 }
 \description{
-Search mangal networks
+Search over all networks using keyword or spatial object
 }
 \examples{
 search_networks(query="insect\%")

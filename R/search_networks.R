@@ -1,11 +1,10 @@
-#' Search mangal networks
+#' Search over all networks using keyword or spatial object
 #'
 #' @param query `character` keyword used to search (case sensitive) or a `sf` object used to search in a specific geographical area.
-#' @param verbose a logical. Should extra information be reported on progress?
-#' @param ... arguments from [rmangal::get_gen()], ignored for spatial query.
+#' @param verbose a `logical`. Should extra information be reported on progress?
+#' @param ... further arguments to be passed to [rmangal::get_gen()].
 #' @return
-#' `data.frame` object with all networks informations
-#'  Class returned `mgSearchNetworks`
+#' An object of class `mgSearchNetworks`, which is a `data.frame` object with all networks informations
 #' @examples
 #' search_networks(query="insect%")
 #' \dontrun{
@@ -26,7 +25,7 @@ search_networks <- function(query = NULL, verbose = TRUE, ...) {
     if (verbose) message("Spatial query mode")
     # API doesn't allow spatial search - patch with R
     sp_networks <- as.data.frame(get_gen(
-      endpoints()$network, output = "spatial"))
+      endpoints()$network, output = "spatial", ...))
 
     # Making sure projection are WGS84
     networks <- sp_networks[unlist(

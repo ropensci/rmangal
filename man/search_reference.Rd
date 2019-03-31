@@ -2,21 +2,25 @@
 % Please edit documentation in R/search_reference.R
 \name{search_reference}
 \alias{search_reference}
-\title{Search for a specific data sset reference with DOI}
+\title{Search for a specific dataset reference with DOI}
 \usage{
-search_reference(doi = NULL, verbose = TRUE)
+search_reference(doi = NULL, verbose = TRUE, ...)
 }
 \arguments{
-\item{doi}{\code{character} a Digital Object Identifier of the article which the
-network is attached.}
+\item{doi}{\code{character} a Digital Object Identifier of the article}
 
-\item{verbose}{a logical. Should extra information be reported on progress?}
+\item{verbose}{a \code{logical}. Should extra information be reported on progress?}
+
+\item{...}{further arguments to be passed to \code{\link[rmangal:get_gen]{rmangal::get_gen()}}.}
 }
 \value{
-An object of class mgSearchReference\code{, which is essentially a}data.frame\code{object with the reference corresponding to the query. Note that all datasets and networks related to the publication are also attached to the}data.frame`.
+An object of class \code{mgSearchReference}, which is essentially a
+\code{data.frame} object with the reference of the article matching the query. Note that
+all datasets and networks related to the publication are also attached to the
+\code{data.frame}.
 }
 \description{
-Search for a specific data sset reference with DOI
+Search for a specific dataset reference with DOI
 }
 \examples{
 search_reference(doi = "10.2307/3225248")

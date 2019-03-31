@@ -6,8 +6,6 @@ nvr <- 11
 res1 <- search_datasets(query = "lagoon")
 res2 <- search_datasets(query = list(name = "kemp_1977"))
 res3 <- search_datasets(query = "2011")
-# does not work
-# res4 <- search_datasets(query = "2011", output = "list")
 
 resw <- search_datasets(query = "does not exist")
 

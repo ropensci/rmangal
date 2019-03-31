@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>rmangal: rmangal - Explore the ecological interactions database — rmangal-package • rmangal</title>
+<title>Search for specific interactions type (e.g. mutualism) — search_interactions • rmangal</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="rmangal: rmangal - Explore the ecological interactions database — rmangal-package" />
+<meta property="og:title" content="Search for specific interactions type (e.g. mutualism) — search_interactions" />
 
-<meta property="og:description" content="Retrieve and explore data from the ecological interaction database MANGAL." />
+<meta property="og:description" content="Search for specific interactions type (e.g. mutualism)" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -109,49 +109,41 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>rmangal: rmangal - Explore the ecological interactions database</h1>
-    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/mangal-package.R'><code>R/mangal-package.R</code></a></small>
-    <div class="hidden name"><code>rmangal-package.Rd</code></div>
+    <h1>Search for specific interactions type (e.g. mutualism)</h1>
+    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/search_interactions.R'><code>R/search_interactions.R</code></a></small>
+    <div class="hidden name"><code>search_interactions.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Retrieve and explore data from the ecological interaction database MANGAL.</p>
+    <p>Search for specific interactions type (e.g. mutualism)</p>
     
     </div>
 
-        
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+    <pre class="usage"><span class='fu'>search_interactions</span>(<span class='kw'>type</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>type</th>
+      <td><p><code>character</code> one of the interactions type documented in the API</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <div class='dont-index'><p>Useful links:</p><ul>
-<li><p><a href='http://poisotlab.biol.umontreal.ca/#/'>http://poisotlab.biol.umontreal.ca/#/</a></p></li>
-<li><p><a href='https://github.com/mangal-wg/rmangal'>https://github.com/mangal-wg/rmangal</a></p></li>
-<li><p>Report bugs at <a href='https://github.com/mangal-wg/rmangal/issues'>https://github.com/mangal-wg/rmangal/issues</a></p></li>
-</ul></div>
+    <p>object <code>data.frame</code>: Taxa information with all interactions in which the taxa occurs.</p>
     
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#see-also">See also</a></li>
+      <li><a href="#value">Value</a></li>
           </ul>
-
-    <h2>Author</h2>
-    
-<strong>Maintainer</strong>: Steve Vissault <a href='mailto:steve.vissault@usherbrooke.ca'>steve.vissault@usherbrooke.ca</a> (0000-0002-0866-4376)
-
-Authors:
-<ul>
-<li><p>Gabriel Bergeron <a href='mailto:gabriel.bergeron3@usherbrooke.ca'>gabriel.bergeron3@usherbrooke.ca</a> [contributor]</p></li>
-<li><p>Benjamin Mercier <a href='mailto:Benjamin.B.Mercier@usherbrooke.ca'>Benjamin.B.Mercier@usherbrooke.ca</a> [contributor]</p></li>
-<li><p>Clément Violet <a href='mailto:Clement.Violet@etudiant.univ-brest.fr'>Clement.Violet@etudiant.univ-brest.fr</a> [contributor]</p></li>
-<li><p>Kevin Cazelles <a href='mailto:kcazelle@uoguelph.ca'>kcazelle@uoguelph.ca</a> (0000-0001-6619-9874) [contributor]</p></li>
-<li><p>Dominique Gravel <a href='mailto:dominique.gravel@usherbrooke.ca'>dominique.gravel@usherbrooke.ca</a></p></li>
-<li><p>Timothée Poisot <a href='mailto:timothee.poisot@umontreal.ca'>timothee.poisot@umontreal.ca</a> [contributor]</p></li>
-</ul>
-
 
   </div>
 </div>

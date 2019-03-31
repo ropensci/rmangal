@@ -2,7 +2,7 @@
 % Please edit documentation in R/search_datasets.R
 \name{search_datasets}
 \alias{search_datasets}
-\title{Search mangal datasets}
+\title{Search over all datasets using keyword}
 \usage{
 search_datasets(query = NULL, verbose = TRUE, ...)
 }
@@ -15,11 +15,11 @@ or a \code{list} containiing a custom query  custom query (see examples).}
 \item{...}{further arguments to be passed to \code{\link[rmangal:get_gen]{rmangal::get_gen()}}.}
 }
 \value{
-\code{data.frame} object with all datasets corresponding to the query. For each entries in the data.frame, the networks and the original reference are attached - class \code{mgSearchNetworks}
-Class returned \code{mgSearchDatasets}
+An object of class \code{mgSearchDatasets}, which is a \code{data.frame}  object with all datasets corresponding to the query.
+For each dataset entry, the networks and the original reference are attached.
 }
 \description{
-Search mangal datasets
+Search over all datasets using keyword
 }
 \examples{
 \dontrun{
