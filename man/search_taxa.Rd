@@ -9,7 +9,7 @@ search_taxa(query = NULL, original = FALSE, verbose = TRUE, ...)
 \arguments{
 \item{query}{\code{character} specific taxon / keyword / or tsn, eol, bold & ncbi IDs.}
 
-\item{original}{a \code{logical}. Should query taxa from the original publication? (see details section, default: FALSE)}
+\item{original}{a \code{logical}. Should query taxa names from the original publication? (see details section, default: FALSE)}
 
 \item{verbose}{a \code{logical}. Should extra information be reported on progress?}
 
@@ -24,7 +24,7 @@ Search network by taxa using keyword, tsn, eol, bold or ncbi IDs.
 }
 \details{
 By default, you are querying taxa based on a homogenized taxonomy (corrected names from
-TNRS -- http://tnrs.iplantcollaborative.org/ and/or GNR -- https://resolver.globalnames.org/).
+\href{http://tnrs.iplantcollaborative.org/}{TNRS} and/or \href{https://resolver.globalnames.org/}{GNR}.
 These taxa might not be the taxa recorded within the original publication.
 To query original documented taxa, please set the argument \code{original} as TRUE.
 }

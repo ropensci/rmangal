@@ -1,16 +1,29 @@
-#' Display all publications (BibTeX) involved in the networks collection
+#' Display BibTeX for all publications involved in the networks collection
 #'
-#' @param collection `mgNetworksCollection` object class.
+#' @param x `mgNetworksCollection` or `mgNetworks` object class.
 #' @return
-#' `list` of bibtex for all references attached to the network collection
+#' `list` of bibtex reference part of the network collection
 #' @examples
-#' lagoon_datasets <- search_datasets("lagoon")
+#' # On network collection
+#' lagoon_net_collection <- get_collection(search_datasets("lagoon"))
+#' get_citation(lagoon_net_collection)
+#' # On individual network
+#' network <- get_network_by_id(18)
+#' get_citation(network)
 #' @export
-
-get_citations <- function (collection){
-    
-    stopifnot("mgNetworksCollection" %in% class(collection))
-
-    references <- purrr::map(collection$networks, "reference")
-    unique(purrr::map_chr(references,"bibtex"))
+get_citation <- function(x) {
+  UseMethod("get_citation", x)
 }
+
+#' @describeIn get_citation Display the BibTeX of the network's publication
+#' @export
+get_citation.mgNetwork <- function(x) {
+    x$reference$bibtex
+}
+
+#' @describeIn get_citation Display the BibTeX of all publications part of the networks collection
+#' @export
+get_citation.mgNetworksCollection <- function (x){
+    unique(unlist(purrr::map(x, get_citation)))
+}
+

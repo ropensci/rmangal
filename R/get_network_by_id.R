@@ -36,7 +36,7 @@ get_network_by_id <- function(id, ... ) {
     mg_network$dataset <- as.data.frame(get_singletons(endpoints()$dataset, ids = unique(mg_network$network$dataset_id)))
 
     # retrieve reference
-    mg_network$reference <- as.data.frame(get_singletons(endpoints()$reference, ids = mg_network$dataset$ref_id))
+    mg_network$reference <- as.data.frame(get_singletons(endpoints()$reference, ids = unique(mg_network$dataset$ref_id)))
 
     mg_network
 }
