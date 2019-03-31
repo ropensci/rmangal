@@ -1,7 +1,7 @@
 #' Search for a specific dataset reference with DOI
 #'
 #' @param doi `character` a Digital Object Identifier of the article 
-#' @param verbose a logical. Should extra information be reported on progress?
+#' @param verbose a `logical`. Should extra information be reported on progress?
 #' @return
 #' An object of class `mgSearchReference`, which is essentially a
 #' `data.frame` object with the reference of the article matching the query. Note that
