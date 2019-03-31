@@ -1,7 +1,7 @@
 #' Search mangal networks
 #'
 #' @param query `character` keyword used to search (case sensitive) or a `sf` object used to search in a specific geographical area.
-#' @param verbose a logical. Should extra information be reported on progress?
+#' @param verbose a `logical`. Should extra information be reported on progress?
 #' @return
 #' An object of class `mgSearchNetworks`, which is a `data.frame` object with all networks informations
 #' @examples
