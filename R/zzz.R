@@ -56,7 +56,7 @@ json_to_df <- function(resp, flatten, null_to_na) {
       httr::content(resp, type = "text", encoding = "UTF-8"), flatten = flatten
     )
   if (null_to_na) out <- null_to_na(out)
-  out <- as.data.frame(out)
+  out <- as.data.frame(out, stringsAsFactors = FALSE)
   class(out) <- c("tbl_df", "tbl", "data.frame")
   out
 }
