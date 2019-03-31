@@ -1,8 +1,5 @@
 context("test-search_networks")
 
-# number of variables (columns)
-nvr <- 11
-
 res1 <- search_networks("lagoon")
 # area <- USAboundaries::us_states(state="california")
 # res2 <- search_networks(area)
@@ -18,12 +15,6 @@ test_that("expected behavior", {
   expect_equal(nrow(res1), 3)
   # expect_equal(nrow(res2), 14)
   expect_equal(nrow(ress), 14)
-})
-
-test_that("expected behavior", {
-  expect_equal(dim(resw), c(0, 0))
-  expect_equal(nrow(res1), 3)
-  # expect_equal(nrow(res2), 14)
 })
 
 test_that("output format", {
