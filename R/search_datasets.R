@@ -4,8 +4,8 @@
 #' or a `list` containiing a custom query  custom query (see examples).
 #' @param verbose a logical. Should extra information be reported on progress?
 #' @return
-#' `data.frame` object with all datasets corresponding to the query. For each entries in the data.frame, the networks and the original reference are attached - class `mgSearchNetworks`
-#'  Class returned `mgSearchDatasets`
+#' An object of class `mgSearchDatasets`, which is a `data.frame`  object with all datasets corresponding to the query. 
+#' For each dataset entry, the networks and the original reference are attached.
 #' @examples
 #' \dontrun{
 #' # Return all dataset
