@@ -40,7 +40,7 @@ search_datasets <- function(query = NULL, verbose = TRUE, ...) {
     networks[[i]] <- purrr::map(get_from_fkey(endpoints()$network,
       dataset_id = datasets[i, "id"]), "body")
     references[[i]] <- purrr::map(get_singletons(endpoints()$reference,
-      ids = datasets[i, "ref_id"], output = "data.frame"), "body")
+      ids = datasets[i, "ref_id"]), "body")
   }
 
   if (nrow(datasets) > 0) {
