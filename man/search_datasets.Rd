@@ -4,19 +4,17 @@
 \alias{search_datasets}
 \title{Search mangal datasets}
 \usage{
-search_datasets(query = NULL, verbose = TRUE, ...)
+search_datasets(query = NULL, verbose = TRUE)
 }
 \arguments{
 \item{query}{a \code{character} string containing a keyword used to search (case sensitive),
 or a \code{list} containiing a custom query  custom query (see examples).}
 
 \item{verbose}{a logical. Should extra information be reported on progress?}
-
-\item{...}{further arguments to be passed to \code{\link[rmangal:get_gen]{rmangal::get_gen()}}.}
 }
 \value{
-\code{data.frame} object with all datasets corresponding to the query. For each entries in the data.frame, the networks and the original reference are attached - class \code{mgSearchNetworks}
-Class returned \code{mgSearchDatasets}
+An object of class \code{mgSearchDatasets}, which is a \code{data.frame}  object with all datasets corresponding to the query.
+For each dataset entry, the networks and the original reference are attached.
 }
 \description{
 Search mangal datasets

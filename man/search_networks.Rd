@@ -4,18 +4,15 @@
 \alias{search_networks}
 \title{Search mangal networks}
 \usage{
-search_networks(query = NULL, verbose = TRUE, ...)
+search_networks(query = NULL, verbose = TRUE)
 }
 \arguments{
 \item{query}{\code{character} keyword used to search (case sensitive) or a \code{sf} object used to search in a specific geographical area.}
 
-\item{verbose}{a logical. Should extra information be reported on progress?}
-
-\item{...}{arguments from \code{\link[rmangal:get_gen]{rmangal::get_gen()}}, ignored for spatial query.}
+\item{verbose}{a \code{logical}. Should extra information be reported on progress?}
 }
 \value{
-\code{data.frame} object with all networks informations
-Class returned \code{mgSearchNetworks}
+An object of class \code{mgSearchNetworks}, which is a \code{data.frame} object with all networks informations
 }
 \description{
 Search mangal networks
