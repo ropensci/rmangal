@@ -49,7 +49,7 @@ get_collection.mgSearchDatasets <- function(x, ...) {
 
 }
 
-#' @describeIn get_collection Get a collection of networks from a `.mgSearchNetworks` object. 
+#' @describeIn get_collection Get a collection of networks from a `mgSearchNetworks` object. 
 #' @export
 get_collection.mgSearchNetworks <- function(x, ...) {
 
@@ -58,6 +58,22 @@ get_collection.mgSearchNetworks <- function(x, ...) {
 
   for (i in seq_len(length(x$id))) {
     mg_net_collection[[i]] <- get_network_by_id(x$id[i])
+  }
+
+  mg_net_collection
+
+}
+
+
+#' @describeIn get_collection Get a collection of networks from a `mgSearchReference` object. 
+#' @export
+get_collection.mgSearchReference <- function(x, ...) {
+
+  # Object S3 declaration
+  mg_net_collection <- structure(list(), class= "mgNetworksCollection")
+
+  for (i in seq_len(length(x$networks$id))) {
+    mg_net_collection[[i]] <- get_network_by_id(x$networks$id[i])
   }
 
   mg_net_collection

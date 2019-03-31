@@ -2,7 +2,7 @@
 % Please edit documentation in R/zzz.R
 \name{get_from_fkey}
 \alias{get_from_fkey}
-\title{GET entries based on foreign key}
+\title{Get entries based on foreign key}
 \usage{
 get_from_fkey(endpoint, ...)
 }
@@ -15,7 +15,7 @@ get_from_fkey(endpoint, ...)
 Object returned by \code{\link[rmangal:get_gen]{rmangal::get_gen()}}
 }
 \description{
-GET entries based on foreign key
+Get entries based on foreign key
 }
 \details{
 See endpoints available with \code{endpoints()}

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get entries based on foreign key — get_from_fkey • rmangal</title>
+<title>Search for a specific reference with DOI — search_reference • rmangal</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Get entries based on foreign key — get_from_fkey" />
+<meta property="og:title" content="Search for a specific reference with DOI — search_reference" />
 
-<meta property="og:description" content="Get entries based on foreign key" />
+<meta property="og:description" content="Search for a specific reference with DOI" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -109,45 +109,86 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get entries based on foreign key</h1>
-    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/zzz.R'><code>R/zzz.R</code></a></small>
-    <div class="hidden name"><code>get_from_fkey.Rd</code></div>
+    <h1>Search for a specific reference with DOI</h1>
+    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/search_reference.R'><code>R/search_reference.R</code></a></small>
+    <div class="hidden name"><code>search_reference.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Get entries based on foreign key</p>
+    <p>Search for a specific reference with DOI</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>get_from_fkey</span>(<span class='no'>endpoint</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>search_reference</span>(<span class='kw'>doi</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>endpoint</th>
-      <td><p><code>character</code> API entry point</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>foreign key column name with the id</p></td>
+      <th>doi</th>
+      <td><p><code>character</code> Digital Object Identifier of the article which the network is attached.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Object returned by <code>rmangal::get_gen()</code></p>
-    
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>See endpoints available with <code>endpoints()</code></p>
+    <p><code>data.frame</code> object with the reference corresponding to the query. All datasets and networks related to the publication are also attached to the <code>data.frame</code>.
+Class returned <code>mgSearchReference</code></p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='fu'>get_from_fkey</span>(<span class='fu'>endpoints</span>()$<span class='no'>node</span>, <span class='kw'>network_id</span> <span class='kw'>=</span> <span class='fl'>926</span>)
-<span class='co'># }</span></pre>
+    <pre class="examples"><div class='input'><span class='fu'>search_reference</span>(<span class='kw'>doi</span> <span class='kw'>=</span> <span class='st'>"10.2307/3225248"</span>)</div><div class='output co'>#&gt; <span class='message'>Found dataset: </span>
+#&gt; <span class='message'> @article{Koslucher_1973, doi = {10.2307/3225248}, url = {https://doi.org/10.2307%2F3225248}, year = 1973, month = {jul}, publisher = {{JSTOR}}, volume = {92}, number = {3}, pages = {441}, author = {Dale G. Koslucher and G. Wayne Minshall}, title = {Food Habits of Some Benthic Invertebrates in a Northern Cool-Desert Stream (Deep Creek, Curlew Valley, Idaho-Utah)}, journal = {Transactions of the American Microscopical Society}}</span></div><div class='output co'>#&gt; $id
+#&gt; [1] 132
+#&gt; 
+#&gt; $doi
+#&gt; [1] "10.2307/3225248"
+#&gt; 
+#&gt; $author
+#&gt; [1] "koslucher"
+#&gt; 
+#&gt; $year
+#&gt; [1] "1973"
+#&gt; 
+#&gt; $jstor
+#&gt; [1] "https://www.jstor.org/stable/3225248"
+#&gt; 
+#&gt; $pmid
+#&gt; [1] NA
+#&gt; 
+#&gt; $bibtex
+#&gt; [1] "@article{Koslucher_1973, doi = {10.2307/3225248}, url = {https://doi.org/10.2307%2F3225248}, year = 1973, month = {jul}, publisher = {{JSTOR}}, volume = {92}, number = {3}, pages = {441}, author = {Dale G. Koslucher and G. Wayne Minshall}, title = {Food Habits of Some Benthic Invertebrates in a Northern Cool-Desert Stream (Deep Creek, Curlew Valley, Idaho-Utah)}, journal = {Transactions of the American Microscopical Society}}"
+#&gt; 
+#&gt; $paper_url
+#&gt; [1] "https://www.jstor.org/stable/pdf/3225248.pdf?refreqid=excelsior%3Ae2741b937f74579b7875d7ade8f58f47"
+#&gt; 
+#&gt; $data_url
+#&gt; [1] "https://globalwebdb.com/"
+#&gt; 
+#&gt; $created_at
+#&gt; [1] "2019-03-08T19:27:48.551Z"
+#&gt; 
+#&gt; $updated_at
+#&gt; [1] "2019-03-08T19:27:48.551Z"
+#&gt; 
+#&gt; $datasets
+#&gt; # A tibble: 1 x 9
+#&gt;      id name   date   description    public created_at updated_at ref_id user_id
+#&gt;   &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;          &lt;lgl&gt;  &lt;chr&gt;      &lt;chr&gt;       &lt;int&gt;   &lt;int&gt;
+#&gt; 1   133 koslu… 1969-… Food web stru… TRUE   2019-03-0… 2019-03-0…    132       4
+#&gt; 
+#&gt; $networks
+#&gt; # A tibble: 1 x 11
+#&gt;      id name  date  geom  description public all_interactions created_at
+#&gt;   &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;lgl&gt; &lt;chr&gt;       &lt;lgl&gt;  &lt;lgl&gt;            &lt;chr&gt;     
+#&gt; 1  1517 kosl… 1969… NA    Food web s… TRUE   FALSE            2019-03-0…
+#&gt; # … with 3 more variables: updated_at &lt;chr&gt;, dataset_id &lt;int&gt;, user_id &lt;int&gt;
+#&gt; 
+#&gt; attr(,"row.names")
+#&gt; [1] 1
+#&gt; attr(,"class")
+#&gt; [1] "mgSearchReference"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -155,8 +196,6 @@
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-
-      <li><a href="#details">Details</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>
