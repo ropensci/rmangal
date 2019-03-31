@@ -147,7 +147,7 @@ get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE,
 #' @details
 #' See endpoints available with `endpoints()`
 
-get_singletons <- function(endpoint = NULL, ids = NULL, output = "list",
+get_singletons <- function(endpoint = NULL, ids = NULL, output = "data.frame",
 flatten = TRUE, ...) {
 
   stopifnot(!is.null(endpoint) & !is.null(ids))
@@ -243,5 +243,5 @@ mg_to_sf <- function(body) {
   # remove spatial columns
   geom_df <- body[which(!names(body) %in% sf_columns())]
   # bind spatial feature with attributes table
-  sf::st_sf(sf::st_geometry(geom_s), geom_df)
+  sf::st_sf(geom=sf::st_geometry(geom_s), geom_df)
 }
