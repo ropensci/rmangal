@@ -4,12 +4,12 @@
 \alias{search_taxa}
 \title{Search network by taxa using keyword, tsn, eol, bold or ncbi IDs.}
 \usage{
-search_taxa(query = NULL)
+search_taxa(query = NULL, original = FALSE, verbose = TRUE)
 }
 \arguments{
 \item{query}{\code{character} specific taxon / keyword / or tsn, eol, bold & ncbi IDs.}
 
-\item{original}{a \code{logical}. Should query taxa from the original publication? (see details section)}
+\item{original}{a \code{logical}. Should query taxa from the original publication? (see details section, default: FALSE)}
 
 \item{verbose}{a \code{logical}. Should extra information be reported on progress?}
 }

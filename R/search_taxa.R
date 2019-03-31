@@ -1,7 +1,7 @@
 #' Search network by taxa using keyword, tsn, eol, bold or ncbi IDs.
 #'
 #' @param query `character` specific taxon / keyword / or tsn, eol, bold & ncbi IDs.
-#' @param original a `logical`. Should query taxa from the original publication? (see details section) 
+#' @param original a `logical`. Should query taxa from the original publication? (see details section, default: FALSE) 
 #' @param verbose a `logical`. Should extra information be reported on progress?
 #' @details
 #' By default, you are querying taxa based on a homogenized taxonomy across all datasets using
@@ -13,7 +13,7 @@
 #' All networks in which taxa are involved are also attached to the `data.frame`.
 #' @export
 
-search_taxa <- function( query = NULL ) {
+search_taxa <- function( query = NULL, original = FALSE, verbose = TRUE ) {
 
     stopifnot(!is.null(query) & is.character(query))
 

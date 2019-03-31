@@ -1,13 +1,12 @@
-#' Search for specific interactions type (e.g. mutualism)
+#' Search for specific interactions type (e.g. mutualism) 
 #'
-#' @param query `character` keyword used to search (case sensitive), or `list` of custom query.
+#' @param type `character` one of the interactions type documented in the API
 #' @details
-#' A hardwork have been done to homogenized the taxonomy
 #' @return
 #' object `data.frame`: Taxa information with all interactions in which the taxa occurs.
 #' @export
 
-search_interactions <- function( query = NULL, ... ) {
+search_interactions <- function( type = NULL ) {
 
 
 

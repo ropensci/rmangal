@@ -4,17 +4,14 @@
 \alias{search_interactions}
 \title{Search for specific interactions type (e.g. mutualism)}
 \usage{
-search_interactions(query = NULL, ...)
+search_interactions(type = NULL)
 }
 \arguments{
-\item{query}{\code{character} keyword used to search (case sensitive), or \code{list} of custom query.}
+\item{type}{\code{character} one of the interactions type documented in the API}
 }
 \value{
 object \code{data.frame}: Taxa information with all interactions in which the taxa occurs.
 }
 \description{
 Search for specific interactions type (e.g. mutualism)
-}
-\details{
-A hardwork have been done to homogenized the taxonomy
 }
