@@ -66,8 +66,6 @@ json_to_df <- function(resp, flatten, null_to_na) {
 coerce_body <- function(x, resp, flatten, null_to_na = FALSE) {
   switch(
     x,
-    raw = httr::content(resp, type = "text", encoding = "UTF-8"),
-    list = httr::content(resp),
     data.frame = json_to_df(resp, flatten, null_to_na),
     spatial = mg_to_sf(json_to_df(resp, flatten, null_to_na))
   )
