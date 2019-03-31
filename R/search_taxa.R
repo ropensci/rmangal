@@ -1,4 +1,4 @@
-#' Search network by taxa
+#' Search network by taxa using keyword, tsn, eol, bold or ncbi IDs.
 #'
 #' @param query `character` specific taxon / keyword / or tsn, eol, bold & ncbi IDs.
 #' @param original a `logical`. Should query taxa from the original publication? (see details section) 

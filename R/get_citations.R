@@ -1,4 +1,4 @@
-#' Search mangal networks
+#' Display all publications (BibTeX) involved in the networks collection
 #'
 #' @param collection `mgNetworksCollection` object class.
 #' @return

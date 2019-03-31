@@ -1,4 +1,4 @@
-#' Search for specific interactions type
+#' Search for specific interactions type (e.g. mutualism)
 #'
 #' @param query `character` keyword used to search (case sensitive), or `list` of custom query.
 #' @details

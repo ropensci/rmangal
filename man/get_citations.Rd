@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_citations.R
 \name{get_citations}
 \alias{get_citations}
-\title{Search mangal networks}
+\title{Display all publications (BibTeX) involved in the networks collection}
 \usage{
 get_citations(collection)
 }
@@ -13,7 +13,7 @@ get_citations(collection)
 \code{list} of bibtex for all references attached to the network collection
 }
 \description{
-Search mangal networks
+Display all publications (BibTeX) involved in the networks collection
 }
 \examples{
 lagoon_datasets <- search_datasets("lagoon")

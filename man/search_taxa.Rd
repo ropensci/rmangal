@@ -2,7 +2,7 @@
 % Please edit documentation in R/search_taxa.R
 \name{search_taxa}
 \alias{search_taxa}
-\title{Search network by taxa}
+\title{Search network by taxa using keyword, tsn, eol, bold or ncbi IDs.}
 \usage{
 search_taxa(query = NULL)
 }
@@ -18,7 +18,7 @@ An object of class \code{mgSearchTaxonomy}, which is a \code{data.frame} object 
 All networks in which taxa are involved are also attached to the \code{data.frame}.
 }
 \description{
-Search network by taxa
+Search network by taxa using keyword, tsn, eol, bold or ncbi IDs.
 }
 \details{
 By default, you are querying taxa based on a homogenized taxonomy across all datasets using

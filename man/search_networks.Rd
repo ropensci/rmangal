@@ -2,7 +2,7 @@
 % Please edit documentation in R/search_networks.R
 \name{search_networks}
 \alias{search_networks}
-\title{Search over all networks}
+\title{Search over all networks using keyword or spatial object}
 \usage{
 search_networks(query = NULL, verbose = TRUE)
 }
@@ -15,7 +15,7 @@ search_networks(query = NULL, verbose = TRUE)
 An object of class \code{mgSearchNetworks}, which is a \code{data.frame} object with all networks informations
 }
 \description{
-Search over all networks
+Search over all networks using keyword or spatial object
 }
 \examples{
 search_networks(query="insect\%")

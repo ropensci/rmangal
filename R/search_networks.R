@@ -1,4 +1,4 @@
-#' Search over all networks
+#' Search over all networks using keyword or spatial object
 #'
 #' @param query `character` keyword used to search (case sensitive) or a `sf` object used to search in a specific geographical area.
 #' @param verbose a `logical`. Should extra information be reported on progress?

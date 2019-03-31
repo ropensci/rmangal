@@ -2,7 +2,7 @@
 % Please edit documentation in R/search_interactions.R
 \name{search_interactions}
 \alias{search_interactions}
-\title{Search for specific interactions type}
+\title{Search for specific interactions type (e.g. mutualism)}
 \usage{
 search_interactions(query = NULL, ...)
 }
@@ -13,7 +13,7 @@ search_interactions(query = NULL, ...)
 object \code{data.frame}: Taxa information with all interactions in which the taxa occurs.
 }
 \description{
-Search for specific interactions type
+Search for specific interactions type (e.g. mutualism)
 }
 \details{
 A hardwork have been done to homogenized the taxonomy
