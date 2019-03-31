@@ -25,6 +25,6 @@ Search network by taxa using keyword, tsn, eol, bold or ncbi IDs.
 \details{
 By default, you are querying taxa based on a homogenized taxonomy (corrected names from
 TNRS -- http://tnrs.iplantcollaborative.org/ and/or GNR -- https://resolver.globalnames.org/).
-These taxa might not be the taxa from the original publication.
+These taxa might not be the taxa recorded within the original publication.
 To query original documented taxa, please set the argument \code{original} as TRUE.
 }
