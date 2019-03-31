@@ -243,5 +243,5 @@ mg_to_sf <- function(body) {
   # remove spatial columns
   geom_df <- body[which(!names(body) %in% sf_columns())]
   # bind spatial feature with attributes table
-  sf::st_sf(geom=sf::st_geometry(geom_s), geom_df)
+  sf::st_sf(geometry=sf::st_geometry(geom_s), geom_df)
 }
