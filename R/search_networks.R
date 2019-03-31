@@ -37,7 +37,7 @@ search_networks <- function(query = NULL, verbose = TRUE) {
       query <- list( q = query )
     }
     
-    networks <- as.data.frame(get_gen(endpoints()$network, query = query, ...))
+    networks <- as.data.frame(get_gen(endpoints()$network, query = query))
 
   }
 
