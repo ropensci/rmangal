@@ -2,7 +2,6 @@
 #'
 #' @param query `character` keyword used to search (case sensitive) or a `sf` object used to search in a specific geographical area.
 #' @param verbose a logical. Should extra information be reported on progress?
-#' @param ... arguments from [rmangal::get_gen()], ignored for spatial query.
 #' @return
 #' `data.frame` object with all networks informations
 #'  Class returned `mgSearchNetworks`
@@ -17,7 +16,7 @@
 #' }
 #' @export
 
-search_networks <- function(query = NULL, verbose = TRUE, ...) {
+search_networks <- function(query = NULL, verbose = TRUE) {
 
   if ("sf" %in% class(query)) {
 
