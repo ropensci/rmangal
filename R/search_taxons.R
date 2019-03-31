@@ -4,7 +4,6 @@
 #' @param ... arguments from [rmangal::get_gen()]
 #' @return
 #' object `data.frame`: Taxa information with all interactions in which the taxa occurs.
-#' @examples
 #' @export
 
 search_taxa <- function( query = NULL, ... ) {

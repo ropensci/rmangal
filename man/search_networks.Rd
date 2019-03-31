@@ -4,14 +4,14 @@
 \alias{search_networks}
 \title{Search mangal networks}
 \usage{
-search_networks(query = NULL, polygon = NULL, ...)
+search_networks(query = NULL, verbose = TRUE, ...)
 }
 \arguments{
-\item{query}{\code{character} keyword used to search (case sensitive).}
+\item{query}{\code{character} keyword used to search (case sensitive) or a \code{sf} object used to search in a specific geographical area.}
 
-\item{polygon}{\code{sf} object used to search in a specific geographical area.}
+\item{verbose}{a logical. Should extra information be reported on progress?}
 
-\item{...}{arguments from \code{\link[rmangal:get_gen]{rmangal::get_gen()}}, ignored for spatial query}
+\item{...}{arguments from \code{\link[rmangal:get_gen]{rmangal::get_gen()}}, ignored for spatial query.}
 }
 \value{
 \code{data.frame} object with all networks informations
@@ -26,7 +26,7 @@ search_networks(query="insect\%")
 # Spatial query
 library(USAboundaries)
 area <- us_states(state="california")
-networks_in_area <- search_networks(polygon=area)
+networks_in_area <- search_networks(area)
 plot(networks_in_area)
 }
 }
