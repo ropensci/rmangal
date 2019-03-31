@@ -8,7 +8,10 @@
 # rmangal
 
 A package to retrieve and explore data from the ecological interactions database MANGAL.
-See, http://poisotlab.biol.umontreal.ca/#/
+
+- The data explorer: http://poisotlab.biol.umontreal.ca/#/
+- Package documentation: https://mangal-wg.github.io/rmangal/
+
 
 ## Installation
 

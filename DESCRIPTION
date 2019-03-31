@@ -13,6 +13,8 @@ Authors@R: c(
       email = "Clement.Violet@etudiant.univ-brest.fr", role = c("aut","ctb")),
     person(given = "Kevin", family = "Cazelles", comment = c(ORCID = "0000-0001-6619-9874"),
       email = "kcazelle@uoguelph.ca", role = c("aut","ctb")),
+    person(given = "Dominique", family = "Gravel",
+      email = "dominique.gravel@usherbrooke.ca", role = c("aut")),
     person(given = "Timothée", family = "Poisot",
       email = "timothee.poisot@umontreal.ca", role = c("aut","ctb"))
       )
