@@ -30,11 +30,7 @@ search_datasets <- function(query = NULL, verbose = TRUE, ...) {
 
   datasets <- as.data.frame(get_gen(endpoints()$dataset, query = query, ...))
 
-<<<<<<< HEAD
-  message(sprintf("Found %s datasets", nrow(datasets)))
-=======
   if (verbose) message(sprintf("Found %s datasets", nrow(datasets)))
->>>>>>> origin/master
 
   # Attached reference and network
   networks <- list()

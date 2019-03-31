@@ -43,11 +43,7 @@ search_networks <- function(query = NULL, verbose = TRUE, ...) {
 
   }
 
-<<<<<<< HEAD
-  message(sprintf("Found %s networks", nrow(networks)))
-=======
   if (verbose) message(sprintf("Found %s networks", nrow(networks)))
->>>>>>> origin/master
 
   class(networks) <- append(class(networks), "mgSearchNetworks")
   networks

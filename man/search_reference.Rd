@@ -4,26 +4,16 @@
 \alias{search_reference}
 \title{Search for a specific data sset reference with DOI}
 \usage{
-<<<<<<< HEAD
-search_reference(doi = NULL)
-=======
 search_reference(doi = NULL, verbose = TRUE)
->>>>>>> origin/master
 }
 \arguments{
 \item{doi}{\code{character} a Digital Object Identifier of the article which the
 network is attached.}
-<<<<<<< HEAD
-}
-\value{
-An object of class mgSearchReference\code{, which is essentially a }data.frame\code{object with the reference corresponding to the query. Note that all datasets and networks related to the publication are also attached to the}data.frame`.
-=======
 
 \item{verbose}{a logical. Should extra information be reported on progress?}
 }
 \value{
 An object of class mgSearchReference\code{, which is essentially a}data.frame\code{object with the reference corresponding to the query. Note that all datasets and networks related to the publication are also attached to the}data.frame`.
->>>>>>> origin/master
 }
 \description{
 Search for a specific data sset reference with DOI
