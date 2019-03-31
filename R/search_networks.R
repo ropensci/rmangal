@@ -2,6 +2,7 @@
 #'
 #' @param query `character` keyword used to search (case sensitive) or a `sf` object used to search in a specific geographical area.
 #' @param verbose a `logical`. Should extra information be reported on progress?
+#' @param ... further arguments to be passed to [rmangal::get_gen()].
 #' @return
 #' An object of class `mgSearchNetworks`, which is a `data.frame` object with all networks informations
 #' @examples
@@ -15,7 +16,7 @@
 #' }
 #' @export
 
-search_networks <- function(query = NULL, verbose = TRUE) {
+search_networks <- function(query = NULL, verbose = TRUE, ...) {
 
   if ("sf" %in% class(query)) {
 
@@ -24,7 +25,7 @@ search_networks <- function(query = NULL, verbose = TRUE) {
     if (verbose) message("Spatial query mode")
     # API doesn't allow spatial search - patch with R
     sp_networks <- as.data.frame(get_gen(
-      endpoints()$network, output = "spatial"))
+      endpoints()$network, output = "spatial", ...))
 
     # Making sure projection are WGS84
     networks <- sp_networks[unlist(
@@ -37,7 +38,7 @@ search_networks <- function(query = NULL, verbose = TRUE) {
       query <- list( q = query )
     }
     
-    networks <- as.data.frame(get_gen(endpoints()$network, query = query))
+    networks <- as.data.frame(get_gen(endpoints()$network, query = query, ...))
 
   }
 

@@ -2,6 +2,7 @@
 #'
 #' @param doi `character` a Digital Object Identifier of the article 
 #' @param verbose a `logical`. Should extra information be reported on progress?
+#' @param ... further arguments to be passed to [rmangal::get_gen()].
 #' @return
 #' An object of class `mgSearchReference`, which is essentially a
 #' `data.frame` object with the reference of the article matching the query. Note that
@@ -11,12 +12,12 @@
 #' search_reference(doi = "10.2307/3225248")
 #' @export
 
-search_reference <- function(doi = NULL, verbose = TRUE) {
+search_reference <- function(doi = NULL, verbose = TRUE, ...) {
 
     stopifnot((is.character(doi) & length(doi) == 1) | (is.character(q) & length(q) == 1))
 
     ref <- as.data.frame(get_gen(endpoints()$reference,
-      query = list(doi = doi)))
+      query = list(doi = doi), ...))
 
     if (verbose) message(sprintf("Found dataset: \n %s", ref$bibtex))
 

@@ -4,13 +4,15 @@
 \alias{search_datasets}
 \title{Search over all datasets using keyword}
 \usage{
-search_datasets(query = NULL, verbose = TRUE)
+search_datasets(query = NULL, verbose = TRUE, ...)
 }
 \arguments{
 \item{query}{a \code{character} string containing a keyword used to search (case sensitive),
 or a \code{list} containiing a custom query  custom query (see examples).}
 
 \item{verbose}{a logical. Should extra information be reported on progress?}
+
+\item{...}{further arguments to be passed to \code{\link[rmangal:get_gen]{rmangal::get_gen()}}.}
 }
 \value{
 An object of class \code{mgSearchDatasets}, which is a \code{data.frame}  object with all datasets corresponding to the query.

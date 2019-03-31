@@ -120,7 +120,7 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>search_datasets</span>(<span class='kw'>query</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>search_datasets</span>(<span class='kw'>query</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -133,6 +133,10 @@ or a <code>list</code> containiing a custom query  custom query (see examples).<
     <tr>
       <th>verbose</th>
       <td><p>a logical. Should extra information be reported on progress?</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>further arguments to be passed to <code>rmangal::get_gen()</code>.</p></td>
     </tr>
     </table>
     

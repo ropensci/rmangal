@@ -4,12 +4,14 @@
 \alias{search_reference}
 \title{Search for a specific dataset reference with DOI}
 \usage{
-search_reference(doi = NULL, verbose = TRUE)
+search_reference(doi = NULL, verbose = TRUE, ...)
 }
 \arguments{
 \item{doi}{\code{character} a Digital Object Identifier of the article}
 
 \item{verbose}{a \code{logical}. Should extra information be reported on progress?}
+
+\item{...}{further arguments to be passed to \code{\link[rmangal:get_gen]{rmangal::get_gen()}}.}
 }
 \value{
 An object of class \code{mgSearchReference}, which is essentially a

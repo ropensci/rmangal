@@ -3,6 +3,7 @@
 #' @param query a `character` string containing a keyword used to search (case sensitive),
 #' or a `list` containiing a custom query  custom query (see examples).
 #' @param verbose a logical. Should extra information be reported on progress?
+#' @param ... further arguments to be passed to [rmangal::get_gen()].
 #' @return
 #' An object of class `mgSearchDatasets`, which is a `data.frame`  object with all datasets corresponding to the query. 
 #' For each dataset entry, the networks and the original reference are attached.
@@ -20,14 +21,14 @@
 #' search_datasets(query = list(name = 'kemp_1977'))
 #' @export
 
-search_datasets <- function(query = NULL, verbose = TRUE) {
+search_datasets <- function(query = NULL, verbose = TRUE, ...) {
 
   # Full search
   if (is.character(query)) {
     query <- list(q = query)
   }
 
-  datasets <- as.data.frame(get_gen(endpoints()$dataset, query = query))
+  datasets <- as.data.frame(get_gen(endpoints()$dataset, query = query, ... ))
 
   if (verbose) message(sprintf("Found %s datasets", nrow(datasets)))
 

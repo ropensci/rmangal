@@ -4,7 +4,7 @@
 \alias{search_taxa}
 \title{Search network by taxa using keyword, tsn, eol, bold or ncbi IDs.}
 \usage{
-search_taxa(query = NULL, original = FALSE, verbose = TRUE)
+search_taxa(query = NULL, original = FALSE, verbose = TRUE, ...)
 }
 \arguments{
 \item{query}{\code{character} specific taxon / keyword / or tsn, eol, bold & ncbi IDs.}
@@ -12,6 +12,8 @@ search_taxa(query = NULL, original = FALSE, verbose = TRUE)
 \item{original}{a \code{logical}. Should query taxa from the original publication? (see details section, default: FALSE)}
 
 \item{verbose}{a \code{logical}. Should extra information be reported on progress?}
+
+\item{...}{further arguments to be passed to \code{\link[rmangal:get_gen]{rmangal::get_gen()}}.}
 }
 \value{
 An object of class \code{mgSearchTaxonomy}, which is a \code{data.frame} object with all taxa matching the query.
