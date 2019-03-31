@@ -37,10 +37,10 @@ search_datasets <- function(query = NULL, verbose = TRUE, ...) {
   references <- list()
 
   for (i in seq_len(nrow(datasets))) {
-    networks[[i]] <- purrr::map(get_from_fkey(endpoints()$network,
-      dataset_id = datasets[i, "id"]), "body")
-    references[[i]] <- purrr::map(get_singletons(endpoints()$reference,
-      ids = datasets[i, "ref_id"]), "body")
+    networks[[i]] <- as.data.frame(get_from_fkey(endpoints()$network,
+      dataset_id = datasets[i, "id"]))
+    references[[i]] <- as.data.frame(get_singletons(endpoints()$reference,
+      ids = datasets[i, "ref_id"]))
   }
 
   if (nrow(datasets) > 0) {
