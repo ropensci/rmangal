@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Search mangal datasets — search_datasets • rmangal</title>
+<title>Search over all datasets — search_datasets • rmangal</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Search mangal datasets — search_datasets" />
+<meta property="og:title" content="Search over all datasets — search_datasets" />
 
-<meta property="og:description" content="Search mangal datasets" />
+<meta property="og:description" content="Search over all datasets" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -109,18 +109,18 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Search mangal datasets</h1>
+    <h1>Search over all datasets</h1>
     <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/search_datasets.R'><code>R/search_datasets.R</code></a></small>
     <div class="hidden name"><code>search_datasets.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Search mangal datasets</p>
+    <p>Search over all datasets</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>search_datasets</span>(<span class='kw'>query</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>search_datasets</span>(<span class='kw'>query</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -134,16 +134,12 @@ or a <code>list</code> containiing a custom query  custom query (see examples).<
       <th>verbose</th>
       <td><p>a logical. Should extra information be reported on progress?</p></td>
     </tr>
-    <tr>
-      <th>...</th>
-      <td><p>further arguments to be passed to <code>rmangal::get_gen()</code>.</p></td>
-    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><code>data.frame</code> object with all datasets corresponding to the query. For each entries in the data.frame, the networks and the original reference are attached - class <code>mgSearchNetworks</code>
-Class returned <code>mgSearchDatasets</code></p>
+    <p>An object of class <code>mgSearchDatasets</code>, which is a <code>data.frame</code>  object with all datasets corresponding to the query.
+For each dataset entry, the networks and the original reference are attached.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>

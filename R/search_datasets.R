@@ -1,4 +1,4 @@
-#' Search mangal datasets
+#' Search over all datasets
 #'
 #' @param query a `character` string containing a keyword used to search (case sensitive),
 #' or a `list` containiing a custom query  custom query (see examples).

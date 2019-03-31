@@ -2,7 +2,7 @@
 % Please edit documentation in R/search_datasets.R
 \name{search_datasets}
 \alias{search_datasets}
-\title{Search mangal datasets}
+\title{Search over all datasets}
 \usage{
 search_datasets(query = NULL, verbose = TRUE)
 }
@@ -17,7 +17,7 @@ An object of class \code{mgSearchDatasets}, which is a \code{data.frame}  object
 For each dataset entry, the networks and the original reference are attached.
 }
 \description{
-Search mangal datasets
+Search over all datasets
 }
 \examples{
 \dontrun{
