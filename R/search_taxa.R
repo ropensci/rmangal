@@ -5,9 +5,9 @@
 #' @param verbose a `logical`. Should extra information be reported on progress?
 #' @param ... further arguments to be passed to [rmangal::get_gen()].
 #' @details
-#' By default, you are querying taxa based on a homogenized taxonomy across all datasets using
-#' TNRS (http://tnrs.iplantcollaborative.org/) and/or GNR (https://resolver.globalnames.org/). 
-#' Be aware that these taxa might not be the taxa from the original publication. 
+#' By default, you are querying taxa based on a homogenized taxonomy (corrected names from
+#' TNRS -- http://tnrs.iplantcollaborative.org/ and/or GNR -- https://resolver.globalnames.org/). 
+#' These taxa might not be the taxa from the original publication. 
 #' To query original documented taxa, please set the argument `original` as TRUE.
 #' @return
 #' An object of class `mgSearchTaxonomy`, which is a `data.frame` object with all taxa matching the query. 
