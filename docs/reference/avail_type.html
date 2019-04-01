@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get a collection of networks — get_collection • rmangal</title>
+<title>List interactions type contains in mangal-db — avail_type • rmangal</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Get a collection of networks — get_collection" />
+<meta property="og:title" content="List interactions type contains in mangal-db — avail_type" />
 
-<meta property="og:description" content="Get a collection of networks" />
+<meta property="og:description" content="List interactions type contains in mangal-db" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -109,87 +109,25 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get a collection of networks</h1>
-    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/get_collection.R'><code>R/get_collection.R</code></a></small>
-    <div class="hidden name"><code>get_collection.Rd</code></div>
+    <h1>List interactions type contains in mangal-db</h1>
+    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/search_interactions.R'><code>R/search_interactions.R</code></a></small>
+    <div class="hidden name"><code>avail_type.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Get a collection of networks</p>
+    <p>List interactions type contains in mangal-db</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>get_collection</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'>avail_type</span>()</pre>
+        
 
-<span class='co'># S3 method for default</span>
-<span class='fu'>get_collection</span>(<span class='no'>x</span>, <span class='no'>...</span>)
-
-<span class='co'># S3 method for mgSearchDatasets</span>
-<span class='fu'>get_collection</span>(<span class='no'>x</span>, <span class='no'>...</span>)
-
-<span class='co'># S3 method for mgSearchNetworks</span>
-<span class='fu'>get_collection</span>(<span class='no'>x</span>, <span class='no'>...</span>)
-
-<span class='co'># S3 method for mgSearchReference</span>
-<span class='fu'>get_collection</span>(<span class='no'>x</span>, <span class='no'>...</span>)
-
-<span class='co'># S3 method for mgSearchTaxa</span>
-<span class='fu'>get_collection</span>(<span class='no'>x</span>, <span class='no'>...</span>)
-
-<span class='co'># S3 method for mgSearchInteractions</span>
-<span class='fu'>get_collection</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>x</th>
-      <td><p><code>numeric</code> vector of mangal network IDs or object return by functions <code>search_*</code>.</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>arguments to be passed on to <code>rmangal::get_network_by_id()</code>.</p></td>
-    </tr>
-    </table>
-    
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>object <code>mgNetworksCollection</code>:</p><ul>
-<li><p>collection of networks: <code>list</code> of object <code>mgNetwork</code> (see <code>rmangal::get_network_by_id()</code>)</p></li>
-</ul>
-
-    
-    <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
-
-    <ul>
-<li><p><code>default</code>: Get a collection of networks (default).</p></li>
-<li><p><code>mgSearchDatasets</code>: Get a collection of networks from a <code>mgSearchDatasets</code> object.</p></li>
-<li><p><code>mgSearchNetworks</code>: Get a collection of networks from a <code>mgSearchNetworks</code> object.</p></li>
-<li><p><code>mgSearchReference</code>: Get a collection of networks from a <code>mgSearchReference</code> object.</p></li>
-<li><p><code>mgSearchTaxa</code>: Get a collection of networks from a <code>mgSearchTaxa</code> object.</p></li>
-<li><p><code>mgSearchInteractions</code>: Get a collection of networks from a <code>mgSearchTaxa</code> object.</p></li>
-</ul>
-    
-
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='fu'>get_collection</span>(<span class='fu'>c</span>(<span class='fl'>1035</span>:<span class='fl'>1036</span>))
-<span class='fu'>get_collection</span>(<span class='fu'>search_networks</span>(<span class='kw'>query</span><span class='kw'>=</span><span class='st'>'insect%'</span>))
-<span class='fu'>get_collection</span>(<span class='fu'>search_datasets</span>(<span class='kw'>query</span><span class='kw'>=</span><span class='st'>'lagoon%'</span>))
-<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#methods-by-class-">Methods (by class)</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+                </ul>
 
   </div>
 </div>

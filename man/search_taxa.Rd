@@ -16,7 +16,7 @@ search_taxa(query = NULL, original = FALSE, verbose = TRUE, ...)
 \item{...}{further arguments to be passed to \code{\link[rmangal:get_gen]{rmangal::get_gen()}}.}
 }
 \value{
-An object of class \code{mgSearchTaxonomy}, which is a \code{data.frame} object with all taxa matching the query.
+An object of class \code{mgSearchTaxa}, which is a \code{data.frame} object with all taxa matching the query.
 All networks in which taxa are involved are also attached to the \code{data.frame}.
 }
 \description{

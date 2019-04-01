@@ -4,14 +4,26 @@
 \alias{search_interactions}
 \title{Search for specific interactions type (e.g. mutualism)}
 \usage{
-search_interactions(type = NULL)
+search_interactions(type = avail_type(), expand_node = FALSE,
+  verbose = FALSE)
 }
 \arguments{
-\item{type}{\code{character} one of the interactions type documented in the API}
+\item{type}{a \code{character} one of the interactions type available in the function \code{avail_type()}}
+
+\item{expand_node}{a \code{logical}. Should the function returned more information on nodes
+involved in the interaction? (default: FALSE, which means that only the mangal ID of nodes are returned)}
+
+\item{verbose}{a \code{logical}. Should extra information be reported on progress?}
 }
 \value{
-object \code{data.frame}: Taxa information with all interactions in which the taxa occurs.
+An object of class \code{mgSearchInteractions}, which is a \code{data.frame} object with all interaction matching the interaction type provided.
+All networks in which interactions are involved are also attached to the \code{data.frame}.
 }
 \description{
 Search for specific interactions type (e.g. mutualism)
+}
+\examples{
+search_interactions("competition")
+# Get all networks containing competition
+competition_networks <- get_collection(search_interactions("competition"))
 }

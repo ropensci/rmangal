@@ -145,7 +145,7 @@
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>An object of class <code>mgSearchTaxonomy</code>, which is a <code>data.frame</code> object with all taxa matching the query.
+    <p>An object of class <code>mgSearchTaxa</code>, which is a <code>data.frame</code> object with all taxa matching the query.
 All networks in which taxa are involved are also attached to the <code>data.frame</code>.</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
@@ -168,7 +168,63 @@ To query original documented taxa, please set the argument <code>original</code>
 #&gt; # … with 13 more variables: original_name &lt;chr&gt;, networks$id &lt;int&gt;,
 #&gt; #   $name &lt;chr&gt;, $date &lt;chr&gt;, $geom.type &lt;chr&gt;, $geom.coordinates &lt;dbl&gt;,
 #&gt; #   $description &lt;chr&gt;, $public &lt;lgl&gt;, $all_interactions &lt;lgl&gt;,
-#&gt; #   $created_at &lt;chr&gt;, $updated_at &lt;chr&gt;, $dataset_id &lt;int&gt;, $user_id &lt;int&gt;</div></pre>
+#&gt; #   $created_at &lt;chr&gt;, $updated_at &lt;chr&gt;, $dataset_id &lt;int&gt;, $user_id &lt;int&gt;</div><div class='input'><span class='co'># Retrieve higher classification</span>
+<span class='no'>tsn_acer</span> <span class='kw'>&lt;-</span> <span class='fu'>search_taxa</span>(<span class='st'>"Acer"</span>)$<span class='no'>tsn</span></div><div class='output co'>#&gt; <span class='message'>Found 5 taxa</span></div><div class='input'><span class='kw pkg'>taxize</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/taxize/topics/classification'>classification</a></span>(<span class='no'>tsn_acer</span>, <span class='kw'>db</span> <span class='kw'>=</span> <span class='st'>"itis"</span>)</div><div class='output co'>#&gt; $`182132`
+#&gt;                           name          rank     id
+#&gt; 1                      Plantae       kingdom 202422
+#&gt; 2                Viridiplantae    subkingdom 954898
+#&gt; 3                 Streptophyta  infrakingdom 846494
+#&gt; 4                  Embryophyta superdivision 954900
+#&gt; 5                 Tracheophyta      division 846496
+#&gt; 6              Spermatophytina   subdivision 846504
+#&gt; 7                Magnoliopsida         class  18063
+#&gt; 8                      Rosanae    superorder 846548
+#&gt; 9                   Sapindales         order  28643
+#&gt; 10                 Sapindaceae        family  28657
+#&gt; 11                        Acer         genus  28727
+#&gt; 12                Acer negundo       species  28749
+#&gt; 13 Acer negundo var. violaceum       variety 182132
+#&gt; 
+#&gt; $`28757`
+#&gt;                name          rank     id
+#&gt; 1           Plantae       kingdom 202422
+#&gt; 2     Viridiplantae    subkingdom 954898
+#&gt; 3      Streptophyta  infrakingdom 846494
+#&gt; 4       Embryophyta superdivision 954900
+#&gt; 5      Tracheophyta      division 846496
+#&gt; 6   Spermatophytina   subdivision 846504
+#&gt; 7     Magnoliopsida         class  18063
+#&gt; 8           Rosanae    superorder 846548
+#&gt; 9        Sapindales         order  28643
+#&gt; 10      Sapindaceae        family  28657
+#&gt; 11             Acer         genus  28727
+#&gt; 12 Acer saccharinum       species  28757
+#&gt; 
+#&gt; $&lt;NA&gt;
+#&gt; [1] NA
+#&gt; 
+#&gt; $&lt;NA&gt;
+#&gt; [1] NA
+#&gt; 
+#&gt; $`837855`
+#&gt;               name          rank     id
+#&gt; 1          Plantae       kingdom 202422
+#&gt; 2    Viridiplantae    subkingdom 954898
+#&gt; 3     Streptophyta  infrakingdom 846494
+#&gt; 4      Embryophyta superdivision 954900
+#&gt; 5     Tracheophyta      division 846496
+#&gt; 6  Spermatophytina   subdivision 846504
+#&gt; 7    Magnoliopsida         class  18063
+#&gt; 8          Rosanae    superorder 846548
+#&gt; 9       Sapindales         order  28643
+#&gt; 10     Sapindaceae        family  28657
+#&gt; 11            Acer         genus  28727
+#&gt; 12  Acer japonicum       species 837855
+#&gt; 
+#&gt; attr(,"class")
+#&gt; [1] "classification"
+#&gt; attr(,"db")
+#&gt; [1] "itis"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
