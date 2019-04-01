@@ -156,6 +156,19 @@ These taxa might not be the taxa recorded within the original publication.
 To query original documented taxa, please set the argument <code>original</code> as TRUE.</p>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>search_taxa</span>(<span class='st'>"Acer"</span>)</div><div class='output co'>#&gt; <span class='message'>Found 5 taxa</span></div><div class='output co'>#&gt; # A tibble: 5 x 11
+#&gt;      id name    ncbi    tsn    eol   bold status created_at updated_at
+#&gt;   &lt;int&gt; &lt;chr&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;     
+#&gt; 1     2 Acer…   4023 182132 5.09e7 100987 confi… 2019-02-2… 2019-02-2…
+#&gt; 2     3 Acer…  75745  28757 5.73e7 101028 confi… 2019-02-2… 2019-02-2…
+#&gt; 3  3117 Acer…  66216     NA 5.73e7 485602 confi… 2019-02-2… 2019-02-2…
+#&gt; 4  3144 Acer… 171221     NA 5.73e7 102197 confi… 2019-02-2… 2019-02-2…
+#&gt; 5  3151 Acer…  47966 837855 5.73e7 448667 confi… 2019-02-2… 2019-02-2…
+#&gt; # … with 13 more variables: original_name &lt;chr&gt;, networks$id &lt;int&gt;,
+#&gt; #   $name &lt;chr&gt;, $date &lt;chr&gt;, $geom.type &lt;chr&gt;, $geom.coordinates &lt;dbl&gt;,
+#&gt; #   $description &lt;chr&gt;, $public &lt;lgl&gt;, $all_interactions &lt;lgl&gt;,
+#&gt; #   $created_at &lt;chr&gt;, $updated_at &lt;chr&gt;, $dataset_id &lt;int&gt;, $user_id &lt;int&gt;</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -165,7 +178,9 @@ To query original documented taxa, please set the argument <code>original</code>
       <li><a href="#value">Value</a></li>
 
       <li><a href="#details">Details</a></li>
-          </ul>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

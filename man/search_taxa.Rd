@@ -28,3 +28,6 @@ By default, you are querying taxa based on a homogenized taxonomy (corrected nam
 These taxa might not be the taxa recorded within the original publication.
 To query original documented taxa, please set the argument \code{original} as TRUE.
 }
+\examples{
+search_taxa("Acer")
+}
