@@ -10,7 +10,7 @@
 #' These taxa might not be the taxa recorded within the original publication. 
 #' To query original documented taxa, please set the argument `original` as TRUE.
 #' @return
-#' An object of class `mgSearchTaxonomy`, which is a `data.frame` object with all taxa matching the query. 
+#' An object of class `mgSearchTaxa`, which is a `data.frame` object with all taxa matching the query. 
 #' All networks in which taxa are involved are also attached to the `data.frame`.
 #' @examples
 #' search_taxa("Acer")
