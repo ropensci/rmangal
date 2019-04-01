@@ -21,25 +21,8 @@ endpoints <- function() {
   )
 }
 
-# Spatial columns of mangal DB
+# Common spatial columns in mangal-db
 sf_columns <- function(x) c("geom.type","geom.coordinates")
-
-# List of interaction types contains in mangal-db 
-interaction_type <- function() c(
-  "competition",
-  "amensalism",
-  "neutralism",
-  "commensalism",
-  "mutualism",
-  "parasitism",
-  "predation",
-  "herbivory",
-  "symbiosis",
-  "scavenger",
-  "detritivore",
-  "unspecified"
-)
-
 
 # NULL to NA
 null_to_na <- function(x) {
