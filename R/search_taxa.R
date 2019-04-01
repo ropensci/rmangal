@@ -14,6 +14,9 @@
 #' All networks in which taxa are involved are also attached to the `data.frame`.
 #' @examples
 #' search_taxa("Acer")
+#' # Retrieve higher classification
+#' tsn_acer <- search_taxa("Acer")$tsn
+#' taxize::classification(tsn_acer, db = "itis")
 #' @export
 
 search_taxa <- function( query = NULL, original = FALSE, verbose = TRUE, ... ) {

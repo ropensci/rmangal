@@ -30,4 +30,7 @@ To query original documented taxa, please set the argument \code{original} as TR
 }
 \examples{
 search_taxa("Acer")
+# Retrieve higher classification
+tsn_acer <- search_taxa("Acer")$tsn
+taxize::classification(tsn_acer, db = "itis")
 }
