@@ -97,3 +97,21 @@ get_collection.mgSearchTaxa <- function(x, ...) {
   mg_net_collection
 
 }
+
+
+#' @describeIn get_collection Get a collection of networks from a `mgSearchTaxa` object. 
+#' @export
+get_collection.mgSearchInteractions <- function(x, ...) {
+
+  uq_ids <- unique(x$networks$id)
+
+  # Object S3 declaration
+  mg_net_collection <- structure(list(), class= "mgNetworksCollection")
+
+  for (i in seq_len(length(uq_ids))) {
+    mg_net_collection[[i]] <- get_network_by_id(uq_ids[i])
+  }
+
+  mg_net_collection
+
+}
