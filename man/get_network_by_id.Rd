@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_network_by_id.R
 \name{get_network_by_id}
 \alias{get_network_by_id}
-\title{Retrieve mangal network including the nodes and the edges}
+\title{Retrieve mangal network by id}
 \usage{
 get_network_by_id(id, ...)
 }
@@ -12,7 +12,7 @@ get_network_by_id(id, ...)
 \item{...}{arguments from \code{\link[rmangal:get_singletons]{rmangal::get_singletons()}}}
 }
 \value{
-object \code{mgNetwork}:
+a \code{mgNetwork} object which include:
 \itemize{
 \item network: \code{list} of all generic informations on the network
 \item nodes: \code{data.frame} of all nodes with taxonomic informations
@@ -22,7 +22,7 @@ object \code{mgNetwork}:
 }
 }
 \description{
-Retrieve mangal network including the nodes and the edges
+Retrieve mangal network by id
 }
 \examples{
 get_network_by_id(id = 18)

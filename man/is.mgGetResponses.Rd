@@ -2,7 +2,7 @@
 % Please edit documentation in R/mgGetResponses.R
 \name{is.mgGetResponses}
 \alias{is.mgGetResponses}
-\title{Test class \code{coleoGetResponses}}
+\title{Test class \code{mgGetResponses}}
 \usage{
 is.mgGetResponses(x)
 }
@@ -10,5 +10,5 @@ is.mgGetResponses(x)
 \item{x}{R x to test}
 }
 \description{
-Test class \code{coleoGetResponses}
+Test class \code{mgGetResponses}
 }
