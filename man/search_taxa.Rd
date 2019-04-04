@@ -7,7 +7,7 @@
 search_taxa(query = NULL, original = FALSE, verbose = TRUE, ...)
 }
 \arguments{
-\item{query}{\code{character} specific taxon / keyword / or tsn, eol, bold & ncbi IDs.}
+\item{query}{\code{character} specific taxon / keyword / or tsn, eol, bold & ncbi IDs (mandatory arg).}
 
 \item{original}{a \code{logical}. Should query taxa names from the original publication? (see details section, default is set to \code{FALSE})}
 

@@ -23,8 +23,8 @@ search_interactions <- function( type = avail_type(), expand_node = FALSE, verbo
     
     # Expand content on node
     if ( expand_node ){
-        interactions$node_from <- as.data.frame(get_singletons(endpoints()$node, interactions$node_from))
-        interactions$node_to <- as.data.frame(get_singletons(endpoints()$node, interactions$node_to))
+      interactions$node_from <- as.data.frame(get_singletons(endpoints()$node, interactions$node_from))
+      interactions$node_to <- as.data.frame(get_singletons(endpoints()$node, interactions$node_to))
     }
 
     # Get networks

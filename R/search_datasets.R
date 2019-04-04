@@ -1,7 +1,8 @@
 #' Search over all datasets using keyword
 #'
 #' @param query a `character` string containing a keyword used to search (case sensitive),
-#' or a `list` containiing a custom query  custom query (see examples).
+#' or a `list` containing a custom query (see examples). 
+#' If keyword is unspecified (query = NULL), all datasets will be returned.
 #' @param verbose a logical. Should extra information be reported on progress?
 #' @param ... further arguments to be passed to [rmangal::get_gen()].
 #' @return

@@ -1,6 +1,7 @@
 #' Search over all networks using keyword or spatial object
 #'
-#' @param query `character` keyword used to search (case sensitive) or a `sf` object used to search in a specific geographical area.
+#' @param query `character` keyword used to search over all networks (case sensitive) or a `sf` object 
+#' used to search in a specific geographical area. If keyword is unspecified (query = NULL), all networks will be returned.
 #' @param verbose a `logical`. Should extra information be reported on progress?
 #' @param ... further arguments to be passed to [rmangal::get_gen()].
 #' @return
