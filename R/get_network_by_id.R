@@ -1,9 +1,9 @@
-#' Retrieve mangal network including the nodes and the edges
+#' Retrieve mangal network by id 
 #'
 #' @param id `numeric` mangal ID network
 #' @param ... arguments from [rmangal::get_singletons()]
 #' @return
-#' object `mgNetwork`: 
+#' a `mgNetwork` object which include:
 #' - network: `list` of all generic informations on the network
 #' - nodes: `data.frame` of all nodes with taxonomic informations
 #' - edges: `data.frame` of all edges (ecological interactions), with the attribute used to describe the interaction
