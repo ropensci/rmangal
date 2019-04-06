@@ -4,10 +4,7 @@
 #' @param verbose a `logical`. Should extra information be reported on progress?
 #' @param ... further arguments to be passed to [rmangal::get_gen()].
 #' @return
-#' An object of class `mgSearchReference`, which is essentially a
-#' `data.frame` object with the reference of the article matching the query. Note that
-#' all datasets and networks related to the publication are also attached to the
-#' `data.frame`.
+#' An object of class `mgSearchReference`, which is essentially a list that include a wide range of details associated to the reference, including all datasets and networks related to the publication that are included in mangal data base. 
 #' @examples
 #' search_reference(doi = "10.2307/3225248")
 #' @export
@@ -28,7 +25,7 @@ search_reference <- function(doi = NULL, verbose = TRUE, ...) {
 
     # Attach dataset
     networks <- purrr::map(get_from_fkey(endpoints()$network,
-      dataset_id = ref$datasets$id),"body")
+      dataset_id = ref$datasets$id), "body")
     ref$networks <- do.call(rbind, networks)
 
     class(ref) <- "mgSearchReference"

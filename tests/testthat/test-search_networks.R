@@ -23,3 +23,12 @@ test_that("output format", {
   expect_equal(class(res2), c("sf", "data.frame", "mgSearchNetworks"))
   expect_equal(class(ress), c("sf", "data.frame", "mgSearchNetworks"))
 })
+
+resc <- get_collection(res1)
+test_that("get_collection", {
+  expect_equal(class(resc), "mgNetworksCollection")
+  expect_equal(class(resc[[1L]]), "mgNetwork")
+  # at least one network per dataset
+  expect_true(length(resc) == nrow(res1))
+  expect_equal(names(resc[[1L]]), nm_co)
+})
