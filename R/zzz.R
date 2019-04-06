@@ -74,7 +74,9 @@ get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE,
   output = 'data.frame', ...) {
 
   url <- httr::modify_url(server(), path = paste0(base(), endpoint))
-  
+
+  query <- as.list(query)
+
   # Add number of entries to the param
   query$count <- limit
 
