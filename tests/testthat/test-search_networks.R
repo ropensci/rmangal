@@ -19,7 +19,7 @@ test_that("expected behavior", {
 })
 
 test_that("output format", {
-  expect_equal(class(res1), c("tbl_df", "tbl", "data.frame", "mgSearchNetworks"))
+  expect_equal(class(res1), c(cl_df, "mgSearchNetworks"))
   expect_equal(class(res2), c("sf", "data.frame", "mgSearchNetworks"))
   expect_equal(class(ress), c("sf", "data.frame", "mgSearchNetworks"))
 })
