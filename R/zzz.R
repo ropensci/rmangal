@@ -21,25 +21,8 @@ endpoints <- function() {
   )
 }
 
-# Spatial columns of mangal DB
+# Common spatial columns in mangal-db
 sf_columns <- function(x) c("geom.type","geom.coordinates")
-
-# List of interaction types contains in mangal-db 
-interaction_type <- function() c(
-  "competition",
-  "amensalism",
-  "neutralism",
-  "commensalism",
-  "mutualism",
-  "parasitism",
-  "predation",
-  "herbivory",
-  "symbiosis",
-  "scavenger",
-  "detritivore",
-  "unspecified"
-)
-
 
 # NULL to NA
 null_to_na <- function(x) {
@@ -56,7 +39,7 @@ json_to_df <- function(resp, flatten, null_to_na) {
       httr::content(resp, type = "text", encoding = "UTF-8"), flatten = flatten
     )
   if (null_to_na) out <- null_to_na(out)
-  out <- as.data.frame(out)
+  out <- as.data.frame(out, stringsAsFactors = FALSE)
   class(out) <- c("tbl_df", "tbl", "data.frame")
   out
 }
@@ -91,6 +74,11 @@ get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE,
   output = 'data.frame', ...) {
 
   url <- httr::modify_url(server(), path = paste0(base(), endpoint))
+
+  query <- as.list(query)
+
+  # Add number of entries to the param
+  query$count <- limit
 
   # First call used to set pages
   resp <- httr::GET(url,

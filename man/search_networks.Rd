@@ -7,7 +7,8 @@
 search_networks(query = NULL, verbose = TRUE, ...)
 }
 \arguments{
-\item{query}{\code{character} keyword used to search (case sensitive) or a \code{sf} object used to search in a specific geographical area.}
+\item{query}{\code{character} keyword used to search over all networks (case sensitive) or a \code{sf} object
+used to search in a specific geographical area. If keyword is unspecified (query = NULL), all networks will be returned.}
 
 \item{verbose}{a \code{logical}. Should extra information be reported on progress?}
 

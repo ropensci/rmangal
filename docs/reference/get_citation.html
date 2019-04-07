@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Test class <code>mgGetResponses</code> — is.mgGetResponses • rmangal</title>
+<title>Display BibTeX for all publications involved in the networks collection — get_citation • rmangal</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Test class <code>mgGetResponses</code> — is.mgGetResponses" />
+<meta property="og:title" content="Display BibTeX for all publications involved in the networks collection — get_citation" />
 
-<meta property="og:description" content="Test class mgGetResponses" />
+<meta property="og:description" content="Display BibTeX for all publications involved in the networks collection" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -109,35 +109,64 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Test class <code>mgGetResponses</code></h1>
-    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/mgGetResponses.R'><code>R/mgGetResponses.R</code></a></small>
-    <div class="hidden name"><code>is.mgGetResponses.Rd</code></div>
+    <h1>Display BibTeX for all publications involved in the networks collection</h1>
+    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/get_citations.R'><code>R/get_citations.R</code></a></small>
+    <div class="hidden name"><code>get_citation.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Test class <code>mgGetResponses</code></p>
+    <p>Display BibTeX for all publications involved in the networks collection</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>is.mgGetResponses</span>(<span class='no'>x</span>)</pre>
+    <pre class="usage"><span class='fu'>get_citation</span>(<span class='no'>x</span>)
+
+<span class='co'># S3 method for mgNetwork</span>
+<span class='fu'>get_citation</span>(<span class='no'>x</span>)
+
+<span class='co'># S3 method for mgNetworksCollection</span>
+<span class='fu'>get_citation</span>(<span class='no'>x</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>R x to test</p></td>
+      <td><p><code>mgNetworksCollection</code> or <code>mgNetworks</code> object class.</p></td>
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p><code>list</code> of bibtex reference part of the network collection</p>
+    
+    <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
+
+    <ul>
+<li><p><code>mgNetwork</code>: Display the BibTeX of the network's publication</p></li>
+<li><p><code>mgNetworksCollection</code>: Display the BibTeX of all publications part of the networks collection</p></li>
+</ul>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># On network collection</span>
+<span class='no'>lagoon_net_collection</span> <span class='kw'>&lt;-</span> <span class='fu'>get_collection</span>(<span class='fu'>search_datasets</span>(<span class='st'>"lagoon"</span>))</div><div class='output co'>#&gt; <span class='message'>Found 2 datasets</span></div><div class='input'><span class='fu'>get_citation</span>(<span class='no'>lagoon_net_collection</span>)</div><div class='output co'>#&gt; [1] "@article{Zetina_Rej_n_2003, doi = {10.1016/s0272-7714(02)00410-9}, url = {https://doi.org/10.1016%2Fs0272-7714%2802%2900410-9}, year = 2003, month = {aug}, publisher = {Elsevier {BV}}, volume = {57}, number = {5-6}, pages = {803--815}, author = {Manuel J. Zetina-Rejón and Francisco Arreguí-Sánchez and Ernesto A. Chávez}, title = {Trophic structure and flows of energy in the Huizache{\textendash}Caimanero lagoon complex on the Pacific coast of Mexico},journal = {Estuarine, Coastal and Shelf Science}}"
+#&gt; [2] "@book{yanez_1978, Author = {Yáñez-Arancibia, Alejandro}, Editor = {Universidad Nacional Autónoma de México, Centro de Ciencias del Mar y Limnología. Ciudad Universitaria, México, D.F. -- 1a ed.},Title = {Taxonomía, ecología y estructura de las comunidades de peces en lagunas costeras con bocas efímeras del Pacífico de México}, Year = {1978}}"                                                                                                                                                                 </div><div class='input'><span class='co'># On individual network</span>
+<span class='no'>network</span> <span class='kw'>&lt;-</span> <span class='fu'>get_network_by_id</span>(<span class='fl'>18</span>)
+<span class='fu'>get_citation</span>(<span class='no'>network</span>)</div><div class='output co'>#&gt; [1] "@article{article, author = {Mosquin, Theodore and Martin, J. E. H.}, year = {1967}, pages = {201-205}, title = {Observations on the pollination biology of plants on Melville Island, N.W.T., Canada}, journal = {Canadian Field Naturalist}, volume = {81}}"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#methods-by-class-">Methods (by class)</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

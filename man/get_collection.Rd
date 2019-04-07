@@ -6,6 +6,8 @@
 \alias{get_collection.mgSearchDatasets}
 \alias{get_collection.mgSearchNetworks}
 \alias{get_collection.mgSearchReference}
+\alias{get_collection.mgSearchTaxa}
+\alias{get_collection.mgSearchInteractions}
 \title{Get a collection of networks}
 \usage{
 get_collection(x, ...)
@@ -17,6 +19,10 @@ get_collection(x, ...)
 \method{get_collection}{mgSearchNetworks}(x, ...)
 
 \method{get_collection}{mgSearchReference}(x, ...)
+
+\method{get_collection}{mgSearchTaxa}(x, ...)
+
+\method{get_collection}{mgSearchInteractions}(x, ...)
 }
 \arguments{
 \item{x}{\code{numeric} vector of mangal network IDs or object return by functions \code{search_*}.}
@@ -41,6 +47,10 @@ Get a collection of networks
 \item \code{mgSearchNetworks}: Get a collection of networks from a \code{mgSearchNetworks} object.
 
 \item \code{mgSearchReference}: Get a collection of networks from a \code{mgSearchReference} object.
+
+\item \code{mgSearchTaxa}: Get a collection of networks from a \code{mgSearchTaxa} object.
+
+\item \code{mgSearchInteractions}: Get a collection of networks from a \code{mgSearchTaxa} object.
 }}
 
 \examples{

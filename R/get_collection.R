@@ -39,7 +39,7 @@ get_collection.mgSearchDatasets <- function(x, ...) {
   mg_net_collection <- structure(list(), class= "mgNetworksCollection")
 
   # Get networks ids
-  net_ids <- unlist(purrr::map(x$networks,"id"))
+  net_ids <- unique(unlist(purrr::map(x$networks,"id")))
 
   for (i in seq_len(length(net_ids))) {
     mg_net_collection[[i]] <- get_network_by_id(net_ids[i], ...)
@@ -74,6 +74,42 @@ get_collection.mgSearchReference <- function(x, ...) {
 
   for (i in seq_len(length(x$networks$id))) {
     mg_net_collection[[i]] <- get_network_by_id(x$networks$id[i])
+  }
+
+  mg_net_collection
+
+}
+
+
+#' @describeIn get_collection Get a collection of networks from a `mgSearchTaxa` object. 
+#' @export
+get_collection.mgSearchTaxa <- function(x, ...) {
+
+  uq_ids <- unique(x$networks$id)
+
+  # Object S3 declaration
+  mg_net_collection <- structure(list(), class= "mgNetworksCollection")
+
+  for (i in seq_len(length(uq_ids))) {
+    mg_net_collection[[i]] <- get_network_by_id(uq_ids[i])
+  }
+
+  mg_net_collection
+
+}
+
+
+#' @describeIn get_collection Get a collection of networks from a `mgSearchTaxa` object. 
+#' @export
+get_collection.mgSearchInteractions <- function(x, ...) {
+
+  uq_ids <- unique(x$networks$id)
+
+  # Object S3 declaration
+  mg_net_collection <- structure(list(), class= "mgNetworksCollection")
+
+  for (i in seq_len(length(uq_ids))) {
+    mg_net_collection[[i]] <- get_network_by_id(uq_ids[i])
   }
 
   mg_net_collection

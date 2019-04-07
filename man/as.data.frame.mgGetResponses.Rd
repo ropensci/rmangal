@@ -2,7 +2,7 @@
 % Please edit documentation in R/mgGetResponses.R
 \name{as.data.frame.mgGetResponses}
 \alias{as.data.frame.mgGetResponses}
-\title{Coerce mgGetResponses to data.frame}
+\title{Coerce \code{mgGetResponses} to data.frame}
 \usage{
 \method{as.data.frame}{mgGetResponses}(x, ...)
 }
@@ -12,5 +12,5 @@
 \item{...}{ignored}
 }
 \description{
-Coerce mgGetResponses to data.frame
+Coerce \code{mgGetResponses} to data.frame
 }

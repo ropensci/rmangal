@@ -7,17 +7,14 @@
 search_reference(doi = NULL, verbose = TRUE, ...)
 }
 \arguments{
-\item{doi}{\code{character} a Digital Object Identifier of the article}
+\item{doi}{\code{character} a Digital Object Identifier of the article (mandatory arg)}
 
 \item{verbose}{a \code{logical}. Should extra information be reported on progress?}
 
 \item{...}{further arguments to be passed to \code{\link[rmangal:get_gen]{rmangal::get_gen()}}.}
 }
 \value{
-An object of class \code{mgSearchReference}, which is essentially a
-\code{data.frame} object with the reference of the article matching the query. Note that
-all datasets and networks related to the publication are also attached to the
-\code{data.frame}.
+An object of class \code{mgSearchReference}, which is essentially a list that include a wide range of details associated to the reference, including all datasets and networks related to the publication that are included in mangal data base.
 }
 \description{
 Search for a specific dataset reference with DOI

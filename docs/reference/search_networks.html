@@ -127,7 +127,8 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>query</th>
-      <td><p><code>character</code> keyword used to search (case sensitive) or a <code>sf</code> object used to search in a specific geographical area.</p></td>
+      <td><p><code>character</code> keyword used to search over all networks (case sensitive) or a <code>sf</code> object
+used to search in a specific geographical area. If keyword is unspecified (query = NULL), all networks will be returned.</p></td>
     </tr>
     <tr>
       <th>verbose</th>
@@ -145,57 +146,25 @@
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>search_networks</span>(<span class='kw'>query</span><span class='kw'>=</span><span class='st'>"insect%"</span>, <span class='kw'>output</span> <span class='kw'>=</span> <span class='st'>"spatial"</span>)</div><div class='output co'>#&gt; <span class='message'>Found 14 networks</span></div><div class='output co'>#&gt; Simple feature collection with 14 features and 10 fields (with 3 geometries empty)
-#&gt; geometry type:  POINT
-#&gt; dimension:      XY
-#&gt; bbox:           xmin: -114.9667 ymin: 8.534 xmax: 138.3833 ymax: 75
-#&gt; epsg (SRID):    4326
-#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs
-#&gt; First 10 features:
-#&gt;      id                               name                     date
-#&gt; 1    18    mosquin_martin_1967_19650731_18 1965-07-31T04:00:00.000Z
-#&gt; 2   909 elberling_olesen_1999_19940823_909 1994-08-23T04:00:00.000Z
-#&gt; 3   948             kato_1993_19910901_948 1991-09-01T04:00:00.000Z
-#&gt; 4  1460         cornaby_1974_19680208_1460 1968-02-08T05:00:00.000Z
-#&gt; 5  1461         cornaby_1974_19680229_1461 1968-02-29T05:00:00.000Z
-#&gt; 6  1471    jiron_cartin_1981_19770101_1471 1977-01-01T05:00:00.000Z
-#&gt; 7  1493        robinson_1953_19480101_1493 1948-01-01T05:00:00.000Z
-#&gt; 8  1501        seifert_1976a_19700701_1501 1970-07-01T04:00:00.000Z
-#&gt; 9  1500        seifert_1976a_19700701_1500 1970-07-01T04:00:00.000Z
-#&gt; 10 1502         seifert_1979_19760201_1502 1976-02-01T05:00:00.000Z
-#&gt;                                                                                                                                              description
-#&gt; 1                                 Occurence of flower-visiting insect on plant species, two miles north of Bailey Point, Melville Island, N.W.T., Canada
-#&gt; 2                                                                                            Flower-visiting insect at Mt. Latnjatjarro, northern Sweden
-#&gt; 3  Flower and anthophilous insect interactions in the primary cool-temperate subalpine forests and meadows at Mt. Kushigata, Yamanashi Prefecture, Japan
-#&gt; 4                            The insect community of  a toad carrion in a tropical dry lowland forest at Finac La pacifica, Guanacaste Prov., Costa Rica
-#&gt; 5                              The insect community of  a toad carrion in a tropical wet lowland forest near Rincon de Osa, Puntarenas Prov., Costa Rica
-#&gt; 6                                               The insect community of a dog carcass in a premontane humid forest, University of Costa Rica, Costa Rica
-#&gt; 7                                                                       The insect community of an elm tree brown flux (Ulmus procera salisb), Sheffield
-#&gt; 8                                                                       The insect community in Heliconia wagneriana on the Peninsula de Osa, Costa Rica
-#&gt; 9                                                                        The insect community in Heliconia imbricata on the Peninsula de Osa, Costa Rica
-#&gt; 10                                                                                  The insect community of Heliconia bihai in a Venezuelan cloud forest
-#&gt;    public all_interactions               created_at               updated_at
-#&gt; 1    TRUE            FALSE 2019-02-22T18:38:37.491Z 2019-02-22T18:38:37.491Z
-#&gt; 2    TRUE            FALSE 2019-02-24T22:21:32.444Z 2019-02-24T22:21:32.444Z
-#&gt; 3    TRUE            FALSE 2019-02-25T20:52:09.499Z 2019-02-25T20:52:09.499Z
-#&gt; 4    TRUE            FALSE 2019-03-01T18:30:50.890Z 2019-03-01T18:30:50.890Z
-#&gt; 5    TRUE            FALSE 2019-03-01T18:30:57.419Z 2019-03-01T18:30:57.419Z
-#&gt; 6    TRUE            FALSE 2019-03-04T18:22:33.907Z 2019-03-04T18:22:33.907Z
-#&gt; 7    TRUE            FALSE 2019-03-06T15:58:35.734Z 2019-03-06T15:58:35.734Z
-#&gt; 8    TRUE            FALSE 2019-03-06T19:58:01.589Z 2019-03-06T19:58:01.589Z
-#&gt; 9    TRUE            FALSE 2019-03-06T19:57:58.599Z 2019-03-06T19:57:58.599Z
-#&gt; 10   TRUE            FALSE 2019-03-06T20:26:41.249Z 2019-03-06T20:26:41.249Z
-#&gt;    dataset_id user_id                 geometry
-#&gt; 1           4       3     POINT (-114.9667 75)
-#&gt; 2           9       2       POINT (18.5 68.35)
-#&gt; 3          66       2 POINT (138.3833 35.5833)
-#&gt; 4          91       4 POINT (-85.0944 10.4568)
-#&gt; 5          91       4   POINT (-83.5083 8.534)
-#&gt; 6          99       4   POINT (-84.0765 9.934)
-#&gt; 7         114       4  POINT (-1.4517 53.3783)
-#&gt; 8         118       4  POINT (-83.4888 8.7069)
-#&gt; 9         118       4  POINT (-83.4888 8.7069)
-#&gt; 10        119       4 POINT (-67.6882 10.3425)</div><span class='co'># NOT RUN {</span>
+    <pre class="examples"><div class='input'><span class='fu'>search_networks</span>(<span class='kw'>query</span><span class='kw'>=</span><span class='st'>"insect%"</span>)</div><div class='output co'>#&gt; <span class='message'>Found 14 networks</span></div><div class='output co'>#&gt; # A tibble: 14 x 12
+#&gt;       id name  date  description public all_interactions created_at updated_at
+#&gt;    &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;       &lt;lgl&gt;  &lt;lgl&gt;            &lt;chr&gt;      &lt;chr&gt;     
+#&gt;  1    18 mosq… 1965… Occurence … TRUE   FALSE            2019-02-2… 2019-02-2…
+#&gt;  2   909 elbe… 1994… Flower-vis… TRUE   FALSE            2019-02-2… 2019-02-2…
+#&gt;  3   948 kato… 1991… Flower and… TRUE   FALSE            2019-02-2… 2019-02-2…
+#&gt;  4  1460 corn… 1968… The insect… TRUE   FALSE            2019-03-0… 2019-03-0…
+#&gt;  5  1461 corn… 1968… The insect… TRUE   FALSE            2019-03-0… 2019-03-0…
+#&gt;  6  1471 jiro… 1977… The insect… TRUE   FALSE            2019-03-0… 2019-03-0…
+#&gt;  7  1493 robi… 1948… The insect… TRUE   FALSE            2019-03-0… 2019-03-0…
+#&gt;  8  1501 seif… 1970… The insect… TRUE   FALSE            2019-03-0… 2019-03-0…
+#&gt;  9  1500 seif… 1970… The insect… TRUE   FALSE            2019-03-0… 2019-03-0…
+#&gt; 10  1502 seif… 1976… The insect… TRUE   FALSE            2019-03-0… 2019-03-0…
+#&gt; 11  1507 vali… 1966… The insect… TRUE   FALSE            2019-03-0… 2019-03-0…
+#&gt; 12  1508 vali… 1966… The insect… TRUE   FALSE            2019-03-0… 2019-03-0…
+#&gt; 13  1510 whit… 1981… The insect… TRUE   FALSE            2019-03-0… 2019-03-0…
+#&gt; 14  1566 rich… 1922… Food web s… TRUE   FALSE            2019-03-1… 2019-03-1…
+#&gt; # … with 4 more variables: dataset_id &lt;int&gt;, user_id &lt;int&gt;, geom.type &lt;chr&gt;,
+#&gt; #   geom.coordinates &lt;list&gt;</div><span class='co'># NOT RUN {</span>
 <span class='co'># Spatial query</span>
 <span class='fu'>library</span>(<span class='no'>USAboundaries</span>)
 <span class='no'>area</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://lincolnmullen.com/software/usaboundaries/reference/us_states.html'>us_states</a></span>(<span class='kw'>state</span><span class='kw'>=</span><span class='st'>"california"</span>)

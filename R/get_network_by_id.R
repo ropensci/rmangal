@@ -1,9 +1,9 @@
-#' Retrieve mangal network including the nodes and the edges
+#' Retrieve mangal network by id 
 #'
 #' @param id `numeric` mangal ID network
 #' @param ... arguments from [rmangal::get_singletons()]
 #' @return
-#' object `mgNetwork`: 
+#' a `mgNetwork` object which include:
 #' - network: `list` of all generic informations on the network
 #' - nodes: `data.frame` of all nodes with taxonomic informations
 #' - edges: `data.frame` of all edges (ecological interactions), with the attribute used to describe the interaction
@@ -36,7 +36,7 @@ get_network_by_id <- function(id, ... ) {
     mg_network$dataset <- as.data.frame(get_singletons(endpoints()$dataset, ids = unique(mg_network$network$dataset_id)))
 
     # retrieve reference
-    mg_network$reference <- as.data.frame(get_singletons(endpoints()$reference, ids = mg_network$dataset$ref_id))
+    mg_network$reference <- as.data.frame(get_singletons(endpoints()$reference, ids = unique(mg_network$dataset$ref_id)))
 
     mg_network
 }

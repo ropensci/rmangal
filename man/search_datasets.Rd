@@ -8,7 +8,8 @@ search_datasets(query = NULL, verbose = TRUE, ...)
 }
 \arguments{
 \item{query}{a \code{character} string containing a keyword used to search (case sensitive),
-or a \code{list} containiing a custom query  custom query (see examples).}
+or a \code{list} containing a custom query (see examples).
+If keyword is unspecified (query = NULL), all datasets will be returned.}
 
 \item{verbose}{a logical. Should extra information be reported on progress?}
 

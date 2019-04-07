@@ -1,6 +1,6 @@
-#' Coerce mgGetResponses to data.frame
+#' Coerce `mgGetResponses` to data.frame
 #'
-#' Coerce mgGetResponses to data.frame
+#' Coerce `mgGetResponses` to data.frame
 #' @param x object of class `mgGetResponses`.
 #' @param ... ignored
 #' @export
@@ -30,7 +30,7 @@ summary.mgGetResponses <- function(object, ...) table(purrr::map_chr(object,
   class))
 
 
-#' Test class `coleoGetResponses`
+#' Test class `mgGetResponses`
 #' @param x R x to test
 #' @export
 is.mgGetResponses <- function(x) inherits(x, "mgGetResponses")

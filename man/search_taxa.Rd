@@ -7,16 +7,16 @@
 search_taxa(query = NULL, original = FALSE, verbose = TRUE, ...)
 }
 \arguments{
-\item{query}{\code{character} specific taxon / keyword / or tsn, eol, bold & ncbi IDs.}
+\item{query}{\code{character} specific taxon / keyword / or tsn, eol (page ID), bold & ncbi IDs (mandatory arg).}
 
-\item{original}{a \code{logical}. Should query taxa from the original publication? (see details section, default: FALSE)}
+\item{original}{a \code{logical}. Should query taxa names from the original publication? (see details section, default is set to \code{FALSE})}
 
 \item{verbose}{a \code{logical}. Should extra information be reported on progress?}
 
 \item{...}{further arguments to be passed to \code{\link[rmangal:get_gen]{rmangal::get_gen()}}.}
 }
 \value{
-An object of class \code{mgSearchTaxonomy}, which is a \code{data.frame} object with all taxa matching the query.
+An object of class \code{mgSearchTaxa}, which is a \code{data.frame} object with all taxa matching the query.
 All networks in which taxa are involved are also attached to the \code{data.frame}.
 }
 \description{
@@ -24,7 +24,13 @@ Search network by taxa using keyword, tsn, eol, bold or ncbi IDs.
 }
 \details{
 By default, you are querying taxa based on a homogenized taxonomy (corrected names from
-TNRS -- http://tnrs.iplantcollaborative.org/ and/or GNR -- https://resolver.globalnames.org/).
-These taxa might not be the taxa recorded within the original publication.
-To query original documented taxa, please set the argument \code{original} as TRUE.
+\href{http://tnrs.iplantcollaborative.org/}{TNRS} and/or \href{https://resolver.globalnames.org/}{GNR}.
+These taxa might not be the taxon name used in the original publication.
+In order to query, the original name, set argument \code{original} to \code{TRUE}.
+}
+\examples{
+search_taxa("Acer")
+# Retrieve higher classification
+tsn_acer <- search_taxa("Acer")$tsn
+taxize::classification(tsn_acer, db = "itis")
 }

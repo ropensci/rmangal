@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Retrieve mangal network including the nodes and the edges — get_network_by_id • rmangal</title>
+<title>Retrieve mangal network by id — get_network_by_id • rmangal</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Retrieve mangal network including the nodes and the edges — get_network_by_id" />
+<meta property="og:title" content="Retrieve mangal network by id — get_network_by_id" />
 
-<meta property="og:description" content="Retrieve mangal network including the nodes and the edges" />
+<meta property="og:description" content="Retrieve mangal network by id" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -109,14 +109,14 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Retrieve mangal network including the nodes and the edges</h1>
+    <h1>Retrieve mangal network by id</h1>
     <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/get_network_by_id.R'><code>R/get_network_by_id.R</code></a></small>
     <div class="hidden name"><code>get_network_by_id.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Retrieve mangal network including the nodes and the edges</p>
+    <p>Retrieve mangal network by id</p>
     
     </div>
 
@@ -137,7 +137,7 @@
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>object <code>mgNetwork</code>:</p><ul>
+    <p>a <code>mgNetwork</code> object which include:</p><ul>
 <li><p>network: <code>list</code> of all generic informations on the network</p></li>
 <li><p>nodes: <code>data.frame</code> of all nodes with taxonomic informations</p></li>
 <li><p>edges: <code>data.frame</code> of all edges (ecological interactions), with the attribute used to describe the interaction</p></li>
@@ -151,10 +151,10 @@
     <pre class="examples"><div class='input'><span class='fu'>get_network_by_id</span>(<span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>18</span>)</div><div class='output co'>#&gt; $network
 #&gt; # A tibble: 1 x 12
 #&gt;      id name  date  geom.type geom.coordinates description public
-#&gt;   &lt;int&gt; &lt;fct&gt; &lt;fct&gt; &lt;fct&gt;                &lt;dbl&gt; &lt;fct&gt;       &lt;lgl&gt; 
+#&gt;   &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;                &lt;dbl&gt; &lt;chr&gt;       &lt;lgl&gt; 
 #&gt; 1    18 mosq… 1965… Point                -115. Occurence … TRUE  
-#&gt; # … with 5 more variables: all_interactions &lt;lgl&gt;, created_at &lt;fct&gt;,
-#&gt; #   updated_at &lt;fct&gt;, dataset_id &lt;int&gt;, user_id &lt;int&gt;
+#&gt; # … with 5 more variables: all_interactions &lt;lgl&gt;, created_at &lt;chr&gt;,
+#&gt; #   updated_at &lt;chr&gt;, dataset_id &lt;int&gt;, user_id &lt;int&gt;
 #&gt; 
 #&gt; $nodes
 #&gt; # A tibble: 29 x 16
@@ -162,17 +162,17 @@
 #&gt;    &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;           &lt;int&gt;       &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;     
 #&gt;  1  2599 Spilogona sa… taxon              18        1591 2019-02-2… 2019-02-2…
 #&gt;  2  2600 Bombus polar… taxon              18        1956 2019-02-2… 2019-02-2…
-#&gt;  3  2601 "Spilogona a… taxon              18        1957 2019-02-2… 2019-02-2…
-#&gt;  4  2602 Colias hecla  taxon              18        1540 2019-02-2… 2019-02-2…
-#&gt;  5  2603 "Eupogonomyi… taxon              18        1958 2019-02-2… 2019-02-2…
-#&gt;  6  2604 "Boloria imp… taxon              18        1959 2019-02-2… 2019-02-2…
-#&gt;  7  2605 "Pogonomyiod… taxon              18        1960 2019-02-2… 2019-02-2…
-#&gt;  8  2606 Spilogona la… taxon              18        1589 2019-02-2… 2019-02-2…
-#&gt;  9  2607 Boreellus at… taxon              18        1596 2019-02-2… 2019-02-2…
-#&gt; 10  2608 Spilogona do… taxon              18        1588 2019-02-2… 2019-02-2…
+#&gt;  3  2602 Colias hecla  taxon              18        1540 2019-02-2… 2019-02-2…
+#&gt;  4  2604 "Boloria imp… taxon              18        1959 2019-02-2… 2019-02-2…
+#&gt;  5  2606 Spilogona la… taxon              18        1589 2019-02-2… 2019-02-2…
+#&gt;  6  2607 Boreellus at… taxon              18        1596 2019-02-2… 2019-02-2…
+#&gt;  7  2608 Spilogona do… taxon              18        1588 2019-02-2… 2019-02-2…
+#&gt;  8  2609 "Spilogona p… taxon              18        1961 2019-02-2… 2019-02-2…
+#&gt;  9  2611 Spilogona me… taxon              18        1590 2019-02-2… 2019-02-2…
+#&gt; 10  2613 "Colias nast… taxon              18        1963 2019-02-2… 2019-02-2…
 #&gt; # … with 19 more rows, and 9 more variables: taxonomy.id &lt;int&gt;,
 #&gt; #   taxonomy.name &lt;chr&gt;, taxonomy.ncbi &lt;int&gt;, taxonomy.tsn &lt;int&gt;,
-#&gt; #   taxonomy.eol &lt;int&gt;, taxonomy.bold &lt;int&gt;, taxonomy.status &lt;chr&gt;,
+#&gt; #   taxonomy.eol &lt;int&gt;, taxonomy.bold &lt;int&gt;, taxonomy.gbif &lt;lgl&gt;,
 #&gt; #   taxonomy.created_at &lt;chr&gt;, taxonomy.updated_at &lt;chr&gt;
 #&gt; 
 #&gt; $edges
@@ -197,15 +197,15 @@
 #&gt; $dataset
 #&gt; # A tibble: 1 x 9
 #&gt;      id name   date   description    public created_at updated_at ref_id user_id
-#&gt;   &lt;int&gt; &lt;fct&gt;  &lt;fct&gt;  &lt;fct&gt;          &lt;lgl&gt;  &lt;fct&gt;      &lt;fct&gt;       &lt;int&gt;   &lt;int&gt;
+#&gt;   &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;          &lt;lgl&gt;  &lt;chr&gt;      &lt;chr&gt;       &lt;int&gt;   &lt;int&gt;
 #&gt; 1     4 mosqu… 1965-… Occurence of … TRUE   2019-02-2… 2019-02-2…      4       3
 #&gt; 
 #&gt; $reference
 #&gt; # A tibble: 1 x 11
 #&gt;      id doi   author year  jstor pmid  bibtex paper_url data_url created_at
-#&gt;   &lt;int&gt; &lt;lgl&gt; &lt;fct&gt;  &lt;fct&gt; &lt;lgl&gt; &lt;lgl&gt; &lt;fct&gt;  &lt;fct&gt;     &lt;fct&gt;    &lt;fct&gt;     
+#&gt;   &lt;int&gt; &lt;lgl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;lgl&gt; &lt;lgl&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;     
 #&gt; 1     4 NA    mosqu… 1967  NA    NA    @arti… https://… https:/… 2019-02-2…
-#&gt; # … with 1 more variable: updated_at &lt;fct&gt;
+#&gt; # … with 1 more variable: updated_at &lt;chr&gt;
 #&gt; 
 #&gt; attr(,"class")
 #&gt; [1] "mgNetwork"</div></pre>
