@@ -61,6 +61,7 @@ coerce_body <- function(x, resp, flatten, null_to_na = FALSE) {
 #' @param limit `integer` number of entries return by the API (max: 1000)
 #' @param flatten `logical` flatten nested data.frame, see [jsonlite::flatten()]; default: `TRUE`
 #' @param output `character` output type (`data.frame`, `list`, `spatial`, `raw`) return (default: data.frame)
+#' @param verbose `logical` print API code status on error; default: `TRUE`
 #' @param ... httr options, see [httr::GET()]
 #' @return
 #' Object of class `mgGetResponses` whithin each level is a page.
@@ -71,7 +72,7 @@ coerce_body <- function(x, resp, flatten, null_to_na = FALSE) {
 #' See endpoints available with `endpoints()`
 
 get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE,
-  output = 'data.frame', ...) {
+  output = 'data.frame', verbose = TRUE,...) {
 
   url <- httr::modify_url(server(), path = paste0(base(), endpoint))
 
@@ -105,9 +106,10 @@ get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE,
       query = query, ...)
 
     if (httr::http_error(resp)) {
-      message(sprintf("API request failed (%s): %s", httr::status_code(resp),
-        httr::content(resp)$message))
-      ##
+      if (verbose){
+          message(sprintf("API request failed (%s): %s", httr::status_code(resp),
+             httr::content(resp)$message))
+      }
       responses[[page + 1]] <- structure(list(body = NULL, response = resp),
           class = "getError")
     } else {
@@ -125,7 +127,8 @@ get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE,
 #' @param endpoint `character` API entry point
 #' @param ids `numeric` vector of ids
 #' @param output `character` output type (`data.frame`, `list`, `spatial`, `raw`) return; default: `list`
-#' @param flatten `logical` flatten nested data.frame, see [jsonlite::flatten()]; default: `TRUE`
+#' @param flatten `logical` return flatten nested data.frame, see [jsonlite::flatten()]; default: `TRUE`
+#' @param verbose `logical` print API code status on error; default: `TRUE`
 #' @param ... httr options, see [httr::GET()]
 #' @return
 #' Object of class `mgGetResponses` whithin each level is the specific ID called.
@@ -136,7 +139,7 @@ get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE,
 #' See endpoints available with `endpoints()`
 
 get_singletons <- function(endpoint = NULL, ids = NULL, output = "data.frame",
-flatten = TRUE, ...) {
+flatten = TRUE, verbose = FALSE,...) {
 
   stopifnot(!is.null(endpoint) & !is.null(ids))
 
@@ -156,8 +159,11 @@ flatten = TRUE, ...) {
       ...)
 
     if (httr::http_error(resp)) {
-      message(sprintf("API request failed (%s): %s", httr::status_code(resp),
-        httr::content(resp)$message))
+      
+      if (verbose){
+          message(sprintf("API request failed (%s): %s", httr::status_code(resp),
+             httr::content(resp)$message))
+      }
 
       responses[[i]]  <- structure(list(body = NULL, response = resp),
           class = "getError")
