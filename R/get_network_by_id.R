@@ -26,6 +26,8 @@ get_network_by_id <- function(id, ... ) {
       class = "mgNetwork"
     )
 
+    if(is.null(mg_network$network)) stop(sprintf("No found network id %s", id))
+
     # nodes and edges associated with the network
     mg_network$nodes <- as.data.frame(get_from_fkey(endpoints()$node, 
                   network_id = mg_network$network$id))
