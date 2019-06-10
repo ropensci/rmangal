@@ -35,11 +35,17 @@ null_to_na <- function(x) {
 
 ## to data frame
 json_to_df <- function(resp, flatten, null_to_na) {
+  
   out <- jsonlite::fromJSON(
       httr::content(resp, type = "text", encoding = "UTF-8"), flatten = flatten
     )
+  
   if (null_to_na) out <- null_to_na(out)
-  out <- as.data.frame(out, stringsAsFactors = FALSE)
+
+  geom <- out$geom
+  out$geom <- NULL
+  out <- data.frame(out, type = geom$type, coordinates = I(list(geom$coordinates)))
+
   class(out) <- c("tbl_df", "tbl", "data.frame")
   out
 }
@@ -142,7 +148,7 @@ get_singletons <- function(endpoint = NULL, ids = NULL, output = "data.frame",
 flatten = TRUE, verbose = FALSE,...) {
 
   stopifnot(!is.null(endpoint) & !is.null(ids))
-
+  
   # Prep output object
   responses <- list()
   class(responses) <- "mgGetResponses"
