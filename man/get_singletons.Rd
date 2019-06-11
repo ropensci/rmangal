@@ -5,7 +5,7 @@
 \title{Generic API function to retrieve singletons}
 \usage{
 get_singletons(endpoint = NULL, ids = NULL, output = "data.frame",
-  flatten = TRUE, ...)
+  flatten = TRUE, verbose = FALSE, ...)
 }
 \arguments{
 \item{endpoint}{\code{character} API entry point}
@@ -14,7 +14,9 @@ get_singletons(endpoint = NULL, ids = NULL, output = "data.frame",
 
 \item{output}{\code{character} output type (\code{data.frame}, \code{list}, \code{spatial}, \code{raw}) return; default: \code{list}}
 
-\item{flatten}{\code{logical} flatten nested data.frame, see \code{\link[jsonlite:flatten]{jsonlite::flatten()}}; default: \code{TRUE}}
+\item{flatten}{\code{logical} return flatten nested data.frame, see \code{\link[jsonlite:flatten]{jsonlite::flatten()}}; default: \code{TRUE}}
+
+\item{verbose}{\code{logical} print API code status on error; default: \code{TRUE}}
 
 \item{...}{httr options, see \code{\link[httr:GET]{httr::GET()}}}
 }
@@ -32,3 +34,4 @@ Generic API function to retrieve singletons
 \details{
 See endpoints available with \code{endpoints()}
 }
+\keyword{internal}

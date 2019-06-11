@@ -5,7 +5,7 @@
 \title{Generic API function to retrieve several entries}
 \usage{
 get_gen(endpoint, query = NULL, limit = 100, flatten = TRUE,
-  output = "data.frame", ...)
+  output = "data.frame", verbose = TRUE, ...)
 }
 \arguments{
 \item{endpoint}{\code{character} API entry point}
@@ -17,6 +17,8 @@ get_gen(endpoint, query = NULL, limit = 100, flatten = TRUE,
 \item{flatten}{\code{logical} flatten nested data.frame, see \code{\link[jsonlite:flatten]{jsonlite::flatten()}}; default: \code{TRUE}}
 
 \item{output}{\code{character} output type (\code{data.frame}, \code{list}, \code{spatial}, \code{raw}) return (default: data.frame)}
+
+\item{verbose}{\code{logical} print API code status on error; default: \code{TRUE}}
 
 \item{...}{httr options, see \code{\link[httr:GET]{httr::GET()}}}
 }
@@ -34,3 +36,4 @@ Generic API function to retrieve several entries
 \details{
 See endpoints available with \code{endpoints()}
 }
+\keyword{internal}

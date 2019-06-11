@@ -82,6 +82,7 @@ coerce_body <- function(x, resp, flatten) {
 #' - `getError` which has the exact same structure with an empty body.
 #' @details
 #' See endpoints available with `endpoints()`
+#' @keywords internal
 
 get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE,
   output = 'data.frame', verbose = TRUE,...) {
@@ -149,6 +150,7 @@ get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE,
 #' - `getError` which has the exact same structure with an empty body.
 #' @details
 #' See endpoints available with `endpoints()`
+#' @keywords internal
 
 get_singletons <- function(endpoint = NULL, ids = NULL, output = "data.frame",
 flatten = TRUE, verbose = FALSE,...) {
@@ -205,6 +207,7 @@ flatten = TRUE, verbose = FALSE,...) {
 #' Object returned by [rmangal::get_gen()]
 #' @details
 #' See endpoints available with `endpoints()`
+#' @keywords internal
 
 get_from_fkey <- function(endpoint, ...) {
   query = list(...)
@@ -216,6 +219,7 @@ get_from_fkey <- function(endpoint, ...) {
 #' @param body `data.frame` return by the API call
 #' @return
 #' sf object
+#' @keywords internal
 
 mg_to_sf <- function(body) {
 

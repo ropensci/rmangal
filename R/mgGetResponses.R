@@ -3,6 +3,7 @@
 #' Coerce `mgGetResponses` to data.frame
 #' @param x object of class `mgGetResponses`.
 #' @param ... ignored
+#' @keywords internal
 #' @export
 as.data.frame.mgGetResponses <- function(x, ...) {
     classes <- unique(unlist(purrr::map(purrr::map(x, "body"), class)))
@@ -24,6 +25,7 @@ as.data.frame.mgGetResponses <- function(x, ...) {
 #' Summarize response status
 #' @param object object of class `mgGetResponses`.
 #' @param ... ignored
+#' @keywords internal
 #' @export
 summary.mgGetResponses <- function(object, ...) table(purrr::map_chr(object,
   class))
@@ -31,5 +33,6 @@ summary.mgGetResponses <- function(object, ...) table(purrr::map_chr(object,
 
 #' Test class `mgGetResponses`
 #' @param x R x to test
+#' @keywords internal
 #' @export
 is.mgGetResponses <- function(x) inherits(x, "mgGetResponses")
