@@ -63,7 +63,7 @@ coerce_body <- function(x, resp, flatten, null_to_na = FALSE) {
 #' Generic API function to retrieve several entries
 #'
 #' @param endpoint `character` API entry point
-#' @param query `list` list of params passed to the API
+#' @param query `list` list of parameters passed to the API
 #' @param limit `integer` number of entries return by the API (max: 1000)
 #' @param flatten `logical` flatten nested data.frame, see [jsonlite::flatten()]; default: `TRUE`
 #' @param output `character` output type (`data.frame`, `list`, `spatial`, `raw`) return (default: data.frame)

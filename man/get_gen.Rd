@@ -10,7 +10,7 @@ get_gen(endpoint, query = NULL, limit = 100, flatten = TRUE,
 \arguments{
 \item{endpoint}{\code{character} API entry point}
 
-\item{query}{\code{list} list of params passed to the API}
+\item{query}{\code{list} list of parameters passed to the API}
 
 \item{limit}{\code{integer} number of entries return by the API (max: 1000)}
 

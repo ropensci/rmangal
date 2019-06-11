@@ -4,12 +4,12 @@
 #' @param verbose a `logical`. Should extra information be reported on progress?
 #' @param ... further arguments to be passed to [rmangal::get_gen()].
 #' @return
-#' An object of class `mgSearchReference`, which is essentially a list that include a wide range of details associated to the reference, including all datasets and networks related to the publication that are included in mangal data base. 
+#' An object of class `mgSearchReference`, which is essentially a list that include a wide range of details associated to the reference, including all datasets and networks related to the publication that are included in mangal data base.
 #' @examples
 #' search_reference(doi = "10.2307/3225248")
 #' @export
 
-search_reference <- function(doi = NULL, verbose = TRUE, ...) {
+search_reference <- function(doi, verbose = TRUE, ...) {
 
     stopifnot(is.character(doi) & length(doi) == 1)
 

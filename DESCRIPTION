@@ -25,17 +25,20 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
-    httr (>= 1.3.1),
-    jsonlite (>= 1.5),
-    igraph,
-    purrr,
-    sf
+  ade4,
+  ecoocc,
+  sp,
+  sf,
+  raster,
+  rgeos,
+  taxize,
+  ape,
+  emojifont,
+  rfishbase
 RoxygenNote: 6.1.1
 Suggests:
     knitr,
     rmarkdown,
-    testthat,
-    USAboundaries,
-    taxize
+    testthat
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
