@@ -35,17 +35,21 @@ null_to_na <- function(x) {
 
 ## to data frame
 json_to_df <- function(resp, flatten, null_to_na) {
-  
+
   out <- jsonlite::fromJSON(
       httr::content(resp, type = "text", encoding = "UTF-8"), flatten = flatten
     )
-  
-  if (null_to_na) out <- null_to_na(out)
 
-  geom <- out$geom
+  # Simplify for user
+  # Drop all spatial features
   out$geom <- NULL
-  out <- data.frame(out, type = geom$type, coordinates = I(list(geom$coordinates)))
+  out$geom.type <- NULL
+  out$geom.coordinates <- NULL
 
+  # Conserve NULL values for list
+  if(!is.data.frame(out)) out <- null_to_na(out)
+
+  out <- as.data.frame(out, stringsAsFactors = FALSE)
   class(out) <- c("tbl_df", "tbl", "data.frame")
   out
 }
@@ -152,7 +156,7 @@ flatten = TRUE, verbose = FALSE,...) {
   # Prep output object
   responses <- list()
   class(responses) <- "mgGetResponses"
-
+  
   # Loop over ids
   for (i in seq_len(length(ids))) {
     # Set url

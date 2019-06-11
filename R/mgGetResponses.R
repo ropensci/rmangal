@@ -5,7 +5,6 @@
 #' @param ... ignored
 #' @export
 as.data.frame.mgGetResponses <- function(x, ...) {
-
     classes <- unique(unlist(purrr::map(purrr::map(x, "body"), class)))
 
     # Use the proper binding function based on body classes
