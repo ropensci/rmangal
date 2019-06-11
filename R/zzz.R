@@ -34,7 +34,7 @@ null_to_na <- function(x) {
 }
 
 ## to data frame
-json_to_df <- function(resp, flatten, null_to_na) {
+json_to_df <- function(resp, flatten, drop_geom) {
 
   out <- jsonlite::fromJSON(
       httr::content(resp, type = "text", encoding = "UTF-8"), flatten = flatten
@@ -42,9 +42,11 @@ json_to_df <- function(resp, flatten, null_to_na) {
 
   # Simplify for user
   # Drop all spatial features
-  out$geom <- NULL
-  out$geom.type <- NULL
-  out$geom.coordinates <- NULL
+  if(drop_geom){
+    out$geom <- NULL
+    out$geom.type <- NULL
+    out$geom.coordinates <- NULL
+  }
 
   # Conserve NULL values for list
   if(!is.data.frame(out)) out <- null_to_na(out)
@@ -56,11 +58,11 @@ json_to_df <- function(resp, flatten, null_to_na) {
 
 
 ## coerce body to one specific format
-coerce_body <- function(x, resp, flatten, null_to_na = FALSE) {
+coerce_body <- function(x, resp, flatten) {
   switch(
     x,
-    data.frame = json_to_df(resp, flatten, null_to_na),
-    spatial = mg_to_sf(json_to_df(resp, flatten, null_to_na))
+    data.frame = json_to_df(resp, flatten, TRUE),
+    spatial = mg_to_sf(json_to_df(resp, flatten, FALSE))
   )
 }
 
@@ -181,7 +183,7 @@ flatten = TRUE, verbose = FALSE,...) {
     } else {
 
       # coerce body to output desired
-      body <- coerce_body(output, resp, flatten, null_to_na = TRUE)
+      body <- coerce_body(output, resp, flatten)
 
       responses[[i]]  <- structure(list(body = body, response = resp),
         class = "getSuccess")
