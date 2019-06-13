@@ -40,7 +40,6 @@ json_to_df <- function(resp, flatten, drop_geom) {
       httr::content(resp, type = "text", encoding = "UTF-8"), flatten = flatten
     )
 
-
   # Conserve NULL values for list
   if(!is.data.frame(out)) out <- null_to_na(out)
 

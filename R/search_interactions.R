@@ -17,6 +17,7 @@ search_interactions <- function( type = avail_type(), expand_node = FALSE, verbo
 
     # Make sure args match options
     type <- match.arg(type)
+
     # Get interactions based on the type
     interactions <- as.data.frame(get_gen(endpoints()$interaction, query = list( type = type )))
     
