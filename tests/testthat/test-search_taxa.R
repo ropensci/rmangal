@@ -1,14 +1,20 @@
 context("test-search_taxa")
 
 res1 <- search_taxa("Acer")
+resTsn <- search_taxa(tsn = 182132)
+resNcbi <- search_taxa(ncbi = 47966)
+resBold <- search_taxa(bold = 102197)
 res2 <- search_taxa("Acer", orginal = TRUE)
 resw <- search_taxa("Does not work")
-
 
 test_that("expected behavior", {
   expect_true("mgSearchTaxa" %in% class(res1))
   expect_equal(dim(res1), c(5, 11))
   expect_equal(dim(res2), c(5, 11))
   expect_equal(dim(resw), c(0, 0))
-  expect_true(182132 %in% res1$tsn)
+  expect_true(resTsn$name == "Acer negundo")
+  expect_true(resNcbi$name == "Acer japonicum")
+  expect_true(resBold$name == "Acer ukurunduense")
+  expect_error(search_taxa(query = "Acer", tsn = 182132), "Query multiple criteria not allowed")
+  expect_error(search_taxa(), "Query unspecified")
 })
