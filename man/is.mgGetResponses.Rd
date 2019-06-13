@@ -12,3 +12,4 @@ is.mgGetResponses(x)
 \description{
 Test class \code{mgGetResponses}
 }
+\keyword{internal}

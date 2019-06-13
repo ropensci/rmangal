@@ -25,3 +25,4 @@ See endpoints available with \code{endpoints()}
 get_from_fkey(endpoints()$node, network_id = 926)
 }
 }
+\keyword{internal}

@@ -14,3 +14,4 @@
 \description{
 Summarize response status
 }
+\keyword{internal}
