@@ -7,7 +7,7 @@
 search_reference(doi, verbose = TRUE, ...)
 }
 \arguments{
-\item{doi}{\code{character} a Digital Object Identifier of the article (mandatory arg)}
+\item{doi}{\code{character} a Digital Object Identifier of the article (mandatory arg).}
 
 \item{verbose}{a \code{logical}. Should extra information be reported on progress?}
 

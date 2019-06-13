@@ -127,7 +127,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>query</th>
-      <td><p><code>character</code> specific taxon / keyword / or tsn, eol, bold &amp; ncbi IDs (mandatory arg).</p></td>
+      <td><p><code>character</code> specific taxon / keyword / or tsn, eol (page ID), bold &amp; ncbi IDs (mandatory arg).</p></td>
     </tr>
     <tr>
       <th>original</th>
@@ -139,7 +139,7 @@
     </tr>
     <tr>
       <th>...</th>
-      <td><p>further arguments to be passed to <code>rmangal::get_gen()</code>.</p></td>
+      <td><p>further arguments to be passed to <code><a href='get_gen.html'>rmangal::get_gen()</a></code>.</p></td>
     </tr>
     </table>
     
@@ -165,10 +165,10 @@ In order to query, the original name, set argument <code>original</code> to <cod
 #&gt; 3  3117 Acer…  66216     NA 5.73e7 485602 NA    2019-02-2… 2019-02-2…
 #&gt; 4  3144 Acer… 171221     NA 5.73e7 102197 NA    2019-02-2… 2019-02-2…
 #&gt; 5  3151 Acer…  47966 837855 5.73e7 448667 NA    2019-02-2… 2019-02-2…
-#&gt; # … with 13 more variables: original_name &lt;chr&gt;, networks$id &lt;int&gt;,
-#&gt; #   $name &lt;chr&gt;, $date &lt;chr&gt;, $geom.type &lt;chr&gt;, $geom.coordinates &lt;dbl&gt;,
-#&gt; #   $description &lt;chr&gt;, $public &lt;lgl&gt;, $all_interactions &lt;lgl&gt;,
-#&gt; #   $created_at &lt;chr&gt;, $updated_at &lt;chr&gt;, $dataset_id &lt;int&gt;, $user_id &lt;int&gt;</div><div class='input'><span class='co'># Retrieve higher classification</span>
+#&gt; # … with 11 more variables: original_name &lt;chr&gt;, networks$id &lt;int&gt;,
+#&gt; #   $name &lt;chr&gt;, $date &lt;chr&gt;, $description &lt;chr&gt;, $public &lt;lgl&gt;,
+#&gt; #   $all_interactions &lt;lgl&gt;, $created_at &lt;chr&gt;, $updated_at &lt;chr&gt;,
+#&gt; #   $dataset_id &lt;int&gt;, $user_id &lt;int&gt;</div><div class='input'><span class='co'># Retrieve higher classification</span>
 <span class='no'>tsn_acer</span> <span class='kw'>&lt;-</span> <span class='fu'>search_taxa</span>(<span class='st'>"Acer"</span>)$<span class='no'>tsn</span></div><div class='output co'>#&gt; <span class='message'>Found 5 taxa</span></div><div class='input'><span class='kw pkg'>taxize</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/taxize/topics/classification'>classification</a></span>(<span class='no'>tsn_acer</span>, <span class='kw'>db</span> <span class='kw'>=</span> <span class='st'>"itis"</span>)</div><div class='output co'>#&gt; $`182132`
 #&gt;                           name          rank     id
 #&gt; 1                      Plantae       kingdom 202422

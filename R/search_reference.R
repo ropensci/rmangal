@@ -1,6 +1,6 @@
 #' Search for a specific dataset reference with DOI
 #'
-#' @param doi `character` a Digital Object Identifier of the article (mandatory arg)
+#' @param doi `character` a Digital Object Identifier of the article (mandatory arg).
 #' @param verbose a `logical`. Should extra information be reported on progress?
 #' @param ... further arguments to be passed to [rmangal::get_gen()].
 #' @return
@@ -11,23 +11,22 @@
 
 search_reference <- function(doi, verbose = TRUE, ...) {
 
-    stopifnot(is.character(doi) & length(doi) == 1)
+  stopifnot(is.character(doi) & length(doi) == 1)
 
-    ref <- as.data.frame(get_gen(endpoints()$reference,
-      query = list(doi = doi), ...))
+  ref <- as.data.frame(get_gen(endpoints()$reference, query = list(doi = doi), ...))
 
-    if (verbose) message(sprintf("Found dataset: \n %s", ref$bibtex))
+  if (verbose)
+    message(sprintf("Found dataset: \n %s", ref$bibtex))
 
-    # Attach dataset
-    datasets <- purrr::map(get_from_fkey(endpoints()$dataset, ref_id = ref$id),
-      "body")
-    ref$datasets <- do.call(rbind,datasets)
+  # Attach dataset
+  datasets <- purrr::map(get_from_fkey(endpoints()$dataset, ref_id = ref$id), "body")
+  ref$datasets <- do.call(rbind, datasets)
 
-    # Attach dataset
-    networks <- purrr::map(get_from_fkey(endpoints()$network,
-      dataset_id = ref$datasets$id), "body")
-    ref$networks <- do.call(rbind, networks)
+  # Attach dataset
+  networks <- purrr::map(get_from_fkey(endpoints()$network, dataset_id = ref$datasets$id),
+    "body")
+  ref$networks <- do.call(rbind, networks)
 
-    class(ref) <- "mgSearchReference"
-    ref
+  class(ref) <- "mgSearchReference"
+  ref
 }

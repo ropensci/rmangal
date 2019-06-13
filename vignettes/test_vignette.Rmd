@@ -1,6 +1,6 @@
 ---
-title: "Vignette Title"
-author: "Vignette Author"
+title: "Get started with rmangal"
+author: "Steve Vissault and Kevin Cazelles"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -14,7 +14,51 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+library(rmangal)
+library(magrittr)
+library(USAboundaries)
 ```
+
+## List all available datasets
+
+```{R}
+all_datasets <- search_datasets()
+all_datasets[1:6, c("id", "description")]
+```
+
+## Retrieve networks from datasets?
+
+```{R}
+lagoon <- search_datasets(query = 'lagoon')
+net_lagoons <- get_collection(lagoon)
+```
+
+
+## Retrieve a specific set of networks
+
+```{R}
+all_networks <- search_networks()
+netw18 <- get_network_by_id(id = 18)
+## 2B fixed
+search_networks(query="insect%") %>% get_collection()
+```
+
+
+## Search over taxonomic name, retrieve networks which include this taxa
+
+
+## Search by location, used buffer, polygons to retrieve networks.
+
+```{R}
+area <- us_states(state="california")
+networks_in_area <- search_networks(area)
+plot(networks_in_area)
+```
+
+## How to use the ids (bold, tsn, ncbi etc.) to get extra taxonomic informations using taxize?
+
+
+
 
 Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The `html_vignette` output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The `html_vignette` format:
 
@@ -30,13 +74,13 @@ Note the various macros within the `vignette` section of the metadata block abov
 
 The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
 
-    output: 
+    output:
       rmarkdown::html_vignette:
         css: mystyles.css
 
 ## Figures
 
-The figure sizes have been customised so that you can easily put two images side-by-side. 
+The figure sizes have been customised so that you can easily put two images side-by-side.
 
 ```{r, fig.show='hold'}
 plot(1:10)

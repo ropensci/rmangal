@@ -15,3 +15,4 @@ sf object
 \description{
 Coerce body return by the API to an sf object
 }
+\keyword{internal}

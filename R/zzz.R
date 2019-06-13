@@ -1,3 +1,4 @@
+
 # Basic
 server <- function() "http://poisotlab.biol.umontreal.ca"
 # server <- function() "http://localhost:8080" # dev purpose
@@ -22,7 +23,7 @@ endpoints <- function() {
 }
 
 # Common spatial columns in mangal-db
-sf_columns <- function(x) c("geom.type","geom.coordinates")
+sf_columns <- function(x) c("geom.type", "geom.coordinates")
 
 # NULL to NA
 null_to_na <- function(x) {
@@ -33,30 +34,72 @@ null_to_na <- function(x) {
     }
 }
 
-## to data frame
-json_to_df <- function(resp, flatten, null_to_na) {
-  
-  out <- jsonlite::fromJSON(
-      httr::content(resp, type = "text", encoding = "UTF-8"), flatten = flatten
+## Response => list
+resp_to_list <- function(resp, flatten) {
+  jsonlite::fromJSON(httr::content(resp, type = "text", encoding = "UTF-8"), flatten = flatten)
+}
+
+## Response => spatial
+resp_to_spatial <- function(resp) {
+  tmp <- resp_to_list(resp, flatten = FALSE)
+  if (!"geom" %in% names(tmp))
+    stop("Cannot coerce to simple feature")
+  #
+  df_nogeom <- as.data.frame(tmp[names(tmp) != "geom"])
+  if (is.null(tmp$geom)) {
+    sf::st_sf(df_nogeom, geom = sf::st_sfc(sf::st_point(
+      matrix(NA_real_, ncol = 2)), crs = 4326))
+  } else {
+    switch(
+      tmp$geom$type,
+      Point = sf::st_sf(df_nogeom, geom = sf::st_sfc(sf::st_point(
+        matrix(tmp$geom$coordinates, ncol = 2)), crs = 4326)),
+      Polygon = sf::st_sf(df_nogeom, geom = sf::st_sfc(sf::st_polygon(
+        list(tmp$geom$coordinates[1L, , ])), crs = 4326)),
+      stop("Only `Point` and `Polygon` are supported.")
     )
-  
-  if (null_to_na) out <- null_to_na(out)
+  }
 
-  geom <- out$geom
-  out$geom <- NULL
-  out <- data.frame(out, type = geom$type, coordinates = I(list(geom$coordinates)))
+}
 
+## Response => data.data.frame
+resp_to_df <- function(resp, endpoint) {
+  if (endpoint %in% c(endpoints()$network, endpoints()$interaction)) {
+    out <- as.data.frame(resp_to_spatial(resp))
+  } else {
+    tmp <- resp_to_list(resp, flatten = TRUE)
+    out <- as.data.frame(null_to_na(tmp))
+  }
+  class(out) <- c("tbl_df", "tbl", "data.frame")
+  out
+}
+
+
+
+## to data frame
+json_to_df <- function(resp, flatten, dropgeom = TRUE) {
+  #
+  out <- resp_to_list(resp, flatten)
+  #
+  # Simplify for user Drop all spatial features
+  if (dropgeom)
+    out$geom.type <- out$geom.type <-out$geom <- NULL
+  # Conserve NULL values for list
+  if (!is.data.frame(out))
+    out <- null_to_na(out)
+  out <- as.data.frame(out, stringsAsFactors = FALSE)
   class(out) <- c("tbl_df", "tbl", "data.frame")
   out
 }
 
 
 ## coerce body to one specific format
-coerce_body <- function(x, resp, flatten, null_to_na = FALSE) {
+coerce_body <- function(x, resp, flatten) {
   switch(
     x,
-    data.frame = json_to_df(resp, flatten, null_to_na),
-    spatial = mg_to_sf(json_to_df(resp, flatten, null_to_na))
+    data.frame = json_to_df(resp, flatten),
+    spatial = mg_to_sf(json_to_df(resp, flatten, FALSE)),
+    raw = resp_to_list(resp, flatten)
   )
 }
 
@@ -76,15 +119,18 @@ coerce_body <- function(x, resp, flatten, null_to_na = FALSE) {
 #' - `getError` which has the exact same structure with an empty body.
 #' @details
 #' See endpoints available with `endpoints()`
+#' @keywords internal
 
 get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE,
-  output = 'data.frame', verbose = TRUE,...) {
+  output = c("data.frame", "spatial", "raw"), verbose = TRUE,...) {
 
   url <- httr::modify_url(server(), path = paste0(base(), endpoint))
-
   query <- as.list(query)
 
   # Add number of entries to the param
+  output <- match.arg(output)
+  if (output == "spatial")
+    stopifnot(endpoint %in% c(endpoints()$network, endpoints()$interaction))
   query$count <- limit
 
   # First call used to set pages
@@ -101,12 +147,11 @@ get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE,
   rg <- as.numeric(tmp[grepl("\\d", tmp)])
 
   # Prep iterator over pages
-  pages <- ifelse(rg[3] < limit, 0, floor(rg[3] / limit))
+  pages <- ifelse(rg[3L] < limit, 0, floor(rg[3L] / limit))
 
   # Loop over pages
   for (page in 0:pages) {
     query$page <- page
-
     resp <- httr::GET(url,
       config = httr::add_headers(`Content-type` = "application/json"), ua,
       query = query, ...)
@@ -121,6 +166,12 @@ get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE,
     } else {
       # coerce body to output desired
       body <- coerce_body(output, resp, flatten)
+      # body <- switch(
+      #       output,
+      #       raw = resp_to_list(resp, flatten),
+      #       spatial = resp_to_spatial(resp),
+      #       data.frame = resp_to_df(resp, endpoint)
+      #     )
       responses[[page + 1]] <- structure(list(body = body, response = resp),
         class = "getSuccess")
     }
@@ -143,12 +194,17 @@ get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE,
 #' - `getError` which has the exact same structure with an empty body.
 #' @details
 #' See endpoints available with `endpoints()`
-
-get_singletons <- function(endpoint = NULL, ids = NULL, output = "data.frame",
-flatten = TRUE, verbose = FALSE,...) {
+#' @keywords internal
+# get_singletons(endpoint = endpoints()$network, ids = c(1101, 1102), flatten = FALSE)
+get_singletons <- function(endpoint = NULL, ids = NULL,
+  output = c("data.frame", "spatial", "raw"), flatten = TRUE,
+  verbose = FALSE, ...) {
 
   stopifnot(!is.null(endpoint) & !is.null(ids))
-  
+  output <- match.arg(output)
+  if (output == "spatial")
+    stopifnot(endpoint %in% c(endpoints()$network, endpoints()$interaction))
+
   # Prep output object
   responses <- list()
   class(responses) <- "mgGetResponses"
@@ -156,36 +212,32 @@ flatten = TRUE, verbose = FALSE,...) {
   # Loop over ids
   for (i in seq_len(length(ids))) {
     # Set url
-    url <- httr::modify_url(server(), path = paste0(base(), endpoint, "/",
-      ids[i]))
+    url <- httr::modify_url(server(), path = paste0(base(), endpoint, "/", ids[i]))
 
     # Call on the API
-    resp <- httr::GET(url,
-      config = httr::add_headers(`Content-type` = "application/json"), ua,
-      ...)
+    resp <- httr::GET(url, config = httr::add_headers(`Content-type` = "application/json"),
+      ua, ...)
 
     if (httr::http_error(resp)) {
-      
-      if (verbose){
-          message(sprintf("API request failed (%s): %s", httr::status_code(resp),
-             httr::content(resp)$message))
+      if (verbose) {
+        message(sprintf("API request failed (%s): %s", httr::status_code(resp), httr::content(resp)$message))
       }
-
-      responses[[i]]  <- structure(list(body = NULL, response = resp),
-          class = "getError")
-
+      responses[[i]] <- structure(list(body = NULL, response = resp), class = "getError")
     } else {
-
       # coerce body to output desired
-      body <- coerce_body(output, resp, flatten, null_to_na = TRUE)
-
-      responses[[i]]  <- structure(list(body = body, response = resp),
-        class = "getSuccess")
+      body <- switch(
+        output,
+        raw = resp_to_list(resp, flatten),
+        spatial = resp_to_spatial(resp),
+        data.frame = resp_to_df(resp, endpoint)
+      )
+      responses[[i]] <- structure(list(body = body, response = resp), class = "getSuccess")
     }
   }
 
   responses
 }
+
 
 #' Get entries based on foreign key
 #'
@@ -199,10 +251,11 @@ flatten = TRUE, verbose = FALSE,...) {
 #' Object returned by [rmangal::get_gen()]
 #' @details
 #' See endpoints available with `endpoints()`
+#' @keywords internal
 
-get_from_fkey <- function(endpoint, ...) {
-  query = list(...)
-  get_gen(endpoint = endpoint, query = query)
+get_from_fkey <- function(endpoint, output = "data.frame", ...) {
+  query <- list(...)
+  get_gen(endpoint = endpoint, output = output, query = query)
 }
 
 #' Coerce body return by the API to an sf object
@@ -210,6 +263,7 @@ get_from_fkey <- function(endpoint, ...) {
 #' @param body `data.frame` return by the API call
 #' @return
 #' sf object
+#' @keywords internal
 
 mg_to_sf <- function(body) {
 
@@ -219,7 +273,7 @@ mg_to_sf <- function(body) {
   }
 
   # build individual feature
-  features <- apply(body, 1, function(f){
+  features <- apply(body, 1, function(f) {
     if (is.na(f$geom.type) | is.null(f$geom.coordinates)){
       return(NULL)
     } else {
@@ -243,5 +297,5 @@ mg_to_sf <- function(body) {
   # remove spatial columns
   geom_df <- body[which(!names(body) %in% sf_columns())]
   # bind spatial feature with attributes table
-  sf::st_sf(geometry=sf::st_geometry(geom_s), geom_df)
+  sf::st_sf(geometry = sf::st_geometry(geom_s), geom_df)
 }

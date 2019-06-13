@@ -4,7 +4,7 @@
 \alias{get_from_fkey}
 \title{Get entries based on foreign key}
 \usage{
-get_from_fkey(endpoint, ...)
+get_from_fkey(endpoint, output = "data.frame", ...)
 }
 \arguments{
 \item{endpoint}{\code{character} API entry point}
@@ -25,3 +25,4 @@ See endpoints available with \code{endpoints()}
 get_from_fkey(endpoints()$node, network_id = 926)
 }
 }
+\keyword{internal}

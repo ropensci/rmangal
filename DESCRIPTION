@@ -19,26 +19,23 @@ Authors@R: c(
       email = "timothee.poisot@umontreal.ca", role = c("aut","ctb"))
       )
 Description: Retrieve and explore data from the ecological interaction database MANGAL.
-URL: http://poisotlab.biol.umontreal.ca/#/, https://github.com/mangal-wg/rmangal
+URL: http://poisotlab.biol.umontreal.ca/#/, https://github.com/mangal-rmangal
 BugReports: https://github.com/mangal-wg/rmangal/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
-  ade4,
-  ecoocc,
-  sp,
-  sf,
-  raster,
-  rgeos,
-  taxize,
-  ape,
-  emojifont,
-  rfishbase
+    httr (>= 1.3.1),
+    jsonlite (>= 1.5),
+    igraph,
+    purrr,
+    sf
 RoxygenNote: 6.1.1
 Suggests:
     knitr,
     rmarkdown,
-    testthat
+    testthat,
+    USAboundaries,
+    taxize
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)

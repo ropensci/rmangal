@@ -121,7 +121,7 @@
     </div>
 
     <pre class="usage"><span class='fu'>get_gen</span>(<span class='no'>endpoint</span>, <span class='kw'>query</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>limit</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>flatten</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>output</span> <span class='kw'>=</span> <span class='st'>"data.frame"</span>, <span class='no'>...</span>)</pre>
+  <span class='kw'>output</span> <span class='kw'>=</span> <span class='st'>"data.frame"</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -145,6 +145,10 @@
     <tr>
       <th>output</th>
       <td><p><code>character</code> output type (<code>data.frame</code>, <code>list</code>, <code>spatial</code>, <code>raw</code>) return (default: data.frame)</p></td>
+    </tr>
+    <tr>
+      <th>verbose</th>
+      <td><p><code>logical</code> print API code status on error; default: <code>TRUE</code></p></td>
     </tr>
     <tr>
       <th>...</th>

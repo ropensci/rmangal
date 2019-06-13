@@ -136,7 +136,7 @@ used to search in a specific geographical area. If keyword is unspecified (query
     </tr>
     <tr>
       <th>...</th>
-      <td><p>further arguments to be passed to <code>rmangal::get_gen()</code>.</p></td>
+      <td><p>further arguments to be passed to <code><a href='get_gen.html'>rmangal::get_gen()</a></code>.</p></td>
     </tr>
     </table>
     
@@ -146,7 +146,7 @@ used to search in a specific geographical area. If keyword is unspecified (query
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>search_networks</span>(<span class='kw'>query</span><span class='kw'>=</span><span class='st'>"insect%"</span>)</div><div class='output co'>#&gt; <span class='message'>Found 14 networks</span></div><div class='output co'>#&gt; # A tibble: 14 x 12
+    <pre class="examples"><div class='input'><span class='fu'>search_networks</span>(<span class='kw'>query</span><span class='kw'>=</span><span class='st'>"insect%"</span>)</div><div class='output co'>#&gt; <span class='message'>Found 14 networks</span></div><div class='output co'>#&gt; # A tibble: 14 x 10
 #&gt;       id name  date  description public all_interactions created_at updated_at
 #&gt;    &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;       &lt;lgl&gt;  &lt;lgl&gt;            &lt;chr&gt;      &lt;chr&gt;     
 #&gt;  1    18 mosq… 1965… Occurence … TRUE   FALSE            2019-02-2… 2019-02-2…
@@ -163,8 +163,7 @@ used to search in a specific geographical area. If keyword is unspecified (query
 #&gt; 12  1508 vali… 1966… The insect… TRUE   FALSE            2019-03-0… 2019-03-0…
 #&gt; 13  1510 whit… 1981… The insect… TRUE   FALSE            2019-03-0… 2019-03-0…
 #&gt; 14  1566 rich… 1922… Food web s… TRUE   FALSE            2019-03-1… 2019-03-1…
-#&gt; # … with 4 more variables: dataset_id &lt;int&gt;, user_id &lt;int&gt;, geom.type &lt;chr&gt;,
-#&gt; #   geom.coordinates &lt;list&gt;</div><span class='co'># NOT RUN {</span>
+#&gt; # … with 2 more variables: dataset_id &lt;int&gt;, user_id &lt;int&gt;</div><span class='co'># NOT RUN {</span>
 <span class='co'># Spatial query</span>
 <span class='fu'>library</span>(<span class='no'>USAboundaries</span>)
 <span class='no'>area</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://lincolnmullen.com/software/usaboundaries/reference/us_states.html'>us_states</a></span>(<span class='kw'>state</span><span class='kw'>=</span><span class='st'>"california"</span>)

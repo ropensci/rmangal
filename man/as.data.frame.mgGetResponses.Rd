@@ -14,3 +14,4 @@
 \description{
 Coerce \code{mgGetResponses} to data.frame
 }
+\keyword{internal}
