@@ -28,22 +28,20 @@ sf_columns <- function(x) c("geom.type", "geom.coordinates")
 # NULL to NA
 null_to_na <- function(x) {
     if (is.list(x)) {
-      return(lapply(x, null_to_na))
+      lapply(x, null_to_na)
     } else {
-      return(ifelse(is.null(x), NA, x))
+      ifelse(is.null(x), NA, x)
     }
 }
 
 ## Response => list
-resp_to_list <- function(resp, flatten) {
+resp_to_list <- function(resp, flatten = FALSE) {
   jsonlite::fromJSON(httr::content(resp, type = "text", encoding = "UTF-8"), flatten = flatten)
 }
 
 ## Response => spatial
 resp_to_spatial <- function(resp) {
-  tmp <- resp_to_list(resp, flatten = FALSE)
-  if (!"geom" %in% names(tmp))
-    stop("Cannot coerce to simple feature")
+  tmp <- resp_to_list(resp)
   #
   df_nogeom <- as.data.frame(tmp[names(tmp) != "geom"])
   if (is.null(tmp$geom)) {
@@ -74,8 +72,6 @@ resp_to_df <- function(resp, endpoint) {
   out
 }
 
-
-
 ## to data frame
 json_to_df <- function(resp, flatten, dropgeom = TRUE) {
   #
@@ -91,7 +87,6 @@ json_to_df <- function(resp, flatten, dropgeom = TRUE) {
   class(out) <- c("tbl_df", "tbl", "data.frame")
   out
 }
-
 
 ## coerce body to one specific format
 coerce_body <- function(x, resp, flatten) {
@@ -147,7 +142,7 @@ get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE,
   rg <- as.numeric(tmp[grepl("\\d", tmp)])
 
   # Prep iterator over pages
-  pages <- ifelse(rg[3L] < limit, 0, floor(rg[3L] / limit))
+  pages <- rg[3L] %/% limit
 
   # Loop over pages
   for (page in 0:pages) {
