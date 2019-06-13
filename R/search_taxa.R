@@ -1,7 +1,13 @@
 #' Search network by taxa using keyword, tsn, eol, bold or ncbi IDs.
 #'
 #' @param query `character` query on taxa names
-#' @param original a `logical`. Should query taxa names from the original publication? (see details section, default is set to `FALSE`)
+#' @param tsn a `numeric`. Unique taxonomic identifier from Integrated Taxonomic Information Sytem (https://www.itis.gov/)
+#' @param gbif a `numeric`. Unique taxonomic identifier from Global Biodiversity Information Facility (https://www.gbif.org/)
+#' @param eol a `numeric`. Unique taxonomic identifier from Encyclopedia of Life (https://eol.org/)
+#' @param col a `numeric`. Unique taxonomic identifier from Catalogue of Life (https://www.catalogueoflife.org/)
+#' @param bold a `numeric`. Unique taxonomic identifier from Barcode of Life (http://www.boldsystems.org/)
+#' @param ncbi a `numeric`. Unique taxonomic identifier from National Center for Biotechnology Information (https://www.ncbi.nlm.nih.gov/)
+#' @param original a `logical`. Should query taxa names from the original publication? (see details section, default is set to `FALSE`, only work for full text search)
 #' @param verbose a `logical`. Should extra information be reported on progress?
 #' @param ... further arguments to be passed to [rmangal::get_gen()].
 #' @details
@@ -33,7 +39,7 @@ search_taxa <- function( query = NULL, tsn = NULL, gbif = NULL, eol = NULL, col 
     )
 
     if (sum(!sapply(request,is.null)) > 1) {
-      stop("Query multiple criteria not allowed")
+      stop("Query with multiple criteria not allowed")
     } else if (sum(!sapply(request,is.null)) == 0) {
       stop("Query unspecified")
     }
@@ -45,6 +51,7 @@ search_taxa <- function( query = NULL, tsn = NULL, gbif = NULL, eol = NULL, col 
     if (!is.null(query) & original) {
 
       taxa <- as.data.frame(get_gen(endpoints()$node, query = request))
+      # Store network ids
       network_ids <- taxa$network_id
 
     } else {
@@ -58,12 +65,13 @@ search_taxa <- function( query = NULL, tsn = NULL, gbif = NULL, eol = NULL, col 
 
         # Add original publication name for the taxa
         taxa$original_name <- tmp_nodes$original_name
-        # Retrieve network in which taxa are involved
+        # Store network ids
         network_ids <- tmp_nodes$network_id
       } else network_ids <- NULL
 
     }
 
+    # Retrieve network in which taxa are involved
     if (length(network_ids)) {
       taxa$networks <- as.data.frame(get_singletons(endpoints()$network, network_ids))
     } else {

@@ -4,12 +4,26 @@
 \alias{search_taxa}
 \title{Search network by taxa using keyword, tsn, eol, bold or ncbi IDs.}
 \usage{
-search_taxa(query = NULL, original = FALSE, verbose = TRUE, ...)
+search_taxa(query = NULL, tsn = NULL, gbif = NULL, eol = NULL,
+  col = NULL, bold = NULL, ncbi = NULL, original = FALSE,
+  verbose = TRUE, ...)
 }
 \arguments{
-\item{query}{\code{character} specific taxon / keyword / or tsn, eol (page ID), bold & ncbi IDs (mandatory arg).}
+\item{query}{\code{character} query on taxa names}
 
-\item{original}{a \code{logical}. Should query taxa names from the original publication? (see details section, default is set to \code{FALSE})}
+\item{tsn}{a \code{numeric}. Unique taxonomic identifier from Integrated Taxonomic Information Sytem (https://www.itis.gov/)}
+
+\item{gbif}{a \code{numeric}. Unique taxonomic identifier from Global Biodiversity Information Facility (https://www.gbif.org/)}
+
+\item{eol}{a \code{numeric}. Unique taxonomic identifier from Encyclopedia of Life (https://eol.org/)}
+
+\item{col}{a \code{numeric}. Unique taxonomic identifier from Catalogue of Life (https://www.catalogueoflife.org/)}
+
+\item{bold}{a \code{numeric}. Unique taxonomic identifier from Barcode of Life (http://www.boldsystems.org/)}
+
+\item{ncbi}{a \code{numeric}. Unique taxonomic identifier from National Center for Biotechnology Information (https://www.ncbi.nlm.nih.gov/)}
+
+\item{original}{a \code{logical}. Should query taxa names from the original publication? (see details section, default is set to \code{FALSE}, only work for full text search)}
 
 \item{verbose}{a \code{logical}. Should extra information be reported on progress?}
 

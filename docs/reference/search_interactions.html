@@ -148,28 +148,28 @@ All networks in which interactions are involved are also attached to the <code>d
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>search_interactions</span>(<span class='st'>"competition"</span>)</div><div class='output co'>#&gt; # A tibble: 12 x 20
-#&gt;        id node_from node_to date  direction type  method attr_id value public
-#&gt;     &lt;int&gt;     &lt;int&gt;   &lt;int&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;    &lt;int&gt; &lt;int&gt; &lt;lgl&gt; 
-#&gt;  1  97641     24343   24344 1973… undirect… comp… field…      25     1 TRUE  
-#&gt;  2  97652     24352   24351 1973… undirect… comp… field…      25     1 TRUE  
-#&gt;  3  97709     24370   24378 1973… undirect… comp… field…      25     1 TRUE  
-#&gt;  4  97679     24357   24358 1973… undirect… comp… field…      25     1 TRUE  
-#&gt;  5 100173     25149   25149 1976… undirect… comp… field…      25     1 TRUE  
-#&gt;  6 100174     25149   25150 1976… undirect… comp… field…      25     1 TRUE  
-#&gt;  7 101348     25576   25577 1970… undirect… comp… Field…      25     1 TRUE  
-#&gt;  8 101349     25576   25578 1970… undirect… comp… Field…      25     1 TRUE  
-#&gt;  9 101350     25576   25571 1970… undirect… comp… Field…      25     1 TRUE  
-#&gt; 10 101351     25577   25578 1970… undirect… comp… Field…      25     1 TRUE  
-#&gt; 11 101352     25577   25571 1970… undirect… comp… Field…      25     1 TRUE  
-#&gt; 12 101353     25578   25571 1970… undirect… comp… Field…      25     1 TRUE  
-#&gt; # … with 19 more variables: network_id &lt;int&gt;, created_at &lt;chr&gt;,
+    <pre class="examples"><div class='input'><span class='fu'>search_interactions</span>(<span class='st'>"competition"</span>)</div><div class='output co'>#&gt; # A tibble: 12 x 21
+#&gt;        id node_from node_to date  direction type  method attr_id value geom 
+#&gt;     &lt;int&gt;     &lt;int&gt;   &lt;int&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;    &lt;int&gt; &lt;int&gt; &lt;lgl&gt;
+#&gt;  1  97641     24343   24344 1973… undirect… comp… field…      25     1 NA   
+#&gt;  2  97652     24352   24351 1973… undirect… comp… field…      25     1 NA   
+#&gt;  3  97709     24370   24378 1973… undirect… comp… field…      25     1 NA   
+#&gt;  4  97679     24357   24358 1973… undirect… comp… field…      25     1 NA   
+#&gt;  5 100173     25149   25149 1976… undirect… comp… field…      25     1 NA   
+#&gt;  6 100174     25149   25150 1976… undirect… comp… field…      25     1 NA   
+#&gt;  7 101348     25576   25577 1970… undirect… comp… Field…      25     1 NA   
+#&gt;  8 101349     25576   25578 1970… undirect… comp… Field…      25     1 NA   
+#&gt;  9 101350     25576   25571 1970… undirect… comp… Field…      25     1 NA   
+#&gt; 10 101351     25577   25578 1970… undirect… comp… Field…      25     1 NA   
+#&gt; 11 101352     25577   25571 1970… undirect… comp… Field…      25     1 NA   
+#&gt; 12 101353     25578   25571 1970… undirect… comp… Field…      25     1 NA   
+#&gt; # … with 22 more variables: public &lt;lgl&gt;, network_id &lt;int&gt;, created_at &lt;chr&gt;,
 #&gt; #   updated_at &lt;chr&gt;, attribute.id &lt;int&gt;, attribute.name &lt;chr&gt;,
 #&gt; #   attribute.description &lt;chr&gt;, attribute.unit &lt;lgl&gt;,
 #&gt; #   attribute.created_at &lt;chr&gt;, attribute.updated_at &lt;chr&gt;, networks$id &lt;int&gt;,
-#&gt; #   $name &lt;chr&gt;, $date &lt;chr&gt;, $description &lt;chr&gt;, $public &lt;lgl&gt;,
-#&gt; #   $all_interactions &lt;lgl&gt;, $created_at &lt;chr&gt;, $updated_at &lt;chr&gt;,
-#&gt; #   $dataset_id &lt;int&gt;, $user_id &lt;int&gt;</div><div class='input'><span class='co'># Get all networks containing competition</span>
+#&gt; #   $name &lt;chr&gt;, $date &lt;chr&gt;, $geom.type &lt;chr&gt;, $geom.coordinates &lt;dbl&gt;,
+#&gt; #   $description &lt;chr&gt;, $public &lt;lgl&gt;, $all_interactions &lt;lgl&gt;,
+#&gt; #   $created_at &lt;chr&gt;, $updated_at &lt;chr&gt;, $dataset_id &lt;int&gt;, $user_id &lt;int&gt;</div><div class='input'><span class='co'># Get all networks containing competition</span>
 <span class='no'>competition_networks</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='get_collection.html'>get_collection</a></span>(<span class='fu'>search_interactions</span>(<span class='st'>"competition"</span>))</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

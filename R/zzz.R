@@ -40,13 +40,6 @@ json_to_df <- function(resp, flatten, drop_geom) {
       httr::content(resp, type = "text", encoding = "UTF-8"), flatten = flatten
     )
 
-  # Simplify for user
-  # Drop all spatial features
-  if(drop_geom){
-    out$geom <- NULL
-    out$geom.type <- NULL
-    out$geom.coordinates <- NULL
-  }
 
   # Conserve NULL values for list
   if(!is.data.frame(out)) out <- null_to_na(out)

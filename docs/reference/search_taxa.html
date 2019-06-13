@@ -120,18 +120,44 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>search_taxa</span>(<span class='kw'>query</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>search_taxa</span>(<span class='kw'>query</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>tsn</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>gbif</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>eol</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>col</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>bold</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ncbi</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>query</th>
-      <td><p><code>character</code> specific taxon / keyword / or tsn, eol (page ID), bold &amp; ncbi IDs (mandatory arg).</p></td>
+      <td><p><code>character</code> query on taxa names</p></td>
+    </tr>
+    <tr>
+      <th>tsn</th>
+      <td><p>a <code>numeric</code>. Unique taxonomic identifier from Integrated Taxonomic Information Sytem (https://www.itis.gov/)</p></td>
+    </tr>
+    <tr>
+      <th>gbif</th>
+      <td><p>a <code>numeric</code>. Unique taxonomic identifier from Global Biodiversity Information Facility (https://www.gbif.org/)</p></td>
+    </tr>
+    <tr>
+      <th>eol</th>
+      <td><p>a <code>numeric</code>. Unique taxonomic identifier from Encyclopedia of Life (https://eol.org/)</p></td>
+    </tr>
+    <tr>
+      <th>col</th>
+      <td><p>a <code>numeric</code>. Unique taxonomic identifier from Catalogue of Life (https://www.catalogueoflife.org/)</p></td>
+    </tr>
+    <tr>
+      <th>bold</th>
+      <td><p>a <code>numeric</code>. Unique taxonomic identifier from Barcode of Life (http://www.boldsystems.org/)</p></td>
+    </tr>
+    <tr>
+      <th>ncbi</th>
+      <td><p>a <code>numeric</code>. Unique taxonomic identifier from National Center for Biotechnology Information (https://www.ncbi.nlm.nih.gov/)</p></td>
     </tr>
     <tr>
       <th>original</th>
-      <td><p>a <code>logical</code>. Should query taxa names from the original publication? (see details section, default is set to <code>FALSE</code>)</p></td>
+      <td><p>a <code>logical</code>. Should query taxa names from the original publication? (see details section, default is set to <code>FALSE</code>, only work for full text search)</p></td>
     </tr>
     <tr>
       <th>verbose</th>
@@ -157,7 +183,7 @@ In order to query, the original name, set argument <code>original</code> to <cod
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>search_taxa</span>(<span class='st'>"Acer"</span>)</div><div class='output co'>#&gt; <span class='message'>Found 5 taxa</span></div><div class='output co'>#&gt; # A tibble: 5 x 11
+    <pre class="examples"><div class='input'><span class='fu'>search_taxa</span>(<span class='st'>"Acer"</span>)</div><div class='output co'>#&gt; <span class='message'>Full text search</span></div><div class='output co'>#&gt; <span class='message'>Found 5 taxa involved in 5 network(s)</span></div><div class='output co'>#&gt; # A tibble: 5 x 11
 #&gt;      id name    ncbi    tsn    eol   bold gbif  created_at updated_at
 #&gt;   &lt;int&gt; &lt;chr&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt; &lt;lgl&gt; &lt;chr&gt;      &lt;chr&gt;     
 #&gt; 1     2 Acer…   4023 182132 5.09e7 100987 NA    2019-02-2… 2019-02-2…
@@ -165,11 +191,11 @@ In order to query, the original name, set argument <code>original</code> to <cod
 #&gt; 3  3117 Acer…  66216     NA 5.73e7 485602 NA    2019-02-2… 2019-02-2…
 #&gt; 4  3144 Acer… 171221     NA 5.73e7 102197 NA    2019-02-2… 2019-02-2…
 #&gt; 5  3151 Acer…  47966 837855 5.73e7 448667 NA    2019-02-2… 2019-02-2…
-#&gt; # … with 11 more variables: original_name &lt;chr&gt;, networks$id &lt;int&gt;,
-#&gt; #   $name &lt;chr&gt;, $date &lt;chr&gt;, $description &lt;chr&gt;, $public &lt;lgl&gt;,
-#&gt; #   $all_interactions &lt;lgl&gt;, $created_at &lt;chr&gt;, $updated_at &lt;chr&gt;,
-#&gt; #   $dataset_id &lt;int&gt;, $user_id &lt;int&gt;</div><div class='input'><span class='co'># Retrieve higher classification</span>
-<span class='no'>tsn_acer</span> <span class='kw'>&lt;-</span> <span class='fu'>search_taxa</span>(<span class='st'>"Acer"</span>)$<span class='no'>tsn</span></div><div class='output co'>#&gt; <span class='message'>Found 5 taxa</span></div><div class='input'><span class='kw pkg'>taxize</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/taxize/topics/classification'>classification</a></span>(<span class='no'>tsn_acer</span>, <span class='kw'>db</span> <span class='kw'>=</span> <span class='st'>"itis"</span>)</div><div class='output co'>#&gt; $`182132`
+#&gt; # … with 13 more variables: original_name &lt;chr&gt;, networks$id &lt;int&gt;,
+#&gt; #   $name &lt;chr&gt;, $date &lt;chr&gt;, $geom.type &lt;chr&gt;, $geom.coordinates &lt;dbl&gt;,
+#&gt; #   $description &lt;chr&gt;, $public &lt;lgl&gt;, $all_interactions &lt;lgl&gt;,
+#&gt; #   $created_at &lt;chr&gt;, $updated_at &lt;chr&gt;, $dataset_id &lt;int&gt;, $user_id &lt;int&gt;</div><div class='input'><span class='co'># Retrieve higher classification</span>
+<span class='no'>tsn_acer</span> <span class='kw'>&lt;-</span> <span class='fu'>search_taxa</span>(<span class='st'>"Acer"</span>)$<span class='no'>tsn</span></div><div class='output co'>#&gt; <span class='message'>Full text search</span></div><div class='output co'>#&gt; <span class='message'>Found 5 taxa involved in 5 network(s)</span></div><div class='input'><span class='kw pkg'>taxize</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/taxize/topics/classification'>classification</a></span>(<span class='no'>tsn_acer</span>, <span class='kw'>db</span> <span class='kw'>=</span> <span class='st'>"itis"</span>)</div><div class='output co'>#&gt; $`182132`
 #&gt;                           name          rank     id
 #&gt; 1                      Plantae       kingdom 202422
 #&gt; 2                Viridiplantae    subkingdom 954898

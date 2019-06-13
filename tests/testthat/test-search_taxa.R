@@ -15,6 +15,6 @@ test_that("expected behavior", {
   expect_true(resTsn$name == "Acer negundo")
   expect_true(resNcbi$name == "Acer japonicum")
   expect_true(resBold$name == "Acer ukurunduense")
-  expect_error(search_taxa(query = "Acer", tsn = 182132), "Query multiple criteria not allowed")
+  expect_error(search_taxa(query = "Acer", tsn = 182132), "Query with multiple criteria not allowed")
   expect_error(search_taxa(), "Query unspecified")
 })
