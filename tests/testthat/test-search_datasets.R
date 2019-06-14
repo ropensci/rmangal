@@ -22,7 +22,6 @@ test_that("expected behavior", {
 
 
 test_that("output format", {
-  expect_equal(class(resw), c(cl_df, "mgSearchDatasets"))
   expect_equal(class(res3), c(cl_df, "mgSearchDatasets"))
 })
 

@@ -34,6 +34,14 @@ null_to_na <- function(x) {
     }
 }
 
+
+
+## Response => raw
+resp_raw <- function(resp) {
+ httr::content(resp, as = "parsed", encoding = "UTF-8")
+}
+
+
 ## Response => list
 resp_to_list <- function(resp, flatten = FALSE) {
   jsonlite::fromJSON(httr::content(resp, type = "text", encoding = "UTF-8"), flatten = flatten)
@@ -60,7 +68,90 @@ resp_to_spatial <- function(resp) {
 
 }
 
-## Response => data.data.frame
+## Response => data.frame
+resp_to_df0 <- function(x) {
+  if (is.null(x))
+    x else do.call(rbind, lapply(null_to_na(x), as.data.frame))
+}
+
+# flatten + fill
+resp_to_df_flt <- function(x) {
+  x <- null_to_na(x)
+  ldf <- lapply(lapply(x, as.data.frame), jsonlite::flatten)
+  vnm <- unique(unlist(lapply(ldf, names)))
+  ldf2 <- lapply(ldf, fill_df, vnm)
+  do.call(rbind, ldf2)
+}
+
+fill_df <- function(x, nms) {
+  id <- nms[!  nms %in% names(x)]
+  if (length(id)) {
+    x[id] <- NA
+  }
+  x
+}
+
+## Response => spatial
+resp_to_spatial0 <- function(x) {
+  if (is.null(x)) {
+    x
+  } else {
+      suppressWarnings(do.call(rbind, lapply(null_to_na(x), switch_sf)))
+  }
+}
+
+switch_sf <- function(tmp) {
+  df_nogeom <- as.data.frame(tmp[names(tmp) != "geom"])
+  if (is.na(tmp$geom)) {
+    sf::st_sf(df_nogeom, geom = sf::st_sfc(sf::st_point(
+      matrix(NA_real_, ncol = 2)), crs = 4326))
+  } else {
+    co <- matrix(unlist(tmp$geom$coordinates), ncol = 2, byrow = TRUE)
+    switch(
+      tmp$geom$type,
+      Point = sf::st_sf(df_nogeom, geom = sf::st_sfc(sf::st_point(co),
+        crs = 4326)),
+      Polygon = sf::st_sf(df_nogeom, geom = sf::st_sfc(sf::st_polygon(
+        list(co)), crs = 4326)),
+      stop("Only `Point` and `Polygon` are supported.")
+    )
+  }
+}
+
+#' Get entries based on foreign key
+#'
+#' @param endpoint `character` API entry point
+#' @param ... foreign key column name with the id
+#' @examples
+#'\dontrun{
+#' get_from_fkey(endpoints()$node, network_id = 926)
+#'}
+#' @return
+#' Object returned by [rmangal::get_gen()]
+#' @details
+#' See endpoints available with `endpoints()`
+#' @keywords internal
+
+get_from_fkey <- function(endpoint, ...) {
+  query <- list(...)
+  # print(get_gen(endpoint = endpoint, query = query)$body)
+  resp_to_df0(get_gen(endpoint = endpoint, query = query)$body)
+}
+
+get_from_fkey_net <- function(endpoint, ...) {
+  query <- list(...)
+  resp_to_spatial0(get_gen(endpoint = endpoint, query = query)$body)
+}
+
+get_from_fkey_flt <- function(endpoint, ...) {
+  query <- list(...)
+  resp_to_df_flt(get_gen(endpoint = endpoint, query = query)$body)
+}
+
+
+
+
+## Response => data.frame
 resp_to_df <- function(resp, endpoint) {
   if (endpoint %in% c(endpoints()$network, endpoints()$interaction)) {
     out <- as.data.frame(resp_to_spatial(resp))
@@ -94,7 +185,7 @@ coerce_body <- function(x, resp, flatten) {
     x,
     data.frame = json_to_df(resp, flatten),
     spatial = mg_to_sf(json_to_df(resp, flatten, FALSE)),
-    raw = resp_to_list(resp, flatten)
+    raw = resp_raw(resp)
   )
 }
 
@@ -116,16 +207,12 @@ coerce_body <- function(x, resp, flatten) {
 #' See endpoints available with `endpoints()`
 #' @keywords internal
 
-get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE,
-  output = c("data.frame", "spatial", "raw"), verbose = TRUE,...) {
+get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE, verbose = TRUE,...) {
 
   url <- httr::modify_url(server(), path = paste0(base(), endpoint))
   query <- as.list(query)
 
   # Add number of entries to the param
-  output <- match.arg(output)
-  if (output == "spatial")
-    stopifnot(endpoint %in% c(endpoints()$network, endpoints()$interaction))
   query$count <- limit
 
   # First call used to set pages
@@ -135,13 +222,10 @@ get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE,
 
   # Prep output object
   responses <- list()
-  class(responses) <- "mgGetResponses"
 
-  # Get number of page
+  # Get # pages
   tmp <- unlist(strsplit(httr::headers(resp)$"content-range", split = "\\D"))
   rg <- as.numeric(tmp[grepl("\\d", tmp)])
-
-  # Prep iterator over pages
   pages <- rg[3L] %/% limit
 
   # Loop over pages
@@ -156,23 +240,25 @@ get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE,
           message(sprintf("API request failed (%s): %s", httr::status_code(resp),
              httr::content(resp)$message))
       }
-      responses[[page + 1]] <- structure(list(body = NULL, response = resp),
-          class = "getError")
+      responses[[page + 1]] <- structure(list(body = NULL, response = resp), class = "getError")
     } else {
-      # coerce body to output desired
-      body <- coerce_body(output, resp, flatten)
-      # body <- switch(
-      #       output,
-      #       raw = resp_to_list(resp, flatten),
-      #       spatial = resp_to_spatial(resp),
-      #       data.frame = resp_to_df(resp, endpoint)
-      #     )
-      responses[[page + 1]] <- structure(list(body = body, response = resp),
-        class = "getSuccess")
+      responses[[page + 1]] <- structure(list(
+        body = resp_raw(resp),
+        response = resp), class = "getSuccess")
     }
   }
-  responses
+  # check error here if desired;
+  out <- list(
+    body = unlist(purrr::map(responses, "body"), recursive = FALSE),
+    response = unlist(purrr::map(responses, "body"), recursive = FALSE)
+  )
+  class(out) <- "mgGetResponses"
+  out
 }
+
+get_info_ul <- function(x, info) unlist(lapply(x, `[`, info))
+
+get_info <- function(x, info) lapply(x, `[`, info)
 
 #' Generic API function to retrieve singletons
 #'
@@ -222,7 +308,7 @@ get_singletons <- function(endpoint = NULL, ids = NULL,
       # coerce body to output desired
       body <- switch(
         output,
-        raw = resp_to_list(resp, flatten),
+        raw = resp_raw(resp),
         spatial = resp_to_spatial(resp),
         data.frame = resp_to_df(resp, endpoint)
       )
@@ -234,24 +320,7 @@ get_singletons <- function(endpoint = NULL, ids = NULL,
 }
 
 
-#' Get entries based on foreign key
-#'
-#' @param endpoint `character` API entry point
-#' @param ... foreign key column name with the id
-#' @examples
-#'\dontrun{
-#' get_from_fkey(endpoints()$node, network_id = 926)
-#'}
-#' @return
-#' Object returned by [rmangal::get_gen()]
-#' @details
-#' See endpoints available with `endpoints()`
-#' @keywords internal
 
-get_from_fkey <- function(endpoint, output = "data.frame", ...) {
-  query <- list(...)
-  get_gen(endpoint = endpoint, output = output, query = query)
-}
 
 #' Coerce body return by the API to an sf object
 #'

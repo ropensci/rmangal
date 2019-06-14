@@ -13,19 +13,16 @@ search_reference <- function(doi, verbose = TRUE, ...) {
 
   stopifnot(is.character(doi) & length(doi) == 1)
 
-  ref <- as.data.frame(get_gen(endpoints()$reference, query = list(doi = doi), ...))
+  ref <- resp_to_df0(get_gen(endpoints()$reference, query = list(doi = doi), ...)$body)
 
   if (verbose)
     message(sprintf("Found dataset: \n %s", ref$bibtex))
 
   # Attach dataset
-  datasets <- purrr::map(get_from_fkey(endpoints()$dataset, ref_id = ref$id), "body")
-  ref$datasets <- do.call(rbind, datasets)
+  ref$datasets <- get_from_fkey(endpoints()$dataset, ref_id = ref$id)
 
-  # Attach dataset
-  networks <- purrr::map(get_from_fkey(endpoints()$network, dataset_id = ref$datasets$id),
-    "body")
-  ref$networks <- do.call(rbind, networks)
+  # Attach network
+  ref$networks <- get_from_fkey_net(endpoints()$network, dataset_id = ref$datasets$id)
 
   class(ref) <- "mgSearchReference"
   ref

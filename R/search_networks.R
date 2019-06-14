@@ -1,6 +1,6 @@
 #' Search over all networks using keyword or spatial object
 #'
-#' @param query `character` keyword used to search over all networks (case sensitive) or a `sf` object 
+#' @param query `character` keyword used to search over all networks (case sensitive) or a `sf` object
 #' used to search in a specific geographical area. If keyword is unspecified (query = NULL), all networks will be returned.
 #' @param verbose a `logical`. Should extra information be reported on progress?
 #' @param ... further arguments to be passed to [rmangal::get_gen()].
@@ -25,21 +25,25 @@ search_networks <- function(query = NULL, verbose = TRUE, ...) {
 
     if (verbose) message("Spatial query mode")
     # API doesn't allow spatial search - patch with R
-    sp_networks <- as.data.frame(get_gen(
-      endpoints()$network, output = "spatial", ...))
-
-    # Making sure projection are WGS84
+    sp_networks <- resp_to_spatial0(get_gen(endpoints()$network, ...)$body)
+    if (is.null(sp_networks)) {
+      if (verbose) message("no network found")
+      return(data.frame())
+    }
+    # Set projection to WGS84
     networks <- sp_networks[unlist(
       sf::st_contains(sf::st_transform(polygon, crs = 4326), sp_networks)),]
 
   } else {
 
     # Full search
-    if (is.character(query)) {
-      query <- list( q = query )
+    if (is.character(query)) query <- list( q = query )
+
+    networks <- resp_to_spatial0(get_gen(endpoints()$network, query = query, ...)$body)
+    if (is.null(networks)) {
+      if (verbose) message("no network found")
+      return(data.frame())
     }
-    
-    networks <- as.data.frame(get_gen(endpoints()$network, query = query, ...))
 
   }
 

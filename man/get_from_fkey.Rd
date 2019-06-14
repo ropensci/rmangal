@@ -4,7 +4,7 @@
 \alias{get_from_fkey}
 \title{Get entries based on foreign key}
 \usage{
-get_from_fkey(endpoint, output = "data.frame", ...)
+get_from_fkey(endpoint, ...)
 }
 \arguments{
 \item{endpoint}{\code{character} API entry point}

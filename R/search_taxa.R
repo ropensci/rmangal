@@ -19,43 +19,40 @@
 #' taxize::classification(tsn_acer, db = "itis")
 #' @export
 
-search_taxa <- function( query = NULL, original = FALSE, verbose = TRUE, ... ) {
+search_taxa <- function(query = NULL, original = FALSE, verbose = TRUE, ...) {
 
-    stopifnot(!is.null(query) & is.character(query))
+  stopifnot(!is.null(query) & is.character(query))
 
-    if (!original) {
+  if (!original) {
 
-        taxa <- as.data.frame(get_gen(endpoints()$taxonomy, query = list(q = query)))
+    taxa <- resp_to_df0(get_gen(endpoints()$taxonomy, query = list(q = query))$body)
 
-        if (length(taxa)) {
-          tmp_nodes <- do.call(rbind,
-              purrr::map(sapply(taxa$id,
-                function(x) get_from_fkey(endpoints()$node, taxonomy_id = x )), "body"))
+    if (length(taxa)) {
+      tmp_nodes <- do.call(rbind, lapply(taxa$id, function(x)
+        get_from_fkey_flt(endpoints()$node, taxonomy_id = x)))
 
-          # Add original publication name for the taxa
-          taxa$original_name <- tmp_nodes$original_name
-          # Retrieve network in which taxa are involved
-          network_ids <- tmp_nodes$network_id
-        } else network_ids <- NULL
+      # Add original publication name for the taxa
+      taxa$original_name <- tmp_nodes$original_name
+      # Retrieve network in which taxa are involved
+      network_ids <- tmp_nodes$network_id
+    } else network_ids <- NULL
 
-    } else {
+  } else {
 
-        taxa <- as.data.frame(get_gen(endpoints()$node,
-          query = list(q = query)))
-        network_ids <- taxa$network_id
+    taxa <- resp_to_df0(get_gen(endpoints()$node,
+      query = list(q = query))$body)
+    network_ids <- taxa$network_id
 
-    }
+  }
 
-    if (length(network_ids)) {
-        taxa$networks <- as.data.frame(get_singletons(endpoints()$network, network_ids))
-    } else {
-      taxa <- data.frame(NULL)
-    }
+  if (length(network_ids)) {
+    taxa$networks <- as.data.frame(get_singletons(endpoints()$network, network_ids))
+  } else taxa <- data.frame(NULL)
 
+  if (verbose)
+    message(sprintf("Found %s taxa", nrow(taxa)))
 
-    if (verbose) message(sprintf("Found %s taxa", nrow(taxa)))
-
-    class(taxa) <- append(class(taxa), "mgSearchTaxa")
-    taxa
+  class(taxa) <- append(class(taxa), "mgSearchTaxa")
+  taxa
 
 }

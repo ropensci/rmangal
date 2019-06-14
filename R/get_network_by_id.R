@@ -13,7 +13,6 @@
 #' get_network_by_id(id = 18)
 #' @export
 
-
 get_network_by_id <- function(id, ...) {
 
   stopifnot(length(id) == 1)
@@ -26,8 +25,8 @@ get_network_by_id <- function(id, ...) {
     stop(sprintf("network id %s not found", id))
 
   # nodes and edges associated with the network
-  mg_network$nodes <- as.data.frame(get_from_fkey(endpoints()$node, network_id = mg_network$network$id))
-  mg_network$edges <- as.data.frame(get_from_fkey(endpoints()$interaction, network_id = mg_network$network$id))
+  mg_network$nodes <- get_from_fkey_flt(endpoints()$node, network_id = mg_network$network$id)
+  mg_network$edges <- get_from_fkey_net(endpoints()$interaction, network_id = mg_network$network$id)
 
   # retrieve dataset informations
   mg_network$dataset <- as.data.frame(get_singletons(endpoints()$dataset, ids = unique(mg_network$network$dataset_id)))

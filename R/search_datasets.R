@@ -17,7 +17,7 @@
 #' }
 #' # Search with keyword
 #' search_datasets(query = 'lagoon')
-#' search_datasets(query = '2011')
+#' res2011 <- search_datasets(query = '2011')
 #' # Search with custom query (specific column)
 #' search_datasets(query = list(name = 'kemp_1977'))
 #' @export
@@ -25,20 +25,26 @@
 search_datasets <- function(query = NULL, verbose = TRUE, ...) {
 
   # Full search
-  if (is.character(query)) {
+  if (is.character(query))
     query <- list(q = query)
+
+  datasets <- resp_to_df0(
+      get_gen(endpoints()$dataset, query = query, ... )$body)
+
+  if (is.null(datasets)) {
+    if (verbose) message("No dataset found.")
+    return(data.frame())
+  } else {
+    if (verbose) message(sprintf("Found %s datasets", nrow(datasets)))
   }
-
-  datasets <- as.data.frame(get_gen(endpoints()$dataset, query = query, ... ))
-
-  if (verbose) message(sprintf("Found %s datasets", nrow(datasets)))
 
   # Attached reference and network
   networks <- list()
   references <- list()
 
   for (i in seq_len(nrow(datasets))) {
-    networks[[i]] <- as.data.frame(get_from_fkey(endpoints()$network, output = "data.frame", dataset_id = datasets[i, "id"]))
+    networks[[i]] <- get_from_fkey_net(endpoints()$network,
+      dataset_id = datasets$id[i])
     references[[i]] <- as.data.frame(get_singletons(endpoints()$reference,
       ids = datasets[i, "ref_id"]))
   }
@@ -47,8 +53,7 @@ search_datasets <- function(query = NULL, verbose = TRUE, ...) {
     datasets$networks <- networks
     datasets$references <- references
   }
-
-  class(datasets) <- append(class(datasets), "mgSearchDatasets")
+  class(datasets) <- c("tbl_df", "tbl", "data.frame", "mgSearchDatasets")
   datasets
 
 }

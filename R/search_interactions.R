@@ -18,20 +18,18 @@ search_interactions <- function( type = avail_type(), expand_node = FALSE, verbo
     # Make sure args match options
     type <- match.arg(type)
     # Get interactions based on the type
-    interactions <- as.data.frame(get_gen(endpoints()$interaction,
-      query = list( type = type )))
+    interactions <- resp_to_spatial0(get_gen(endpoints()$interaction,
+      query = list( type = type ))$body)
 
     # Expand content on node
     if (expand_node) {
       tmp <- as.data.frame(get_singletons(endpoints()$node,
         interactions$node_from))
-      names(tmp) <- paste0("node_from_", names(tmp))
-      interactions <- cbind(tmp, interactions)
+      interactions[,paste0("node_from_", names(tmp))] <- tmp
       #
       tmp <- as.data.frame(get_singletons(endpoints()$node,
         interactions$node_to))
-      names(tmp) <- paste0("node_to_", names(tmp))
-      interactions <- cbind(tmp, interactions)
+      interactions[,paste0("node_to_", names(tmp))] <- tmp
     }
 
     # Get networks
