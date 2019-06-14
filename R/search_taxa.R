@@ -42,13 +42,13 @@ search_taxa <- function(query = NULL, tsn = NULL, gbif = NULL, eol = NULL,
 
   if (!is.null(query) & original) {
 
-    taxa <- resp_to_df0(get_gen(endpoints()$node, query = request)$body)
+    taxa <- resp_to_df(get_gen(endpoints()$node, query = request)$body)
     # Store network ids
     network_ids <- taxa$network_id
 
   } else {
 
-    taxa <- resp_to_df0(get_gen(endpoints()$taxonomy, query = request)$body)
+    taxa <- resp_to_df(get_gen(endpoints()$taxonomy, query = request)$body)
 
     if (length(taxa)) {
       tmp_nodes <- do.call(rbind, lapply(taxa$id, function(x)
@@ -64,7 +64,7 @@ search_taxa <- function(query = NULL, tsn = NULL, gbif = NULL, eol = NULL,
 
   # Retrieve network in which taxa are involved
   if (length(network_ids)) {
-    taxa$networks <- resp_to_spatial0(get_singletons_tmp(endpoints()$network, network_ids)$body)
+    taxa$networks <- resp_to_spatial(get_singletons(endpoints()$network, network_ids)$body)
   } else {
     taxa <- data.frame(NULL)
   }
@@ -80,7 +80,7 @@ search_taxa <- function(query = NULL, tsn = NULL, gbif = NULL, eol = NULL,
 
   # if (!original) {
   #
-  #   taxa <- resp_to_df0(get_gen(endpoints()$taxonomy, query = list(q = query))$body)
+  #   taxa <- resp_to_df(get_gen(endpoints()$taxonomy, query = list(q = query))$body)
   #
   #   if (length(taxa)) {
   #     tmp_nodes <- do.call(rbind, lapply(taxa$id, function(x)
@@ -94,7 +94,7 @@ search_taxa <- function(query = NULL, tsn = NULL, gbif = NULL, eol = NULL,
   #
   # } else {
   #
-  #   taxa <- resp_to_df0(get_gen(endpoints()$node,
+  #   taxa <- resp_to_df(get_gen(endpoints()$node,
   #     query = list(q = query))$body)
   #   network_ids <- taxa$network_id
   #

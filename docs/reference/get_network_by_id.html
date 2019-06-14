@@ -151,11 +151,20 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>get_network_by_id</span>(<span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>18</span>)</div><div class='output co'>#&gt; $network
-#&gt; # A tibble: 1 x 11
-#&gt;      id name  date  description public all_interactions created_at updated_at
-#&gt; * &lt;int&gt; &lt;fct&gt; &lt;fct&gt; &lt;fct&gt;       &lt;lgl&gt;  &lt;lgl&gt;            &lt;fct&gt;      &lt;fct&gt;     
-#&gt; 1    18 mosq… 1965… Occurence … TRUE   FALSE            2019-02-2… 2019-02-2…
-#&gt; # … with 3 more variables: dataset_id &lt;int&gt;, user_id &lt;int&gt;, geom &lt;POINT [°]&gt;
+#&gt; Simple feature collection with 1 feature and 10 fields
+#&gt; geometry type:  POINT
+#&gt; dimension:      XY
+#&gt; bbox:           xmin: -114.9667 ymin: 75 xmax: -114.9667 ymax: 75
+#&gt; epsg (SRID):    4326
+#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs
+#&gt;   id                            name                     date
+#&gt; 1 18 mosquin_martin_1967_19650731_18 1965-07-31T04:00:00.000Z
+#&gt;                                                                                                              description
+#&gt; 1 Occurence of flower-visiting insect on plant species, two miles north of Bailey Point, Melville Island, N.W.T., Canada
+#&gt;   public all_interactions               created_at               updated_at
+#&gt; 1   TRUE            FALSE 2019-02-22T18:38:37.491Z 2019-02-22T18:38:37.491Z
+#&gt;   dataset_id user_id                 geom
+#&gt; 1          4       3 POINT (-114.9667 75)
 #&gt; 
 #&gt; $nodes
 #&gt;      id                original_name node_level network_id taxonomy_id
@@ -385,17 +394,24 @@
 #&gt; 10 POINT EMPTY
 #&gt; 
 #&gt; $dataset
-#&gt; # A tibble: 1 x 9
-#&gt;      id name   date   description    public created_at updated_at ref_id user_id
-#&gt;   &lt;int&gt; &lt;fct&gt;  &lt;fct&gt;  &lt;fct&gt;          &lt;lgl&gt;  &lt;fct&gt;      &lt;fct&gt;       &lt;int&gt;   &lt;int&gt;
-#&gt; 1     4 mosqu… 1965-… Occurence of … TRUE   2019-02-2… 2019-02-2…      4       3
+#&gt;   id                name                     date
+#&gt; 1  4 mosquin_martin_1967 1965-07-31T04:00:00.000Z
+#&gt;                                                                                                              description
+#&gt; 1 Occurence of flower-visiting insect on plant species, two miles north of Bailey Point, Melville Island, N.W.T., Canada
+#&gt;   public               created_at               updated_at ref_id user_id
+#&gt; 1   TRUE 2019-02-22T16:45:59.451Z 2019-02-22T16:45:59.451Z      4       3
 #&gt; 
 #&gt; $reference
-#&gt; # A tibble: 1 x 11
-#&gt;      id doi   author year  jstor pmid  bibtex paper_url data_url created_at
-#&gt;   &lt;int&gt; &lt;lgl&gt; &lt;fct&gt;  &lt;fct&gt; &lt;lgl&gt; &lt;lgl&gt; &lt;fct&gt;  &lt;fct&gt;     &lt;fct&gt;    &lt;fct&gt;     
-#&gt; 1     4 NA    mosqu… 1967  NA    NA    @arti… https://… https:/… 2019-02-2…
-#&gt; # … with 1 more variable: updated_at &lt;fct&gt;
+#&gt;   id doi  author year jstor pmid
+#&gt; 1  4  NA mosquin 1967    NA   NA
+#&gt;                                                                                                                                                                                                                                                         bibtex
+#&gt; 1 @article{article, author = {Mosquin, Theodore and Martin, J. E. H.}, year = {1967}, pages = {201-205}, title = {Observations on the pollination biology of plants on Melville Island, N.W.T., Canada}, journal = {Canadian Field Naturalist}, volume = {81}}
+#&gt;                                                      paper_url
+#&gt; 1 https://www.biodiversitylibrary.org/pdf4/075601100090098.pdf
+#&gt;                                                                                 data_url
+#&gt; 1 https://www.nceas.ucsb.edu/interactionweb/data/plant_pollinator/excel/mosquin_1967.xls
+#&gt;                 created_at               updated_at
+#&gt; 1 2019-02-22T16:45:54.246Z 2019-02-22T16:45:54.246Z
 #&gt; 
 #&gt; attr(,"class")
 #&gt; [1] "mgNetwork"</div></pre>

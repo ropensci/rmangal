@@ -25,7 +25,7 @@ search_networks <- function(query = NULL, verbose = TRUE, ...) {
 
     if (verbose) message("Spatial query mode")
     # API doesn't allow spatial search - patch with R
-    sp_networks <- resp_to_spatial0(get_gen(endpoints()$network, ...)$body)
+    sp_networks <- resp_to_spatial(get_gen(endpoints()$network, ...)$body)
     if (is.null(sp_networks)) {
       if (verbose) message("no network found")
       return(data.frame())
@@ -39,7 +39,7 @@ search_networks <- function(query = NULL, verbose = TRUE, ...) {
     # Full search
     if (is.character(query)) query <- list( q = query )
 
-    networks <- resp_to_spatial0(get_gen(endpoints()$network, query = query, ...)$body)
+    networks <- resp_to_spatial(get_gen(endpoints()$network, query = query, ...)$body)
     if (is.null(networks)) {
       if (verbose) message("no network found")
       return(data.frame())

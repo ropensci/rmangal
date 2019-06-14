@@ -122,8 +122,7 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>get_singletons</span>(<span class='kw'>endpoint</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ids</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>output</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"data.frame"</span>,
-  <span class='st'>"spatial"</span>, <span class='st'>"raw"</span>), <span class='kw'>flatten</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>get_singletons</span>(<span class='kw'>endpoint</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ids</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -137,20 +136,20 @@
       <td><p><code>numeric</code> vector of ids</p></td>
     </tr>
     <tr>
-      <th>output</th>
-      <td><p><code>character</code> output type (<code>data.frame</code>, <code>list</code>, <code>spatial</code>, <code>raw</code>) return; default: <code>list</code></p></td>
-    </tr>
-    <tr>
-      <th>flatten</th>
-      <td><p><code>logical</code> return flatten nested data.frame, see <code><a href='https://www.rdocumentation.org/packages/jsonlite/topics/flatten'>jsonlite::flatten()</a></code>; default: <code>TRUE</code></p></td>
-    </tr>
-    <tr>
       <th>verbose</th>
       <td><p><code>logical</code> print API code status on error; default: <code>TRUE</code></p></td>
     </tr>
     <tr>
       <th>...</th>
       <td><p>httr options, see <code><a href='https://www.rdocumentation.org/packages/httr/topics/GET'>httr::GET()</a></code></p></td>
+    </tr>
+    <tr>
+      <th>output</th>
+      <td><p><code>character</code> output type (<code>data.frame</code>, <code>list</code>, <code>spatial</code>, <code>raw</code>) return; default: <code>list</code></p></td>
+    </tr>
+    <tr>
+      <th>flatten</th>
+      <td><p><code>logical</code> return flatten nested data.frame, see <code><a href='https://www.rdocumentation.org/packages/jsonlite/topics/flatten'>jsonlite::flatten()</a></code>; default: <code>TRUE</code></p></td>
     </tr>
     </table>
     

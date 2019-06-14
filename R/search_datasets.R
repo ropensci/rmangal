@@ -28,7 +28,7 @@ search_datasets <- function(query = NULL, verbose = TRUE, ...) {
   if (is.character(query))
     query <- list(q = query)
 
-  datasets <- resp_to_df0(get_gen(endpoints()$dataset, query = query, ...)$body)
+  datasets <- resp_to_df(get_gen(endpoints()$dataset, query = query, ...)$body)
 
   if (is.null(datasets)) {
     if (verbose)
@@ -44,7 +44,7 @@ search_datasets <- function(query = NULL, verbose = TRUE, ...) {
   references <- networks <- NULL
   for (i in seq_len(nrow(datasets))) {
     networks[[i]] <- get_from_fkey_net(endpoints()$network, dataset_id = datasets$id[i])
-    references[[i]] <- resp_to_df0(get_singletons_tmp(endpoints()$reference, ids = datasets$ref_id[i])$body)
+    references[[i]] <- resp_to_df(get_singletons(endpoints()$reference, ids = datasets$ref_id[i])$body)
   }
   datasets$references <- references
   datasets$networks <- networks
