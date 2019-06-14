@@ -289,7 +289,7 @@ get_singletons <- function(endpoint = NULL, ids = NULL,
   # Prep output object
   responses <- list()
   class(responses) <- "mgGetResponses"
-
+  
   # Loop over ids
   for (i in seq_len(length(ids))) {
     # Set url

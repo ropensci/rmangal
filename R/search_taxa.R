@@ -1,7 +1,13 @@
 #' Search network by taxa using keyword, tsn, eol, bold or ncbi IDs.
 #'
-#' @param query `character` specific taxon / keyword / or tsn, eol (page ID), bold & ncbi IDs (mandatory arg).
-#' @param original a `logical`. Should query taxa names from the original publication? (see details section, default is set to `FALSE`)
+#' @param query `character` query on taxa names
+#' @param tsn a `numeric`. Unique taxonomic identifier from Integrated Taxonomic Information Sytem (https://www.itis.gov/)
+#' @param gbif a `numeric`. Unique taxonomic identifier from Global Biodiversity Information Facility (https://www.gbif.org/)
+#' @param eol a `numeric`. Unique taxonomic identifier from Encyclopedia of Life (https://eol.org/)
+#' @param col a `numeric`. Unique taxonomic identifier from Catalogue of Life (https://www.catalogueoflife.org/)
+#' @param bold a `numeric`. Unique taxonomic identifier from Barcode of Life (http://www.boldsystems.org/)
+#' @param ncbi a `numeric`. Unique taxonomic identifier from National Center for Biotechnology Information (https://www.ncbi.nlm.nih.gov/)
+#' @param original a `logical`. Should query taxa names from the original publication? (see details section, default is set to `FALSE`, only work for full text search)
 #' @param verbose a `logical`. Should extra information be reported on progress?
 #' @param ... further arguments to be passed to [rmangal::get_gen()].
 #' @details

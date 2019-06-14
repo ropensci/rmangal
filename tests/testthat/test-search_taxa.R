@@ -1,9 +1,11 @@
 context("test-search_taxa")
 
 res1 <- search_taxa("Acer")
+resTsn <- search_taxa(tsn = 182132)
+resNcbi <- search_taxa(ncbi = 47966)
+resBold <- search_taxa(bold = 102197)
 res2 <- search_taxa("Acer", orginal = TRUE)
 resw <- search_taxa("Does not work")
-
 
 test_that("expected behavior", {
   expect_true("mgSearchTaxa" %in% class(res1))
