@@ -305,3 +305,41 @@ get_singletons <- function(endpoint = NULL, ids = NULL,
 
   responses
 }
+
+
+
+
+
+get_singletons_tmp <- function(endpoint = NULL, ids = NULL, verbose = FALSE,
+   ...) {
+
+  stopifnot(!is.null(endpoint) & !is.null(ids))
+  # Prep output object
+  responses <- list(body = list(), response = list())
+  errors <- NULL
+  class(responses) <- "mgGetResponses"
+
+  # Loop over ids
+  for (i in seq_along(ids)) {
+    # Set url
+    url <- httr::modify_url(server(), path = paste0(base(), endpoint, "/", ids[i]))
+
+    # Call on the API
+    resp <- httr::GET(url, config = httr::add_headers(`Content-type` = "application/json"),
+      ua, ...)
+
+    if (httr::http_error(resp)) {
+      if (verbose) {
+        message(sprintf("API request failed (%s): %s", httr::status_code(resp), httr::content(resp)$message))
+      }
+      errors <- append(errors, i)
+    } else {
+      # coerce body to output desired
+      responses$body[[i]] <- resp_raw(resp)
+      responses$response[[i]] <- resp
+    }
+  }
+  if (!is.null(errors)) warning("Failed request(s) : ", paste0(errors, ", "))
+
+  responses
+}

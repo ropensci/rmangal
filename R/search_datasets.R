@@ -28,31 +28,27 @@ search_datasets <- function(query = NULL, verbose = TRUE, ...) {
   if (is.character(query))
     query <- list(q = query)
 
-  datasets <- resp_to_df0(
-      get_gen(endpoints()$dataset, query = query, ... )$body)
+  datasets <- resp_to_df0(get_gen(endpoints()$dataset, query = query, ...)$body)
 
   if (is.null(datasets)) {
-    if (verbose) message("No dataset found.")
+    if (verbose)
+      message("No dataset found.")
     return(data.frame())
   } else {
-    if (verbose) message(sprintf("Found %s datasets", nrow(datasets)))
+    if (verbose)
+      message(sprintf("Found %s datasets", nrow(datasets)))
   }
 
-  # Attached reference and network
-  networks <- list()
-  references <- list()
-
+  # Attached references and networks
+  # No need for test because if NULL function stopped above
+  references <- networks <- NULL
   for (i in seq_len(nrow(datasets))) {
-    networks[[i]] <- get_from_fkey_net(endpoints()$network,
-      dataset_id = datasets$id[i])
-    references[[i]] <- as.data.frame(get_singletons(endpoints()$reference,
-      ids = datasets[i, "ref_id"]))
+    networks[[i]] <- get_from_fkey_net(endpoints()$network, dataset_id = datasets$id[i])
+    references[[i]] <- resp_to_df0(get_singletons_tmp(endpoints()$reference, ids = datasets$ref_id[i])$body)
   }
+  datasets$references <- references
+  datasets$networks <- networks
 
-  if (nrow(datasets)) {
-    datasets$networks <- networks
-    datasets$references <- references
-  }
   class(datasets) <- c("tbl_df", "tbl", "data.frame", "mgSearchDatasets")
   datasets
 

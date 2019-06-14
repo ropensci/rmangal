@@ -156,7 +156,8 @@ All networks in which interactions are involved are also attached to the <code>d
 #&gt; bbox:           xmin: Inf ymin: Inf xmax: -Inf ymax: -Inf
 #&gt; epsg (SRID):    4326
 #&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs
-#&gt; First 10 features:</div><div class='output co'>#&gt; <span class='warning'>Warning: corrupt data frame: columns will be truncated or padded with NAs</span></div><div class='output co'>#&gt;        id node_from node_to                     date  direction        type
+#&gt; First 10 features:
+#&gt;        id node_from node_to                     date  direction        type
 #&gt; 1   97641     24343   24344 1973-03-01T00:00:00.000Z undirected competition
 #&gt; 2   97652     24352   24351 1973-03-01T00:00:00.000Z undirected competition
 #&gt; 3   97709     24370   24378 1973-03-01T00:00:00.000Z undirected competition
@@ -200,28 +201,72 @@ All networks in which interactions are involved are also attached to the <code>d
 #&gt; 8  presence/absence Presence or absence of interaction             NA
 #&gt; 9  presence/absence Presence or absence of interaction             NA
 #&gt; 10 presence/absence Presence or absence of interaction             NA
-#&gt;        attribute.created_at     attribute.updated_at        geom
-#&gt; 1  2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY
-#&gt; 2  2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY
-#&gt; 3  2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY
-#&gt; 4  2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY
-#&gt; 5  2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY
-#&gt; 6  2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY
-#&gt; 7  2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY
-#&gt; 8  2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY
-#&gt; 9  2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY
-#&gt; 10 2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY
-#&gt;                                                                          networks
-#&gt; 1                                                             # A tibble: 10 x 11
-#&gt; 2        id name  date  description public all_interactions created_at updated_at
-#&gt; 3     &lt;int&gt; &lt;fct&gt; &lt;fct&gt; &lt;fct&gt;       &lt;lgl&gt;  &lt;lgl&gt;            &lt;fct&gt;      &lt;fct&gt;     
-#&gt; 4   1  1477 meng… 1973… Food web s… TRUE   FALSE            2019-03-0… 2019-03-0…
-#&gt; 5   2  1478 meng… 1973… Food web s… TRUE   FALSE            2019-03-0… 2019-03-0…
-#&gt; 6   3  1480 meng… 1973… Food web s… TRUE   FALSE            2019-03-0… 2019-03-0…
-#&gt; 7   4  1479 meng… 1973… Food web s… TRUE   FALSE            2019-03-0… 2019-03-0…
-#&gt; 8   5  1502 seif… 1976… The insect… TRUE   FALSE            2019-03-0… 2019-03-0…
-#&gt; 9   6  1502 seif… 1976… The insect… TRUE   FALSE            2019-03-0… 2019-03-0…
-#&gt; 10  7  1523 wilb… 1970… Food web s… TRUE   FALSE            2019-03-1… 2019-03-1…</div><div class='input'><span class='co'># Get all networks containing competition</span>
+#&gt;        attribute.created_at     attribute.updated_at        geom networks.id
+#&gt; 1  2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY        1477
+#&gt; 2  2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY        1478
+#&gt; 3  2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY        1480
+#&gt; 4  2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY        1479
+#&gt; 5  2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY        1502
+#&gt; 6  2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY        1502
+#&gt; 7  2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY        1523
+#&gt; 8  2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY        1523
+#&gt; 9  2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY        1523
+#&gt; 10 2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY        1523
+#&gt;                          networks.name            networks.date
+#&gt; 1  menge_sutherland_1976_19730311_1477 1973-03-11T05:00:00.000Z
+#&gt; 2  menge_sutherland_1976_19730311_1478 1973-03-11T05:00:00.000Z
+#&gt; 3  menge_sutherland_1976_19730311_1480 1973-03-11T05:00:00.000Z
+#&gt; 4  menge_sutherland_1976_19730311_1479 1973-03-11T05:00:00.000Z
+#&gt; 5           seifert_1979_19760201_1502 1976-02-01T05:00:00.000Z
+#&gt; 6           seifert_1979_19760201_1502 1976-02-01T05:00:00.000Z
+#&gt; 7                          wilbur_1972 1970-01-01T05:00:00.000Z
+#&gt; 8                          wilbur_1972 1970-01-01T05:00:00.000Z
+#&gt; 9                          wilbur_1972 1970-01-01T05:00:00.000Z
+#&gt; 10                         wilbur_1972 1970-01-01T05:00:00.000Z
+#&gt;                                                                                  networks.description
+#&gt; 1                 Food web structure of an exposed rocky shore community, Pemaquid point, New England
+#&gt; 2               Food web structure of a protected rocky shore community, Grindstone Neck, New England
+#&gt; 3                Food web structure of a protected rocky shore community, San Juan Island, Washington
+#&gt; 4                       Food web structure of an exposed rocky shore community, Makah Bay, Washington
+#&gt; 5                                The insect community of Heliconia bihai in a Venezuelan cloud forest
+#&gt; 6                                The insect community of Heliconia bihai in a Venezuelan cloud forest
+#&gt; 7  Food web structure of amphibian community within woodland ponds, Edwin S. George Reserve, Michigan
+#&gt; 8  Food web structure of amphibian community within woodland ponds, Edwin S. George Reserve, Michigan
+#&gt; 9  Food web structure of amphibian community within woodland ponds, Edwin S. George Reserve, Michigan
+#&gt; 10 Food web structure of amphibian community within woodland ponds, Edwin S. George Reserve, Michigan
+#&gt;    networks.public networks.all_interactions      networks.created_at
+#&gt; 1             TRUE                     FALSE 2019-03-05T15:50:31.521Z
+#&gt; 2             TRUE                     FALSE 2019-03-05T15:50:34.068Z
+#&gt; 3             TRUE                     FALSE 2019-03-05T15:50:47.410Z
+#&gt; 4             TRUE                     FALSE 2019-03-05T15:50:38.637Z
+#&gt; 5             TRUE                     FALSE 2019-03-06T20:26:41.249Z
+#&gt; 6             TRUE                     FALSE 2019-03-06T20:26:41.249Z
+#&gt; 7             TRUE                     FALSE 2019-03-11T20:53:23.501Z
+#&gt; 8             TRUE                     FALSE 2019-03-11T20:53:23.501Z
+#&gt; 9             TRUE                     FALSE 2019-03-11T20:53:23.501Z
+#&gt; 10            TRUE                     FALSE 2019-03-11T20:53:23.501Z
+#&gt;         networks.updated_at networks.dataset_id networks.user_id
+#&gt; 1  2019-03-05T15:50:31.521Z                 105                4
+#&gt; 2  2019-03-05T15:50:34.068Z                 105                4
+#&gt; 3  2019-03-05T15:50:47.410Z                 105                4
+#&gt; 4  2019-03-05T15:50:38.637Z                 105                4
+#&gt; 5  2019-03-06T20:26:41.249Z                 119                4
+#&gt; 6  2019-03-06T20:26:41.249Z                 119                4
+#&gt; 7  2019-03-11T20:53:23.501Z                 139                4
+#&gt; 8  2019-03-11T20:53:23.501Z                 139                4
+#&gt; 9  2019-03-11T20:53:23.501Z                 139                4
+#&gt; 10 2019-03-11T20:53:23.501Z                 139                4
+#&gt;                 networks.geom
+#&gt; 1    POINT (-69.5098 43.8406)
+#&gt; 2  POINT (-68.09012 44.37215)
+#&gt; 3    POINT (-123.084 48.5377)
+#&gt; 4  POINT (-124.6716 48.32856)
+#&gt; 5  POINT (-67.68822 10.34253)
+#&gt; 6  POINT (-67.68822 10.34253)
+#&gt; 7  POINT (-83.99992 42.45481)
+#&gt; 8  POINT (-83.99992 42.45481)
+#&gt; 9  POINT (-83.99992 42.45481)
+#&gt; 10 POINT (-83.99992 42.45481)</div><div class='input'><span class='co'># Get all networks containing competition</span>
 <span class='no'>competition_networks</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='get_collection.html'>get_collection</a></span>(<span class='fu'>search_interactions</span>(<span class='st'>"competition"</span>))</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

@@ -23,17 +23,18 @@ search_interactions <- function( type = avail_type(), expand_node = FALSE, verbo
 
     # Expand content on node
     if (expand_node) {
-      tmp <- as.data.frame(get_singletons(endpoints()$node,
-        interactions$node_from))
-      interactions[,paste0("node_from_", names(tmp))] <- tmp
+      tmp <- resp_to_df0(get_singletons_tmp(endpoints()$node,
+        interactions$node_from)$body)
+      interactions[, paste0("node_from_", names(tmp))] <- tmp
       #
-      tmp <- as.data.frame(get_singletons(endpoints()$node,
-        interactions$node_to))
-      interactions[,paste0("node_to_", names(tmp))] <- tmp
+      tmp <- resp_to_df0(get_singletons_tmp(endpoints()$node,
+        interactions$node_to)$body)
+      interactions[, paste0("node_to_", names(tmp))] <- tmp
     }
 
     # Get networks
-    interactions$networks <- as.data.frame(get_singletons(endpoints()$network, interactions$network_id))
+    interactions$networks <- resp_to_spatial0(
+      get_singletons_tmp(endpoints()$network, interactions$network_id)$body)
 
     if (verbose) message(sprintf("Found %s interactions", nrow(interactions)))
 

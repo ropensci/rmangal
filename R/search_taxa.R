@@ -64,7 +64,7 @@ search_taxa <- function(query = NULL, tsn = NULL, gbif = NULL, eol = NULL,
 
   # Retrieve network in which taxa are involved
   if (length(network_ids)) {
-    taxa$networks <- as.data.frame(get_singletons(endpoints()$network, network_ids))
+    taxa$networks <- resp_to_spatial0(get_singletons_tmp(endpoints()$network, network_ids)$body)
   } else {
     taxa <- data.frame(NULL)
   }
