@@ -64,3 +64,10 @@ plot(networks_in_area)
 ```
 
 ## How to use the ids (bold, tsn, ncbi etc.) to get extra taxonomic informations using taxize?
+
+```{R}
+resTsn <- search_taxa(tsn = 28749)
+resNcbi <- search_taxa(ncbi = 47966)
+resEol <- search_taxa(eol =  583069)
+resBold <- search_taxa(bold = 100987)
+```

@@ -6,7 +6,7 @@ res1 <- search_networks("lagoon")
 area <- us_states(state="california")
 res2 <- search_networks(area)
 resw <- search_networks("does not exist")
-ress <- search_networks(query="insect%", output = "spatial")
+ress <- search_networks(query="insect%")
 
 test_that("errors caught", {
   expect_error(search_networks(query = 2011))

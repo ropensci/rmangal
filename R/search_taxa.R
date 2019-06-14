@@ -25,13 +25,30 @@
 #' taxize::classification(tsn_acer, db = "itis")
 #' @export
 
-search_taxa <- function(query = NULL, original = FALSE, verbose = TRUE, ...) {
+search_taxa <- function(query = NULL, tsn = NULL, gbif = NULL, eol = NULL,
+  col = NULL, bold = NULL, ncbi = NULL, original = FALSE, verbose = TRUE, ...) {
 
-  stopifnot(!is.null(query) & is.character(query))
+  # prep query
+  request <- list(q = query, tsn = tsn, gbif = gbif, eol = eol, col = col,
+    bold = bold, ncbi = ncbi)
 
-  if (!original) {
+  if (sum(!sapply(request, is.null)) > 1) {
+    stop("Query with multiple criteria not allowed")
+  } else if (sum(!sapply(request, is.null)) == 0) {
+    stop("Query unspecified")
+  }
 
-    taxa <- resp_to_df0(get_gen(endpoints()$taxonomy, query = list(q = query))$body)
+  if (is.character(query) & verbose) message("Full text search")
+
+  if (!is.null(query) & original) {
+
+    taxa <- resp_to_df0(get_gen(endpoints()$node, query = request)$body)
+    # Store network ids
+    network_ids <- taxa$network_id
+
+  } else {
+
+    taxa <- resp_to_df0(get_gen(endpoints()$taxonomy, query = request)$body)
 
     if (length(taxa)) {
       tmp_nodes <- do.call(rbind, lapply(taxa$id, function(x)
@@ -39,26 +56,46 @@ search_taxa <- function(query = NULL, original = FALSE, verbose = TRUE, ...) {
 
       # Add original publication name for the taxa
       taxa$original_name <- tmp_nodes$original_name
-      # Retrieve network in which taxa are involved
+      # Store network ids
       network_ids <- tmp_nodes$network_id
     } else network_ids <- NULL
 
-  } else {
-
-    taxa <- resp_to_df0(get_gen(endpoints()$node,
-      query = list(q = query))$body)
-    network_ids <- taxa$network_id
-
   }
 
+  # Retrieve network in which taxa are involved
   if (length(network_ids)) {
     taxa$networks <- as.data.frame(get_singletons(endpoints()$network, network_ids))
-  } else taxa <- data.frame(NULL)
+  } else {
+    taxa <- data.frame(NULL)
+  }
 
   if (verbose)
-    message(sprintf("Found %s taxa", nrow(taxa)))
+    message(sprintf("Found %s taxa involved in %s network(s)", nrow(taxa), length(network_ids)))
 
   class(taxa) <- append(class(taxa), "mgSearchTaxa")
   taxa
 
 }
+
+
+  # if (!original) {
+  #
+  #   taxa <- resp_to_df0(get_gen(endpoints()$taxonomy, query = list(q = query))$body)
+  #
+  #   if (length(taxa)) {
+  #     tmp_nodes <- do.call(rbind, lapply(taxa$id, function(x)
+  #       get_from_fkey_flt(endpoints()$node, taxonomy_id = x)))
+  #
+  #     # Add original publication name for the taxa
+  #     taxa$original_name <- tmp_nodes$original_name
+  #     # Retrieve network in which taxa are involved
+  #     network_ids <- tmp_nodes$network_id
+  #   } else network_ids <- NULL
+  #
+  # } else {
+  #
+  #   taxa <- resp_to_df0(get_gen(endpoints()$node,
+  #     query = list(q = query))$body)
+  #   network_ids <- taxa$network_id
+  #
+  # }

@@ -18,8 +18,6 @@ get_gen(endpoint, query = NULL, limit = 100, flatten = TRUE,
 
 \item{verbose}{\code{logical} print API code status on error; default: \code{TRUE}}
 
-\item{verbose}{\code{logical} print API code status on error; default: \code{TRUE}}
-
 \item{...}{httr options, see \code{\link[httr:GET]{httr::GET()}}}
 
 \item{output}{\code{character} output type (\code{data.frame}, \code{list}, \code{spatial}, \code{raw}) return (default: data.frame)}

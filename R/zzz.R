@@ -179,16 +179,6 @@ json_to_df <- function(resp, flatten, dropgeom = TRUE) {
   out
 }
 
-## coerce body to one specific format
-coerce_body <- function(x, resp, flatten) {
-  switch(
-    x,
-    data.frame = json_to_df(resp, flatten),
-    spatial = mg_to_sf(json_to_df(resp, flatten, FALSE)),
-    raw = resp_raw(resp)
-  )
-}
-
 #' Generic API function to retrieve several entries
 #'
 #' @param endpoint `character` API entry point
@@ -256,9 +246,6 @@ get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE, verbose
   out
 }
 
-get_info_ul <- function(x, info) unlist(lapply(x, `[`, info))
-
-get_info <- function(x, info) lapply(x, `[`, info)
 
 #' Generic API function to retrieve singletons
 #'
@@ -289,9 +276,9 @@ get_singletons <- function(endpoint = NULL, ids = NULL,
   # Prep output object
   responses <- list()
   class(responses) <- "mgGetResponses"
-  
+
   # Loop over ids
-  for (i in seq_len(length(ids))) {
+  for (i in seq_along(ids)) {
     # Set url
     url <- httr::modify_url(server(), path = paste0(base(), endpoint, "/", ids[i]))
 
@@ -317,49 +304,4 @@ get_singletons <- function(endpoint = NULL, ids = NULL,
   }
 
   responses
-}
-
-
-
-
-#' Coerce body return by the API to an sf object
-#'
-#' @param body `data.frame` return by the API call
-#' @return
-#' sf object
-#' @keywords internal
-
-mg_to_sf <- function(body) {
-
-  if (all(!sf_columns() %in% names(body))){
-    stop(sprintf("%s columns not in body columns [%s]\n",
-      sf_columns(), names(body)))
-  }
-
-  # build individual feature
-  features <- apply(body, 1, function(f) {
-    if (is.na(f$geom.type) | is.null(f$geom.coordinates)){
-      return(NULL)
-    } else {
-      return(list(type = "Feature", geometry = list(
-        type = f$geom.type, coordinates = f$geom.coordinates)))
-    }
-  })
-
-  # named list cannot be read once exported via `jsonlite::toJSON()`
-  names(features) <- NULL
-  # sf reads features collection
-  geom_s <- sf::read_sf(
-    jsonlite::toJSON(
-      list(
-        type = "FeatureCollection",
-        features = features
-      ), auto_unbox = TRUE
-    ), as_tibble = FALSE
-  )
-
-  # remove spatial columns
-  geom_df <- body[which(!names(body) %in% sf_columns())]
-  # bind spatial feature with attributes table
-  sf::st_sf(geometry = sf::st_geometry(geom_s), geom_df)
 }
