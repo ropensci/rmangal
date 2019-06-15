@@ -76,26 +76,3 @@ search_taxa <- function(query = NULL, tsn = NULL, gbif = NULL, eol = NULL,
   taxa
 
 }
-
-
-  # if (!original) {
-  #
-  #   taxa <- resp_to_df(get_gen(endpoints()$taxonomy, query = list(q = query))$body)
-  #
-  #   if (length(taxa)) {
-  #     tmp_nodes <- do.call(rbind, lapply(taxa$id, function(x)
-  #       get_from_fkey_flt(endpoints()$node, taxonomy_id = x)))
-  #
-  #     # Add original publication name for the taxa
-  #     taxa$original_name <- tmp_nodes$original_name
-  #     # Retrieve network in which taxa are involved
-  #     network_ids <- tmp_nodes$network_id
-  #   } else network_ids <- NULL
-  #
-  # } else {
-  #
-  #   taxa <- resp_to_df(get_gen(endpoints()$node,
-  #     query = list(q = query))$body)
-  #   network_ids <- taxa$network_id
-  #
-  # }
