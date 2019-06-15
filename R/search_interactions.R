@@ -21,8 +21,13 @@ search_interactions <- function( type = avail_type(), expand_node = FALSE, verbo
     interactions <- resp_to_spatial(get_gen(endpoints()$interaction,
       query = list( type = type ))$body)
 
+    if (is.null(interactions)) {
+      if (verbose) message("No interactions found")
+      return(data.frame())
+    }
+
     # Expand content on node
-    if (expand_node) {
+    if (expand_node ) {
       tmp <- resp_to_df(get_singletons(endpoints()$node,
         interactions$node_from)$body)
       interactions[, paste0("node_from_", names(tmp))] <- tmp
