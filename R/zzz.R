@@ -44,13 +44,15 @@ resp_raw <- function(resp) {
 ## Response => data.frame
 resp_to_df <- function(x) {
   if (is.null(x))
-    x else do.call(rbind, lapply(null_to_na(x), as.data.frame))
+    x else do.call(rbind, lapply(null_to_na(x), 
+      function(x) return(as.data.frame(x, stringsAsFactors = FALSE))))
 }
 
 # flatten + fill
 resp_to_df_flt <- function(x) {
   x <- null_to_na(x)
-  ldf <- lapply(lapply(x, as.data.frame), jsonlite::flatten)
+  ldf <- lapply(lapply(x, function(x) return(as.data.frame(x, stringsAsFactors = FALSE))),
+     jsonlite::flatten)
   vnm <- unique(unlist(lapply(ldf, names)))
   ldf2 <- lapply(ldf, fill_df, vnm)
   do.call(rbind, ldf2)
@@ -74,7 +76,7 @@ resp_to_spatial <- function(x) {
 }
 
 switch_sf <- function(tmp) {
-  df_nogeom <- as.data.frame(tmp[names(tmp) != "geom"])
+  df_nogeom <- as.data.frame(tmp[names(tmp) != "geom"], stringsAsFactors = FALSE)
   if (is.na(tmp$geom)) {
     sf::st_sf(df_nogeom, geom = sf::st_sfc(sf::st_point(
       matrix(NA_real_, ncol = 2)), crs = 4326))
