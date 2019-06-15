@@ -195,8 +195,6 @@ get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE, verbose
 #'
 #' @param endpoint `character` API entry point
 #' @param ids `numeric` vector of ids
-#' @param output `character` output type (`data.frame`, `list`, `spatial`, `raw`) return; default: `list`
-#' @param flatten `logical` return flatten nested data.frame, see [jsonlite::flatten()]; default: `TRUE`
 #' @param verbose `logical` print API code status on error; default: `TRUE`
 #' @param ... httr options, see [httr::GET()]
 #' @return
@@ -207,7 +205,6 @@ get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE, verbose
 #' @details
 #' See endpoints available with `endpoints()`
 #' @keywords internal
-# get_singletons(endpoint = endpoints()$network, ids = c(1101, 1102), flatten = FALSE)
 get_singletons <- function(endpoint = NULL, ids = NULL, verbose = FALSE,
    ...) {
 

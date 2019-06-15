@@ -12,7 +12,7 @@ Retrieve and explore data from the ecological interaction database MANGAL.
 Useful links:
 \itemize{
   \item \url{http://poisotlab.biol.umontreal.ca/#/}
-  \item \url{https://github.com/mangal-rmangal}
+  \item \url{https://github.com/mangal-wg/rmangal}
   \item Report bugs at \url{https://github.com/mangal-wg/rmangal/issues}
 }
 

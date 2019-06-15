@@ -14,10 +14,6 @@ get_singletons(endpoint = NULL, ids = NULL, verbose = FALSE, ...)
 \item{verbose}{\code{logical} print API code status on error; default: \code{TRUE}}
 
 \item{...}{httr options, see \code{\link[httr:GET]{httr::GET()}}}
-
-\item{output}{\code{character} output type (\code{data.frame}, \code{list}, \code{spatial}, \code{raw}) return; default: \code{list}}
-
-\item{flatten}{\code{logical} return flatten nested data.frame, see \code{\link[jsonlite:flatten]{jsonlite::flatten()}}; default: \code{TRUE}}
 }
 \value{
 Object of class \code{mgGetResponses} whithin each level is the specific ID called.
