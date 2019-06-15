@@ -37,6 +37,7 @@ Suggests:
     rmarkdown,
     taxize,
     testthat,
-    USAboundaries
+    USAboundaries,
+    mapview
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
