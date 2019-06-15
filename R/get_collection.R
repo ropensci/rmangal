@@ -23,7 +23,7 @@ get_collection.default <- function(x, ...) {
 
   mg_net_collection <- structure(list(), class= "mgNetworksCollection")
 
-  for (i in seq_len(length(x))) {
+  for (i in seq_along(x)) {
     mg_net_collection[[i]] <- get_network_by_id(x[i], ...)
   }
 
@@ -41,7 +41,7 @@ get_collection.mgSearchDatasets <- function(x, ...) {
   # Get networks ids
   net_ids <- unique(unlist(purrr::map(x$networks,"id")))
 
-  for (i in seq_len(length(net_ids))) {
+  for (i in seq_along(net_ids)) {
     mg_net_collection[[i]] <- get_network_by_id(net_ids[i], ...)
   }
 
@@ -49,14 +49,14 @@ get_collection.mgSearchDatasets <- function(x, ...) {
 
 }
 
-#' @describeIn get_collection Get a collection of networks from a `mgSearchNetworks` object. 
+#' @describeIn get_collection Get a collection of networks from a `mgSearchNetworks` object.
 #' @export
 get_collection.mgSearchNetworks <- function(x, ...) {
 
   # Object S3 declaration
   mg_net_collection <- structure(list(), class= "mgNetworksCollection")
 
-  for (i in seq_len(length(x$id))) {
+  for (i in seq_along(x$id)) {
     mg_net_collection[[i]] <- get_network_by_id(x$id[i])
   }
 
@@ -65,14 +65,14 @@ get_collection.mgSearchNetworks <- function(x, ...) {
 }
 
 
-#' @describeIn get_collection Get a collection of networks from a `mgSearchReference` object. 
+#' @describeIn get_collection Get a collection of networks from a `mgSearchReference` object.
 #' @export
 get_collection.mgSearchReference <- function(x, ...) {
 
   # Object S3 declaration
   mg_net_collection <- structure(list(), class= "mgNetworksCollection")
 
-  for (i in seq_len(length(x$networks$id))) {
+  for (i in seq_along(x$networks$id)) {
     mg_net_collection[[i]] <- get_network_by_id(x$networks$id[i])
   }
 
@@ -81,7 +81,7 @@ get_collection.mgSearchReference <- function(x, ...) {
 }
 
 
-#' @describeIn get_collection Get a collection of networks from a `mgSearchTaxa` object. 
+#' @describeIn get_collection Get a collection of networks from a `mgSearchTaxa` object.
 #' @export
 get_collection.mgSearchTaxa <- function(x, ...) {
 
@@ -90,7 +90,7 @@ get_collection.mgSearchTaxa <- function(x, ...) {
   # Object S3 declaration
   mg_net_collection <- structure(list(), class= "mgNetworksCollection")
 
-  for (i in seq_len(length(uq_ids))) {
+  for (i in seq_along(uq_ids)) {
     mg_net_collection[[i]] <- get_network_by_id(uq_ids[i])
   }
 
@@ -99,7 +99,7 @@ get_collection.mgSearchTaxa <- function(x, ...) {
 }
 
 
-#' @describeIn get_collection Get a collection of networks from a `mgSearchTaxa` object. 
+#' @describeIn get_collection Get a collection of networks from a `mgSearchTaxa` object.
 #' @export
 get_collection.mgSearchInteractions <- function(x, ...) {
 
@@ -108,7 +108,7 @@ get_collection.mgSearchInteractions <- function(x, ...) {
   # Object S3 declaration
   mg_net_collection <- structure(list(), class= "mgNetworksCollection")
 
-  for (i in seq_len(length(uq_ids))) {
+  for (i in seq_along(uq_ids)) {
     mg_net_collection[[i]] <- get_network_by_id(uq_ids[i])
   }
 

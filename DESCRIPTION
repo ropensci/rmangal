@@ -33,9 +33,10 @@ Imports:
 RoxygenNote: 6.1.1
 Suggests:
     knitr,
+    magrittr,
     rmarkdown,
+    taxize,
     testthat,
-    USAboundaries,
-    taxize
+    USAboundaries
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)

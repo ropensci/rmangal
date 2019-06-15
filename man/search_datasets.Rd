@@ -31,7 +31,7 @@ class(all_datasets)
 }
 # Search with keyword
 search_datasets(query = 'lagoon')
-search_datasets(query = '2011')
+res2011 <- search_datasets(query = '2011')
 # Search with custom query (specific column)
 search_datasets(query = list(name = 'kemp_1977'))
 }

@@ -5,22 +5,22 @@
 \title{Generic API function to retrieve several entries}
 \usage{
 get_gen(endpoint, query = NULL, limit = 100, flatten = TRUE,
-  output = "data.frame", verbose = TRUE, ...)
+  verbose = TRUE, ...)
 }
 \arguments{
 \item{endpoint}{\code{character} API entry point}
 
-\item{query}{\code{list} list of params passed to the API}
+\item{query}{\code{list} list of parameters passed to the API}
 
 \item{limit}{\code{integer} number of entries return by the API (max: 1000)}
 
 \item{flatten}{\code{logical} flatten nested data.frame, see \code{\link[jsonlite:flatten]{jsonlite::flatten()}}; default: \code{TRUE}}
 
-\item{output}{\code{character} output type (\code{data.frame}, \code{list}, \code{spatial}, \code{raw}) return (default: data.frame)}
-
 \item{verbose}{\code{logical} print API code status on error; default: \code{TRUE}}
 
 \item{...}{httr options, see \code{\link[httr:GET]{httr::GET()}}}
+
+\item{output}{\code{character} output type (\code{data.frame}, \code{list}, \code{spatial}, \code{raw}) return (default: data.frame)}
 }
 \value{
 Object of class \code{mgGetResponses} whithin each level is a page.

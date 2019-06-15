@@ -1,6 +1,6 @@
 ---
-title: "Vignette Title"
-author: "Vignette Author"
+title: "Get started with rmangal"
+author: "Steve Vissault and Kevin Cazelles"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -9,57 +9,65 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+library(rmangal)
+library(magrittr)
+library(USAboundaries)
 ```
 
-Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The `html_vignette` output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The `html_vignette` format:
+## rmangal
 
-- Never uses retina figures
-- Has a smaller default figure size
-- Uses a custom CSS stylesheet instead of the default Twitter Bootstrap style
+rmangal is a R client for MANGAL API. MANGAL is a collection of 172
+datasets representing over 1300 published ecological networks.
 
-## Vignette Info
 
-Note the various macros within the `vignette` section of the metadata block above. These are required in order to instruct R how to build the vignette. Note that you should change the `title` field and the `\VignetteIndexEntry` to match the title of your vignette.
+## List of all available datasets
 
-## Styles
-
-The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
-
-    output: 
-      rmarkdown::html_vignette:
-        css: mystyles.css
-
-## Figures
-
-The figure sizes have been customised so that you can easily put two images side-by-side. 
-
-```{r, fig.show='hold'}
-plot(1:10)
-plot(10:1)
+```{R}
+all_datasets <- search_datasets()
+all_datasets[1:6, c("id", "description")]
 ```
 
-You can enable figure captions by `fig_caption: yes` in YAML:
+## Retrieve networks from datasets?
 
-    output:
-      rmarkdown::html_vignette:
-        fig_caption: yes
-
-Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
-
-## More Examples
-
-You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
-
-```{r, echo=FALSE, results='asis'}
-knitr::kable(head(mtcars, 10))
+```{R}
+lagoon <- search_datasets(query = 'lagoon')
+net_lagoons <- get_collection(lagoon)
 ```
 
-Also a quote using `>`:
 
-> "He who gives up [code] safety for [code] speed deserves neither."
-([via](https://twitter.com/hadleywickham/status/504368538874703872))
+## Retrieve a specific set of networks
+
+```{R}
+all_networks <- search_networks()
+netw18 <- get_network_by_id(id = 18)
+## 2B fixed
+collec <- search_networks(query="insect%") %>% get_collection()
+head(collec$nodes)
+```
+
+
+## Search over taxonomic name, retrieve networks which include this taxa
+
+
+## Search by location, used buffer, polygons to retrieve networks.
+
+```{R}
+area <- us_states(state="california")
+networks_in_area <- search_networks(area)
+plot(networks_in_area)
+```
+
+## How to use the ids (bold, tsn, ncbi etc.) to get extra taxonomic informations using taxize?
+
+```{R}
+resTsn <- search_taxa(tsn = 28749)
+resNcbi <- search_taxa(ncbi = 47966)
+resEol <- search_taxa(eol =  583069)
+resBold <- search_taxa(bold = 100987)
+```

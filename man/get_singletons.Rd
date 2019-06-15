@@ -4,17 +4,12 @@
 \alias{get_singletons}
 \title{Generic API function to retrieve singletons}
 \usage{
-get_singletons(endpoint = NULL, ids = NULL, output = "data.frame",
-  flatten = TRUE, verbose = FALSE, ...)
+get_singletons(endpoint = NULL, ids = NULL, verbose = FALSE, ...)
 }
 \arguments{
 \item{endpoint}{\code{character} API entry point}
 
 \item{ids}{\code{numeric} vector of ids}
-
-\item{output}{\code{character} output type (\code{data.frame}, \code{list}, \code{spatial}, \code{raw}) return; default: \code{list}}
-
-\item{flatten}{\code{logical} return flatten nested data.frame, see \code{\link[jsonlite:flatten]{jsonlite::flatten()}}; default: \code{TRUE}}
 
 \item{verbose}{\code{logical} print API code status on error; default: \code{TRUE}}
 

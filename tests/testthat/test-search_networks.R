@@ -1,11 +1,12 @@
 context("test-search_networks")
 
 library(sf)
+library(USAboundaries)
 res1 <- search_networks("lagoon")
-area <- USAboundaries::us_states(state="california")
+area <- us_states(state="california")
 res2 <- search_networks(area)
 resw <- search_networks("does not exist")
-ress <- search_networks(query="insect%", output = "spatial")
+ress <- search_networks(query="insect%")
 
 test_that("errors caught", {
   expect_error(search_networks(query = 2011))
@@ -19,7 +20,7 @@ test_that("expected behavior", {
 })
 
 test_that("output format", {
-  expect_equal(class(res1), c(cl_df, "mgSearchNetworks"))
+  expect_equal(class(res1), c("sf", "data.frame", "mgSearchNetworks"))
   expect_equal(class(res2), c("sf", "data.frame", "mgSearchNetworks"))
   expect_equal(class(ress), c("sf", "data.frame", "mgSearchNetworks"))
 })

@@ -1,3 +1,4 @@
+
 # Basic
 server <- function() "http://poisotlab.biol.umontreal.ca"
 # server <- function() "http://localhost:8080" # dev purpose
@@ -22,169 +23,72 @@ endpoints <- function() {
 }
 
 # Common spatial columns in mangal-db
-sf_columns <- function(x) c("geom.type","geom.coordinates")
+sf_columns <- function(x) c("geom.type", "geom.coordinates")
 
 # NULL to NA
 null_to_na <- function(x) {
     if (is.list(x)) {
-      return(lapply(x, null_to_na))
+      lapply(x, null_to_na)
     } else {
-      return(ifelse(is.null(x), NA, x))
+      ifelse(is.null(x), NA, x)
     }
 }
 
-## to data frame
-json_to_df <- function(resp, flatten, drop_geom) {
 
-  out <- jsonlite::fromJSON(
-      httr::content(resp, type = "text", encoding = "UTF-8"), flatten = flatten
+
+## Response => raw
+resp_raw <- function(resp) {
+ httr::content(resp, as = "parsed", encoding = "UTF-8")
+}
+
+## Response => data.frame
+resp_to_df <- function(x) {
+  if (is.null(x))
+    x else do.call(rbind, lapply(null_to_na(x), as.data.frame))
+}
+
+# flatten + fill
+resp_to_df_flt <- function(x) {
+  x <- null_to_na(x)
+  ldf <- lapply(lapply(x, as.data.frame), jsonlite::flatten)
+  vnm <- unique(unlist(lapply(ldf, names)))
+  ldf2 <- lapply(ldf, fill_df, vnm)
+  do.call(rbind, ldf2)
+}
+
+fill_df <- function(x, nms) {
+  id <- nms[!  nms %in% names(x)]
+  if (length(id)) {
+    x[id] <- NA
+  }
+  x
+}
+
+## Response => spatial
+resp_to_spatial <- function(x) {
+  if (is.null(x)) {
+    x
+  } else {
+      suppressWarnings(do.call(rbind, lapply(null_to_na(x), switch_sf)))
+  }
+}
+
+switch_sf <- function(tmp) {
+  df_nogeom <- as.data.frame(tmp[names(tmp) != "geom"])
+  if (is.na(tmp$geom)) {
+    sf::st_sf(df_nogeom, geom = sf::st_sfc(sf::st_point(
+      matrix(NA_real_, ncol = 2)), crs = 4326))
+  } else {
+    co <- matrix(unlist(tmp$geom$coordinates), ncol = 2, byrow = TRUE)
+    switch(
+      tmp$geom$type,
+      Point = sf::st_sf(df_nogeom, geom = sf::st_sfc(sf::st_point(co),
+        crs = 4326)),
+      Polygon = sf::st_sf(df_nogeom, geom = sf::st_sfc(sf::st_polygon(
+        list(co)), crs = 4326)),
+      stop("Only `Point` and `Polygon` are supported.")
     )
-
-  # Conserve NULL values for list
-  if(!is.data.frame(out)) out <- null_to_na(out)
-
-  out <- as.data.frame(out, stringsAsFactors = FALSE)
-  class(out) <- c("tbl_df", "tbl", "data.frame")
-  out
-}
-
-
-## coerce body to one specific format
-coerce_body <- function(x, resp, flatten) {
-  switch(
-    x,
-    data.frame = json_to_df(resp, flatten, TRUE),
-    spatial = mg_to_sf(json_to_df(resp, flatten, FALSE))
-  )
-}
-
-#' Generic API function to retrieve several entries
-#'
-#' @param endpoint `character` API entry point
-#' @param query `list` list of params passed to the API
-#' @param limit `integer` number of entries return by the API (max: 1000)
-#' @param flatten `logical` flatten nested data.frame, see [jsonlite::flatten()]; default: `TRUE`
-#' @param output `character` output type (`data.frame`, `list`, `spatial`, `raw`) return (default: data.frame)
-#' @param verbose `logical` print API code status on error; default: `TRUE`
-#' @param ... httr options, see [httr::GET()]
-#' @return
-#' Object of class `mgGetResponses` whithin each level is a page.
-#' Each item of the list `mgGetResponses` corresponds to an API call. Each call returns an object:
-#' - `getSuccess` which is a list with the body [httr::content()] and the server response [httr::response()].
-#' - `getError` which has the exact same structure with an empty body.
-#' @details
-#' See endpoints available with `endpoints()`
-#' @keywords internal
-
-get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE,
-  output = 'data.frame', verbose = TRUE,...) {
-
-  url <- httr::modify_url(server(), path = paste0(base(), endpoint))
-
-  query <- as.list(query)
-
-  # Add number of entries to the param
-  query$count <- limit
-
-  # First call used to set pages
-  resp <- httr::GET(url,
-      config = httr::add_headers(`Content-type` = "application/json"), ua,
-      query = query, ...)
-
-  # Prep output object
-  responses <- list()
-  class(responses) <- "mgGetResponses"
-
-  # Get number of page
-  tmp <- unlist(strsplit(httr::headers(resp)$"content-range", split = "\\D"))
-  rg <- as.numeric(tmp[grepl("\\d", tmp)])
-
-  # Prep iterator over pages
-  pages <- ifelse(rg[3] < limit, 0, floor(rg[3] / limit))
-
-  # Loop over pages
-  for (page in 0:pages) {
-    query$page <- page
-
-    resp <- httr::GET(url,
-      config = httr::add_headers(`Content-type` = "application/json"), ua,
-      query = query, ...)
-
-    if (httr::http_error(resp)) {
-      if (verbose){
-          message(sprintf("API request failed (%s): %s", httr::status_code(resp),
-             httr::content(resp)$message))
-      }
-      responses[[page + 1]] <- structure(list(body = NULL, response = resp),
-          class = "getError")
-    } else {
-      # coerce body to output desired
-      body <- coerce_body(output, resp, flatten)
-      responses[[page + 1]] <- structure(list(body = body, response = resp),
-        class = "getSuccess")
-    }
   }
-  responses
-}
-
-#' Generic API function to retrieve singletons
-#'
-#' @param endpoint `character` API entry point
-#' @param ids `numeric` vector of ids
-#' @param output `character` output type (`data.frame`, `list`, `spatial`, `raw`) return; default: `list`
-#' @param flatten `logical` return flatten nested data.frame, see [jsonlite::flatten()]; default: `TRUE`
-#' @param verbose `logical` print API code status on error; default: `TRUE`
-#' @param ... httr options, see [httr::GET()]
-#' @return
-#' Object of class `mgGetResponses` whithin each level is the specific ID called.
-#' Each item of the `mgGetResponses` list corresponds to an API call. Each call returns an object:
-#' - `getSuccess` which is a list with the body [httr::content()] and the server response [httr::response()].
-#' - `getError` which has the exact same structure with an empty body.
-#' @details
-#' See endpoints available with `endpoints()`
-#' @keywords internal
-
-get_singletons <- function(endpoint = NULL, ids = NULL, output = "data.frame",
-flatten = TRUE, verbose = FALSE,...) {
-
-  stopifnot(!is.null(endpoint) & !is.null(ids))
-  
-  # Prep output object
-  responses <- list()
-  class(responses) <- "mgGetResponses"
-  
-  # Loop over ids
-  for (i in seq_len(length(ids))) {
-    # Set url
-    url <- httr::modify_url(server(), path = paste0(base(), endpoint, "/",
-      ids[i]))
-
-    # Call on the API
-    resp <- httr::GET(url,
-      config = httr::add_headers(`Content-type` = "application/json"), ua,
-      ...)
-
-    if (httr::http_error(resp)) {
-      
-      if (verbose){
-          message(sprintf("API request failed (%s): %s", httr::status_code(resp),
-             httr::content(resp)$message))
-      }
-
-      responses[[i]]  <- structure(list(body = NULL, response = resp),
-          class = "getError")
-
-    } else {
-
-      # coerce body to output desired
-      body <- coerce_body(output, resp, flatten)
-
-      responses[[i]]  <- structure(list(body = body, response = resp),
-        class = "getSuccess")
-    }
-  }
-
-  responses
 }
 
 #' Get entries based on foreign key
@@ -202,48 +106,135 @@ flatten = TRUE, verbose = FALSE,...) {
 #' @keywords internal
 
 get_from_fkey <- function(endpoint, ...) {
-  query = list(...)
-  get_gen(endpoint = endpoint, query = query)
+  query <- list(...)
+  # print(get_gen(endpoint = endpoint, query = query)$body)
+  resp_to_df(get_gen(endpoint = endpoint, query = query)$body)
 }
 
-#' Coerce body return by the API to an sf object
+get_from_fkey_net <- function(endpoint, ...) {
+  query <- list(...)
+  resp_to_spatial(get_gen(endpoint = endpoint, query = query)$body)
+}
+
+get_from_fkey_flt <- function(endpoint, ...) {
+  query <- list(...)
+  resp_to_df_flt(get_gen(endpoint = endpoint, query = query)$body)
+}
+
+
+
+#' Generic API function to retrieve several entries
 #'
-#' @param body `data.frame` return by the API call
+#' @param endpoint `character` API entry point
+#' @param query `list` list of parameters passed to the API
+#' @param limit `integer` number of entries return by the API (max: 1000)
+#' @param flatten `logical` flatten nested data.frame, see [jsonlite::flatten()]; default: `TRUE`
+#' @param output `character` output type (`data.frame`, `list`, `spatial`, `raw`) return (default: data.frame)
+#' @param verbose `logical` print API code status on error; default: `TRUE`
+#' @param ... httr options, see [httr::GET()]
 #' @return
-#' sf object
+#' Object of class `mgGetResponses` whithin each level is a page.
+#' Each item of the list `mgGetResponses` corresponds to an API call. Each call returns an object:
+#' - `getSuccess` which is a list with the body [httr::content()] and the server response [httr::response()].
+#' - `getError` which has the exact same structure with an empty body.
+#' @details
+#' See endpoints available with `endpoints()`
 #' @keywords internal
 
-mg_to_sf <- function(body) {
+get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE, verbose = TRUE,...) {
 
-  if (all(!sf_columns() %in% names(body))){
-    stop(sprintf("%s columns not in body columns [%s]\n",
-      sf_columns(), names(body)))
-  }
+  url <- httr::modify_url(server(), path = paste0(base(), endpoint))
+  query <- as.list(query)
 
-  # build individual feature
-  features <- apply(body, 1, function(f){
-    if (is.na(f$geom.type) | is.null(f$geom.coordinates)){
-      return(NULL)
+  # Add number of entries to the param
+  query$count <- limit
+
+  # First call used to set pages
+  resp <- httr::GET(url,
+      config = httr::add_headers(`Content-type` = "application/json"), ua,
+      query = query, ...)
+
+  # Prep output object
+  responses <- list()
+
+  # Get # pages
+  tmp <- unlist(strsplit(httr::headers(resp)$"content-range", split = "\\D"))
+  rg <- as.numeric(tmp[grepl("\\d", tmp)])
+  pages <- rg[3L] %/% limit
+
+  # Loop over pages
+  for (page in 0:pages) {
+    query$page <- page
+    resp <- httr::GET(url,
+      config = httr::add_headers(`Content-type` = "application/json"), ua,
+      query = query, ...)
+
+    if (httr::http_error(resp)) {
+      if (verbose){
+          message(sprintf("API request failed (%s): %s", httr::status_code(resp),
+             httr::content(resp)$message))
+      }
+      responses[[page + 1]] <- structure(list(body = NULL, response = resp), class = "getError")
     } else {
-      return(list(type = "Feature", geometry = list(
-        type = f$geom.type, coordinates = f$geom.coordinates)))
+      responses[[page + 1]] <- structure(list(
+        body = resp_raw(resp),
+        response = resp), class = "getSuccess")
     }
-  })
-
-  # named list cannot be read once exported via `jsonlite::toJSON()`
-  names(features) <- NULL
-  # sf reads features collection
-  geom_s <- sf::read_sf(
-    jsonlite::toJSON(
-      list(
-        type = "FeatureCollection",
-        features = features
-      ), auto_unbox = TRUE
-    ), as_tibble = FALSE
+  }
+  # check error here if desired;
+  out <- list(
+    body = unlist(purrr::map(responses, "body"), recursive = FALSE),
+    response = unlist(purrr::map(responses, "body"), recursive = FALSE)
   )
+  class(out) <- "mgGetResponses"
+  out
+}
 
-  # remove spatial columns
-  geom_df <- body[which(!names(body) %in% sf_columns())]
-  # bind spatial feature with attributes table
-  sf::st_sf(geometry=sf::st_geometry(geom_s), geom_df)
+
+#' Generic API function to retrieve singletons
+#'
+#' @param endpoint `character` API entry point
+#' @param ids `numeric` vector of ids
+#' @param verbose `logical` print API code status on error; default: `TRUE`
+#' @param ... httr options, see [httr::GET()]
+#' @return
+#' Object of class `mgGetResponses` whithin each level is the specific ID called.
+#' Each item of the `mgGetResponses` list corresponds to an API call. Each call returns an object:
+#' - `getSuccess` which is a list with the body [httr::content()] and the server response [httr::response()].
+#' - `getError` which has the exact same structure with an empty body.
+#' @details
+#' See endpoints available with `endpoints()`
+#' @keywords internal
+get_singletons <- function(endpoint = NULL, ids = NULL, verbose = FALSE,
+   ...) {
+
+  stopifnot(!is.null(endpoint) & !is.null(ids))
+  # Prep output object
+  responses <- list(body = list(), response = list())
+  errors <- NULL
+  class(responses) <- "mgGetResponses"
+
+  # Loop over ids
+  for (i in seq_along(ids)) {
+    # Set url
+    url <- httr::modify_url(server(), path = paste0(base(), endpoint, "/", ids[i]))
+
+    # Call on the API
+    resp <- httr::GET(url, config = httr::add_headers(`Content-type` = "application/json"),
+      ua, ...)
+
+    if (httr::http_error(resp)) {
+      if (verbose) {
+        message(sprintf("API request failed (%s): %s", httr::status_code(resp), httr::content(resp)$message))
+      }
+      errors <- append(errors, i)
+    } else {
+      # coerce body to output desired
+      responses$body[[i]] <- resp_raw(resp)
+      responses$response[[i]] <- resp
+    }
+  }
+  if (!is.null(errors)) warning("Failed request(s) : ", paste0(errors, ", "))
+
+  responses
 }
