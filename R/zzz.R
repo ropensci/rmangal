@@ -34,8 +34,6 @@ null_to_na <- function(x) {
     }
 }
 
-
-
 ## Response => raw
 resp_raw <- function(resp) {
  httr::content(resp, as = "parsed", encoding = "UTF-8")
@@ -75,6 +73,7 @@ resp_to_spatial <- function(x) {
   }
 }
 
+## Build sf object based on geom.type
 switch_sf <- function(tmp) {
   df_nogeom <- as.data.frame(tmp[names(tmp) != "geom"], stringsAsFactors = FALSE)
   if (is.na(tmp$geom)) {
@@ -130,20 +129,15 @@ get_from_fkey_flt <- function(endpoint, ...) {
 #' @param endpoint `character` API entry point
 #' @param query `list` list of parameters passed to the API
 #' @param limit `integer` number of entries return by the API (max: 1000)
-#' @param flatten `logical` flatten nested data.frame, see [jsonlite::flatten()]; default: `TRUE`
-#' @param output `character` output type (`data.frame`, `list`, `spatial`, `raw`) return (default: data.frame)
 #' @param verbose `logical` print API code status on error; default: `TRUE`
 #' @param ... httr options, see [httr::GET()]
 #' @return
-#' Object of class `mgGetResponses` whithin each level is a page.
-#' Each item of the list `mgGetResponses` corresponds to an API call. Each call returns an object:
-#' - `getSuccess` which is a list with the body [httr::content()] and the server response [httr::response()].
-#' - `getError` which has the exact same structure with an empty body.
+#' Object of class `mgGetResponses`
 #' @details
 #' See endpoints available with `endpoints()`
 #' @keywords internal
 
-get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE, verbose = TRUE,...) {
+get_gen <- function(endpoint, query = NULL, limit = 100, verbose = TRUE,...) {
 
   url <- httr::modify_url(server(), path = paste0(base(), endpoint))
   query <- as.list(query)
@@ -183,10 +177,11 @@ get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE, verbose
         response = resp), class = "getSuccess")
     }
   }
+
   # check error here if desired;
   out <- list(
     body = unlist(purrr::map(responses, "body"), recursive = FALSE),
-    response = unlist(purrr::map(responses, "body"), recursive = FALSE)
+    response = purrr::map(responses, "response")
   )
   class(out) <- "mgGetResponses"
   out
@@ -200,10 +195,7 @@ get_gen <- function(endpoint, query = NULL, limit = 100, flatten = TRUE, verbose
 #' @param verbose `logical` print API code status on error; default: `TRUE`
 #' @param ... httr options, see [httr::GET()]
 #' @return
-#' Object of class `mgGetResponses` whithin each level is the specific ID called.
-#' Each item of the `mgGetResponses` list corresponds to an API call. Each call returns an object:
-#' - `getSuccess` which is a list with the body [httr::content()] and the server response [httr::response()].
-#' - `getError` which has the exact same structure with an empty body.
+#' Object of class `mgGetResponses` 
 #' @details
 #' See endpoints available with `endpoints()`
 #' @keywords internal
