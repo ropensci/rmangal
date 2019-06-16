@@ -4,8 +4,7 @@
 \alias{get_gen}
 \title{Generic API function to retrieve several entries}
 \usage{
-get_gen(endpoint, query = NULL, limit = 100, flatten = TRUE,
-  verbose = TRUE, ...)
+get_gen(endpoint, query = NULL, limit = 100, verbose = TRUE, ...)
 }
 \arguments{
 \item{endpoint}{\code{character} API entry point}
@@ -14,21 +13,12 @@ get_gen(endpoint, query = NULL, limit = 100, flatten = TRUE,
 
 \item{limit}{\code{integer} number of entries return by the API (max: 1000)}
 
-\item{flatten}{\code{logical} flatten nested data.frame, see \code{\link[jsonlite:flatten]{jsonlite::flatten()}}; default: \code{TRUE}}
-
 \item{verbose}{\code{logical} print API code status on error; default: \code{TRUE}}
 
 \item{...}{httr options, see \code{\link[httr:GET]{httr::GET()}}}
-
-\item{output}{\code{character} output type (\code{data.frame}, \code{list}, \code{spatial}, \code{raw}) return (default: data.frame)}
 }
 \value{
-Object of class \code{mgGetResponses} whithin each level is a page.
-Each item of the list \code{mgGetResponses} corresponds to an API call. Each call returns an object:
-\itemize{
-\item \code{getSuccess} which is a list with the body \code{\link[httr:content]{httr::content()}} and the server response \code{\link[httr:response]{httr::response()}}.
-\item \code{getError} which has the exact same structure with an empty body.
-}
+Object of class \code{mgGetResponses}
 }
 \description{
 Generic API function to retrieve several entries

@@ -18,6 +18,8 @@ knitr::opts_chunk$set(
 library(rmangal)
 library(magrittr)
 library(USAboundaries)
+library(mapview)
+library(igraph)
 ```
 
 ## rmangal
@@ -25,12 +27,18 @@ library(USAboundaries)
 rmangal is a R client for MANGAL API. MANGAL is a collection of 172
 datasets representing over 1300 published ecological networks.
 
-
 ## List of all available datasets
 
 ```{R}
 all_datasets <- search_datasets()
-all_datasets[1:6, c("id", "description")]
+all_datasets[1:6, c("id", "name" ,"description")]
+```
+
+## Map networks 
+
+```{R}
+all_networks <- search_networks()
+mapview(all_networks, legend = FALSE)
 ```
 
 ## Retrieve networks from datasets?
@@ -41,6 +49,14 @@ net_lagoons <- get_collection(lagoon)
 ```
 
 
+## How to convert network to igraph object?
+
+```{R}
+ig_lagoons <- as.igraph(net_lagoons)
+plot(ig_lagoons[[1]], vertex.label = vertex_attr(ig_lagoons[[1]],"original_name"))
+```
+
+
 ## Retrieve a specific set of networks
 
 ```{R}
@@ -48,19 +64,26 @@ all_networks <- search_networks()
 netw18 <- get_network_by_id(id = 18)
 ## 2B fixed
 collec <- search_networks(query="insect%") %>% get_collection()
-head(collec$nodes)
+collec[[1]]
 ```
-
 
 ## Search over taxonomic name, retrieve networks which include this taxa
 
+```{R}
+sr_ficus <- search_taxa("Ficus") 
+# Plot the location
+mapview(sr_ficus$networks, legend=FALSE)
+# Get networks
+net_ficus <- get_collection(sr_ficus)
+net_ficus[[1]]
+```
 
 ## Search by location, used buffer, polygons to retrieve networks.
 
 ```{R}
-area <- us_states(state="california")
+area <- us_states(state = "california")
 networks_in_area <- search_networks(area)
-plot(networks_in_area)
+mapview(networks_in_area, legend = FALSE)
 ```
 
 ## How to use the ids (bold, tsn, ncbi etc.) to get extra taxonomic informations using taxize?

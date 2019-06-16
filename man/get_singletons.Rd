@@ -16,12 +16,7 @@ get_singletons(endpoint = NULL, ids = NULL, verbose = FALSE, ...)
 \item{...}{httr options, see \code{\link[httr:GET]{httr::GET()}}}
 }
 \value{
-Object of class \code{mgGetResponses} whithin each level is the specific ID called.
-Each item of the \code{mgGetResponses} list corresponds to an API call. Each call returns an object:
-\itemize{
-\item \code{getSuccess} which is a list with the body \code{\link[httr:content]{httr::content()}} and the server response \code{\link[httr:response]{httr::response()}}.
-\item \code{getError} which has the exact same structure with an empty body.
-}
+Object of class \code{mgGetResponses}
 }
 \description{
 Generic API function to retrieve singletons
