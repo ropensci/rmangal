@@ -1,6 +1,6 @@
 #' Coerce `mgNetworksCollection` or `mgNetwork` objects to `igraph` objects
 #'
-#' @param x `mgNetworksCollection` or `mgNetwork` object
+#' @param x `mgNetworksCollection` or `mgNetwork` objects.
 #' @return
 #' An `igraph` object returned by [igraph::graph_from_data_frame()].
 #' @examples
@@ -30,13 +30,15 @@ as.igraph.mgNetworksCollection <- function(x) {
 #' @describeIn as.igraph Coerce `mgNetwork` to `igraph` object.
 #' @export
 as.igraph.mgNetwork <- function(x) {
-
     # Simple test to know if the graph is directed or undirected
     directed <- ifelse(unique(x$edges$direction) == "directed", TRUE, FALSE)
 
     # Move id edge to the last column
-    x$edges <- x$edges[, c(2:ncol(x$edges),1)]
+    x$edges <- as.data.frame(x$edges)
+    # drop geometry
+    x$edges <- x$edges[,names(x$edges) != "geom"]
+    x$edges <- x$edges[, c(2:ncol(x$edges), 1)]
 
-    igraph::graph_from_data_frame(d = x$edges, directed = directed, vertices = x$nodes)
-
+    igraph::graph_from_data_frame(d = x$edges[,1:17], directed = directed,
+      vertices = x$nodes)
 }

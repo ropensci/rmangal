@@ -13,7 +13,7 @@ as.igraph(x)
 \method{as.igraph}{mgNetwork}(x)
 }
 \arguments{
-\item{x}{\code{mgNetworksCollection} or \code{mgNetwork} object}
+\item{x}{\code{mgNetworksCollection} or \code{mgNetwork} objects.}
 }
 \value{
 An \code{igraph} object returned by \code{\link[igraph:graph_from_data_frame]{igraph::graph_from_data_frame()}}.

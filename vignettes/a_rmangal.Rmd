@@ -15,11 +15,12 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
-library(rmangal)
 library(magrittr)
 library(USAboundaries)
 library(mapview)
 library(igraph)
+library(sf)
+library(rmangal)
 ```
 
 ## rmangal
@@ -34,7 +35,7 @@ all_datasets <- search_datasets()
 all_datasets[1:6, c("id", "name" ,"description")]
 ```
 
-## Map networks 
+## Map networks
 
 ```{R}
 all_networks <- search_networks()
@@ -70,9 +71,9 @@ collec[[1]]
 ## Search over taxonomic name, retrieve networks which include this taxa
 
 ```{R}
-sr_ficus <- search_taxa("Ficus") 
+sr_ficus <- search_taxa("Ficus")
 # Plot the location
-mapview(sr_ficus$networks, legend=FALSE)
+mapview(sr_ficus$networks, legend = FALSE)
 # Get networks
 net_ficus <- get_collection(sr_ficus)
 net_ficus[[1]]

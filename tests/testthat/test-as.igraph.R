@@ -1,8 +1,8 @@
 context("as.igraph")
 
 # Prep test on mgNetwork
-suppressWarnings(net_100 <- as.igraph(get_network_by_id(100)))
-suppressWarnings(net_collection <- as.igraph(get_collection(search_datasets("closs"))))
+net_100 <- as.igraph(get_network_by_id(100))
+net_collection <- as.igraph(get_collection(search_datasets("closs")))
 
 test_that("expected behavior", {
   expect_equal(length(net_collection),12)

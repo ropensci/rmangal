@@ -1,13 +1,15 @@
 #' Search over all datasets using keyword
 #'
-#' @param query a `character` string containing a keyword used to search (case sensitive),
-#' or a `list` containing a custom query (see examples).
-#' If keyword is unspecified (query = NULL), all datasets will be returned.
+#' @param query a `character` string of keywords used to search (case
+#'  sensitive) the data base, or a `list` containing a custom query (see
+#'  examples). If `NULL`, all datasets available are returned.
 #' @param verbose a logical. Should extra information be reported on progress?
 #' @param ... further arguments to be passed to [rmangal::get_gen()].
+#'
 #' @return
-#' An object of class `mgSearchDatasets`, which is a `data.frame`  object with all datasets corresponding to the query.
-#' For each dataset entry, the networks and the original reference are attached.
+#' An object of class `mgSearchDatasets`, which is a `data.frame`  object with
+#' all datasets corresponding to the query. For each dataset entry, the
+#' networks and the original reference are attached.
 #' @examples
 #' \dontrun{
 #' # Return all dataset
@@ -18,7 +20,7 @@
 #' # Search with keyword
 #' search_datasets(query = 'lagoon')
 #' res2011 <- search_datasets(query = '2011')
-#' # Search with custom query (specific column)
+#' # Search with a custom query (specific column)
 #' search_datasets(query = list(name = 'kemp_1977'))
 #' @export
 

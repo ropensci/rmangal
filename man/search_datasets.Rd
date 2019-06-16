@@ -7,17 +7,18 @@
 search_datasets(query = NULL, verbose = TRUE, ...)
 }
 \arguments{
-\item{query}{a \code{character} string containing a keyword used to search (case sensitive),
-or a \code{list} containing a custom query (see examples).
-If keyword is unspecified (query = NULL), all datasets will be returned.}
+\item{query}{a \code{character} string of keywords used to search (case
+sensitive) the data base, or a \code{list} containing a custom query (see
+examples). If \code{NULL}, all datasets available are returned.}
 
 \item{verbose}{a logical. Should extra information be reported on progress?}
 
 \item{...}{further arguments to be passed to \code{\link[rmangal:get_gen]{rmangal::get_gen()}}.}
 }
 \value{
-An object of class \code{mgSearchDatasets}, which is a \code{data.frame}  object with all datasets corresponding to the query.
-For each dataset entry, the networks and the original reference are attached.
+An object of class \code{mgSearchDatasets}, which is a \code{data.frame}  object with
+all datasets corresponding to the query. For each dataset entry, the
+networks and the original reference are attached.
 }
 \description{
 Search over all datasets using keyword
@@ -32,6 +33,6 @@ class(all_datasets)
 # Search with keyword
 search_datasets(query = 'lagoon')
 res2011 <- search_datasets(query = '2011')
-# Search with custom query (specific column)
+# Search with a custom query (specific column)
 search_datasets(query = list(name = 'kemp_1977'))
 }

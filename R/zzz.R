@@ -1,4 +1,3 @@
-
 # Basic
 server <- function() "http://poisotlab.biol.umontreal.ca"
 # server <- function() "http://localhost:8080" # dev purpose
@@ -42,7 +41,7 @@ resp_raw <- function(resp) {
 ## Response => data.frame
 resp_to_df <- function(x) {
   if (is.null(x))
-    x else do.call(rbind, lapply(null_to_na(x), 
+    x else do.call(rbind, lapply(null_to_na(x),
       function(x) return(as.data.frame(x, stringsAsFactors = FALSE))))
 }
 
@@ -195,7 +194,7 @@ get_gen <- function(endpoint, query = NULL, limit = 100, verbose = TRUE,...) {
 #' @param verbose `logical` print API code status on error; default: `TRUE`
 #' @param ... httr options, see [httr::GET()]
 #' @return
-#' Object of class `mgGetResponses` 
+#' Object of class `mgGetResponses`
 #' @details
 #' See endpoints available with `endpoints()`
 #' @keywords internal
