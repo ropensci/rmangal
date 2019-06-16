@@ -1,4 +1,4 @@
-context("test-search_networks")
+context("search_networks")
 
 library(sf)
 library(USAboundaries)

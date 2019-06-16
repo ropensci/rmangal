@@ -28,6 +28,7 @@
 search_taxa <- function(query = NULL, tsn = NULL, gbif = NULL, eol = NULL,
   col = NULL, bold = NULL, ncbi = NULL, original = FALSE, verbose = TRUE, ...) {
   
+
   # prep query
   request <- list(q = query, tsn = tsn, gbif = gbif, eol = eol, col = col,
     bold = bold, ncbi = ncbi)
@@ -62,7 +63,9 @@ search_taxa <- function(query = NULL, tsn = NULL, gbif = NULL, eol = NULL,
   # Retrieve network in which taxa are involved
   if (length(network_ids)) {
     nodes$networks <- resp_to_spatial(get_singletons(endpoints()$network, network_ids)$body)
-  } 
+  } else {
+    nodes <- data.frame(NULL)
+  }
 
   if (verbose)
     message(sprintf("Found %s taxa involved in %s network(s)", nrow(taxa), length(network_ids)))

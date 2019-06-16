@@ -1,4 +1,4 @@
-context("test-search_reference")
+context("search_reference")
 
 res1 <- search_reference(doi = "10.2307/3225248")
 
