@@ -54,7 +54,7 @@ search_taxa <- function(query = NULL, tsn = NULL, gbif = NULL, eol = NULL,
       nodes <- do.call(rbind, lapply(taxa$id, function(x)
         get_from_fkey_flt(endpoints()$node, taxonomy_id = x)))
       # Store network ids
-      network_ids <- tmp_nodes$network_id
+      network_ids <- nodes$network_id
     } else network_ids <- NULL
 
   }
