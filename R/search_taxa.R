@@ -21,7 +21,7 @@
 #' @examples
 #' search_taxa("Acer")
 #' # Retrieve higher classification
-#' tsn_acer <- search_taxa("Acer")$tsn
+#' tsn_acer <- search_taxa("Acer")$taxonomy.tsn
 #' taxize::classification(tsn_acer, db = "itis")
 #' @export
 
