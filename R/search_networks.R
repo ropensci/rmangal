@@ -27,7 +27,7 @@ search_networks <- function(query = NULL, verbose = TRUE, ...) {
     # API doesn't allow spatial search - patch with R
     sp_networks <- resp_to_spatial(get_gen(endpoints()$network, ...)$body)
     if (is.null(sp_networks)) {
-      if (verbose) message("no network found")
+      if (verbose) message("No network found!")
       return(data.frame())
     }
     # Set projection to WGS84

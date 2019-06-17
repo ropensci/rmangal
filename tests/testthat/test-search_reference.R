@@ -14,3 +14,6 @@ test_that("get_collection", {
   expect_equal(class(resc), "mgNetwork")
   expect_identical(names(resc), nm_co)
 })
+
+
+res1 <- search_reference(doi = "Does not work")

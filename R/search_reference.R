@@ -16,6 +16,11 @@ search_reference <- function(doi, verbose = TRUE, ...) {
   ref <- resp_to_df(get_gen(endpoints()$reference, query = list(doi = doi),
    ...)$body)
 
+  if (is.null(ref)) {
+     if (verbose) message("No dataset found!")
+     return(data.frame())
+   }
+
   if (verbose)
     message(sprintf("Found dataset: \n %s", ref$bibtex))
 
