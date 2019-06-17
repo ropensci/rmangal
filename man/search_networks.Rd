@@ -22,7 +22,7 @@ Search over all networks using keyword or spatial object
 }
 \examples{
 search_networks(query="insect\%")
-\dontrun{
+\donttest{
 # Spatial query
 library(USAboundaries)
 area <- us_states(state="california")

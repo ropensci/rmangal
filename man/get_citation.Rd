@@ -29,10 +29,10 @@ Display BibTeX for all publications involved in the networks collection
 }}
 
 \examples{
-# On network collection
-lagoon_net_collection <- get_collection(search_datasets("lagoon"))
-get_citation(lagoon_net_collection)
-# On individual network
-network <- get_network_by_id(18)
-get_citation(network)
+ # On network collection
+ lagoon_net_collection <- get_collection(search_datasets("lagoon"))
+ get_citation(lagoon_net_collection)
+ # On individual network
+ network <- get_network_by_id(18)
+ get_citation(network)
 }

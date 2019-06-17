@@ -25,5 +25,5 @@ a \code{mgNetwork} object which include:
 Retrieve mangal network by id
 }
 \examples{
-get_network_by_id(id = 18)
+ get_network_by_id(id = 18)
 }

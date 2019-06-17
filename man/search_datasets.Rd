@@ -24,7 +24,7 @@ networks and the original reference are attached.
 Search over all datasets using keyword
 }
 \examples{
-\dontrun{
+\donttest{
 # Return all dataset
 all_datasets <- search_datasets()
 all_datasets
