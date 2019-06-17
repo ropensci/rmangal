@@ -4,7 +4,7 @@
 \alias{get_citation}
 \alias{get_citation.mgNetwork}
 \alias{get_citation.mgNetworksCollection}
-\title{Display BibTeX for all publications involved in the networks collection}
+\title{Get a BibTeX entry for all publications in a givem networks collection.}
 \usage{
 get_citation(x)
 
@@ -16,10 +16,10 @@ get_citation(x)
 \item{x}{\code{mgNetworksCollection} or \code{mgNetworks} object class.}
 }
 \value{
-\code{list} of bibtex reference part of the network collection
+Bibtex entries as a character vector.
 }
 \description{
-Display BibTeX for all publications involved in the networks collection
+Get a BibTeX entry for all publications in a givem networks collection.
 }
 \section{Methods (by class)}{
 \itemize{
@@ -29,10 +29,10 @@ Display BibTeX for all publications involved in the networks collection
 }}
 
 \examples{
- # On network collection
+ # network collection
  lagoon_net_collection <- get_collection(search_datasets("lagoon"))
  get_citation(lagoon_net_collection)
- # On individual network
+ # individual network
  network <- get_network_by_id(18)
  get_citation(network)
 }

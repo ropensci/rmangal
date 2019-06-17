@@ -1,3 +1,13 @@
+#' rmangal
+#'
+#' A programmatic interface to the Mangal API <https://mangal-wg.github.io/mangal-api//>.
+#'
+#' @docType package
+#' @name rmangal
+#' @keywords internal
+"_PACKAGE"
+
+# HELPER FUNCTIONS
 # Basic
 server <- function() "http://poisotlab.biol.umontreal.ca"
 # server <- function() "http://localhost:8080" # dev purpose
@@ -34,9 +44,7 @@ null_to_na <- function(x) {
 }
 
 ## Response => raw
-resp_raw <- function(resp) {
- httr::content(resp, as = "parsed", encoding = "UTF-8")
-}
+resp_raw <- function(x) httr::content(x, as = "parsed", encoding = "UTF-8")
 
 ## Response => data.frame
 resp_to_df <- function(x) {
@@ -58,9 +66,7 @@ resp_to_df_flt <- function(x) {
 
 fill_df <- function(x, nms) {
   id <- nms[!  nms %in% names(x)]
-  if (length(id)) {
-    x[id] <- NA
-  }
+  if (length(id)) x[id] <- NA
   x
 }
 

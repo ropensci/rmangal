@@ -1,6 +1,5 @@
 context("search_taxa")
 
-library(testthat)
 
 res1 <- search_taxa("Acer")
 resTsn <- search_taxa(tsn = 28749)
@@ -9,7 +8,7 @@ resEol <- search_taxa(eol =  583069)
 resBold <- search_taxa(bold = 100987)
 res2 <- search_taxa("Acer", orginal = TRUE)
 resw <- search_taxa("Does not work")
-small_net <- get_collection(search_taxa("superba")$network_id[4:5])
+# small_net <- get_collection(search_taxa("superba"))
 
 test_that("expected behavior", {
   expect_true("mgSearchTaxa" %in% class(res1))
@@ -24,5 +23,5 @@ test_that("expected behavior", {
   # All Acer negundo
   expect_true(identical(resBold, resEol))
   expect_true(identical(resTsn, resEol))
-  expect_equal(length(small_net), 2)
+  # expect_equal(length(small_net), 2)
 })

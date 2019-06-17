@@ -76,19 +76,10 @@
   </a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../articles/rmangal.html">Get started</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="../articles/a_get_started.html">Get started with rmangal</a>
-    </li>
-  </ul>
+<li>
+  <a href="../reference/index.html">Reference</a>
 </li>
       </ul>
       
@@ -151,12 +142,22 @@ networks and the original reference are attached.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='co'># Return all dataset</span>
-<span class='no'>all_datasets</span> <span class='kw'>&lt;-</span> <span class='fu'>search_datasets</span>()
-<span class='no'>all_datasets</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/class'>class</a></span>(<span class='no'>all_datasets</span>)
-<span class='co'># }</span><div class='input'><span class='co'># Search with keyword</span>
+    <pre class="examples"><div class='input'><span class='co'># Return all dataset</span>
+<span class='no'>all_datasets</span> <span class='kw'>&lt;-</span> <span class='fu'>search_datasets</span>()</div><div class='output co'>#&gt; <span class='message'>Found 172 datasets</span></div><div class='input'><span class='no'>all_datasets</span></div><div class='output co'>#&gt; # A tibble: 172 x 11
+#&gt;       id name  date  description public created_at updated_at ref_id user_id
+#&gt;    &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;       &lt;lgl&gt;  &lt;chr&gt;      &lt;chr&gt;       &lt;int&gt;   &lt;int&gt;
+#&gt;  1     2 howk… 1963… Insect act… TRUE   2019-02-2… 2019-02-2…      2       2
+#&gt;  2     7 lund… 2002… Pollnator … TRUE   2019-02-2… 2019-02-2…      7       2
+#&gt;  3     9 elbe… 1994… Flower-vis… TRUE   2019-02-2… 2019-02-2…      9       2
+#&gt;  4    14 john… 1956… Predation … TRUE   2019-02-2… 2019-02-2…     14       3
+#&gt;  5    15 have… 1984… Pelagic co… TRUE   2019-02-2… 2019-02-2…     15       3
+#&gt;  6    16 kemp… 1977… Food web f… TRUE   2019-02-2… 2019-02-2…     16       3
+#&gt;  7    17 brad… 1978… Food web o… TRUE   2019-02-2… 2019-02-2…     17       3
+#&gt;  8    18 patt… 1979… Food web o… TRUE   2019-02-2… 2019-02-2…     18       3
+#&gt;  9    19 clar… 1965… Food web o… TRUE   2019-02-2… 2019-02-2…     19       3
+#&gt; 10    20 van_… 1975… Food web o… TRUE   2019-02-2… 2019-02-2…     20       3
+#&gt; # … with 162 more rows, and 2 more variables: references &lt;list&gt;,
+#&gt; #   networks &lt;list&gt;</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/class'>class</a></span>(<span class='no'>all_datasets</span>)</div><div class='output co'>#&gt; [1] "tbl_df"           "tbl"              "data.frame"       "mgSearchDatasets"</div><div class='input'><span class='co'># Search with keyword</span>
 <span class='fu'>search_datasets</span>(<span class='kw'>query</span> <span class='kw'>=</span> <span class='st'>'lagoon'</span>)</div><div class='output co'>#&gt; <span class='message'>Found 2 datasets</span></div><div class='output co'>#&gt; # A tibble: 2 x 11
 #&gt;      id name  date  description public created_at updated_at ref_id user_id
 #&gt;   &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;       &lt;lgl&gt;  &lt;chr&gt;      &lt;chr&gt;       &lt;int&gt;   &lt;int&gt;

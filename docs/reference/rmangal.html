@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Coerce <code>mgNetworksCollection</code> or <code>mgNetwork</code> objects to <code>igraph</code> objects — as.igraph • rmangal</title>
+<title>rmangal — rmangal • rmangal</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Coerce <code>mgNetworksCollection</code> or <code>mgNetwork</code> objects to <code>igraph</code> objects — as.igraph" />
+<meta property="og:title" content="rmangal — rmangal" />
 
-<meta property="og:description" content="Coerce mgNetworksCollection or mgNetwork objects to igraph objects" />
+<meta property="og:description" content="A programmatic interface to the Mangal API https://mangal-wg.github.io/mangal-api//." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -102,71 +102,46 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Coerce <code>mgNetworksCollection</code> or <code>mgNetwork</code> objects to <code>igraph</code> objects</h1>
-    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/as.igraph.R'><code>R/as.igraph.R</code></a></small>
-    <div class="hidden name"><code>as.igraph.Rd</code></div>
+    <h1>rmangal</h1>
+    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/zzz.R'><code>R/zzz.R</code></a></small>
+    <div class="hidden name"><code>rmangal.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Coerce <code>mgNetworksCollection</code> or <code>mgNetwork</code> objects to <code>igraph</code> objects</p>
+    <p>A programmatic interface to the Mangal API <a href='https://mangal-wg.github.io/mangal-api//'>https://mangal-wg.github.io/mangal-api//</a>.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>as.igraph</span>(<span class='no'>x</span>)
+        
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-<span class='co'># S3 method for mgNetworksCollection</span>
-<span class='fu'>as.igraph</span>(<span class='no'>x</span>)
-
-<span class='co'># S3 method for mgNetwork</span>
-<span class='fu'>as.igraph</span>(<span class='no'>x</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>x</th>
-      <td><p><code>mgNetworksCollection</code> or <code>mgNetwork</code> objects.</p></td>
-    </tr>
-    </table>
-    
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>An <code>igraph</code> object returned by <code><a href='https://www.rdocumentation.org/packages/igraph/topics/graph_from_data_frame'>igraph::graph_from_data_frame()</a></code>.</p>
-    
-    <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
-
-    <ul>
-<li><p><code>mgNetworksCollection</code>: Coerce <code>mgNetworksCollection</code> to <code>igraph</code> object.</p></li>
-<li><p><code>mgNetwork</code>: Coerce <code>mgNetwork</code> to <code>igraph</code> object.</p></li>
-</ul>
+    <div class='dont-index'><p>Useful links:</p><ul>
+<li><p><a href='http://poisotlab.biol.umontreal.ca/#/'>http://poisotlab.biol.umontreal.ca/#/</a></p></li>
+<li><p><a href='https://github.com/mangal-wg/rmangal'>https://github.com/mangal-wg/rmangal</a></p></li>
+<li><p>Report bugs at <a href='https://github.com/mangal-wg/rmangal/issues'>https://github.com/mangal-wg/rmangal/issues</a></p></li>
+</ul></div>
     
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='no'>insects_networks</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='get_collection.html'>get_collection</a></span>(<span class='fu'><a href='search_networks.html'>search_networks</a></span>(<span class='kw'>query</span><span class='kw'>=</span><span class='st'>'insect%'</span>))
-<span class='co'># Apply as.igraph on one specific network</span>
-<span class='no'>insects_network</span> <span class='kw'>&lt;-</span> <span class='no'>insects_networks</span><span class='kw'>[[</span><span class='fl'>1</span>]]
-<span class='no'>ig_network</span> <span class='kw'>&lt;-</span> <span class='fu'>as.igraph</span>(<span class='no'>insects_network</span>)
-<span class='co'># Apply as.igraph on networks collection</span>
-<span class='no'>ig_coll_networks</span> <span class='kw'>&lt;-</span> <span class='fu'>as.igraph</span>(<span class='no'>insects_networks</span>)
-<span class='co'># Plot igraph object with vertex label</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>ig_network</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>ig_network</span>, <span class='kw'>vertex.label</span> <span class='kw'>=</span> <span class='no'>insects_network</span>$<span class='no'>nodes</span>$<span class='no'>taxonomy.name</span>)
-<span class='co'># }</span><div class='input'>
-</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#value">Value</a></li>
+      <li><a href="#see-also">See also</a></li>
+          </ul>
 
-      <li><a href="#methods-by-class-">Methods (by class)</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+    <h2>Author</h2>
+    <p><strong>Maintainer</strong>: Steve Vissault <a href='mailto:steve.vissault@usherbrooke.ca'>steve.vissault@usherbrooke.ca</a> (0000-0002-0866-4376)</p>
+<p>Authors:</p><ul>
+<li><p>Gabriel Bergeron <a href='mailto:gabriel.bergeron3@usherbrooke.ca'>gabriel.bergeron3@usherbrooke.ca</a> [contributor]</p></li>
+<li><p>Benjamin Mercier <a href='mailto:Benjamin.B.Mercier@usherbrooke.ca'>Benjamin.B.Mercier@usherbrooke.ca</a> [contributor]</p></li>
+<li><p>Clément Violet <a href='mailto:Clement.Violet@etudiant.univ-brest.fr'>Clement.Violet@etudiant.univ-brest.fr</a> [contributor]</p></li>
+<li><p>Kevin Cazelles <a href='mailto:kcazelle@uoguelph.ca'>kcazelle@uoguelph.ca</a> (0000-0001-6619-9874) [contributor]</p></li>
+<li><p>Dominique Gravel <a href='mailto:dominique.gravel@usherbrooke.ca'>dominique.gravel@usherbrooke.ca</a></p></li>
+<li><p>Timothée Poisot <a href='mailto:timothee.poisot@umontreal.ca'>timothee.poisot@umontreal.ca</a> [contributor]</p></li>
+</ul>
+
 
   </div>
 </div>

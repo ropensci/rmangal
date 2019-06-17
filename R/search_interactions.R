@@ -1,9 +1,9 @@
 #' Search for specific interactions type (e.g. mutualism)
 #'
-#' @param type a `character` one of the interactions type available in the function `avail_type()`
-#' @param expand_node a `logical`. Should the function returned more information on nodes
-#' involved in the interaction? Default is set to `FALSE`, which means that only the mangal ID of nodes are returned.
+#' @param type a `character` one of the interactions type available in the function `avail_type()`.
+#' @param expand_node a `logical`. Should the function returned extra information on nodes? Default is set to `FALSE`, which means that only the mangal ID of nodes are returned.
 #' @param verbose a `logical`. Should extra information be reported on progress?
+#'
 #' @return
 #' An object of class `mgSearchInteractions`, which is a `data.frame` object with all interaction matching the interaction type provided.
 #' All networks in which interactions are involved are also attached to the `data.frame`.
@@ -27,8 +27,8 @@ search_interactions <- function( type = avail_type(), expand_node = FALSE,
       return(data.frame())
     }
 
-    # Expand content on node
-    if (expand_node ) {
+    # Add extra info about nodes if desired
+    if (expand_node) {
       tmp <- resp_to_df(get_singletons(endpoints()$node,
         interactions$node_from)$body)
       interactions[, paste0("node_from_", names(tmp))] <- tmp

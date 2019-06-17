@@ -1,6 +1,7 @@
 #' Get a collection of networks
 #'
-#' @param x `numeric` vector of mangal network IDs or object return by functions `search_*`.
+#' @param x `numeric` vector of mangal network IDs or an object returned by
+#' by on of the `search_*()` functions.
 #' @param ... arguments to be passed on to [rmangal::get_network_by_id()].
 #' @return
 #' object `mgNetworksCollection`:
@@ -91,6 +92,7 @@ get_collection.mgSearchTaxa <- function(x, ...) {
   mg_net_collection <- structure(list(), class= "mgNetworksCollection")
 
   for (i in seq_along(uq_ids)) {
+    print(i)
     mg_net_collection[[i]] <- get_network_by_id(uq_ids[i])
   }
 

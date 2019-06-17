@@ -12,13 +12,13 @@ get_network_by_id(id, ...)
 \item{...}{arguments from \code{\link[rmangal:get_singletons]{rmangal::get_singletons()}}}
 }
 \value{
-a \code{mgNetwork} object which include:
+a \code{mgNetwork} object including:
 \itemize{
-\item network: \code{list} of all generic informations on the network
-\item nodes: \code{data.frame} of all nodes with taxonomic informations
-\item edges: \code{data.frame} of all edges (ecological interactions), with the attribute used to describe the interaction
-\item dataset: \code{list} of all informations on the dataset associated to the network
-\item reference: \code{list} of all informations on the original publication
+\item network: a \code{list} of all generic informations on the network;
+\item nodes: a \code{data.frame} of all nodes with taxonomic informations;
+\item edges: a \code{data.frame} of all edges (ecological interactions), with the attribute used to describe the interaction
+\item dataset: \code{list} information pertaining to the datasetthe network is associaated to;
+\item reference: \code{list} information about the original publication.
 }
 }
 \description{

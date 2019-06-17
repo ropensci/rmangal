@@ -25,7 +25,8 @@ get_collection(x, ...)
 \method{get_collection}{mgSearchInteractions}(x, ...)
 }
 \arguments{
-\item{x}{\code{numeric} vector of mangal network IDs or object return by functions \code{search_*}.}
+\item{x}{\code{numeric} vector of mangal network IDs or an object returned by
+by on of the \code{search_*()} functions.}
 
 \item{...}{arguments to be passed on to \code{\link[rmangal:get_network_by_id]{rmangal::get_network_by_id()}}.}
 }

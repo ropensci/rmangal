@@ -3,12 +3,12 @@
 #' @param id `numeric` mangal ID network
 #' @param ... arguments from [rmangal::get_singletons()]
 #' @return
-#' a `mgNetwork` object which include:
-#' - network: `list` of all generic informations on the network
-#' - nodes: `data.frame` of all nodes with taxonomic informations
-#' - edges: `data.frame` of all edges (ecological interactions), with the attribute used to describe the interaction
-#' - dataset: `list` of all informations on the dataset associated to the network
-#' - reference: `list` of all informations on the original publication
+#' a `mgNetwork` object including:
+#' - network: a `list` of all generic informations on the network;
+#' - nodes: a `data.frame` of all nodes with taxonomic informations;
+#' - edges: a `data.frame` of all edges (ecological interactions), with the attribute used to describe the interaction
+#' - dataset: `list` information pertaining to the datasetthe network is associaated to;
+#' - reference: `list` information about the original publication.
 #' @examples
 #'  get_network_by_id(id = 18)
 #' @export

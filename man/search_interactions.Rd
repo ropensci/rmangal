@@ -8,10 +8,9 @@ search_interactions(type = avail_type(), expand_node = FALSE,
   verbose = FALSE)
 }
 \arguments{
-\item{type}{a \code{character} one of the interactions type available in the function \code{avail_type()}}
+\item{type}{a \code{character} one of the interactions type available in the function \code{avail_type()}.}
 
-\item{expand_node}{a \code{logical}. Should the function returned more information on nodes
-involved in the interaction? Default is set to \code{FALSE}, which means that only the mangal ID of nodes are returned.}
+\item{expand_node}{a \code{logical}. Should the function returned extra information on nodes? Default is set to \code{FALSE}, which means that only the mangal ID of nodes are returned.}
 
 \item{verbose}{a \code{logical}. Should extra information be reported on progress?}
 }

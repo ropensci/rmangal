@@ -76,19 +76,10 @@
   </a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../articles/rmangal.html">Get started</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="../articles/a_get_started.html">Get started with rmangal</a>
-    </li>
-  </ul>
+<li>
+  <a href="../reference/index.html">Reference</a>
 </li>
       </ul>
       
@@ -198,13 +189,10 @@ used to search in a specific geographical area. If keyword is unspecified (query
 #&gt; 7         114       4 POINT (-1.451736 53.37829)
 #&gt; 8         118       4 POINT (-83.48878 8.706877)
 #&gt; 9         118       4 POINT (-83.48878 8.706877)
-#&gt; 10        119       4 POINT (-67.68822 10.34253)</div><span class='co'># NOT RUN {</span>
-<span class='co'># Spatial query</span>
+#&gt; 10        119       4 POINT (-67.68822 10.34253)</div><div class='input'><span class='co'># Spatial query</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>USAboundaries</span>)
 <span class='no'>area</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://lincolnmullen.com/software/usaboundaries/reference/us_states.html'>us_states</a></span>(<span class='kw'>state</span><span class='kw'>=</span><span class='st'>"california"</span>)
-<span class='no'>networks_in_area</span> <span class='kw'>&lt;-</span> <span class='fu'>search_networks</span>(<span class='no'>area</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>networks_in_area</span>)
-<span class='co'># }</span></pre>
+<span class='no'>networks_in_area</span> <span class='kw'>&lt;-</span> <span class='fu'>search_networks</span>(<span class='no'>area</span>)</div><div class='output co'>#&gt; <span class='message'>Spatial query mode</span></div><div class='output co'>#&gt; <span class='message'>although coordinates are longitude/latitude, st_contains assumes that they are planar</span></div><div class='output co'>#&gt; <span class='message'>Found 14 networks</span></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>networks_in_area</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: plotting the first 9 out of 10 attributes; use max.plot = 10 to plot all</span></div><div class='img'><img src='search_networks-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
