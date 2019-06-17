@@ -4,8 +4,10 @@
 #' by on of the `search_*()` functions.
 #' @param ... arguments to be passed on to [rmangal::get_network_by_id()].
 #' @return
-#' object `mgNetworksCollection`:
-#' - collection of networks: `list` of object `mgNetwork` (see [rmangal::get_network_by_id()])
+#'  If there is only one network to be retrieved, `get_collection()` returns a
+#' `mgNetwork` object, otherwise it returns a object of class
+#' `mgNetworksCollection` which is a collection (a list) of `mgNetwork`
+#' objects [rmangal::get_network_by_id()]).
 #' @examples
 #' \dontrun{
 #' get_collection(c(1035:1036))

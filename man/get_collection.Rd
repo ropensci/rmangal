@@ -31,10 +31,10 @@ by on of the \code{search_*()} functions.}
 \item{...}{arguments to be passed on to \code{\link[rmangal:get_network_by_id]{rmangal::get_network_by_id()}}.}
 }
 \value{
-object \code{mgNetworksCollection}:
-\itemize{
-\item collection of networks: \code{list} of object \code{mgNetwork} (see \code{\link[rmangal:get_network_by_id]{rmangal::get_network_by_id()}})
-}
+If there is only one network to be retrieved, \code{get_collection()} returns a
+\code{mgNetwork} object, otherwise it returns a object of class
+\code{mgNetworksCollection} which is a collection (a list) of \code{mgNetwork}
+objects \code{\link[rmangal:get_network_by_id]{rmangal::get_network_by_id()}}).
 }
 \description{
 Get a collection of networks

@@ -39,42 +39,105 @@ re-written and several ecological networks have been added.
 
 <!-- A word about few words about the future of mangal -->
 
+<!-- A word the absence of token -->
+
 
 ## Data available
 
-<!-- add a diagram -->
+<!-- add a diagram that describes the data base-->
+<!-- it should be clear the difference between a dataset and a network -->
 
 
-## Philosophie
+## How to use rmangal
 
-Identify data set and then obtain a network. 
+`rmangal` includes 5 search functions to quickly identify relevant data sets
+or relevant ecological network available in the data base:
+
+- `search_datasets()`: identify data sets using keyword such as name, year;
+- `search_interactions()`:identify relevant datas ets nased on interactions kind;
+- `search_networks()`: identify networks based on a keyword or a geographical area;
+- `search_reference()`: search based on the `doi` of the publication associated with;
+- `search_taxa()`: identify data sets that included a given taxonomic entity.
+
+All these functions return specific objects containing the information needed
+to retrieve the set of corresponding ecological networks with
+`get_collection()`.
+
+```r
+networks <- search_*() %>% get_collection()
+```
+
+If there is only one network to be retrieved, `get_collection()` returns a `mgNetwork` object, otherwise it returns a object of class  `mgNetworksCollection` which is a collection (a list) of `mgNetwork` objects.
 
 
+```r
+ref <- get_collection(networks)
+```
+
+Below, we illustrate this in more details.
 
 
-## List of all available datasets
+## Search functions
 
-All datasets included in the mangal can be
+### Finding specific data sets
 
+All data sets pertaining to lagoon:
+
+```{R}
+lagoon <- search_datasets(query = 'lagoon')
+class(lagoon)
+dim(lagoon)
+```
+
+All data sets published in 2011
+
+```{R}
+df2011 <- search_datasets(query = '2011')
+dim(df2011)
+```
+
+Moreover, `search_datasets()` allows the user to retrieve all data sets:
 
 ```{R}
 all_datasets <- search_datasets()
-all_datasets[1:6, c("id", "name" ,"description")]
+head(all_datasets[, c("id", "name" ,"description")])
 ```
 
-## Map networks
+
+
+### Retrieve a specific set of networks
+
+Once data sets identified, you can retrieve the ecological networks included:
+
+```{R}
+net_lagoons <- get_collection(lagoon)
+```
+
+Alternatively, you can use `search_networks()`
+
+
+```{R}
+all_networks <- search_networks()
+netw18 <- get_network_by_id(18)
+## 2B fixed
+collec <- search_networks(query="insect%") %>% get_collection()
+collec[[1]]
+```
+
+
+### Mapping networks
+
+<!-- of course map are fun but I woud put that in a sperate vignette -->
 
 ```{R}
 all_networks <- search_networks()
 mapview(all_networks, legend = FALSE)
 ```
 
-## Retrieve networks from datasets?
 
-```{R}
-lagoon <- search_datasets(query = 'lagoon')
-net_lagoons <- get_collection(lagoon)
-```
+
+
+
 
 
 ## How to convert network to igraph object?
@@ -85,15 +148,7 @@ plot(ig_lagoons[[1]], vertex.label = vertex_attr(ig_lagoons[[1]],"original_name"
 ```
 
 
-## Retrieve a specific set of networks
 
-```{R}
-all_networks <- search_networks()
-netw18 <- get_network_by_id(18)
-## 2B fixed
-collec <- search_networks(query="insect%") %>% get_collection()
-collec[[1]]
-```
 
 ## Search over taxonomic name, retrieve networks which include this taxa
 
