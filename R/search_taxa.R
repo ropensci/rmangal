@@ -27,15 +27,16 @@
 
 search_taxa <- function(query = NULL, tsn = NULL, gbif = NULL, eol = NULL,
   col = NULL, bold = NULL, ncbi = NULL, original = FALSE, verbose = TRUE, ...) {
-  
+
 
   # prep query
   request <- list(q = query, tsn = tsn, gbif = gbif, eol = eol, col = col,
     bold = bold, ncbi = ncbi)
 
-  if (sum(!sapply(request, is.null)) > 1) {
+  isn <- !unlist(lapply(request, is.null))
+  if (sum(isn) > 1) {
     stop("Query with multiple criteria not allowed")
-  } else if (sum(!sapply(request, is.null)) == 0) {
+  } else if (!sum(isn)) {
     stop("Query unspecified")
   }
 
