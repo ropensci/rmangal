@@ -2,14 +2,19 @@
 % Please edit documentation in R/get_network_by_id.R
 \name{get_network_by_id}
 \alias{get_network_by_id}
+\alias{get_network_by_id_indiv}
 \title{Retrieve mangal network by id}
 \usage{
-get_network_by_id(id, ...)
+get_network_by_id(ids, verbose = TRUE)
+
+get_network_by_id_indiv(id, verbose = TRUE)
 }
 \arguments{
-\item{id}{\code{numeric} mangal ID network}
+\item{ids}{a vector of mangal ID for networks (\code{numeric}).}
 
-\item{...}{arguments from \code{\link[rmangal:get_singletons]{rmangal::get_singletons()}}}
+\item{verbose}{a logical. Should extra information be reported on progress?}
+
+\item{id}{a single ID network (\code{numeric}).}
 }
 \value{
 a \code{mgNetwork} object including:
@@ -24,6 +29,12 @@ a \code{mgNetwork} object including:
 \description{
 Retrieve mangal network by id
 }
+\section{Functions}{
+\itemize{
+\item \code{get_network_by_id_indiv}: Retrieve a network by its  collection of networks (default).
+}}
+
 \examples{
- get_network_by_id(id = 18)
+net18 <- get_network_by_id(id = 18)
+nets <- get_network_by_id(id = c(18, 23))
 }

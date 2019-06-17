@@ -113,18 +113,24 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>get_network_by_id</span>(<span class='no'>id</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>get_network_by_id</span>(<span class='no'>ids</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='fu'>get_network_by_id_indiv</span>(<span class='no'>id</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>id</th>
-      <td><p><code>numeric</code> mangal ID network</p></td>
+      <th>ids</th>
+      <td><p>a vector of mangal ID for networks (<code>numeric</code>).</p></td>
     </tr>
     <tr>
-      <th>...</th>
-      <td><p>arguments from <code><a href='get_singletons.html'>rmangal::get_singletons()</a></code></p></td>
+      <th>verbose</th>
+      <td><p>a logical. Should extra information be reported on progress?</p></td>
+    </tr>
+    <tr>
+      <th>id</th>
+      <td><p>a single ID network (<code>numeric</code>).</p></td>
     </tr>
     </table>
     
@@ -139,273 +145,16 @@
 </ul>
 
     
+    <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
+
+    <ul>
+<li><p><code>get_network_by_id_indiv</code>: Retrieve a network by its  collection of networks (default).</p></li>
+</ul>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'> <span class='fu'>get_network_by_id</span>(<span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>18</span>)</div><div class='output co'>#&gt; $network
-#&gt; Simple feature collection with 1 feature and 10 fields
-#&gt; geometry type:  POINT
-#&gt; dimension:      XY
-#&gt; bbox:           xmin: -114.9667 ymin: 75 xmax: -114.9667 ymax: 75
-#&gt; epsg (SRID):    4326
-#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs
-#&gt;   id                            name                     date
-#&gt; 1 18 mosquin_martin_1967_19650731_18 1965-07-31T04:00:00.000Z
-#&gt;                                                                                                              description
-#&gt; 1 Occurence of flower-visiting insect on plant species, two miles north of Bailey Point, Melville Island, N.W.T., Canada
-#&gt;   public all_interactions               created_at               updated_at
-#&gt; 1   TRUE            FALSE 2019-02-22T18:38:37.491Z 2019-02-22T18:38:37.491Z
-#&gt;   dataset_id user_id                 geom
-#&gt; 1          4       3 POINT (-114.9667 75)
-#&gt; 
-#&gt; $nodes
-#&gt;      id                original_name node_level network_id taxonomy_id
-#&gt; 1  2599        Spilogona sanctipauli      taxon         18        1591
-#&gt; 2  2600               Bombus polaris      taxon         18        1956
-#&gt; 3  2602                 Colias hecla      taxon         18        1540
-#&gt; 4  2604             Boloria improba       taxon         18        1959
-#&gt; 5  2606         Spilogona latilamina      taxon         18        1589
-#&gt; 6  2607           Boreellus atriceps      taxon         18        1596
-#&gt; 7  2608            Spilogona dorsata      taxon         18        1588
-#&gt; 8  2609          Spilogona projecta       taxon         18        1961
-#&gt; 9  2611         Spilogona melanosoma      taxon         18        1590
-#&gt; 10 2613               Colias nastes       taxon         18        1963
-#&gt; 11 2614 Protocalliphora sp1 M_PL_024      taxon         18        1964
-#&gt; 12 2615     Rhamphomyia sp1 M_PL_024      taxon         18        1573
-#&gt; 13 2616          Spilogona hurdiana       taxon         18        1965
-#&gt; 14 2617         Potentilla vahliana       taxon         18        1966
-#&gt; 15 2618           Dryas integrifolia      taxon         18        1504
-#&gt; 16 2619       Taraxacum sp1 M_PL_024      taxon         18        1967
-#&gt; 17 2620            Caltha palustris       taxon         18        1968
-#&gt; 18 2621            Cerastium alpinum      taxon         18        1499
-#&gt; 19 2622                Arnica alpina      taxon         18        1496
-#&gt; 20 2623           Astragalus alpinus      taxon         18        1969
-#&gt; 21 2624          Petasites frigidus       taxon         18        1970
-#&gt; 22 2625            Papaver radicatum      taxon         18        1510
-#&gt; 23 2626                 Geum rossii       taxon         18        1971
-#&gt; 24 2627           Oxytropis arctica       taxon         18        1972
-#&gt; 25 2612           Anarta richardsoni      taxon         18          NA
-#&gt; 26 2601        Spilogona almquistii       taxon         18          NA
-#&gt; 27 2603  Eupogonomyia probilofensis       taxon         18          NA
-#&gt; 28 2605        Pogonomyiodes segnis       taxon         18          NA
-#&gt; 29 2610         Spilogona aesturium       taxon         18          NA
-#&gt;                  created_at               updated_at taxonomy.id
-#&gt; 1  2019-02-22T18:38:40.906Z 2019-02-22T18:38:40.906Z        1591
-#&gt; 2  2019-02-22T18:38:40.950Z 2019-02-22T18:38:40.950Z        1956
-#&gt; 3  2019-02-22T18:38:41.004Z 2019-02-22T18:38:41.004Z        1540
-#&gt; 4  2019-02-22T18:38:41.070Z 2019-02-22T18:38:41.070Z        1959
-#&gt; 5  2019-02-22T18:38:41.141Z 2019-02-22T18:38:41.141Z        1589
-#&gt; 6  2019-02-22T18:38:41.186Z 2019-02-22T18:38:41.186Z        1596
-#&gt; 7  2019-02-22T18:38:41.236Z 2019-02-22T18:38:41.236Z        1588
-#&gt; 8  2019-02-22T18:38:41.279Z 2019-02-22T18:38:41.279Z        1961
-#&gt; 9  2019-02-22T18:38:41.363Z 2019-02-22T18:38:41.363Z        1590
-#&gt; 10 2019-02-22T18:38:41.445Z 2019-02-22T18:38:41.445Z        1963
-#&gt; 11 2019-02-22T18:38:41.486Z 2019-02-22T18:38:41.486Z        1964
-#&gt; 12 2019-02-22T18:38:41.530Z 2019-02-22T18:38:41.530Z        1573
-#&gt; 13 2019-02-22T18:38:41.573Z 2019-02-22T18:38:41.573Z        1965
-#&gt; 14 2019-02-22T18:38:41.604Z 2019-02-22T18:38:41.604Z        1966
-#&gt; 15 2019-02-22T18:38:41.637Z 2019-02-22T18:38:41.637Z        1504
-#&gt; 16 2019-02-22T18:38:41.680Z 2019-02-22T18:38:41.680Z        1967
-#&gt; 17 2019-02-22T18:38:41.721Z 2019-02-22T18:38:41.721Z        1968
-#&gt; 18 2019-02-22T18:38:41.761Z 2019-02-22T18:38:41.761Z        1499
-#&gt; 19 2019-02-22T18:38:41.808Z 2019-02-22T18:38:41.808Z        1496
-#&gt; 20 2019-02-22T18:38:41.843Z 2019-02-22T18:38:41.843Z        1969
-#&gt; 21 2019-02-22T18:38:41.887Z 2019-02-22T18:38:41.887Z        1970
-#&gt; 22 2019-02-22T18:38:41.985Z 2019-02-22T18:38:41.985Z        1510
-#&gt; 23 2019-02-22T18:38:42.143Z 2019-02-22T18:38:42.143Z        1971
-#&gt; 24 2019-02-22T18:38:42.240Z 2019-02-22T18:38:42.240Z        1972
-#&gt; 25 2019-02-22T18:38:41.405Z 2019-02-22T18:38:41.405Z          NA
-#&gt; 26 2019-02-22T18:38:40.980Z 2019-02-22T18:38:40.980Z          NA
-#&gt; 27 2019-02-22T18:38:41.039Z 2019-02-22T18:38:41.039Z          NA
-#&gt; 28 2019-02-22T18:38:41.103Z 2019-02-22T18:38:41.103Z          NA
-#&gt; 29 2019-02-22T18:38:41.329Z 2019-02-22T18:38:41.329Z          NA
-#&gt;                 taxonomy.name taxonomy.ncbi taxonomy.tsn taxonomy.eol
-#&gt; 1       Spilogona sanctipauli       1790216       151014       730414
-#&gt; 2              Bombus polaris        130708       714831      1065341
-#&gt; 3                Colias hecla         78613       188527       175775
-#&gt; 4             Boloria improba        977890       777984     46796765
-#&gt; 5        Spilogona latilamina            NA       150919       732134
-#&gt; 6       Protophormia atriceps        142853       151675       730025
-#&gt; 7           Spilogona dorsata       1790214       150885       732619
-#&gt; 8          Spilogona projecta            NA       150990       747098
-#&gt; 9        Spilogona melanosoma       1291949       150939       732129
-#&gt; 10               Colias tyche        596546       777742       176091
-#&gt; 11            Protocalliphora        142901       151690        54973
-#&gt; 12                Rhamphomyia        192612       136123        55386
-#&gt; 13         Spilogona hurdiana            NA       150908       747112
-#&gt; 14        Potentilla vahliana        667290        24758       301054
-#&gt; 15         Dryas integrifolia        395290        24614       629466
-#&gt; 16                  Taraxacum         49743        36199       468411
-#&gt; 17           Caltha palustris          3449        18454       596646
-#&gt; 18          Cerastium alpinum        271556        19946       589306
-#&gt; 19 Arnica angustifolia alpina            NA        36556     47141408
-#&gt; 20         Astragalus alpinus         20403        25393       418736
-#&gt; 21         Petasites frigidus         56019        36054     47141412
-#&gt; 22          Papaver radicatum        357475       518422     47158290
-#&gt; 23                Geum rossii        148884        24660     52202147
-#&gt; 24          Oxytropis arctica        180075        26163       415929
-#&gt; 25                       &lt;NA&gt;            NA           NA           NA
-#&gt; 26                       &lt;NA&gt;            NA           NA           NA
-#&gt; 27                       &lt;NA&gt;            NA           NA           NA
-#&gt; 28                       &lt;NA&gt;            NA           NA           NA
-#&gt; 29                       &lt;NA&gt;            NA           NA           NA
-#&gt;    taxonomy.bold taxonomy.gbif                     taxonomy.col taxonomy.rank
-#&gt; 1         365798       1532196 833656371e40bd4782961b44abeda797       species
-#&gt; 2          31789       1340367 2a7dd1d3a99176092d09b17c65ddc7ac       species
-#&gt; 3          69799       5137595 b29021e7e9bbe5b36ea0883f69094f3c       species
-#&gt; 4         100095       4299581                             &lt;NA&gt;          &lt;NA&gt;
-#&gt; 5             NA       1532457 c50081d3fc1cb533742f5fc97ceae294       species
-#&gt; 6         174016       1504855 7a56b6074179b43d135a324bbb63a1b4       species
-#&gt; 7         365794       1532388 ca103165c6dfd8291f92af8dcb80e1c3       species
-#&gt; 8             NA       1532068 adfc31f20f0cdc196531afbae032247b       species
-#&gt; 9         228564       1532288 a90335e943094b5aa7b5731298d7f32c       species
-#&gt; 10         56199       5137636 61c6c6607a34995a112b2b3e69426c41       species
-#&gt; 11          7818            NA 811ccfc276427457d30bc0410c28fcf4         genus
-#&gt; 12        365789            NA 38e7268f477057b1ca7bfb837e4401bd         genus
-#&gt; 13            NA       1532425 e5a1094d75c80006b3c42a0b830d7283       species
-#&gt; 14        263269       5368522 baa98384a6ec81390e2314ff01b49e89       species
-#&gt; 15        260153       5364129 2ebd643d118b04180fa802d332cca458       species
-#&gt; 16        121527            NA 7633c8aa30d05f0ca2dfe7b290752e33         genus
-#&gt; 17        121193       5371685 075c72b100babb3494b8013ca3ec7c71       species
-#&gt; 18        263405       3085450 d5f840b6667189d5e1aebfb21587f266       species
-#&gt; 19            NA            NA 92905ad648f17b749082a644f485607f  infraspecies
-#&gt; 20        257037       5345014 cda432f84391f3ee23659f3249ca12f3       species
-#&gt; 21        263274       3088323 64c006c4f71868a82831637310d0fe2f       species
-#&gt; 22        501588       2888444 f0d646a14db7351ca7c469085610436d       species
-#&gt; 23        351819       5369874 32913186edafb38121fdc5f0fa875f36       species
-#&gt; 24        260104       5360834 7faf3755d44ee5a31b259a8c65b1bcac       species
-#&gt; 25            NA            NA                             &lt;NA&gt;          &lt;NA&gt;
-#&gt; 26            NA            NA                             &lt;NA&gt;          &lt;NA&gt;
-#&gt; 27            NA            NA                             &lt;NA&gt;          &lt;NA&gt;
-#&gt; 28            NA            NA                             &lt;NA&gt;          &lt;NA&gt;
-#&gt; 29            NA            NA                             &lt;NA&gt;          &lt;NA&gt;
-#&gt;         taxonomy.created_at      taxonomy.updated_at taxonomy
-#&gt; 1  2019-02-21T22:09:57.694Z 2019-06-14T15:21:26.240Z       NA
-#&gt; 2  2019-02-21T22:14:44.947Z 2019-06-14T15:21:45.817Z       NA
-#&gt; 3  2019-02-21T22:09:54.188Z 2019-06-14T15:21:23.797Z       NA
-#&gt; 4  2019-02-21T22:14:45.385Z 2019-06-14T13:28:24.681Z       NA
-#&gt; 5  2019-02-21T22:09:57.560Z 2019-06-14T15:21:26.140Z       NA
-#&gt; 6  2019-02-21T22:09:58.048Z 2019-06-14T15:21:26.390Z       NA
-#&gt; 7  2019-02-21T22:09:57.497Z 2019-06-14T15:21:26.084Z       NA
-#&gt; 8  2019-02-21T22:14:45.571Z 2019-06-14T15:21:45.975Z       NA
-#&gt; 9  2019-02-21T22:09:57.628Z 2019-06-14T15:21:26.189Z       NA
-#&gt; 10 2019-02-21T22:14:45.683Z 2019-06-14T15:21:46.101Z       NA
-#&gt; 11 2019-02-21T22:14:45.743Z 2019-06-14T15:21:46.151Z       NA
-#&gt; 12 2019-02-21T22:09:56.302Z 2019-06-14T15:21:25.622Z       NA
-#&gt; 13 2019-02-21T22:14:45.805Z 2019-06-14T15:21:46.200Z       NA
-#&gt; 14 2019-02-21T22:14:45.867Z 2019-06-14T15:21:46.250Z       NA
-#&gt; 15 2019-02-21T22:09:51.972Z 2019-06-14T15:21:21.990Z       NA
-#&gt; 16 2019-02-21T22:14:45.953Z 2019-06-14T15:21:46.300Z       NA
-#&gt; 17 2019-02-21T22:14:46.028Z 2019-06-14T15:21:46.353Z       NA
-#&gt; 18 2019-02-21T22:09:51.597Z 2019-06-14T15:21:21.725Z       NA
-#&gt; 19 2019-02-21T22:09:51.310Z 2019-06-14T15:21:21.538Z       NA
-#&gt; 20 2019-02-21T22:14:46.086Z 2019-06-14T15:21:46.408Z       NA
-#&gt; 21 2019-02-21T22:14:46.142Z 2019-06-14T15:21:46.997Z       NA
-#&gt; 22 2019-02-21T22:09:52.318Z 2019-06-14T15:21:22.191Z       NA
-#&gt; 23 2019-02-21T22:14:46.197Z 2019-06-14T15:21:47.051Z       NA
-#&gt; 24 2019-02-21T22:14:46.255Z 2019-06-14T15:21:47.102Z       NA
-#&gt; 25                     &lt;NA&gt;                     &lt;NA&gt;       NA
-#&gt; 26                     &lt;NA&gt;                     &lt;NA&gt;       NA
-#&gt; 27                     &lt;NA&gt;                     &lt;NA&gt;       NA
-#&gt; 28                     &lt;NA&gt;                     &lt;NA&gt;       NA
-#&gt; 29                     &lt;NA&gt;                     &lt;NA&gt;       NA
-#&gt; 
-#&gt; $edges
-#&gt; Simple feature collection with 38 features and 19 fields (with 1 geometry empty)
-#&gt; geometry type:  POINT
-#&gt; dimension:      XY
-#&gt; bbox:           xmin: Inf ymin: Inf xmax: -Inf ymax: -Inf
-#&gt; epsg (SRID):    4326
-#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs
-#&gt; First 10 features:
-#&gt;       id node_from node_to                     date direction      type
-#&gt; 1  52630      2599    2617 1965-07-31T00:00:00.000Z  directed mutualism
-#&gt; 2  52631      2599    2618 1965-07-31T00:00:00.000Z  directed mutualism
-#&gt; 3  52632      2599    2619 1965-07-31T00:00:00.000Z  directed mutualism
-#&gt; 4  52633      2599    2620 1965-07-31T00:00:00.000Z  directed mutualism
-#&gt; 5  52634      2599    2621 1965-07-31T00:00:00.000Z  directed mutualism
-#&gt; 6  52635      2599    2622 1965-07-31T00:00:00.000Z  directed mutualism
-#&gt; 7  52636      2600    2623 1965-07-31T00:00:00.000Z  directed mutualism
-#&gt; 8  52637      2600    2624 1965-07-31T00:00:00.000Z  directed mutualism
-#&gt; 9  52638      2601    2617 1965-07-31T00:00:00.000Z  directed mutualism
-#&gt; 10 52639      2601    2618 1965-07-31T00:00:00.000Z  directed mutualism
-#&gt;                       method attr_id value public network_id
-#&gt; 1  field observation/capture       3    19   TRUE         18
-#&gt; 2  field observation/capture       3    15   TRUE         18
-#&gt; 3  field observation/capture       3     1   TRUE         18
-#&gt; 4  field observation/capture       3     3   TRUE         18
-#&gt; 5  field observation/capture       3     3   TRUE         18
-#&gt; 6  field observation/capture       3     2   TRUE         18
-#&gt; 7  field observation/capture       3    15   TRUE         18
-#&gt; 8  field observation/capture       3     1   TRUE         18
-#&gt; 9  field observation/capture       3     5   TRUE         18
-#&gt; 10 field observation/capture       3     3   TRUE         18
-#&gt;                  created_at               updated_at attribute.id
-#&gt; 1  2019-02-24T21:34:01.049Z 2019-02-24T21:34:01.049Z            3
-#&gt; 2  2019-02-24T21:34:01.117Z 2019-02-24T21:34:01.117Z            3
-#&gt; 3  2019-02-24T21:34:01.158Z 2019-02-24T21:34:01.158Z            3
-#&gt; 4  2019-02-24T21:34:01.195Z 2019-02-24T21:34:01.195Z            3
-#&gt; 5  2019-02-24T21:34:01.251Z 2019-02-24T21:34:01.251Z            3
-#&gt; 6  2019-02-24T21:34:01.302Z 2019-02-24T21:34:01.302Z            3
-#&gt; 7  2019-02-24T21:34:01.356Z 2019-02-24T21:34:01.356Z            3
-#&gt; 8  2019-02-24T21:34:01.461Z 2019-02-24T21:34:01.461Z            3
-#&gt; 9  2019-02-24T21:34:01.557Z 2019-02-24T21:34:01.557Z            3
-#&gt; 10 2019-02-24T21:34:01.603Z 2019-02-24T21:34:01.603Z            3
-#&gt;          attribute.name                        attribute.description
-#&gt; 1  number of pollinator Number of insects captured while pollination
-#&gt; 2  number of pollinator Number of insects captured while pollination
-#&gt; 3  number of pollinator Number of insects captured while pollination
-#&gt; 4  number of pollinator Number of insects captured while pollination
-#&gt; 5  number of pollinator Number of insects captured while pollination
-#&gt; 6  number of pollinator Number of insects captured while pollination
-#&gt; 7  number of pollinator Number of insects captured while pollination
-#&gt; 8  number of pollinator Number of insects captured while pollination
-#&gt; 9  number of pollinator Number of insects captured while pollination
-#&gt; 10 number of pollinator Number of insects captured while pollination
-#&gt;         attribute.unit     attribute.created_at     attribute.updated_at
-#&gt; 1  individual captured 2019-02-22T16:45:42.655Z 2019-02-22T16:45:42.655Z
-#&gt; 2  individual captured 2019-02-22T16:45:42.655Z 2019-02-22T16:45:42.655Z
-#&gt; 3  individual captured 2019-02-22T16:45:42.655Z 2019-02-22T16:45:42.655Z
-#&gt; 4  individual captured 2019-02-22T16:45:42.655Z 2019-02-22T16:45:42.655Z
-#&gt; 5  individual captured 2019-02-22T16:45:42.655Z 2019-02-22T16:45:42.655Z
-#&gt; 6  individual captured 2019-02-22T16:45:42.655Z 2019-02-22T16:45:42.655Z
-#&gt; 7  individual captured 2019-02-22T16:45:42.655Z 2019-02-22T16:45:42.655Z
-#&gt; 8  individual captured 2019-02-22T16:45:42.655Z 2019-02-22T16:45:42.655Z
-#&gt; 9  individual captured 2019-02-22T16:45:42.655Z 2019-02-22T16:45:42.655Z
-#&gt; 10 individual captured 2019-02-22T16:45:42.655Z 2019-02-22T16:45:42.655Z
-#&gt;           geom
-#&gt; 1  POINT EMPTY
-#&gt; 2  POINT EMPTY
-#&gt; 3  POINT EMPTY
-#&gt; 4  POINT EMPTY
-#&gt; 5  POINT EMPTY
-#&gt; 6  POINT EMPTY
-#&gt; 7  POINT EMPTY
-#&gt; 8  POINT EMPTY
-#&gt; 9  POINT EMPTY
-#&gt; 10 POINT EMPTY
-#&gt; 
-#&gt; $dataset
-#&gt;   id                name                     date
-#&gt; 1  4 mosquin_martin_1967 1965-07-31T04:00:00.000Z
-#&gt;                                                                                                              description
-#&gt; 1 Occurence of flower-visiting insect on plant species, two miles north of Bailey Point, Melville Island, N.W.T., Canada
-#&gt;   public               created_at               updated_at ref_id user_id
-#&gt; 1   TRUE 2019-02-22T16:45:59.451Z 2019-02-22T16:45:59.451Z      4       3
-#&gt; 
-#&gt; $reference
-#&gt;   id doi  author year jstor pmid
-#&gt; 1  4  NA mosquin 1967    NA   NA
-#&gt;                                                                                                                                                                                                                                                         bibtex
-#&gt; 1 @article{article, author = {Mosquin, Theodore and Martin, J. E. H.}, year = {1967}, pages = {201-205}, title = {Observations on the pollination biology of plants on Melville Island, N.W.T., Canada}, journal = {Canadian Field Naturalist}, volume = {81}}
-#&gt;                                                      paper_url
-#&gt; 1 https://www.biodiversitylibrary.org/pdf4/075601100090098.pdf
-#&gt;                                                                                 data_url
-#&gt; 1 https://www.nceas.ucsb.edu/interactionweb/data/plant_pollinator/excel/mosquin_1967.xls
-#&gt;                 created_at               updated_at
-#&gt; 1 2019-02-22T16:45:54.246Z 2019-02-22T16:45:54.246Z
-#&gt; 
-#&gt; attr(,"class")
-#&gt; [1] "mgNetwork"</div></pre>
+    <pre class="examples"><div class='input'><span class='no'>net18</span> <span class='kw'>&lt;-</span> <span class='fu'>get_network_by_id</span>(<span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>18</span>)
+<span class='no'>nets</span> <span class='kw'>&lt;-</span> <span class='fu'>get_network_by_id</span>(<span class='kw'>id</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>18</span>, <span class='fl'>23</span>))</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -413,6 +162,8 @@
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#functions">Functions</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

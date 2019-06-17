@@ -4,7 +4,7 @@
 \alias{get_from_fkey}
 \title{Get entries based on foreign key}
 \usage{
-get_from_fkey(endpoint, ...)
+get_from_fkey(endpoint, verbose = TRUE, ...)
 }
 \arguments{
 \item{endpoint}{\code{character} API entry point}

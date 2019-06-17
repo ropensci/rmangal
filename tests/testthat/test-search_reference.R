@@ -11,7 +11,6 @@ test_that("expected behavior", {
 
 resc <- get_collection(res1)
 test_that("get_collection", {
-  expect_equal(class(resc), "mgNetworksCollection")
-  expect_equal(class(resc[[1L]]), "mgNetwork")
-  expect_equal(names(resc[[1L]]), nm_co)
+  expect_equal(class(resc), "mgNetwork")
+  expect_identical(names(resc), nm_co)
 })

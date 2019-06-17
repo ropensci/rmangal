@@ -24,6 +24,6 @@ test_that("expected behavior", {
   expect_true(identical(resBold, resEol))
   expect_true(identical(resTsn, resEol))
   #
-  expect_equal(length(res_j), 1)
-  expect_equal(class(res_j), "mgNetworksCollection")
+  expect_equal(length(res_j), 5)
+  expect_equal(class(res_j), "mgNetwork")
 })

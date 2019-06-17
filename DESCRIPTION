@@ -1,6 +1,6 @@
 Package: rmangal
 Type: Package
-Title: rmangal - Explore the ecological interactions database
+Title: rmangal - Explore the ecological interactions database Mangal
 Version: 1.6.0.9000
 Authors@R: c(
     person(given = "Steve", family = "Vissault", comment = c(ORCID = "0000-0002-0866-4376"),

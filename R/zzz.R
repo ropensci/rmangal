@@ -113,20 +113,26 @@ switch_sf <- function(tmp) {
 #' See endpoints available with `endpoints()`
 #' @keywords internal
 
-get_from_fkey <- function(endpoint, ...) {
+get_from_fkey <- function(endpoint, verbose = TRUE, ...) {
   query <- list(...)
   # print(get_gen(endpoint = endpoint, query = query)$body)
-  resp_to_df(get_gen(endpoint = endpoint, query = query)$body)
+  resp_to_df(
+    get_gen(endpoint = endpoint, query = query, verbose = verbose)$body
+  )
 }
 
-get_from_fkey_net <- function(endpoint, ...) {
+get_from_fkey_net <- function(endpoint, verbose = TRUE, ...) {
   query <- list(...)
-  resp_to_spatial(get_gen(endpoint = endpoint, query = query)$body)
+  resp_to_spatial(
+    get_gen(endpoint = endpoint, query = query, verbose = verbose)$body
+  )
 }
 
-get_from_fkey_flt <- function(endpoint, ...) {
+get_from_fkey_flt <- function(endpoint, verbose = TRUE, ...) {
   query <- list(...)
-  resp_to_df_flt(get_gen(endpoint = endpoint, query = query)$body)
+  resp_to_df_flt(
+    get_gen(endpoint = endpoint, query = query, verbose = verbose)$body
+  )
 }
 
 
