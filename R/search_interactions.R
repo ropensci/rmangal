@@ -13,7 +13,8 @@
 #' competition_networks <- get_collection(search_interactions("competition"))
 #' @export
 
-search_interactions <- function( type = avail_type(), expand_node = FALSE, verbose = FALSE ) {
+search_interactions <- function( type = avail_type(), expand_node = FALSE,
+  verbose = FALSE ) {
 
     # Make sure args match options
     type <- match.arg(type)

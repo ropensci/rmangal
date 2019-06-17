@@ -1,6 +1,10 @@
 ---
 title: "Get started with rmangal"
-author: "Steve Vissault and Kevin Cazelles"
+author:
+  - name: Steve Vissault
+  - name: Kevin Cazeles
+bibliography:
+  - ../inst/bib/knitr-packages.bib
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -23,10 +27,15 @@ library(sf)
 library(rmangal)
 ```
 
+
 ## rmangal
 
 rmangal is a R client for MANGAL API. MANGAL is a collection of 172
 datasets representing over 1300 published ecological networks.
+[](http://www.mangal.io/about/). In 2016, a first paper was published with the
+first release of mangal @poisot_mangal_2016.
+
+
 
 ## List of all available datasets
 

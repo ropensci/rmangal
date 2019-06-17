@@ -18,8 +18,9 @@ get_network_by_id <- function(id, ...) {
   stopifnot(length(id) == 1)
 
   # Object S3 declaration
-  mg_network <- structure(list(network = resp_to_spatial(get_singletons(endpoints()$network,
-    ids = id)$body)), class = "mgNetwork")
+  mg_network <- structure(list(network =
+    resp_to_spatial(get_singletons(endpoints()$network,ids = id)$body)),
+    class = "mgNetwork")
 
   if (is.null(mg_network$network))
     stop(sprintf("network id %s not found", id))
@@ -31,7 +32,8 @@ get_network_by_id <- function(id, ...) {
     network_id = mg_network$network$id)
 
   # retrieve dataset informations
-  mg_network$dataset <- resp_to_df(get_singletons(endpoints()$dataset, ids = unique(mg_network$network$dataset_id))$body)
+  mg_network$dataset <- resp_to_df(get_singletons(endpoints()$dataset,
+    ids = unique(mg_network$network$dataset_id))$body)
 
   # retrieve reference
   mg_network$reference <- resp_to_df(get_singletons(endpoints()$reference,

@@ -33,20 +33,20 @@ search_datasets <- function(query = NULL, verbose = TRUE, ...) {
   datasets <- resp_to_df(get_gen(endpoints()$dataset, query = query, ...)$body)
 
   if (is.null(datasets)) {
-    if (verbose)
-      message("No dataset found.")
+    if (verbose) message("No dataset found.")
     return(data.frame())
   } else {
-    if (verbose)
-      message(sprintf("Found %s datasets", nrow(datasets)))
+    if (verbose) message(sprintf("Found %s datasets", nrow(datasets)))
   }
 
   # Attached references and networks
   # No need for test because if NULL function stopped above
   references <- networks <- NULL
   for (i in seq_len(nrow(datasets))) {
-    networks[[i]] <- get_from_fkey_net(endpoints()$network, dataset_id = datasets$id[i])
-    references[[i]] <- resp_to_df(get_singletons(endpoints()$reference, ids = datasets$ref_id[i])$body)
+    networks[[i]] <- get_from_fkey_net(endpoints()$network,
+      dataset_id = datasets$id[i])
+    references[[i]] <- resp_to_df(get_singletons(endpoints()$reference,
+      ids = datasets$ref_id[i])$body)
   }
   datasets$references <- references
   datasets$networks <- networks

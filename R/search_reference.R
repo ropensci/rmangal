@@ -13,7 +13,8 @@ search_reference <- function(doi, verbose = TRUE, ...) {
 
   stopifnot(is.character(doi) & length(doi) == 1)
 
-  ref <- resp_to_df(get_gen(endpoints()$reference, query = list(doi = doi), ...)$body)
+  ref <- resp_to_df(get_gen(endpoints()$reference, query = list(doi = doi),
+   ...)$body)
 
   if (verbose)
     message(sprintf("Found dataset: \n %s", ref$bibtex))
@@ -22,7 +23,8 @@ search_reference <- function(doi, verbose = TRUE, ...) {
   ref$datasets <- get_from_fkey(endpoints()$dataset, ref_id = ref$id)
 
   # Attach network
-  ref$networks <- get_from_fkey_net(endpoints()$network, dataset_id = ref$datasets$id)
+  ref$networks <- get_from_fkey_net(endpoints()$network,
+    dataset_id = ref$datasets$id)
 
   class(ref) <- "mgSearchReference"
   ref

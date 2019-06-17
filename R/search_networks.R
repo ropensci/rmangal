@@ -39,7 +39,8 @@ search_networks <- function(query = NULL, verbose = TRUE, ...) {
     # Full search
     if (is.character(query)) query <- list( q = query )
 
-    networks <- resp_to_spatial(get_gen(endpoints()$network, query = query, ...)$body)
+    networks <- resp_to_spatial(get_gen(endpoints()$network, query = query,
+     ...)$body)
     if (is.null(networks)) {
       if (verbose) message("no network found")
       return(data.frame())

@@ -48,8 +48,9 @@ resp_to_df <- function(x) {
 # flatten + fill
 resp_to_df_flt <- function(x) {
   x <- null_to_na(x)
-  ldf <- lapply(lapply(x, function(x) return(as.data.frame(x, stringsAsFactors = FALSE))),
-     jsonlite::flatten)
+  ldf <- lapply(
+    lapply(x, function(x) as.data.frame(x, stringsAsFactors = FALSE)),
+    jsonlite::flatten)
   vnm <- unique(unlist(lapply(ldf, names)))
   ldf2 <- lapply(ldf, fill_df, vnm)
   do.call(rbind, ldf2)
@@ -74,7 +75,8 @@ resp_to_spatial <- function(x) {
 
 ## Build sf object based on geom.type
 switch_sf <- function(tmp) {
-  df_nogeom <- as.data.frame(tmp[names(tmp) != "geom"], stringsAsFactors = FALSE)
+  df_nogeom <- as.data.frame(tmp[names(tmp) != "geom"],
+    stringsAsFactors = FALSE)
   if (is.na(tmp$geom)) {
     sf::st_sf(df_nogeom, geom = sf::st_sfc(sf::st_point(
       matrix(NA_real_, ncol = 2)), crs = 4326))
@@ -166,10 +168,11 @@ get_gen <- function(endpoint, query = NULL, limit = 100, verbose = TRUE,...) {
 
     if (httr::http_error(resp)) {
       if (verbose){
-          message(sprintf("API request failed (%s): %s", httr::status_code(resp),
-             httr::content(resp)$message))
+          message(sprintf("API request failed (%s): %s",
+            httr::status_code(resp), httr::content(resp)$message))
       }
-      responses[[page + 1]] <- structure(list(body = NULL, response = resp), class = "getError")
+      responses[[page + 1]] <- structure(list(body = NULL, response = resp),
+        class = "getError")
     } else {
       responses[[page + 1]] <- structure(list(
         body = resp_raw(resp),
@@ -210,15 +213,17 @@ get_singletons <- function(endpoint = NULL, ids = NULL, verbose = FALSE,
   # Loop over ids
   for (i in seq_along(ids)) {
     # Set url
-    url <- httr::modify_url(server(), path = paste0(base(), endpoint, "/", ids[i]))
+    url <- httr::modify_url(server(), path = paste0(base(), endpoint, "/",
+      ids[i]))
 
     # Call on the API
-    resp <- httr::GET(url, config = httr::add_headers(`Content-type` = "application/json"),
-      ua, ...)
+    resp <- httr::GET(url,
+      config = httr::add_headers(`Content-type` = "application/json"), ua, ...)
 
     if (httr::http_error(resp)) {
       if (verbose) {
-        message(sprintf("API request failed (%s): %s", httr::status_code(resp), httr::content(resp)$message))
+        message(sprintf("API request failed (%s): %s", httr::status_code(resp),
+          httr::content(resp)$message))
       }
       errors <- append(errors, i)
     } else {
