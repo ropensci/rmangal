@@ -92,7 +92,6 @@ get_collection.mgSearchTaxa <- function(x, ...) {
   mg_net_collection <- structure(list(), class= "mgNetworksCollection")
 
   for (i in seq_along(uq_ids)) {
-    print(i)
     mg_net_collection[[i]] <- get_network_by_id(uq_ids[i])
   }
 

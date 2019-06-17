@@ -1,6 +1,5 @@
 context("search_taxa")
 
-
 res1 <- search_taxa("Acer")
 resTsn <- search_taxa(tsn = 28749)
 resNcbi <- search_taxa(ncbi = 47966)
@@ -9,6 +8,7 @@ resBold <- search_taxa(bold = 100987)
 res2 <- search_taxa("Acer", orginal = TRUE)
 resw <- search_taxa("Does not work")
 # small_net <- get_collection(search_taxa("superba"))
+res_j <- get_collection(search_taxa("Acer japonicum"))
 
 test_that("expected behavior", {
   expect_true("mgSearchTaxa" %in% class(res1))
@@ -23,5 +23,7 @@ test_that("expected behavior", {
   # All Acer negundo
   expect_true(identical(resBold, resEol))
   expect_true(identical(resTsn, resEol))
-  # expect_equal(length(small_net), 2)
+  #
+  expect_equal(length(res_j), 1)
+  expect_equal(class(res_j), "mgNetworksCollection")
 })

@@ -159,6 +159,7 @@ get_gen <- function(endpoint, query = NULL, limit = 100, verbose = TRUE,...) {
 
   # Prep output object
   responses <- list()
+  errors <- NULL
 
   # Get # pages
   tmp <- unlist(strsplit(httr::headers(resp)$"content-range", split = "\\D"))
@@ -177,14 +178,15 @@ get_gen <- function(endpoint, query = NULL, limit = 100, verbose = TRUE,...) {
           message(sprintf("API request failed (%s): %s",
             httr::status_code(resp), httr::content(resp)$message))
       }
-      responses[[page + 1]] <- structure(list(body = NULL, response = resp),
-        class = "getError")
+      responses[[page + 1]] <- list(body = NULL, response = resp)
+      errors <- append(errors, page + 1)
     } else {
-      responses[[page + 1]] <- structure(list(
-        body = resp_raw(resp),
-        response = resp), class = "getSuccess")
+      responses[[page + 1]] <- list(body = resp_raw(resp), response = resp)
     }
   }
+  #
+  if (!is.null(errors))
+    warning("Failed request(s) for page(s): ", paste0(errors, ", "))
 
   # check error here if desired;
   out <- list(
@@ -214,7 +216,6 @@ get_singletons <- function(endpoint = NULL, ids = NULL, verbose = FALSE,
   # Prep output object
   responses <- list(body = list(), response = list())
   errors <- NULL
-  class(responses) <- "mgGetResponses"
 
   # Loop over ids
   for (i in seq_along(ids)) {
@@ -231,14 +232,16 @@ get_singletons <- function(endpoint = NULL, ids = NULL, verbose = FALSE,
         message(sprintf("API request failed (%s): %s", httr::status_code(resp),
           httr::content(resp)$message))
       }
-      errors <- append(errors, i)
+      errors <- append(errors, ids[i])
     } else {
       # coerce body to output desired
       responses$body[[i]] <- resp_raw(resp)
       responses$response[[i]] <- resp
     }
   }
-  if (!is.null(errors)) warning("Failed request(s) : ", paste0(errors, ", "))
+  if (!is.null(errors))
+    warning("Failed request(s) for id(s): ", paste0(errors, ", "))
 
+  class(responses) <- "mgGetResponses"
   responses
 }
