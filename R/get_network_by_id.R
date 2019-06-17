@@ -10,7 +10,7 @@
 #' - dataset: `list` of all informations on the dataset associated to the network
 #' - reference: `list` of all informations on the original publication
 #' @examples
-#' get_network_by_id(id = 18)
+#'  get_network_by_id(id = 18)
 #' @export
 
 get_network_by_id <- function(id, ...) {

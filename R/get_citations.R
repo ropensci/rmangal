@@ -4,12 +4,12 @@
 #' @return
 #' `list` of bibtex reference part of the network collection
 #' @examples
-#' # On network collection
-#' lagoon_net_collection <- get_collection(search_datasets("lagoon"))
-#' get_citation(lagoon_net_collection)
-#' # On individual network
-#' network <- get_network_by_id(18)
-#' get_citation(network)
+#'  # On network collection
+#'  lagoon_net_collection <- get_collection(search_datasets("lagoon"))
+#'  get_citation(lagoon_net_collection)
+#'  # On individual network
+#'  network <- get_network_by_id(18)
+#'  get_citation(network)
 #' @export
 get_citation <- function(x) {
   UseMethod("get_citation", x)
@@ -26,4 +26,3 @@ get_citation.mgNetwork <- function(x) {
 get_citation.mgNetworksCollection <- function (x){
     unique(unlist(purrr::map(x, get_citation)))
 }
-

@@ -11,7 +11,7 @@
 #' all datasets corresponding to the query. For each dataset entry, the
 #' networks and the original reference are attached.
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # Return all dataset
 #' all_datasets <- search_datasets()
 #' all_datasets

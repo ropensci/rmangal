@@ -8,7 +8,7 @@
 #' An object of class `mgSearchNetworks`, which is a `data.frame` object with all networks informations
 #' @examples
 #' search_networks(query="insect%")
-#' \dontrun{
+#' \donttest{
 #' # Spatial query
 #' library(USAboundaries)
 #' area <- us_states(state="california")

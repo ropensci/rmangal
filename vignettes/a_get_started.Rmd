@@ -4,7 +4,7 @@ author:
   - name: Steve Vissault
   - name: Kevin Cazeles
 bibliography:
-  - ../inst/bib/knitr-packages.bib
+  - ../inst/bib/get_started.bib
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -104,3 +104,15 @@ resNcbi <- search_taxa(ncbi = 47966)
 resEol <- search_taxa(eol =  583069)
 resBold <- search_taxa(bold = 100987)
 ```
+
+## Retrieve references for a specific dataset
+
+```{R}
+ref <- get_citation(get_network_by_id(18))
+cat(gsub('\\},', "\\},\n", ref), "\n")
+
+ref2 <- search_networks("lagoon") %>% get_collection %>% get_citation
+
+```
+
+## References
