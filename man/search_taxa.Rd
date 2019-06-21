@@ -39,8 +39,12 @@ Search network by taxa using keyword, tsn, eol, bold or ncbi IDs.
 \details{
 By default, you are querying taxa based on a homogenized taxonomy (corrected names from
 \href{http://tnrs.iplantcollaborative.org/}{TNRS} and/or \href{https://resolver.globalnames.org/}{GNR}.
-These taxa might not be the taxon name used in the original publication.
+These taxa might not be the taxon name documented in the original publication.
 In order to query, the original name, set argument \code{original} to \code{TRUE}.
+
+The homogeneized taxonomy was done by automated procedure, we cannot guarantee
+that the homogeneized names are 100% accurate. Be aware, that the original
+names recorded by authors will always prevail and be the most reliable information.
 }
 \examples{
 search_taxa("Acer")

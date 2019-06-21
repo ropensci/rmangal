@@ -27,3 +27,13 @@ So far, the development version can be installed via the devtools package:
 devtools::install_github("mangal-wg/rmangal")
 library("rmangal")
 ```
+
+## Incoming developments
+
+### Roadmap v2.2
+
+- Develop functions to retrieve traits and environmnent attached to nodes (v2.1)
+- Facilitate user publication of new ecological networks with template (v2.2)
+    - Create publication S3 object
+    - Generate the publication object based on template
+    - Used suite of tests (`testthat`) to assist user on data integrity assessment

@@ -1,8 +1,7 @@
 ---
 title: "Get started with rmangal"
 author:
-  - name: Steve Vissault
-  - name: Kevin Cazeles
+  - name: Steve Vissault & Kevin Cazelles
 bibliography:
   - ../inst/bib/get_started.bib
 date: "`r Sys.Date()`"
@@ -25,6 +24,7 @@ library(mapview)
 library(igraph)
 library(sf)
 library(rmangal)
+library(tibble)
 ```
 
 
@@ -42,22 +42,46 @@ re-written and several ecological networks have been added.
 <!-- A word the absence of token -->
 
 
-## Data available
+## Data structure
 
-<!-- add a diagram that describes the data base-->
-<!-- it should be clear the difference between a dataset and a network -->
+<div class = "row">
+<div class = "col-md-6">
+```{R echo = FALSE}
+knitr::include_graphics("figs/data_structure.svg")
+```
+</div>
+<div class = "col-md-6">
+
+**Reference** -- Informations about the publication (scientific article, book, online website, etc.) containing
+the original networks. URLs of data and publication sources are accessible as well as the DOI
+which offers the potential to interact with other online tools, such as the CrossRef API.
+
+**Dataset** -- Collection of one or several network(s) attached to a reference.
+
+**Networks**  -- Series of nodes and interactions, along with information on sampling location and
+date.
+
+**Nodes** -- Informations on the population, taxa or individu in the network. Each node has an
+original name / taxonomy and a homogeneized taxonomy based on the Catalogue of Life taxonomic
+backbone. 
+
+**Interactions** -- Informations on the interaction type (e.g mutualism, predation etc.), the
+strength, and the direction of the interaction between two nodes.  
+
+</div>
+</div>
 
 
 ## How to use rmangal
 
-`rmangal` includes 5 search functions to quickly identify relevant data sets
-or relevant ecological network available in the data base:
+`rmangal` includes 5 search functions to quickly identify references, datasets
+or relevant ecological networks available in the database:
 
-- `search_datasets()`: identify data sets using keyword such as name, year;
-- `search_interactions()`:identify relevant datas ets nased on interactions kind;
-- `search_networks()`: identify networks based on a keyword or a geographical area;
-- `search_reference()`: search based on the `doi` of the publication associated with;
-- `search_taxa()`: identify data sets that included a given taxonomic entity.
+- `search_reference()`: search reference by `doi`;
+- `search_datasets()`: search among datasets using a keyword;
+- `search_networks()`: search networks based on a keyword or a geographical area;
+- `search_interactions()`: list all networks containing a specific interaction type;
+- `search_taxa()`: identify nodes based on taxonomic informations;
 
 All these functions return specific objects containing the information needed
 to retrieve the set of corresponding ecological networks with
@@ -79,113 +103,110 @@ Below, we illustrate this in more details.
 
 ## Search functions
 
-### Finding specific data sets
+### Find networks by reference (`DOI`)
 
-All data sets pertaining to lagoon:
+```{R}
+seifert_1979 <- search_reference(doi = "10.2307/1936064")
+# Number of networks
+nrow(seifert_1979$networks)
+```
+
+### List and search in datasets
+
+We can list all datasets containing the word `lagoon` in the dataset description.
 
 ```{R}
 lagoon <- search_datasets(query = 'lagoon')
-class(lagoon)
-dim(lagoon)
 ```
 
-All data sets published in 2011
-
-```{R}
-df2011 <- search_datasets(query = '2011')
-dim(df2011)
-```
-
-Moreover, `search_datasets()` allows the user to retrieve all data sets:
+In absence of keyword, `search_datasets()` will always list all datasets. All `search_*` functions
+will have this same default behaviour.
 
 ```{R}
 all_datasets <- search_datasets()
-head(all_datasets[, c("id", "name" ,"description")])
+head(all_datasets)
 ```
 
+### List and search in networks
 
-
-### Retrieve a specific set of networks
-
-Once data sets identified, you can retrieve the ecological networks included:
+We can also search networks by keyword
 
 ```{R}
-net_lagoons <- get_collection(lagoon)
+insect_coll <- search_networks(query="insect%") 
+head(insect_coll)
 ```
 
-Alternatively, you can use `search_networks()`
-
-
-```{R}
-all_networks <- search_networks()
-netw18 <- get_network_by_id(18)
-## 2B fixed
-collec <- search_networks(query="insect%") %>% get_collection()
-collec[[1]]
-```
-
-
-### Mapping networks
-
-<!-- of course map are fun but I woud put that in a sperate vignette -->
-
-```{R}
-all_networks <- search_networks()
-mapview(all_networks, legend = FALSE)
-```
-
-
-
-
-
-
-
-## How to convert network to igraph object?
-
-```{R}
-ig_lagoons <- as.igraph(net_lagoons)
-plot(ig_lagoons[[1]], vertex.label = vertex_attr(ig_lagoons[[1]],"original_name"))
-```
-
-
-
-
-## Search over taxonomic name, retrieve networks which include this taxa
-
-```{R}
-sr_ficus <- search_taxa("Ficus")
-# Plot the location
-mapview(sr_ficus$networks, legend = FALSE)
-# Get networks
-net_ficus <- get_collection(sr_ficus)
-net_ficus[[1]]
-```
-
-## Search by location, used buffer, polygons to retrieve networks.
+If we are interested by a specific study area, we can easily filter networks based on their locations. 
 
 ```{R}
 area <- us_states(state = "california")
-networks_in_area <- search_networks(area)
-mapview(networks_in_area, legend = FALSE)
+in_CA <- search_networks(area)
+mapview(in_CA, legend = FALSE)
 ```
 
-## How to use the ids (bold, tsn, ncbi etc.) to get extra taxonomic informations using taxize?
+### Search for a specific interaction type
+
+It is also easy to retrieve all interactions by type.
 
 ```{R}
-resTsn <- search_taxa(tsn = 28749)
-resNcbi <- search_taxa(ncbi = 47966)
-resEol <- search_taxa(eol =  583069)
-resBold <- search_taxa(bold = 100987)
+# List all interaction type available
+avail_type()
+comp_interac <- search_interactions(type="competition")
+# Number of competition interactions in mangal
+nrow(comp_interac)
 ```
 
-## Retrieve references for a specific dataset
+### Search for a specific taxa
+
+We can search for taxa documented by the authors of the publication with `original = TRUE`. 
 
 ```{R}
-ref <- get_citation(get_network_by_id(18))
-cat(gsub('\\},', "\\},\n", ref), "\n")
+sr_ficus <- search_taxa("Ficus", original = FALSE)
+```
 
-ref2 <- search_networks("lagoon") %>% get_collection %>% get_citation
+Most of the nodes documented by authors will use scientific names. However, some networks track
+interaction among individu by pasting the scientific name with unique ID and thus lowering the number
+of matches return by `rmangal` for a specific taxa. To avoid this problem, it is possible to instead
+query the taxonomy backbone using `original = FALSE`. The taxonomy backbone contains a homogeneized
+taxonomy done with taxize [@chamberlain_2019].
 
+This function allows to search a taxa based on EOL, TSN, GBIF, COL IDs. 
+
+```{R}
+search_taxa(tsn = 28749)
+search_taxa(eol =  583069)
+```
+
+## Get networks associated to `search_*`
+
+We can retrieve the ecological networks based on the `search_*`.
+
+```{R}
+nets_lagoons <- get_collection(lagoon)
+nets_in_CA <- get_collection(in_CA)
+nets_competition <- get_collection(comp_interac)
+```
+
+Each network within the collection will always have the following structure:
+
+```{R}
+nets_lagoons[[1]]
+```
+
+## Coerce network to `igraph`
+
+A collection of networks can easily be coerce as an `igraph` object.
+
+```{R}
+ig_laggons_coll <- as.igraph(nets_lagoons)
+```
+
+## Get BibTeX for the networks collection
+
+We can easily get a BibTeX of all publications involved in the networks collection.
+
+```{R}
+get_citation(nets_in_CA)
 ```
 
 ## References

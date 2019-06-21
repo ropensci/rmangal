@@ -1,4 +1,4 @@
-#' Get a BibTeX entry for all publications in a givem networks collection.
+#' Get a BibTeX entry for all publications in a given networks collection.
 #'
 #' @param x `mgNetworksCollection` or `mgNetworks` object class.
 #' @return
