@@ -3,11 +3,17 @@
 \name{get_network_by_id}
 \alias{get_network_by_id}
 \alias{get_network_by_id_indiv}
+\alias{print.mgNetwork}
+\alias{print.mgNetworksCollection}
 \title{Retrieve mangal network by id}
 \usage{
 get_network_by_id(ids, verbose = TRUE)
 
 get_network_by_id_indiv(id, verbose = TRUE)
+
+\method{print}{mgNetwork}(x, ...)
+
+\method{print}{mgNetworksCollection}(x, ...)
 }
 \arguments{
 \item{ids}{a vector of mangal ID for networks (\code{numeric}).}
@@ -15,6 +21,10 @@ get_network_by_id_indiv(id, verbose = TRUE)
 \item{verbose}{a logical. Should extra information be reported on progress?}
 
 \item{id}{a single ID network (\code{numeric}).}
+
+\item{x}{an object of class \code{mgNetwork} or \code{mgNetworksCollection}.}
+
+\item{...}{ignored.'}
 }
 \value{
 a \code{mgNetwork} object including:
@@ -22,7 +32,7 @@ a \code{mgNetwork} object including:
 \item network: a \code{list} of all generic informations on the network;
 \item nodes: a \code{data.frame} of all nodes with taxonomic informations;
 \item edges: a \code{data.frame} of all edges (ecological interactions), with the attribute used to describe the interaction
-\item dataset: \code{list} information pertaining to the datasetthe network is associaated to;
+\item dataset: \code{list} information pertaining to the dataset the network is associated to;
 \item reference: \code{list} information about the original publication.
 }
 }
