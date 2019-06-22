@@ -34,10 +34,11 @@ RoxygenNote: 6.1.1
 Suggests:
     knitr,
     magrittr,
+    mapview,
     rmarkdown,
     taxize,
     testthat,
-    USAboundaries,
-    mapview
+    tibble,
+    USAboundaries
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)

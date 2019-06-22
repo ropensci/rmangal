@@ -2,13 +2,18 @@
 #'
 #' @param ids a vector of mangal ID for networks (`numeric`).
 #' @param id a single ID network (`numeric`).
+#' @param x an object of class `mgNetwork` or `mgNetworksCollection`.
+#' @param ... ignored.'
 #' @param verbose a logical. Should extra information be reported on progress?
+#'
+#' @rdname get_network_by_id
+#'
 #' @return
 #' a `mgNetwork` object including:
 #' - network: a `list` of all generic informations on the network;
 #' - nodes: a `data.frame` of all nodes with taxonomic informations;
 #' - edges: a `data.frame` of all edges (ecological interactions), with the attribute used to describe the interaction
-#' - dataset: `list` information pertaining to the datasetthe network is associaated to;
+#' - dataset: `list` information pertaining to the dataset the network is associated to;
 #' - reference: `list` information about the original publication.
 #' @examples
 #' net18 <- get_network_by_id(id = 18)
@@ -21,9 +26,7 @@ get_network_by_id <- function(ids, verbose = TRUE) {
         lapply(ids, get_network_by_id_indiv, verbose),
         class= "mgNetworksCollection"
       )
-    } else {
-      get_network_by_id_indiv(ids, verbose)
-    }
+    } else get_network_by_id_indiv(ids, verbose)
 }
 
 
@@ -54,4 +57,27 @@ get_network_by_id_indiv <- function(id, verbose = TRUE) {
     ids = unique(mg_network$dataset$ref_id))$body)
 
   mg_network
+}
+
+#' @rdname get_network_by_id
+#' @method print mgNetwork
+#' @export
+print.mgNetwork <- function(x, ...) {
+  cat(
+    "* Network #", x$network$id, " from data set #", x$dataset$id, "\n",
+    "* Description: ", x$network$description, "\n",
+    "* Includes ", nrow(x$edges), " edges and ", nrow(x$nodes), " nodes \n",
+    "* Published in ref #",  x$reference$id, " DOI:", x$reference$doi,
+    "\n\n", sep = ""
+  )
+}
+
+#' @rdname get_network_by_id
+#' @method print mgNetworksCollection
+#' @export
+print.mgNetworksCollection <- function(x, ...) {
+  cat("A collection of", length(x), "networks\n\n")
+  nb <- min(length(x), 6)
+  for (i in seq_len(nb)) print(x[[i]])
+  if (length(x) > 6) cat(length(x) - 6, "network(s) not shown. \n\n")
 }
