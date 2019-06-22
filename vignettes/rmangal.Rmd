@@ -30,17 +30,10 @@ library(tibble)
 
 ## Context
 
-<!-- the ecography paper paper should help here -->
-rmangal is a R client for MANGAL API. MANGAL is a collection of 172
-datasets representing over 1300 published ecological networks.
-[](http://www.mangal.io/about/). In 2016, a first paper was published with the
-first release of rmangal [@poisot_mangal_2016]. Since then, the API has been
-re-written and several ecological networks have been added.
-
-<!-- A word about few words about the future of mangal -->
-
-<!-- A word the absence of token -->
-
+rmangal is a R client for MANGAL API. MANGAL is a collection of 172 datasets representing over [1300
+ecological networks](http://poisotlab.biol.umontreal.ca/#/). In 2016, a first paper was published
+with the first release of rmangal [@poisot_mangal_2016]. Since then, the database structure has been
+improved, the API re-written and several ecological networks have been added. 
 
 ## Data structure
 
@@ -71,6 +64,14 @@ strength, and the direction of the interaction between two nodes.
 </div>
 </div>
 
+## Authentification
+
+So far, `rmangal` package provides methods to get access to the datastore. All `httr::GET`
+methods (to retrieve informations) don't require any authentification.
+
+A bearer authentification strategy using ORCID credentials (as a third party services) has been
+implemented on all `POST`, `DELETE`, `PUT` API operations. New functionnalities allowing networks
+publication and using those API operations will be implemented in the next release (v2.2). 
 
 ## How to use rmangal
 
@@ -124,7 +125,7 @@ will have this same default behaviour.
 
 ```{R}
 all_datasets <- search_datasets()
-head(all_datasets)
+all_datasets
 ```
 
 ### List and search in networks
@@ -133,7 +134,7 @@ We can also search networks by keyword
 
 ```{R}
 insect_coll <- search_networks(query="insect%") 
-head(insect_coll)
+insect_coll
 ```
 
 If we are interested by a specific study area, we can easily filter networks based on their locations. 
