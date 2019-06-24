@@ -30,9 +30,9 @@ library(tibble)
 
 # Context
 
-## The MANGAL project
+## The Mangal project
 
-[The MANGAL project](http://www.mangal.io) aims at archiving published ecological networks and at easing their retrieval. To do so, the MANGAL project:
+[The Mangal project](http://www.mangal.io) aims at archiving published ecological networks and at easing their retrieval. To do so, Mangal:
 
 1. uses a data specification for ecological networks [described in @poisot_mangal_2016];
 
@@ -41,10 +41,10 @@ library(tibble)
 3. provides:
   - [a data explorer](http://poisotlab.biol.umontreal.ca/#/) to visualize and download data available;
   - a [RESTFUL Application Programming Interface (API)](https://mangal-wg.github.io/mangal-api/);
-  - a client of this API for the programming langage Julia: [Mangal.jl](https://github.com/PoisotLab/Mangal.jl);
+  - a client library for Julia: [Mangal.jl](https://github.com/PoisotLab/Mangal.jl);
   - a client of this API for R: the **rmangal** package described below.
 
-Currently, the MANGAL database includes 172 datasets representing over [1300
+Currently, the Mangal database includes 172 datasets representing over [1300
 ecological networks](http://poisotlab.biol.umontreal.ca/#/). In 2016, a first
 paper describing the project was published and introduced the first release of
 **rmangal** [@poisot_mangal_2016]. Since then, the structure of the database has
@@ -65,7 +65,7 @@ knitr::include_graphics("figs/data_structure.svg")
 <div class = "col-md-6">
 
 The diagram on the left side represents the structure of the data stored in
-MANGAL database. All *references* included in MANGAL correspond to a specific publication that includes one *dataset*. This dataset is basically a collection of ecological *networks* whose *nodes* and *interactions* (edges) are stored in separate tables. Below, we briefly describe the content of each table.
+Mangal database. All *references* included in Mangal correspond to a specific publication that includes one *dataset*. This dataset is basically a collection of ecological *networks* whose *nodes* and *interactions* (edges) are stored in separate tables. Below, we briefly describe the content of each table.
 
 **Reference** -- Information pertaining to a reference (scientific article, book, online website, etc.) characterizing an original collection of ecological networks. URLs of data and publication sources are included as well as persistent identifiers (when available) such as digital object identifiers (DOIs). This allows the user to retrieve more details about original publications using appropriate R packages such as [crossref](https://docs.ropensci.org/rcrossref/).
 
@@ -91,7 +91,7 @@ So far, the `rmangal` package provides methods to get access to the datastore. D
 
 A bearer authentification strategy using [ORCID](https://orcid.org/) credentials
 (as a third party services) has been implemented on all `POST`, `DELETE`, `PUT`
-API operations  to allow the user to add and delete new ecological to the data
+API operations to allow the user to add and delete new ecological to the data
 base. These features are not currently included in the **rmangal** package, but
 are under consideration for future major releases.
 

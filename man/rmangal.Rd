@@ -22,10 +22,10 @@ Useful links:
 
 Authors:
 \itemize{
+  \item Kevin Cazelles \email{kcazelle@uoguelph.ca} (0000-0001-6619-9874) [contributor]
   \item Gabriel Bergeron \email{gabriel.bergeron3@usherbrooke.ca} [contributor]
   \item Benjamin Mercier \email{Benjamin.B.Mercier@usherbrooke.ca} [contributor]
   \item Clément Violet \email{Clement.Violet@etudiant.univ-brest.fr} [contributor]
-  \item Kevin Cazelles \email{kcazelle@uoguelph.ca} (0000-0001-6619-9874) [contributor]
   \item Dominique Gravel \email{dominique.gravel@usherbrooke.ca}
   \item Timothée Poisot \email{timothee.poisot@umontreal.ca} [contributor]
 }

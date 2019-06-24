@@ -1,24 +1,24 @@
 Package: rmangal
 Type: Package
-Title: rmangal - Explore the ecological interactions database Mangal
+Title: Mangal Client
 Version: 1.6.0.9000
 Authors@R: c(
     person(given = "Steve", family = "Vissault", comment = c(ORCID = "0000-0002-0866-4376"),
-      email = "steve.vissault@usherbrooke.ca", role = c("aut","cre")),
+      email = "steve.vissault@usherbrooke.ca", role = c("aut", "cre")),
+    person(given = "Kevin", family = "Cazelles", comment = c(ORCID = "0000-0001-6619-9874"),
+        email = "kcazelle@uoguelph.ca", role = c("aut","ctb")),
     person(given = "Gabriel", family = "Bergeron",
       email = "gabriel.bergeron3@usherbrooke.ca", role = c("aut","ctb")),
     person(given = "Benjamin", family = "Mercier",
       email = "Benjamin.B.Mercier@usherbrooke.ca", role = c("aut","ctb")),
     person(given = "Clément", family = "Violet",
       email = "Clement.Violet@etudiant.univ-brest.fr", role = c("aut","ctb")),
-    person(given = "Kevin", family = "Cazelles", comment = c(ORCID = "0000-0001-6619-9874"),
-      email = "kcazelle@uoguelph.ca", role = c("aut","ctb")),
     person(given = "Dominique", family = "Gravel",
       email = "dominique.gravel@usherbrooke.ca", role = c("aut")),
     person(given = "Timothée", family = "Poisot",
       email = "timothee.poisot@umontreal.ca", role = c("aut","ctb"))
       )
-Description: Retrieve and explore data from the ecological interaction database MANGAL.
+Description: An interface to the Mangal database - a collection of ecological networks <http://poisotlab.biol.umontreal.ca/#/>. Includes functions to work with the Mangal REST APIs methds (<https://mangal-wg.github.io/mangal-api/#api-documentation>).
 URL: http://poisotlab.biol.umontreal.ca/#/, https://github.com/mangal-wg/rmangal
 BugReports: https://github.com/mangal-wg/rmangal/issues
 License: MIT + file LICENSE
