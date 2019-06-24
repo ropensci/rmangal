@@ -16,13 +16,18 @@
 #' These taxa might not be the taxon name documented in the original publication.
 #' In order to query, the original name, set argument `original` to `TRUE`.
 #'
-#' The homogeneized taxonomy was done by automated procedure, we cannot guarantee 
+#' The homogeneized taxonomy was done by automated procedure, we cannot guarantee
 #' that the homogeneized names are 100% accurate. Be aware, that the original
 #' names recorded by authors will always prevail and be the most reliable information.
 #'
 #' @return
 #' An object of class `mgSearchTaxa`, which is a `data.frame` object with all taxa matching the query.
 #' All networks in which taxa are involved are also attached to the `data.frame`.
+#'
+#' @references
+#' <https://mangal-wg.github.io/mangal-api/#nodes>
+#' <https://mangal-wg.github.io/mangal-api/#taxonomy>
+#'
 #' @examples
 #' search_taxa("Acer")
 #' # Retrieve higher classification

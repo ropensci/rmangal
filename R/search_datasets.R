@@ -10,6 +10,10 @@
 #' An object of class `mgSearchDatasets`, which is a `data.frame`  object with
 #' all datasets corresponding to the query. For each dataset entry, the
 #' networks and the original reference are attached.
+#'
+#' @references
+#' <https://mangal-wg.github.io/mangal-api/#get-all-datasets>
+#'
 #' @examples
 #' \donttest{
 #' # Return all dataset

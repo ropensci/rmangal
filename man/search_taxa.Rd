@@ -52,3 +52,7 @@ search_taxa("Acer")
 tsn_acer <- search_taxa("Acer")$taxonomy.tsn
 taxize::classification(tsn_acer, db = "itis")
 }
+\references{
+\url{https://mangal-wg.github.io/mangal-api/#nodes}
+\url{https://mangal-wg.github.io/mangal-api/#taxonomy}
+}

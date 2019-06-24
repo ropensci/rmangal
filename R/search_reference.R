@@ -5,6 +5,10 @@
 #' @param ... further arguments to be passed to [rmangal::get_gen()].
 #' @return
 #' An object of class `mgSearchReference`, which is essentially a list that includes a wide range of details associated to the reference, including all datasets and networks related to the publication that are included in mangal data base.
+#'
+#' @references
+#' <https://mangal-wg.github.io/mangal-api/#references>
+#'
 #' @examples
 #' search_reference(doi = "10.2307/3225248")
 #' @export

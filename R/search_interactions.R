@@ -7,6 +7,10 @@
 #' @return
 #' An object of class `mgSearchInteractions`, which is a `data.frame` object with all interaction matching the interaction type provided.
 #' All networks in which interactions are involved are also attached to the `data.frame`.
+#'
+#' @references
+#' <https://mangal-wg.github.io/mangal-api/#interactions>
+#'
 #' @examples
 #' search_interactions("competition")
 #' # Get all networks containing competition

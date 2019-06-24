@@ -18,7 +18,7 @@ Authors@R: c(
     person(given = "Timothée", family = "Poisot",
       email = "timothee.poisot@umontreal.ca", role = c("aut","ctb"))
       )
-Description: An interface to the Mangal database - a collection of ecological networks <http://poisotlab.biol.umontreal.ca/#/>. Includes functions to work with the Mangal REST APIs methds (<https://mangal-wg.github.io/mangal-api/#api-documentation>).
+Description: An interface to the Mangal database - a collection of ecological networks <http://poisotlab.biol.umontreal.ca/#/>. Includes functions to work with the Mangal REST API methds (<https://mangal-wg.github.io/mangal-api/#api-documentation>).
 URL: http://poisotlab.biol.umontreal.ca/#/, https://github.com/mangal-wg/rmangal
 BugReports: https://github.com/mangal-wg/rmangal/issues
 License: MIT + file LICENSE

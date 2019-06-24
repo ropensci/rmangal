@@ -22,3 +22,6 @@ Search for a specific dataset reference with its DOI
 \examples{
 search_reference(doi = "10.2307/3225248")
 }
+\references{
+\url{https://mangal-wg.github.io/mangal-api/#references}
+}

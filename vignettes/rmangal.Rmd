@@ -67,9 +67,9 @@ knitr::include_graphics("figs/data_structure.svg")
 The diagram on the left side represents the structure of the data stored in
 Mangal database. All *references* included in Mangal correspond to a specific publication that includes one *dataset*. This dataset is basically a collection of ecological *networks* whose *nodes* and *interactions* (edges) are stored in separate tables. Below, we briefly describe the content of each table.
 
-**Reference** -- Information pertaining to a reference (scientific article, book, online website, etc.) characterizing an original collection of ecological networks. URLs of data and publication sources are included as well as persistent identifiers (when available) such as digital object identifiers (DOIs). This allows the user to retrieve more details about original publications using appropriate R packages such as [crossref](https://docs.ropensci.org/rcrossref/).
+**References** -- Information pertaining to a reference (scientific article, book, online website, etc.) characterizing an original collection of ecological networks. URLs of data and publication sources are included as well as persistent identifiers (when available) such as digital object identifiers (DOIs). This allows the user to retrieve more details about original publications using appropriate R packages such as [crossref](https://docs.ropensci.org/rcrossref/).
 
-**Dataset** -- Meta data of the specific collection networks attached to a reference. It included a description of the networks included.
+**Datasets** -- Meta data of the specific collection networks attached to a reference. It included a description of the networks included.
 
 **Networks** -- Series of nodes and interactions, along with information on sampling location and date.
 

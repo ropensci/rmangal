@@ -36,3 +36,6 @@ res2011 <- search_datasets(query = '2011')
 # Search with a custom query (specific column)
 search_datasets(query = list(name = 'kemp_1977'))
 }
+\references{
+\url{https://mangal-wg.github.io/mangal-api/#get-all-datasets}
+}

@@ -6,6 +6,10 @@
 #' @param ... further arguments to be passed to [rmangal::get_gen()].
 #' @return
 #' An object of class `mgSearchNetworks`, which is a `data.frame` object with all networks informations
+#'
+#' @references
+#' <https://mangal-wg.github.io/mangal-api/#networks>
+#'
 #' @examples
 #' search_networks(query="insect%")
 #' \donttest{

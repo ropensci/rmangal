@@ -26,3 +26,6 @@ search_interactions("competition")
 # Get all networks containing competition
 competition_networks <- get_collection(search_interactions("competition"))
 }
+\references{
+\url{https://mangal-wg.github.io/mangal-api/#interactions}
+}
