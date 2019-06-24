@@ -1,4 +1,4 @@
-<img src="man/figures/rmangal.png" width="130" height="150" align="right"/>
+<img src="man/figures/rmangal.png" width="130" align="right"/>
 
 # rmangal :package:
 
