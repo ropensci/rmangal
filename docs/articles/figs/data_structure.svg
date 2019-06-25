@@ -119,16 +119,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.8464878"
-     inkscape:cx="427.88288"
-     inkscape:cy="339.55034"
+     inkscape:zoom="2.6885872"
+     inkscape:cx="350.09519"
+     inkscape:cy="458.71597"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="3840"
-     inkscape:window-height="2059"
+     inkscape:window-width="3200"
+     inkscape:window-height="1665"
      inkscape:window-x="0"
-     inkscape:window-y="36"
+     inkscape:window-y="48"
      inkscape:window-maximized="1"
      showguides="true"
      inkscape:guide-bbox="true"
@@ -161,7 +161,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -189,15 +189,15 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:Cabin;-inkscape-font-specification:'Cabin, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="225.55722"
+       x="221.55722"
        y="271.44821"
        id="text4140"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4142"
-         x="225.55722"
+         x="221.55722"
          y="271.44821"
-         style="font-size:18.75px;fill:#ffffff">Reference</tspan></text>
+         style="font-size:18.75px;fill:#ffffff">References</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:Cabin;-inkscape-font-specification:'Cabin, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -234,14 +234,14 @@
        sodipodi:linespacing="125%"
        id="text4791"
        y="433.69055"
-       x="231.55722"
+       x="227.55722"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:Cabin;-inkscape-font-specification:'Cabin, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
          style="font-size:18.75px;fill:#ffffff"
          y="433.69055"
-         x="231.55722"
+         x="227.55722"
          id="tspan4793"
-         sodipodi:role="line">Dataset</tspan></text>
+         sodipodi:role="line">Datasets</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text4795"
