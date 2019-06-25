@@ -27,7 +27,7 @@ Authors:
   \item Benjamin Mercier \email{Benjamin.B.Mercier@usherbrooke.ca} [contributor]
   \item Clément Violet \email{Clement.Violet@etudiant.univ-brest.fr} [contributor]
   \item Dominique Gravel \email{dominique.gravel@usherbrooke.ca}
-  \item Timothée Poisot \email{timothee.poisot@umontreal.ca} [contributor]
+  \item Timothée Poisot \email{timothee.poisot@umontreal.ca}
 }
 
 }
