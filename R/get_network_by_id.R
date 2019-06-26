@@ -63,10 +63,27 @@ get_network_by_id_indiv <- function(id, verbose = TRUE) {
 #' @method print mgNetwork
 #' @export
 print.mgNetwork <- function(x, ...) {
+
+  percent_backbone = list(
+    tsn = round(sum(!is.na(x$nodes$taxonomy.tsn)) / nrow(x$nodes) * 100),
+    bold = round(sum(!is.na(x$nodes$taxonomy.bold)) / nrow(x$nodes) * 100),
+    ncbi = round(sum(!is.na(x$nodes$taxonomy.ncbi)) / nrow(x$nodes) * 100),
+    col = round(sum(!is.na(x$nodes$taxonomy.col)) / nrow(x$nodes) * 100),
+    eol = round(sum(!is.na(x$nodes$taxonomy.eol)) / nrow(x$nodes) * 100),
+    gbif = round(sum(!is.na(x$nodes$taxonomy.gbif)) / nrow(x$nodes) * 100)
+  )
+
   cat(
     "* Network #", x$network$id, " from data set #", x$dataset$id, "\n",
     "* Description: ", x$network$description, "\n",
     "* Includes ", nrow(x$edges), " edges and ", nrow(x$nodes), " nodes \n",
+    "* Percent of nodes with taxonomic IDs from external sources: \n  - ", 
+    percent_backbone$tsn,"% (ITIS), ",
+    percent_backbone$bold,"% (BOLD), ",
+    percent_backbone$eol,"% (EOL), ",
+    percent_backbone$col,"% (COL), ",
+    percent_backbone$gbif,"% (GBIF), ",
+    percent_backbone$ncbi,"% (NCBI)\n",
     "* Published in ref #",  x$reference$id, " DOI:", x$reference$doi,
     "\n\n", sep = ""
   )
