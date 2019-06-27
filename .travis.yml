@@ -9,14 +9,27 @@ matrix:
       dist: trusty
       r: release
       env: NOT_CRAN=true
+      addons:
+        apt:
+          sources:
+            - sourceline: 'ppa:opencpu/jq'
+            - sourceline: 'ppa:ubuntugis/ubuntugis-unstable'
+          packages:
+            - libudunits2-dev
+            - libproj-dev
+            - libgeos-dev
+            - libgdal-dev
     - os: osx
       r: release
       env: NOT_CRAN=true
     - os: linux
-      dist: trusty
+      dist: xenial
       r: devel
       env: NOT_CRAN=false
-
+      addons:
+        apt:
+          packages:
+            - r-cran-sf
 notifications:
   slack:
     rooms: insileco:c6N7g4s36dNHpAxrI2QdattF
@@ -31,11 +44,11 @@ notifications:
     on_failure: never
 
 
-before_install:
-  - if [[ $TRAVIS_OS_NAME == "linux" ]]; then sudo add-apt-repository ppa:ubuntugis/ppa --yes; fi
-  - if [[ $TRAVIS_OS_NAME == "linux" ]]; then sudo apt-get --yes --force-yes update -qq; fi
-  - if [[ $TRAVIS_OS_NAME == "linux" ]]; then sudo apt-get install --yes libudunits2-dev libproj-dev libgeos-dev libgdal-dev; fi
-  - R -e 'install.packages("rgdal", repos=c("http://R-Forge.R-project.org", "http://cran.rstudio.com"))'
+# before_install:
+#   - if [[ $TRAVIS_OS_NAME == "linux" ]]; then sudo add-apt-repository ppa:ubuntugis/ppa --yes; fi
+#   - if [[ $TRAVIS_OS_NAME == "linux" ]]; then sudo apt-get --yes --force-yes update -qq; fi
+#   - if [[ $TRAVIS_OS_NAME == "linux" ]]; then sudo apt-get install --yes libudunits2-dev libproj-dev libgeos-dev libgdal-dev; fi
+#   - R -e 'install.packages("rgdal", repos=c("http://R-Forge.R-project.org", "http://cran.rstudio.com"))'
 
 
 r_github_packages:
