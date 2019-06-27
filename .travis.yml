@@ -9,6 +9,16 @@ matrix:
       dist: trusty
       r: release
       env: NOT_CRAN=true
+      addons:
+        apt:
+          sources:
+            - sourceline: 'ppa:opencpu/jq'
+            - sourceline: 'ppa:ubuntugis/ubuntugis-unstable'
+          packages:
+            - libudunits2-dev
+            - libproj-dev
+            - libgeos-dev
+            - libgdal-dev
     - os: osx
       r: release
       env: NOT_CRAN=true
@@ -16,7 +26,14 @@ matrix:
       dist: xenial
       r: devel
       env: NOT_CRAN=false
-
+      addons:
+        apt:
+          packages:
+            - libudunits2-dev
+            - libproj-dev
+            - libgeos-dev
+            - libgdal-dev
+            
 notifications:
   slack:
     rooms: insileco:c6N7g4s36dNHpAxrI2QdattF
