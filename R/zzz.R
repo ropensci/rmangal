@@ -258,8 +258,10 @@ get_singletons <- function(endpoint = NULL, ids = NULL, verbose = FALSE,
 
 percent_id <- function(y) round(100*sum(!is.na(y))/length(y))
 
-percent_backbone <- function(x) {
+print_taxo_ids <- function(x) {
+
   paste0(
+    "* Percent of nodes with taxonomic IDs from external sources: \n  --> ",
     percent_id(x$taxonomy.tsn), "% ITIS, ",
     percent_id(x$taxonomy.bold), "% BOLD, ",
     percent_id(x$taxonomy.eol), "% EOL, ",

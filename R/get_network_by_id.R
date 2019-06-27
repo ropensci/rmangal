@@ -63,13 +63,11 @@ get_network_by_id_indiv <- function(id, verbose = TRUE) {
 #' @method print mgNetwork
 #' @export
 print.mgNetwork <- function(x, ...) {
-
   cat(
     "* Network #", x$network$id, " from data set #", x$dataset$id, "\n",
     "* Description: ", x$network$description, "\n",
     "* Includes ", nrow(x$edges), " edges and ", nrow(x$nodes), " nodes \n",
-    "* Percent of nodes with taxonomic IDs from external sources: \n  --> ",
-    percent_backbone(x$nodes),
+    print_taxo_ids(x$nodes),
     "* Published in ref #",  x$reference$id, " DOI:", x$reference$doi,
     "\n\n", sep = ""
   )
