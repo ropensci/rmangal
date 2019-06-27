@@ -12,8 +12,8 @@
 server <- function() "http://poisotlab.biol.umontreal.ca"
 # server <- function() "http://localhost:8080" # dev purpose
 base <- function() "/api/v2"
-bearer <- function() ifelse(file.exists(".httr-oauth"),
-  as.character(readRDS(".httr-oauth")), NA)
+# bearer <- function() ifelse(file.exists(".httr-oauth"),
+#   as.character(readRDS(".httr-oauth")), NA)
 ua <- httr::user_agent("rmangal")
 
 # Endpoints
@@ -250,4 +250,21 @@ get_singletons <- function(endpoint = NULL, ids = NULL, verbose = FALSE,
 
   class(responses) <- "mgGetResponses"
   responses
+}
+
+
+
+# PRINT HELPERS
+
+percent_id <- function(y) round(100*sum(!is.na(y))/length(y))
+
+percent_backbone <- function(x) {
+  paste0(
+    percent_id(x$taxonomy.tsn), "% ITIS, ",
+    percent_id(x$taxonomy.bold), "% BOLD, ",
+    percent_id(x$taxonomy.eol), "% EOL, ",
+    percent_id(x$taxonomy.col), "% COL, ",
+    percent_id(x$taxonomy.gbif), "% GBIF, ",
+    percent_id(x$taxonomy.ncbi), "% NCBI\n"
+  )
 }
