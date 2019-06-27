@@ -29,6 +29,7 @@ matrix:
       addons:
         apt:
           packages:
+            - libudunits2-dev
             - r-cran-sf
 notifications:
   slack:
