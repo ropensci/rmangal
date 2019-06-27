@@ -18,13 +18,13 @@
 #'
 #' @export
 as.igraph <- function(x) {
-  UseMethod("as.igraph", x)
+    UseMethod("as.igraph", x)
 }
 
 #' @describeIn as.igraph Coerce `mgNetworksCollection` to `igraph` object.
 #' @export
 as.igraph.mgNetworksCollection <- function(x) {
-    lapply(x, as.igraph)
+    lapply(x, as.igraph.mgNetwork)
 }
 
 #' @describeIn as.igraph Coerce `mgNetwork` to `igraph` object.
@@ -39,6 +39,6 @@ as.igraph.mgNetwork <- function(x) {
     x$edges <- x$edges[,names(x$edges) != "geom"]
     x$edges <- x$edges[, c(2:ncol(x$edges), 1)]
 
-    igraph::graph_from_data_frame(d = x$edges[,1:17], directed = directed,
+    igraph::graph_from_data_frame(d = x$edges[, 1:17], directed = directed,
       vertices = x$nodes)
 }
