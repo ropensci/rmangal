@@ -48,7 +48,11 @@ Currently, the Mangal database includes 172 datasets representing over [1300
 ecological networks](http://poisotlab.biol.umontreal.ca/#/). In 2016, a first
 paper describing the project was published and introduced the first release of
 **rmangal** [@poisot_mangal_2016]. Since then, the structure of the database has
-been improved (new fields have been added), several ecological networks added  and the API entirely re-written. Consequently, [the first release of the package](https://github.com/mangal-wg/rmangal-v1) (now archived) no longer works with the current API and **rmangal** has therefore been completely revisited and this vignette introduced the version of it, namely **rmangal v2.0**.
+been improved (new fields have been added), several ecological networks added
+and the API entirely re-written. Consequently, [the first release of the
+package](https://github.com/mangal-wg/rmangal-v1) (now archived) no longer works
+with the current API and **rmangal** has therefore been completely revisited and
+we introduces **rmangal v2.0**. in this vignette.
 
 
 
@@ -78,11 +82,11 @@ appropriate R packages such as [crossref](https://docs.ropensci.org/rcrossref/).
 **Datasets** -- Metadata of the datasets attached to a reference. It includes a general description
 of the networks.
 
-**Networks** -- Metadata of the networks attached to a dataset. It provides the sampling location, date and 
+**Networks** -- Metadata of the networks attached to a dataset. It provides the sampling location, date and
 specific description of the network.
 
 **Nodes** -- Information on the population, taxa or individu in the network.
-Each node has an original name / taxonomy and a taxonomic identifier extract from 
+Each node has an original name / taxonomy and a taxonomic identifier extract from
 
 **Interactions** -- Information on the interaction type (e.g mutualism,
 predation, etc.), the strength, and the direction of the interaction between
@@ -211,7 +215,7 @@ homogeneized taxonomy done with taxize [@chamberlain_2019].
 
 This function allows to search a taxa based on EOL, TSN, GBIF, COL, BOLD and NCBI IDs.
 
-```{R}  
+```{R}
 glimpse(search_taxa(tsn = 28749))
 glimpse(search_taxa(eol =  583069))
 ```
