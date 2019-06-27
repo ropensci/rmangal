@@ -29,11 +29,7 @@ matrix:
       addons:
         apt:
           packages:
-            - libudunits2-dev
-            - libproj-dev
-            - libgeos-dev
-            - libgdal-dev
-            
+            - r-cran-sf
 notifications:
   slack:
     rooms: insileco:c6N7g4s36dNHpAxrI2QdattF
