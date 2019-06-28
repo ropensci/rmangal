@@ -164,7 +164,7 @@ In absence of keyword, `search_datasets()` will always list all datasets. All `s
 will have this same default behaviour.
 
 ```{R}
-all_datasets <- search_datasets()
+all_datasets <- search_datasets("")
 glimpse(all_datasets)
 ```
 

@@ -1,6 +1,10 @@
+#' Search for specific interactions
+#'
 #' Search for specific interactions type (e.g. mutualism)
 #'
-#' @param type a `character` one of the interactions type available in the function `avail_type()`.
+#' @param query either a character string including a single keyword or a list containing a custom query (see details section below).
+#' Note that if an empty character string is passed, then all datasets available are returned.
+#' @param type a `character` one of the interactions type available, uses `avail_type()` to see the full list of type available.
 #' @param expand_node a `logical`. Should the function returned extra information on nodes? Default is set to `FALSE`, which means that only the mangal ID of nodes are returned.
 #' @param verbose a `logical`. Should extra information be reported on progress?
 #'
@@ -8,43 +12,65 @@
 #' An object of class `mgSearchInteractions`, which is a `data.frame` object with all interaction matching the interaction type provided.
 #' All networks in which interactions are involved are also attached to the `data.frame`.
 #'
+#' @details
+#' If `query` is a character string, then all fields of the database table
+#' including character strings are searched and entries for which at least one
+#' partial match was found are returned.
+#' Alternatively, a named list can be used to look for an exact match in a specific field.
+#' In this case, the name of the list should match one of the field names of the database table.
+#' For `dataset`, those are:
+# - attr_id: identifier of a specific attribute
+# - direction: edge direction ("directed", "undirected" or "unknown")
+# - network_id: Mangal network identifier
+# - node_from: node id which the interaction end to
+# - node_to: node to which the interaction end to
+# - type: use argument `type` instead.
+#' Note that for lists with more than one element, only the first element is used, the others are ignored.
+#' Examples covering custom queries are provided below.
+
 #' @references
 #' <https://mangal-wg.github.io/mangal-api/#interactions>
 #'
 #' @examples
-#' search_interactions("competition")
+#' df_inter <- search_interactions(type = "competition")
 #' # Get all networks containing competition
-#' competition_networks <- get_collection(search_interactions("competition"))
+#' competition_networks <- get_collection(df_inter)
+#' df_net_926 <- search_interactions(list(network_id = 926))
+#' df_net_unknown <- search_interactions(list(attr_id = 100))
 #' @export
 
-search_interactions <- function( type = avail_type(), expand_node = FALSE,
-  verbose = FALSE ) {
+search_interactions <- function(query, type = NULL, expand_node = FALSE,
+  verbose = TRUE) {
 
-    # Make sure args match options
-    type <- match.arg(type)
+    if (!is.null(type)) {
+      if (verbose) message("`type` is used thus `query` is ignored.")
+      # Make sure args match options
+      type <- match.arg(type, avail_type())
+      query <- list(type = type)
+    } else {
+      query <- handle_query(query,
+        c("attr_id", "direction", "network_id", "node_from", "node_to", "type"))
+    }
+
     # Get interactions based on the type
     interactions <- resp_to_spatial(get_gen(endpoints()$interaction,
-      query = list( type = type ))$body)
+      query = query, verbose = verbose)$body)
 
     if (is.null(interactions)) {
-      if (verbose) message("No interactions found")
+      if (verbose) message("No interactions found.")
       return(data.frame())
     }
 
     # Add extra info about nodes if desired
     if (expand_node) {
       tmp <- resp_to_df(get_singletons(endpoints()$node,
-        interactions$node_from)$body)
+        interactions$node_from, verbose = verbose)$body)
       interactions[, paste0("node_from_", names(tmp))] <- tmp
       #
       tmp <- resp_to_df(get_singletons(endpoints()$node,
-        interactions$node_to)$body)
+        interactions$node_to, verbose = verbose)$body)
       interactions[, paste0("node_to_", names(tmp))] <- tmp
     }
-
-    # Get networks
-    interactions$networks <- resp_to_spatial(
-      get_singletons(endpoints()$network, interactions$network_id)$body)
 
     if (verbose) message(sprintf("Found %s interactions", nrow(interactions)))
 

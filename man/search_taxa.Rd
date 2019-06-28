@@ -11,7 +11,7 @@ search_taxa(query = NULL, tsn = NULL, gbif = NULL, eol = NULL,
 \arguments{
 \item{query}{\code{character} query on taxa names}
 
-\item{tsn}{a \code{numeric}. Unique taxonomic identifier from Integrated Taxonomic Information Sytem (https://www.itis.gov/)}
+\item{tsn}{a \code{numeric}. Unique taxonomic identifier from Integrated Taxonomic Information System (https://www.itis.gov/)}
 
 \item{gbif}{a \code{numeric}. Unique taxonomic identifier from Global Biodiversity Information Facility (https://www.gbif.org/)}
 

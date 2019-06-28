@@ -64,6 +64,6 @@ get_collection.mgSearchTaxa <- function(x, ...) {
 #' @export
 get_collection.mgSearchInteractions <- function(x, ...) {
   # Get networks ids
-  net_ids <- unique(x$networks$id)
+  net_ids <- unique(x$network_id)
   get_network_by_id(net_ids)
 }

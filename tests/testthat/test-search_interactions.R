@@ -1,16 +1,19 @@
 context("search_interactions")
 
 
-res1 <- search_interactions("competition")
-res2 <- search_interactions("competition", TRUE, TRUE)
-
+res1 <- search_interactions(type = "competition")
+res2 <- search_interactions(type = "competition", expand_node = TRUE)
+res3 <- search_interactions(list(network_id = 926))
 
 test_that("expected behavior", {
-  expect_error(search_interactions("wrong"))
-  expect_equal(dim(res1), c(12, 21))
+  expect_identical(search_interactions("wrong"), data.frame())
+  expect_equal(dim(res1), c(12, 20))
   expect_equal(class(res1), c("sf", "data.frame", "mgSearchInteractions"))
+  expect_equal(class(res3), c("sf", "data.frame", "mgSearchInteractions"))
   # this may change if we merge data frames
-  # expect_equal(dim(res2), c(12, 21))
+  expect_equal(dim(res2), c(12, 56))
+  expect_equal(dim(res3), c(34, 20))
+  expect_true(all(res3$network_id == 926))
 })
 
 

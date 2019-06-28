@@ -4,29 +4,43 @@
 \alias{search_datasets}
 \title{Search over all datasets using keyword}
 \usage{
-search_datasets(query = NULL, verbose = TRUE, ...)
+search_datasets(query, verbose = TRUE, ...)
 }
 \arguments{
-\item{query}{a \code{character} string of keywords used to search (case
-sensitive) the data base, or a \code{list} containing a custom query (see
-examples). If \code{NULL}, all datasets available are returned.}
+\item{query}{either a character string including a single keyword or a list containing a custom query (see details section below).
+Note that if an empty character string is passed, then all datasets available are returned.}
 
 \item{verbose}{a logical. Should extra information be reported on progress?}
 
 \item{...}{further arguments to be passed to \code{\link[rmangal:get_gen]{rmangal::get_gen()}}.}
 }
 \value{
-An object of class \code{mgSearchDatasets}, which is a \code{data.frame}  object with
-all datasets corresponding to the query. For each dataset entry, the
-networks and the original reference are attached.
+An object of class \code{mgSearchDatasets}, which basically is a \code{data.frame}
+including all datasets corresponding to the query. For each dataset entry, #' the networks and the original reference are attached.
 }
 \description{
 Search over all datasets using keyword
 }
+\details{
+If \code{query} is a character string, then all fields of the database table
+including character strings are searched and entries for which at least one
+partial match was found are returned.
+Alternatively, a named list can be used to look for an exact match in a specific field.
+In this case, the name of the list should match one of the field names of the database table.
+For \code{dataset}, those are:
+\itemize{
+\item name: name of the dataset;
+\item date: date (\code{YYYY-mm-dd}) of the corresponding publication;
+\item description: a brief description of the data set;
+\item ref_id: the Mangal identifier of the dataset.
+Note that for lists with more than one element, only the first element is used, the others are ignored.
+Examples covering custom queries are provided below.
+}
+}
 \examples{
 \donttest{
-# Return all dataset
-all_datasets <- search_datasets()
+# Return all datasets (takes time)
+all_datasets <- search_datasets("")
 all_datasets
 class(all_datasets)
 }
@@ -35,6 +49,7 @@ search_datasets(query = 'lagoon')
 res2011 <- search_datasets(query = '2011')
 # Search with a custom query (specific column)
 search_datasets(query = list(name = 'kemp_1977'))
+search_datasets(query = list(ref_id = 16))
 }
 \references{
 \url{https://mangal-wg.github.io/mangal-api/#get-all-datasets}

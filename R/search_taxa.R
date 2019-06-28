@@ -1,7 +1,7 @@
 #' Search network by taxa using keyword, tsn, eol, bold or ncbi IDs.
 #'
 #' @param query `character` query on taxa names
-#' @param tsn a `numeric`. Unique taxonomic identifier from Integrated Taxonomic Information Sytem (https://www.itis.gov/)
+#' @param tsn a `numeric`. Unique taxonomic identifier from Integrated Taxonomic Information System (https://www.itis.gov/)
 #' @param gbif a `numeric`. Unique taxonomic identifier from Global Biodiversity Information Facility (https://www.gbif.org/)
 #' @param eol a `numeric`. Unique taxonomic identifier from Encyclopedia of Life (https://eol.org/)
 #' @param col a `numeric`. Unique taxonomic identifier from Catalogue of Life (https://www.catalogueoflife.org/)
@@ -53,13 +53,15 @@ search_taxa <- function(query = NULL, tsn = NULL, gbif = NULL, eol = NULL,
 
   if (!is.null(query) & original) {
 
-    nodes <- resp_to_df(get_gen(endpoints()$node, query = request)$body)
+    nodes <- resp_to_df(get_gen(endpoints()$node, query = request,
+      verbose = verbose)$body)
     # Store network ids
     network_ids <- taxa$network_id
 
   } else {
 
-    taxa <- resp_to_df(get_gen(endpoints()$taxonomy, query = request)$body)
+    taxa <- resp_to_df(get_gen(endpoints()$taxonomy, query = request,
+      verbose = verbose)$body)
 
     if (length(taxa)) {
       nodes <- do.call(rbind, lapply(taxa$id, function(x)
@@ -72,7 +74,7 @@ search_taxa <- function(query = NULL, tsn = NULL, gbif = NULL, eol = NULL,
   # Retrieve network in which taxa are involved
   if (length(network_ids)) {
     nodes$networks <- resp_to_spatial(get_singletons(endpoints()$network,
-      network_ids)$body)
+      network_ids, verbose = verbose)$body)
   } else nodes <- data.frame(NULL)
 
   if (verbose)
