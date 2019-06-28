@@ -180,10 +180,7 @@ get_gen <- function(endpoint, query = NULL, limit = 100, verbose = TRUE,...) {
       query = query, ...)
 
     if (httr::http_error(resp)) {
-      if (verbose){
-          message(sprintf("API request failed (%s): %s",
-            httr::status_code(resp), httr::content(resp)$message))
-      }
+      if (verbose) msg_request_fail(resp)
       responses[[page + 1]] <- list(body = NULL, response = resp)
       errors <- append(errors, page + 1)
     } else {
@@ -206,10 +203,10 @@ get_gen <- function(endpoint, query = NULL, limit = 100, verbose = TRUE,...) {
 
 #' Generic API function to retrieve singletons
 #'
-#' @param endpoint `character` API entry point
-#' @param ids `numeric` vector of ids
+#' @param endpoint `character` API entry point.
+#' @param ids `numeric` vector of ids.
 #' @param verbose `logical` print API code status on error; default: `TRUE`
-#' @param ... httr options, see [httr::GET()]
+#' @param ... httr options, see [httr::GET()].
 #' @return
 #' Object of class `mgGetResponses`
 #' @details
@@ -234,10 +231,7 @@ get_singletons <- function(endpoint = NULL, ids = NULL, verbose = FALSE,
       config = httr::add_headers(`Content-type` = "application/json"), ua, ...)
 
     if (httr::http_error(resp)) {
-      if (verbose) {
-        message(sprintf("API request failed (%s): %s", httr::status_code(resp),
-          httr::content(resp)$message))
-      }
+      if (verbose) msg_request_fail(resp)
       errors <- append(errors, ids[i])
     } else {
       # coerce body to output desired
@@ -254,7 +248,41 @@ get_singletons <- function(endpoint = NULL, ids = NULL, verbose = FALSE,
 
 
 
-# PRINT HELPERS
+# PRINT/MESSAGES HELPERS
+
+handle_query <- function(query) {
+  if (is.character(query))
+    query <- list(q = query)
+  if (!is.list(query))
+    stop("`query` should either be a list or a character string.")
+  if (length(query) > 1)
+    warning("Only the first element of the list is considered.")
+  query
+}
+
+msg_request_fail <- function(resp) {
+  message(sprintf("API request failed (%s): %s",
+    httr::status_code(resp), httr::content(resp)$message))
+}
+
+
+handle_query <- function(query, names_available) {
+  if (is.character(query)) return(list(q = query))
+  if (!is.list(query))
+    stop("`query` should either be a list or a character string.",
+      call. = FALSE)
+  if (length(query) > 1) {
+    warning("Only the first element of the list is considered.", call. = FALSE)
+    query <- query[1]
+  }
+  if (! names(query) %in% names_available)
+    stop("Only ", paste(names_available, collapse = ", "),
+      " are valid names for custom queries.", call. = FALSE)
+  query
+}
+# Remove ==> other message "should be named"
+
+
 
 percent_id <- function(y) round(100*sum(!is.na(y))/length(y))
 
