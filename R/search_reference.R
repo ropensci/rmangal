@@ -1,5 +1,6 @@
 #' Search for a specific dataset reference with its DOI
 #'
+#' @param query `character` a Digital Object Identifier of the article (mandatory arg).
 #' @param doi `character` a Digital Object Identifier of the article (mandatory arg).
 #' @param verbose a `logical`. Should extra information be reported on progress?
 #' @param ... further arguments to be passed to [rmangal::get_gen()].
@@ -11,13 +12,18 @@
 #'
 #' @examples
 #' search_reference(doi = "10.2307/3225248")
+#'
 #' @export
 
-search_reference <- function(doi, verbose = TRUE, ...) {
+search_reference <- function(query, doi = NULL, verbose = TRUE, ...) {
 
-  stopifnot(is.character(doi) & length(doi) == 1)
+  if (!is.null(doi)) {
+    stopifnot(length(doi) == 1)
+    query <- list(doi = as.character(doi))
+  } else query <- list(q = as.character(query))
 
-  ref <- resp_to_df(get_gen(endpoints()$reference, query = list(doi = doi),
+
+  ref <- resp_to_df(get_gen(endpoints()$reference, query = query,
    ...)$body)
 
   if (is.null(ref)) {

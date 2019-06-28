@@ -4,9 +4,11 @@
 \alias{search_reference}
 \title{Search for a specific dataset reference with its DOI}
 \usage{
-search_reference(doi, verbose = TRUE, ...)
+search_reference(query, doi = NULL, verbose = TRUE, ...)
 }
 \arguments{
+\item{query}{\code{character} a Digital Object Identifier of the article (mandatory arg).}
+
 \item{doi}{\code{character} a Digital Object Identifier of the article (mandatory arg).}
 
 \item{verbose}{a \code{logical}. Should extra information be reported on progress?}
@@ -21,6 +23,7 @@ Search for a specific dataset reference with its DOI
 }
 \examples{
 search_reference(doi = "10.2307/3225248")
+
 }
 \references{
 \url{https://mangal-wg.github.io/mangal-api/#references}

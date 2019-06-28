@@ -3,7 +3,7 @@
 #' @param ids a vector of mangal ID for networks (`numeric`).
 #' @param id a single ID network (`numeric`).
 #' @param x an object of class `mgNetwork` or `mgNetworksCollection`.
-#' @param ... ignored.'
+#' @param ... ignored.
 #' @param verbose a logical. Should extra information be reported on progress?
 #'
 #' @rdname get_network_by_id

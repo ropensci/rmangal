@@ -50,7 +50,7 @@ resp_raw <- function(x) httr::content(x, as = "parsed", encoding = "UTF-8")
 resp_to_df <- function(x) {
   if (is.null(x))
     x else do.call(rbind, lapply(null_to_na(x),
-      function(x) return(as.data.frame(x, stringsAsFactors = FALSE))))
+      function(x) as.data.frame(x, stringsAsFactors = FALSE)))
 }
 
 # flatten + fill
@@ -143,7 +143,7 @@ get_from_fkey_flt <- function(endpoint, verbose = TRUE, ...) {
 #' @param query `list` list of parameters passed to the API
 #' @param limit `integer` number of entries return by the API (max: 1000)
 #' @param verbose `logical` print API code status on error; default: `TRUE`
-#' @param ... httr options, see [httr::GET()]
+#' @param ... Further named parameters, see [httr::GET()].httr options, see [httr::GET()].
 #' @return
 #' Object of class `mgGetResponses`
 #' @details
