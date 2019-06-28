@@ -1,23 +1,35 @@
 #' Search over all datasets using keyword
 #'
-#' @param query a `character` string of keywords used to search (case
-#'  sensitive) the data base, or a `list` containing a custom query (see
-#'  examples). If `NULL`, all datasets available are returned.
+#' @param query either a character string including a single keyword or a list containing a custom query (see details section below).
+#' Note that if an empty character string is passed, then all datasets available are returned.
 #' @param verbose a logical. Should extra information be reported on progress?
 #' @param ... further arguments to be passed to [rmangal::get_gen()].
 #'
 #' @return
-#' An object of class `mgSearchDatasets`, which is a `data.frame`  object with
-#' all datasets corresponding to the query. For each dataset entry, the
-#' networks and the original reference are attached.
+#' An object of class `mgSearchDatasets`, which basically is a `data.frame`
+#' including all datasets corresponding to the query. For each dataset entry, #' the networks and the original reference are attached.
+#'
+#' @details
+#' If `query` is a character string, then all fields of the database table
+#' including character strings are searched and entries for which at least one
+#' partial match was found are returned.
+#' Alternatively, a named list can be used to look for an exact match in a specific field.
+#' In this case, the name of the list should match one of the field names of the database table.
+#' For `dataset`, those are:
+#' - name: name of the dataset;
+#' - date: date (`YYYY-mm-dd`) of the corresponding publication;
+#' - description: a brief description of the data set;
+#' - ref_id: the Mangal identifier of the dataset.
+#' Note that for lists with more than one element, only the first element is used, the others are ignored.
+#' Examples covering custom queries are provided below.
 #'
 #' @references
 #' <https://mangal-wg.github.io/mangal-api/#get-all-datasets>
 #'
 #' @examples
 #' \donttest{
-#' # Return all dataset
-#' all_datasets <- search_datasets()
+#' # Return all datasets (takes time)
+#' all_datasets <- search_datasets("")
 #' all_datasets
 #' class(all_datasets)
 #' }
@@ -26,14 +38,12 @@
 #' res2011 <- search_datasets(query = '2011')
 #' # Search with a custom query (specific column)
 #' search_datasets(query = list(name = 'kemp_1977'))
+#' search_datasets(query = list(ref_id = 16))
 #' @export
 
-search_datasets <- function(query = NULL, verbose = TRUE, ...) {
+search_datasets <- function(query, verbose = TRUE, ...) {
 
-  # Full search
-  if (is.character(query))
-    query <- list(q = query)
-
+  query <- handle_query(query, c("name", "date", "description", "ref_id"))
   datasets <- resp_to_df(get_gen(endpoints()$dataset, query = query, ...)$body)
 
   if (is.null(datasets)) {
