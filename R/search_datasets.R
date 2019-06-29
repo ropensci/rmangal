@@ -15,7 +15,7 @@
 #' partial match was found are returned.
 #' Alternatively, a named list can be used to look for an exact match in a specific field.
 #' In this case, the name of the list should match one of the field names of the database table.
-#' For `dataset`, those are:
+#' For the `dataset` table, those are:
 #' - name: name of the dataset;
 #' - date: date (`YYYY-mm-dd`) of the corresponding publication;
 #' - description: a brief description of the data set;
@@ -44,7 +44,8 @@
 search_datasets <- function(query, verbose = TRUE, ...) {
 
   query <- handle_query(query, c("name", "date", "description", "ref_id"))
-  datasets <- resp_to_df(get_gen(endpoints()$dataset, query = query, ...)$body)
+  datasets <- resp_to_df(get_gen(endpoints()$dataset, query = query,
+    verbose = verbose, ...)$body)
 
   if (is.null(datasets)) {
     if (verbose) message("No dataset found.")
@@ -58,14 +59,13 @@ search_datasets <- function(query, verbose = TRUE, ...) {
   references <- networks <- NULL
   for (i in seq_len(nrow(datasets))) {
     networks[[i]] <- get_from_fkey_net(endpoints()$network,
-      dataset_id = datasets$id[i])
+      dataset_id = datasets$id[i], verbose = verbose)
     references[[i]] <- resp_to_df(get_singletons(endpoints()$reference,
-      ids = datasets$ref_id[i])$body)
+      ids = datasets$ref_id[i], verbose = verbose)$body)
   }
   datasets$references <- references
   datasets$networks <- networks
 
   class(datasets) <- c("tbl_df", "tbl", "data.frame", "mgSearchDatasets")
   datasets
-
 }

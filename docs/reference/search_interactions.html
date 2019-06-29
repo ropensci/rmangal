@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Search for specific interactions type (e.g. mutualism) — search_interactions • rmangal</title>
+<title>Search for specific interactions — search_interactions • rmangal</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -16,15 +16,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -32,7 +30,7 @@
 
 
 
-<meta property="og:title" content="Search for specific interactions type (e.g. mutualism) — search_interactions" />
+<meta property="og:title" content="Search for specific interactions — search_interactions" />
 
 <meta property="og:description" content="Search for specific interactions type (e.g. mutualism)" />
 <meta name="twitter:card" content="summary" />
@@ -73,7 +71,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -88,7 +86,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/mangal-wg/rmangal">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -104,7 +102,7 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Search for specific interactions type (e.g. mutualism)</h1>
+    <h1>Search for specific interactions</h1>
     <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/search_interactions.R'><code>R/search_interactions.R</code></a></small>
     <div class="hidden name"><code>search_interactions.Rd</code></div>
     </div>
@@ -115,15 +113,20 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>search_interactions</span>(<span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='avail_type.html'>avail_type</a></span>(), <span class='kw'>expand_node</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>search_interactions</span>(<span class='no'>query</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>expand_node</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
+      <th>query</th>
+      <td><p>either a character string including a single keyword or a list containing a custom query (see details section below).
+Note that if an empty character string is passed, then all datasets available are returned.</p></td>
+    </tr>
+    <tr>
       <th>type</th>
-      <td><p>a <code>character</code> one of the interactions type available in the function <code><a href='avail_type.html'>avail_type()</a></code>.</p></td>
+      <td><p>a <code>character</code> one of the interactions type available, uses <code><a href='avail_type.html'>avail_type()</a></code> to see the full list of type available.</p></td>
     </tr>
     <tr>
       <th>expand_node</th>
@@ -140,130 +143,26 @@
     <p>An object of class <code>mgSearchInteractions</code>, which is a <code>data.frame</code> object with all interaction matching the interaction type provided.
 All networks in which interactions are involved are also attached to the <code>data.frame</code>.</p>
     
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>If <code>query</code> is a character string, then all fields of the database table
+including character strings are searched and entries for which at least one
+partial match was found are returned.
+Alternatively, a named list can be used to look for an exact match in a specific field.
+In this case, the name of the list should match one of the field names of the database table.
+For <code>dataset</code>, those are:
+Note that for lists with more than one element, only the first element is used, the others are ignored.
+Examples covering custom queries are provided below.</p>
+    
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p><a href='https://mangal-wg.github.io/mangal-api/#interactions'>https://mangal-wg.github.io/mangal-api/#interactions</a></p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>search_interactions</span>(<span class='st'>"competition"</span>)</div><div class='output co'>#&gt; Simple feature collection with 12 features and 20 fields (with 1 geometry empty)
-#&gt; geometry type:  POINT
-#&gt; dimension:      XY
-#&gt; bbox:           xmin: Inf ymin: Inf xmax: -Inf ymax: -Inf
-#&gt; epsg (SRID):    4326
-#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs
-#&gt; First 10 features:
-#&gt;        id node_from node_to                     date  direction        type
-#&gt; 1   97641     24343   24344 1973-03-01T00:00:00.000Z undirected competition
-#&gt; 2   97652     24352   24351 1973-03-01T00:00:00.000Z undirected competition
-#&gt; 3   97709     24370   24378 1973-03-01T00:00:00.000Z undirected competition
-#&gt; 4   97679     24357   24358 1973-03-01T00:00:00.000Z undirected competition
-#&gt; 5  100173     25149   25149 1976-02-01T00:00:00.000Z undirected competition
-#&gt; 6  100174     25149   25150 1976-02-01T00:00:00.000Z undirected competition
-#&gt; 7  101348     25576   25577 1970-01-01T00:00:00.000Z undirected competition
-#&gt; 8  101349     25576   25578 1970-01-01T00:00:00.000Z undirected competition
-#&gt; 9  101350     25576   25571 1970-01-01T00:00:00.000Z undirected competition
-#&gt; 10 101351     25577   25578 1970-01-01T00:00:00.000Z undirected competition
-#&gt;                                       method attr_id value public network_id
-#&gt; 1               field observation/experiment      25     1   TRUE       1477
-#&gt; 2               field observation/experiment      25     1   TRUE       1478
-#&gt; 3               field observation/experiment      25     1   TRUE       1480
-#&gt; 4               field observation/experiment      25     1   TRUE       1479
-#&gt; 5               field observation/experiment      25     1   TRUE       1502
-#&gt; 6               field observation/experiment      25     1   TRUE       1502
-#&gt; 7  Field observation, gut content and biblio      25     1   TRUE       1523
-#&gt; 8  Field observation, gut content and biblio      25     1   TRUE       1523
-#&gt; 9  Field observation, gut content and biblio      25     1   TRUE       1523
-#&gt; 10 Field observation, gut content and biblio      25     1   TRUE       1523
-#&gt;                  created_at               updated_at attribute.id
-#&gt; 1  2019-03-05T15:50:33.839Z 2019-03-05T15:50:33.839Z           25
-#&gt; 2  2019-03-05T15:50:38.469Z 2019-03-05T15:50:38.469Z           25
-#&gt; 3  2019-03-05T15:50:55.947Z 2019-03-05T15:50:55.947Z           25
-#&gt; 4  2019-03-05T15:50:47.266Z 2019-03-05T15:50:47.266Z           25
-#&gt; 5  2019-03-06T21:41:55.180Z 2019-03-06T21:41:55.180Z           25
-#&gt; 6  2019-03-06T21:41:55.330Z 2019-03-06T21:41:55.330Z           25
-#&gt; 7  2019-03-11T20:53:55.935Z 2019-03-11T20:53:55.935Z           25
-#&gt; 8  2019-03-11T20:53:56.023Z 2019-03-11T20:53:56.023Z           25
-#&gt; 9  2019-03-11T20:53:56.120Z 2019-03-11T20:53:56.120Z           25
-#&gt; 10 2019-03-11T20:53:56.250Z 2019-03-11T20:53:56.250Z           25
-#&gt;      attribute.name              attribute.description attribute.unit
-#&gt; 1  presence/absence Presence or absence of interaction             NA
-#&gt; 2  presence/absence Presence or absence of interaction             NA
-#&gt; 3  presence/absence Presence or absence of interaction             NA
-#&gt; 4  presence/absence Presence or absence of interaction             NA
-#&gt; 5  presence/absence Presence or absence of interaction             NA
-#&gt; 6  presence/absence Presence or absence of interaction             NA
-#&gt; 7  presence/absence Presence or absence of interaction             NA
-#&gt; 8  presence/absence Presence or absence of interaction             NA
-#&gt; 9  presence/absence Presence or absence of interaction             NA
-#&gt; 10 presence/absence Presence or absence of interaction             NA
-#&gt;        attribute.created_at     attribute.updated_at        geom networks.id
-#&gt; 1  2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY        1477
-#&gt; 2  2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY        1478
-#&gt; 3  2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY        1480
-#&gt; 4  2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY        1479
-#&gt; 5  2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY        1502
-#&gt; 6  2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY        1502
-#&gt; 7  2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY        1523
-#&gt; 8  2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY        1523
-#&gt; 9  2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY        1523
-#&gt; 10 2019-03-01T16:03:38.993Z 2019-03-01T16:03:38.993Z POINT EMPTY        1523
-#&gt;                          networks.name            networks.date
-#&gt; 1  menge_sutherland_1976_19730311_1477 1973-03-11T05:00:00.000Z
-#&gt; 2  menge_sutherland_1976_19730311_1478 1973-03-11T05:00:00.000Z
-#&gt; 3  menge_sutherland_1976_19730311_1480 1973-03-11T05:00:00.000Z
-#&gt; 4  menge_sutherland_1976_19730311_1479 1973-03-11T05:00:00.000Z
-#&gt; 5           seifert_1979_19760201_1502 1976-02-01T05:00:00.000Z
-#&gt; 6           seifert_1979_19760201_1502 1976-02-01T05:00:00.000Z
-#&gt; 7                          wilbur_1972 1970-01-01T05:00:00.000Z
-#&gt; 8                          wilbur_1972 1970-01-01T05:00:00.000Z
-#&gt; 9                          wilbur_1972 1970-01-01T05:00:00.000Z
-#&gt; 10                         wilbur_1972 1970-01-01T05:00:00.000Z
-#&gt;                                                                                  networks.description
-#&gt; 1                 Food web structure of an exposed rocky shore community, Pemaquid point, New England
-#&gt; 2               Food web structure of a protected rocky shore community, Grindstone Neck, New England
-#&gt; 3                Food web structure of a protected rocky shore community, San Juan Island, Washington
-#&gt; 4                       Food web structure of an exposed rocky shore community, Makah Bay, Washington
-#&gt; 5                                The insect community of Heliconia bihai in a Venezuelan cloud forest
-#&gt; 6                                The insect community of Heliconia bihai in a Venezuelan cloud forest
-#&gt; 7  Food web structure of amphibian community within woodland ponds, Edwin S. George Reserve, Michigan
-#&gt; 8  Food web structure of amphibian community within woodland ponds, Edwin S. George Reserve, Michigan
-#&gt; 9  Food web structure of amphibian community within woodland ponds, Edwin S. George Reserve, Michigan
-#&gt; 10 Food web structure of amphibian community within woodland ponds, Edwin S. George Reserve, Michigan
-#&gt;    networks.public networks.all_interactions      networks.created_at
-#&gt; 1             TRUE                     FALSE 2019-03-05T15:50:31.521Z
-#&gt; 2             TRUE                     FALSE 2019-03-05T15:50:34.068Z
-#&gt; 3             TRUE                     FALSE 2019-03-05T15:50:47.410Z
-#&gt; 4             TRUE                     FALSE 2019-03-05T15:50:38.637Z
-#&gt; 5             TRUE                     FALSE 2019-03-06T20:26:41.249Z
-#&gt; 6             TRUE                     FALSE 2019-03-06T20:26:41.249Z
-#&gt; 7             TRUE                     FALSE 2019-03-11T20:53:23.501Z
-#&gt; 8             TRUE                     FALSE 2019-03-11T20:53:23.501Z
-#&gt; 9             TRUE                     FALSE 2019-03-11T20:53:23.501Z
-#&gt; 10            TRUE                     FALSE 2019-03-11T20:53:23.501Z
-#&gt;         networks.updated_at networks.dataset_id networks.user_id
-#&gt; 1  2019-03-05T15:50:31.521Z                 105                4
-#&gt; 2  2019-03-05T15:50:34.068Z                 105                4
-#&gt; 3  2019-03-05T15:50:47.410Z                 105                4
-#&gt; 4  2019-03-05T15:50:38.637Z                 105                4
-#&gt; 5  2019-03-06T20:26:41.249Z                 119                4
-#&gt; 6  2019-03-06T20:26:41.249Z                 119                4
-#&gt; 7  2019-03-11T20:53:23.501Z                 139                4
-#&gt; 8  2019-03-11T20:53:23.501Z                 139                4
-#&gt; 9  2019-03-11T20:53:23.501Z                 139                4
-#&gt; 10 2019-03-11T20:53:23.501Z                 139                4
-#&gt;                 networks.geom
-#&gt; 1    POINT (-69.5098 43.8406)
-#&gt; 2  POINT (-68.09012 44.37215)
-#&gt; 3    POINT (-123.084 48.5377)
-#&gt; 4  POINT (-124.6716 48.32856)
-#&gt; 5  POINT (-67.68822 10.34253)
-#&gt; 6  POINT (-67.68822 10.34253)
-#&gt; 7  POINT (-83.99992 42.45481)
-#&gt; 8  POINT (-83.99992 42.45481)
-#&gt; 9  POINT (-83.99992 42.45481)
-#&gt; 10 POINT (-83.99992 42.45481)</div><div class='input'><span class='co'># Get all networks containing competition</span>
-<span class='no'>competition_networks</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='get_collection.html'>get_collection</a></span>(<span class='fu'>search_interactions</span>(<span class='st'>"competition"</span>))</div></pre>
+    <pre class="examples"><div class='input'><span class='no'>df_inter</span> <span class='kw'>&lt;-</span> <span class='fu'>search_interactions</span>(<span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"competition"</span>)</div><div class='output co'>#&gt; <span class='message'>`type` is used thus `query` is ignored.</span></div><div class='output co'>#&gt; <span class='message'>Found 12 interactions</span></div><div class='input'><span class='co'># Get all networks containing competition</span>
+<span class='no'>competition_networks</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='get_collection.html'>get_collection</a></span>(<span class='no'>df_inter</span>)
+<span class='no'>df_net_926</span> <span class='kw'>&lt;-</span> <span class='fu'>search_interactions</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>network_id</span> <span class='kw'>=</span> <span class='fl'>926</span>))</div><div class='output co'>#&gt; <span class='message'>Found 34 interactions</span></div><div class='input'><span class='no'>df_net_unknown</span> <span class='kw'>&lt;-</span> <span class='fu'>search_interactions</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>attr_id</span> <span class='kw'>=</span> <span class='fl'>100</span>))</div><div class='output co'>#&gt; <span class='message'>No interactions found.</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -271,6 +170,8 @@ All networks in which interactions are involved are also attached to the <code>d
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
 
       <li><a href="#references">References</a></li>
       
@@ -286,7 +187,7 @@ All networks in which interactions are involved are also attached to the <code>d
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.9100.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
 </div>
       </footer>
    </div>

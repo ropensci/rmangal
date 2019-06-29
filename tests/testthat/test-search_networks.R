@@ -5,6 +5,7 @@ library(USAboundaries)
 res1 <- search_networks("lagoon")
 area <- us_states(state="california")
 res2 <- search_networks(area)
+res2b <- search_networks_sf(area)
 resw <- search_networks("does not exist")
 ress <- search_networks(query="insect%")
 
@@ -13,7 +14,7 @@ test_that("errors caught", {
 })
 
 test_that("expected behavior", {
-  expect_equal(dim(resw), c(0, 0))
+  expect_identical(resw, data.frame())
   expect_equal(nrow(res1), 3)
   expect_equal(nrow(res2), 14)
   expect_equal(nrow(ress), 14)
@@ -23,6 +24,7 @@ test_that("output format", {
   expect_equal(class(res1), c("sf", "data.frame", "mgSearchNetworks"))
   expect_equal(class(res2), c("sf", "data.frame", "mgSearchNetworks"))
   expect_equal(class(ress), c("sf", "data.frame", "mgSearchNetworks"))
+  expect_identical(res2, res2b)
 })
 
 resc <- get_collection(res1)

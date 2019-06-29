@@ -18,13 +18,15 @@
 search_reference <- function(query, doi = NULL, verbose = TRUE, ...) {
 
   if (!is.null(doi)) {
-    stopifnot(length(doi) == 1)
+    if (length(doi) > 1) {
+      doi <- doi[1L]
+    }
     query <- list(doi = as.character(doi))
   } else query <- list(q = as.character(query))
 
 
   ref <- resp_to_df(get_gen(endpoints()$reference, query = query,
-   ...)$body)
+    verbose = verbose, ...)$body)
 
   if (is.null(ref)) {
      if (verbose) message("No dataset found!")
@@ -35,11 +37,12 @@ search_reference <- function(query, doi = NULL, verbose = TRUE, ...) {
     message(sprintf("Found dataset: \n %s", ref$bibtex))
 
   # Attach dataset
-  ref$datasets <- get_from_fkey(endpoints()$dataset, ref_id = ref$id)
+  ref$datasets <- get_from_fkey(endpoints()$dataset, ref_id = ref$id,
+    verbose = verbose)
 
   # Attach network
   ref$networks <- get_from_fkey_net(endpoints()$network,
-    dataset_id = ref$datasets$id)
+    dataset_id = ref$datasets$id, verbose = verbose)
 
   class(ref) <- "mgSearchReference"
   ref
