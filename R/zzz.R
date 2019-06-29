@@ -31,6 +31,9 @@ endpoints <- function() {
   )
 }
 
+## memoise httr::GET
+mem_get <- memoise::memoise(httr::GET)
+
 # Common spatial columns in mangal-db
 sf_columns <- function(x) c("geom.type", "geom.coordinates")
 
@@ -159,7 +162,7 @@ get_gen <- function(endpoint, query = NULL, limit = 100, verbose = TRUE, ...) {
   query$count <- limit
 
   # First call used to set pages
-  resp <- httr::GET(url,
+  resp <- mem_get(url,
       config = httr::add_headers(`Content-type` = "application/json"), ua,
       query = query, ...)
 
@@ -175,7 +178,7 @@ get_gen <- function(endpoint, query = NULL, limit = 100, verbose = TRUE, ...) {
   # Loop over pages
   for (page in 0:pages) {
     query$page <- page
-    resp <- httr::GET(url,
+    resp <- mem_get(url,
       config = httr::add_headers(`Content-type` = "application/json"), ua,
       query = query, ...)
 
@@ -227,7 +230,7 @@ get_singletons <- function(endpoint = NULL, ids = NULL, verbose = FALSE,
       ids[i]))
 
     # Call on the API
-    resp <- httr::GET(url,
+    resp <- mem_get(url,
       config = httr::add_headers(`Content-type` = "application/json"), ua, ...)
 
     if (httr::http_error(resp)) {
