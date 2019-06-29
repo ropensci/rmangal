@@ -150,7 +150,7 @@ get_from_fkey_flt <- function(endpoint, verbose = TRUE, ...) {
 #' See endpoints available with `endpoints()`
 #' @keywords internal
 
-get_gen <- function(endpoint, query = NULL, limit = 100, verbose = TRUE,...) {
+get_gen <- function(endpoint, query = NULL, limit = 100, verbose = TRUE, ...) {
 
   url <- httr::modify_url(server(), path = paste0(base(), endpoint))
   query <- as.list(query)

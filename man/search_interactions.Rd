@@ -30,7 +30,7 @@ including character strings are searched and entries for which at least one
 partial match was found are returned.
 Alternatively, a named list can be used to look for an exact match in a specific field.
 In this case, the name of the list should match one of the field names of the database table.
-For \code{dataset}, those are:
+For the \code{interaction} table, those are:
 Note that for lists with more than one element, only the first element is used, the others are ignored.
 Examples covering custom queries are provided below.
 }

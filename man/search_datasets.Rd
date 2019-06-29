@@ -27,7 +27,7 @@ including character strings are searched and entries for which at least one
 partial match was found are returned.
 Alternatively, a named list can be used to look for an exact match in a specific field.
 In this case, the name of the list should match one of the field names of the database table.
-For \code{dataset}, those are:
+For the \code{dataset} table, those are:
 \itemize{
 \item name: name of the dataset;
 \item date: date (\code{YYYY-mm-dd}) of the corresponding publication;
