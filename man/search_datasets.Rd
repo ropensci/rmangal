@@ -12,7 +12,7 @@ Note that if an empty character string is passed, then all datasets available ar
 
 \item{verbose}{a logical. Should extra information be reported on progress?}
 
-\item{...}{further arguments to be passed to \code{\link[rmangal:get_gen]{rmangal::get_gen()}}.}
+\item{...}{further arguments to be passed to \code{\link[httr:GET]{httr::GET()}}.}
 }
 \value{
 An object of class \code{mgSearchDatasets}, which basically is a \code{data.frame}

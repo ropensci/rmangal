@@ -1,4 +1,4 @@
-#' Search network by taxa using keyword or speicific taxonomic identifiers.
+#' Search network by taxa using keyword or specific taxonomic identifiers.
 #'
 #' @param query either a character string including a single keyword or a list containing a custom query (see details section below).
 #' Note that if an empty character string is passed, then all datasets available are returned.
@@ -82,7 +82,7 @@ search_taxa <- function(query, tsn = NULL, gbif = NULL, eol = NULL,
       network_ids, verbose = verbose, ...)$body)
   } else nodes <- data.frame()
 
-  # do not work with original = TRUE, so skipped. 
+  # do not work with original = TRUE, so skipped.
   # if (verbose)
   #   message(sprintf("Found %s taxa involved in %s network(s)",
   #     nrow(taxa), length(network_ids)))

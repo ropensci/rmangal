@@ -50,6 +50,13 @@ get_collection.mgSearchReference <- function(x, ...) {
   get_network_by_id(net_ids)
 }
 
+#' @describeIn get_collection Get a collection of networks from a `mgSearchNodes` object.
+#' @export
+get_collection.mgSearchNodes <- function(x, ...) {
+  # Get networks ids
+  net_ids <- unique(x$network_id)
+  get_network_by_id(net_ids)
+}
 
 #' @describeIn get_collection Get a collection of networks from a `mgSearchTaxa` object.
 #' @export

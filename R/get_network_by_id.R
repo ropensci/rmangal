@@ -36,26 +36,29 @@ get_network_by_id_indiv <- function(id, verbose = TRUE) {
   stopifnot(!is.null(id))
   stopifnot(length(id) == 1)
   # Object S3 declaration
+  # if (verbose) cat("Retrieving network id", id, "\n")
   mg_network <- structure(list(network =
-    resp_to_spatial(get_singletons(endpoints()$network,ids = id)$body)),
-    class = "mgNetwork")
+    resp_to_spatial(get_singletons(endpoints()$network, ids = id,
+    verbose = verbose)$body)), class = "mgNetwork")
 
   if (is.null(mg_network$network))
     stop(sprintf("network id %s not found", id))
 
+  # if (verbose) cat("Retrieving nodes\n")
   # nodes and edges associated with the network
   mg_network$nodes <- get_from_fkey_flt(endpoints()$node,
     network_id = mg_network$network$id, verbose = verbose)
+  # if (verbose) cat("done!\nRetrieving interaction\n")
   mg_network$edges <- get_from_fkey_net(endpoints()$interaction,
     network_id = mg_network$network$id, verbose = verbose)
-
+  # if (verbose) cat("done")
   # retrieve dataset informations
   mg_network$dataset <- resp_to_df(get_singletons(endpoints()$dataset,
-    ids = unique(mg_network$network$dataset_id))$body)
+    ids = unique(mg_network$network$dataset_id, verbose = verbose))$body)
 
   # retrieve reference
   mg_network$reference <- resp_to_df(get_singletons(endpoints()$reference,
-    ids = unique(mg_network$dataset$ref_id))$body)
+    ids = unique(mg_network$dataset$ref_id), verbose = verbose)$body)
 
   mg_network
 }

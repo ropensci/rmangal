@@ -75,12 +75,18 @@ resp_to_spatial <- function(x) {
   if (is.null(x)) {
     x
   } else {
+      # print(length(x))
+      # null_to_na(x)
+      # tp <- lapply(null_to_na(x), switch_sf)
+      # print(length(tp))
+      # do.call(rbind, tp)
       suppressWarnings(do.call(rbind, lapply(null_to_na(x), switch_sf)))
   }
 }
 
 ## Build sf object based on geom.type
 switch_sf <- function(tmp) {
+  # print("ch")
   df_nogeom <- as.data.frame(tmp[names(tmp) != "geom"],
     stringsAsFactors = FALSE)
   if (is.na(tmp$geom)) {
@@ -174,6 +180,7 @@ get_gen <- function(endpoint, query = NULL, limit = 100, verbose = TRUE, ...) {
 
   # Loop over pages
   for (page in 0:pages) {
+    # if (verbose) cat("Now processing page", page+1, "/", pages+1, "   \r")
     query$page <- page
     resp <- httr::GET(url,
       config = httr::add_headers(`Content-type` = "application/json"), ua,
@@ -187,6 +194,7 @@ get_gen <- function(endpoint, query = NULL, limit = 100, verbose = TRUE, ...) {
       responses[[page + 1]] <- list(body = resp_raw(resp), response = resp)
     }
   }
+  # if (verbose) cat("\r\n")
   #
   if (!is.null(errors))
     warning("Failed request(s) for page(s): ", paste0(errors, ", "))
@@ -212,7 +220,7 @@ get_gen <- function(endpoint, query = NULL, limit = 100, verbose = TRUE, ...) {
 #' @details
 #' See endpoints available with `endpoints()`
 #' @keywords internal
-get_singletons <- function(endpoint = NULL, ids = NULL, verbose = FALSE,
+get_singletons <- function(endpoint = NULL, ids = NULL, verbose = TRUE,
    ...) {
 
   stopifnot(!is.null(endpoint) & !is.null(ids))
@@ -222,6 +230,8 @@ get_singletons <- function(endpoint = NULL, ids = NULL, verbose = FALSE,
 
   # Loop over ids
   for (i in seq_along(ids)) {
+    if (verbose)
+      # cat("now processing id", ids[i], "   ", i, "/", length(ids) , "     \r")
     # Set url
     url <- httr::modify_url(server(), path = paste0(base(), endpoint, "/",
       ids[i]))
@@ -239,6 +249,7 @@ get_singletons <- function(endpoint = NULL, ids = NULL, verbose = FALSE,
       responses$response[[i]] <- resp
     }
   }
+  # if (verbose) cat("\r")
   if (!is.null(errors))
     warning("Failed request(s) for id(s): ", paste0(errors, ", "))
 

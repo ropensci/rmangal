@@ -2,7 +2,7 @@
 % Please edit documentation in R/search_taxa.R
 \name{search_taxa}
 \alias{search_taxa}
-\title{Search network by taxa using keyword or speicific taxonomic identifiers.}
+\title{Search network by taxa using keyword or specific taxonomic identifiers.}
 \usage{
 search_taxa(query, tsn = NULL, gbif = NULL, eol = NULL, col = NULL,
   bold = NULL, ncbi = NULL, original = FALSE, verbose = TRUE, ...)
@@ -34,7 +34,7 @@ An object of class \code{mgSearchTaxa}, which is a \code{data.frame} object with
 All networks in which taxa are involved are also attached to the \code{data.frame}.
 }
 \description{
-Search network by taxa using keyword or speicific taxonomic identifiers.
+Search network by taxa using keyword or specific taxonomic identifiers.
 }
 \details{
 By default, the user query the \code{taxonomy} table and the based a homogenized taxonomy (valid names from

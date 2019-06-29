@@ -15,7 +15,7 @@ Note that if an empty character string is passed, then all datasets available ar
 
 \item{verbose}{a \code{logical}. Should extra information be reported on progress?}
 
-\item{...}{further arguments to be passed to \code{\link[rmangal:get_gen]{rmangal::get_gen()}}.}
+\item{...}{further arguments to be passed to \code{\link[httr:GET]{httr::GET()}}}
 
 \item{query_sf}{a spatial object of class \code{sf} used to search in a specific geographical area. If keyword is unspecified (query = NULL), all networks will be returned.}
 }
