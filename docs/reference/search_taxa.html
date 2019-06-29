@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Search network by taxa using keyword, tsn, eol, bold or ncbi IDs. — search_taxa • rmangal</title>
+<title>Search network by taxa using keyword or speicific taxonomic identifiers. — search_taxa • rmangal</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -16,13 +16,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,9 +32,9 @@
 
 
 
-<meta property="og:title" content="Search network by taxa using keyword, tsn, eol, bold or ncbi IDs. — search_taxa" />
+<meta property="og:title" content="Search network by taxa using keyword or speicific taxonomic identifiers. — search_taxa" />
 
-<meta property="og:description" content="Search network by taxa using keyword, tsn, eol, bold or ncbi IDs." />
+<meta property="og:description" content="Search network by taxa using keyword or speicific taxonomic identifiers." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -71,7 +73,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -86,7 +88,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/mangal-wg/rmangal">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -102,51 +104,51 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Search network by taxa using keyword, tsn, eol, bold or ncbi IDs.</h1>
+    <h1>Search network by taxa using keyword or speicific taxonomic identifiers.</h1>
     <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/search_taxa.R'><code>R/search_taxa.R</code></a></small>
     <div class="hidden name"><code>search_taxa.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Search network by taxa using keyword, tsn, eol, bold or ncbi IDs.</p>
+    <p>Search network by taxa using keyword or speicific taxonomic identifiers.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>search_taxa</span>(<span class='kw'>query</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>tsn</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>gbif</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>eol</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>col</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>bold</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ncbi</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>search_taxa</span>(<span class='no'>query</span>, <span class='kw'>tsn</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>gbif</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>eol</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>bold</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ncbi</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>query</th>
-      <td><p><code>character</code> query on taxa names</p></td>
+      <td><p>either a character string including a single keyword or a list containing a custom query (see details section below).
+Note that if an empty character string is passed, then all datasets available are returned.</p></td>
     </tr>
     <tr>
       <th>tsn</th>
-      <td><p>a <code>numeric</code>. Unique taxonomic identifier from Integrated Taxonomic Information System (https://www.itis.gov/)</p></td>
+      <td><p>a <code>numeric</code>. Unique taxonomic identifier from Integrated Taxonomic Information System (<a href='https://www.itis.gov/'>https://www.itis.gov/</a>).</p></td>
     </tr>
     <tr>
       <th>gbif</th>
-      <td><p>a <code>numeric</code>. Unique taxonomic identifier from Global Biodiversity Information Facility (https://www.gbif.org/)</p></td>
+      <td><p>a <code>numeric</code>. Unique taxonomic identifier from Global Biodiversity Information Facility (<a href='https://www.gbif.org/'>https://www.gbif.org/</a>).</p></td>
     </tr>
     <tr>
       <th>eol</th>
-      <td><p>a <code>numeric</code>. Unique taxonomic identifier from Encyclopedia of Life (https://eol.org/)</p></td>
+      <td><p>a <code>numeric</code>. Unique taxonomic identifier from Encyclopedia of Life (<a href='https://eol.org/'>https://eol.org/</a>).</p></td>
     </tr>
     <tr>
       <th>col</th>
-      <td><p>a <code>numeric</code>. Unique taxonomic identifier from Catalogue of Life (https://www.catalogueoflife.org/)</p></td>
+      <td><p>a <code>numeric</code>. Unique taxonomic identifier from Catalogue of Life (<a href='https://www.catalogueoflife.org/'>https://www.catalogueoflife.org/</a>).</p></td>
     </tr>
     <tr>
       <th>bold</th>
-      <td><p>a <code>numeric</code>. Unique taxonomic identifier from Barcode of Life (http://www.boldsystems.org/)</p></td>
+      <td><p>a <code>numeric</code>. Unique taxonomic identifier from Barcode of Life (<a href='http://www.boldsystems.org/'>http://www.boldsystems.org/</a>).</p></td>
     </tr>
     <tr>
       <th>ncbi</th>
-      <td><p>a <code>numeric</code>. Unique taxonomic identifier from National Center for Biotechnology Information (https://www.ncbi.nlm.nih.gov/)</p></td>
+      <td><p>a <code>numeric</code>. Unique taxonomic identifier from National Center for Biotechnology Information (<a href='https://www.ncbi.nlm.nih.gov/'>https://www.ncbi.nlm.nih.gov/</a>).</p></td>
     </tr>
     <tr>
       <th>original</th>
@@ -158,7 +160,7 @@
     </tr>
     <tr>
       <th>...</th>
-      <td><p>further arguments to be passed to <code><a href='get_gen.html'>rmangal::get_gen()</a></code>.</p></td>
+      <td><p>further arguments to be passed to <code><a href='https://rdrr.io/pkg/httr/man/GET.html'>httr::GET()</a></code></p></td>
     </tr>
     </table>
     
@@ -169,13 +171,14 @@ All networks in which taxa are involved are also attached to the <code>data.fram
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>By default, you are querying taxa based on a homogenized taxonomy (corrected names from
+    <p>By default, the user query the <code>taxonomy</code> table and the based a homogenized taxonomy (valid names from
 <a href='http://tnrs.iplantcollaborative.org/'>TNRS</a> and/or <a href='https://resolver.globalnames.org/'>GNR</a>.
 These taxa might not be the taxon name documented in the original publication.
 In order to query, the original name, set argument <code>original</code> to <code>TRUE</code>.</p>
-<p>The homogeneized taxonomy was done by automated procedure, we cannot guarantee
-that the homogeneized names are 100<!-- % accurate. Be aware, that the original -->
-names recorded by authors will always prevail and be the most reliable information.</p>
+<p>Note that the validation of taxon names was performed by an automated
+procedure and if there is any doubt, the original names recorded
+by authors should be regarded as the most reliable information. Please
+report any issue related to taxonomy at <a href='https://github.com/mangal-wg/mangal-datasets/issues'>https://github.com/mangal-wg/mangal-datasets/issues</a>.</p>
     
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
@@ -184,7 +187,7 @@ names recorded by authors will always prevail and be the most reliable informati
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>search_taxa</span>(<span class='st'>"Acer"</span>)</div><div class='output co'>#&gt; <span class='message'>Full text search</span></div><div class='output co'>#&gt; <span class='message'>Found 5 taxa involved in 5 network(s)</span></div><div class='output co'>#&gt;     id     original_name node_level network_id taxonomy_id
+    <pre class="examples"><div class='input'><span class='fu'>search_taxa</span>(<span class='st'>"Acer"</span>)</div><div class='output co'>#&gt;     id     original_name node_level network_id taxonomy_id
 #&gt; 1 2629      Acer negundo      taxon         19           2
 #&gt; 2 2630  Acer saccharinum      taxon         19           3
 #&gt; 3 8895 Acer shirasawanum      taxon        948        3117
@@ -244,63 +247,133 @@ names recorded by authors will always prevail and be the most reliable informati
 #&gt; 3 POINT (138.3833 35.5833)
 #&gt; 4 POINT (138.3833 35.5833)
 #&gt; 5 POINT (138.3833 35.5833)</div><div class='input'><span class='co'># Retrieve higher classification</span>
-<span class='no'>tsn_acer</span> <span class='kw'>&lt;-</span> <span class='fu'>search_taxa</span>(<span class='st'>"Acer"</span>)$<span class='no'>taxonomy.tsn</span></div><div class='output co'>#&gt; <span class='message'>Full text search</span></div><div class='output co'>#&gt; <span class='message'>Found 5 taxa involved in 5 network(s)</span></div><div class='input'><span class='kw pkg'>taxize</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/taxize/topics/classification'>classification</a></span>(<span class='no'>tsn_acer</span>, <span class='kw'>db</span> <span class='kw'>=</span> <span class='st'>"itis"</span>)</div><div class='output co'>#&gt; <span class='message'>Registered S3 method overwritten by 'crul':</span>
-#&gt; <span class='message'>  method                 from</span>
-#&gt; <span class='message'>  as.character.form_file httr</span></div><div class='output co'>#&gt; $`28749`
-#&gt;               name          rank     id
-#&gt; 1          Plantae       kingdom 202422
-#&gt; 2    Viridiplantae    subkingdom 954898
-#&gt; 3     Streptophyta  infrakingdom 846494
-#&gt; 4      Embryophyta superdivision 954900
-#&gt; 5     Tracheophyta      division 846496
-#&gt; 6  Spermatophytina   subdivision 846504
-#&gt; 7    Magnoliopsida         class  18063
-#&gt; 8          Rosanae    superorder 846548
-#&gt; 9       Sapindales         order  28643
-#&gt; 10     Sapindaceae        family  28657
-#&gt; 11            Acer         genus  28727
-#&gt; 12    Acer negundo       species  28749
-#&gt; 
-#&gt; $`28757`
-#&gt;                name          rank     id
-#&gt; 1           Plantae       kingdom 202422
-#&gt; 2     Viridiplantae    subkingdom 954898
-#&gt; 3      Streptophyta  infrakingdom 846494
-#&gt; 4       Embryophyta superdivision 954900
-#&gt; 5      Tracheophyta      division 846496
-#&gt; 6   Spermatophytina   subdivision 846504
-#&gt; 7     Magnoliopsida         class  18063
-#&gt; 8           Rosanae    superorder 846548
-#&gt; 9        Sapindales         order  28643
-#&gt; 10      Sapindaceae        family  28657
-#&gt; 11             Acer         genus  28727
-#&gt; 12 Acer saccharinum       species  28757
-#&gt; 
-#&gt; $&lt;NA&gt;
-#&gt; [1] NA
-#&gt; 
-#&gt; $&lt;NA&gt;
-#&gt; [1] NA
-#&gt; 
-#&gt; $`837855`
-#&gt;               name          rank     id
-#&gt; 1          Plantae       kingdom 202422
-#&gt; 2    Viridiplantae    subkingdom 954898
-#&gt; 3     Streptophyta  infrakingdom 846494
-#&gt; 4      Embryophyta superdivision 954900
-#&gt; 5     Tracheophyta      division 846496
-#&gt; 6  Spermatophytina   subdivision 846504
-#&gt; 7    Magnoliopsida         class  18063
-#&gt; 8          Rosanae    superorder 846548
-#&gt; 9       Sapindales         order  28643
-#&gt; 10     Sapindaceae        family  28657
-#&gt; 11            Acer         genus  28727
-#&gt; 12  Acer japonicum       species 837855
-#&gt; 
-#&gt; attr(,"class")
-#&gt; [1] "classification"
-#&gt; attr(,"db")
-#&gt; [1] "itis"</div></pre>
+<span class='no'>tsn_acer</span> <span class='kw'>&lt;-</span> <span class='fu'>search_taxa</span>(<span class='st'>"Acer"</span>)$<span class='no'>taxonomy.tsn</span>
+<span class='fu'>search_taxa</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>network_id</span> <span class='kw'>=</span> <span class='fl'>926</span>), <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt;      id   original_name node_level network_id taxonomy_id
+#&gt; 1  6445        mollusks      taxon        926        4336
+#&gt; 2  6447         insects      taxon        926        4650
+#&gt; 3  6448     Callinectes      taxon        926        3823
+#&gt; 4  6449         Penaeus      taxon        926        4806
+#&gt; 5  6450 fishes (type 1)      taxon        926        4173
+#&gt; 6  6452 fishes (type 3)      taxon        926        4807
+#&gt; 7  6453   benthic algae      taxon        926        4309
+#&gt; 8  6454        detritus      taxon        926          NA
+#&gt; 9  6446     zooplankton      taxon        926          NA
+#&gt; 10 6451 fishes (type 2)      taxon        926          NA
+#&gt; 11 6455   phytoplankton      taxon        926          NA
+#&gt; 12 6443          micro-      taxon        926          NA
+#&gt; 13 6444    meio-benthos      taxon        926          NA
+#&gt;                  created_at               updated_at taxonomy.id
+#&gt; 1  2019-02-25T15:09:24.587Z 2019-02-25T15:09:24.587Z        4336
+#&gt; 2  2019-02-25T15:09:24.658Z 2019-02-25T15:09:24.658Z        4650
+#&gt; 3  2019-02-25T15:09:24.701Z 2019-02-25T15:09:24.701Z        3823
+#&gt; 4  2019-02-25T15:09:24.733Z 2019-02-25T15:09:24.733Z        4806
+#&gt; 5  2019-02-25T15:09:24.765Z 2019-02-25T15:09:24.765Z        4173
+#&gt; 6  2019-02-25T15:09:24.843Z 2019-02-25T15:09:24.843Z        4807
+#&gt; 7  2019-02-25T15:09:24.890Z 2019-02-25T15:09:24.890Z        4309
+#&gt; 8  2019-02-25T15:09:24.933Z 2019-02-25T15:09:24.933Z          NA
+#&gt; 9  2019-02-25T15:09:24.625Z 2019-02-25T15:09:24.625Z          NA
+#&gt; 10 2019-02-25T15:09:24.799Z 2019-02-25T15:09:24.799Z          NA
+#&gt; 11 2019-02-25T15:09:24.979Z 2019-02-25T15:09:24.979Z          NA
+#&gt; 12 2019-02-25T15:09:24.496Z 2019-02-25T15:09:24.496Z          NA
+#&gt; 13 2019-02-25T15:09:24.543Z 2019-02-25T15:09:24.543Z          NA
+#&gt;         taxonomy.name taxonomy.ncbi taxonomy.tsn taxonomy.eol taxonomy.bold
+#&gt; 1            Mollusca          6447        69458         2195            23
+#&gt; 2             Insecta         50557         4703          344            82
+#&gt; 3         Callinectes          6762        13951     46508442          4985
+#&gt; 4             Penaeus        133894        95603     46502054          5629
+#&gt; 5        Salmo trutta          8032       161997       206777         47318
+#&gt; 6  Salvelinus alpinus          8036       162001      1156463         80552
+#&gt; 7     Archanara algae        131213         9417       522707         22849
+#&gt; 8                &lt;NA&gt;            NA           NA           NA            NA
+#&gt; 9                &lt;NA&gt;            NA           NA           NA            NA
+#&gt; 10               &lt;NA&gt;            NA           NA           NA            NA
+#&gt; 11               &lt;NA&gt;            NA           NA           NA            NA
+#&gt; 12               &lt;NA&gt;            NA           NA           NA            NA
+#&gt; 13               &lt;NA&gt;            NA           NA           NA            NA
+#&gt;    taxonomy.gbif                     taxonomy.col taxonomy.rank
+#&gt; 1             NA 70a72224d52b24f5ee0b1d09387d1703        phylum
+#&gt; 2             NA ae304a1e0beadcfec04932589049bb5a         class
+#&gt; 3             NA 8c9d5b7b0ef67ba0ca49a80b06665541         genus
+#&gt; 4             NA 854dd2c279c74204cd65501818d105d4         genus
+#&gt; 5        8215487 3d9e5032ec6a0c4b846544e2db56fa0a       species
+#&gt; 6        4284021 2b256e111056ab998c15402950cf0b1b       species
+#&gt; 7             NA f78d2ff8715be72fd77608d38b07cf32       species
+#&gt; 8             NA                             &lt;NA&gt;          &lt;NA&gt;
+#&gt; 9             NA                             &lt;NA&gt;          &lt;NA&gt;
+#&gt; 10            NA                             &lt;NA&gt;          &lt;NA&gt;
+#&gt; 11            NA                             &lt;NA&gt;          &lt;NA&gt;
+#&gt; 12            NA                             &lt;NA&gt;          &lt;NA&gt;
+#&gt; 13            NA                             &lt;NA&gt;          &lt;NA&gt;
+#&gt;         taxonomy.created_at      taxonomy.updated_at taxonomy networks.id
+#&gt; 1  2019-02-23T14:59:23.089Z 2019-06-14T15:25:44.735Z       NA         926
+#&gt; 2  2019-02-24T18:56:42.545Z 2019-06-14T15:25:59.300Z       NA         926
+#&gt; 3  2019-02-22T14:55:39.819Z 2019-06-14T15:25:29.810Z       NA         926
+#&gt; 4  2019-02-24T23:42:56.274Z 2019-06-14T15:26:06.793Z       NA         926
+#&gt; 5  2019-02-22T22:40:06.067Z 2019-06-14T15:25:36.207Z       NA         926
+#&gt; 6  2019-02-24T23:42:56.358Z 2019-06-14T15:26:06.915Z       NA         926
+#&gt; 7  2019-02-23T14:12:12.304Z 2019-06-14T15:25:43.663Z       NA         926
+#&gt; 8                      &lt;NA&gt;                     &lt;NA&gt;       NA         926
+#&gt; 9                      &lt;NA&gt;                     &lt;NA&gt;       NA         926
+#&gt; 10                     &lt;NA&gt;                     &lt;NA&gt;       NA         926
+#&gt; 11                     &lt;NA&gt;                     &lt;NA&gt;       NA         926
+#&gt; 12                     &lt;NA&gt;                     &lt;NA&gt;       NA         926
+#&gt; 13                     &lt;NA&gt;                     &lt;NA&gt;       NA         926
+#&gt;              networks.name            networks.date
+#&gt; 1  yanez_1978_19730901_926 1973-09-01T04:00:00.000Z
+#&gt; 2  yanez_1978_19730901_926 1973-09-01T04:00:00.000Z
+#&gt; 3  yanez_1978_19730901_926 1973-09-01T04:00:00.000Z
+#&gt; 4  yanez_1978_19730901_926 1973-09-01T04:00:00.000Z
+#&gt; 5  yanez_1978_19730901_926 1973-09-01T04:00:00.000Z
+#&gt; 6  yanez_1978_19730901_926 1973-09-01T04:00:00.000Z
+#&gt; 7  yanez_1978_19730901_926 1973-09-01T04:00:00.000Z
+#&gt; 8  yanez_1978_19730901_926 1973-09-01T04:00:00.000Z
+#&gt; 9  yanez_1978_19730901_926 1973-09-01T04:00:00.000Z
+#&gt; 10 yanez_1978_19730901_926 1973-09-01T04:00:00.000Z
+#&gt; 11 yanez_1978_19730901_926 1973-09-01T04:00:00.000Z
+#&gt; 12 yanez_1978_19730901_926 1973-09-01T04:00:00.000Z
+#&gt; 13 yanez_1978_19730901_926 1973-09-01T04:00:00.000Z
+#&gt;             networks.description networks.public networks.all_interactions
+#&gt; 1  Food web of the Costal lagoon            TRUE                     FALSE
+#&gt; 2  Food web of the Costal lagoon            TRUE                     FALSE
+#&gt; 3  Food web of the Costal lagoon            TRUE                     FALSE
+#&gt; 4  Food web of the Costal lagoon            TRUE                     FALSE
+#&gt; 5  Food web of the Costal lagoon            TRUE                     FALSE
+#&gt; 6  Food web of the Costal lagoon            TRUE                     FALSE
+#&gt; 7  Food web of the Costal lagoon            TRUE                     FALSE
+#&gt; 8  Food web of the Costal lagoon            TRUE                     FALSE
+#&gt; 9  Food web of the Costal lagoon            TRUE                     FALSE
+#&gt; 10 Food web of the Costal lagoon            TRUE                     FALSE
+#&gt; 11 Food web of the Costal lagoon            TRUE                     FALSE
+#&gt; 12 Food web of the Costal lagoon            TRUE                     FALSE
+#&gt; 13 Food web of the Costal lagoon            TRUE                     FALSE
+#&gt;         networks.created_at      networks.updated_at networks.dataset_id
+#&gt; 1  2019-02-25T15:09:10.651Z 2019-02-25T15:09:10.651Z                  52
+#&gt; 2  2019-02-25T15:09:10.651Z 2019-02-25T15:09:10.651Z                  52
+#&gt; 3  2019-02-25T15:09:10.651Z 2019-02-25T15:09:10.651Z                  52
+#&gt; 4  2019-02-25T15:09:10.651Z 2019-02-25T15:09:10.651Z                  52
+#&gt; 5  2019-02-25T15:09:10.651Z 2019-02-25T15:09:10.651Z                  52
+#&gt; 6  2019-02-25T15:09:10.651Z 2019-02-25T15:09:10.651Z                  52
+#&gt; 7  2019-02-25T15:09:10.651Z 2019-02-25T15:09:10.651Z                  52
+#&gt; 8  2019-02-25T15:09:10.651Z 2019-02-25T15:09:10.651Z                  52
+#&gt; 9  2019-02-25T15:09:10.651Z 2019-02-25T15:09:10.651Z                  52
+#&gt; 10 2019-02-25T15:09:10.651Z 2019-02-25T15:09:10.651Z                  52
+#&gt; 11 2019-02-25T15:09:10.651Z 2019-02-25T15:09:10.651Z                  52
+#&gt; 12 2019-02-25T15:09:10.651Z 2019-02-25T15:09:10.651Z                  52
+#&gt; 13 2019-02-25T15:09:10.651Z 2019-02-25T15:09:10.651Z                  52
+#&gt;    networks.user_id              networks.geom
+#&gt; 1                 3 POINT (-100.3656 17.06915)
+#&gt; 2                 3 POINT (-100.3656 17.06915)
+#&gt; 3                 3 POINT (-100.3656 17.06915)
+#&gt; 4                 3 POINT (-100.3656 17.06915)
+#&gt; 5                 3 POINT (-100.3656 17.06915)
+#&gt; 6                 3 POINT (-100.3656 17.06915)
+#&gt; 7                 3 POINT (-100.3656 17.06915)
+#&gt; 8                 3 POINT (-100.3656 17.06915)
+#&gt; 9                 3 POINT (-100.3656 17.06915)
+#&gt; 10                3 POINT (-100.3656 17.06915)
+#&gt; 11                3 POINT (-100.3656 17.06915)
+#&gt; 12                3 POINT (-100.3656 17.06915)
+#&gt; 13                3 POINT (-100.3656 17.06915)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -325,7 +398,7 @@ names recorded by authors will always prevail and be the most reliable informati
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.9100.</p>
 </div>
       </footer>
    </div>
