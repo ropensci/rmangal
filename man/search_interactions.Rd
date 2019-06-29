@@ -2,13 +2,16 @@
 % Please edit documentation in R/search_interactions.R
 \name{search_interactions}
 \alias{search_interactions}
-\title{Search for specific interactions type (e.g. mutualism)}
+\title{Search for specific interactions}
 \usage{
-search_interactions(type = avail_type(), expand_node = FALSE,
-  verbose = FALSE)
+search_interactions(query, type = NULL, expand_node = FALSE,
+  verbose = TRUE)
 }
 \arguments{
-\item{type}{a \code{character} one of the interactions type available in the function \code{avail_type()}.}
+\item{query}{either a character string including a single keyword or a list containing a custom query (see details section below).
+Note that if an empty character string is passed, then all datasets available are returned.}
+
+\item{type}{a \code{character} one of the interactions type available, uses \code{avail_type()} to see the full list of type available.}
 
 \item{expand_node}{a \code{logical}. Should the function returned extra information on nodes? Default is set to \code{FALSE}, which means that only the mangal ID of nodes are returned.}
 
@@ -21,10 +24,22 @@ All networks in which interactions are involved are also attached to the \code{d
 \description{
 Search for specific interactions type (e.g. mutualism)
 }
+\details{
+If \code{query} is a character string, then all fields of the database table
+including character strings are searched and entries for which at least one
+partial match was found are returned.
+Alternatively, a named list can be used to look for an exact match in a specific field.
+In this case, the name of the list should match one of the field names of the database table.
+For the \code{interaction} table, those are:
+Note that for lists with more than one element, only the first element is used, the others are ignored.
+Examples covering custom queries are provided below.
+}
 \examples{
-search_interactions("competition")
+df_inter <- search_interactions(type = "competition")
 # Get all networks containing competition
-competition_networks <- get_collection(search_interactions("competition"))
+competition_networks <- get_collection(df_inter)
+df_net_926 <- search_interactions(list(network_id = 926))
+df_net_unknown <- search_interactions(list(attr_id = 100))
 }
 \references{
 \url{https://mangal-wg.github.io/mangal-api/#interactions}

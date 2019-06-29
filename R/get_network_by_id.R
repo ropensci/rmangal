@@ -3,7 +3,7 @@
 #' @param ids a vector of mangal ID for networks (`numeric`).
 #' @param id a single ID network (`numeric`).
 #' @param x an object of class `mgNetwork` or `mgNetworksCollection`.
-#' @param ... ignored.'
+#' @param ... ignored.
 #' @param verbose a logical. Should extra information be reported on progress?
 #'
 #' @rdname get_network_by_id
@@ -33,6 +33,7 @@ get_network_by_id <- function(ids, verbose = TRUE) {
 #' @describeIn get_network_by_id Retrieve a network by its  collection of networks (default).
 #' @export
 get_network_by_id_indiv <- function(id, verbose = TRUE) {
+  stopifnot(!is.null(id))
   stopifnot(length(id) == 1)
   # Object S3 declaration
   mg_network <- structure(list(network =

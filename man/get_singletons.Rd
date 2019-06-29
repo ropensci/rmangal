@@ -7,13 +7,13 @@
 get_singletons(endpoint = NULL, ids = NULL, verbose = FALSE, ...)
 }
 \arguments{
-\item{endpoint}{\code{character} API entry point}
+\item{endpoint}{\code{character} API entry point.}
 
-\item{ids}{\code{numeric} vector of ids}
+\item{ids}{\code{numeric} vector of ids.}
 
 \item{verbose}{\code{logical} print API code status on error; default: \code{TRUE}}
 
-\item{...}{httr options, see \code{\link[httr:GET]{httr::GET()}}}
+\item{...}{httr options, see \code{\link[httr:GET]{httr::GET()}}.}
 }
 \value{
 Object of class \code{mgGetResponses}

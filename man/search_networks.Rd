@@ -2,17 +2,22 @@
 % Please edit documentation in R/search_networks.R
 \name{search_networks}
 \alias{search_networks}
+\alias{search_networks_sf}
 \title{Search over all networks using keyword or spatial object}
 \usage{
-search_networks(query = NULL, verbose = TRUE, ...)
+search_networks(query, verbose = TRUE, ...)
+
+search_networks_sf(query_sf, verbose = TRUE, ...)
 }
 \arguments{
-\item{query}{\code{character} keyword used to search over all networks (case sensitive) or a \code{sf} object
-used to search in a specific geographical area. If keyword is unspecified (query = NULL), all networks will be returned.}
+\item{query}{either a character string including a single keyword or a list containing a custom query (see details section below), or a spatial object (see the description of \code{query_sf}).
+Note that if an empty character string is passed, then all datasets available are returned.}
 
 \item{verbose}{a \code{logical}. Should extra information be reported on progress?}
 
 \item{...}{further arguments to be passed to \code{\link[rmangal:get_gen]{rmangal::get_gen()}}.}
+
+\item{query_sf}{a spatial object of class \code{sf} used to search in a specific geographical area. If keyword is unspecified (query = NULL), all networks will be returned.}
 }
 \value{
 An object of class \code{mgSearchNetworks}, which is a \code{data.frame} object with all networks informations
@@ -20,6 +25,20 @@ An object of class \code{mgSearchNetworks}, which is a \code{data.frame} object 
 \description{
 Search over all networks using keyword or spatial object
 }
+\details{
+If \code{query} is a character string, then all fields of the database table
+including character strings are searched and entries for which at least one
+partial match was found are returned.
+Alternatively, a named list can be used to look for an exact match in a specific field.
+In this case, the name of the list should match one of the field names of the database table.
+For the \code{networks} table, those are:
+Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
+}
+\section{Functions}{
+\itemize{
+\item \code{search_networks_sf}: Search network within a spatial object passed as an argument.
+}}
+
 \examples{
 search_networks(query="insect\%")
 \donttest{
@@ -29,6 +48,7 @@ area <- us_states(state="california")
 networks_in_area <- search_networks(area)
 plot(networks_in_area)
 }
+
 }
 \references{
 \url{https://mangal-wg.github.io/mangal-api/#networks}

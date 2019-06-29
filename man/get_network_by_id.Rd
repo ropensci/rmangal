@@ -24,7 +24,7 @@ get_network_by_id_indiv(id, verbose = TRUE)
 
 \item{x}{an object of class \code{mgNetwork} or \code{mgNetworksCollection}.}
 
-\item{...}{ignored.'}
+\item{...}{ignored.}
 }
 \value{
 a \code{mgNetwork} object including:

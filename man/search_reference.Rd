@@ -4,23 +4,42 @@
 \alias{search_reference}
 \title{Search for a specific dataset reference with its DOI}
 \usage{
-search_reference(doi, verbose = TRUE, ...)
+search_reference(query, doi = NULL, verbose = TRUE, ...)
 }
 \arguments{
+\item{query}{either a character string including a single keyword or a list containing a custom query (see details section below).
+Note that if an empty character string is passed, then all datasets available are returned.}
+
 \item{doi}{\code{character} a Digital Object Identifier of the article (mandatory arg).}
 
 \item{verbose}{a \code{logical}. Should extra information be reported on progress?}
 
-\item{...}{further arguments to be passed to \code{\link[rmangal:get_gen]{rmangal::get_gen()}}.}
+\item{...}{further arguments to be passed to \code{\link[httr:GET]{httr::GET()}}.}
 }
 \value{
-An object of class \code{mgSearchReference}, which is essentially a list that includes a wide range of details associated to the reference, including all datasets and networks related to the publication that are included in mangal data base.
+An object of class \code{mgSearchReference}, which is a list that includes a wide range of details associated to the reference, including all datasets and networks related to the publication that are included in Mangal database.
 }
 \description{
 Search for a specific dataset reference with its DOI
 }
+\details{
+If \code{query} is a character string, then all fields of the database table
+including character strings are searched and entries for which at least one
+partial match was found are returned.
+Alternatively, a named list can be used to look for an exact match in a specific field.
+In this case, the name of the list should match one of the field names of the database table.
+For the \code{reference} table, those are:
+\itemize{
+\item author: first author;
+\item doi: use \code{doi} instead.;
+\item jstor: JSTOR identifier.;
+\item year: year of publication.
+Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
+}
+}
 \examples{
 search_reference(doi = "10.2307/3225248")
+search_reference(list(jstor = 3683041))
 }
 \references{
 \url{https://mangal-wg.github.io/mangal-api/#references}
