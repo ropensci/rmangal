@@ -31,8 +31,10 @@ endpoints <- function() {
   )
 }
 
-## memoise httr::GET
+## Set memoise httr::GET
 mem_get <- memoise::memoise(httr::GET)
+## Clear memoise cache
+clear_cache <- function() return(memoise::forget(mem_get))
 
 # Common spatial columns in mangal-db
 sf_columns <- function(x) c("geom.type", "geom.coordinates")
