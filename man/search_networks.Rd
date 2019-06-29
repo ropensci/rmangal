@@ -48,6 +48,7 @@ area <- us_states(state="california")
 networks_in_area <- search_networks(area)
 plot(networks_in_area)
 }
+
 }
 \references{
 \url{https://mangal-wg.github.io/mangal-api/#networks}

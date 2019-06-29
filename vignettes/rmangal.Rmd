@@ -218,6 +218,8 @@ This function allows to search a taxa based on EOL, TSN, GBIF, COL, BOLD and NCB
 ```{R}
 glimpse(search_taxa(tsn = 28749))
 glimpse(search_taxa(eol =  583069))
+# tsn_acer <- search_taxa("Acer")$taxonomy.tsn
+# taxize::classification(tsn_acer, db = "itis")
 ```
 
 ## Get networks associated to `search_*`

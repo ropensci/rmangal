@@ -15,7 +15,7 @@
 #' partial match was found are returned.
 #' Alternatively, a named list can be used to look for an exact match in a specific field.
 #' In this case, the name of the list should match one of the field names of the database table.
-#' For the `dataset` table, those are:
+#' For the `reference` table, those are:
 #' - author: first author;
 #' - doi: use `doi` instead.;
 #' - jstor: JSTOR identifier.;

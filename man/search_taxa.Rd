@@ -2,55 +2,56 @@
 % Please edit documentation in R/search_taxa.R
 \name{search_taxa}
 \alias{search_taxa}
-\title{Search network by taxa using keyword, tsn, eol, bold or ncbi IDs.}
+\title{Search network by taxa using keyword or speicific taxonomic identifiers.}
 \usage{
-search_taxa(query = NULL, tsn = NULL, gbif = NULL, eol = NULL,
-  col = NULL, bold = NULL, ncbi = NULL, original = FALSE,
-  verbose = TRUE, ...)
+search_taxa(query, tsn = NULL, gbif = NULL, eol = NULL, col = NULL,
+  bold = NULL, ncbi = NULL, original = FALSE, verbose = TRUE, ...)
 }
 \arguments{
-\item{query}{\code{character} query on taxa names}
+\item{query}{either a character string including a single keyword or a list containing a custom query (see details section below).
+Note that if an empty character string is passed, then all datasets available are returned.}
 
-\item{tsn}{a \code{numeric}. Unique taxonomic identifier from Integrated Taxonomic Information System (https://www.itis.gov/)}
+\item{tsn}{a \code{numeric}. Unique taxonomic identifier from Integrated Taxonomic Information System (\url{https://www.itis.gov/}).}
 
-\item{gbif}{a \code{numeric}. Unique taxonomic identifier from Global Biodiversity Information Facility (https://www.gbif.org/)}
+\item{gbif}{a \code{numeric}. Unique taxonomic identifier from Global Biodiversity Information Facility (\url{https://www.gbif.org/}).}
 
-\item{eol}{a \code{numeric}. Unique taxonomic identifier from Encyclopedia of Life (https://eol.org/)}
+\item{eol}{a \code{numeric}. Unique taxonomic identifier from Encyclopedia of Life (\url{https://eol.org/}).}
 
-\item{col}{a \code{numeric}. Unique taxonomic identifier from Catalogue of Life (https://www.catalogueoflife.org/)}
+\item{col}{a \code{numeric}. Unique taxonomic identifier from Catalogue of Life (\url{https://www.catalogueoflife.org/}).}
 
-\item{bold}{a \code{numeric}. Unique taxonomic identifier from Barcode of Life (http://www.boldsystems.org/)}
+\item{bold}{a \code{numeric}. Unique taxonomic identifier from Barcode of Life (\url{http://www.boldsystems.org/}).}
 
-\item{ncbi}{a \code{numeric}. Unique taxonomic identifier from National Center for Biotechnology Information (https://www.ncbi.nlm.nih.gov/)}
+\item{ncbi}{a \code{numeric}. Unique taxonomic identifier from National Center for Biotechnology Information (\url{https://www.ncbi.nlm.nih.gov/}).}
 
 \item{original}{a \code{logical}. Should query taxa names from the original publication? (see details section, default is set to \code{FALSE}, only work for full text search)}
 
 \item{verbose}{a \code{logical}. Should extra information be reported on progress?}
 
-\item{...}{further arguments to be passed to \code{\link[rmangal:get_gen]{rmangal::get_gen()}}.}
+\item{...}{further arguments to be passed to \code{\link[httr:GET]{httr::GET()}}}
 }
 \value{
 An object of class \code{mgSearchTaxa}, which is a \code{data.frame} object with all taxa matching the query.
 All networks in which taxa are involved are also attached to the \code{data.frame}.
 }
 \description{
-Search network by taxa using keyword, tsn, eol, bold or ncbi IDs.
+Search network by taxa using keyword or speicific taxonomic identifiers.
 }
 \details{
-By default, you are querying taxa based on a homogenized taxonomy (corrected names from
+By default, the user query the \code{taxonomy} table and the based a homogenized taxonomy (valid names from
 \href{http://tnrs.iplantcollaborative.org/}{TNRS} and/or \href{https://resolver.globalnames.org/}{GNR}.
 These taxa might not be the taxon name documented in the original publication.
 In order to query, the original name, set argument \code{original} to \code{TRUE}.
 
-The homogeneized taxonomy was done by automated procedure, we cannot guarantee
-that the homogeneized names are 100% accurate. Be aware, that the original
-names recorded by authors will always prevail and be the most reliable information.
+Note that the validation of taxon names was performed by an automated
+procedure and if there is any doubt, the original names recorded
+by authors should be regarded as the most reliable information. Please
+report any issue related to taxonomy at \url{https://github.com/mangal-wg/mangal-datasets/issues}.
 }
 \examples{
 search_taxa("Acer")
 # Retrieve higher classification
 tsn_acer <- search_taxa("Acer")$taxonomy.tsn
-taxize::classification(tsn_acer, db = "itis")
+search_taxa(list(network_id = 926), original = TRUE)
 }
 \references{
 \url{https://mangal-wg.github.io/mangal-api/#nodes}
