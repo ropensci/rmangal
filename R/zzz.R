@@ -75,35 +75,31 @@ resp_to_spatial <- function(x) {
   if (is.null(x)) {
     x
   } else {
-      # print(length(x))
-      # null_to_na(x)
-      # tp <- lapply(null_to_na(x), switch_sf)
-      # print(length(tp))
-      # do.call(rbind, tp)
-      suppressWarnings(do.call(rbind, lapply(null_to_na(x), switch_sf)))
+     dat <- do.call(rbind, lapply(null_to_na(x),
+        function(y) as.data.frame(y[names(y) != "geom"])))
+      spd <- sf::st_sfc(
+        lapply(lapply(x, function(y) y[names(y) == "geom"]), switch_sf),
+        crs = 4326)
+      sf::st_sf(dat, spd)
   }
 }
 
 ## Build sf object based on geom.type
 switch_sf <- function(tmp) {
-  # print("ch")
-  df_nogeom <- as.data.frame(tmp[names(tmp) != "geom"],
-    stringsAsFactors = FALSE)
-  if (is.na(tmp$geom)) {
-    sf::st_sf(df_nogeom, geom = sf::st_sfc(sf::st_point(
-      matrix(NA_real_, ncol = 2)), crs = 4326))
+  if (!length(tmp$geom)) {
+    # if NULL
+    sf::st_point(matrix(NA_real_, ncol = 2))
   } else {
     co <- matrix(unlist(tmp$geom$coordinates), ncol = 2, byrow = TRUE)
     switch(
       tmp$geom$type,
-      Point = sf::st_sf(df_nogeom, geom = sf::st_sfc(sf::st_point(co),
-        crs = 4326)),
-      Polygon = sf::st_sf(df_nogeom, geom = sf::st_sfc(sf::st_polygon(
-        list(co)), crs = 4326)),
+      Point = sf::st_point(co),
+      Polygon = sf::st_polygon(list(co)),
       stop("Only `Point` and `Polygon` are supported.")
     )
   }
 }
+
 
 #' Get entries based on foreign key
 #'
@@ -133,6 +129,7 @@ get_from_fkey_net <- function(endpoint, verbose = TRUE, ...) {
     get_gen(endpoint = endpoint, query = query, verbose = verbose)$body
   )
 }
+
 
 get_from_fkey_flt <- function(endpoint, verbose = TRUE, ...) {
   query <- list(...)
@@ -180,7 +177,8 @@ get_gen <- function(endpoint, query = NULL, limit = 100, verbose = TRUE, ...) {
 
   # Loop over pages
   for (page in 0:pages) {
-    # if (verbose) cat("Now processing page", page+1, "/", pages+1, "   \r")
+    if (verbose)
+      # cat("Data retrieval", signif(100*(page+1)/(pages+1), 3), "%   \r")
     query$page <- page
     resp <- httr::GET(url,
       config = httr::add_headers(`Content-type` = "application/json"), ua,
@@ -194,7 +192,7 @@ get_gen <- function(endpoint, query = NULL, limit = 100, verbose = TRUE, ...) {
       responses[[page + 1]] <- list(body = resp_raw(resp), response = resp)
     }
   }
-  # if (verbose) cat("\r\n")
+  # if (verbose) cat("\n")
   #
   if (!is.null(errors))
     warning("Failed request(s) for page(s): ", paste0(errors, ", "))
