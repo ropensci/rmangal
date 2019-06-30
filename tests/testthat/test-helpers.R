@@ -15,5 +15,6 @@ txt1 <- "100% ITIS, 100% BOLD, 50% EOL, 100% COL, 100% GBIF, 100% NCBI\n"
 test_that("expected behavior", {
   expect_equal(percent_id(df$taxonomy.eol), 50)
   expect_equal(print_taxo_ids(df), paste0(txt0, txt1))
+  expect_true(clear_cache_rmangal())
 }
 )
