@@ -131,7 +131,7 @@ Note that if an empty character string is passed, then all datasets available ar
     </tr>
     <tr>
       <th>...</th>
-      <td><p>further arguments to be passed to <code><a href='get_gen.html'>rmangal::get_gen()</a></code>.</p></td>
+      <td><p>further arguments to be passed to <code><a href='https://www.rdocumentation.org/packages/httr/topics/GET'>httr::GET()</a></code></p></td>
     </tr>
     <tr>
       <th>query_sf</th>
@@ -150,7 +150,7 @@ including character strings are searched and entries for which at least one
 partial match was found are returned.
 Alternatively, a named list can be used to look for an exact match in a specific field.
 In this case, the name of the list should match one of the field names of the database table.
-For <code>dataset</code>, those are:
+For the <code>networks</code> table, those are:
 Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.</p>
     
     <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
@@ -165,7 +165,7 @@ Note that for lists with more than one element, only the first element is used, 
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>search_networks</span>(<span class='kw'>query</span><span class='kw'>=</span><span class='st'>"insect%"</span>)</div><div class='output co'>#&gt; <span class='message'>Found 14 networks</span></div><div class='output co'>#&gt; Simple feature collection with 14 features and 10 fields
+    <pre class="examples"><div class='input'><span class='fu'>search_networks</span>(<span class='kw'>query</span><span class='kw'>=</span><span class='st'>"insect%"</span>)</div><div class='output co'>#&gt; <span class='message'>Found 14 networks</span></div><div class='output co'>#&gt; Simple feature collection with 14 features and 10 fields (with 3 geometries empty)
 #&gt; geometry type:  POINT
 #&gt; dimension:      XY
 #&gt; bbox:           xmin: -114.9667 ymin: 8.534018 xmax: 138.3833 ymax: 75
@@ -205,7 +205,7 @@ Note that for lists with more than one element, only the first element is used, 
 #&gt; 8    TRUE            FALSE 2019-03-06T19:58:01.589Z 2019-03-06T19:58:01.589Z
 #&gt; 9    TRUE            FALSE 2019-03-06T19:57:58.599Z 2019-03-06T19:57:58.599Z
 #&gt; 10   TRUE            FALSE 2019-03-06T20:26:41.249Z 2019-03-06T20:26:41.249Z
-#&gt;    dataset_id user_id                       geom
+#&gt;    dataset_id user_id                        spd
 #&gt; 1           4       3       POINT (-114.9667 75)
 #&gt; 2           9       2         POINT (18.5 68.35)
 #&gt; 3          66       2   POINT (138.3833 35.5833)
@@ -219,7 +219,8 @@ Note that for lists with more than one element, only the first element is used, 
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>USAboundaries</span>)
 <span class='no'>area</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://lincolnmullen.com/software/usaboundaries/reference/us_states.html'>us_states</a></span>(<span class='kw'>state</span><span class='kw'>=</span><span class='st'>"california"</span>)
 <span class='no'>networks_in_area</span> <span class='kw'>&lt;-</span> <span class='fu'>search_networks</span>(<span class='no'>area</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>networks_in_area</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: plotting the first 9 out of 10 attributes; use max.plot = 10 to plot all</span></div><div class='img'><img src='search_networks-1.png' alt='' width='700' height='433' /></div></pre>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>networks_in_area</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: plotting the first 9 out of 10 attributes; use max.plot = 10 to plot all</span></div><div class='img'><img src='search_networks-1.png' alt='' width='700' height='433' /></div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

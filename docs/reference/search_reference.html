@@ -120,7 +120,8 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>query</th>
-      <td><p><code>character</code> a Digital Object Identifier of the article (mandatory arg).</p></td>
+      <td><p>either a character string including a single keyword or a list containing a custom query (see details section below).
+Note that if an empty character string is passed, then all datasets available are returned.</p></td>
     </tr>
     <tr>
       <th>doi</th>
@@ -132,13 +133,28 @@
     </tr>
     <tr>
       <th>...</th>
-      <td><p>further arguments to be passed to <code><a href='get_gen.html'>rmangal::get_gen()</a></code>.</p></td>
+      <td><p>further arguments to be passed to <code><a href='https://www.rdocumentation.org/packages/httr/topics/GET'>httr::GET()</a></code>.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>An object of class <code>mgSearchReference</code>, which is essentially a list that includes a wide range of details associated to the reference, including all datasets and networks related to the publication that are included in mangal data base.</p>
+    <p>An object of class <code>mgSearchReference</code>, which is a list that includes a wide range of details associated to the reference, including all datasets and networks related to the publication that are included in Mangal database.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>If <code>query</code> is a character string, then all fields of the database table
+including character strings are searched and entries for which at least one
+partial match was found are returned.
+Alternatively, a named list can be used to look for an exact match in a specific field.
+In this case, the name of the list should match one of the field names of the database table.
+For the <code>reference</code> table, those are:</p><ul>
+<li><p>author: first author;</p></li>
+<li><p>doi: use <code>doi</code> instead.;</p></li>
+<li><p>jstor: JSTOR identifier.;</p></li>
+<li><p>year: year of publication.
+Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.</p></li>
+</ul>
     
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
@@ -146,8 +162,7 @@
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>search_reference</span>(<span class='kw'>doi</span> <span class='kw'>=</span> <span class='st'>"10.2307/3225248"</span>)</div><div class='output co'>#&gt; <span class='message'>Found dataset: </span>
-#&gt; <span class='message'> @article{Koslucher_1973, doi = {10.2307/3225248}, url = {https://doi.org/10.2307%2F3225248}, year = 1973, month = {jul}, publisher = {{JSTOR}}, volume = {92}, number = {3}, pages = {441}, author = {Dale G. Koslucher and G. Wayne Minshall}, title = {Food Habits of Some Benthic Invertebrates in a Northern Cool-Desert Stream (Deep Creek, Curlew Valley, Idaho-Utah)}, journal = {Transactions of the American Microscopical Society}}</span></div><div class='output co'>#&gt; $id
+    <pre class="examples"><div class='input'><span class='fu'>search_reference</span>(<span class='kw'>doi</span> <span class='kw'>=</span> <span class='st'>"10.2307/3225248"</span>)</div><div class='output co'>#&gt; <span class='message'>Found 1 reference</span></div><div class='output co'>#&gt; $id
 #&gt; [1] 132
 #&gt; 
 #&gt; $doi
@@ -192,7 +207,7 @@
 #&gt; Simple feature collection with 1 feature and 10 fields (with 1 geometry empty)
 #&gt; geometry type:  POINT
 #&gt; dimension:      XY
-#&gt; bbox:           xmin: Inf ymin: Inf xmax: -Inf ymax: -Inf
+#&gt; bbox:           xmin: NA ymin: NA xmax: NA ymax: NA
 #&gt; epsg (SRID):    4326
 #&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs
 #&gt;     id                    name                     date
@@ -201,14 +216,73 @@
 #&gt; 1 Food web strucutre of a noterhen cool-desert stream (Deep Creek), Curlew Valley, Idaho-Utah
 #&gt;   public all_interactions               created_at               updated_at
 #&gt; 1   TRUE            FALSE 2019-03-08T19:27:51.061Z 2019-03-08T19:27:51.061Z
-#&gt;   dataset_id user_id        geom
+#&gt;   dataset_id user_id         spd
 #&gt; 1        133       4 POINT EMPTY
 #&gt; 
 #&gt; attr(,"row.names")
 #&gt; [1] 1
 #&gt; attr(,"class")
-#&gt; [1] "mgSearchReference"</div><div class='input'>
-</div></pre>
+#&gt; [1] "mgSearchReference"</div><div class='input'><span class='fu'>search_reference</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>jstor</span> <span class='kw'>=</span> <span class='fl'>3683041</span>))</div><div class='output co'>#&gt; <span class='message'>Found 1 reference</span></div><div class='output co'>#&gt; $id
+#&gt; [1] 9
+#&gt; 
+#&gt; $doi
+#&gt; [1] "10.2307/3683041"
+#&gt; 
+#&gt; $author
+#&gt; [1] "elberling"
+#&gt; 
+#&gt; $year
+#&gt; [1] "1999"
+#&gt; 
+#&gt; $jstor
+#&gt; [1] "3683041"
+#&gt; 
+#&gt; $pmid
+#&gt; [1] NA
+#&gt; 
+#&gt; $bibtex
+#&gt; [1] "@article{10.2307/3683041, ISSN = {09067590, 16000587}, URL = {http://www.jstor.org/stable/3683041}, author = {Heidi Elberling and Jens M. Olesen}, journal = {Ecography}, number = {3}, pages = {314-323}, publisher = {[Nordic Society Oikos, Wiley]}, title = {The Structure of a High Latitude Plant-Flower Visitor System: The Dominance of Flies}, volume = {22}, year = {1999}}"
+#&gt; 
+#&gt; $paper_url
+#&gt; [1] "https://www.jstor.org/stable/3683041?seq=1#page_scan_tab_contents"
+#&gt; 
+#&gt; $data_url
+#&gt; [1] "https://www.nceas.ucsb.edu/interactionweb/data/plant_pollinator/excel/elberling&amp;olesen_1999.xls"
+#&gt; 
+#&gt; $created_at
+#&gt; [1] "2019-02-22T20:09:13.872Z"
+#&gt; 
+#&gt; $updated_at
+#&gt; [1] "2019-02-22T20:09:13.872Z"
+#&gt; 
+#&gt; $datasets
+#&gt;   id                  name                     date
+#&gt; 1  9 elberling_olesen_1999 1994-08-23T04:00:00.000Z
+#&gt;                                                   description public
+#&gt; 1 Flower-visiting insect at Mt. Latnjatjarro, northern Sweden   TRUE
+#&gt;                 created_at               updated_at ref_id user_id
+#&gt; 1 2019-02-22T20:09:17.994Z 2019-02-22T20:09:17.994Z      9       2
+#&gt; 
+#&gt; $networks
+#&gt; Simple feature collection with 1 feature and 10 fields
+#&gt; geometry type:  POINT
+#&gt; dimension:      XY
+#&gt; bbox:           xmin: 18.5 ymin: 68.35 xmax: 18.5 ymax: 68.35
+#&gt; epsg (SRID):    4326
+#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs
+#&gt;    id                               name                     date
+#&gt; 1 909 elberling_olesen_1999_19940823_909 1994-08-23T04:00:00.000Z
+#&gt;                                                   description public
+#&gt; 1 Flower-visiting insect at Mt. Latnjatjarro, northern Sweden   TRUE
+#&gt;   all_interactions               created_at               updated_at dataset_id
+#&gt; 1            FALSE 2019-02-24T22:21:32.444Z 2019-02-24T22:21:32.444Z          9
+#&gt;   user_id                spd
+#&gt; 1       2 POINT (18.5 68.35)
+#&gt; 
+#&gt; attr(,"row.names")
+#&gt; [1] 1
+#&gt; attr(,"class")
+#&gt; [1] "mgSearchReference"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -216,6 +290,8 @@
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
 
       <li><a href="#references">References</a></li>
       
