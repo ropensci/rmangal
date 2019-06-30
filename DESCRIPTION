@@ -29,7 +29,8 @@ Imports:
     jsonlite (>= 1.5),
     igraph,
     purrr,
-    sf
+    sf,
+    memoise
 RoxygenNote: 6.1.1
 Suggests:
     knitr,
