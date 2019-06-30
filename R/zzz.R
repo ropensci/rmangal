@@ -178,6 +178,8 @@ get_gen <- function(endpoint, query = NULL, limit = 100, verbose = TRUE, ...) {
   # Loop over pages
   for (page in 0:pages) {
     if (verbose)
+      message("Data retrieval ", signif(100*(page+1)/(pages+1), 3), "%   \r",
+        appendLF = FALSE)
       # cat("Data retrieval", signif(100*(page+1)/(pages+1), 3), "%   \r")
     query$page <- page
     resp <- httr::GET(url,
@@ -192,8 +194,8 @@ get_gen <- function(endpoint, query = NULL, limit = 100, verbose = TRUE, ...) {
       responses[[page + 1]] <- list(body = resp_raw(resp), response = resp)
     }
   }
-  # if (verbose) cat("\n")
-  #
+  if (verbose) empty_line()
+
   if (!is.null(errors))
     warning("Failed request(s) for page(s): ", paste0(errors, ", "))
 
@@ -228,8 +230,8 @@ get_singletons <- function(endpoint = NULL, ids = NULL, verbose = TRUE,
 
   # Loop over ids
   for (i in seq_along(ids)) {
-    if (verbose)
-      # cat("now processing id", ids[i], "   ", i, "/", length(ids) , "     \r")
+    if (verbose)  message("Processing id: ", ids[i], " \t", i, "/",
+      length(ids), "  \r", appendLF = FALSE)
     # Set url
     url <- httr::modify_url(server(), path = paste0(base(), endpoint, "/",
       ids[i]))
@@ -247,7 +249,8 @@ get_singletons <- function(endpoint = NULL, ids = NULL, verbose = TRUE,
       responses$response[[i]] <- resp
     }
   }
-  # if (verbose) cat("\r")
+  if (verbose) empty_line()
+
   if (!is.null(errors))
     warning("Failed request(s) for id(s): ", paste0(errors, ", "))
 
@@ -259,15 +262,11 @@ get_singletons <- function(endpoint = NULL, ids = NULL, verbose = TRUE,
 
 # PRINT/MESSAGES HELPERS
 
-handle_query <- function(query) {
-  if (is.character(query))
-    query <- list(q = query)
-  if (!is.list(query))
-    stop("`query` should either be a list or a character string.")
-  if (length(query) > 1)
-    warning("Only the first element of the list is considered.")
-  query
+empty_line <- function() {
+  message(paste(rep(" ", getOption("width") - 3), collapse = ""), "\r",
+    appendLF = FALSE)
 }
+
 
 msg_request_fail <- function(resp) {
   message(sprintf("API request failed (%s): %s",
@@ -296,7 +295,6 @@ handle_query <- function(query, names_available) {
 percent_id <- function(y) round(100*sum(!is.na(y))/length(y))
 
 print_taxo_ids <- function(x) {
-
   paste0(
     "* Percent of nodes with taxonomic IDs from external sources: \n  --> ",
     percent_id(x$taxonomy.tsn), "% ITIS, ",
