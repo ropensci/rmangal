@@ -4,7 +4,7 @@
 \alias{get_singletons}
 \title{Generic API function to retrieve singletons}
 \usage{
-get_singletons(endpoint = NULL, ids = NULL, verbose = FALSE, ...)
+get_singletons(endpoint = NULL, ids = NULL, verbose = TRUE, ...)
 }
 \arguments{
 \item{endpoint}{\code{character} API entry point.}

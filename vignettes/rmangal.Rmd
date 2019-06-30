@@ -119,7 +119,7 @@ are under consideration for future major releases.
 2. `search_datasets()`: search among datasets using a keyword;
 3. `search_networks()`: search networks based on a keyword or a geographical area;
 4. `search_interactions()`: list all networks containing a specific interaction type;
-5. `search_taxa()`: identify nodes based on taxonomic informations;
+5. `search_taxonomy()`: identify nodes based on taxonomic informations;
 
 All of these functions return specific objects containing the information needed
 to retrieve the set of corresponding ecological networks with
@@ -203,7 +203,7 @@ nrow(comp_interac)
 We can search for taxa documented by the authors of the publication with `original = TRUE`.
 
 ```{R}
-sr_ficus <- search_taxa("Ficus", original = FALSE)
+sr_ficus <- search_taxonomy("Ficus", original = FALSE)
 ```
 
 Most of the nodes documented by authors will use scientific names. However, some
@@ -216,9 +216,9 @@ homogeneized taxonomy done with taxize [@chamberlain_2019].
 This function allows to search a taxa based on EOL, TSN, GBIF, COL, BOLD and NCBI IDs.
 
 ```{R}
-glimpse(search_taxa(tsn = 28749))
-glimpse(search_taxa(eol =  583069))
-# tsn_acer <- search_taxa("Acer")$taxonomy.tsn
+glimpse(search_taxonomy(tsn = 28749))
+glimpse(search_taxonomy(eol =  583069))
+# tsn_acer <- search_taxonomy("Acer")$taxonomy.tsn
 # taxize::classification(tsn_acer, db = "itis")
 ```
 

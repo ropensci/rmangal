@@ -7,6 +7,7 @@
 #' @param type a `character` one of the interactions type available, uses `avail_type()` to see the full list of type available.
 #' @param expand_node a `logical`. Should the function returned extra information on nodes? Default is set to `FALSE`, which means that only the mangal ID of nodes are returned.
 #' @param verbose a `logical`. Should extra information be reported on progress?
+#' @param ... further arguments to be passed to [httr::GET()]
 #'
 #' @return
 #' An object of class `mgSearchInteractions`, which is a `data.frame` object with all interaction matching the interaction type provided.
@@ -40,7 +41,7 @@
 #' @export
 
 search_interactions <- function(query, type = NULL, expand_node = FALSE,
-  verbose = TRUE) {
+  verbose = TRUE, ...) {
 
     if (!is.null(type)) {
       if (verbose) message("`type` is used thus `query` is ignored.")
@@ -54,7 +55,7 @@ search_interactions <- function(query, type = NULL, expand_node = FALSE,
 
     # Get interactions based on the type
     interactions <- resp_to_spatial(get_gen(endpoints()$interaction,
-      query = query, verbose = verbose)$body)
+      query = query, verbose = verbose)$body, ...)
 
     if (is.null(interactions)) {
       if (verbose) message("No interactions found.")
@@ -64,11 +65,11 @@ search_interactions <- function(query, type = NULL, expand_node = FALSE,
     # Add extra info about nodes if desired
     if (expand_node) {
       tmp <- resp_to_df(get_singletons(endpoints()$node,
-        interactions$node_from, verbose = verbose)$body)
+        interactions$node_from, verbose = verbose, ...)$body)
       interactions[, paste0("node_from_", names(tmp))] <- tmp
       #
       tmp <- resp_to_df(get_singletons(endpoints()$node,
-        interactions$node_to, verbose = verbose)$body)
+        interactions$node_to, verbose = verbose, ...)$body)
       interactions[, paste0("node_to_", names(tmp))] <- tmp
     }
 

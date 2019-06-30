@@ -4,10 +4,11 @@
 #' Note that if an empty character string is passed, then all datasets available are returned.
 #' @param query_sf a spatial object of class `sf` used to search in a specific geographical area. If keyword is unspecified (query = NULL), all networks will be returned.
 #' @param verbose a `logical`. Should extra information be reported on progress?
-#' @param ... further arguments to be passed to [rmangal::get_gen()].
+#' @param ... further arguments to be passed to [httr::GET()]
 #'
 #' @return
 #' An object of class `mgSearchNetworks`, which is a `data.frame` object with all networks informations
+#'
 #' @details
 #' If `query` is a character string, then all fields of the database table
 #' including character strings are searched and entries for which at least one

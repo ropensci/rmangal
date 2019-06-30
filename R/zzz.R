@@ -85,29 +85,31 @@ resp_to_spatial <- function(x) {
   if (is.null(x)) {
     x
   } else {
-      suppressWarnings(do.call(rbind, lapply(null_to_na(x), switch_sf)))
+     dat <- do.call(rbind, lapply(null_to_na(x),
+        function(y) as.data.frame(y[names(y) != "geom"])))
+      spd <- sf::st_sfc(
+        lapply(lapply(x, function(y) y[names(y) == "geom"]), switch_sf),
+        crs = 4326)
+      sf::st_sf(dat, spd)
   }
 }
 
 ## Build sf object based on geom.type
 switch_sf <- function(tmp) {
-  df_nogeom <- as.data.frame(tmp[names(tmp) != "geom"],
-    stringsAsFactors = FALSE)
-  if (is.na(tmp$geom)) {
-    sf::st_sf(df_nogeom, geom = sf::st_sfc(sf::st_point(
-      matrix(NA_real_, ncol = 2)), crs = 4326))
+  if (!length(tmp$geom)) {
+    # if NULL
+    sf::st_point(matrix(NA_real_, ncol = 2))
   } else {
     co <- matrix(unlist(tmp$geom$coordinates), ncol = 2, byrow = TRUE)
     switch(
       tmp$geom$type,
-      Point = sf::st_sf(df_nogeom, geom = sf::st_sfc(sf::st_point(co),
-        crs = 4326)),
-      Polygon = sf::st_sf(df_nogeom, geom = sf::st_sfc(sf::st_polygon(
-        list(co)), crs = 4326)),
+      Point = sf::st_point(co),
+      Polygon = sf::st_polygon(list(co)),
       stop("Only `Point` and `Polygon` are supported.")
     )
   }
 }
+
 
 #' Get entries based on foreign key
 #'
@@ -137,6 +139,7 @@ get_from_fkey_net <- function(endpoint, verbose = TRUE, ...) {
     get_gen(endpoint = endpoint, query = query, verbose = verbose)$body
   )
 }
+
 
 get_from_fkey_flt <- function(endpoint, verbose = TRUE, ...) {
   query <- list(...)
@@ -184,6 +187,10 @@ get_gen <- function(endpoint, query = NULL, limit = 100, verbose = TRUE, ...) {
 
   # Loop over pages
   for (page in 0:pages) {
+    if (verbose)
+      message("Data retrieval ", signif(100*(page+1)/(pages+1), 3), "%   \r",
+        appendLF = FALSE)
+      # cat("Data retrieval", signif(100*(page+1)/(pages+1), 3), "%   \r")
     query$page <- page
     resp <- mem_get(url,
       config = httr::add_headers(`Content-type` = "application/json"), ua,
@@ -197,7 +204,8 @@ get_gen <- function(endpoint, query = NULL, limit = 100, verbose = TRUE, ...) {
       responses[[page + 1]] <- list(body = resp_raw(resp), response = resp)
     }
   }
-  #
+  if (verbose) empty_line()
+
   if (!is.null(errors))
     warning("Failed request(s) for page(s): ", paste0(errors, ", "))
 
@@ -222,7 +230,7 @@ get_gen <- function(endpoint, query = NULL, limit = 100, verbose = TRUE, ...) {
 #' @details
 #' See endpoints available with `endpoints()`
 #' @keywords internal
-get_singletons <- function(endpoint = NULL, ids = NULL, verbose = FALSE,
+get_singletons <- function(endpoint = NULL, ids = NULL, verbose = TRUE,
    ...) {
 
   stopifnot(!is.null(endpoint) & !is.null(ids))
@@ -232,6 +240,8 @@ get_singletons <- function(endpoint = NULL, ids = NULL, verbose = FALSE,
 
   # Loop over ids
   for (i in seq_along(ids)) {
+    if (verbose)  message("Processing id: ", ids[i], " \t", i, "/",
+      length(ids), "  \r", appendLF = FALSE)
     # Set url
     url <- httr::modify_url(server(), path = paste0(base(), endpoint, "/",
       ids[i]))
@@ -249,6 +259,8 @@ get_singletons <- function(endpoint = NULL, ids = NULL, verbose = FALSE,
       responses$response[[i]] <- resp
     }
   }
+  if (verbose) empty_line()
+
   if (!is.null(errors))
     warning("Failed request(s) for id(s): ", paste0(errors, ", "))
 
@@ -260,15 +272,11 @@ get_singletons <- function(endpoint = NULL, ids = NULL, verbose = FALSE,
 
 # PRINT/MESSAGES HELPERS
 
-handle_query <- function(query) {
-  if (is.character(query))
-    query <- list(q = query)
-  if (!is.list(query))
-    stop("`query` should either be a list or a character string.")
-  if (length(query) > 1)
-    warning("Only the first element of the list is considered.")
-  query
+empty_line <- function() {
+  message(paste(rep(" ", getOption("width") - 3), collapse = ""), "\r",
+    appendLF = FALSE)
 }
+
 
 msg_request_fail <- function(resp) {
   message(sprintf("API request failed (%s): %s",
@@ -297,7 +305,6 @@ handle_query <- function(query, names_available) {
 percent_id <- function(y) round(100*sum(!is.na(y))/length(y))
 
 print_taxo_ids <- function(x) {
-
   paste0(
     "* Percent of nodes with taxonomic IDs from external sources: \n  --> ",
     percent_id(x$taxonomy.tsn), "% ITIS, ",

@@ -5,7 +5,7 @@
 \title{Search for specific interactions}
 \usage{
 search_interactions(query, type = NULL, expand_node = FALSE,
-  verbose = TRUE)
+  verbose = TRUE, ...)
 }
 \arguments{
 \item{query}{either a character string including a single keyword or a list containing a custom query (see details section below).
@@ -16,6 +16,8 @@ Note that if an empty character string is passed, then all datasets available ar
 \item{expand_node}{a \code{logical}. Should the function returned extra information on nodes? Default is set to \code{FALSE}, which means that only the mangal ID of nodes are returned.}
 
 \item{verbose}{a \code{logical}. Should extra information be reported on progress?}
+
+\item{...}{further arguments to be passed to \code{\link[httr:GET]{httr::GET()}}}
 }
 \value{
 An object of class \code{mgSearchInteractions}, which is a \code{data.frame} object with all interaction matching the interaction type provided.

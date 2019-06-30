@@ -6,7 +6,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<<<<<<< HEAD
+<title>Search network by taxa using keyword, tsn, eol, bold or ncbi IDs. — search_taxonomy • rmangal</title>
+=======
 <title>Search network by taxa using keyword or speicific taxonomic identifiers. — search_taxa • rmangal</title>
+>>>>>>> master
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,7 +36,11 @@
 
 
 
+<<<<<<< HEAD
+<meta property="og:title" content="Search network by taxa using keyword, tsn, eol, bold or ncbi IDs. — search_taxonomy" />
+=======
 <meta property="og:title" content="Search network by taxa using keyword or speicific taxonomic identifiers. — search_taxa" />
+>>>>>>> master
 
 <meta property="og:description" content="Search network by taxa using keyword or speicific taxonomic identifiers." />
 <meta name="twitter:card" content="summary" />
@@ -104,9 +112,15 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
+<<<<<<< HEAD
+    <h1>Search network by taxa using keyword, tsn, eol, bold or ncbi IDs.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/search_taxonomy.R'><code>R/search_taxonomy.R</code></a></small>
+    <div class="hidden name"><code>search_taxonomy.Rd</code></div>
+=======
     <h1>Search network by taxa using keyword or speicific taxonomic identifiers.</h1>
     <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/search_taxa.R'><code>R/search_taxa.R</code></a></small>
     <div class="hidden name"><code>search_taxa.Rd</code></div>
+>>>>>>> master
     </div>
 
     <div class="ref-description">
@@ -115,8 +129,14 @@
     
     </div>
 
+<<<<<<< HEAD
+    <pre class="usage"><span class='fu'>search_taxonomy</span>(<span class='kw'>query</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>tsn</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>gbif</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>eol</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>col</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>bold</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ncbi</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
+=======
     <pre class="usage"><span class='fu'>search_taxa</span>(<span class='no'>query</span>, <span class='kw'>tsn</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>gbif</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>eol</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>bold</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ncbi</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
+>>>>>>> master
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -187,7 +207,11 @@ report any issue related to taxonomy at <a href='https://github.com/mangal-wg/ma
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+<<<<<<< HEAD
+    <pre class="examples"><div class='input'><span class='fu'>search_taxonomy</span>(<span class='st'>"Acer"</span>)</div><div class='output co'>#&gt; <span class='message'>Full text search</span></div><div class='output co'>#&gt; <span class='message'>Found 5 taxa involved in 5 network(s)</span></div><div class='output co'>#&gt;     id     original_name node_level network_id taxonomy_id
+=======
     <pre class="examples"><div class='input'><span class='fu'>search_taxa</span>(<span class='st'>"Acer"</span>)</div><div class='output co'>#&gt;     id     original_name node_level network_id taxonomy_id
+>>>>>>> master
 #&gt; 1 2629      Acer negundo      taxon         19           2
 #&gt; 2 2630  Acer saccharinum      taxon         19           3
 #&gt; 3 8895 Acer shirasawanum      taxon        948        3117
@@ -247,6 +271,65 @@ report any issue related to taxonomy at <a href='https://github.com/mangal-wg/ma
 #&gt; 3 POINT (138.3833 35.5833)
 #&gt; 4 POINT (138.3833 35.5833)
 #&gt; 5 POINT (138.3833 35.5833)</div><div class='input'><span class='co'># Retrieve higher classification</span>
+<<<<<<< HEAD
+<span class='no'>tsn_acer</span> <span class='kw'>&lt;-</span> <span class='fu'>search_taxonomy</span>(<span class='st'>"Acer"</span>)$<span class='no'>taxonomy.tsn</span></div><div class='output co'>#&gt; <span class='message'>Full text search</span></div><div class='output co'>#&gt; <span class='message'>Found 5 taxa involved in 5 network(s)</span></div><div class='input'><span class='kw pkg'>taxize</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/taxize/topics/classification'>classification</a></span>(<span class='no'>tsn_acer</span>, <span class='kw'>db</span> <span class='kw'>=</span> <span class='st'>"itis"</span>)</div><div class='output co'>#&gt; <span class='message'>Registered S3 method overwritten by 'crul':</span>
+#&gt; <span class='message'>  method                 from</span>
+#&gt; <span class='message'>  as.character.form_file httr</span></div><div class='output co'>#&gt; $`28749`
+#&gt;               name          rank     id
+#&gt; 1          Plantae       kingdom 202422
+#&gt; 2    Viridiplantae    subkingdom 954898
+#&gt; 3     Streptophyta  infrakingdom 846494
+#&gt; 4      Embryophyta superdivision 954900
+#&gt; 5     Tracheophyta      division 846496
+#&gt; 6  Spermatophytina   subdivision 846504
+#&gt; 7    Magnoliopsida         class  18063
+#&gt; 8          Rosanae    superorder 846548
+#&gt; 9       Sapindales         order  28643
+#&gt; 10     Sapindaceae        family  28657
+#&gt; 11            Acer         genus  28727
+#&gt; 12    Acer negundo       species  28749
+#&gt; 
+#&gt; $`28757`
+#&gt;                name          rank     id
+#&gt; 1           Plantae       kingdom 202422
+#&gt; 2     Viridiplantae    subkingdom 954898
+#&gt; 3      Streptophyta  infrakingdom 846494
+#&gt; 4       Embryophyta superdivision 954900
+#&gt; 5      Tracheophyta      division 846496
+#&gt; 6   Spermatophytina   subdivision 846504
+#&gt; 7     Magnoliopsida         class  18063
+#&gt; 8           Rosanae    superorder 846548
+#&gt; 9        Sapindales         order  28643
+#&gt; 10      Sapindaceae        family  28657
+#&gt; 11             Acer         genus  28727
+#&gt; 12 Acer saccharinum       species  28757
+#&gt; 
+#&gt; $&lt;NA&gt;
+#&gt; [1] NA
+#&gt; 
+#&gt; $&lt;NA&gt;
+#&gt; [1] NA
+#&gt; 
+#&gt; $`837855`
+#&gt;               name          rank     id
+#&gt; 1          Plantae       kingdom 202422
+#&gt; 2    Viridiplantae    subkingdom 954898
+#&gt; 3     Streptophyta  infrakingdom 846494
+#&gt; 4      Embryophyta superdivision 954900
+#&gt; 5     Tracheophyta      division 846496
+#&gt; 6  Spermatophytina   subdivision 846504
+#&gt; 7    Magnoliopsida         class  18063
+#&gt; 8          Rosanae    superorder 846548
+#&gt; 9       Sapindales         order  28643
+#&gt; 10     Sapindaceae        family  28657
+#&gt; 11            Acer         genus  28727
+#&gt; 12  Acer japonicum       species 837855
+#&gt; 
+#&gt; attr(,"class")
+#&gt; [1] "classification"
+#&gt; attr(,"db")
+#&gt; [1] "itis"</div></pre>
+=======
 <span class='no'>tsn_acer</span> <span class='kw'>&lt;-</span> <span class='fu'>search_taxa</span>(<span class='st'>"Acer"</span>)$<span class='no'>taxonomy.tsn</span>
 <span class='fu'>search_taxa</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>network_id</span> <span class='kw'>=</span> <span class='fl'>926</span>), <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt;      id   original_name node_level network_id taxonomy_id
 #&gt; 1  6445        mollusks      taxon        926        4336
@@ -374,6 +457,7 @@ report any issue related to taxonomy at <a href='https://github.com/mangal-wg/ma
 #&gt; 11                3 POINT (-100.3656 17.06915)
 #&gt; 12                3 POINT (-100.3656 17.06915)
 #&gt; 13                3 POINT (-100.3656 17.06915)</div></pre>
+>>>>>>> master
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
