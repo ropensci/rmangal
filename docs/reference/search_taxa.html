@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Search network by taxa using keyword, tsn, eol, bold or ncbi IDs. — search_taxa • rmangal</title>
+<title>Search network by taxa using keyword, tsn, eol, bold or ncbi IDs. — search_taxonomy • rmangal</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,7 +30,7 @@
 
 
 
-<meta property="og:title" content="Search network by taxa using keyword, tsn, eol, bold or ncbi IDs. — search_taxa" />
+<meta property="og:title" content="Search network by taxa using keyword, tsn, eol, bold or ncbi IDs. — search_taxonomy" />
 
 <meta property="og:description" content="Search network by taxa using keyword, tsn, eol, bold or ncbi IDs." />
 <meta name="twitter:card" content="summary" />
@@ -103,8 +103,8 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Search network by taxa using keyword, tsn, eol, bold or ncbi IDs.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/search_taxa.R'><code>R/search_taxa.R</code></a></small>
-    <div class="hidden name"><code>search_taxa.Rd</code></div>
+    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/search_taxonomy.R'><code>R/search_taxonomy.R</code></a></small>
+    <div class="hidden name"><code>search_taxonomy.Rd</code></div>
     </div>
 
     <div class="ref-description">
@@ -113,7 +113,7 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>search_taxa</span>(<span class='kw'>query</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>tsn</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>gbif</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>eol</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+    <pre class="usage"><span class='fu'>search_taxonomy</span>(<span class='kw'>query</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>tsn</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>gbif</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>eol</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>col</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>bold</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ncbi</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
     
@@ -184,7 +184,7 @@ names recorded by authors will always prevail and be the most reliable informati
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>search_taxa</span>(<span class='st'>"Acer"</span>)</div><div class='output co'>#&gt; <span class='message'>Full text search</span></div><div class='output co'>#&gt; <span class='message'>Found 5 taxa involved in 5 network(s)</span></div><div class='output co'>#&gt;     id     original_name node_level network_id taxonomy_id
+    <pre class="examples"><div class='input'><span class='fu'>search_taxonomy</span>(<span class='st'>"Acer"</span>)</div><div class='output co'>#&gt; <span class='message'>Full text search</span></div><div class='output co'>#&gt; <span class='message'>Found 5 taxa involved in 5 network(s)</span></div><div class='output co'>#&gt;     id     original_name node_level network_id taxonomy_id
 #&gt; 1 2629      Acer negundo      taxon         19           2
 #&gt; 2 2630  Acer saccharinum      taxon         19           3
 #&gt; 3 8895 Acer shirasawanum      taxon        948        3117
@@ -244,7 +244,7 @@ names recorded by authors will always prevail and be the most reliable informati
 #&gt; 3 POINT (138.3833 35.5833)
 #&gt; 4 POINT (138.3833 35.5833)
 #&gt; 5 POINT (138.3833 35.5833)</div><div class='input'><span class='co'># Retrieve higher classification</span>
-<span class='no'>tsn_acer</span> <span class='kw'>&lt;-</span> <span class='fu'>search_taxa</span>(<span class='st'>"Acer"</span>)$<span class='no'>taxonomy.tsn</span></div><div class='output co'>#&gt; <span class='message'>Full text search</span></div><div class='output co'>#&gt; <span class='message'>Found 5 taxa involved in 5 network(s)</span></div><div class='input'><span class='kw pkg'>taxize</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/taxize/topics/classification'>classification</a></span>(<span class='no'>tsn_acer</span>, <span class='kw'>db</span> <span class='kw'>=</span> <span class='st'>"itis"</span>)</div><div class='output co'>#&gt; <span class='message'>Registered S3 method overwritten by 'crul':</span>
+<span class='no'>tsn_acer</span> <span class='kw'>&lt;-</span> <span class='fu'>search_taxonomy</span>(<span class='st'>"Acer"</span>)$<span class='no'>taxonomy.tsn</span></div><div class='output co'>#&gt; <span class='message'>Full text search</span></div><div class='output co'>#&gt; <span class='message'>Found 5 taxa involved in 5 network(s)</span></div><div class='input'><span class='kw pkg'>taxize</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/taxize/topics/classification'>classification</a></span>(<span class='no'>tsn_acer</span>, <span class='kw'>db</span> <span class='kw'>=</span> <span class='st'>"itis"</span>)</div><div class='output co'>#&gt; <span class='message'>Registered S3 method overwritten by 'crul':</span>
 #&gt; <span class='message'>  method                 from</span>
 #&gt; <span class='message'>  as.character.form_file httr</span></div><div class='output co'>#&gt; $`28749`
 #&gt;               name          rank     id

@@ -7,7 +7,7 @@
 \alias{get_collection.mgSearchNetworks}
 \alias{get_collection.mgSearchReference}
 \alias{get_collection.mgSearchNodes}
-\alias{get_collection.mgSearchTaxa}
+\alias{get_collection.mgSearchTaxonomy}
 \alias{get_collection.mgSearchInteractions}
 \title{Get a collection of networks}
 \usage{
@@ -23,7 +23,7 @@ get_collection(x, ...)
 
 \method{get_collection}{mgSearchNodes}(x, ...)
 
-\method{get_collection}{mgSearchTaxa}(x, ...)
+\method{get_collection}{mgSearchTaxonomy}(x, ...)
 
 \method{get_collection}{mgSearchInteractions}(x, ...)
 }
@@ -54,7 +54,7 @@ Get a collection of networks
 
 \item \code{mgSearchNodes}: Get a collection of networks from a \code{mgSearchNodes} object.
 
-\item \code{mgSearchTaxa}: Get a collection of networks from a \code{mgSearchTaxa} object.
+\item \code{mgSearchTaxonomy}: Get a collection of networks from a \code{mgSearchTaxa} object.
 
 \item \code{mgSearchInteractions}: Get a collection of networks from a \code{mgSearchTaxa} object.
 }}

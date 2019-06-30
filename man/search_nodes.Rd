@@ -39,5 +39,5 @@ res_926 <- search_nodes(list(network_id = 926))
 \url{https://mangal-wg.github.io/mangal-api/#nodes}
 }
 \seealso{
-\code{\link[=search_taxa]{search_taxa()}}
+\code{\link[=search_taxonomy]{search_taxonomy()}}
 }

@@ -18,7 +18,7 @@
 #' Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
 #'
 #' @seealso
-#' [search_taxa()]
+#' [search_taxonomy()]
 #'
 #' @return
 #' An object of class `mgSearchNodes`, which is a `data.frame` including taxa #' matching the query and corresponding information.

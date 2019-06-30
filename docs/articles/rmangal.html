@@ -149,7 +149,7 @@
 <li>
 <code><a href="../reference/search_interactions.html">search_interactions()</a></code>: list all networks containing a specific interaction type;</li>
 <li>
-<code><a href="../reference/search_taxa.html">search_taxa()</a></code>: identify nodes based on taxonomic informations;</li>
+<code><a href="../reference/search_taxonomy.html">search_taxonomy()</a></code>: identify nodes based on taxonomic informations;</li>
 </ol>
 <p>All of these functions return specific objects containing the information needed to retrieve the set of corresponding ecological networks with <code><a href="../reference/get_collection.html">get_collection()</a></code>. Hence, the user can easily retrieve data in two steps:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">networks &lt;-<span class="st"> </span>search_<span class="op">*</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="../reference/get_collection.html">get_collection</a></span>()</a></code></pre></div>
@@ -241,12 +241,12 @@
 <h3 class="hasAnchor">
 <a href="#search-for-a-specific-taxa" class="anchor"></a>Search for a specific taxa</h3>
 <p>We can search for taxa documented by the authors of the publication with <code>original = TRUE</code>.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">sr_ficus &lt;-<span class="st"> </span><span class="kw"><a href="../reference/search_taxa.html">search_taxa</a></span>(<span class="st">"Ficus"</span>, <span class="dt">original =</span> <span class="ot">FALSE</span>)</a>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">sr_ficus &lt;-<span class="st"> </span><span class="kw"><a href="../reference/search_taxonomy.html">search_taxonomy</a></span>(<span class="st">"Ficus"</span>, <span class="dt">original =</span> <span class="ot">FALSE</span>)</a>
 <a class="sourceLine" id="cb9-2" title="2"><span class="co">#&gt; Full text search</span></a>
 <a class="sourceLine" id="cb9-3" title="3"><span class="co">#&gt; Found 31 taxa involved in 38 network(s)</span></a></code></pre></div>
 <p>Most of the nodes documented by authors will use scientific names. However, some networks track interaction among individu by pasting the scientific name with unique ID and thus lowering the number of matches return by <code>rmangal</code> for a specific taxa. To avoid this problem, it is possible to instead query the taxonomy backbone using <code>original = FALSE</code>. The taxonomy backbone contains a homogeneized taxonomy done with taxize <span class="citation">(Chamberlain et al. 2019)</span>.</p>
 <p>This function allows to search a taxa based on EOL, TSN, GBIF, COL, BOLD and NCBI IDs.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">glimpse</span>(<span class="kw"><a href="../reference/search_taxa.html">search_taxa</a></span>(<span class="dt">tsn =</span> <span class="dv">28749</span>))</a>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">glimpse</span>(<span class="kw"><a href="../reference/search_taxonomy.html">search_taxonomy</a></span>(<span class="dt">tsn =</span> <span class="dv">28749</span>))</a>
 <a class="sourceLine" id="cb10-2" title="2"><span class="co">#&gt; Found 1 taxa involved in 1 network(s)</span></a>
 <a class="sourceLine" id="cb10-3" title="3"><span class="co">#&gt; Observations: 1</span></a>
 <a class="sourceLine" id="cb10-4" title="4"><span class="co">#&gt; Variables: 19</span></a>
@@ -269,7 +269,7 @@
 <a class="sourceLine" id="cb10-21" title="21"><span class="co">#&gt; $ taxonomy.created_at &lt;chr&gt; "2019-02-21T21:17:12.585Z"</span></a>
 <a class="sourceLine" id="cb10-22" title="22"><span class="co">#&gt; $ taxonomy.updated_at &lt;chr&gt; "2019-06-14T15:20:36.273Z"</span></a>
 <a class="sourceLine" id="cb10-23" title="23"><span class="co">#&gt; $ networks            &lt;sf&gt; &lt;sf[1 x 11]&gt;</span></a>
-<a class="sourceLine" id="cb10-24" title="24"><span class="kw">glimpse</span>(<span class="kw"><a href="../reference/search_taxa.html">search_taxa</a></span>(<span class="dt">eol =</span>  <span class="dv">583069</span>))</a>
+<a class="sourceLine" id="cb10-24" title="24"><span class="kw">glimpse</span>(<span class="kw"><a href="../reference/search_taxonomy.html">search_taxonomy</a></span>(<span class="dt">eol =</span>  <span class="dv">583069</span>))</a>
 <a class="sourceLine" id="cb10-25" title="25"><span class="co">#&gt; Found 1 taxa involved in 1 network(s)</span></a>
 <a class="sourceLine" id="cb10-26" title="26"><span class="co">#&gt; Observations: 1</span></a>
 <a class="sourceLine" id="cb10-27" title="27"><span class="co">#&gt; Variables: 19</span></a>
