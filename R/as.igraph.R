@@ -1,10 +1,11 @@
 #' Coerce `mgNetworksCollection` or `mgNetwork` objects to `igraph` objects
 #'
 #' @param x `mgNetworksCollection` or `mgNetwork` objects.
+#'
 #' @return
-#' An `igraph` object returned by [igraph::graph_from_data_frame()].
+#' An object of class `igraph`
+#'
 #' @examples
-#' \dontrun{
 #' insects_networks <- get_collection(search_networks(query='insect%'))
 #' # Apply as.igraph on one specific network
 #' insects_network <- insects_networks[[1]]
@@ -12,9 +13,7 @@
 #' # Apply as.igraph on networks collection
 #' ig_coll_networks <- as.igraph(insects_networks)
 #' # Plot igraph object with vertex label
-#' plot(ig_network)
 #' plot(ig_network, vertex.label = insects_network$nodes$taxonomy.name)
-#' }
 #'
 #' @export
 as.igraph <- function(x) {
@@ -35,6 +34,7 @@ as.igraph.mgNetwork <- function(x) {
 
     # Move id edge to the last column
     x$edges <- as.data.frame(x$edges)
+    # print(x$edges)
     # drop geometry
     x$edges <- x$edges[,names(x$edges) != "geom"]
     x$edges <- x$edges[, c(2:ncol(x$edges), 1)]

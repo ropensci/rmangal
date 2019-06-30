@@ -89,10 +89,8 @@ resp_to_spatial <- function(x) {
   } else {
      dat <- do.call(rbind, lapply(null_to_na(x),
         function(y) as.data.frame(y[names(y) != "geom"])))
-      spd <- sf::st_sfc(
-        lapply(lapply(x, function(y) y[names(y) == "geom"]), switch_sf),
-        crs = 4326)
-      sf::st_sf(dat, spd)
+      spd <- lapply(lapply(x, function(y) y[names(y) == "geom"]), switch_sf)
+      sf::st_sf(dat, geom = spd, crs = 4326)
   }
 }
 
