@@ -5,7 +5,7 @@
 \alias{get_network_by_id_indiv}
 \alias{print.mgNetwork}
 \alias{print.mgNetworksCollection}
-\title{Retrieve mangal network by id}
+\title{Retrieve network data for a given set of Mangal identifiera}
 \usage{
 get_network_by_id(ids, verbose = TRUE)
 
@@ -16,7 +16,7 @@ get_network_by_id_indiv(id, verbose = TRUE)
 \method{print}{mgNetworksCollection}(x, ...)
 }
 \arguments{
-\item{ids}{a vector of mangal ID for networks (\code{numeric}).}
+\item{ids}{a vector of Mangal ID for networks (\code{numeric}).}
 
 \item{verbose}{a logical. Should extra information be reported on progress?}
 
@@ -37,7 +37,7 @@ a \code{mgNetwork} object including:
 }
 }
 \description{
-Retrieve mangal network by id
+Retrieve network data for a given set of Mangal identifiera
 }
 \section{Functions}{
 \itemize{

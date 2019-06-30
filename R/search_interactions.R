@@ -1,16 +1,17 @@
-#' Search for specific interactions
+#' Query the interactions table.
 #'
-#' Search for specific interactions type (e.g. mutualism)
+#' Search for specific interactions using a keyword or a specific type of
+#' interactions (e.g. mutualism).
 #'
 #' @param query either a character string including a single keyword or a list containing a custom query (see details section below).
 #' Note that if an empty character string is passed, then all datasets available are returned.
-#' @param type a `character` one of the interactions type available, uses `avail_type()` to see the full list of type available.
-#' @param expand_node a `logical`. Should the function returned extra information on nodes? Default is set to `FALSE`, which means that only the mangal ID of nodes are returned.
+#' @param type a `character` one of the interactions type available, uses [avail_type()] to see the full list of type available. Note that `query` is ignored if `type` is used.
+#' @param expand_node a logical. Should the function returned extra information pertaining to nodes? Default is set to `FALSE`, which means that only the Mangal IDs of nodes are returned.
 #' @param verbose a `logical`. Should extra information be reported on progress?
-#' @param ... further arguments to be passed to [httr::GET()]
+#' @param ... further arguments to be passed to [httr::GET()].
 #'
 #' @return
-#' An object of class `mgSearchInteractions`, which is a `data.frame` object with all interaction matching the interaction type provided.
+#' An object of class `mgSearchInteractions`, i.e. a `data.frame` object including interactions.
 #' All networks in which interactions are involved are also attached to the `data.frame`.
 #'
 #' @details

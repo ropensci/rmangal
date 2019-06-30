@@ -164,7 +164,7 @@ In absence of keyword, `search_datasets()` will always list all datasets. All `s
 will have this same default behaviour.
 
 ```{R}
-all_datasets <- search_datasets("")
+all_datasets <- search_datasets("", verbose = FALSE)
 glimpse(all_datasets)
 ```
 
@@ -203,7 +203,7 @@ nrow(comp_interac)
 We can search for taxa documented by the authors of the publication with `original = TRUE`.
 
 ```{R}
-sr_ficus <- search_taxonomy("Ficus", original = FALSE)
+sr_ficus <- search_taxonomy("Ficus", verbose = FALSE)
 ```
 
 Most of the nodes documented by authors will use scientific names. However, some
@@ -227,9 +227,9 @@ glimpse(search_taxonomy(eol =  583069))
 We can retrieve the ecological networks based on the `search_*`.
 
 ```{R}
-nets_lagoons <- get_collection(lagoon)
-nets_in_CA <- get_collection(in_CA)
-nets_competition <- get_collection(comp_interac)
+nets_lagoons <- get_collection(lagoon, verbose = FALSE)
+nets_in_CA <- get_collection(in_CA, verbose = FALSE)
+nets_competition <- get_collection(comp_interac, verbose = FALSE)
 ```
 
 ```{R}

@@ -1,6 +1,6 @@
-#' Retrieve mangal network by id
+#' Retrieve network data for a given set of Mangal identifiera
 #'
-#' @param ids a vector of mangal ID for networks (`numeric`).
+#' @param ids a vector of Mangal ID for networks (`numeric`).
 #' @param id a single ID network (`numeric`).
 #' @param x an object of class `mgNetwork` or `mgNetworksCollection`.
 #' @param ... ignored.
@@ -15,6 +15,7 @@
 #' - edges: a `data.frame` of all edges (ecological interactions), with the attribute used to describe the interaction
 #' - dataset: `list` information pertaining to the dataset the network is associated to;
 #' - reference: `list` information about the original publication.
+#'
 #' @examples
 #' net18 <- get_network_by_id(id = 18)
 #' nets <- get_network_by_id(id = c(18, 23))
@@ -44,13 +45,15 @@ get_network_by_id_indiv <- function(id, verbose = TRUE) {
   if (is.null(mg_network$network))
     stop(sprintf("network id %s not found", id))
 
-  # if (verbose) cat("Retrieving nodes\n")
+  # if (verbose) message("Retrieving nodes\n")
   # nodes and edges associated with the network
   mg_network$nodes <- get_from_fkey_flt(endpoints()$node,
     network_id = mg_network$network$id, verbose = verbose)
+  # print(names(mg_network$nodes))
   # if (verbose) cat("done!\nRetrieving interaction\n")
-  mg_network$edges <- get_from_fkey_net(endpoints()$interaction,
+  mg_network$edges <- get_from_fkey_flt(endpoints()$interaction,
     network_id = mg_network$network$id, verbose = verbose)
+  # print(names(mg_network$edges))
   # if (verbose) cat("done")
   # retrieve dataset informations
   mg_network$dataset <- resp_to_df(get_singletons(endpoints()$dataset,

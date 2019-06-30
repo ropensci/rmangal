@@ -13,10 +13,11 @@ as.igraph(x)
 \method{as.igraph}{mgNetwork}(x)
 }
 \arguments{
-\item{x}{\code{mgNetworksCollection} or \code{mgNetwork} objects.}
+\item{x}{Either a \code{mgNetworksCollection} or a \code{mgNetwork} object.}
 }
 \value{
-An \code{igraph} object returned by \code{\link[igraph:graph_from_data_frame]{igraph::graph_from_data_frame()}}.
+An object of class \code{igraph} for a \code{mgNetwork} object and a list of
+\code{igraph} object for \code{mgNetworksCollection}.
 }
 \description{
 Coerce \code{mgNetworksCollection} or \code{mgNetwork} objects to \code{igraph} objects
@@ -29,7 +30,6 @@ Coerce \code{mgNetworksCollection} or \code{mgNetwork} objects to \code{igraph} 
 }}
 
 \examples{
-\dontrun{
 insects_networks <- get_collection(search_networks(query='insect\%'))
 # Apply as.igraph on one specific network
 insects_network <- insects_networks[[1]]
@@ -37,8 +37,6 @@ ig_network <- as.igraph(insects_network)
 # Apply as.igraph on networks collection
 ig_coll_networks <- as.igraph(insects_networks)
 # Plot igraph object with vertex label
-plot(ig_network)
 plot(ig_network, vertex.label = insects_network$nodes$taxonomy.name)
-}
 
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/search_reference.R
 \name{search_reference}
 \alias{search_reference}
-\title{Search for a specific dataset reference with its DOI}
+\title{Query the reference table.}
 \usage{
 search_reference(query, doi = NULL, verbose = TRUE, ...)
 }
@@ -10,7 +10,7 @@ search_reference(query, doi = NULL, verbose = TRUE, ...)
 \item{query}{either a character string including a single keyword or a list containing a custom query (see details section below).
 Note that if an empty character string is passed, then all datasets available are returned.}
 
-\item{doi}{\code{character} a Digital Object Identifier of the article (mandatory arg).}
+\item{doi}{\code{character} a Digital Object Identifier  (DOI) of the article. Note that \code{query} is ignored if \code{doi} is specified.}
 
 \item{verbose}{a \code{logical}. Should extra information be reported on progress?}
 
@@ -20,7 +20,7 @@ Note that if an empty character string is passed, then all datasets available ar
 An object of class \code{mgSearchReference}, which is a list that includes a wide range of details associated to the reference, including all datasets and networks related to the publication that are included in Mangal database.
 }
 \description{
-Search for a specific dataset reference with its DOI
+Search for a specific reference using a key wor or a Digital Object Identifier (DOI).
 }
 \details{
 If \code{query} is a character string, then all fields of the database table

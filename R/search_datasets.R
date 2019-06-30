@@ -1,4 +1,6 @@
-#' Search over all datasets using keyword
+#' Query the datasets table.
+#'
+#' Identify relevant datasets using a keyword or a custom query.
 #'
 #' @param query either a character string including a single keyword or a list containing a custom query (see details section below).
 #' Note that if an empty character string is passed, then all datasets available are returned.

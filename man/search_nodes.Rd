@@ -2,7 +2,7 @@
 % Please edit documentation in R/search_nodes.R
 \name{search_nodes}
 \alias{search_nodes}
-\title{Search network by querying the nodes database table.}
+\title{Query the nodes table.}
 \usage{
 search_nodes(query, verbose = TRUE, ...)
 }
@@ -12,21 +12,21 @@ Note that if an empty character string is passed, then all datasets available ar
 
 \item{verbose}{a \code{logical}. Should extra information be reported on progress?}
 
-\item{...}{further arguments to be passed to \code{\link[httr:GET]{httr::GET()}}}
+\item{...}{further arguments to be passed to \code{\link[httr:GET]{httr::GET()}}.}
 }
 \value{
 An object of class \code{mgSearchNodes}, which is a \code{data.frame} including taxa #' matching the query and corresponding information.
 All networks in which taxa are involved are also attached to the \code{data.frame}.
 }
 \description{
-Search network by querying the nodes database table.
+Search for networks by querying the nodes database table.
 }
 \details{
 If \code{query} is a character string, then all fields of the database table
 including character strings are searched and entries for which at least one
 partial match was found are returned.
 Alternatively, a named list can be used to look for an exact match in a specific field.
-In this case, the name of the list should match one of the field names of the database table.
+In this case, the name of the list should match one of the field names of the table.
 For the \code{networks} table, those are:
 Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
 }

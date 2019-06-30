@@ -2,7 +2,7 @@
 % Please edit documentation in R/search_interactions.R
 \name{search_interactions}
 \alias{search_interactions}
-\title{Search for specific interactions}
+\title{Query the interactions table.}
 \usage{
 search_interactions(query, type = NULL, expand_node = FALSE,
   verbose = TRUE, ...)
@@ -11,20 +11,21 @@ search_interactions(query, type = NULL, expand_node = FALSE,
 \item{query}{either a character string including a single keyword or a list containing a custom query (see details section below).
 Note that if an empty character string is passed, then all datasets available are returned.}
 
-\item{type}{a \code{character} one of the interactions type available, uses \code{avail_type()} to see the full list of type available.}
+\item{type}{a \code{character} one of the interactions type available, uses \code{\link[=avail_type]{avail_type()}} to see the full list of type available. Note that \code{query} is ignored if \code{type} is used.}
 
-\item{expand_node}{a \code{logical}. Should the function returned extra information on nodes? Default is set to \code{FALSE}, which means that only the mangal ID of nodes are returned.}
+\item{expand_node}{a logical. Should the function returned extra information pertaining to nodes? Default is set to \code{FALSE}, which means that only the Mangal IDs of nodes are returned.}
 
 \item{verbose}{a \code{logical}. Should extra information be reported on progress?}
 
-\item{...}{further arguments to be passed to \code{\link[httr:GET]{httr::GET()}}}
+\item{...}{further arguments to be passed to \code{\link[httr:GET]{httr::GET()}}.}
 }
 \value{
-An object of class \code{mgSearchInteractions}, which is a \code{data.frame} object with all interaction matching the interaction type provided.
+An object of class \code{mgSearchInteractions}, i.e. a \code{data.frame} object including interactions.
 All networks in which interactions are involved are also attached to the \code{data.frame}.
 }
 \description{
-Search for specific interactions type (e.g. mutualism)
+Search for specific interactions using a keyword or a specific type of
+interactions (e.g. mutualism).
 }
 \details{
 If \code{query} is a character string, then all fields of the database table

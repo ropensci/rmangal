@@ -2,7 +2,7 @@
 % Please edit documentation in R/search_taxonomy.R
 \name{search_taxonomy}
 \alias{search_taxonomy}
-\title{Search network by taxa using keyword or specific taxonomic identifiers.}
+\title{Query the taxonomy table.}
 \usage{
 search_taxonomy(query, tsn = NULL, gbif = NULL, eol = NULL,
   col = NULL, bold = NULL, ncbi = NULL, verbose = TRUE, ...)
@@ -25,18 +25,18 @@ Note that if an empty character string is passed, then all datasets available ar
 
 \item{verbose}{a \code{logical}. Should extra information be reported on progress?}
 
-\item{...}{further arguments to be passed to \code{\link[httr:GET]{httr::GET()}}}
+\item{...}{further arguments to be passed to \code{\link[httr:GET]{httr::GET()}}.}
 }
 \value{
-An object of class \code{mgSearchTaxonomy}, which is a \code{data.frame} object with
+An object of class \code{mgSearchTaxonomy}, which is a \code{data.frame} including
 all taxa matching the query.
 }
 \description{
-Search network by taxa using keyword or specific taxonomic identifiers.
+Search network by taxon names and unique taxonomic identifiers.
 }
 \details{
-If a taxonomic identifier is used, then \code{query} is ignored. Also, only one
-taxonomic identifier can be used at a time.
+If any of the unique identifier is used, then \code{query} is ignored. Moreover,
+if several taxonomic identifiers are specified, then only the first one is considered.
 
 Taxon names of the \code{taxonomy} table were validated with
 TNRS (see \url{http://tnrs.iplantcollaborative.org/} and/or GNR
@@ -44,7 +44,7 @@ might not be the taxon name documented in the original publication.
 In order to identify relevant networks with the original name, use
 \code{\link[=search_nodes]{search_nodes()}}.
 
-Note that the validation of taxon names was performed by an automated
+The validation of taxon names was performed by an automated
 procedure and if there is any doubt, the original names recorded
 by authors should be regarded as the most reliable information. Please
 report any issue related to taxonomy at \url{https://github.com/mangal-wg/mangal-datasets/issues}.

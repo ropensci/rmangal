@@ -77,7 +77,7 @@ resp_to_df_flt <- function(x) {
 }
 
 fill_df <- function(x, nms) {
-  id <- nms[!  nms %in% names(x)]
+  id <- nms[! nms %in% names(x)]
   if (length(id)) x[id] <- NA
   x
 }
@@ -140,7 +140,6 @@ get_from_fkey_net <- function(endpoint, verbose = TRUE, ...) {
   )
 }
 
-
 get_from_fkey_flt <- function(endpoint, verbose = TRUE, ...) {
   query <- list(...)
   resp_to_df_flt(
@@ -156,7 +155,8 @@ get_from_fkey_flt <- function(endpoint, verbose = TRUE, ...) {
 #' @param query `list` list of parameters passed to the API
 #' @param limit `integer` number of entries return by the API (max: 1000)
 #' @param verbose `logical` print API code status on error; default: `TRUE`
-#' @param ... Further named parameters, see [httr::GET()].httr options, see [httr::GET()].
+#' @param ... Further named parameters passed to [httr::GET()].
+#'
 #' @return
 #' Object of class `mgGetResponses`
 #' @details

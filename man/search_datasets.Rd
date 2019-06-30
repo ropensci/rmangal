@@ -2,7 +2,7 @@
 % Please edit documentation in R/search_datasets.R
 \name{search_datasets}
 \alias{search_datasets}
-\title{Search over all datasets using keyword}
+\title{Query the datasets table.}
 \usage{
 search_datasets(query, verbose = TRUE, ...)
 }
@@ -19,7 +19,7 @@ An object of class \code{mgSearchDatasets}, which basically is a \code{data.fram
 including all datasets corresponding to the query. For each dataset entry, #' the networks and the original reference are attached.
 }
 \description{
-Search over all datasets using keyword
+Identify relevant datasets using a keyword or a custom query.
 }
 \details{
 If \code{query} is a character string, then all fields of the database table

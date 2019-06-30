@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Search network by taxa using keyword or specific taxonomic identifiers. — search_taxonomy • rmangal</title>
+<title>Query the taxonomy table. — search_taxonomy • rmangal</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Search network by taxa using keyword or specific taxonomic identifiers. — search_taxonomy" />
+<meta property="og:title" content="Query the taxonomy table. — search_taxonomy" />
 
-<meta property="og:description" content="Search network by taxa using keyword or specific taxonomic identifiers." />
+<meta property="og:description" content="Search network by taxon names and unique taxonomic identifiers." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -102,14 +102,14 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Search network by taxa using keyword or specific taxonomic identifiers.</h1>
+    <h1>Query the taxonomy table.</h1>
     <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/search_taxonomy.R'><code>R/search_taxonomy.R</code></a></small>
     <div class="hidden name"><code>search_taxonomy.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Search network by taxa using keyword or specific taxonomic identifiers.</p>
+    <p>Search network by taxon names and unique taxonomic identifiers.</p>
     
     </div>
 
@@ -154,25 +154,25 @@ Note that if an empty character string is passed, then all datasets available ar
     </tr>
     <tr>
       <th>...</th>
-      <td><p>further arguments to be passed to <code><a href='https://www.rdocumentation.org/packages/httr/topics/GET'>httr::GET()</a></code></p></td>
+      <td><p>further arguments to be passed to <code><a href='https://www.rdocumentation.org/packages/httr/topics/GET'>httr::GET()</a></code>.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>An object of class <code>mgSearchTaxonomy</code>, which is a <code>data.frame</code> object with
+    <p>An object of class <code>mgSearchTaxonomy</code>, which is a <code>data.frame</code> including
 all taxa matching the query.</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>If a taxonomic identifier is used, then <code>query</code> is ignored. Also, only one
-taxonomic identifier can be used at a time.</p>
+    <p>If any of the unique identifier is used, then <code>query</code> is ignored. Moreover,
+if several taxonomic identifiers are specified, then only the first one is considered.</p>
 <p>Taxon names of the <code>taxonomy</code> table were validated with
 TNRS (see <a href='http://tnrs.iplantcollaborative.org/'>http://tnrs.iplantcollaborative.org/</a> and/or GNR
 might not be the taxon name documented in the original publication.
 In order to identify relevant networks with the original name, use
 <code><a href='search_nodes.html'>search_nodes()</a></code>.</p>
-<p>Note that the validation of taxon names was performed by an automated
+<p>The validation of taxon names was performed by an automated
 procedure and if there is any doubt, the original names recorded
 by authors should be regarded as the most reliable information. Please
 report any issue related to taxonomy at <a href='https://github.com/mangal-wg/mangal-datasets/issues'>https://github.com/mangal-wg/mangal-datasets/issues</a>.</p>
