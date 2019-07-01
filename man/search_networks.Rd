@@ -39,7 +39,7 @@ Note that for lists with more than one element, only the first element is used, 
 }}
 
 \examples{
-search_networks(query="insect\%")
+mg_insect <- search_networks(query="insect\%")
 \donttest{
 # Spatial query
 library(USAboundaries)
@@ -47,6 +47,7 @@ area <- us_states(state="california")
 networks_in_area <- search_networks(area)
 plot(networks_in_area)
 }
+mg_19 <- search_networks(list(dataset_id = 19))
 
 }
 \references{

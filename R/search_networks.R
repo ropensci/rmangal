@@ -26,7 +26,7 @@
 #' <https://mangal-wg.github.io/mangal-api/#networks>
 #'
 #' @examples
-#' search_networks(query="insect%")
+#' mg_insect <- search_networks(query="insect%")
 #' \donttest{
 #' # Spatial query
 #' library(USAboundaries)
@@ -34,6 +34,7 @@
 #' networks_in_area <- search_networks(area)
 #' plot(networks_in_area)
 #' }
+#' mg_19 <- search_networks(list(dataset_id = 19))
 #'
 #' @export
 

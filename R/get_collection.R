@@ -17,11 +17,10 @@
 #' [search_nodes()], [search_reference()], [search_taxonomy()].
 #'
 #' @examples
-#' \dontrun{
-#' get_collection(c(1035:1036))
-#' get_collection(search_networks(query='insect%'))
-#' get_collection(search_datasets(query='lagoon%'))
-#' }
+#' mg_2 <- get_collection(c(1035:1036))
+#' mg_insect <- get_collection(search_networks(query='insect%'))
+#' mg_lagoon <- get_collection(search_datasets(query='lagoon%'))
+#'
 #' @export
 
 get_collection <- function(x, ...) {

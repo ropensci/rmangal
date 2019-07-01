@@ -9,8 +9,8 @@ df <- data.frame(
     taxonomy.ncbi = c(1,2)
 )
 
-txt0 <- "* Percent of nodes with taxonomic IDs from external sources: \n  --> "
-txt1 <- "100% ITIS, 100% BOLD, 50% EOL, 100% COL, 100% GBIF, 100% NCBI\n"
+txt0 <- "* Current taxonomic IDs coverage for nodes of this network: \n  --> "
+txt1 <- "ITIS: 100%, BOLD: 100%, EOL: 50%, COL: 100%, GBIF: 100%, NCBI: 100%\n"
 
 test_that("expected behavior", {
   expect_equal(percent_id(df$taxonomy.eol), 50)

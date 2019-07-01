@@ -61,11 +61,10 @@ function or a set of Mandal unique network identifiers.
 }}
 
 \examples{
-\dontrun{
-get_collection(c(1035:1036))
-get_collection(search_networks(query='insect\%'))
-get_collection(search_datasets(query='lagoon\%'))
-}
+mg_2 <- get_collection(c(1035:1036))
+mg_insect <- get_collection(search_networks(query='insect\%'))
+mg_lagoon <- get_collection(search_datasets(query='lagoon\%'))
+
 }
 \seealso{
 \code{\link[=search_datasets]{search_datasets()}}, \code{\link[=search_interactions]{search_interactions()}}, \code{\link[=search_networks]{search_networks()}},

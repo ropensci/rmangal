@@ -269,7 +269,6 @@ get_singletons <- function(endpoint = NULL, ids = NULL, verbose = TRUE,
 }
 
 
-
 # PRINT/MESSAGES HELPERS
 
 empty_line <- function() {
@@ -306,12 +305,12 @@ percent_id <- function(y) round(100*sum(!is.na(y))/length(y))
 
 print_taxo_ids <- function(x) {
   paste0(
-    "* Percent of nodes with taxonomic IDs from external sources: \n  --> ",
-    percent_id(x$taxonomy.tsn), "% ITIS, ",
-    percent_id(x$taxonomy.bold), "% BOLD, ",
-    percent_id(x$taxonomy.eol), "% EOL, ",
-    percent_id(x$taxonomy.col), "% COL, ",
-    percent_id(x$taxonomy.gbif), "% GBIF, ",
-    percent_id(x$taxonomy.ncbi), "% NCBI\n"
+    "* Current taxonomic IDs coverage for nodes of this network: \n  --> ",
+    "ITIS: ", percent_id(x$taxonomy.tsn), "%, ",
+    "BOLD: ", percent_id(x$taxonomy.bold), "%, ",
+    "EOL: ", percent_id(x$taxonomy.eol), "%, ",
+    "COL: ", percent_id(x$taxonomy.col), "%, ",
+    "GBIF: ", percent_id(x$taxonomy.gbif), "%, ",
+    "NCBI: ", percent_id(x$taxonomy.ncbi), "%\n"
   )
 }

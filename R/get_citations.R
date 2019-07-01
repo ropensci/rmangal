@@ -10,8 +10,8 @@
 #'  lagoon_net_collection <- get_collection(search_datasets("lagoon"))
 #'  get_citation(lagoon_net_collection)
 #'  # individual network
-#'  network <- get_network_by_id(18)
-#'  get_citation(network)
+#'  mg_18 <- get_network_by_id(18)
+#'  get_citation(mg_18)
 #'
 #' @export
 get_citation <- function(x) {

@@ -36,11 +36,11 @@
 #' class(all_datasets)
 #' }
 #' # Search with keyword
-#' search_datasets(query = 'lagoon')
-#' res2011 <- search_datasets(query = '2011')
+#' mg_lagoon <- search_datasets(query = 'lagoon')
+#' mg_2011 <- search_datasets(query = '2011')
 #' # Search with a custom query (specific column)
-#' search_datasets(query = list(name = 'kemp_1977'))
-#' search_datasets(query = list(ref_id = 16))
+#' mg_kemp <- search_datasets(query = list(name = 'kemp_1977'))
+#' mg_16 <- search_datasets(query = list(ref_id = 16))
 #' @export
 
 search_datasets <- function(query, verbose = TRUE, ...) {
