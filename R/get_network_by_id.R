@@ -27,7 +27,10 @@ get_network_by_id <- function(ids, verbose = TRUE) {
         lapply(ids, get_network_by_id_indiv, verbose),
         class= "mgNetworksCollection"
       )
-    } else get_network_by_id_indiv(ids, verbose)
+    } else {
+      if (!length(ids)) return(data.frame())
+      get_network_by_id_indiv(ids, verbose)
+    }
 }
 
 
