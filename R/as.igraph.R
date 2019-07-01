@@ -16,10 +16,11 @@
 #' # Plot igraph object with vertex label
 #' plot(ig_network, vertex.label = insects_network$nodes$taxonomy.name)
 #'
-#' @export
-as.igraph <- function(x) {
-    UseMethod("as.igraph", x)
-}
+# #' @export
+# as.igraph <- function(x) {
+#     UseMethod("as.igraph", x)
+# }
+#' @importFrom igraph as.igraph
 
 #' @describeIn as.igraph Coerce `mgNetworksCollection` to `igraph` object.
 #' @export
