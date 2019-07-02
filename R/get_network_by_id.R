@@ -24,12 +24,12 @@
 get_network_by_id <- function(ids, verbose = TRUE) {
     if (length(ids) > 1) {
       structure(
-        lapply(ids, get_network_by_id_indiv, verbose),
+        lapply(ids, get_network_by_id_indiv, verbose = verbose),
         class= "mgNetworksCollection"
       )
     } else {
       if (!length(ids)) return(data.frame())
-      get_network_by_id_indiv(ids, verbose)
+      get_network_by_id_indiv(ids, verbose = verbose)
     }
 }
 
@@ -37,6 +37,7 @@ get_network_by_id <- function(ids, verbose = TRUE) {
 #' @describeIn get_network_by_id Retrieve a network by its  collection of networks (default).
 #' @export
 get_network_by_id_indiv <- function(id, verbose = TRUE) {
+  stopifnot(grepl("^[0-9]+$", id))
   stopifnot(!is.null(id))
   stopifnot(length(id) == 1)
   # Object S3 declaration
@@ -49,15 +50,12 @@ get_network_by_id_indiv <- function(id, verbose = TRUE) {
     stop(sprintf("network id %s not found", id))
 
   # if (verbose) message("Retrieving nodes\n")
-  # nodes and edges associated with the network
   mg_network$nodes <- get_from_fkey_flt(endpoints()$node,
     network_id = mg_network$network$id, verbose = verbose)
-  # print(names(mg_network$nodes))
-  # if (verbose) cat("done!\nRetrieving interaction\n")
+  # if (verbose) message("done!\nRetrieving interaction\n")
   mg_network$edges <- get_from_fkey_flt(endpoints()$interaction,
     network_id = mg_network$network$id, verbose = verbose)
-  # print(names(mg_network$edges))
-  # if (verbose) cat("done")
+  # if (verbose) message("done")
   # retrieve dataset informations
   mg_network$dataset <- resp_to_df(get_singletons(endpoints()$dataset,
     ids = unique(mg_network$network$dataset_id, verbose = verbose))$body)

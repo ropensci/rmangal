@@ -1,11 +1,12 @@
 #' Get a collection of networks
 #'
 #' Retrieve a set of networks based on the results of one of the `search_*()`
-#' function or a set of Mandal unique network identifiers.
+#' function or a set of Mangal unique network identifiers.
 #'
 #' @param x `numeric` vector of Mangal network IDs or an object returned by
 #' by one of the `search_*()` functions.
 #' @param ... arguments to be passed on to [rmangal::get_network_by_id()].
+#'
 #' @return
 #'  If there is only one network to be retrieved, `get_collection()` returns a
 #' `mgNetwork` object, otherwise it returns a object of class
@@ -54,7 +55,7 @@ get_collection.mgSearchNetworks <- function(x, ...) {
 get_collection.mgSearchReference <- function(x, ...) {
   # Get networks ids
   net_ids <- unique(x$networks$id)
-  get_network_by_id(net_ids)
+  get_network_by_id(net_ids, ...)
 }
 
 #' @describeIn get_collection Get a collection of networks from a `mgSearchNodes` object.

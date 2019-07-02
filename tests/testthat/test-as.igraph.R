@@ -1,8 +1,8 @@
-context("as.igraph")
+context("mg_to_igraph")
 
 # Prep test on mgNetwork
-net_100 <- as.igraph(get_network_by_id(100))
-net_collection <- as.igraph(get_collection(search_datasets("closs")))
+net_100 <- mg_to_igraph(get_network_by_id(100))
+net_collection <- mg_to_igraph(get_collection(search_datasets("closs")))
 
 test_that("expected behavior", {
   expect_equal(length(net_collection), 12)

@@ -14,5 +14,6 @@ test_that("expected behavior", {
   expect_equal(length(res1), 14)
   expect_equal(length(res2), 3)
   expect_identical(resw, data.frame())
+  expect_error(get_collection("onlydigitsallowed"))
 }
 )
