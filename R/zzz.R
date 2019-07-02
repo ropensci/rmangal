@@ -9,7 +9,7 @@
 
 # HELPER FUNCTIONS
 # Basic
-server <- function() "http://poisotlab.biol.umontreal.ca"
+server <- function() "https://mangal.io"
 # server <- function() "http://localhost:8080" # dev purpose
 base <- function() "/api/v2"
 # bearer <- function() ifelse(file.exists(".httr-oauth"),
