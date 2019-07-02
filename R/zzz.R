@@ -43,9 +43,6 @@ mem_get <- memoise::memoise(httr::GET)
 #' @export
 clear_cache_rmangal <- function() memoise::forget(mem_get)
 
-# Common spatial columns in mangal-db
-sf_columns <- function(x) c("geom.type", "geom.coordinates")
-
 # NULL to NA
 null_to_na <- function(x) {
     if (is.list(x)) {
