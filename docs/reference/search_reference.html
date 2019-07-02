@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Search for a specific dataset reference with its DOI — search_reference • rmangal</title>
+<title>Query the reference table. — search_reference • rmangal</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Search for a specific dataset reference with its DOI — search_reference" />
+<meta property="og:title" content="Query the reference table. — search_reference" />
 
-<meta property="og:description" content="Search for a specific dataset reference with its DOI" />
+<meta property="og:description" content="Search for a specific reference using a key wor or a Digital Object Identifier (DOI)." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -102,14 +102,14 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Search for a specific dataset reference with its DOI</h1>
+    <h1>Query the reference table.</h1>
     <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/search_reference.R'><code>R/search_reference.R</code></a></small>
     <div class="hidden name"><code>search_reference.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Search for a specific dataset reference with its DOI</p>
+    <p>Search for a specific reference using a key wor or a Digital Object Identifier (DOI).</p>
     
     </div>
 
@@ -125,7 +125,7 @@ Note that if an empty character string is passed, then all datasets available ar
     </tr>
     <tr>
       <th>doi</th>
-      <td><p><code>character</code> a Digital Object Identifier of the article (mandatory arg).</p></td>
+      <td><p><code>character</code> a Digital Object Identifier  (DOI) of the article. Note that <code>query</code> is ignored if <code>doi</code> is specified.</p></td>
     </tr>
     <tr>
       <th>verbose</th>
@@ -216,7 +216,7 @@ Note that for lists with more than one element, only the first element is used, 
 #&gt; 1 Food web strucutre of a noterhen cool-desert stream (Deep Creek), Curlew Valley, Idaho-Utah
 #&gt;   public all_interactions               created_at               updated_at
 #&gt; 1   TRUE            FALSE 2019-03-08T19:27:51.061Z 2019-03-08T19:27:51.061Z
-#&gt;   dataset_id user_id         spd
+#&gt;   dataset_id user_id        geom
 #&gt; 1        133       4 POINT EMPTY
 #&gt; 
 #&gt; attr(,"row.names")
@@ -276,7 +276,7 @@ Note that for lists with more than one element, only the first element is used, 
 #&gt; 1 Flower-visiting insect at Mt. Latnjatjarro, northern Sweden   TRUE
 #&gt;   all_interactions               created_at               updated_at dataset_id
 #&gt; 1            FALSE 2019-02-24T22:21:32.444Z 2019-02-24T22:21:32.444Z          9
-#&gt;   user_id                spd
+#&gt;   user_id               geom
 #&gt; 1       2 POINT (18.5 68.35)
 #&gt; 
 #&gt; attr(,"row.names")

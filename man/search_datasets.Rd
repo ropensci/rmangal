@@ -2,7 +2,7 @@
 % Please edit documentation in R/search_datasets.R
 \name{search_datasets}
 \alias{search_datasets}
-\title{Search over all datasets using keyword}
+\title{Query the datasets table.}
 \usage{
 search_datasets(query, verbose = TRUE, ...)
 }
@@ -19,7 +19,7 @@ An object of class \code{mgSearchDatasets}, which basically is a \code{data.fram
 including all datasets corresponding to the query. For each dataset entry, #' the networks and the original reference are attached.
 }
 \description{
-Search over all datasets using keyword
+Identify relevant datasets using a keyword or a custom query.
 }
 \details{
 If \code{query} is a character string, then all fields of the database table
@@ -45,11 +45,11 @@ all_datasets
 class(all_datasets)
 }
 # Search with keyword
-search_datasets(query = 'lagoon')
-res2011 <- search_datasets(query = '2011')
+mg_lagoon <- search_datasets(query = 'lagoon')
+mg_2011 <- search_datasets(query = '2011')
 # Search with a custom query (specific column)
-search_datasets(query = list(name = 'kemp_1977'))
-search_datasets(query = list(ref_id = 16))
+mg_kemp <- search_datasets(query = list(name = 'kemp_1977'))
+mg_16 <- search_datasets(query = list(ref_id = 16))
 }
 \references{
 \url{https://mangal-wg.github.io/mangal-api/#get-all-datasets}

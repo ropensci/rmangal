@@ -28,8 +28,8 @@ get_collection(x, ...)
 \method{get_collection}{mgSearchInteractions}(x, ...)
 }
 \arguments{
-\item{x}{\code{numeric} vector of mangal network IDs or an object returned by
-by on of the \code{search_*()} functions.}
+\item{x}{\code{numeric} vector of Mangal network IDs or an object returned by
+by one of the \code{search_*()} functions.}
 
 \item{...}{arguments to be passed on to \code{\link[rmangal:get_network_by_id]{rmangal::get_network_by_id()}}.}
 }
@@ -40,7 +40,8 @@ If there is only one network to be retrieved, \code{get_collection()} returns a
 objects \code{\link[rmangal:get_network_by_id]{rmangal::get_network_by_id()}}).
 }
 \description{
-Get a collection of networks
+Retrieve a set of networks based on the results of one of the \code{search_*()}
+function or a set of Mangal unique network identifiers.
 }
 \section{Methods (by class)}{
 \itemize{
@@ -60,9 +61,12 @@ Get a collection of networks
 }}
 
 \examples{
-\dontrun{
-get_collection(c(1035:1036))
-get_collection(search_networks(query='insect\%'))
-get_collection(search_datasets(query='lagoon\%'))
+mg_2 <- get_collection(c(1035:1036))
+mg_insect <- get_collection(search_networks(query='insect\%'))
+mg_lagoon <- get_collection(search_datasets(query='lagoon\%'))
+
 }
+\seealso{
+\code{\link[=search_datasets]{search_datasets()}}, \code{\link[=search_interactions]{search_interactions()}}, \code{\link[=search_networks]{search_networks()}},
+\code{\link[=search_nodes]{search_nodes()}}, \code{\link[=search_reference]{search_reference()}}, \code{\link[=search_taxonomy]{search_taxonomy()}}.
 }

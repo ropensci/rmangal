@@ -1,8 +1,10 @@
-#' Search for a specific dataset reference with its DOI
+#' Query the reference table.
+#'
+#' Search for a specific reference using a key wor or a Digital Object Identifier (DOI).
 #'
 #' @param query either a character string including a single keyword or a list containing a custom query (see details section below).
 #' Note that if an empty character string is passed, then all datasets available are returned.
-#' @param doi `character` a Digital Object Identifier of the article (mandatory arg).
+#' @param doi `character` a Digital Object Identifier  (DOI) of the article. Note that `query` is ignored if `doi` is specified.
 #' @param verbose a `logical`. Should extra information be reported on progress?
 #' @param ... further arguments to be passed to [httr::GET()].
 #'

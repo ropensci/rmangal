@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Search network by querying the nodes database table. — search_nodes • rmangal</title>
+<title>Query the nodes table. — search_nodes • rmangal</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Search network by querying the nodes database table. — search_nodes" />
+<meta property="og:title" content="Query the nodes table. — search_nodes" />
 
-<meta property="og:description" content="Search network by querying the nodes database table." />
+<meta property="og:description" content="Search for networks by querying the nodes database table." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -102,14 +102,14 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Search network by querying the nodes database table.</h1>
+    <h1>Query the nodes table.</h1>
     <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/search_nodes.R'><code>R/search_nodes.R</code></a></small>
     <div class="hidden name"><code>search_nodes.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Search network by querying the nodes database table.</p>
+    <p>Search for networks by querying the nodes database table.</p>
     
     </div>
 
@@ -129,7 +129,7 @@ Note that if an empty character string is passed, then all datasets available ar
     </tr>
     <tr>
       <th>...</th>
-      <td><p>further arguments to be passed to <code><a href='https://www.rdocumentation.org/packages/httr/topics/GET'>httr::GET()</a></code></p></td>
+      <td><p>further arguments to be passed to <code><a href='https://www.rdocumentation.org/packages/httr/topics/GET'>httr::GET()</a></code>.</p></td>
     </tr>
     </table>
     
@@ -144,7 +144,7 @@ All networks in which taxa are involved are also attached to the <code>data.fram
 including character strings are searched and entries for which at least one
 partial match was found are returned.
 Alternatively, a named list can be used to look for an exact match in a specific field.
-In this case, the name of the list should match one of the field names of the database table.
+In this case, the name of the list should match one of the field names of the table.
 For the <code>networks</code> table, those are:
 Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.</p>
     

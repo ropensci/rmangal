@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Search over all networks using keyword or spatial object — search_networks • rmangal</title>
+<title>Query the networks table. — search_networks • rmangal</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Search over all networks using keyword or spatial object — search_networks" />
+<meta property="og:title" content="Query the networks table. — search_networks" />
 
-<meta property="og:description" content="Search over all networks using keyword or spatial object" />
+<meta property="og:description" content="Search over all networks using a keyword, a custom query or a spatial object" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -102,14 +102,14 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Search over all networks using keyword or spatial object</h1>
+    <h1>Query the networks table.</h1>
     <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/search_networks.R'><code>R/search_networks.R</code></a></small>
     <div class="hidden name"><code>search_networks.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Search over all networks using keyword or spatial object</p>
+    <p>Search over all networks using a keyword, a custom query or a spatial object</p>
     
     </div>
 
@@ -131,11 +131,11 @@ Note that if an empty character string is passed, then all datasets available ar
     </tr>
     <tr>
       <th>...</th>
-      <td><p>further arguments to be passed to <code><a href='https://www.rdocumentation.org/packages/httr/topics/GET'>httr::GET()</a></code></p></td>
+      <td><p>further arguments to be passed to <code><a href='https://www.rdocumentation.org/packages/httr/topics/GET'>httr::GET()</a></code>.</p></td>
     </tr>
     <tr>
       <th>query_sf</th>
-      <td><p>a spatial object of class <code>sf</code> used to search in a specific geographical area. If keyword is unspecified (query = NULL), all networks will be returned.</p></td>
+      <td><p>a spatial object of class <code>sf</code> used to search in a specific geographical area.</p></td>
     </tr>
     </table>
     
@@ -149,8 +149,7 @@ Note that if an empty character string is passed, then all datasets available ar
 including character strings are searched and entries for which at least one
 partial match was found are returned.
 Alternatively, a named list can be used to look for an exact match in a specific field.
-In this case, the name of the list should match one of the field names of the database table.
-For the <code>networks</code> table, those are:
+In this case, the name of the list should match one of the field names of the database table. For the <code>networks</code> table, those are:
 Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.</p>
     
     <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
@@ -165,60 +164,10 @@ Note that for lists with more than one element, only the first element is used, 
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>search_networks</span>(<span class='kw'>query</span><span class='kw'>=</span><span class='st'>"insect%"</span>)</div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Found 14 networks</span></div><div class='output co'>#&gt; Simple feature collection with 14 features and 10 fields (with 3 geometries empty)
-#&gt; geometry type:  POINT
-#&gt; dimension:      XY
-#&gt; bbox:           xmin: -114.9667 ymin: 8.534018 xmax: 138.3833 ymax: 75
-#&gt; epsg (SRID):    4326
-#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs
-#&gt; First 10 features:
-#&gt;      id                               name                     date
-#&gt; 1    18    mosquin_martin_1967_19650731_18 1965-07-31T04:00:00.000Z
-#&gt; 2   909 elberling_olesen_1999_19940823_909 1994-08-23T04:00:00.000Z
-#&gt; 3   948             kato_1993_19910901_948 1991-09-01T04:00:00.000Z
-#&gt; 4  1460         cornaby_1974_19680208_1460 1968-02-08T05:00:00.000Z
-#&gt; 5  1461         cornaby_1974_19680229_1461 1968-02-29T05:00:00.000Z
-#&gt; 6  1471    jiron_cartin_1981_19770101_1471 1977-01-01T05:00:00.000Z
-#&gt; 7  1493        robinson_1953_19480101_1493 1948-01-01T05:00:00.000Z
-#&gt; 8  1501        seifert_1976a_19700701_1501 1970-07-01T04:00:00.000Z
-#&gt; 9  1500        seifert_1976a_19700701_1500 1970-07-01T04:00:00.000Z
-#&gt; 10 1502         seifert_1979_19760201_1502 1976-02-01T05:00:00.000Z
-#&gt;                                                                                                                                              description
-#&gt; 1                                 Occurence of flower-visiting insect on plant species, two miles north of Bailey Point, Melville Island, N.W.T., Canada
-#&gt; 2                                                                                            Flower-visiting insect at Mt. Latnjatjarro, northern Sweden
-#&gt; 3  Flower and anthophilous insect interactions in the primary cool-temperate subalpine forests and meadows at Mt. Kushigata, Yamanashi Prefecture, Japan
-#&gt; 4                            The insect community of  a toad carrion in a tropical dry lowland forest at Finac La pacifica, Guanacaste Prov., Costa Rica
-#&gt; 5                              The insect community of  a toad carrion in a tropical wet lowland forest near Rincon de Osa, Puntarenas Prov., Costa Rica
-#&gt; 6                                               The insect community of a dog carcass in a premontane humid forest, University of Costa Rica, Costa Rica
-#&gt; 7                                                                       The insect community of an elm tree brown flux (Ulmus procera salisb), Sheffield
-#&gt; 8                                                                       The insect community in Heliconia wagneriana on the Peninsula de Osa, Costa Rica
-#&gt; 9                                                                        The insect community in Heliconia imbricata on the Peninsula de Osa, Costa Rica
-#&gt; 10                                                                                  The insect community of Heliconia bihai in a Venezuelan cloud forest
-#&gt;    public all_interactions               created_at               updated_at
-#&gt; 1    TRUE            FALSE 2019-02-22T18:38:37.491Z 2019-02-22T18:38:37.491Z
-#&gt; 2    TRUE            FALSE 2019-02-24T22:21:32.444Z 2019-02-24T22:21:32.444Z
-#&gt; 3    TRUE            FALSE 2019-02-25T20:52:09.499Z 2019-02-25T20:52:09.499Z
-#&gt; 4    TRUE            FALSE 2019-03-01T18:30:50.890Z 2019-03-01T18:30:50.890Z
-#&gt; 5    TRUE            FALSE 2019-03-01T18:30:57.419Z 2019-03-01T18:30:57.419Z
-#&gt; 6    TRUE            FALSE 2019-03-04T18:22:33.907Z 2019-03-04T18:22:33.907Z
-#&gt; 7    TRUE            FALSE 2019-03-06T15:58:35.734Z 2019-03-06T15:58:35.734Z
-#&gt; 8    TRUE            FALSE 2019-03-06T19:58:01.589Z 2019-03-06T19:58:01.589Z
-#&gt; 9    TRUE            FALSE 2019-03-06T19:57:58.599Z 2019-03-06T19:57:58.599Z
-#&gt; 10   TRUE            FALSE 2019-03-06T20:26:41.249Z 2019-03-06T20:26:41.249Z
-#&gt;    dataset_id user_id                        spd
-#&gt; 1           4       3       POINT (-114.9667 75)
-#&gt; 2           9       2         POINT (18.5 68.35)
-#&gt; 3          66       2   POINT (138.3833 35.5833)
-#&gt; 4          91       4  POINT (-85.09443 10.4568)
-#&gt; 5          91       4 POINT (-83.50833 8.534018)
-#&gt; 6          99       4 POINT (-84.07651 9.933982)
-#&gt; 7         114       4 POINT (-1.451736 53.37829)
-#&gt; 8         118       4 POINT (-83.48878 8.706877)
-#&gt; 9         118       4 POINT (-83.48878 8.706877)
-#&gt; 10        119       4 POINT (-67.68822 10.34253)</div><div class='input'><span class='co'># Spatial query</span>
+    <pre class="examples"><div class='input'><span class='no'>mg_insect</span> <span class='kw'>&lt;-</span> <span class='fu'>search_networks</span>(<span class='kw'>query</span><span class='kw'>=</span><span class='st'>"insect%"</span>)</div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Found 14 networks</span></div><div class='input'><span class='co'># Spatial query</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>USAboundaries</span>)
 <span class='no'>area</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://lincolnmullen.com/software/usaboundaries/reference/us_states.html'>us_states</a></span>(<span class='kw'>state</span><span class='kw'>=</span><span class='st'>"california"</span>)
-<span class='no'>networks_in_area</span> <span class='kw'>&lt;-</span> <span class='fu'>search_networks</span>(<span class='no'>area</span>)</div><div class='output co'>#&gt; <span class='message'>Data retrieval 7.14%   </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 14.3%   </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 21.4%   </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 28.6%   </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 35.7%   </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 42.9%   </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 50%   </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 57.1%   </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 64.3%   </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 71.4%   </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 78.6%   </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 85.7%   </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 92.9%   </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>networks_in_area</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: plotting the first 9 out of 10 attributes; use max.plot = 10 to plot all</span></div><div class='img'><img src='search_networks-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='no'>networks_in_area</span> <span class='kw'>&lt;-</span> <span class='fu'>search_networks</span>(<span class='no'>area</span>)</div><div class='output co'>#&gt; <span class='message'>Data retrieval 7.14%   </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 14.3%   </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 21.4%   </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 28.6%   </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 35.7%   </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 42.9%   </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 50%   </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 57.1%   </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 64.3%   </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 71.4%   </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 78.6%   </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 85.7%   </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 92.9%   </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>networks_in_area</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: plotting the first 9 out of 10 attributes; use max.plot = 10 to plot all</span></div><div class='img'><img src='search_networks-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>mg_19</span> <span class='kw'>&lt;-</span> <span class='fu'>search_networks</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>dataset_id</span> <span class='kw'>=</span> <span class='fl'>19</span>))</div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Found 1 networks</span></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

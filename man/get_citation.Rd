@@ -4,7 +4,7 @@
 \alias{get_citation}
 \alias{get_citation.mgNetwork}
 \alias{get_citation.mgNetworksCollection}
-\title{Get a BibTeX entry for all publications in a given networks collection.}
+\title{Get a BibTeX entry for every publication}
 \usage{
 get_citation(x)
 
@@ -13,19 +13,19 @@ get_citation(x)
 \method{get_citation}{mgNetworksCollection}(x)
 }
 \arguments{
-\item{x}{\code{mgNetworksCollection} or \code{mgNetworks} object class.}
+\item{x}{an object of class \code{mgNetworksCollection} or \code{mgNetworks}.}
 }
 \value{
 Bibtex entries as a character vector.
 }
 \description{
-Get a BibTeX entry for all publications in a given networks collection.
+Get a BibTeX entry for every publication
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{mgNetwork}: Display the BibTeX of the network's publication
+\item \code{mgNetwork}: Get BibTeX entries for the publication associated to the network.
 
-\item \code{mgNetworksCollection}: Display the BibTeX of all publications part of the networks collection
+\item \code{mgNetworksCollection}: Get BibTeX entries for the publication associated to the networks.
 }}
 
 \examples{
@@ -33,6 +33,7 @@ Get a BibTeX entry for all publications in a given networks collection.
  lagoon_net_collection <- get_collection(search_datasets("lagoon"))
  get_citation(lagoon_net_collection)
  # individual network
- network <- get_network_by_id(18)
- get_citation(network)
+ mg_18 <- get_network_by_id(18)
+ get_citation(mg_18)
+
 }

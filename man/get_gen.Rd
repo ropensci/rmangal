@@ -15,7 +15,7 @@ get_gen(endpoint, query = NULL, limit = 100, verbose = TRUE, ...)
 
 \item{verbose}{\code{logical} print API code status on error; default: \code{TRUE}}
 
-\item{...}{Further named parameters, see \code{\link[httr:GET]{httr::GET()}}.httr options, see \code{\link[httr:GET]{httr::GET()}}.}
+\item{...}{Further named parameters passed to \code{\link[httr:GET]{httr::GET()}}.}
 }
 \value{
 Object of class \code{mgGetResponses}

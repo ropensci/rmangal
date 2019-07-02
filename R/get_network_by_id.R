@@ -1,6 +1,6 @@
-#' Retrieve mangal network by id
+#' Retrieve network data for a given set of Mangal identifiera
 #'
-#' @param ids a vector of mangal ID for networks (`numeric`).
+#' @param ids a vector of Mangal ID for networks (`numeric`).
 #' @param id a single ID network (`numeric`).
 #' @param x an object of class `mgNetwork` or `mgNetworksCollection`.
 #' @param ... ignored.
@@ -15,6 +15,7 @@
 #' - edges: a `data.frame` of all edges (ecological interactions), with the attribute used to describe the interaction
 #' - dataset: `list` information pertaining to the dataset the network is associated to;
 #' - reference: `list` information about the original publication.
+#'
 #' @examples
 #' net18 <- get_network_by_id(id = 18)
 #' nets <- get_network_by_id(id = c(18, 23))
@@ -23,16 +24,20 @@
 get_network_by_id <- function(ids, verbose = TRUE) {
     if (length(ids) > 1) {
       structure(
-        lapply(ids, get_network_by_id_indiv, verbose),
+        lapply(ids, get_network_by_id_indiv, verbose = verbose),
         class= "mgNetworksCollection"
       )
-    } else get_network_by_id_indiv(ids, verbose)
+    } else {
+      if (!length(ids)) return(data.frame())
+      get_network_by_id_indiv(ids, verbose = verbose)
+    }
 }
 
 
 #' @describeIn get_network_by_id Retrieve a network by its  collection of networks (default).
 #' @export
 get_network_by_id_indiv <- function(id, verbose = TRUE) {
+  stopifnot(grepl("^[0-9]+$", id))
   stopifnot(!is.null(id))
   stopifnot(length(id) == 1)
   # Object S3 declaration
@@ -44,14 +49,13 @@ get_network_by_id_indiv <- function(id, verbose = TRUE) {
   if (is.null(mg_network$network))
     stop(sprintf("network id %s not found", id))
 
-  # if (verbose) cat("Retrieving nodes\n")
-  # nodes and edges associated with the network
+  # if (verbose) message("Retrieving nodes\n")
   mg_network$nodes <- get_from_fkey_flt(endpoints()$node,
     network_id = mg_network$network$id, verbose = verbose)
-  # if (verbose) cat("done!\nRetrieving interaction\n")
-  mg_network$edges <- get_from_fkey_net(endpoints()$interaction,
+  # if (verbose) message("done!\nRetrieving interaction\n")
+  mg_network$edges <- get_from_fkey_flt(endpoints()$interaction,
     network_id = mg_network$network$id, verbose = verbose)
-  # if (verbose) cat("done")
+  # if (verbose) message("done")
   # retrieve dataset informations
   mg_network$dataset <- resp_to_df(get_singletons(endpoints()$dataset,
     ids = unique(mg_network$network$dataset_id, verbose = verbose))$body)

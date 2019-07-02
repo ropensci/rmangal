@@ -3,7 +3,7 @@
 \name{search_networks}
 \alias{search_networks}
 \alias{search_networks_sf}
-\title{Search over all networks using keyword or spatial object}
+\title{Query the networks table.}
 \usage{
 search_networks(query, verbose = TRUE, ...)
 
@@ -15,23 +15,22 @@ Note that if an empty character string is passed, then all datasets available ar
 
 \item{verbose}{a \code{logical}. Should extra information be reported on progress?}
 
-\item{...}{further arguments to be passed to \code{\link[httr:GET]{httr::GET()}}}
+\item{...}{further arguments to be passed to \code{\link[httr:GET]{httr::GET()}}.}
 
-\item{query_sf}{a spatial object of class \code{sf} used to search in a specific geographical area. If keyword is unspecified (query = NULL), all networks will be returned.}
+\item{query_sf}{a spatial object of class \code{sf} used to search in a specific geographical area.}
 }
 \value{
 An object of class \code{mgSearchNetworks}, which is a \code{data.frame} object with all networks informations
 }
 \description{
-Search over all networks using keyword or spatial object
+Search over all networks using a keyword, a custom query or a spatial object
 }
 \details{
 If \code{query} is a character string, then all fields of the database table
 including character strings are searched and entries for which at least one
 partial match was found are returned.
 Alternatively, a named list can be used to look for an exact match in a specific field.
-In this case, the name of the list should match one of the field names of the database table.
-For the \code{networks} table, those are:
+In this case, the name of the list should match one of the field names of the database table. For the \code{networks} table, those are:
 Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
 }
 \section{Functions}{
@@ -40,7 +39,7 @@ Note that for lists with more than one element, only the first element is used, 
 }}
 
 \examples{
-search_networks(query="insect\%")
+mg_insect <- search_networks(query="insect\%")
 \donttest{
 # Spatial query
 library(USAboundaries)
@@ -48,6 +47,7 @@ area <- us_states(state="california")
 networks_in_area <- search_networks(area)
 plot(networks_in_area)
 }
+mg_19 <- search_networks(list(dataset_id = 19))
 
 }
 \references{

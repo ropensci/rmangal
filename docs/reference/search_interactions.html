@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Search for specific interactions — search_interactions • rmangal</title>
+<title>Query the interactions table. — search_interactions • rmangal</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,10 @@
 
 
 
-<meta property="og:title" content="Search for specific interactions — search_interactions" />
+<meta property="og:title" content="Query the interactions table. — search_interactions" />
 
-<meta property="og:description" content="Search for specific interactions type (e.g. mutualism)" />
+<meta property="og:description" content="Search for specific interactions using a keyword or a specific type of
+interactions (e.g. mutualism)." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -102,14 +103,15 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Search for specific interactions</h1>
+    <h1>Query the interactions table.</h1>
     <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/search_interactions.R'><code>R/search_interactions.R</code></a></small>
     <div class="hidden name"><code>search_interactions.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Search for specific interactions type (e.g. mutualism)</p>
+    <p>Search for specific interactions using a keyword or a specific type of
+interactions (e.g. mutualism).</p>
     
     </div>
 
@@ -126,11 +128,11 @@ Note that if an empty character string is passed, then all datasets available ar
     </tr>
     <tr>
       <th>type</th>
-      <td><p>a <code>character</code> one of the interactions type available, uses <code><a href='avail_type.html'>avail_type()</a></code> to see the full list of type available.</p></td>
+      <td><p>a <code>character</code> one of the interactions type available, uses <code><a href='avail_type.html'>avail_type()</a></code> to see the full list of type available. Note that <code>query</code> is ignored if <code>type</code> is used.</p></td>
     </tr>
     <tr>
       <th>expand_node</th>
-      <td><p>a <code>logical</code>. Should the function returned extra information on nodes? Default is set to <code>FALSE</code>, which means that only the mangal ID of nodes are returned.</p></td>
+      <td><p>a logical. Should the function returned extra information pertaining to nodes? Default is set to <code>FALSE</code>, which means that only the Mangal IDs of nodes are returned.</p></td>
     </tr>
     <tr>
       <th>verbose</th>
@@ -138,13 +140,13 @@ Note that if an empty character string is passed, then all datasets available ar
     </tr>
     <tr>
       <th>...</th>
-      <td><p>further arguments to be passed to <code><a href='https://www.rdocumentation.org/packages/httr/topics/GET'>httr::GET()</a></code></p></td>
+      <td><p>further arguments to be passed to <code><a href='https://www.rdocumentation.org/packages/httr/topics/GET'>httr::GET()</a></code>.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>An object of class <code>mgSearchInteractions</code>, which is a <code>data.frame</code> object with all interaction matching the interaction type provided.
+    <p>An object of class <code>mgSearchInteractions</code>, i.e. a <code>data.frame</code> object including interactions.
 All networks in which interactions are involved are also attached to the <code>data.frame</code>.</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>

@@ -25,4 +25,7 @@ test_that("expected behavior", {
   #
   expect_equal(length(res_j), 5)
   expect_equal(class(res_j), "mgNetwork")
+  #
+  expect_error(search_taxonomy(tsn = 123, bold = 456))
+  expect_error(search_taxonomy(list(wrong = 123)))
 })
