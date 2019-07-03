@@ -27,20 +27,20 @@ knitr::opts_chunk$set(
 
 ## The Mangal project
 
-[The Mangal project](http://www.mangal.io) aims at archiving published ecological networks and at easing their retrieval. To do so, Mangal:
+[The Mangal project](https://mangal.io) aims at archiving published ecological networks and at easing their retrieval. To do so, Mangal:
 
 1. uses a data specification for ecological networks [described in @poisot_mangal_2016];
 
 2. archives ecological networks in a [PostgreSQL](https://www.postgresql.org/) database;
 
 3. provides:
-  - [a data explorer](http://poisotlab.biol.umontreal.ca/#/) to visualize and download data available;
+  - [a data explorer](https://mangal.io/#/) to visualize and download data available;
   - a [RESTFUL Application Programming Interface (API)](https://mangal-wg.github.io/mangal-api/);
   - a client library for Julia: [Mangal.jl](https://github.com/PoisotLab/Mangal.jl);
   - a client of this API for R: the **rmangal** package described below.
 
 Currently, 172 datasets are including in the database representing over [1300
-ecological networks](http://poisotlab.biol.umontreal.ca/#/). In 2016, a first
+ecological networks](https://mangal.io/#/network). In 2016, a first
 paper describing the project was published and introduced the first release of
 **rmangal** [@poisot_mangal_2016]. Since then, the structure of the database has
 been improved (new fields have been added), several ecological networks added
@@ -231,7 +231,7 @@ sr_ficus <- search_taxonomy("Ficus")
 
 This function allows to search a specific taxonomic entity using its validated
 name and unique identifiers, i.e. EOL, TSN, GBIF, COL, BOLD and NCBI IDs. Note
-that the taxonomy backbone contains a names and identifiers validated with
+that the taxonomy backbone contains names and identifiers validated with
 taxize [@chamberlain_2019].
 
 ```{R}

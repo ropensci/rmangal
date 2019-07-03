@@ -9,11 +9,11 @@
 [![CRAN status](https://www.r-pkg.org/badges/version/rmangal)](http://www.r-pkg.org/badges/version/rmangal)
 
 
-A R package to interact with the ecological interactions database Mangal:
+A R package to interact with the ecological interactions database Mangal
 
-- API documentation: https://mangal-wg.github.io/mangal-api/
-- Data explorer: http://poisotlab.biol.umontreal.ca/#/
-- Package documentation: https://mangal-wg.github.io/rmangal/
+- API documentation: https://mangal.io/doc/api
+- Data explorer: https://mangal.io/#/network
+- Package documentation: https://mangal.io/doc/r
 
 
 ## Installation
