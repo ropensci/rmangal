@@ -4,7 +4,7 @@ context("search_interactions")
 res1 <- search_interactions(type = "competition")
 res2 <- search_interactions(type = "competition", expand_node = TRUE)
 res3 <- search_interactions(list(network_id = 926))
-
+res4 <- search_interactions(list(network_id = 926), expand_node = TRUE)
 test_that("expected behavior", {
   expect_identical(search_interactions("wrong"), data.frame())
   expect_equal(dim(res1), c(12, 20))
@@ -14,6 +14,8 @@ test_that("expected behavior", {
   expect_equal(dim(res2), c(12, 56))
   expect_equal(dim(res3), c(34, 20))
   expect_true(all(res3$network_id == 926))
+  expect_equal(dim(res4), c(34, 58))
+  expect_true(all(res4$network_id == 926))
 })
 
 

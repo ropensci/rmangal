@@ -65,11 +65,11 @@ search_interactions <- function(query, type = NULL, expand_node = FALSE,
 
     # Add extra info about nodes if desired
     if (expand_node) {
-      tmp <- resp_to_df(get_singletons(endpoints()$node,
+      tmp <- resp_to_df_flt(get_singletons(endpoints()$node,
         interactions$node_from, verbose = verbose, ...)$body)
       interactions[, paste0("node_from_", names(tmp))] <- tmp
       #
-      tmp <- resp_to_df(get_singletons(endpoints()$node,
+      tmp <- resp_to_df_flt(get_singletons(endpoints()$node,
         interactions$node_to, verbose = verbose, ...)$body)
       interactions[, paste0("node_to_", names(tmp))] <- tmp
     }
