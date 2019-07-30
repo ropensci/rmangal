@@ -14,9 +14,10 @@
 #' Alternatively, a named list can be used to look for an exact match in a specific field.
 #' In this case, the name of the list should match one of the field names of the table.
 #' For the `networks` table, those are:
-# - original_name: taxonomic name as in the original publication;
-# - node_level: either population, taxon or individu;
-# - network_id: Mangal network identifier;
+#' - id: unique identifier of the nodes
+#' - original_name: taxonomic name as in the original publication;
+#' - node_level: either population, taxon or individu;
+#' - network_id: Mangal network identifier;
 #' Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
 #'
 #' @seealso
@@ -30,8 +31,8 @@
 #' <https://mangal-wg.github.io/mangal-api/#nodes>
 #'
 #' @examples
-#' res_acer <- search_nodes("Acer")
-#' res_926 <- search_nodes(list(network_id = 926))
+#' res_acer <- search_nodes("Acer", verbose = FALSE)
+#' res_926 <- search_nodes(list(network_id = 926), verbose = FALSE)
 #'
 #' @export
 

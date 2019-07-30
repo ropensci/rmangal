@@ -1,23 +1,21 @@
-#' Retrieve network data for a given set of Mangal identifiera
-#'
+#' Retrieve network data for a given set of Mangal identifiera #'
 #' @param ids a vector of Mangal ID for networks (`numeric`).
 #' @param id a single ID network (`numeric`).
 #' @param x an object of class `mgNetwork` or `mgNetworksCollection`.
 #' @param ... ignored.
 #' @param verbose a logical. Should extra information be reported on progress?
 #'
-#' @rdname get_network_by_id
+#' @rdname get_network_by_id 
 #'
-#' @return
-#' a `mgNetwork` object including:
-#' - network: a `list` of all generic informations on the network;
-#' - nodes: a `data.frame` of all nodes with taxonomic informations;
-#' - edges: a `data.frame` of all edges (ecological interactions), with the attribute used to describe the interaction
-#' - dataset: `list` information pertaining to the dataset the network is associated to;
+#' @return 
+#' a `mgNetwork` object including: 
+#' - network: a `list` of all generic information on the network;
+#' - nodes: a `data.frame` of all nodes with taxonomic information;
+#' - edges: a `data.frame` of all edges (ecological interactions), with the attribute used to describe the interaction #' - dataset: `list` information pertaining to the dataset the network is associated with;
 #' - reference: `list` information about the original publication.
 #'
-#' @examples
-#' net18 <- get_network_by_id(id = 18)
+#' @examples 
+#' net18 <- get_network_by_id(id = 18) 
 #' nets <- get_network_by_id(id = c(18, 23))
 #' @export
 

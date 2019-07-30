@@ -18,6 +18,7 @@
 #' Alternatively, a named list can be used to look for an exact match in a specific field.
 #' In this case, the name of the list should match one of the field names of the database table.
 #' For the `dataset` table, those are:
+#' - id: unique identifier of the dataset
 #' - name: name of the dataset;
 #' - date: date (`YYYY-mm-dd`) of the corresponding publication;
 #' - description: a brief description of the data set;
@@ -36,16 +37,16 @@
 #' class(all_datasets)
 #' }
 #' # Search with keyword
-#' mg_lagoon <- search_datasets(query = 'lagoon')
-#' mg_2011 <- search_datasets(query = '2011')
+#' mg_lagoon <- search_datasets(query = 'lagoon', verbose = FALSE)
+#' mg_2011 <- search_datasets(query = '2011', verbose = FALSE)
 #' # Search with a custom query (specific column)
-#' mg_kemp <- search_datasets(query = list(name = 'kemp_1977'))
-#' mg_16 <- search_datasets(query = list(ref_id = 16))
+#' mg_kemp <- search_datasets(query = list(name = 'kemp_1977'), verbose = FALSE)
+#' mg_16 <- search_datasets(query = list(ref_id = 16), verbose = FALSE)
 #' @export
 
 search_datasets <- function(query, verbose = TRUE, ...) {
 
-  query <- handle_query(query, c("name", "date", "description", "ref_id"))
+  query <- handle_query(query, c("id", "name", "date", "description", "ref_id"))
   datasets <- resp_to_df(get_gen(endpoints()$dataset, query = query,
     verbose = verbose, ...)$body)
 

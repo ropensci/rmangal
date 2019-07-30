@@ -4,7 +4,7 @@
 \alias{mg_to_igraph}
 \alias{mg_to_igraph.mgNetwork}
 \alias{mg_to_igraph.mgNetworksCollection}
-\title{Convert \code{mgNetworksCollection} and \code{mgNetwork} to igraph graphs}
+\title{Coerce \code{mgNetworksCollection} or \code{mgNetwork} objects to \code{igraph} objects.}
 \usage{
 mg_to_igraph(x, ...)
 

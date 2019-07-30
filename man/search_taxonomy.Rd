@@ -50,9 +50,9 @@ by authors should be regarded as the most reliable information. Please
 report any issue related to taxonomy at \url{https://github.com/mangal-wg/mangal-datasets/issues}.
 }
 \examples{
-search_taxonomy("Acer")
+search_taxonomy("Acer", verbose = FALSE)
 # Retrieve higher classification
-tsn_acer <- search_taxonomy("Acer")$taxonomy.tsn
+tsn_acer <- search_taxonomy("Acer", verbose = FALSE)$taxonomy.tsn
 }
 \references{
 \url{https://mangal-wg.github.io/mangal-api/#taxonomy}

@@ -18,6 +18,7 @@
 #' Alternatively, a named list can be used to look for an exact match in a specific field.
 #' In this case, the name of the list should match one of the field names of the database table.
 #' For the `reference` table, those are:
+#' - id: unique identifier of the reference
 #' - author: first author;
 #' - doi: use `doi` instead.;
 #' - jstor: JSTOR identifier.;
@@ -28,8 +29,8 @@
 #' <https://mangal-wg.github.io/mangal-api/#references>
 #'
 #' @examples
-#' search_reference(doi = "10.2307/3225248")
-#' search_reference(list(jstor = 3683041))
+#' search_reference(doi = "10.2307/3225248", verbose = FALSE)
+#' search_reference(list(jstor = 3683041), verbose = FALSE)
 #' @export
 
 search_reference <- function(query, doi = NULL, verbose = TRUE, ...) {
@@ -40,7 +41,7 @@ search_reference <- function(query, doi = NULL, verbose = TRUE, ...) {
       doi <- doi[1L]
     }
     query <- list(doi = as.character(doi))
-  } else query <- handle_query(query, c("author", "doi", "jstor", "year"))
+  } else query <- handle_query(query, c("id" ,"author", "doi", "jstor", "year"))
 
 
   ref <- resp_to_df(get_gen(endpoints()$reference, query = query,

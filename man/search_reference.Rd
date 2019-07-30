@@ -30,6 +30,7 @@ Alternatively, a named list can be used to look for an exact match in a specific
 In this case, the name of the list should match one of the field names of the database table.
 For the \code{reference} table, those are:
 \itemize{
+\item id: unique identifier of the reference
 \item author: first author;
 \item doi: use \code{doi} instead.;
 \item jstor: JSTOR identifier.;
@@ -38,8 +39,8 @@ Note that for lists with more than one element, only the first element is used, 
 }
 }
 \examples{
-search_reference(doi = "10.2307/3225248")
-search_reference(list(jstor = 3683041))
+search_reference(doi = "10.2307/3225248", verbose = FALSE)
+search_reference(list(jstor = 3683041), verbose = FALSE)
 }
 \references{
 \url{https://mangal-wg.github.io/mangal-api/#references}

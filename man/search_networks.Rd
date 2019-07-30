@@ -32,8 +32,8 @@ partial match was found are returned.
 Alternatively, a named list can be used to look for an exact match in a specific field.
 In this case, the name of the list should match one of the field names of the database table. For the \code{networks} table, those are:
 \itemize{
-\item all_interactions: identifier of a specific attribute;
-\item id : Mangal identifier of the network;
+\item id: unique identifier of the network
+\item all_interactions: false interaction can be considered as real false interaction;
 \item dataset_id: the identifier of the dataset;
 \item public: network publicly available;
 Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
