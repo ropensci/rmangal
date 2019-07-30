@@ -30,7 +30,7 @@ mg_to_igraph.mgNetwork <- function(x, ...) {
     # Simple test to know if the graph is directed or undirected
     directed <- ifelse(all(x$edges$direction == "directed"), TRUE, FALSE)
     # Move id edge to the last column
-    x$edges <- as.data.frame(x$edges)
+    x$edges <- as.data.frame(x$edges, stringsAsFactors = FALSE)
     # drop geometry
     x$edges <- x$edges[, names(x$edges) != "geom"]
     nm <- c("node_from", "node_to")
