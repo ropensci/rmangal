@@ -212,16 +212,12 @@ all_datasets <- search_datasets("")
 glimpse(all_datasets)
 ```
 
-<<<<<<< Updated upstream
-As showed in the diagram above, a dataset comes from a specific reference and `search_reference()` allows to query directly the reference table. A handy argument of this function is `doi` as it allows to pass a Digital Object Identifier and so to retrieve the dataset attached to a specific publication.
-=======
 
 As shown in the diagram above, a dataset comes from a specific reference and `search_reference()`
 queries the reference table directly. A handy argument of this function is `doi` as it
 allows to pass a Digital Object Identifier and so to retrieve all datasets attached to a specific
 publication.
 
->>>>>>> Stashed changes
 
 
 ```{R}
