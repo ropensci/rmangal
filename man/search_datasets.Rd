@@ -46,11 +46,11 @@ all_datasets
 class(all_datasets)
 }
 # Search with keyword
-mg_lagoon <- search_datasets(query = 'lagoon')
-mg_2011 <- search_datasets(query = '2011')
+mg_lagoon <- search_datasets(query = 'lagoon', verbose = FALSE)
+mg_2011 <- search_datasets(query = '2011', verbose = FALSE)
 # Search with a custom query (specific column)
-mg_kemp <- search_datasets(query = list(name = 'kemp_1977'))
-mg_16 <- search_datasets(query = list(ref_id = 16))
+mg_kemp <- search_datasets(query = list(name = 'kemp_1977'), verbose = FALSE)
+mg_16 <- search_datasets(query = list(ref_id = 16), verbose = FALSE)
 }
 \references{
 \url{https://mangal-wg.github.io/mangal-api/#get-all-datasets}

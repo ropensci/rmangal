@@ -165,7 +165,7 @@ Note that for lists with more than one element, only the first element is used, 
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>search_reference</span>(<span class='kw'>doi</span> <span class='kw'>=</span> <span class='st'>"10.2307/3225248"</span>)</div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Found 1 reference</span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; $id
+    <pre class="examples"><div class='input'><span class='fu'>search_reference</span>(<span class='kw'>doi</span> <span class='kw'>=</span> <span class='st'>"10.2307/3225248"</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; $id
 #&gt; [1] 132
 #&gt; 
 #&gt; $doi
@@ -225,7 +225,7 @@ Note that for lists with more than one element, only the first element is used, 
 #&gt; attr(,"row.names")
 #&gt; [1] 1
 #&gt; attr(,"class")
-#&gt; [1] "mgSearchReference"</div><div class='input'><span class='fu'>search_reference</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>jstor</span> <span class='kw'>=</span> <span class='fl'>3683041</span>))</div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Found 1 reference</span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; $id
+#&gt; [1] "mgSearchReference"</div><div class='input'><span class='fu'>search_reference</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>jstor</span> <span class='kw'>=</span> <span class='fl'>3683041</span>), <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; $id
 #&gt; [1] 9
 #&gt; 
 #&gt; $doi
