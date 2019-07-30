@@ -1,5 +1,3 @@
-#' Convert `mgNetworksCollection` and `mgNetwork` to igraph graphs
-#'
 #' Coerce `mgNetworksCollection` or `mgNetwork` objects to `igraph` objects.
 #'
 #' @param x either a `mgNetworksCollection` or a `mgNetwork` object.

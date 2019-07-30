@@ -18,6 +18,7 @@
 #' Alternatively, a named list can be used to look for an exact match in a specific field.
 #' In this case, the name of the list should match one of the field names of the database table.
 #' For the `dataset` table, those are:
+#' - id: unique identifier of the dataset
 #' - name: name of the dataset;
 #' - date: date (`YYYY-mm-dd`) of the corresponding publication;
 #' - description: a brief description of the data set;
@@ -45,7 +46,7 @@
 
 search_datasets <- function(query, verbose = TRUE, ...) {
 
-  query <- handle_query(query, c("name", "date", "description", "ref_id"))
+  query <- handle_query(query, c("id", "name", "date", "description", "ref_id"))
   datasets <- resp_to_df(get_gen(endpoints()$dataset, query = query,
     verbose = verbose, ...)$body)
 

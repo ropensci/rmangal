@@ -17,9 +17,10 @@
 #' partial match was found are returned.
 #' Alternatively, a named list can be used to look for an exact match in a specific field.
 #' In this case, the name of the list should match one of the field names of the database table. For the `networks` table, those are:
-# - all_interactions: identifier of a specific attribute;
-# - dataset_id: the identifier of the dataset;
-# - public: network publicly available;
+#' - id: unique identifier of the network
+#' - all_interactions: false interaction can be considered as real false interaction;
+#' - dataset_id: the identifier of the dataset;
+#' - public: network publicly available;
 #' Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
 #'
 #' @references
@@ -34,7 +35,7 @@
 #' networks_in_area <- search_networks(area)
 #' plot(networks_in_area)
 #' }
-#' mg_19 <- search_networks(list(dataset_id = 19))
+#' mg_19 <- search_networks(list(dataset_id = 19), verbose = FALSE)
 #'
 #' @export
 
@@ -42,7 +43,7 @@ search_networks <- function(query, verbose = TRUE, ...) {
 
   if ("sf" %in% class(query))
     return(search_networks_sf(query, verbose, ...))
-  query <- handle_query(query, c("public", "all_interactions", "dataset_id"))
+  query <- handle_query(query, c("id", "public", "all_interactions", "dataset_id"))
 
   networks <- resp_to_spatial(get_gen(endpoints()$network, query = query,
     verbose = verbose, ...)$body)

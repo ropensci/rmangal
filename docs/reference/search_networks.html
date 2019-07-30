@@ -151,8 +151,13 @@ Note that if an empty character string is passed, then all datasets available ar
 including character strings are searched and entries for which at least one
 partial match was found are returned.
 Alternatively, a named list can be used to look for an exact match in a specific field.
-In this case, the name of the list should match one of the field names of the database table. For the <code>networks</code> table, those are:
-Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.</p>
+In this case, the name of the list should match one of the field names of the database table. For the <code>networks</code> table, those are:</p><ul>
+<li><p>id: unique identifier of the network</p></li>
+<li><p>all_interactions: false interaction can be considered as real false interaction;</p></li>
+<li><p>dataset_id: the identifier of the dataset;</p></li>
+<li><p>public: network publicly available;
+Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.</p></li>
+</ul>
     
     <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
 

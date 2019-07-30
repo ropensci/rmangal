@@ -40,9 +40,9 @@
 #' [search_nodes()]
 #'
 #' @examples
-#' search_taxonomy("Acer")
+#' search_taxonomy("Acer", verbose = FALSE)
 #' # Retrieve higher classification
-#' tsn_acer <- search_taxonomy("Acer")$taxonomy.tsn
+#' tsn_acer <- search_taxonomy("Acer", verbose = FALSE)$taxonomy.tsn
 #' @export
 
 search_taxonomy <- function(query, tsn = NULL, gbif = NULL, eol = NULL,
