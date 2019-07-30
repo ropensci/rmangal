@@ -52,13 +52,10 @@ null_to_na <- function(x) {
     }
 }
 
-## Response => raw
-# resp_raw <- function(x) httr::content(x, as = "parsed", encoding = "UTF-8")
+##
 resp_raw <- function(x) jsonlite::fromJSON(
   httr::content(x, as = "text", encoding = "UTF-8"),
-  simplifyVector = FALSE,
-  flatten = TRUE)
-#jsonlite::fromJSON
+  simplifyVector = FALSE, flatten = TRUE)
 
 ## Response => data.frame
 resp_to_df <- function(x) {
@@ -91,10 +88,10 @@ resp_to_spatial <- function(x) {
   } else {
      dat <- do.call(rbind, lapply(null_to_na(x),
         function(y) as.data.frame(
-          y[names(y) != "geom"], stringAsFactors = FALSE)
+          y[names(y) != "geom"], stringsAsFactors = FALSE)
         ))
       spd <- lapply(lapply(x, function(y) y[names(y) == "geom"]), switch_sf)
-      sf::st_sf(dat, geom = spd, crs = 4326)
+      sf::st_sf(dat, geom = spd, crs = 4326, stringsAsFactors = FALSE)
   }
 }
 
