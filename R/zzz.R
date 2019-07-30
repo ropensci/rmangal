@@ -53,7 +53,12 @@ null_to_na <- function(x) {
 }
 
 ## Response => raw
-resp_raw <- function(x) httr::content(x, as = "parsed", encoding = "UTF-8")
+# resp_raw <- function(x) httr::content(x, as = "parsed", encoding = "UTF-8")
+resp_raw <- function(x) jsonlite::fromJSON(
+  httr::content(x, as = "text", encoding = "UTF-8"),
+  simplifyVector = FALSE,
+  flatten = TRUE)
+#jsonlite::fromJSON
 
 ## Response => data.frame
 resp_to_df <- function(x) {
@@ -85,7 +90,9 @@ resp_to_spatial <- function(x) {
     x
   } else {
      dat <- do.call(rbind, lapply(null_to_na(x),
-        function(y) as.data.frame(y[names(y) != "geom"])))
+        function(y) as.data.frame(
+          y[names(y) != "geom"], stringAsFactors = FALSE)
+        ))
       spd <- lapply(lapply(x, function(y) y[names(y) == "geom"]), switch_sf)
       sf::st_sf(dat, geom = spd, crs = 4326)
   }
@@ -98,6 +105,7 @@ switch_sf <- function(tmp) {
     sf::st_point(matrix(NA_real_, ncol = 2))
   } else {
     co <- matrix(unlist(tmp$geom$coordinates), ncol = 2, byrow = TRUE)
+    # print(co)
     switch(
       tmp$geom$type,
       Point = sf::st_point(co),
@@ -106,6 +114,7 @@ switch_sf <- function(tmp) {
     )
   }
 }
+
 
 
 #' Get entries based on foreign key

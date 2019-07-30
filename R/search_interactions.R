@@ -45,7 +45,7 @@ search_interactions <- function(query, type = NULL, expand_node = FALSE,
   verbose = TRUE, ...) {
 
     if (!is.null(type)) {
-      if (verbose) message("`type` is used thus `query` is ignored.")
+      if (verbose) message("`type` used, `query` ignored.")
       # Make sure args match options
       type <- match.arg(type, avail_type())
       query <- list(type = type)

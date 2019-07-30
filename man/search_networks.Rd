@@ -31,7 +31,13 @@ including character strings are searched and entries for which at least one
 partial match was found are returned.
 Alternatively, a named list can be used to look for an exact match in a specific field.
 In this case, the name of the list should match one of the field names of the database table. For the \code{networks} table, those are:
+\itemize{
+\item all_interactions: identifier of a specific attribute;
+\item id : Mangal identifier of the network;
+\item dataset_id: the identifier of the dataset;
+\item public: network publicly available;
 Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
+}
 }
 \section{Functions}{
 \itemize{
@@ -47,6 +53,9 @@ area <- us_states(state="california")
 networks_in_area <- search_networks(area)
 plot(networks_in_area)
 }
+# Network 5013
+net_5013 <- search_networks(query = list(id = "5013"))
+# Network(s) of dataset id = 19
 mg_19 <- search_networks(list(dataset_id = 19))
 
 }
