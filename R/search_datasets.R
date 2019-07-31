@@ -1,4 +1,4 @@
-#' Query the datasets table.
+#' Query the datasets
 #'
 #' Identify relevant datasets using a keyword or a custom query.
 #'
@@ -32,7 +32,7 @@
 #' @examples
 #' \donttest{
 #' # Return all datasets (takes time)
-#' all_datasets <- search_datasets("")
+#' all_datasets <- search_datasets("", verbose = FALSE)
 #' all_datasets
 #' class(all_datasets)
 #' }

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Query the taxonomy table. — search_taxonomy • rmangal</title>
+<title>Query the taxonomy — search_taxonomy • rmangal</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,7 +32,7 @@
 
 
 
-<meta property="og:title" content="Query the taxonomy table. — search_taxonomy" />
+<meta property="og:title" content="Query the taxonomy — search_taxonomy" />
 
 <meta property="og:description" content="Search network by taxon names and unique taxonomic identifiers." />
 <meta name="twitter:card" content="summary" />
@@ -102,7 +102,7 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Query the taxonomy table.</h1>
+    <h1>Query the taxonomy</h1>
     
     <div class="hidden name"><code>search_taxonomy.Rd</code></div>
     </div>
@@ -187,7 +187,7 @@ report any issue related to taxonomy at <a href='https://github.com/mangal-wg/ma
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>search_taxonomy</span>(<span class='st'>"Acer"</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt;     id     original_name node_level network_id taxonomy_id
+    <pre class="examples"><div class='input'><span class='fu'>search_taxonomy</span>(<span class='st'>"Acer"</span>)</div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; </div><div class='output co'>#&gt;     id     original_name node_level network_id taxonomy_id
 #&gt; 1 2629      Acer negundo      taxon         19           2
 #&gt; 2 2630  Acer saccharinum      taxon         19           3
 #&gt; 3 8895 Acer shirasawanum      taxon        948        3117
@@ -217,7 +217,7 @@ report any issue related to taxonomy at <a href='https://github.com/mangal-wg/ma
 #&gt; 3 2019-02-22T00:31:49.729Z 2019-06-14T15:24:56.217Z
 #&gt; 4 2019-02-22T00:31:52.729Z 2019-06-14T15:24:57.854Z
 #&gt; 5 2019-02-22T00:31:53.328Z 2019-06-14T15:24:58.251Z</div><div class='input'><span class='co'># Retrieve higher classification</span>
-<span class='no'>tsn_acer</span> <span class='kw'>&lt;-</span> <span class='fu'>search_taxonomy</span>(<span class='st'>"Acer"</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)$<span class='no'>taxonomy.tsn</span></div></pre>
+<span class='no'>tsn_acer</span> <span class='kw'>&lt;-</span> <span class='fu'>search_taxonomy</span>(<span class='st'>"Acer"</span>)$<span class='no'>taxonomy.tsn</span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

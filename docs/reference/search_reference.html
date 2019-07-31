@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Query the reference table. — search_reference • rmangal</title>
+<title>Query the references — search_reference • rmangal</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,7 +32,7 @@
 
 
 
-<meta property="og:title" content="Query the reference table. — search_reference" />
+<meta property="og:title" content="Query the references — search_reference" />
 
 <meta property="og:description" content="Search for a specific reference using a key wor or a Digital Object Identifier (DOI)." />
 <meta name="twitter:card" content="summary" />
@@ -102,7 +102,7 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Query the reference table.</h1>
+    <h1>Query the references</h1>
     
     <div class="hidden name"><code>search_reference.Rd</code></div>
     </div>
@@ -163,7 +163,7 @@ Note that for lists with more than one element, only the first element is used, 
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>search_reference</span>(<span class='kw'>doi</span> <span class='kw'>=</span> <span class='st'>"10.2307/3225248"</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; $id
+    <pre class="examples"><div class='input'><span class='fu'>search_reference</span>(<span class='kw'>doi</span> <span class='kw'>=</span> <span class='st'>"10.2307/3225248"</span>)</div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Found 1 reference</span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; $id
 #&gt; [1] 132
 #&gt; 
 #&gt; $doi
@@ -223,7 +223,7 @@ Note that for lists with more than one element, only the first element is used, 
 #&gt; attr(,"row.names")
 #&gt; [1] 1
 #&gt; attr(,"class")
-#&gt; [1] "mgSearchReference"</div><div class='input'><span class='fu'>search_reference</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>jstor</span> <span class='kw'>=</span> <span class='fl'>3683041</span>), <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; $id
+#&gt; [1] "mgSearchReference"</div><div class='input'><span class='fu'>search_reference</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>jstor</span> <span class='kw'>=</span> <span class='fl'>3683041</span>))</div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Found 1 reference</span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; $id
 #&gt; [1] 9
 #&gt; 
 #&gt; $doi

@@ -17,8 +17,8 @@ Combine \code{mgNetworksCollection} and \code{mgNetwork} objects into a
 \code{mgNetworksCollection} object.
 }
 \examples{
-mg_19 <- get_collection(search_networks(list(dataset_id = 19)))
-mg_lagoon <- get_collection(search_datasets(query='lagoon\%'))
+mg_19 <- get_collection(search_networks(list(dataset_id = 19)), verbose = FALSE)
+mg_lagoon <- get_collection(search_datasets(query='lagoon\%'), verbose = FALSE)
 combine_mgNetworks(mg_19, mg_lagoon)
 
 }

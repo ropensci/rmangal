@@ -2,7 +2,7 @@
 % Please edit documentation in R/search_taxonomy.R
 \name{search_taxonomy}
 \alias{search_taxonomy}
-\title{Query the taxonomy table.}
+\title{Query the taxonomy}
 \usage{
 search_taxonomy(query, tsn = NULL, gbif = NULL, eol = NULL,
   col = NULL, bold = NULL, ncbi = NULL, verbose = TRUE, ...)
@@ -50,9 +50,9 @@ by authors should be regarded as the most reliable information. Please
 report any issue related to taxonomy at \url{https://github.com/mangal-wg/mangal-datasets/issues}.
 }
 \examples{
-search_taxonomy("Acer", verbose = FALSE)
+search_taxonomy("Acer")
 # Retrieve higher classification
-tsn_acer <- search_taxonomy("Acer", verbose = FALSE)$taxonomy.tsn
+tsn_acer <- search_taxonomy("Acer")$taxonomy.tsn
 }
 \references{
 \url{https://mangal-wg.github.io/mangal-api/#taxonomy}

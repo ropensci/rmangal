@@ -2,7 +2,7 @@
 % Please edit documentation in R/search_datasets.R
 \name{search_datasets}
 \alias{search_datasets}
-\title{Query the datasets table.}
+\title{Query the datasets}
 \usage{
 search_datasets(query, verbose = TRUE, ...)
 }
@@ -41,7 +41,7 @@ Examples covering custom queries are provided below.
 \examples{
 \donttest{
 # Return all datasets (takes time)
-all_datasets <- search_datasets("")
+all_datasets <- search_datasets("", verbose = FALSE)
 all_datasets
 class(all_datasets)
 }

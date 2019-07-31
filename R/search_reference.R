@@ -1,4 +1,4 @@
-#' Query the reference table.
+#' Query the references
 #'
 #' Search for a specific reference using a key wor or a Digital Object Identifier (DOI).
 #'
@@ -29,8 +29,8 @@
 #' <https://mangal-wg.github.io/mangal-api/#references>
 #'
 #' @examples
-#' search_reference(doi = "10.2307/3225248", verbose = FALSE)
-#' search_reference(list(jstor = 3683041), verbose = FALSE)
+#' search_reference(doi = "10.2307/3225248")
+#' search_reference(list(jstor = 3683041))
 #' @export
 
 search_reference <- function(query, doi = NULL, verbose = TRUE, ...) {

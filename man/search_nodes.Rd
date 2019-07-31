@@ -2,7 +2,7 @@
 % Please edit documentation in R/search_nodes.R
 \name{search_nodes}
 \alias{search_nodes}
-\title{Query the nodes table.}
+\title{Query the nodes}
 \usage{
 search_nodes(query, verbose = TRUE, ...)
 }
@@ -37,8 +37,8 @@ Note that for lists with more than one element, only the first element is used, 
 }
 }
 \examples{
-res_acer <- search_nodes("Acer", verbose = FALSE)
-res_926 <- search_nodes(list(network_id = 926), verbose = FALSE)
+res_acer <- search_nodes("Acer")
+res_926 <- search_nodes(list(network_id = 926))
 
 }
 \references{

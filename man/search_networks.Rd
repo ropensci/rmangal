@@ -3,7 +3,7 @@
 \name{search_networks}
 \alias{search_networks}
 \alias{search_networks_sf}
-\title{Query the networks table.}
+\title{Query the networks}
 \usage{
 search_networks(query, verbose = TRUE, ...)
 
@@ -50,7 +50,7 @@ mg_insect <- search_networks(query="insect\%")
 # Spatial query
 library(USAboundaries)
 area <- us_states(state="california")
-networks_in_area <- search_networks(area)
+networks_in_area <- search_networks(area, verbose = FALSE)
 plot(networks_in_area)
 }
 # Network 5013

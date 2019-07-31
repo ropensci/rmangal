@@ -1,4 +1,4 @@
-#' Query the interactions table.
+#' Query the interactions
 #'
 #' Search for specific interactions using a keyword or a specific type of
 #' interactions (e.g. mutualism).
@@ -37,7 +37,7 @@
 #' @examples
 #' df_inter <- search_interactions(type = "competition", verbose = FALSE)
 #' # Get all networks containing competition
-#' competition_networks <- get_collection(df_inter)
+#' competition_networks <- get_collection(df_inter, verbose = FALSE)
 #' df_net_926 <- search_interactions(list(network_id = 926), verbose = FALSE)
 #' df_net_unknown <- search_interactions(list(attr_id = 100), verbose = FALSE)
 #' @export

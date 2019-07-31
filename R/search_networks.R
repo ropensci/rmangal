@@ -1,4 +1,4 @@
-#' Query the networks table.
+#' Query the networks
 #'
 #' Search over all networks using a keyword, a custom query or a spatial object
 #'
@@ -32,7 +32,7 @@
 #' # Spatial query
 #' library(USAboundaries)
 #' area <- us_states(state="california")
-#' networks_in_area <- search_networks(area)
+#' networks_in_area <- search_networks(area, verbose = FALSE)
 #' plot(networks_in_area)
 #' }
 #' # Network 5013

@@ -2,7 +2,7 @@
 % Please edit documentation in R/search_interactions.R
 \name{search_interactions}
 \alias{search_interactions}
-\title{Query the interactions table.}
+\title{Query the interactions}
 \usage{
 search_interactions(query, type = NULL, expand_node = FALSE,
   verbose = TRUE, ...)
@@ -49,7 +49,7 @@ Examples covering custom queries are provided below.
 \examples{
 df_inter <- search_interactions(type = "competition", verbose = FALSE)
 # Get all networks containing competition
-competition_networks <- get_collection(df_inter)
+competition_networks <- get_collection(df_inter, verbose = FALSE)
 df_net_926 <- search_interactions(list(network_id = 926), verbose = FALSE)
 df_net_unknown <- search_interactions(list(attr_id = 100), verbose = FALSE)
 }

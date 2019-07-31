@@ -1,4 +1,4 @@
-#' Query the taxonomy table.
+#' Query the taxonomy
 #'
 #' Search network by taxon names and unique taxonomic identifiers.
 #'
@@ -40,9 +40,9 @@
 #' [search_nodes()]
 #'
 #' @examples
-#' search_taxonomy("Acer", verbose = FALSE)
+#' search_taxonomy("Acer")
 #' # Retrieve higher classification
-#' tsn_acer <- search_taxonomy("Acer", verbose = FALSE)$taxonomy.tsn
+#' tsn_acer <- search_taxonomy("Acer")$taxonomy.tsn
 #' @export
 
 search_taxonomy <- function(query, tsn = NULL, gbif = NULL, eol = NULL,

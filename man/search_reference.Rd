@@ -2,7 +2,7 @@
 % Please edit documentation in R/search_reference.R
 \name{search_reference}
 \alias{search_reference}
-\title{Query the reference table.}
+\title{Query the references}
 \usage{
 search_reference(query, doi = NULL, verbose = TRUE, ...)
 }
@@ -39,8 +39,8 @@ Note that for lists with more than one element, only the first element is used, 
 }
 }
 \examples{
-search_reference(doi = "10.2307/3225248", verbose = FALSE)
-search_reference(list(jstor = 3683041), verbose = FALSE)
+search_reference(doi = "10.2307/3225248")
+search_reference(list(jstor = 3683041))
 }
 \references{
 \url{https://mangal-wg.github.io/mangal-api/#references}

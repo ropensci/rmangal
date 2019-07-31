@@ -1,4 +1,4 @@
-#' Query the nodes table.
+#' Query the nodes
 #'
 #' Search for networks by querying the nodes database table.
 #'
@@ -31,8 +31,8 @@
 #' <https://mangal-wg.github.io/mangal-api/#nodes>
 #'
 #' @examples
-#' res_acer <- search_nodes("Acer", verbose = FALSE)
-#' res_926 <- search_nodes(list(network_id = 926), verbose = FALSE)
+#' res_acer <- search_nodes("Acer")
+#' res_926 <- search_nodes(list(network_id = 926))
 #'
 #' @export
 
