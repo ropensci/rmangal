@@ -18,10 +18,8 @@
 #' [search_nodes()], [search_reference()], [search_taxonomy()].
 #'
 #' @examples
-#' mg_2 <- get_collection(c(1035:1036))
-#' mg_insect <- get_collection(search_networks(query='insect%'))
-#' mg_lagoon <- get_collection(search_datasets(query='lagoon%'))
-#'
+#' mg_2 <- get_collection(c(1076:1077), verbose = FALSE)
+#' mg_anemone <- get_collection(search_networks(query='anemone%'), verbose = FALSE)
 #' @export
 
 get_collection <- function(x, ...) {
