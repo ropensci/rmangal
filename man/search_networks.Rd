@@ -54,7 +54,7 @@ networks_in_area <- search_networks(area, verbose = FALSE)
 plot(networks_in_area)
 }
 # Network 5013
-net_5013 <- search_networks(query = list(id = "5013"))
+net_5013 <- search_networks(query = list(id = 5013))
 # Network(s) of dataset id = 19
 mg_19 <- search_networks(list(dataset_id = 19))
 

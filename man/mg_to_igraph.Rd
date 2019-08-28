@@ -32,12 +32,12 @@ Coerce \code{mgNetworksCollection} or \code{mgNetwork} objects to \code{igraph} 
 }}
 
 \examples{
-insects_networks <- get_collection(search_networks(query='insect\%'))
+lagoon_networks <- get_collection(search_networks(query='lagoon\%'), verbose = FALSE)
 # Apply mg_to_igraph on one specific network
-insects_network <- insects_networks[[1]]
-ig_network <- mg_to_igraph(insects_network)
+lagoon_network <- lagoon_networks[[1]]
+ig_network <- mg_to_igraph(lagoon_network)
 # Apply mg_to_igraph on networks collection
-ig_coll_networks <- mg_to_igraph(insects_networks)
+ig_coll_networks <- mg_to_igraph(lagoon_networks)
 # Plot igraph object with vertex label
-plot(ig_network, vertex.label = insects_network$nodes$taxonomy.name)
+plot(ig_network, vertex.label = lagoon_network$nodes$taxonomy.name)
 }
