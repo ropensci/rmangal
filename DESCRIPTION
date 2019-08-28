@@ -29,8 +29,7 @@ Imports:
     igraph,
     jsonlite (>= 1.5),
     memoise,
-    purrr,
-    sf
+    purrr
 RoxygenNote: 6.1.1
 Suggests:
     knitr,
@@ -40,6 +39,7 @@ Suggests:
     taxize,
     testthat,
     tibble,
-    USAboundaries
+    USAboundaries,
+    sf
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)

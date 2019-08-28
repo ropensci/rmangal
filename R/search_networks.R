@@ -66,6 +66,10 @@ search_networks <- function(query, verbose = TRUE, ...) {
 #' @describeIn search_networks Search network within a spatial object passed as an argument.
 search_networks_sf <- function(query_sf, verbose = TRUE, ...) {
   stopifnot("sf" %in% class(query_sf))
+  
+  if("sf" %in% row.names(installed.packages()))
+    message("The package sf is not installed.")
+
   # API doesn't allow spatial search yet, so we sort with sf package
   sp_networks_all <- resp_to_spatial(
       get_gen(endpoints()$network, verbose = verbose, ...)$body)
