@@ -41,7 +41,7 @@ objects \code{\link[rmangal:get_network_by_id]{rmangal::get_network_by_id()}}).
 }
 \description{
 Retrieve a set of networks based on the results of one of the \code{search_*()}
-function or a set of Mangal unique network identifiers.
+function. The function also accept a numeric vector of Mangal network IDs.
 }
 \section{Methods (by class)}{
 \itemize{

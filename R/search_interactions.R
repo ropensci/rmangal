@@ -1,7 +1,12 @@
-#' Query the interactions
+#' Query interactions
 #'
 #' Search for specific interactions using a keyword or a specific type of
 #' interactions (e.g. mutualism).
+#'
+#' If the `query` is a character string, then all character columns in the table
+#' are searched and the entries for which at least one
+#' partial match was found are returned.
+#' Alternatively, a named list can be used to look for an exact match in a specific column (see Details section)
 #'
 #' @param query either a character string including a single keyword or a list containing a custom query (see details section below).
 #' Note that if an empty character string is passed, then all datasets available are returned.
@@ -15,11 +20,7 @@
 #' All networks in which interactions are involved are also attached to the `data.frame`.
 #'
 #' @details
-#' If `query` is a character string, then all fields of the database table
-#' including character strings are searched and entries for which at least one
-#' partial match was found are returned.
-#' Alternatively, a named list can be used to look for an exact match in a specific field.
-#' In this case, the name of the list should match one of the field names of the database table.
+#' Names of the list should match one of the column names within the table. 
 #' For the `interaction` table, those are:
 #' - id: unique identifier of the interaction
 #' - attr_id: identifier of a specific attribute

@@ -7,7 +7,6 @@
 #' An object of class `igraph` for a `mgNetwork` object and a list of
 #' `igraph` objects for `mgNetworksCollection`.
 #'
-#'
 #' @examples
 #' lagoon_networks <- get_collection(search_networks(query='lagoon%'), verbose = FALSE)
 #' # Apply mg_to_igraph on one specific network

@@ -1,6 +1,11 @@
-#' Query the networks
+#' Query networks
 #'
 #' Search over all networks using a keyword, a custom query or a spatial object
+#'
+#' If the `query` is a character string, then all character columns in the table
+#' are searched and the entries for which at least one
+#' partial match was found are returned.
+#' Alternatively, a named list can be used to look for an exact match in a specific column (see Details section)
 #'
 #' @param query either a character string including a single keyword or a list containing a custom query (see details section below), or a spatial object (see the description of `query_sf`).
 #' Note that if an empty character string is passed, then all datasets available are returned.
@@ -12,11 +17,8 @@
 #' An object of class `mgSearchNetworks`, which is a `data.frame` object with all networks informations
 #'
 #' @details
-#' If `query` is a character string, then all fields of the database table
-#' including character strings are searched and entries for which at least one
-#' partial match was found are returned.
-#' Alternatively, a named list can be used to look for an exact match in a specific field.
-#' In this case, the name of the list should match one of the field names of the database table. For the `networks` table, those are:
+#' Names of the list should match one of the column names within the table. 
+#' For the `networks` table, those are:
 #' - id: unique identifier of the network
 #' - all_interactions: false interaction can be considered as real false interaction;
 #' - dataset_id: the identifier of the dataset;
@@ -66,8 +68,8 @@ search_networks <- function(query, verbose = TRUE, ...) {
 #' @describeIn search_networks Search network within a spatial object passed as an argument.
 search_networks_sf <- function(query_sf, verbose = TRUE, ...) {
   stopifnot("sf" %in% class(query_sf))
-  
-  if("sf" %in% row.names(installed.packages()))
+
+  if("sf" %in% row.names(utils::installed.packages()))
     message("The package sf is not installed.")
 
   # API doesn't allow spatial search yet, so we sort with sf package

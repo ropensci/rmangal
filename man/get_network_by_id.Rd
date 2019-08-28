@@ -5,7 +5,7 @@
 \alias{get_network_by_id_indiv}
 \alias{print.mgNetwork}
 \alias{print.mgNetworksCollection}
-\title{Retrieve network data for a given set of Mangal identifiera #'}
+\title{Retrieve network informations, nodes, edges and references for a given set of Mangal network IDs}
 \usage{
 get_network_by_id(ids, verbose = TRUE)
 
@@ -36,7 +36,7 @@ a \code{mgNetwork} object including:
 }
 }
 \description{
-Retrieve network data for a given set of Mangal identifiera #'
+Retrieve network informations, nodes, edges and references for a given set of Mangal network IDs
 }
 \section{Functions}{
 \itemize{

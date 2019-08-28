@@ -2,7 +2,7 @@
 % Please edit documentation in R/search_datasets.R
 \name{search_datasets}
 \alias{search_datasets}
-\title{Query the datasets}
+\title{Query datasets}
 \usage{
 search_datasets(query, verbose = TRUE, ...)
 }
@@ -22,11 +22,12 @@ including all datasets corresponding to the query. For each dataset entry, #' th
 Identify relevant datasets using a keyword or a custom query.
 }
 \details{
-If \code{query} is a character string, then all fields of the database table
-including character strings are searched and entries for which at least one
+If the \code{query} is a character string, then all character columns in the table
+are searched and the entries for which at least one
 partial match was found are returned.
-Alternatively, a named list can be used to look for an exact match in a specific field.
-In this case, the name of the list should match one of the field names of the database table.
+Alternatively, a named list can be used to look for an exact match in a specific column (see Details section)
+
+Names of the list should match one of the column names within the table.
 For the \code{dataset} table, those are:
 \itemize{
 \item id: unique identifier of the dataset

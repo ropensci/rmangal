@@ -1,4 +1,5 @@
-#' Retrieve network data for a given set of Mangal identifiera #'
+#' Retrieve network informations, nodes, edges and references for a given set of Mangal network IDs
+#'
 #' @param ids a vector of Mangal ID for networks (`numeric`).
 #' @param id a single ID network (`numeric`).
 #' @param x an object of class `mgNetwork` or `mgNetworksCollection`.

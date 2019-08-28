@@ -1,6 +1,12 @@
-#' Query the taxonomy
+#' Query taxonomy
 #'
 #' Search network by taxon names and unique taxonomic identifiers.
+#'
+#' This function offers the opportunity to retrieve taxon based on (i) known identifier 
+#' such as the taxonomic serial number (TSN), GBIF ID etc. or (ii) text search using partial match. 
+#' Have a look at the list of arguments to see the complete list of identifiers accessible.
+#' If any unique identifier argument is used (i.e. tsn etc.), then `query` is ignored. Moreover,
+#' if several taxonomic identifiers are specified, then only the first one is considered.
 #'
 #' @param query a character string including a single keyword.
 #' Note that if an empty character string is passed, then all datasets available are returned.
@@ -14,9 +20,6 @@
 #' @param ... further arguments to be passed to [httr::GET()].
 #'
 #' @details
-#' If any of the unique identifier is used, then `query` is ignored. Moreover,
-#' if several taxonomic identifiers are specified, then only the first one is considered.
-#'
 #' Taxon names of the `taxonomy` table were validated with
 #' TNRS (see <http://tnrs.iplantcollaborative.org/> and/or GNR
 # ' (see <https://resolver.globalnames.org/>). The taxon names in this table
