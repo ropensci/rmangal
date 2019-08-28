@@ -39,7 +39,6 @@
 #' # Get all networks containing competition
 #' competition_networks <- get_collection(df_inter, verbose = FALSE)
 #' df_net_926 <- search_interactions(list(network_id = 926), verbose = FALSE)
-#' df_net_unknown <- search_interactions(list(attr_id = 100), verbose = FALSE)
 #' @export
 
 search_interactions <- function(query, type = NULL, expand_node = FALSE,
