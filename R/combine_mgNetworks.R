@@ -9,9 +9,9 @@
 #' An object of class `mgNetworksCollection`
 #'
 #' @examples
-#' mg_19 <- get_collection(search_networks(list(dataset_id = 19)), verbose = FALSE)
-#' mg_lagoon <- get_collection(search_datasets(query='lagoon%'), verbose = FALSE)
-#' combine_mgNetworks(mg_19, mg_lagoon)
+#' mg_37 <- get_collection(search_networks(list(dataset_id = 37)), verbose = FALSE)
+#' mg_anemone <- get_collection(search_datasets(query='anemone%'), verbose = FALSE)
+#' combine_mgNetworks(mg_37, mg_anemone)
 #'
 #' @export
 combine_mgNetworks <- function(...) {
