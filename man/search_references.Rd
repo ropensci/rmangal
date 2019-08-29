@@ -31,7 +31,7 @@ Names of the list should match one of the column names within the table.
 For the \code{reference} table, those are:
 \itemize{
 \item id: unique identifier of the reference
-\item author: first author
+\item first_author: first author
 \item doi: use \code{doi} instead
 \item jstor: JSTOR identifier
 \item year: year of publication.

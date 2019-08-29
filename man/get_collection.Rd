@@ -66,5 +66,5 @@ mg_anemone <- get_collection(search_networks(query='anemone\%'), verbose = FALSE
 }
 \seealso{
 \code{\link[=search_datasets]{search_datasets()}}, \code{\link[=search_interactions]{search_interactions()}}, \code{\link[=search_networks]{search_networks()}},
-\code{\link[=search_nodes]{search_nodes()}}, \code{\link[=search_reference]{search_reference()}}, \code{\link[=search_taxonomy]{search_taxonomy()}}.
+\code{\link[=search_nodes]{search_nodes()}}, \code{\link[=search_references]{search_references()}}, \code{\link[=search_taxonomy]{search_taxonomy()}}.
 }
