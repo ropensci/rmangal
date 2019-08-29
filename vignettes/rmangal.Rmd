@@ -246,7 +246,7 @@ library(mapview)
 library(USAboundaries)
 area <- us_states(state = "california")
 in_CA <- search_networks(area)
-mapview(in_CA, legend = FALSE) + mapview(area, alpha.regions=c(0.2), legend = FALSE, color = NULL)
+mapview(in_CA, legend = FALSE) + mapview(area, legend = FALSE)
 ```
 
 

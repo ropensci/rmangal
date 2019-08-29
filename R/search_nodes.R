@@ -1,7 +1,6 @@
 #' Query nodes
 #'
 #' Search for networks by querying the nodes table.
-#'
 #' If the `query` is a character string, then all character columns in the table
 #' are searched and the entries for which at least one
 #' partial match was found are returned.

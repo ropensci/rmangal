@@ -1,7 +1,6 @@
 #' Query taxonomy
 #'
 #' Search network by taxon names and unique taxonomic identifiers.
-#'
 #' This function offers the opportunity to retrieve taxon based on (i) known identifier 
 #' such as the taxonomic serial number (TSN), GBIF ID etc. or (ii) text search using partial match. 
 #' Have a look at the list of arguments to see the complete list of identifiers accessible.

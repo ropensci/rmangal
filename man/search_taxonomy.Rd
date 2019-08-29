@@ -33,14 +33,13 @@ all taxa matching the query.
 }
 \description{
 Search network by taxon names and unique taxonomic identifiers.
-}
-\details{
 This function offers the opportunity to retrieve taxon based on (i) known identifier
 such as the taxonomic serial number (TSN), GBIF ID etc. or (ii) text search using partial match.
 Have a look at the list of arguments to see the complete list of identifiers accessible.
 If any unique identifier argument is used (i.e. tsn etc.), then \code{query} is ignored. Moreover,
 if several taxonomic identifiers are specified, then only the first one is considered.
-
+}
+\details{
 Taxon names of the \code{taxonomy} table were validated with
 TNRS (see \url{http://tnrs.iplantcollaborative.org/} and/or GNR
 might not be the taxon name documented in the original publication.

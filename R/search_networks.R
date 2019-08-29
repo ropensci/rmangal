@@ -1,7 +1,6 @@
 #' Query networks
 #'
 #' Search over all networks using a keyword, a custom query or a spatial object
-#'
 #' If the `query` is a character string, then all character columns in the table
 #' are searched and the entries for which at least one
 #' partial match was found are returned.
@@ -31,15 +30,17 @@
 #' @examples
 #' mg_insect <- search_networks(query="insect%")
 #' \donttest{
+#' # Retrieve the search results 
+#' nets_insect <- get_collection(mg_insect)
 #' # Spatial query
 #' library(USAboundaries)
 #' area <- us_states(state="california")
 #' networks_in_area <- search_networks(area, verbose = FALSE)
 #' plot(networks_in_area)
 #' }
-#' # Network 5013
+#' # Retrieve network ID 5013
 #' net_5013 <- search_networks(query = list(id = 5013))
-#' # Network(s) of dataset id = 19
+#' # Network(s) of dataset ID 19
 #' mg_19 <- search_networks(list(dataset_id = 19))
 #'
 #' @export
@@ -69,7 +70,7 @@ search_networks <- function(query, verbose = TRUE, ...) {
 search_networks_sf <- function(query_sf, verbose = TRUE, ...) {
   stopifnot("sf" %in% class(query_sf))
 
-  if("sf" %in% row.names(utils::installed.packages()))
+  if(!("sf" %in% row.names(utils::installed.packages())))
     message("The package sf is not installed.")
 
   # API doesn't allow spatial search yet, so we sort with sf package

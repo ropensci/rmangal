@@ -24,13 +24,12 @@ An object of class \code{mgSearchNetworks}, which is a \code{data.frame} object 
 }
 \description{
 Search over all networks using a keyword, a custom query or a spatial object
-}
-\details{
 If the \code{query} is a character string, then all character columns in the table
 are searched and the entries for which at least one
 partial match was found are returned.
 Alternatively, a named list can be used to look for an exact match in a specific column (see Details section)
-
+}
+\details{
 Names of the list should match one of the column names within the table.
 For the \code{networks} table, those are:
 \itemize{
@@ -49,15 +48,17 @@ Note that for lists with more than one element, only the first element is used, 
 \examples{
 mg_insect <- search_networks(query="insect\%")
 \donttest{
+# Retrieve the search results 
+nets_insect <- get_collection(mg_insect)
 # Spatial query
 library(USAboundaries)
 area <- us_states(state="california")
 networks_in_area <- search_networks(area, verbose = FALSE)
 plot(networks_in_area)
 }
-# Network 5013
+# Retrieve network ID 5013
 net_5013 <- search_networks(query = list(id = 5013))
-# Network(s) of dataset id = 19
+# Network(s) of dataset ID 19
 mg_19 <- search_networks(list(dataset_id = 19))
 
 }

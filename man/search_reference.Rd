@@ -21,13 +21,12 @@ An object of class \code{mgSearchReference}, which is a list that includes a wid
 }
 \description{
 Search for a specific reference using a key wor or a Digital Object Identifier (DOI).
-}
-\details{
 If the \code{query} is a character string, then all character columns in the table
 are searched and the entries for which at least one
 partial match was found are returned.
 Alternatively, a named list can be used to look for an exact match in a specific column (see Details section)
-
+}
+\details{
 Names of the list should match one of the column names within the table.
 For the \code{reference} table, those are:
 \itemize{

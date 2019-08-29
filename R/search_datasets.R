@@ -1,7 +1,6 @@
 #' Query datasets
 #'
 #' Identify relevant datasets using a keyword or a custom query.
-#'
 #' If the `query` is a character string, then all character columns in the table
 #' are searched and the entries for which at least one
 #' partial match was found are returned.
@@ -14,7 +13,8 @@
 #'
 #' @return
 #' An object of class `mgSearchDatasets`, which basically is a `data.frame`
-#' including all datasets corresponding to the query. For each dataset entry, #' the networks and the original reference are attached.
+#' including all datasets corresponding to the query. For each dataset entry, 
+#' the networks and the original reference are attached.
 #'
 #' @details
 #' Names of the list should match one of the column names within the table. 

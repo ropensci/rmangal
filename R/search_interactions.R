@@ -1,9 +1,7 @@
 #' Query interactions
 #'
 #' Search for specific interactions using a keyword or a specific type of
-#' interactions (e.g. mutualism).
-#'
-#' If the `query` is a character string, then all character columns in the table
+#' interactions (e.g. mutualism). If the `query` is a character string, then all character columns in the table
 #' are searched and the entries for which at least one
 #' partial match was found are returned.
 #' Alternatively, a named list can be used to look for an exact match in a specific column (see Details section)

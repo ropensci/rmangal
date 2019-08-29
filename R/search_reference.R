@@ -1,7 +1,6 @@
 #' Query references
 #'
 #' Search for a specific reference using a key wor or a Digital Object Identifier (DOI).
-#'
 #' If the `query` is a character string, then all character columns in the table
 #' are searched and the entries for which at least one
 #' partial match was found are returned.

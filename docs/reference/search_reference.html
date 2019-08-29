@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Query the references — search_reference • rmangal</title>
+<title>Query references — search_reference • rmangal</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,13 @@
 
 
 
-<meta property="og:title" content="Query the references — search_reference" />
+<meta property="og:title" content="Query references — search_reference" />
 
-<meta property="og:description" content="Search for a specific reference using a key wor or a Digital Object Identifier (DOI)." />
+<meta property="og:description" content="Search for a specific reference using a key wor or a Digital Object Identifier (DOI).
+If the query is a character string, then all character columns in the table
+are searched and the entries for which at least one
+partial match was found are returned.
+Alternatively, a named list can be used to look for an exact match in a specific column (see Details section)" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -100,14 +104,18 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Query the references</h1>
+    <h1>Query references</h1>
     
     <div class="hidden name"><code>search_reference.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Search for a specific reference using a key wor or a Digital Object Identifier (DOI).</p>
+    <p>Search for a specific reference using a key wor or a Digital Object Identifier (DOI).
+If the <code>query</code> is a character string, then all character columns in the table
+are searched and the entries for which at least one
+partial match was found are returned.
+Alternatively, a named list can be used to look for an exact match in a specific column (see Details section)</p>
     
     </div>
 
@@ -141,11 +149,7 @@ Note that if an empty character string is passed, then all datasets available ar
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>If <code>query</code> is a character string, then all fields of the database table
-including character strings are searched and entries for which at least one
-partial match was found are returned.
-Alternatively, a named list can be used to look for an exact match in a specific field.
-In this case, the name of the list should match one of the field names of the database table.
+    <p>Names of the list should match one of the column names within the table.
 For the <code>reference</code> table, those are:</p><ul>
 <li><p>id: unique identifier of the reference</p></li>
 <li><p>author: first author;</p></li>
