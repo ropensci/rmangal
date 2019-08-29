@@ -15,9 +15,10 @@
 #' Names of the list should match one of the column names within the table. 
 #' For the `networks` table, those are:
 #' - id: unique identifier of the nodes
-#' - original_name: taxonomic name as in the original publication;
-#' - node_level: either population, taxon or individu;
-#' - network_id: Mangal network identifier;
+#' - original_name: taxonomic name as in the original publication
+#' - node_level: either population, taxon or individu
+#' - network_id: Mangal network identifier
+#'
 #' Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
 #'
 #' @seealso
@@ -28,7 +29,7 @@
 #' All networks in which taxa are involved are also attached to the `data.frame`.
 #'
 #' @references
-#' <https://mangal-wg.github.io/mangal-api/#nodes>
+#' More metadata on <https://mangal-wg.github.io/mangal-api/#nodes>
 #'
 #' @examples
 #' res_acer <- search_nodes("Acer")

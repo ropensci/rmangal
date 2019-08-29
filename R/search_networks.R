@@ -17,15 +17,16 @@
 #'
 #' @details
 #' Names of the list should match one of the column names within the table. 
-#' For the `networks` table, those are:
+#' For the `networks` table, those are
 #' - id: unique identifier of the network
-#' - all_interactions: false interaction can be considered as real false interaction;
-#' - dataset_id: the identifier of the dataset;
-#' - public: network publicly available;
+#' - all_interactions: false interaction can be considered as real false interaction
+#' - dataset_id: the identifier of the dataset
+#' - public: network publicly available
+#'
 #' Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
 #'
 #' @references
-#' <https://mangal-wg.github.io/mangal-api/#networks>
+#' More metadata on <https://mangal-wg.github.io/mangal-api/#networks>
 #'
 #' @examples
 #' mg_insect <- search_networks(query="insect%")

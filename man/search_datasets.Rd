@@ -31,13 +31,14 @@ Names of the list should match one of the column names within the table.
 For the \code{dataset} table, those are:
 \itemize{
 \item id: unique identifier of the dataset
-\item name: name of the dataset;
-\item date: date (\code{YYYY-mm-dd}) of the corresponding publication;
-\item description: a brief description of the data set;
-\item ref_id: the Mangal identifier of the dataset.
+\item name: name of the dataset
+\item date: date (\code{YYYY-mm-dd}) of the corresponding publication
+\item description: a brief description of the data set
+\item ref_id: the Mangal identifier of the dataset
+}
+
 Note that for lists with more than one element, only the first element is used, the others are ignored.
 Examples covering custom queries are provided below.
-}
 }
 \examples{
 \donttest{
@@ -53,5 +54,5 @@ mg_kemp <- search_datasets(query = list(name = 'kemp_1977'), verbose = FALSE)
 mg_16 <- search_datasets(query = list(ref_id = 16), verbose = FALSE)
 }
 \references{
-\url{https://mangal-wg.github.io/mangal-api/#get-all-datasets}
+More metadata on \url{https://mangal-wg.github.io/mangal-api/#get-all-datasets}
 }

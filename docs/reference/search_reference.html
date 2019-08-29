@@ -145,27 +145,33 @@ Note that if an empty character string is passed, then all datasets available ar
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>An object of class <code>mgSearchReference</code>, which is a list that includes a wide range of details associated to the reference, including all datasets and networks related to the publication that are included in Mangal database.</p>
+    <p>An object of class <code>mgSearchReferences</code>, which is a list that includes a wide range of details associated to the reference, including all datasets and networks related to the publication that are included in Mangal database.</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>Names of the list should match one of the column names within the table.
 For the <code>reference</code> table, those are:</p><ul>
 <li><p>id: unique identifier of the reference</p></li>
-<li><p>author: first author;</p></li>
-<li><p>doi: use <code>doi</code> instead.;</p></li>
-<li><p>jstor: JSTOR identifier.;</p></li>
-<li><p>year: year of publication.
-Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.</p></li>
+<li><p>author: first author</p></li>
+<li><p>doi: use <code>doi</code> instead</p></li>
+<li><p>jstor: JSTOR identifier</p></li>
+<li><p>year: year of publication.</p></li>
 </ul>
+    <p>Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.</p>
     
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p><a href='https://mangal-wg.github.io/mangal-api/#references'>https://mangal-wg.github.io/mangal-api/#references</a></p>
+    <p>More metadata on <a href='https://mangal-wg.github.io/mangal-api/#references'>https://mangal-wg.github.io/mangal-api/#references</a></p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>search_reference</span>(<span class='kw'>doi</span> <span class='kw'>=</span> <span class='st'>"10.2307/3225248"</span>)</div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Found 1 reference</span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; $id
+    <pre class="examples"><div class='input'><span class='fu'>search_reference</span>(<span class='kw'>doi</span> <span class='kw'>=</span> <span class='st'>"10.2307/3225248"</span>)</div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   
+</span></div><div class='output co'>#&gt; <span class='message'>                                                                             
+</span></div><div class='output co'>#&gt; <span class='message'>Found 1 reference</span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   
+</span></div><div class='output co'>#&gt; <span class='message'>                                                                             
+</span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   
+</span></div><div class='output co'>#&gt; <span class='message'>                                                                             
+</span></div><div class='output co'>#&gt; $id
 #&gt; [1] 132
 #&gt; 
 #&gt; $doi
@@ -219,13 +225,19 @@ Note that for lists with more than one element, only the first element is used, 
 #&gt; 1 Food web strucutre of a noterhen cool-desert stream (Deep Creek), Curlew Valley, Idaho-Utah
 #&gt;   public all_interactions               created_at               updated_at
 #&gt; 1   TRUE            FALSE 2019-03-08T19:27:51.061Z 2019-03-08T19:27:51.061Z
-#&gt;   dataset_id user_id        geom
+#&gt;   datmgSearchReferences      geom
 #&gt; 1        133       4 POINT EMPTY
 #&gt; 
 #&gt; attr(,"row.names")
 #&gt; [1] 1
 #&gt; attr(,"class")
-#&gt; [1] "mgSearchReference"</div><div class='input'><span class='fu'>search_reference</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>jstor</span> <span class='kw'>=</span> <span class='fl'>3683041</span>))</div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Found 1 reference</span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; $id
+#&gt; [1] "mgSearchReference"</div><div class='input'><span class='fu'>search_reference</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>jstor</span> <span class='kw'>=</span> <span class='fl'>3683041</span>))</div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   
+</span></div><div class='output co'>#&gt; <span class='message'>                                                                             
+</span></div><div class='output co'>#&gt; <span class='message'>Found 1 reference</span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   
+</span></div><div class='output co'>#&gt; <span class='message'>                                                                             
+</span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   
+</span></div><div class='output co'>#&gt; <span class='message'>                                                                             
+</span></div><div class='output co'>#&gt; $id
 #&gt; [1] 9
 #&gt; 
 #&gt; $doi
@@ -273,7 +285,7 @@ Note that for lists with more than one element, only the first element is used, 
 #&gt; bbox:           xmin: 18.5 ymin: 68.35 xmax: 18.5 ymax: 68.35
 #&gt; epsg (SRID):    4326
 #&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs
-#&gt;    id                               name                     date
+#&gt;    idmgSearchReferences              name                     date
 #&gt; 1 909 elberling_olesen_1999_19940823_909 1994-08-23T00:00:00.000Z
 #&gt;                                                   description public
 #&gt; 1 Flower-visiting insect at Mt. Latnjatjarro, northern Sweden   TRUE

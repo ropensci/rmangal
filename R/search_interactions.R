@@ -26,12 +26,13 @@
 #' - network_id: Mangal network identifier
 #' - node_from: node id which the interaction end to
 #' - node_to: node to which the interaction end to
-#' - type: use argument `type` instead.
+#' - type: use argument `type` instead
+#'
 #' Note that for lists with more than one element, only the first element is used, the others are ignored.
 #' Examples covering custom queries are provided below.
 
 #' @references
-#' <https://mangal-wg.github.io/mangal-api/#interactions>
+#' More metadata on <https://mangal-wg.github.io/mangal-api/#interactions>
 #'
 #' @examples
 #' df_inter <- search_interactions(type = "competition", verbose = FALSE)

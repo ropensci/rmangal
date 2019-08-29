@@ -30,11 +30,12 @@ Names of the list should match one of the column names within the table.
 For the \code{networks} table, those are:
 \itemize{
 \item id: unique identifier of the nodes
-\item original_name: taxonomic name as in the original publication;
-\item node_level: either population, taxon or individu;
-\item network_id: Mangal network identifier;
-Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
+\item original_name: taxonomic name as in the original publication
+\item node_level: either population, taxon or individu
+\item network_id: Mangal network identifier
 }
+
+Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
 }
 \examples{
 res_acer <- search_nodes("Acer")
@@ -42,7 +43,7 @@ res_926 <- search_nodes(list(network_id = 926))
 
 }
 \references{
-\url{https://mangal-wg.github.io/mangal-api/#nodes}
+More metadata on \url{https://mangal-wg.github.io/mangal-api/#nodes}
 }
 \seealso{
 \code{\link[=search_taxonomy]{search_taxonomy()}}

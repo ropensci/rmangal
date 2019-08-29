@@ -57,7 +57,7 @@ search_taxonomy("Acer")
 tsn_acer <- search_taxonomy("Acer")$taxonomy.tsn
 }
 \references{
-\url{https://mangal-wg.github.io/mangal-api/#taxonomy}
+More metadata on \url{https://mangal-wg.github.io/mangal-api/#taxonomy}
 }
 \seealso{
 \code{\link[=search_nodes]{search_nodes()}}

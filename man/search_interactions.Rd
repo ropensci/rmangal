@@ -40,10 +40,11 @@ For the \code{interaction} table, those are:
 \item network_id: Mangal network identifier
 \item node_from: node id which the interaction end to
 \item node_to: node to which the interaction end to
-\item type: use argument \code{type} instead.
+\item type: use argument \code{type} instead
+}
+
 Note that for lists with more than one element, only the first element is used, the others are ignored.
 Examples covering custom queries are provided below.
-}
 }
 \examples{
 df_inter <- search_interactions(type = "competition", verbose = FALSE)
@@ -52,5 +53,5 @@ competition_networks <- get_collection(df_inter, verbose = FALSE)
 df_net_926 <- search_interactions(list(network_id = 926), verbose = FALSE)
 }
 \references{
-\url{https://mangal-wg.github.io/mangal-api/#interactions}
+More metadata on \url{https://mangal-wg.github.io/mangal-api/#interactions}
 }

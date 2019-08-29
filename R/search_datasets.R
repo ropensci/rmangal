@@ -20,15 +20,16 @@
 #' Names of the list should match one of the column names within the table. 
 #' For the `dataset` table, those are:
 #' - id: unique identifier of the dataset
-#' - name: name of the dataset;
-#' - date: date (`YYYY-mm-dd`) of the corresponding publication;
-#' - description: a brief description of the data set;
-#' - ref_id: the Mangal identifier of the dataset.
+#' - name: name of the dataset
+#' - date: date (`YYYY-mm-dd`) of the corresponding publication
+#' - description: a brief description of the data set
+#' - ref_id: the Mangal identifier of the dataset
+#'
 #' Note that for lists with more than one element, only the first element is used, the others are ignored.
 #' Examples covering custom queries are provided below.
 #'
 #' @references
-#' <https://mangal-wg.github.io/mangal-api/#get-all-datasets>
+#' More metadata on <https://mangal-wg.github.io/mangal-api/#get-all-datasets>
 #'
 #' @examples
 #' \donttest{

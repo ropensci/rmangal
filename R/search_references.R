@@ -13,27 +13,28 @@
 #' @param ... further arguments to be passed to [httr::GET()].
 #'
 #' @return
-#' An object of class `mgSearchReference`, which is a list that includes a wide range of details associated to the reference, including all datasets and networks related to the publication that are included in Mangal database.
+#' An object of class `mgSearchReferences`, which is a list that includes a wide range of details associated to the reference, including all datasets and networks related to the publication that are included in Mangal database.
 #'
 #' @details
 #' Names of the list should match one of the column names within the table. 
 #' For the `reference` table, those are:
 #' - id: unique identifier of the reference
-#' - author: first author;
-#' - doi: use `doi` instead.;
-#' - jstor: JSTOR identifier.;
+#' - first_author: first author
+#' - doi: use `doi` instead
+#' - jstor: JSTOR identifier
 #' - year: year of publication.
+#'
 #' Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
 #'
 #' @references
-#' <https://mangal-wg.github.io/mangal-api/#references>
+#' More metadata on <https://mangal-wg.github.io/mangal-api/#references>
 #'
 #' @examples
-#' search_reference(doi = "10.2307/3225248")
-#' search_reference(list(jstor = 3683041))
+#' search_references(doi = "10.2307/3225248")
+#' search_references(list(jstor = 3683041))
 #' @export
 
-search_reference <- function(query, doi = NULL, verbose = TRUE, ...) {
+search_references <- function(query, doi = NULL, verbose = TRUE, ...) {
 
   if (!is.null(doi)) {
     if (length(doi) > 1) {
@@ -63,6 +64,6 @@ search_reference <- function(query, doi = NULL, verbose = TRUE, ...) {
   ref$networks <- get_from_fkey_net(endpoints()$network,
     dataset_id = ref$datasets$id, verbose = verbose)
 
-  class(ref) <- "mgSearchReference"
+  class(ref) <- "mgSearchReferences"
   ref
 }

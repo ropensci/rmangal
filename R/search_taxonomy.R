@@ -36,7 +36,7 @@
 #' all taxa matching the query.
 #'
 #' @references
-#' <https://mangal-wg.github.io/mangal-api/#taxonomy>
+#' More metadata on <https://mangal-wg.github.io/mangal-api/#taxonomy>
 #'
 #' @seealso
 #' [search_nodes()]

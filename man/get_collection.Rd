@@ -5,7 +5,7 @@
 \alias{get_collection.default}
 \alias{get_collection.mgSearchDatasets}
 \alias{get_collection.mgSearchNetworks}
-\alias{get_collection.mgSearchReference}
+\alias{get_collection.mgSearchReferences}
 \alias{get_collection.mgSearchNodes}
 \alias{get_collection.mgSearchTaxonomy}
 \alias{get_collection.mgSearchInteractions}
@@ -19,7 +19,7 @@ get_collection(x, ...)
 
 \method{get_collection}{mgSearchNetworks}(x, ...)
 
-\method{get_collection}{mgSearchReference}(x, ...)
+\method{get_collection}{mgSearchReferences}(x, ...)
 
 \method{get_collection}{mgSearchNodes}(x, ...)
 
@@ -51,7 +51,7 @@ function. The function also accept a numeric vector of Mangal network IDs.
 
 \item \code{mgSearchNetworks}: Get a collection of networks from a \code{mgSearchNetworks} object.
 
-\item \code{mgSearchReference}: Get a collection of networks from a \code{mgSearchReference} object.
+\item \code{mgSearchReferences}: Get a collection of networks from a \code{mgSearchReferences} object.
 
 \item \code{mgSearchNodes}: Get a collection of networks from a \code{mgSearchNodes} object.
 
