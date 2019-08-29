@@ -15,7 +15,7 @@
 #'
 #' @seealso
 #' [search_datasets()], [search_interactions()], [search_networks()],
-#' [search_nodes()], [search_reference()], [search_taxonomy()].
+#' [search_nodes()], [search_references()], [search_taxonomy()].
 #'
 #' @examples
 #' mg_2 <- get_collection(c(1076:1077), verbose = FALSE)
