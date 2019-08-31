@@ -40,6 +40,7 @@ get_network_by_id_indiv <- function(id, verbose = TRUE) {
   stopifnot(grepl("^[0-9]+$", id))
   stopifnot(!is.null(id))
   stopifnot(length(id) == 1)
+
   # Object S3 declaration
   # if (verbose) cat("Retrieving network id", id, "\n")
   mg_network <- structure(list(network =
@@ -63,6 +64,14 @@ get_network_by_id_indiv <- function(id, verbose = TRUE) {
   # retrieve reference
   mg_network$reference <- resp_to_df(get_singletons(endpoints()$reference,
     ids = unique(mg_network$dataset$ref_id), verbose = verbose)$body)
+
+
+  # Renames ids columns
+  names(mg_network$network)[1] <- "network_id"
+  names(mg_network$nodes)[1] <- "node_id"
+  names(mg_network$interactions)[1] <- "interaction_id"
+  names(mg_network$dataset)[1] <- "dataset_id"
+  names(mg_network$reference)[1] <- "ref_id"
 
   mg_network
 }
