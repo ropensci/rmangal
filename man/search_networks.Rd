@@ -64,5 +64,5 @@ mg_19 <- search_networks(list(dataset_id = 19))
 
 }
 \references{
-More metadata on \url{https://mangal-wg.github.io/mangal-api/#networks}
+Metadata available at \url{https://mangal-wg.github.io/mangal-api/#networks}
 }

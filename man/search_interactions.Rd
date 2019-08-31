@@ -53,5 +53,5 @@ competition_networks <- get_collection(df_inter, verbose = FALSE)
 df_net_926 <- search_interactions(list(network_id = 926), verbose = FALSE)
 }
 \references{
-More metadata on \url{https://mangal-wg.github.io/mangal-api/#interactions}
+Metadata available at \url{https://mangal-wg.github.io/mangal-api/#interactions}
 }

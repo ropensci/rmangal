@@ -43,7 +43,7 @@ res_926 <- search_nodes(list(network_id = 926))
 
 }
 \references{
-More metadata on \url{https://mangal-wg.github.io/mangal-api/#nodes}
+Metadata available at \url{https://mangal-wg.github.io/mangal-api/#nodes}
 }
 \seealso{
 \code{\link[=search_taxonomy]{search_taxonomy()}}

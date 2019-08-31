@@ -44,5 +44,5 @@ search_references(doi = "10.2307/3225248")
 search_references(list(jstor = 3683041))
 }
 \references{
-More metadata on \url{https://mangal-wg.github.io/mangal-api/#references}
+Metadata available at \url{https://mangal-wg.github.io/mangal-api/#references}
 }

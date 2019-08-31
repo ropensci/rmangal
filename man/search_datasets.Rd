@@ -54,5 +54,5 @@ mg_kemp <- search_datasets(query = list(name = 'kemp_1977'), verbose = FALSE)
 mg_16 <- search_datasets(query = list(ref_id = 16), verbose = FALSE)
 }
 \references{
-More metadata on \url{https://mangal-wg.github.io/mangal-api/#get-all-datasets}
+Metadata available at \url{https://mangal-wg.github.io/mangal-api/#datasets}
 }
