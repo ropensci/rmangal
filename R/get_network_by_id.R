@@ -10,10 +10,11 @@
 #'
 #' @return 
 #' a `mgNetwork` object including: 
-#' - network: a `list` of all generic information on the network;
-#' - nodes: a `data.frame` of all nodes with taxonomic information;
-#' - edges: a `data.frame` of all edges (ecological interactions), with the attribute used to describe the interaction #' - dataset: `list` information pertaining to the dataset the network is associated with;
-#' - reference: `list` information about the original publication.
+#' - network: a `list` of all generic information on the network
+#' - nodes: a `data.frame` of all nodes with taxonomic information
+#' - interactions: a `data.frame` of all ecological interactions, with the attribute used to describe the interaction 
+#' - dataset: `list` information pertaining to the dataset the network is associated with
+#' - reference: `list` information about the original publication
 #'
 #' @examples 
 #' net18 <- get_network_by_id(id = 18) 
@@ -52,7 +53,7 @@ get_network_by_id_indiv <- function(id, verbose = TRUE) {
   mg_network$nodes <- get_from_fkey_flt(endpoints()$node,
     network_id = mg_network$network$id, verbose = verbose)
   # if (verbose) message("done!\nRetrieving interaction\n")
-  mg_network$edges <- get_from_fkey_flt(endpoints()$interaction,
+  mg_network$interactions <- get_from_fkey_flt(endpoints()$interaction,
     network_id = mg_network$network$id, verbose = verbose)
   # if (verbose) message("done")
   # retrieve dataset informations
@@ -73,7 +74,7 @@ print.mgNetwork <- function(x, ...) {
   cat(
     "* Network #", x$network$id, " from data set #", x$dataset$id, "\n",
     "* Description: ", x$network$description, "\n",
-    "* Includes ", nrow(x$edges), " edges and ", nrow(x$nodes), " nodes \n",
+    "* Includes ", nrow(x$interactions), " edges and ", nrow(x$nodes), " nodes \n",
     print_taxo_ids(x$nodes),
     "* Published in ref #",  x$reference$id, " DOI:", x$reference$doi,
     "\n\n", sep = ""

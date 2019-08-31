@@ -27,14 +27,14 @@ mg_to_igraph <- function(x, ...) {
 #' @export
 mg_to_igraph.mgNetwork <- function(x, ...) {
     # Simple test to know if the graph is directed or undirected
-    directed <- ifelse(all(x$edges$direction == "directed"), TRUE, FALSE)
+    directed <- ifelse(all(x$interactions$direction == "directed"), TRUE, FALSE)
     # Move id edge to the last column
-    x$edges <- as.data.frame(x$edges, stringsAsFactors = FALSE)
+    x$interactions <- as.data.frame(x$interactions, stringsAsFactors = FALSE)
     # drop geometry
-    x$edges <- x$edges[, names(x$edges) != "geom"]
+    x$interactions <- x$interactions[, names(x$interactions) != "geom"]
     nm <- c("node_from", "node_to")
-    x$edges <- x$edges[, c(nm, names(x$edges)[! names(x$edges) %in% nm])]
-    igraph::graph_from_data_frame(d = x$edges, directed = directed,
+    x$interactions <- x$interactions[, c(nm, names(x$interactions)[! names(x$interactions) %in% nm])]
+    igraph::graph_from_data_frame(d = x$interactions, directed = directed,
       vertices = x$nodes)
 }
 
