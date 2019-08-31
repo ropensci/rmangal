@@ -26,7 +26,7 @@
 #' Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
 #'
 #' @references
-#' More metadata on <https://mangal-wg.github.io/mangal-api/#networks>
+#' Metadata available at <https://mangal-wg.github.io/mangal-api/#networks>
 #'
 #' @examples
 #' mg_insect <- search_networks(query="insect%")

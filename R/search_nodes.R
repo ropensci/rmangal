@@ -29,7 +29,7 @@
 #' All networks in which taxa are involved are also attached to the `data.frame`.
 #'
 #' @references
-#' More metadata on <https://mangal-wg.github.io/mangal-api/#nodes>
+#' Metadata available at <https://mangal-wg.github.io/mangal-api/#nodes>
 #'
 #' @examples
 #' res_acer <- search_nodes("Acer")

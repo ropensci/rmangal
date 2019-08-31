@@ -27,7 +27,7 @@
 #' Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
 #'
 #' @references
-#' More metadata on <https://mangal-wg.github.io/mangal-api/#references>
+#' Metadata available at <https://mangal-wg.github.io/mangal-api/#references>
 #'
 #' @examples
 #' search_references(doi = "10.2307/3225248")

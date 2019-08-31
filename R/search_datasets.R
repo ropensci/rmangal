@@ -29,7 +29,7 @@
 #' Examples covering custom queries are provided below.
 #'
 #' @references
-#' More metadata on <https://mangal-wg.github.io/mangal-api/#get-all-datasets>
+#' Metadata available at <https://mangal-wg.github.io/mangal-api/#datasets>
 #'
 #' @examples
 #' \donttest{
