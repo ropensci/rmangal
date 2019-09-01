@@ -7,26 +7,10 @@
 #' An object of class `igraph` for a `mgNetwork` object and a list of
 #' `igraph` objects for `mgNetworksCollection`.
 #'
-#'
-#' @examples
-#' insects_networks <- get_collection(search_networks(query='insect%'))
-#' # Apply mg_to_igraph on one specific network
-#' insects_network <- insects_networks[[1]]
-#' ig_network <- mg_to_igraph(insects_network)
-#' # Apply mg_to_igraph on networks collection
-#' ig_coll_networks <- mg_to_igraph(insects_networks)
-#' # Plot igraph object with vertex label
-#' plot(ig_network, vertex.label = insects_network$nodes$taxonomy.name)
-#' @export
-
-mg_to_igraph <- function(x, ...) {
-    UseMethod("mg_to_igraph", x)
-}
-
-
-#' @describeIn mg_to_igraph Convert`mgNetwork` objects to `igraph` objects.
-#' @export
-mg_to_igraph.mgNetwork <- function(x, ...) {
+#' @importFrom igraph as.igraph
+#' @describeIn as.igraph Convert `mgNetwork` objects to `igraph` objects.
+#' @export 
+as.igraph.mgNetwork <- function(x, ...) {
     # Simple test to know if the graph is directed or undirected
     directed <- ifelse(all(x$edges$direction == "directed"), TRUE, FALSE)
     # Move id edge to the last column
@@ -40,8 +24,11 @@ mg_to_igraph.mgNetwork <- function(x, ...) {
 }
 
 
-#' @describeIn  mg_to_igraph Convert `mgNetworksCollection` objects to `igraph` objects.
+#' @describeIn as.igraph Convert `mgNetworksCollection` objects to a list of `igraph` objects.
 #' @export
-mg_to_igraph.mgNetworksCollection <- function(x, ...) {
-    lapply(x, mg_to_igraph.mgNetwork)
+as.igraph.mgNetworksCollection <- function(x, ...) {
+    lapply(x, as.igraph.mgNetwork)
 }
+
+#' @export
+igraph::as.igraph

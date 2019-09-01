@@ -364,7 +364,7 @@ website](https://igraph.org/r/)) object and then to carry out network analysis:
 
 ```{R}
 library(igraph)
-ig_lagoons <- search_datasets(query = 'lagoon') %>% get_collection %>% mg_to_igraph
+ig_lagoons <- search_datasets(query = 'lagoon') %>% get_collection %>% as.igraph
 ## Modularity analysis for the first network
 modularity(ig_lagoons[[1]], membership(cluster_walktrap(ig_lagoons[[1]])))
 ## Degree values for all networks

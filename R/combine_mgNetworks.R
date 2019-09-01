@@ -1,4 +1,4 @@
-#' Combine Mangal networks.
+#' Combine Mangal networks
 #'
 #' Combine `mgNetworksCollection` and `mgNetwork` objects into a
 #' `mgNetworksCollection` object.

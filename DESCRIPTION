@@ -23,7 +23,6 @@ URL: https://mangal.io
 BugReports: https://github.com/mangal-wg/rmangal/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
 Imports:
     httr (>= 1.3.1),
     igraph,
@@ -31,15 +30,17 @@ Imports:
     memoise,
     purrr,
     sf
-RoxygenNote: 6.1.1
 Suggests:
+    ggraph,
     knitr,
     magrittr,
     mapview,
     rmarkdown,
     taxize,
+    tidygraph,
     testthat,
     tibble,
     USAboundaries
+RoxygenNote: 6.1.1
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)

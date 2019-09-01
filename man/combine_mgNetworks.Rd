@@ -2,7 +2,7 @@
 % Please edit documentation in R/combine_mgNetworks.R
 \name{combine_mgNetworks}
 \alias{combine_mgNetworks}
-\title{Combine Mangal networks.}
+\title{Combine Mangal networks}
 \usage{
 combine_mgNetworks(...)
 }
