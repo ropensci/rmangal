@@ -339,6 +339,91 @@ glimpse(nets_lagoons[[1]]$reference)
 
 # Integrated workflow with **rmangal**
 
+## Batch analysis
+
+So far, the search functions of **rmangal** allow the user to perform only a
+single search at a time. The simplest way to do more than one search is to loop
+over a vector or a list of queries. Below we exemplify how to do so using
+`lapply()`:
+
+```{R}
+tsn <- c(837855, 169237)
+mgn <- lapply(tsn, function(x) search_taxonomy(tsn = x)) %>%
+  lapply(get_collection) %>%
+  combine_mgNetworks
+mgn
+```
+
+
+## Taxonomic analysis with `taxize`
+
+
+As Mangal includes taxonomic identifiers, **rmangal** can readily be combined
+with `taxize` (see [taxize book](https://ropenscilabs.github.io/taxize-book/) for more details about this package):
+
+```{R}
+library(taxize)
+tsn_acer <- search_taxonomy("Acer")$taxonomy.tsn
+classification(tsn_acer, db = "itis")
+```
+
+## Network analysis with `igraph` 
+
+
+Once the data are retrieved and a `mgNetwork` or a `mgNetworkCollection` objects
+obtained, it is straightforward to convert it as a `igraph` (see the [dedicated
+website](https://igraph.org/r/)) object and then to carry out network analysis:
+
+
+```{R}
+library(igraph)
+mg_lagoons <- search_datasets(query = 'lagoon') %>% get_collection
+# NB the line below returns a list of igraph objects
+ig_lagoons <- as.igraph(mg_lagoons)
+## Modularity analysis for the first network
+modularity(ig_lagoons[[1]], membership(cluster_walktrap(ig_lagoons[[1]])))
+## Degree values for all networks
+lapply(ig_lagoons, degree)
+```
+
+
+## Network manipulation and visualization with `tidygraph` and `ggraph`
+
+The package [`tidygraph`](https://github.com/thomasp85/tidygraph) treats
+networks as two tidy tables (one for the edges and one for the nodes) that can
+be modified using the grammar of data manipulation developed in the
+[tidyverse](https://www.tidyverse.org/). Moreover, `tidygraph` wraps over most
+of the `igraph` functions so that the user can call a vast variety of algorithms
+to properly analysis networks. Fortunately, objects of class `mgNetwork` can
+readily be converted into `tbl_graph` objects which allows the user to benefit
+from all the tools included in `tidygraph`:
+
+
+```{R}
+library(tidygraph)
+# NB the line below would not work with a mgNetworksCollection (use lapply)
+tg_lagoons <-  as_tbl_graph(mg_lagoons[[1]]) %>% 
+  mutate(centrality_dg = centrality_degree(mode = 'in'))
+tg_lagoons %E>% as_tibble
+tg_lagoons %N>% as_tibble %>% 
+  select(original_name, taxonomy.tsn, centrality_dg)
+```
+
+Another strong advantage of `tbl_graph` objects is that there are the objects
+used by the package [`ggraph`](https://github.com/thomasp85/ggraph) that that
+offers various functions (theme, geoms, etc.) to efficiently visualize networks:
+
+```{R}
+library(ggraph)
+ggraph(tg_lagoons, layout = "stress") + 
+  geom_edge_parallel(end_cap = circle(.5), start_cap = circle(.5),
+        arrow = arrow(length = unit(1, 'mm'), type = 'closed')) + 
+  geom_node_point(aes(colour = taxonomy.rank), size = 8) + 
+  theme_graph(background = "grey40", foreground = NA, text_colour = 'white')
+```
+
+
+
 
 ## Creating a list references for a set of networks
 
@@ -354,49 +439,10 @@ search_datasets(query = 'lagoon') %>%
 # ReadBib(tmpf)
 ```
 
-## Network analysis with `igraph`
 
 
-Once the data are retrieved and a `mgNetwork` or a `mgNetworkCollection` objects
-obtained, it is straightforward to convert it as a `igraph` (see the [dedicated
-website](https://igraph.org/r/)) object and then to carry out network analysis:
 
 
-```{R}
-library(igraph)
-ig_lagoons <- search_datasets(query = 'lagoon') %>% get_collection %>% as.igraph
-## Modularity analysis for the first network
-modularity(ig_lagoons[[1]], membership(cluster_walktrap(ig_lagoons[[1]])))
-## Degree values for all networks
-lapply(ig_lagoons, degree)
-```
 
-
-## Taxonomic analysis with `taxize`
-
-
-As Mangal includes taxonomic identifiers, **rmangal** can readily be combined
-with `taxize` (see [taxize book](https://ropenscilabs.github.io/taxize-book/) for more details about tha package):
-
-```{R}
-library(taxize)
-tsn_acer <- search_taxonomy("Acer")$taxonomy.tsn
-classification(tsn_acer, db = "itis")
-```
-
-## Batch analysis
-
-So far, the search functions of **rmangal** allow the user to perform only a
-single search at a time. The simplest way to do more than one search is to loop
-over a vector or a list of queries. Below we exemplify how to do so using
-`lapply()`:
-
-```{R}
-tsn <- c(837855, 169237)
-mgn <- lapply(tsn, function(x) search_taxonomy(tsn = x)) %>%
-  lapply(get_collection) %>%
-  combine_mgNetworks
-mgn
-```
 
 ## References

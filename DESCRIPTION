@@ -31,7 +31,7 @@ Imports:
     purrr,
     sf
 Suggests:
-    ggraph,
+    ggraph (>= 2.0.0),
     knitr,
     magrittr,
     mapview,
