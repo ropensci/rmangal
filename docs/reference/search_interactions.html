@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Query the interactions — search_interactions • rmangal</title>
+<title>Query interactions — search_interactions • rmangal</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,10 +30,13 @@
 
 
 
-<meta property="og:title" content="Query the interactions — search_interactions" />
+<meta property="og:title" content="Query interactions — search_interactions" />
 
 <meta property="og:description" content="Search for specific interactions using a keyword or a specific type of
-interactions (e.g. mutualism)." />
+interactions (e.g. mutualism). If the query is a character string, then all character columns in the table
+are searched and the entries for which at least one
+partial match was found are returned.
+Alternatively, a named list can be used to look for an exact match in a specific column (see Details section)" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -88,7 +91,12 @@ interactions (e.g. mutualism)." />
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/mangal-wg/rmangal">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -101,15 +109,18 @@ interactions (e.g. mutualism)." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Query the interactions</h1>
-    
+    <h1>Query interactions</h1>
+    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/search_interactions.R'><code>R/search_interactions.R</code></a></small>
     <div class="hidden name"><code>search_interactions.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
     <p>Search for specific interactions using a keyword or a specific type of
-interactions (e.g. mutualism).</p>
+interactions (e.g. mutualism). If the <code>query</code> is a character string, then all character columns in the table
+are searched and the entries for which at least one
+partial match was found are returned.
+Alternatively, a named list can be used to look for an exact match in a specific column (see Details section)</p>
     
     </div>
 
@@ -149,11 +160,7 @@ All networks in which interactions are involved are also attached to the <code>d
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>If <code>query</code> is a character string, then all fields of the database table
-including character strings are searched and entries for which at least one
-partial match was found are returned.
-Alternatively, a named list can be used to look for an exact match in a specific field.
-In this case, the name of the list should match one of the field names of the database table.
+    <p>Names of the list should match one of the column names within the table.
 For the <code>interaction</code> table, those are:</p><ul>
 <li><p>id: unique identifier of the interaction</p></li>
 <li><p>attr_id: identifier of a specific attribute</p></li>
@@ -161,21 +168,20 @@ For the <code>interaction</code> table, those are:</p><ul>
 <li><p>network_id: Mangal network identifier</p></li>
 <li><p>node_from: node id which the interaction end to</p></li>
 <li><p>node_to: node to which the interaction end to</p></li>
-<li><p>type: use argument <code>type</code> instead.
-Note that for lists with more than one element, only the first element is used, the others are ignored.
-Examples covering custom queries are provided below.</p></li>
+<li><p>type: use argument <code>type</code> instead</p></li>
 </ul>
+    <p>Note that for lists with more than one element, only the first element is used, the others are ignored.
+Examples covering custom queries are provided below.</p>
     
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p><a href='https://mangal-wg.github.io/mangal-api/#interactions'>https://mangal-wg.github.io/mangal-api/#interactions</a></p>
+    <p>Metadata available at <a href='https://mangal-wg.github.io/mangal-api/#interactions'>https://mangal-wg.github.io/mangal-api/#interactions</a></p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>df_inter</span> <span class='kw'>&lt;-</span> <span class='fu'>search_interactions</span>(<span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"competition"</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 <span class='co'># Get all networks containing competition</span>
-<span class='no'>competition_networks</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='get_collection.html'>get_collection</a></span>(<span class='no'>df_inter</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='message'>Processing id: 105 	1/1  </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Processing id: 105 	1/1  </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Processing id: 105 	1/1  </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Processing id: 105 	1/1  </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Processing id: 119 	1/1  </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Processing id: 139 	1/1  </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='input'><span class='no'>df_net_926</span> <span class='kw'>&lt;-</span> <span class='fu'>search_interactions</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>network_id</span> <span class='kw'>=</span> <span class='fl'>926</span>), <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-<span class='no'>df_net_unknown</span> <span class='kw'>&lt;-</span> <span class='fu'>search_interactions</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>attr_id</span> <span class='kw'>=</span> <span class='fl'>100</span>), <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div></pre>
+<span class='no'>competition_networks</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='get_collection.html'>get_collection</a></span>(<span class='no'>df_inter</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='message'>Processing id: 105 	1/1  </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Processing id: 105 	1/1  </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Processing id: 105 	1/1  </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Processing id: 105 	1/1  </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Processing id: 119 	1/1  </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Processing id: 139 	1/1  </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='input'><span class='no'>df_net_926</span> <span class='kw'>&lt;-</span> <span class='fu'>search_interactions</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>network_id</span> <span class='kw'>=</span> <span class='fl'>926</span>), <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

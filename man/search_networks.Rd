@@ -3,7 +3,7 @@
 \name{search_networks}
 \alias{search_networks}
 \alias{search_networks_sf}
-\title{Query the networks}
+\title{Query networks}
 \usage{
 search_networks(query, verbose = TRUE, ...)
 
@@ -24,20 +24,22 @@ An object of class \code{mgSearchNetworks}, which is a \code{data.frame} object 
 }
 \description{
 Search over all networks using a keyword, a custom query or a spatial object
+If the \code{query} is a character string, then all character columns in the table
+are searched and the entries for which at least one
+partial match was found are returned.
+Alternatively, a named list can be used to look for an exact match in a specific column (see Details section)
 }
 \details{
-If \code{query} is a character string, then all fields of the database table
-including character strings are searched and entries for which at least one
-partial match was found are returned.
-Alternatively, a named list can be used to look for an exact match in a specific field.
-In this case, the name of the list should match one of the field names of the database table. For the \code{networks} table, those are:
+Names of the list should match one of the column names within the table.
+For the \code{networks} table, those are
 \itemize{
 \item id: unique identifier of the network
-\item all_interactions: false interaction can be considered as real false interaction;
-\item dataset_id: the identifier of the dataset;
-\item public: network publicly available;
-Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
+\item all_interactions: false interaction can be considered as real false interaction
+\item dataset_id: the identifier of the dataset
+\item public: network publicly available
 }
+
+Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
 }
 \section{Functions}{
 \itemize{
@@ -47,18 +49,20 @@ Note that for lists with more than one element, only the first element is used, 
 \examples{
 mg_insect <- search_networks(query="insect\%")
 \donttest{
+# Retrieve the search results 
+nets_insect <- get_collection(mg_insect)
 # Spatial query
 library(USAboundaries)
 area <- us_states(state="california")
 networks_in_area <- search_networks(area, verbose = FALSE)
 plot(networks_in_area)
 }
-# Network 5013
-net_5013 <- search_networks(query = list(id = "5013"))
-# Network(s) of dataset id = 19
+# Retrieve network ID 5013
+net_5013 <- search_networks(query = list(id = 5013))
+# Network(s) of dataset ID 19
 mg_19 <- search_networks(list(dataset_id = 19))
 
 }
 \references{
-\url{https://mangal-wg.github.io/mangal-api/#networks}
+Metadata available at \url{https://mangal-wg.github.io/mangal-api/#networks}
 }

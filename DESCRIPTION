@@ -19,7 +19,7 @@ Authors@R: c(
       email = "timothee.poisot@umontreal.ca", role = c("aut"))
       )
 Description: An interface to the Mangal database - a collection of ecological networks. This package includes functions to work with the Mangal RESTFul API methods (<https://mangal.io/doc/api>).
-URL: https://mangal.io
+URL: https://mangal.io, https://github.com/mangal-wg/rmangal
 BugReports: https://github.com/mangal-wg/rmangal/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
@@ -29,18 +29,19 @@ Imports:
     jsonlite (>= 1.5),
     memoise,
     purrr,
-    sf
+    utils
+RoxygenNote: 6.1.1
 Suggests:
     ggraph (>= 2.0.0),
     knitr,
     magrittr,
     mapview,
     rmarkdown,
+    sf,
     taxize,
     tidygraph,
     testthat,
     tibble,
-    USAboundaries
-RoxygenNote: 6.1.1
+    USAboundaries,
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)

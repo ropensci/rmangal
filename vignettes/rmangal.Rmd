@@ -134,7 +134,7 @@ In order to efficiently retrieve networks from the database, **rmangal**
 includes 6 search functions querying the 5 tables described above as well as a table dedicated to the taxonomy backbone.
 
 
-1. `search_reference()`: search in the reference table, for instance the user can look for a specific `doi`;
+1. `search_references()`: search in the reference table, for instance the user can look for a specific `doi`;
 2. `search_datasets()`: search among datasets using a keyword;
 3. `search_networks()`: search networks based on a keyword or a geographical area;
 4. `search_interactions()`: list all networks containing a specific interaction type;
@@ -213,7 +213,7 @@ glimpse(all_datasets)
 ```
 
 
-As shown in the diagram above, a dataset comes from a specific reference and `search_reference()`
+As shown in the diagram above, a dataset comes from a specific reference and `search_references()`
 queries the reference table directly. A handy argument of this function is `doi` as it
 allows to pass a Digital Object Identifier and so to retrieve all datasets attached to a specific
 publication.
@@ -221,7 +221,7 @@ publication.
 
 
 ```{R}
-zetina_2003 <- search_reference(doi = "10.1016/s0272-7714(02)00410-9")
+zetina_2003 <- search_references(doi = "10.1016/s0272-7714(02)00410-9")
 ```
 
 
@@ -245,8 +245,9 @@ networks in California:
 library(mapview)
 library(USAboundaries)
 area <- us_states(state = "california")
-in_CA <- search_networks(area)
-mapview(in_CA, legend = FALSE)
+in_CA <- search_networks(area)  
+
+mapview(in_CA, legend = FALSE) + mapview(sf::st_cast(area,"MULTILINESTRING"), color = "red", legend = FALSE)  
 ```
 
 

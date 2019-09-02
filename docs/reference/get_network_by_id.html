@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Retrieve network data for a given set of Mangal identifiera #' — get_network_by_id • rmangal</title>
+<title>Retrieve network informations, nodes, edges and references for a given set of Mangal network IDs — get_network_by_id • rmangal</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Retrieve network data for a given set of Mangal identifiera #' — get_network_by_id" />
+<meta property="og:title" content="Retrieve network informations, nodes, edges and references for a given set of Mangal network IDs — get_network_by_id" />
 
-<meta property="og:description" content="Retrieve network data for a given set of Mangal identifiera #'" />
+<meta property="og:description" content="Retrieve network informations, nodes, edges and references for a given set of Mangal network IDs" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -87,7 +87,12 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/mangal-wg/rmangal">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -100,14 +105,14 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Retrieve network data for a given set of Mangal identifiera #'</h1>
-    
+    <h1>Retrieve network informations, nodes, edges and references for a given set of Mangal network IDs</h1>
+    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/get_network_by_id.R'><code>R/get_network_by_id.R</code></a></small>
     <div class="hidden name"><code>get_network_by_id.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Retrieve network data for a given set of Mangal identifiera #'</p>
+    <p>Retrieve network informations, nodes, edges and references for a given set of Mangal network IDs</p>
     
     </div>
 
@@ -149,10 +154,11 @@
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>a <code>mgNetwork</code> object including:</p><ul>
-<li><p>network: a <code>list</code> of all generic information on the network;</p></li>
-<li><p>nodes: a <code>data.frame</code> of all nodes with taxonomic information;</p></li>
-<li><p>edges: a <code>data.frame</code> of all edges (ecological interactions), with the attribute used to describe the interaction #' - dataset: <code>list</code> information pertaining to the dataset the network is associated with;</p></li>
-<li><p>reference: <code>list</code> information about the original publication.</p></li>
+<li><p>network: a <code>list</code> of all generic information on the network</p></li>
+<li><p>nodes: a <code>data.frame</code> of all nodes with taxonomic information</p></li>
+<li><p>interactions: a <code>data.frame</code> of all ecological interactions, with the attribute used to describe the interaction</p></li>
+<li><p>dataset: <code>list</code> information pertaining to the dataset the network is associated with</p></li>
+<li><p>reference: <code>list</code> information about the original publication</p></li>
 </ul>
 
     

@@ -5,7 +5,7 @@
 \alias{get_collection.default}
 \alias{get_collection.mgSearchDatasets}
 \alias{get_collection.mgSearchNetworks}
-\alias{get_collection.mgSearchReference}
+\alias{get_collection.mgSearchReferences}
 \alias{get_collection.mgSearchNodes}
 \alias{get_collection.mgSearchTaxonomy}
 \alias{get_collection.mgSearchInteractions}
@@ -19,7 +19,7 @@ get_collection(x, ...)
 
 \method{get_collection}{mgSearchNetworks}(x, ...)
 
-\method{get_collection}{mgSearchReference}(x, ...)
+\method{get_collection}{mgSearchReferences}(x, ...)
 
 \method{get_collection}{mgSearchNodes}(x, ...)
 
@@ -41,7 +41,7 @@ objects \code{\link[rmangal:get_network_by_id]{rmangal::get_network_by_id()}}).
 }
 \description{
 Retrieve a set of networks based on the results of one of the \code{search_*()}
-function or a set of Mangal unique network identifiers.
+function. The function also accept a numeric vector of Mangal network IDs.
 }
 \section{Methods (by class)}{
 \itemize{
@@ -51,7 +51,7 @@ function or a set of Mangal unique network identifiers.
 
 \item \code{mgSearchNetworks}: Get a collection of networks from a \code{mgSearchNetworks} object.
 
-\item \code{mgSearchReference}: Get a collection of networks from a \code{mgSearchReference} object.
+\item \code{mgSearchReferences}: Get a collection of networks from a \code{mgSearchReferences} object.
 
 \item \code{mgSearchNodes}: Get a collection of networks from a \code{mgSearchNodes} object.
 
@@ -61,12 +61,10 @@ function or a set of Mangal unique network identifiers.
 }}
 
 \examples{
-mg_2 <- get_collection(c(1035:1036))
-mg_insect <- get_collection(search_networks(query='insect\%'))
-mg_lagoon <- get_collection(search_datasets(query='lagoon\%'))
-
+mg_2 <- get_collection(c(1076:1077), verbose = FALSE)
+mg_anemone <- get_collection(search_networks(query='anemone\%'), verbose = FALSE)
 }
 \seealso{
 \code{\link[=search_datasets]{search_datasets()}}, \code{\link[=search_interactions]{search_interactions()}}, \code{\link[=search_networks]{search_networks()}},
-\code{\link[=search_nodes]{search_nodes()}}, \code{\link[=search_reference]{search_reference()}}, \code{\link[=search_taxonomy]{search_taxonomy()}}.
+\code{\link[=search_nodes]{search_nodes()}}, \code{\link[=search_references]{search_references()}}, \code{\link[=search_taxonomy]{search_taxonomy()}}.
 }

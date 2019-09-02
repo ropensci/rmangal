@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Query references — search_reference • rmangal</title>
+<title>Query references — search_references • rmangal</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,7 +30,7 @@
 
 
 
-<meta property="og:title" content="Query references — search_reference" />
+<meta property="og:title" content="Query references — search_references" />
 
 <meta property="og:description" content="Search for a specific reference using a key wor or a Digital Object Identifier (DOI).
 If the query is a character string, then all character columns in the table
@@ -91,7 +91,12 @@ Alternatively, a named list can be used to look for an exact match in a specific
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/mangal-wg/rmangal">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -105,8 +110,8 @@ Alternatively, a named list can be used to look for an exact match in a specific
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Query references</h1>
-    
-    <div class="hidden name"><code>search_reference.Rd</code></div>
+    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/search_references.R'><code>R/search_references.R</code></a></small>
+    <div class="hidden name"><code>search_references.Rd</code></div>
     </div>
 
     <div class="ref-description">
@@ -119,7 +124,7 @@ Alternatively, a named list can be used to look for an exact match in a specific
     
     </div>
 
-    <pre class="usage"><span class='fu'>search_reference</span>(<span class='no'>query</span>, <span class='kw'>doi</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>search_references</span>(<span class='no'>query</span>, <span class='kw'>doi</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -152,7 +157,7 @@ Note that if an empty character string is passed, then all datasets available ar
     <p>Names of the list should match one of the column names within the table.
 For the <code>reference</code> table, those are:</p><ul>
 <li><p>id: unique identifier of the reference</p></li>
-<li><p>author: first author</p></li>
+<li><p>first_author: first author</p></li>
 <li><p>doi: use <code>doi</code> instead</p></li>
 <li><p>jstor: JSTOR identifier</p></li>
 <li><p>year: year of publication.</p></li>
@@ -161,17 +166,11 @@ For the <code>reference</code> table, those are:</p><ul>
     
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p>More metadata on <a href='https://mangal-wg.github.io/mangal-api/#references'>https://mangal-wg.github.io/mangal-api/#references</a></p>
+    <p>Metadata available at <a href='https://mangal-wg.github.io/mangal-api/#references'>https://mangal-wg.github.io/mangal-api/#references</a></p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>search_reference</span>(<span class='kw'>doi</span> <span class='kw'>=</span> <span class='st'>"10.2307/3225248"</span>)</div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   
-</span></div><div class='output co'>#&gt; <span class='message'>                                                                             
-</span></div><div class='output co'>#&gt; <span class='message'>Found 1 reference</span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   
-</span></div><div class='output co'>#&gt; <span class='message'>                                                                             
-</span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   
-</span></div><div class='output co'>#&gt; <span class='message'>                                                                             
-</span></div><div class='output co'>#&gt; $id
+    <pre class="examples"><div class='input'><span class='fu'>search_references</span>(<span class='kw'>doi</span> <span class='kw'>=</span> <span class='st'>"10.2307/3225248"</span>)</div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Found 1 reference</span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; $id
 #&gt; [1] 132
 #&gt; 
 #&gt; $doi
@@ -225,23 +224,13 @@ For the <code>reference</code> table, those are:</p><ul>
 #&gt; 1 Food web strucutre of a noterhen cool-desert stream (Deep Creek), Curlew Valley, Idaho-Utah
 #&gt;   public all_interactions               created_at               updated_at
 #&gt; 1   TRUE            FALSE 2019-03-08T19:27:51.061Z 2019-03-08T19:27:51.061Z
-#&gt;   datmgSearchReferences      geom
+#&gt;   dataset_id user_id        geom
 #&gt; 1        133       4 POINT EMPTY
 #&gt; 
 #&gt; attr(,"row.names")
 #&gt; [1] 1
 #&gt; attr(,"class")
-<<<<<<< HEAD
-#&gt; [1] "mgSearchReference"</div><div class='input'><span class='fu'>search_reference</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>jstor</span> <span class='kw'>=</span> <span class='fl'>3683041</span>))</div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Found 1 reference</span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; $id
-=======
-#&gt; [1] "mgSearchReference"</div><div class='input'><span class='fu'>search_reference</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>jstor</span> <span class='kw'>=</span> <span class='fl'>3683041</span>))</div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   
-</span></div><div class='output co'>#&gt; <span class='message'>                                                                             
-</span></div><div class='output co'>#&gt; <span class='message'>Found 1 reference</span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   
-</span></div><div class='output co'>#&gt; <span class='message'>                                                                             
-</span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   
-</span></div><div class='output co'>#&gt; <span class='message'>                                                                             
-</span></div><div class='output co'>#&gt; $id
->>>>>>> 738d4b46ab8e9b0076b4ba89ff9c2f622c6a24b9
+#&gt; [1] "mgSearchReferences"</div><div class='input'><span class='fu'>search_references</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>jstor</span> <span class='kw'>=</span> <span class='fl'>3683041</span>))</div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Found 1 reference</span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; $id
 #&gt; [1] 9
 #&gt; 
 #&gt; $doi
@@ -289,7 +278,7 @@ For the <code>reference</code> table, those are:</p><ul>
 #&gt; bbox:           xmin: 18.5 ymin: 68.35 xmax: 18.5 ymax: 68.35
 #&gt; epsg (SRID):    4326
 #&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs
-#&gt;    idmgSearchReferences              name                     date
+#&gt;    id                               name                     date
 #&gt; 1 909 elberling_olesen_1999_19940823_909 1994-08-23T00:00:00.000Z
 #&gt;                                                   description public
 #&gt; 1 Flower-visiting insect at Mt. Latnjatjarro, northern Sweden   TRUE
@@ -301,7 +290,7 @@ For the <code>reference</code> table, those are:</p><ul>
 #&gt; attr(,"row.names")
 #&gt; [1] 1
 #&gt; attr(,"class")
-#&gt; [1] "mgSearchReference"</div></pre>
+#&gt; [1] "mgSearchReferences"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

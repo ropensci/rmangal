@@ -88,7 +88,12 @@ mgNetworksCollection object." />
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/mangal-wg/rmangal">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -102,7 +107,7 @@ mgNetworksCollection object." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Combine Mangal networks</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/combine_mgNetworks.R'><code>R/combine_mgNetworks.R</code></a></small>
     <div class="hidden name"><code>combine_mgNetworks.Rd</code></div>
     </div>
 
@@ -130,35 +135,21 @@ mgNetworksCollection object." />
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>mg_19</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='get_collection.html'>get_collection</a></span>(<span class='fu'><a href='search_networks.html'>search_networks</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>dataset_id</span> <span class='kw'>=</span> <span class='fl'>19</span>)), <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Found 1 networks</span></div><div class='output co'>#&gt; <span class='message'>Processing id: 19 	1/1  </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='input'><span class='no'>mg_lagoon</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='get_collection.html'>get_collection</a></span>(<span class='fu'><a href='search_datasets.html'>search_datasets</a></span>(<span class='kw'>query</span><span class='kw'>=</span><span class='st'>'lagoon%'</span>), <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Found 2 datasets</span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Processing id: 22 	1/1  </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Data retrieval 100%   </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Processing id: 53 	1/1  </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Processing id: 22 	1/1  </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Processing id: 52 	1/1  </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='output co'>#&gt; <span class='message'>Processing id: 52 	1/1  </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='input'><span class='fu'>combine_mgNetworks</span>(<span class='no'>mg_19</span>, <span class='no'>mg_lagoon</span>)</div><div class='output co'>#&gt; A collection of 4 networks
+    <pre class="examples"><div class='input'><span class='no'>mg_random_1071</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='get_collection.html'>get_collection</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1071</span>), <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='message'>Processing id: 75 	1/1  </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='input'><span class='no'>mg_random_1074</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='get_collection.html'>get_collection</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1074</span>), <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='message'>Processing id: 75 	1/1  </span></div><div class='output co'>#&gt; <span class='message'>                                                                             </span></div><div class='input'><span class='fu'>combine_mgNetworks</span>(<span class='no'>mg_random_1071</span>, <span class='no'>mg_random_1074</span>)</div><div class='output co'>#&gt; A collection of 2 networks
 #&gt; 
-#&gt; * Network #83 from data set #19
-#&gt; * Description: Food web of the sand-bottom community
-#&gt; * Includes 42 edges and 24 nodes 
+#&gt; * Network # from data set #
+#&gt; * Description: structure of local anemonefish-anemone networks across the Manado region of Sulawesi, Indonesia,  Bajo
+#&gt; * Includes 4 edges and 6 nodes 
 #&gt; * Current taxonomic IDs coverage for nodes of this network: 
-#&gt;   --&gt; ITIS: 79%, BOLD: 79%, EOL: 75%, COL: 75%, GBIF: 38%, NCBI: 75%
-#&gt; * Published in ref #19 DOI:10.1126/science.157.3795.1381
+#&gt;   --&gt; ITIS: 100%, BOLD: 83%, EOL: 100%, COL: 100%, GBIF: 100%, NCBI: 100%
+#&gt; * Published in ref # DOI:10.1007/s10641-010-9606-0
 #&gt; 
-#&gt; * Network #86 from data set #22
-#&gt; * Description: Dietary matrix of the Huizache–Caimanero lagoon
-#&gt; * Includes 189 edges and 26 nodes 
+#&gt; * Network # from data set #
+#&gt; * Description: structure of local anemonefish-anemone networks across the Manado region of Sulawesi, Indonesia,  Fukui
+#&gt; * Includes 6 edges and 7 nodes 
 #&gt; * Current taxonomic IDs coverage for nodes of this network: 
-#&gt;   --&gt; ITIS: 81%, BOLD: 81%, EOL: 85%, COL: 81%, GBIF: 0%, NCBI: 85%
-#&gt; * Published in ref #22 DOI:10.1016/s0272-7714(02)00410-9
-#&gt; 
-#&gt; * Network #927 from data set #52
-#&gt; * Description: Food web of the Brackish lagoon
-#&gt; * Includes 27 edges and 11 nodes 
-#&gt; * Current taxonomic IDs coverage for nodes of this network: 
-#&gt;   --&gt; ITIS: 45%, BOLD: 45%, EOL: 45%, COL: 45%, GBIF: 18%, NCBI: 45%
-#&gt; * Published in ref #53 DOI:NA
-#&gt; 
-#&gt; * Network #926 from data set #52
-#&gt; * Description: Food web of the Costal lagoon
-#&gt; * Includes 34 edges and 13 nodes 
-#&gt; * Current taxonomic IDs coverage for nodes of this network: 
-#&gt;   --&gt; ITIS: 54%, BOLD: 54%, EOL: 54%, COL: 54%, GBIF: 15%, NCBI: 54%
-#&gt; * Published in ref #53 DOI:NA
+#&gt;   --&gt; ITIS: 100%, BOLD: 86%, EOL: 100%, COL: 100%, GBIF: 100%, NCBI: 100%
+#&gt; * Published in ref # DOI:10.1007/s10641-010-9606-0
 #&gt; </div><div class='input'>
 </div></pre>
   </div>

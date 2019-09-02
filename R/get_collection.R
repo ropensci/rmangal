@@ -1,7 +1,7 @@
 #' Get a collection of networks
 #'
 #' Retrieve a set of networks based on the results of one of the `search_*()`
-#' function or a set of Mangal unique network identifiers.
+#' function. The function also accept a numeric vector of Mangal network IDs.
 #'
 #' @param x `numeric` vector of Mangal network IDs or an object returned by
 #' by one of the `search_*()` functions.
@@ -15,13 +15,11 @@
 #'
 #' @seealso
 #' [search_datasets()], [search_interactions()], [search_networks()],
-#' [search_nodes()], [search_reference()], [search_taxonomy()].
+#' [search_nodes()], [search_references()], [search_taxonomy()].
 #'
 #' @examples
-#' mg_2 <- get_collection(c(1035:1036))
-#' mg_insect <- get_collection(search_networks(query='insect%'))
-#' mg_lagoon <- get_collection(search_datasets(query='lagoon%'))
-#'
+#' mg_2 <- get_collection(c(1076:1077), verbose = FALSE)
+#' mg_anemone <- get_collection(search_networks(query='anemone%'), verbose = FALSE)
 #' @export
 
 get_collection <- function(x, ...) {
@@ -50,9 +48,9 @@ get_collection.mgSearchNetworks <- function(x, ...) {
 }
 
 
-#' @describeIn get_collection Get a collection of networks from a `mgSearchReference` object.
+#' @describeIn get_collection Get a collection of networks from a `mgSearchReferences` object.
 #' @export
-get_collection.mgSearchReference <- function(x, ...) {
+get_collection.mgSearchReferences <- function(x, ...) {
   # Get networks ids
   net_ids <- unique(x$networks$id)
   get_network_by_id(net_ids, ...)

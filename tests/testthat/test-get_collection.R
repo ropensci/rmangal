@@ -6,7 +6,7 @@ res2 <- get_collection(search_datasets(query='lagoon%'))
 resw <- get_collection(NULL)
 
 test_that("expected behavior", {
-  expect_equal(res0[[1]]$network$id, 1035)
+  expect_equal(res0[[1]]$network$network_id, 1035)
   expect_equal(class(res1), "mgNetworksCollection")
   expect_equal(class(res1), "mgNetworksCollection")
   expect_equal(class(res1), "mgNetworksCollection")
