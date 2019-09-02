@@ -2,7 +2,7 @@
 % Please edit documentation in R/search_datasets.R
 \name{search_datasets}
 \alias{search_datasets}
-\title{Query the datasets}
+\title{Query datasets}
 \usage{
 search_datasets(query, verbose = TRUE, ...)
 }
@@ -16,27 +16,29 @@ Note that if an empty character string is passed, then all datasets available ar
 }
 \value{
 An object of class \code{mgSearchDatasets}, which basically is a \code{data.frame}
-including all datasets corresponding to the query. For each dataset entry, #' the networks and the original reference are attached.
+including all datasets corresponding to the query. For each dataset entry,
+the networks and the original reference are attached.
 }
 \description{
 Identify relevant datasets using a keyword or a custom query.
+If the \code{query} is a character string, then all character columns in the table
+are searched and the entries for which at least one
+partial match was found are returned.
+Alternatively, a named list can be used to look for an exact match in a specific column (see Details section)
 }
 \details{
-If \code{query} is a character string, then all fields of the database table
-including character strings are searched and entries for which at least one
-partial match was found are returned.
-Alternatively, a named list can be used to look for an exact match in a specific field.
-In this case, the name of the list should match one of the field names of the database table.
+Names of the list should match one of the column names within the table.
 For the \code{dataset} table, those are:
 \itemize{
 \item id: unique identifier of the dataset
-\item name: name of the dataset;
-\item date: date (\code{YYYY-mm-dd}) of the corresponding publication;
-\item description: a brief description of the data set;
-\item ref_id: the Mangal identifier of the dataset.
+\item name: name of the dataset
+\item date: date (\code{YYYY-mm-dd}) of the corresponding publication
+\item description: a brief description of the data set
+\item ref_id: the Mangal identifier of the dataset
+}
+
 Note that for lists with more than one element, only the first element is used, the others are ignored.
 Examples covering custom queries are provided below.
-}
 }
 \examples{
 \donttest{
@@ -47,11 +49,10 @@ class(all_datasets)
 }
 # Search with keyword
 mg_lagoon <- search_datasets(query = 'lagoon', verbose = FALSE)
-mg_2011 <- search_datasets(query = '2011', verbose = FALSE)
 # Search with a custom query (specific column)
 mg_kemp <- search_datasets(query = list(name = 'kemp_1977'), verbose = FALSE)
 mg_16 <- search_datasets(query = list(ref_id = 16), verbose = FALSE)
 }
 \references{
-\url{https://mangal-wg.github.io/mangal-api/#get-all-datasets}
+Metadata available at \url{https://mangal-wg.github.io/mangal-api/#datasets}
 }

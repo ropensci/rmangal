@@ -12,6 +12,7 @@ A programmatic interface to the Mangal API \url{https://mangal-wg.github.io/mang
 Useful links:
 \itemize{
   \item \url{https://mangal.io}
+  \item \url{https://github.com/mangal-wg/rmangal}
   \item Report bugs at \url{https://github.com/mangal-wg/rmangal/issues}
 }
 

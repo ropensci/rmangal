@@ -1,4 +1,4 @@
-#' Get a BibTeX entry for every publication
+#' Retrieve all references pertaining to the networks collection or individual network
 #'
 #' @param x an object of class `mgNetworksCollection` or `mgNetworks`.
 #'

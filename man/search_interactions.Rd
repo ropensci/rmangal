@@ -2,7 +2,7 @@
 % Please edit documentation in R/search_interactions.R
 \name{search_interactions}
 \alias{search_interactions}
-\title{Query the interactions}
+\title{Query interactions}
 \usage{
 search_interactions(query, type = NULL, expand_node = FALSE,
   verbose = TRUE, ...)
@@ -25,14 +25,13 @@ All networks in which interactions are involved are also attached to the \code{d
 }
 \description{
 Search for specific interactions using a keyword or a specific type of
-interactions (e.g. mutualism).
+interactions (e.g. mutualism). If the \code{query} is a character string, then all character columns in the table
+are searched and the entries for which at least one
+partial match was found are returned.
+Alternatively, a named list can be used to look for an exact match in a specific column (see Details section)
 }
 \details{
-If \code{query} is a character string, then all fields of the database table
-including character strings are searched and entries for which at least one
-partial match was found are returned.
-Alternatively, a named list can be used to look for an exact match in a specific field.
-In this case, the name of the list should match one of the field names of the database table.
+Names of the list should match one of the column names within the table.
 For the \code{interaction} table, those are:
 \itemize{
 \item id: unique identifier of the interaction
@@ -41,18 +40,18 @@ For the \code{interaction} table, those are:
 \item network_id: Mangal network identifier
 \item node_from: node id which the interaction end to
 \item node_to: node to which the interaction end to
-\item type: use argument \code{type} instead.
+\item type: use argument \code{type} instead
+}
+
 Note that for lists with more than one element, only the first element is used, the others are ignored.
 Examples covering custom queries are provided below.
-}
 }
 \examples{
 df_inter <- search_interactions(type = "competition", verbose = FALSE)
 # Get all networks containing competition
 competition_networks <- get_collection(df_inter, verbose = FALSE)
 df_net_926 <- search_interactions(list(network_id = 926), verbose = FALSE)
-df_net_unknown <- search_interactions(list(attr_id = 100), verbose = FALSE)
 }
 \references{
-\url{https://mangal-wg.github.io/mangal-api/#interactions}
+Metadata available at \url{https://mangal-wg.github.io/mangal-api/#interactions}
 }

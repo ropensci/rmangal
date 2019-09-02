@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Query the taxonomy — search_taxonomy • rmangal</title>
+<title>Query taxonomy — search_taxonomy • rmangal</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,14 @@
 
 
 
-<meta property="og:title" content="Query the taxonomy — search_taxonomy" />
+<meta property="og:title" content="Query taxonomy — search_taxonomy" />
 
-<meta property="og:description" content="Search network by taxon names and unique taxonomic identifiers." />
+<meta property="og:description" content="Search network by taxon names and unique taxonomic identifiers.
+This function offers the opportunity to retrieve taxon based on (i) known identifier
+such as the taxonomic serial number (TSN), GBIF ID etc. or (ii) text search using partial match.
+Have a look at the list of arguments to see the complete list of identifiers accessible.
+If any unique identifier argument is used (i.e. tsn etc.), then query is ignored. Moreover,
+if several taxonomic identifiers are specified, then only the first one is considered." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -87,7 +92,12 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/mangal-wg/rmangal">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -100,14 +110,19 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Query the taxonomy</h1>
-    
+    <h1>Query taxonomy</h1>
+    <small class="dont-index">Source: <a href='https://github.com/mangal-wg/rmangal/blob/master/R/search_taxonomy.R'><code>R/search_taxonomy.R</code></a></small>
     <div class="hidden name"><code>search_taxonomy.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Search network by taxon names and unique taxonomic identifiers.</p>
+    <p>Search network by taxon names and unique taxonomic identifiers.
+This function offers the opportunity to retrieve taxon based on (i) known identifier
+such as the taxonomic serial number (TSN), GBIF ID etc. or (ii) text search using partial match.
+Have a look at the list of arguments to see the complete list of identifiers accessible.
+If any unique identifier argument is used (i.e. tsn etc.), then <code>query</code> is ignored. Moreover,
+if several taxonomic identifiers are specified, then only the first one is considered.</p>
     
     </div>
 
@@ -163,9 +178,7 @@ all taxa matching the query.</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>If any of the unique identifier is used, then <code>query</code> is ignored. Moreover,
-if several taxonomic identifiers are specified, then only the first one is considered.</p>
-<p>Taxon names of the <code>taxonomy</code> table were validated with
+    <p>Taxon names of the <code>taxonomy</code> table were validated with
 TNRS (see <a href='http://tnrs.iplantcollaborative.org/'>http://tnrs.iplantcollaborative.org/</a> and/or GNR
 might not be the taxon name documented in the original publication.
 In order to identify relevant networks with the original name, use
@@ -177,7 +190,7 @@ report any issue related to taxonomy at <a href='https://github.com/mangal-wg/ma
     
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p><a href='https://mangal-wg.github.io/mangal-api/#taxonomy'>https://mangal-wg.github.io/mangal-api/#taxonomy</a></p>
+    <p>Metadata available at <a href='https://mangal-wg.github.io/mangal-api/#taxonomy'>https://mangal-wg.github.io/mangal-api/#taxonomy</a></p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 

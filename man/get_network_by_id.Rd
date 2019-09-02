@@ -5,7 +5,7 @@
 \alias{get_network_by_id_indiv}
 \alias{print.mgNetwork}
 \alias{print.mgNetworksCollection}
-\title{Retrieve network data for a given set of Mangal identifiera #'}
+\title{Retrieve network informations, nodes, edges and references for a given set of Mangal network IDs}
 \usage{
 get_network_by_id(ids, verbose = TRUE)
 
@@ -29,14 +29,15 @@ get_network_by_id_indiv(id, verbose = TRUE)
 \value{
 a \code{mgNetwork} object including:
 \itemize{
-\item network: a \code{list} of all generic information on the network;
-\item nodes: a \code{data.frame} of all nodes with taxonomic information;
-\item edges: a \code{data.frame} of all edges (ecological interactions), with the attribute used to describe the interaction #' - dataset: \code{list} information pertaining to the dataset the network is associated with;
-\item reference: \code{list} information about the original publication.
+\item network: a \code{list} of all generic information on the network
+\item nodes: a \code{data.frame} of all nodes with taxonomic information
+\item interactions: a \code{data.frame} of all ecological interactions, with the attribute used to describe the interaction
+\item dataset: \code{list} information pertaining to the dataset the network is associated with
+\item reference: \code{list} information about the original publication
 }
 }
 \description{
-Retrieve network data for a given set of Mangal identifiera #'
+Retrieve network informations, nodes, edges and references for a given set of Mangal network IDs
 }
 \section{Functions}{
 \itemize{

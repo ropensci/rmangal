@@ -2,7 +2,7 @@
 % Please edit documentation in R/search_taxonomy.R
 \name{search_taxonomy}
 \alias{search_taxonomy}
-\title{Query the taxonomy}
+\title{Query taxonomy}
 \usage{
 search_taxonomy(query, tsn = NULL, gbif = NULL, eol = NULL,
   col = NULL, bold = NULL, ncbi = NULL, verbose = TRUE, ...)
@@ -33,11 +33,13 @@ all taxa matching the query.
 }
 \description{
 Search network by taxon names and unique taxonomic identifiers.
+This function offers the opportunity to retrieve taxon based on (i) known identifier
+such as the taxonomic serial number (TSN), GBIF ID etc. or (ii) text search using partial match.
+Have a look at the list of arguments to see the complete list of identifiers accessible.
+If any unique identifier argument is used (i.e. tsn etc.), then \code{query} is ignored. Moreover,
+if several taxonomic identifiers are specified, then only the first one is considered.
 }
 \details{
-If any of the unique identifier is used, then \code{query} is ignored. Moreover,
-if several taxonomic identifiers are specified, then only the first one is considered.
-
 Taxon names of the \code{taxonomy} table were validated with
 TNRS (see \url{http://tnrs.iplantcollaborative.org/} and/or GNR
 might not be the taxon name documented in the original publication.
@@ -55,7 +57,7 @@ search_taxonomy("Acer")
 tsn_acer <- search_taxonomy("Acer")$taxonomy.tsn
 }
 \references{
-\url{https://mangal-wg.github.io/mangal-api/#taxonomy}
+Metadata available at \url{https://mangal-wg.github.io/mangal-api/#taxonomy}
 }
 \seealso{
 \code{\link[=search_nodes]{search_nodes()}}
