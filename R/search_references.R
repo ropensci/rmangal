@@ -16,7 +16,7 @@
 #' An object of class `mgSearchReferences`, which is a list that includes a wide range of details associated to the reference, including all datasets and networks related to the publication that are included in Mangal database.
 #'
 #' @details
-#' Names of the list should match one of the column names within the table. 
+#' Names of the list should match one of the column names within the table.
 #' For the `reference` table, those are:
 #' - id: unique identifier of the reference
 #' - first_author: first author
@@ -32,6 +32,7 @@
 #' @examples
 #' search_references(doi = "10.2307/3225248")
 #' search_references(list(jstor = 3683041))
+#' search_references(list(year = 2010))
 #' @export
 
 search_references <- function(query, doi = NULL, verbose = TRUE, ...) {
@@ -44,7 +45,6 @@ search_references <- function(query, doi = NULL, verbose = TRUE, ...) {
     query <- list(doi = as.character(doi))
   } else query <- handle_query(query, c("id" ,"author", "doi", "jstor", "year"))
 
-
   ref <- resp_to_df(get_gen(endpoints()$reference, query = query,
     verbose = verbose, ...)$body)
 
@@ -54,15 +54,20 @@ search_references <- function(query, doi = NULL, verbose = TRUE, ...) {
    }
 
   if (verbose)
-    message(sprintf("Found %s reference", nrow(ref)))
+    message(sprintf("Found %s reference(s)", nrow(ref)))
 
-  # Attach dataset
-  ref$datasets <- get_from_fkey(endpoints()$dataset, ref_id = ref$id,
-    verbose = verbose)
+  # Attach dataset(s)
+  ref$datasets <- do.call(
+      rbind,
+      lapply(ref$id, function(x)
+        get_from_fkey(endpoints()$dataset, ref_id = x, verbose = verbose))
+  )
 
-  # Attach network
-  ref$networks <- get_from_fkey_net(endpoints()$network,
-    dataset_id = ref$datasets$id, verbose = verbose)
+  # Attach network(s)
+  ref$networks <- lapply(ref$datasets$id, function(x)
+      get_from_fkey_net(endpoints()$network, dataset_id = x,
+      verbose = verbose))
+  # ref$networks <- do.call(rbind, lapply(tmp, function(x) x$id))
 
   class(ref) <- "mgSearchReferences"
   ref
