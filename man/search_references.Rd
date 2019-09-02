@@ -42,6 +42,7 @@ Note that for lists with more than one element, only the first element is used, 
 \examples{
 search_references(doi = "10.2307/3225248")
 search_references(list(jstor = 3683041))
+search_references(list(year = 2010))
 }
 \references{
 Metadata available at \url{https://mangal-wg.github.io/mangal-api/#references}

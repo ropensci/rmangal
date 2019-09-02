@@ -52,7 +52,7 @@ get_collection.mgSearchNetworks <- function(x, ...) {
 #' @export
 get_collection.mgSearchReferences <- function(x, ...) {
   # Get networks ids
-  net_ids <- unique(x$networks$id)
+  net_ids <- unique(unlist(purrr::map(x$networks, "id")))
   get_network_by_id(net_ids, ...)
 }
 
