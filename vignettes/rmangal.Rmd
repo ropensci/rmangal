@@ -65,9 +65,9 @@ networks added and the API entirely rewritten. Consequently, [the first release 
 
 <div class = "row">
 <div class = "col-md-6">
-```{R echo = FALSE}
-knitr::include_graphics("man/figures/data_structure.svg")
-```
+<img src="https://raw.githubusercontent.com/mangal-wg/rmangal/gh-pages/reference/figures/rmangal.png" alt="Mangal data structure"/>
+<!-- <img src="man/figures/data_structure.svg" alt="Mangal data structure"/>  -->
+<!-- <img src="./reference/figures/data_structure.svg" alt="Mangla data structrure"/> -->
 </div>
 <div class = "col-md-6">
 
