@@ -3,21 +3,29 @@
 #' @param ids a vector of Mangal ID for networks (`numeric`).
 #' @param id a single ID network (`numeric`).
 #' @param x an object of class `mgNetwork` or `mgNetworksCollection`.
+#' @param object object of of class `mgNetwork` or `mgNetworksCollection`.
 #' @param ... ignored.
 #' @param verbose a logical. Should extra information be reported on progress?
 #'
-#' @rdname get_network_by_id 
+#' @rdname get_network_by_id
 #'
-#' @return 
-#' a `mgNetwork` object including: 
-#' - network: a `list` of all generic information on the network
-#' - nodes: a `data.frame` of all nodes with taxonomic information
-#' - interactions: a `data.frame` of all ecological interactions, with the attribute used to describe the interaction 
-#' - dataset: `list` information pertaining to the dataset the network is associated with
-#' - reference: `list` information about the original publication
+#' @return
+#' A `mgNetwork` object includes:
+#' * network: a `list` of all generic information on the network
+#' * nodes: a `data.frame` of all nodes with taxonomic information
+#' * interactions: a `data.frame` of all ecological interactions, with the attribute used to describe the interaction
+#' * dataset: `list` information pertaining to the dataset the network is associated with
+#' * reference: `list` information about the original publication
 #'
-#' @examples 
-#' net18 <- get_network_by_id(id = 18) 
+#' A summary method is available return for all `mgNetwork` object the following network properties:
+#' * the number of nodes;
+#' * the number of edges;
+#' * the connectance;
+#' * the linkage density;
+#' * the degree (in, out an total) and the eigenvector centrality of every nodes.
+#'
+#' @examples
+#' net18 <- get_network_by_id(id = 18)
 #' nets <- get_network_by_id(id = c(18, 23))
 #' @export
 
@@ -98,4 +106,45 @@ print.mgNetworksCollection <- function(x, ...) {
   nb <- min(length(x), 6)
   for (i in seq_len(nb)) print(x[[i]])
   if (length(x) > 6) cat(length(x) - 6, "network(s) not shown. \n\n")
+}
+
+
+
+
+#' Summarize mgNetwork properties
+#'
+#' Summarize mgNetwork properties.
+#' @rdname get_network_by_id
+#' @method summary mgNetwork
+#' @export
+summary.mgNetwork <- function(object, ...) {
+  ig <- as.igraph(object)
+  ids <- igraph::is.directed(ig)
+  out <- list()
+  out$n_nodes <- nrow(object$interactions)
+  out$n_edges <- nrow(object$nodes)
+  out$connectance <- out$n_edges/(out$n_nodes*out$n_nodes)
+  out$linkage_density <- out$n_edges/out$n_nodes
+  # out$modularity <- ifelse(
+  #     ids, NA,
+  #     igraph::modularity(ig, igraph::membership(igraph::cluster_walktrap(ig)))
+  #   )
+  out$nodes_summary <- data.frame(
+    degree_all = igraph::degree(ig, mode = "all"),
+    degree_in = igraph::degree(ig, mode = "out"),
+    degree_out = igraph::degree(ig, mode = "out"),
+    centr_eigen = igraph::centr_eigen(ig, ids)$vector
+  )
+  out
+}
+
+
+#' Summarize mgNetworksCollection properties
+#'
+#' Summarize mgNetworksCollection properties.
+#' @rdname get_network_by_id
+#' @method summary mgNetworksCollection
+#' @export
+summary.mgNetworksCollection <- function(object, ...) {
+  lapply(object, summary.mgNetwork)
 }
