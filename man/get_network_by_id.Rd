@@ -5,6 +5,8 @@
 \alias{get_network_by_id_indiv}
 \alias{print.mgNetwork}
 \alias{print.mgNetworksCollection}
+\alias{summary.mgNetwork}
+\alias{summary.mgNetworksCollection}
 \title{Retrieve network informations, nodes, edges and references for a given set of Mangal network IDs}
 \usage{
 get_network_by_id(ids, verbose = TRUE)
@@ -14,6 +16,10 @@ get_network_by_id_indiv(id, verbose = TRUE)
 \method{print}{mgNetwork}(x, ...)
 
 \method{print}{mgNetworksCollection}(x, ...)
+
+\method{summary}{mgNetwork}(object, ...)
+
+\method{summary}{mgNetworksCollection}(object, ...)
 }
 \arguments{
 \item{ids}{a vector of Mangal ID for networks (\code{numeric}).}
@@ -25,9 +31,11 @@ get_network_by_id_indiv(id, verbose = TRUE)
 \item{x}{an object of class \code{mgNetwork} or \code{mgNetworksCollection}.}
 
 \item{...}{ignored.}
+
+\item{object}{object of of class \code{mgNetwork} or \code{mgNetworksCollection}.}
 }
 \value{
-a \code{mgNetwork} object including:
+A \code{mgNetwork} object includes:
 \itemize{
 \item network: a \code{list} of all generic information on the network
 \item nodes: a \code{data.frame} of all nodes with taxonomic information
@@ -35,9 +43,20 @@ a \code{mgNetwork} object including:
 \item dataset: \code{list} information pertaining to the dataset the network is associated with
 \item reference: \code{list} information about the original publication
 }
+
+A summary method is available return for all \code{mgNetwork} object the following network properties:
+\itemize{
+\item the number of nodes;
+\item the number of edges;
+\item the connectance;
+\item the linkage density;
+\item the degree (in, out an total) and the eigenvector centrality of every nodes.
+}
 }
 \description{
-Retrieve network informations, nodes, edges and references for a given set of Mangal network IDs
+Summarize mgNetwork properties.
+
+Summarize mgNetworksCollection properties.
 }
 \section{Functions}{
 \itemize{
@@ -45,6 +64,6 @@ Retrieve network informations, nodes, edges and references for a given set of Ma
 }}
 
 \examples{
-net18 <- get_network_by_id(id = 18) 
+net18 <- get_network_by_id(id = 18)
 nets <- get_network_by_id(id = c(18, 23))
 }
