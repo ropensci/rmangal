@@ -16,7 +16,7 @@
 #' An object of class `mgSearchNetworks`, which is a `data.frame` object with all networks informations
 #'
 #' @details
-#' Names of the list should match one of the column names within the table. 
+#' Names of the list should match one of the column names within the table.
 #' For the `networks` table, those are
 #' - id: unique identifier of the network
 #' - all_interactions: false interaction can be considered as real false interaction
@@ -31,7 +31,7 @@
 #' @examples
 #' mg_insect <- search_networks(query="insect%")
 #' \donttest{
-#' # Retrieve the search results 
+#' # Retrieve the search results
 #' nets_insect <- get_collection(mg_insect)
 #' # Spatial query
 #' library(USAboundaries)
@@ -69,15 +69,16 @@ search_networks <- function(query, verbose = TRUE, ...) {
 
 #' @describeIn search_networks Search network within a spatial object passed as an argument.
 search_networks_sf <- function(query_sf, verbose = TRUE, ...) {
-  stopifnot("sf" %in% class(query_sf))
 
+  stopifnot("sf" %in% class(query_sf))
   if (!("sf" %in% row.names(utils::installed.packages())))
     stop("Package sf is not installed.")
 
   # API doesn't allow spatial search yet, so we sort with sf package
-  sp_networks_all <- resp_to_spatial(
-      get_gen(endpoints()$network, verbose = verbose, ...)$body)
-  # Set to WGS 84 / World Mercator, a planar CRS
+  sp_networks_all <- resp_to_sf(resp_to_spatial(
+      get_gen(endpoints()$network, verbose = verbose, ...)$body
+  ))
+  # sf_networks_all to WGS 84 / World Mercator, a planar CRS
   id <- unlist(sf::st_contains(
         sf::st_transform(query_sf, crs = 3395),
         sf::st_transform(sp_networks_all, crs = 3395)))

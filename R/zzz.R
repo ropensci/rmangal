@@ -81,8 +81,9 @@ fill_df <- function(x, nms) {
   x
 }
 
-## Response => spatial
-resp_to_spatial <- function(x) {
+
+# hh <- resp_to_spatial2(gg)
+resp_to_spatial <- function(x, keep_geom = TRUE) {
   if (is.null(x)) {
     x
   } else {
@@ -90,21 +91,52 @@ resp_to_spatial <- function(x) {
         function(y) as.data.frame(
           y[names(y) != "geom"], stringsAsFactors = FALSE)
         ))
-      spd <- lapply(lapply(x, function(y) y[names(y) == "geom"]), switch_sf)
-      sf::st_sf(dat, geom = spd, crs = 4326, stringsAsFactors = FALSE)
+      if (keep_geom) {
+        lapply(x, handle_geom)
+        cbind(dat, do.call(rbind, lapply(x, handle_geom)))
+      } else dat
   }
 }
 
+handle_geom <- function(x) {
+  # print(x$geom)
+  if (is.null(x$geom)) {
+    data.frame(
+      geom_type = NA_character_,
+      geom_lon = NA_real_,
+      geom_lat = NA_real_
+    )
+  } else {
+    tmp <- matrix(unlist(x$geom$coordinates), ncol = 2, byrow = TRUE)
+    # names(tmp) <- paste0("geom_", c("lon", "lat"))
+    out <- data.frame(
+      geom_type = x$geom$type,
+      stringsAsFactors = FALSE
+    )
+    out$geom_lon <- list(tmp[,1])
+    out$geom_lat <- list(tmp[,2])
+    out
+  }
+}
+
+## Response => spatial -- sf required
+resp_to_sf <- function(dat) {
+  spd <- apply(dat, 1, switch_sf)
+  sf::st_sf(
+   dat[names(dat)[!grepl("geom_", names(dat))]], geom = spd, crs = 4326, stringsAsFactors = FALSE
+   )
+}
+
 ## Build sf object based on geom.type
-switch_sf <- function(tmp) {
-  if (!length(tmp$geom)) {
+switch_sf <- function(x) {
+  if (is.na(x$geom_type)) {
     # if NULL
     sf::st_point(matrix(NA_real_, ncol = 2))
   } else {
-    co <- matrix(unlist(tmp$geom$coordinates), ncol = 2, byrow = TRUE)
+    co <- cbind(x$geom_lon, x$geom_lat)
     # print(co)
     switch(
-      tmp$geom$type,
+      x$geom_type,
       Point = sf::st_point(co),
       Polygon = sf::st_polygon(list(co)),
       stop("Only `Point` and `Polygon` are supported.")

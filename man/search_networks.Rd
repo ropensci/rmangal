@@ -49,7 +49,7 @@ Note that for lists with more than one element, only the first element is used, 
 \examples{
 mg_insect <- search_networks(query="insect\%")
 \donttest{
-# Retrieve the search results 
+# Retrieve the search results
 nets_insect <- get_collection(mg_insect)
 # Spatial query
 library(USAboundaries)

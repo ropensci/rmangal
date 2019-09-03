@@ -18,7 +18,7 @@
 #' All networks in which interactions are involved are also attached to the `data.frame`.
 #'
 #' @details
-#' Names of the list should match one of the column names within the table. 
+#' Names of the list should match one of the column names within the table.
 #' For the `interaction` table, those are:
 #' - id: unique identifier of the interaction
 #' - attr_id: identifier of a specific attribute
@@ -56,7 +56,7 @@ search_interactions <- function(query, type = NULL, expand_node = FALSE,
 
     # Get interactions based on the type
     interactions <- resp_to_spatial(get_gen(endpoints()$interaction,
-      query = query, verbose = verbose)$body, ...)
+      query = query, verbose = verbose, ...)$body, keep_geom = FALSE)
 
     if (is.null(interactions)) {
       if (verbose) message("No interactions found.")
