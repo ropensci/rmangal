@@ -4,6 +4,7 @@
 * add summary method
 * `mg_to_igraph` is now `as.igraph()`
 * vignette now includes examples to use tigygraph and ggraph
+* pkgdown website is now deployed by Travis CI
 
 # rmangal 1.9.1
 

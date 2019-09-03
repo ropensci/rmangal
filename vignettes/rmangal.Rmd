@@ -65,9 +65,7 @@ networks added and the API entirely rewritten. Consequently, [the first release 
 
 <div class = "row">
 <div class = "col-md-6">
-<img src="https://raw.githubusercontent.com/mangal-wg/rmangal/gh-pages/reference/figures/rmangal.png" alt="Mangal data structure"/>
-<!-- <img src="man/figures/data_structure.svg" alt="Mangal data structure"/>  -->
-<!-- <img src="./reference/figures/data_structure.svg" alt="Mangla data structrure"/> -->
+<img src="https://raw.githubusercontent.com/mangal-wg/rmangal/gh-pages/reference/figures/data_structure.png" alt="Mangal data structure"/>
 </div>
 <div class = "col-md-6">
 
