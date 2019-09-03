@@ -40,7 +40,7 @@ R> library("rmangal")
 ```
 
 
-## How to use rmangal
+## How to use `rmangal`
 
 There are [five `search_*()` functions]() to explore the content of Mangal, for instance `search_datasets()`:
 
@@ -113,6 +113,16 @@ the reader through several examples and provide further details about **rmangal*
 We are working on that part. The networks publication process will be
 facilitated with structured objects and tests suite to maintain data integrity
 and quality. Any suggestions or advices is welcome, feel free to open issues.
+
+## `rmangal` vs `rglobi`
+
+Those interested only in paiwise interactions among taxons may consider using
+`rglobi`, an R package that provides an interface to the [GloBi
+infrastructure](https://www.globalbioticinteractions.org/about.html). GloBi
+provides open access to aggregated interactions from heterogeneous sources. In
+contrast, Mangal gives access to the original networks and open the gate to
+study ecological networks properties (i.e. connectance, degree etc.) along large
+environmental gradients, which wasn't possible using the GloBi infrastructure.
 
 ## Code of conduct
 
