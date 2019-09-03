@@ -55,8 +55,6 @@ networks added and the API entirely rewritten. Consequently, [the first release 
 **rmangal v2.0** in this vignette.
 
 
-
-
 ## Data structure
 
 

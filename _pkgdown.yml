@@ -15,3 +15,30 @@ authors:
     href: https://github.com/BenMerSci
   Timothée Poisot:
     href: https://github.com/tpoisot
+
+reference:
+- title: Explore database
+  desc: Explore the content of each datatables and return `mgSearch*` objects
+  contents:
+  - '`search_datasets`'
+  - '`search_interactions`'
+  - '`search_networks`'
+  - '`search_nodes`'
+  - '`search_references`'
+  - '`search_taxonomy`'
+  - '`avail_type`'
+- title: Retrieve networks
+  desc: Get networks ( `mgNetwork` or `mgNetworksCollection`) from `search_*` functions 
+  contents:
+  - '`get_collection`'
+  - '`get_network_by_id`'
+  - '`get_citation`'
+- title: Analyze networks
+  desc: Analyze or manipulate `mgNetwork` or `mgNetworksCollection` 
+  contents:
+  - '`as.igraph.mgNetwork`'
+  - '`combine_mgNetworks`'
+- title: Cache
+  desc: Manipulate `rmangal` cache
+  contents:
+  - '`clear_cache_rmangal`'
