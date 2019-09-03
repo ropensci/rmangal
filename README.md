@@ -11,28 +11,23 @@
 
 ## Context
 
-Interactions among species is at the heart of ecology. Despite their importance,
-studying ecological interactions remains difficult due to the lack of standard
-information and the disparity of formats in which ecological interactions are
-stored. Historically, ecologists have used matrices to store interactions, which
-tend to easily decontextualize interactions from fieldwork when metadata is
-missing. To overcome these limitations, [Mangal](https://mangal.io/#/) -- a
-global ecological interactions database -- serializes ecological interaction
-matrices into nodes (e.g. taxon, individuals or population) and edges. Hence the
-base unit in Mangal is a published ecological network and thus distinct from
-other initiatives such as [Globi](https://www.globalbioticinteractions.org/)
-(see [rglobi](https://github.com/ropensci/rglobi) for an R Client to) that store
-pairwise interactions.
+[Mangal](https://mangal.io/#/) -- a global ecological interactions database --
+serializes ecological interaction matrices into nodes (e.g. taxon, individuals
+or population) and interactions (i.e. edges). For each network, Mangal offers
+the opportunity to store study context such as the location, sampling
+environment, inventory date and informations pertaining to the original
+publication. For every nodes involved in the ecological networks, Mangal
+references unique taxonomic identifiers such as Encyclopedia of Life (EOL),
+Catalogue of Life (COL), Global Biodiversity Information Facility (GBIF) etc.
+and can extend nodes informations to individual traits.
 
-For every network, Mangal store a vast array of metadata: from the details
-of the orginal publication to taxonomic information. Regarding the latter, Mangal store unique taxonomic identifiers such as Encyclopedia
-of Life (EOL), Catalogue of Life (COL), Global Biodiversity Information Facility
-(GBIF) and Integrated Taxonomic Information System (ITIS)
-
-**rmangal** is an R client to the Mangal database. As such, it provides various functions to query the data base and retrieve networks that are stored as
-`mgNetwork` or `mgNetworksCollection`. It also provides methods to convert `mgNetwork` to other object in order to use powerful package to work with networks: [`igraph`](https://igraph.org/r/), [`tidygraph`](https://github.com/thomasp85/tidygraph), and [`ggraph`](https://github.com/thomasp85/ggraph).
-
-
+**rmangal** is an R client to the Mangal database and provides various functions
+to explore his content through search functions. It offers methods to retrieve
+networks structured as `mgNetwork` or `mgNetworksCollection` S3 objects and
+methods to convert `mgNetwork` to other class objects in order to analyze and
+visualize networks properties: [`igraph`](https://igraph.org/r/),
+[`tidygraph`](https://github.com/thomasp85/tidygraph), and
+[`ggraph`](https://github.com/thomasp85/ggraph).
 
 
 ## Installation
@@ -47,22 +42,22 @@ R> library("rmangal")
 
 ## How to use rmangal
 
-In order to query the data base, there are [five `search_*()` functions](), for instance `search_datasets()`:
+There are [five `search_*()` functions]() to explore the content of Mangal, for instance `search_datasets()`:
 
 ```r
 R> mgs <- search_datasets("lagoon")
 Found 2 datasets
 ```
 
-Once this first step achieved networks found can be retrieved with the `get_collection()` function:
+Once this first step achieved, networks found can be retrieved with the `get_collection()` function.
 
 ```r
 R> mgn <- get_collection(mgs)
 ```
 
-which returns an object `mgNetwork` if there is one network returned, otherwise
-an object `mgNetworkCollection` is returned, which basically is a list of
-`mgNetwork` objects:
+`get_collection()` returns an object `mgNetwork` if there is one network
+returned, otherwise an object `mgNetworkCollection`, which is a list of
+`mgNetwork` objects.
 
 
 ```r
@@ -97,7 +92,7 @@ A collection of 3 networks
 [`tidygraph`](https://github.com/thomasp85/tidygraph) offer powerful features to
 analyse networks and **rmangal** provides functions to convert `mgNetwork` to
 `igraph` and `tbl_graph` so that the user can easily benefit from those
-features.
+packages.
 
 ```r
 R> ig <- as.igraph(mgn[[1]])
@@ -113,7 +108,11 @@ R> class(tg)
 rmangal"](https://mangal-wg.github.io/rmangal/articles/rmangal.html) will guide
 the reader through several examples and provide further details about **rmangal** features.
 
+## How to publish ecological networks
 
+We are working on that part. The networks publication process will be
+facilitated with structured objects and tests suite to maintain data integrity
+and quality. Any suggestions or advices is welcome, feel free to open issues.
 
 ## Code of conduct
 
