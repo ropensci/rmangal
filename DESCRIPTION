@@ -1,7 +1,7 @@
 Package: rmangal
 Type: Package
 Title: Mangal Client
-Version: 1.9.0.9000
+Version: 1.9.1.9000
 Authors@R: c(
     person(given = "Steve", family = "Vissault", comment = c(ORCID = "0000-0002-0866-4376"),
       email = "steve.vissault@usherbrooke.ca", role = c("aut", "cre")),

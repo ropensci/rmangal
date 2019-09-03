@@ -32,7 +32,7 @@ visualize networks properties: [`igraph`](https://igraph.org/r/),
 
 ## Installation
 
-So far, only the development version is available and can be installed via the [remotes](https://cran.r-project.org/web/packages/remotes/index.html) :package:
+So far, only the development version is available and can be installed via the [remotes](https://CRAN.R-project.org/package=remotes) :package:
 
 ```r
 R> devtools::install_github("mangal-wg/rmangal")
