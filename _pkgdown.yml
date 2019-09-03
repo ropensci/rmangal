@@ -17,7 +17,7 @@ authors:
     href: https://github.com/tpoisot
 
 reference:
-- title: Explore database content
+- title: Explore database
   desc: Explore the content of each datatables and return `mgSearch*` objects
   contents:
   - '`search_datasets`'
@@ -26,11 +26,13 @@ reference:
   - '`search_nodes`'
   - '`search_references`'
   - '`search_taxonomy`'
+  - '`avail_type`'
 - title: Retrieve networks
-  desc: Get networks (structured as `mgNetwork` or `mgNetworksCollection`) from `search_*` functions 
+  desc: Get networks ( `mgNetwork` or `mgNetworksCollection`) from `search_*` functions 
   contents:
   - '`get_collection`'
   - '`get_network_by_id`'
+  - '`get_citation`'
 - title: Analyze networks
   desc: Analyze or manipulate `mgNetwork` or `mgNetworksCollection` 
   contents:

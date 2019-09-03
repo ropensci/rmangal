@@ -42,7 +42,8 @@ R> library("rmangal")
 
 ## How to use `rmangal`
 
-There are [five `search_*()` functions]() to explore the content of Mangal, for instance `search_datasets()`:
+There are [five `search_*()` functions](file:///home/steve/Documents/Git/mangal/rmangal/docs/reference/index.html#section-explore-database) to explore the content of Mangal, for
+instance `search_datasets()`:
 
 ```r
 R> mgs <- search_datasets("lagoon")
