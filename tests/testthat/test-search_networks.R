@@ -21,9 +21,9 @@ test_that("expected behavior", {
 })
 
 test_that("output format", {
-  expect_equal(class(res1), c("sf", "data.frame", "mgSearchNetworks"))
+  expect_equal(class(res1), c("data.frame", "mgSearchNetworks"))
   expect_equal(class(res2), c("sf", "data.frame", "mgSearchNetworks"))
-  expect_equal(class(ress), c("sf", "data.frame", "mgSearchNetworks"))
+  expect_equal(class(ress), c("data.frame", "mgSearchNetworks"))
   expect_identical(res2, res2b)
 })
 
