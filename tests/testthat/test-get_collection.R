@@ -21,5 +21,6 @@ test_that("expected behavior", {
   expect_equal(length(res2), 3)
   expect_identical(resw, data.frame())
   expect_error(suppressWarnings(get_collection("hh")))
+  expect_error(suppressWarnings(get_network_by_id(id = 999999)))
 }
 )
