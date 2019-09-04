@@ -10,6 +10,7 @@ install:
 environment:
   USE_RTOOLS: true
   R_VERSION: devel
+  PKGTYPE: binary
 
 # Adapt as necessary starting from here
 build_script:
