@@ -170,16 +170,16 @@ Let's load **rmangal** as well as two helper packages:
 
 ```{R load_packages}
 library(rmangal)
-library(magrittr) # for the pip %>%
-library(tibble) # to use tibbles, enhanced data frames
+library(magrittr) # for the pipe %>%
+library(tibble) # to use tibble (enhanced data frames)
 ```
 
 ### Search and list available datasets
 
 
-Let's assume we are looking for ecological networks including species living in lagoons. If we have
-no idea about any existing data set, the best starting point is then to query the `dataset` table
-with `lagoon` as a keyword:
+Let's assume we are looking for ecological networks including species living in
+lagoons. If we have no idea about any existing data set, the best starting point
+is then to query the `dataset` table with `lagoon` as a keyword:
 
 
 ```{R}
@@ -189,7 +189,7 @@ lagoon
 ```
 
 
-If the Mangal reference id containing the laggoon networks was known, we could build a custom query as follow:
+If the Mangal reference id containing the lagoon networks was known, we could build a custom query as follow:
 
 
 ```{R}
@@ -198,8 +198,7 @@ lagoon_zetina
 ```
 
 
-Note that if an empty character is passed, i.e. `""`, all entries are returned. We can use this
-behaviour to list all datasets available:
+Note that if an empty character is passed, i.e. `""`, all entries are returned. We can use this behavior to list all datasets available:
 
 
 ```{R}

@@ -72,10 +72,10 @@ search_networks_sf <- function(query_sf, verbose = TRUE, ...) {
   stopifnot("sf" %in% class(query_sf))
   stop_if_missing_sf()
 
-  # API doesn't allow spatial search yet, so we sort with sf package
-  sp_networks_all <- resp_to_sf(resp_to_spatial(
-      get_gen(endpoints()$network, verbose = verbose, ...)$body
-  ))
+  # API doesn't allow spatial search yet, so we used sf
+  sp_networks_all <- resp_to_spatial(
+      get_gen(endpoints()$network, verbose = verbose, ...)$body,
+      as_sf = TRUE)
   # sf_networks_all to WGS 84 / World Mercator, a planar CRS
   id <- unlist(sf::st_contains(
         sf::st_transform(query_sf, crs = 3395),

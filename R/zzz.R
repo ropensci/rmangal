@@ -83,7 +83,7 @@ fill_df <- function(x, nms) {
 
 
 # hh <- resp_to_spatial2(gg)
-resp_to_spatial <- function(x, keep_geom = TRUE) {
+resp_to_spatial <- function(x, as_sf = FALSE, keep_geom = TRUE) {
   if (is.null(x)) {
     x
   } else {
@@ -92,9 +92,9 @@ resp_to_spatial <- function(x, keep_geom = TRUE) {
           y[names(y) != "geom"], stringsAsFactors = FALSE)
         ))
       if (keep_geom) {
-        lapply(x, handle_geom)
-        cbind(dat, do.call(rbind, lapply(x, handle_geom)))
+        dat <- cbind(dat, do.call(rbind, lapply(x, handle_geom)))
       } else dat
+      if (as_sf) resp_to_sf(dat) else dat
   }
 }
 
@@ -122,19 +122,24 @@ handle_geom <- function(x) {
 ## Response => spatial -- sf required
 resp_to_sf <- function(dat) {
   stop_if_missing_sf()
-  spd <- apply(dat, 1, switch_sf)
+  if (nrow(dat) == 1) {
+    spd <- switch_sf(dat)
+  } else spd <- apply(dat, 1, switch_sf)
   sf::st_sf(
-   dat[names(dat)[!grepl("geom_", names(dat))]], geom = spd, crs = 4326, stringsAsFactors = FALSE
+   dat[names(dat)[!grepl("geom_", names(dat))]], geom = sf::st_sfc(spd),
+    crs = 4326, stringsAsFactors = FALSE
    )
 }
 
 ## Build sf object based on geom.type
 switch_sf <- function(x) {
   if (is.na(x$geom_type)) {
-    # if NULL
     sf::st_point(matrix(NA_real_, ncol = 2))
   } else {
-    co <- cbind(x$geom_lon, x$geom_lat)
+    co <- cbind(
+        as.numeric(unlist(x$geom_lon)),
+        as.numeric(unlist(x$geom_lat))
+    )
     # print(co)
     switch(
       x$geom_type,
