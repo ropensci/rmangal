@@ -70,8 +70,7 @@ search_networks <- function(query, verbose = TRUE, ...) {
 search_networks_sf <- function(query_sf, verbose = TRUE, ...) {
 
   stopifnot("sf" %in% class(query_sf))
-  if (!("sf" %in% row.names(utils::installed.packages())))
-    stop("Package sf is not installed.")
+  stop_if_missing_sf()
 
   # API doesn't allow spatial search yet, so we sort with sf package
   sp_networks_all <- resp_to_sf(resp_to_spatial(

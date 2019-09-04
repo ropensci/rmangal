@@ -121,6 +121,7 @@ handle_geom <- function(x) {
 
 ## Response => spatial -- sf required
 resp_to_sf <- function(dat) {
+  stop_if_missing_sf()
   spd <- apply(dat, 1, switch_sf)
   sf::st_sf(
    dat[names(dat)[!grepl("geom_", names(dat))]], geom = spd, crs = 4326, stringsAsFactors = FALSE
@@ -142,6 +143,11 @@ switch_sf <- function(x) {
       stop("Only `Point` and `Polygon` are supported.")
     )
   }
+}
+
+stop_if_missing_sf <- function() {
+  if (!("sf" %in% row.names(utils::installed.packages())))
+    stop("Package sf is not installed.")
 }
 
 
