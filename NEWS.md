@@ -5,6 +5,7 @@
 * `mg_to_igraph` is now `as.igraph()`
 * vignette now includes examples to use tigygraph and ggraph
 * pkgdown website is now deployed by Travis CI
+* query with spatial (`sf`) objects are handle in `query_networks_sf()` that is now exported. 
 
 # rmangal 1.9.1
 

@@ -8,7 +8,7 @@
 #'
 #' @param query either a character string including a single keyword or a list containing a custom query (see details section below), or a spatial object (see the description of `query_sf`).
 #' Note that if an empty character string is passed, then all datasets available are returned.
-#' @param query_sf a spatial object of class `sf` used to search in a specific geographical area. Note that `sf` is required to do such query.
+#' @param query_sf a spatial object of class `sf` used to search in a specific geographical area.
 #' @param verbose a `logical`. Should extra information be reported on progress?
 #' @param ... further arguments to be passed to [httr::GET()].
 #'
@@ -48,8 +48,6 @@
 
 search_networks <- function(query, verbose = TRUE, ...) {
 
-  if ("sf" %in% class(query))
-    return(search_networks_sf(query, verbose, ...))
   query <- handle_query(query, c("id", "public", "all_interactions", "dataset_id"))
 
   networks <- resp_to_spatial(get_gen(endpoints()$network, query = query,
@@ -67,7 +65,8 @@ search_networks <- function(query, verbose = TRUE, ...) {
   networks
 }
 
-#' @describeIn search_networks Search network within a spatial object passed as an argument.
+#' @describeIn search_networks Search networks within a spatial object passed as an argument. Note that `sf` must be installed to use this function.
+#' @export
 search_networks_sf <- function(query_sf, verbose = TRUE, ...) {
 
   stopifnot("sf" %in% class(query_sf))

@@ -241,7 +241,7 @@ library(sf)
 library(mapview)
 library(USAboundaries)
 area <- us_states(state = "california")
-in_CA <- search_networks(area)
+in_CA <- search_networks_sf(area)
 
 mapview(in_CA, legend = FALSE) + mapview(sf::st_cast(area,"MULTILINESTRING"), color = "red", legend = FALSE)
 ```
