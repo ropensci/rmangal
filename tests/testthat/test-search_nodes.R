@@ -1,4 +1,4 @@
- context("search_nodes")
+ context("test search_nodes")
 
 res_acer <- search_nodes("Acer", verbose = FALSE)
 res_926 <- search_nodes(list(network_id = 926), verbose = FALSE)

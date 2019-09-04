@@ -126,12 +126,12 @@ are under consideration for future major releases.
 
 
 In order to efficiently retrieve networks from the database, **rmangal**
-includes 6 search functions querying the 5 tables described above as well as a table dedicated to the taxonomy backbone.
+includes 7 search functions querying the 5 tables described above as well as a table dedicated to the taxonomy backbone.
 
 
 1. `search_references()`: search in the reference table, for instance the user can look for a specific `doi`;
 2. `search_datasets()`: search among datasets using a keyword;
-3. `search_networks()`: search networks based on a keyword or a geographical area;
+3. `search_networks()` and `search_networks_sf()`: search networks based on a keyword or a geographical area;
 4. `search_interactions()`: list all networks containing a specific interaction type;
 5. `search_nodes()`: identify nodes based on nodes information;
 6. `search_taxonomy()`: identify nodes based on taxonomic names and unique identifiers.
@@ -148,10 +148,11 @@ networks <- search_*() %>% get_collection()
 ```
 
 
-Note that if there is only one network to be retrieved, `get_collection()` returns a `mgNetwork`
-object, otherwise it returns an object of class `mgNetworksCollection` which is a collection (a
-list) of `mgNetwork` objects. Below, we exemplify how to use the search functions, how to get a
-collection of networks and how to use other packages to carry out specific analyses.
+Note that if there is only one network to be retrieved, `get_collection()`
+returns a `mgNetwork` object, otherwise it returns an object of class
+`mgNetworksCollection` which is a collection (a list) of `mgNetwork` objects.
+Below, we exemplify how to use the search functions, how to get a collection of
+networks and how to use other packages to carry out specific analyses.
 
 ## Search functions
 
@@ -167,19 +168,18 @@ the corresponding table:
 
 Let's load **rmangal** as well as two helper packages:
 
-
 ```{R load_packages}
 library(rmangal)
-library(magrittr) # for the pip %>%
-library(tibble) # to use tibbles, enhanced data frames
+library(magrittr) # for the pipe %>%
+library(tibble) # to use tibble (enhanced data frames)
 ```
 
 ### Search and list available datasets
 
 
-Let's assume we are looking for ecological networks including species living in lagoons. If we have
-no idea about any existing data set, the best starting point is then to query the `dataset` table
-with `lagoon` as a keyword:
+Let's assume we are looking for ecological networks including species living in
+lagoons. If we have no idea about any existing data set, the best starting point
+is then to query the `dataset` table with `lagoon` as a keyword:
 
 
 ```{R}
@@ -189,7 +189,7 @@ lagoon
 ```
 
 
-If the Mangal reference id containing the laggoon networks was known, we could build a custom query as follow:
+If the Mangal reference id containing the lagoon networks was known, we could build a custom query as follow:
 
 
 ```{R}
@@ -198,8 +198,7 @@ lagoon_zetina
 ```
 
 
-Note that if an empty character is passed, i.e. `""`, all entries are returned. We can use this
-behaviour to list all datasets available:
+Note that if an empty character is passed, i.e. `""`, all entries are returned. We can use this behavior to list all datasets available:
 
 
 ```{R}
@@ -230,23 +229,6 @@ insect_coll <- search_networks(query="insect%")
 glimpse(insect_coll)
 ```
 
-`search_networks()` allows spatial queries. The user can provide a
-[`sf`](https://cran.r-project.org/web/packages/sf/sf.pdf) object to access all
-networks included in the spatial extent of this object. For instance, we can request all
-networks in California:
-
-
-```{R}
-library(sf)
-library(mapview)
-library(USAboundaries)
-area <- us_states(state = "california")
-in_CA <- search_networks(area)
-
-mapview(in_CA, legend = FALSE) + mapview(sf::st_cast(area,"MULTILINESTRING"), color = "red", legend = FALSE)
-```
-
-
 It is also possible to retrieve all networks based on interaction types involved:
 
 
@@ -256,6 +238,23 @@ avail_type()
 comp_interac <- search_interactions(type="competition")
 # Number of competition interactions in mangal
 nrow(comp_interac)
+```
+
+
+`search_networks_sf()` handles spatial queries: argument `query_sf` takes a
+[`sf`](https://cran.r-project.org/package=sf) object as input and returns all
+networks included in the spatial extent of this object. For instance, one can
+retrieve all Californian networks included in Mangal like so:
+
+
+```{R}
+library(sf)
+library(mapview)
+library(USAboundaries)
+area <- us_states(state = "california")
+in_CA <- search_networks_sf(area)
+
+mapView(in_CA, legend = FALSE) + mapview(sf::st_cast(area,"MULTILINESTRING"), color = "red", legend = FALSE)
 ```
 
 
@@ -351,6 +350,19 @@ mgn <- lapply(tsn, function(x) search_taxonomy(tsn = x)) %>%
 mgn
 ```
 
+## Geolocalize Mangal networks with `sf`
+
+The function `get_collection()` has an argument `as_sf` than converts network metadata of mgNetwork objacts to `sf` objects, which requires [`sf`](https://cran.r-project.org/package=sf) to be installed. This allows the user to easily
+geolocalize the networks retrieved from Mangal.
+
+```{R as_sf}
+# assuming sf and mapview are is loaded (as we did above)
+mg_lag_sf <- search_datasets(query = 'lagoon') %>% get_collection(as_sf = TRUE)
+class(mg_lag_sf[[1]]$network)
+# let's combine all these sf object into a single one
+mapView(mg_lag_sf[[1]]$network) + mapView(mg_lag_sf[[2]]$network)
+```
+
 
 ## Taxonomic analysis with `taxize`
 
@@ -358,7 +370,7 @@ mgn
 As Mangal includes taxonomic identifiers, **rmangal** can readily be combined
 with `taxize` (see [taxize book](https://ropenscilabs.github.io/taxize-book/) for more details about this package):
 
-```{R}
+```{R taxo}
 library(taxize)
 tsn_acer <- search_taxonomy("Acer")$taxonomy.tsn
 classification(tsn_acer, db = "itis")
@@ -372,7 +384,7 @@ obtained, it is straightforward to convert it as a `igraph` (see the [dedicated
 website](https://igraph.org/r/)) object and then to carry out network analysis:
 
 
-```{R}
+```{R igraph}
 library(igraph)
 mg_lagoons <- search_datasets(query = 'lagoon') %>% get_collection
 # NB the line below returns a list of igraph objects
@@ -396,7 +408,7 @@ readily be converted into `tbl_graph` objects which allows the user to benefit
 from all the tools included in `tidygraph`:
 
 
-```{R}
+```{R tidygraph}
 library(tidygraph)
 # NB the line below would not work with a mgNetworksCollection (use lapply)
 tg_lagoons <-  as_tbl_graph(mg_lagoons[[1]]) %>%
@@ -410,7 +422,7 @@ Another strong advantage of `tbl_graph` objects is that there are the objects
 used by the package [`ggraph`](https://github.com/thomasp85/ggraph) that that
 offers various functions (theme, geoms, etc.) to efficiently visualize networks:
 
-```{R}
+```{R ggraph}
 library(ggraph)
 ggraph(tg_lagoons, layout = "stress") +
   geom_edge_parallel(end_cap = circle(.5), start_cap = circle(.5),

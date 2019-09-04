@@ -1,7 +1,7 @@
-context("search_dataset")
+context("test search_datasets")
 
 # number of variables (columns)
-nvr <- 11
+nvr <- 10
 
 res1 <- search_datasets(query = "lagoon")
 res2 <- search_datasets(query = list(name = "kemp_1977"))

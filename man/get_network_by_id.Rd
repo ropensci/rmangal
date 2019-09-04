@@ -9,9 +9,9 @@
 \alias{summary.mgNetworksCollection}
 \title{Retrieve network informations, nodes, edges and references for a given set of Mangal network IDs}
 \usage{
-get_network_by_id(ids, verbose = TRUE)
+get_network_by_id(ids, as_sf = FALSE, verbose = TRUE)
 
-get_network_by_id_indiv(id, verbose = TRUE)
+get_network_by_id_indiv(id, as_sf = FALSE, verbose = TRUE)
 
 \method{print}{mgNetwork}(x, ...)
 
@@ -24,6 +24,8 @@ get_network_by_id_indiv(id, verbose = TRUE)
 \arguments{
 \item{ids}{a vector of Mangal ID for networks (\code{numeric}).}
 
+\item{as_sf}{a logical. Should networks metadata be converted into an sf object? Note that to use this feature \code{sf} must be installed.}
+
 \item{verbose}{a logical. Should extra information be reported on progress?}
 
 \item{id}{a single ID network (\code{numeric}).}
@@ -35,16 +37,16 @@ get_network_by_id_indiv(id, verbose = TRUE)
 \item{object}{object of of class \code{mgNetwork} or \code{mgNetworksCollection}.}
 }
 \value{
-A \code{mgNetwork} object includes:
+A \code{mgNetwork} object includes five data frame:
 \itemize{
-\item network: a \code{list} of all generic information on the network
-\item nodes: a \code{data.frame} of all nodes with taxonomic information
-\item interactions: a \code{data.frame} of all ecological interactions, with the attribute used to describe the interaction
-\item dataset: \code{list} information pertaining to the dataset the network is associated with
-\item reference: \code{list} information about the original publication
+\item network: includes all generic information on the network (if \code{as_sf=TRUE} then it is an object of class \code{sf});
+\item nodes: information pertaining to nodes (includes taxonomic information);
+\item interactions: includes ecological interactions and their attributes;
+\item dataset: information pertaining to the original dataset;
+\item reference: details about the original publication.
 }
 
-A summary method is available return for all \code{mgNetwork} object the following network properties:
+A summary method is available for objects of class \code{mgNetwork} object and returns the following network properties:
 \itemize{
 \item the number of nodes;
 \item the number of edges;

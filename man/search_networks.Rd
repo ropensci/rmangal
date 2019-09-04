@@ -43,13 +43,13 @@ Note that for lists with more than one element, only the first element is used, 
 }
 \section{Functions}{
 \itemize{
-\item \code{search_networks_sf}: Search network within a spatial object passed as an argument.
+\item \code{search_networks_sf}: Search networks within a spatial object passed as an argument. Note that \code{sf} must be installed to use this function.
 }}
 
 \examples{
 mg_insect <- search_networks(query="insect\%")
 \donttest{
-# Retrieve the search results 
+# Retrieve the search results
 nets_insect <- get_collection(mg_insect)
 # Spatial query
 library(USAboundaries)

@@ -1,4 +1,4 @@
-context("search_reference")
+context("test search_references")
 
 res1 <- search_references(doi = "10.2307/3225248")
 res2 <- search_references(list(jstor = 3683041))

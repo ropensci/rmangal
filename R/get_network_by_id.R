@@ -4,20 +4,21 @@
 #' @param id a single ID network (`numeric`).
 #' @param x an object of class `mgNetwork` or `mgNetworksCollection`.
 #' @param object object of of class `mgNetwork` or `mgNetworksCollection`.
+#' @param as_sf a logical. Should networks metadata be converted into an sf object? Note that to use this feature `sf` must be installed.
 #' @param ... ignored.
 #' @param verbose a logical. Should extra information be reported on progress?
 #'
 #' @rdname get_network_by_id
 #'
 #' @return
-#' A `mgNetwork` object includes:
-#' * network: a `list` of all generic information on the network
-#' * nodes: a `data.frame` of all nodes with taxonomic information
-#' * interactions: a `data.frame` of all ecological interactions, with the attribute used to describe the interaction
-#' * dataset: `list` information pertaining to the dataset the network is associated with
-#' * reference: `list` information about the original publication
+#' A `mgNetwork` object includes five data frame:
+#' * network: includes all generic information on the network (if `as_sf=TRUE` then it is an object of class `sf`);
+#' * nodes: information pertaining to nodes (includes taxonomic information);
+#' * interactions: includes ecological interactions and their attributes;
+#' * dataset: information pertaining to the original dataset;
+#' * reference: details about the original publication.
 #'
-#' A summary method is available return for all `mgNetwork` object the following network properties:
+#' A summary method is available for objects of class `mgNetwork` object and returns the following network properties:
 #' * the number of nodes;
 #' * the number of edges;
 #' * the connectance;
@@ -29,31 +30,29 @@
 #' nets <- get_network_by_id(id = c(18, 23))
 #' @export
 
-get_network_by_id <- function(ids, verbose = TRUE) {
+get_network_by_id <- function(ids, as_sf = FALSE, verbose = TRUE) {
     if (length(ids) > 1) {
       structure(
-        lapply(ids, get_network_by_id_indiv, verbose = verbose),
-        class= "mgNetworksCollection"
+        lapply(ids, get_network_by_id_indiv, as_sf = as_sf, verbose = verbose),
+        class = "mgNetworksCollection"
       )
     } else {
       if (!length(ids)) return(data.frame())
-      get_network_by_id_indiv(ids, verbose = verbose)
+      get_network_by_id_indiv(ids, as_sf = as_sf, verbose = verbose)
     }
 }
 
 
 #' @describeIn get_network_by_id Retrieve a network by its  collection of networks (default).
 #' @export
-get_network_by_id_indiv <- function(id, verbose = TRUE) {
-  stopifnot(grepl("^[0-9]+$", id))
-  stopifnot(!is.null(id))
-  stopifnot(length(id) == 1)
+get_network_by_id_indiv <- function(id, as_sf = FALSE, verbose = TRUE) {
 
-  # Object S3 declaration
-  # if (verbose) cat("Retrieving network id", id, "\n")
+  id <- as.numeric(id)
+  stopifnot(length(id) == 1 & !is.na(id))
+
   mg_network <- structure(list(network =
     resp_to_spatial(get_singletons(endpoints()$network, ids = id,
-    verbose = verbose)$body)), class = "mgNetwork")
+    verbose = verbose)$body, as_sf = as_sf)), class = "mgNetwork")
 
   if (is.null(mg_network$network))
     stop(sprintf("network id %s not found", id))
