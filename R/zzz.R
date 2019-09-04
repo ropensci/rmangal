@@ -150,8 +150,8 @@ switch_sf <- function(x) {
   }
 }
 
-stop_if_missing_sf <- function() {
-  if (!("sf" %in% row.names(utils::installed.packages())))
+stop_if_missing_sf <- function(pkgs = row.names(utils::installed.packages())) {
+  if (!"sf" %in% pkgs)
     stop("Package sf is not installed.")
 }
 
@@ -324,8 +324,8 @@ empty_line <- function() {
 
 
 msg_request_fail <- function(resp) {
-  message(sprintf("API request failed (%s): %s",
-    httr::status_code(resp), httr::content(resp)$message))
+  sta <- httr::status_code(resp)
+  warning("API request failed: error ", sta)
 }
 
 
@@ -360,3 +360,20 @@ print_taxo_ids <- function(x) {
     "NCBI: ", percent_id(x$taxonomy.ncbi), "%\n"
   )
 }
+
+print_pub_info <- function(x) {
+  paste0("* Published in ref #",  x$id, " DOI:", x$doi)
+}
+
+
+print_net_info <- function(net_id, dat_id, descr, n_edg, n_nod) {
+  paste0(
+    "* Network #", net_id, " included in data set #", dat_id, "\n",
+    "* Description: ", descr, "\n",
+    "* Includes ", n_edg, " edges and ", n_nod, " nodes \n"
+  )
+}
+
+
+
+

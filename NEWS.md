@@ -5,9 +5,9 @@
 * `mg_to_igraph` is now `as.igraph()`;
 * `search_references()` has been rewritten [#85];
 * vignette now includes examples to use `tigygraph` and `ggraph`;
-* pkgdown website is now deployed by Travis CI;
+* pkgdown website is now deployed by Travis CI [#86];
 * `geom` column has been removed from `mgSearchInteractions` objects;
-* `sf` features are only used in `search_networks_sf()` and when argument `as_sf` is set to `TRUE` [#];
+* `sf` features are only used in `search_networks_sf()` and when argument `as_sf` is set to `TRUE` [#89];
 * query with spatial (`sf`) objects are handle in `query_networks_sf()` that is now exported.
 
 # rmangal 1.9.1
