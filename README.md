@@ -42,7 +42,7 @@ R> library("rmangal")
 
 ## How to use `rmangal`
 
-There are [five `search_*()` functions](file:///home/steve/Documents/Git/mangal/rmangal/docs/reference/index.html#section-explore-database) to explore the content of Mangal, for
+There are [seven `search_*()` functions](file:///home/steve/Documents/Git/mangal/rmangal/docs/reference/index.html#section-explore-database) to explore the content of Mangal, for
 instance `search_datasets()`:
 
 ```r
