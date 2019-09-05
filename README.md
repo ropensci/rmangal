@@ -91,7 +91,7 @@ A collection of 3 networks
 
 [`igraph`](https://igraph.org/r/) and
 [`tidygraph`](https://github.com/thomasp85/tidygraph) offer powerful features to
-analyse networks and **rmangal** provides functions to convert `mgNetwork` to
+analyze networks and **rmangal** provides functions to convert `mgNetwork` to
 `igraph` and `tbl_graph` so that the user can easily benefit from those
 packages.
 
@@ -113,7 +113,7 @@ the reader through several examples and provide further details about **rmangal*
 
 We are working on that part. The networks publication process will be
 facilitated with structured objects and tests suite to maintain data integrity
-and quality. Any suggestions or advices is welcome, feel free to open issues.
+and quality.Comments and suggestions are welcome, feel free to open issues.
 
 ## `rmangal` vs `rglobi`
 

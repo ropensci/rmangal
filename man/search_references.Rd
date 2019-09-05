@@ -20,7 +20,7 @@ Note that if an empty character string is passed, then all datasets available ar
 An object of class \code{mgSearchReferences}, which is a list that includes a wide range of details associated to the reference, including all datasets and networks related to the publication that are included in Mangal database.
 }
 \description{
-Search for a specific reference using a key wor or a Digital Object Identifier (DOI).
+Search for a specific reference using a key word or a Digital Object Identifier (DOI).
 If the \code{query} is a character string, then all character columns in the table
 are searched and the entries for which at least one
 partial match was found are returned.
