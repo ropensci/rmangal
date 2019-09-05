@@ -30,5 +30,11 @@ Authors:
   \item Timothée Poisot \email{timothee.poisot@umontreal.ca}
 }
 
+Other contributors:
+\itemize{
+  \item Thomas Lin Pedersen (0000-0002-5147-4711) [reviewer]
+  \item Anna (0000-0002-0504-0605) [reviewer]
+}
+
 }
 \keyword{internal}
