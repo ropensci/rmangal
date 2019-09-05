@@ -150,9 +150,11 @@ switch_sf <- function(x) {
   }
 }
 
-stop_if_missing_sf <- function(pkgs = row.names(utils::installed.packages())) {
-  if (!"sf" %in% pkgs)
-    stop("Package sf is not installed.")
+
+stop_if_missing_sf <- function(pkg = "sf") {
+  if (!requireNamespace(pkg, quietly = TRUE)) {
+    stop("sf should be installed to use this functionality", call. = FALSE)
+  }
 }
 
 

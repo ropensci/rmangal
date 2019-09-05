@@ -30,7 +30,7 @@ df1 <- data.frame(var = 1, geom_type = "wrong", geom_lon = 1,  geom_lat = 2)
 resp <- httr::GET("http://httpbin.org/status/404")
 test_that("fail gracefully", {
   expect_error(switch_df(df1))
-  expect_error(stop_if_missing_sf("gg"))
+  expect_error(stop_if_missing_sf("xx_xx"))
   expect_warning(msg_request_fail(resp), "API request failed: error 404")
 }
 )

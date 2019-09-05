@@ -32,8 +32,7 @@ Imports:
     igraph,
     jsonlite (>= 1.5),
     memoise,
-    purrr,
-    utils
+    purrr
 RoxygenNote: 6.1.1
 Suggests:
     ggraph (>= 2.0.0),
