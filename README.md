@@ -117,7 +117,7 @@ and quality. Any suggestions or advices is welcome, feel free to open issues.
 
 ## `rmangal` vs `rglobi`
 
-Those interested only in paiwise interactions among taxons may consider using
+Those interested only in pairwise interactions among taxons may consider using
 `rglobi`, an R package that provides an interface to the [GloBi
 infrastructure](https://www.globalbioticinteractions.org/about.html). GloBi
 provides open access to aggregated interactions from heterogeneous sources. In
