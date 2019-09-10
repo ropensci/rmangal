@@ -12,8 +12,8 @@ A programmatic interface to the Mangal API \url{https://mangal-wg.github.io/mang
 Useful links:
 \itemize{
   \item \url{https://mangal.io}
-  \item \url{https://github.com/mangal-wg/rmangal}
-  \item Report bugs at \url{https://github.com/mangal-wg/rmangal/issues}
+  \item \url{https://github.com/ropensci/rmangal}
+  \item Report bugs at \url{https://github.com/mangal-wg/ropensci/issues}
 }
 
 }
@@ -33,7 +33,7 @@ Authors:
 Other contributors:
 \itemize{
   \item Thomas Lin Pedersen (0000-0002-5147-4711) [reviewer]
-  \item Anna (0000-0002-0504-0605) [reviewer]
+  \item Anna Willoughby (0000-0002-0504-0605) [reviewer]
 }
 
 }

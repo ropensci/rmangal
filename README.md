@@ -126,6 +126,12 @@ contrast, Mangal gives access to the original networks and open the gate to
 study ecological networks properties (i.e. connectance, degree etc.) along large
 environmental gradients, which wasn't possible using the GloBi infrastructure.
 
+
+## Acknowledgment
+
+We are grateful to [Noam Ross](https://github.com/noamross) for acting as an editor during the review process. We also thank [Anna Willoughby](https://github.com/arw36) and [Thomas Lin Petersen](https://github.com/thomasp85) for reviewing the package. Their comments strongly contributed to improve the quality of rmangal.
+
+
 ## Code of conduct
 
 Please note that the `rmangal` project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.

@@ -1,4 +1,4 @@
-# rmangal 1.9.1.9000
+# rmangal 2.0.0
 
 * Revisions see https://github.com/ropensci/software-review/issues/332;
 * add summary method [#87];
@@ -10,7 +10,12 @@
 * `sf` features are only used in `search_networks_sf()` and when argument `as_sf` is set to `TRUE` [#89];
 * query with spatial (`sf`) objects are handle in `query_networks_sf()` that is now exported.
 
-# rmangal 1.9.1
+# rmangal 1.9.0.9000
 
-* Version submitted to ROpenSci for review;
+* Version submitted to ROpenSci for review.
 * Added a `NEWS.md` file to track changes to the package.
+
+
+# Previous version rmangal
+
+* See https://github.com/mangal-wg/rmangal-v1 for the first version. Note that due to changes in the RESTful API, there is not backward compatibility.
