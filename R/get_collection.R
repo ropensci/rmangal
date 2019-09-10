@@ -18,8 +18,10 @@
 #' [search_nodes()], [search_references()], [search_taxonomy()].
 #'
 #' @examples
+#' \donttest{
 #' mg_2 <- get_collection(c(1076:1077), verbose = FALSE)
 #' mg_anemone <- get_collection(search_networks(query='anemone%'), verbose = FALSE)
+#' }
 #' @export
 
 get_collection <- function(x, ...) {
