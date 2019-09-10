@@ -24,7 +24,7 @@ Authors@R: c(
     )
 Description: An interface to the Mangal database - a collection of ecological networks. This package includes functions to work with the Mangal RESTFul API methods (<https://mangal.io/doc/api>).
 URL: https://mangal.io, https://github.com/ropensci/rmangal
-BugReports: https://github.com/mangal-wg/ropensci/issues
+BugReports: https://github.com/ropensci/rmangal/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
 Imports:

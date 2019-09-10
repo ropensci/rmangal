@@ -13,4 +13,4 @@ bibentry(bibtype = "Manual",
                     person("Timothée", "Poisot")),
          year = 2019,
          note = note,
-         url = "https://mangal-wg.github.io/rmangal/")
+         url = "https://ropensci.github.io/rmangal/")
