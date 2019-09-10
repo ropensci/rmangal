@@ -61,8 +61,10 @@ function. The function also accept a numeric vector of Mangal network IDs.
 }}
 
 \examples{
+\donttest{
 mg_2 <- get_collection(c(1076:1077), verbose = FALSE)
 mg_anemone <- get_collection(search_networks(query='anemone\%'), verbose = FALSE)
+}
 }
 \seealso{
 \code{\link[=search_datasets]{search_datasets()}}, \code{\link[=search_interactions]{search_interactions()}}, \code{\link[=search_networks]{search_networks()}},

@@ -41,7 +41,7 @@ knitr::opts_chunk$set(
 
 3. provides:
   - [a data explorer](https://mangal.io/#/) to visualize and download data available;
-  - a [RESTFUL Application Programming Interface (API)](https://mangal-wg.github.io/mangal-api/);
+  - a [RESTful Application Programming Interface (API)](https://mangal-wg.github.io/mangal-api/);
   - a client library for Julia: [Mangal.jl](https://github.com/PoisotLab/Mangal.jl);
   - a client of this API for R: the **rmangal** package described below.
 
@@ -368,7 +368,7 @@ mapView(mg_lag_sf[[1]]$network) + mapView(mg_lag_sf[[2]]$network)
 
 
 As Mangal includes taxonomic identifiers, **rmangal** can readily be combined
-with `taxize` (see [taxize book](https://ropenscilabs.github.io/taxize-book/) for more details about this package):
+with `taxize` (see [taxize](https://github.com/ropensci/taxize) for more details about this package):
 
 ```{R taxo}
 library(taxize)

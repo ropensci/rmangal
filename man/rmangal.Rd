@@ -13,7 +13,7 @@ Useful links:
 \itemize{
   \item \url{https://mangal.io}
   \item \url{https://github.com/ropensci/rmangal}
-  \item Report bugs at \url{https://github.com/mangal-wg/ropensci/issues}
+  \item Report bugs at \url{https://github.com/ropensci/rmangal/issues}
 }
 
 }
