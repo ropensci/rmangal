@@ -36,14 +36,14 @@ visualize networks properties: [`igraph`](https://igraph.org/r/),
 So far, only the development version is available and can be installed via the [remotes](https://CRAN.R-project.org/package=remotes) :package:
 
 ```r
-R> devtools::install_github("mangal-wg/rmangal")
+R> remotes::install_github("ropensci/rmangal")
 R> library("rmangal")
 ```
 
 
 ## How to use `rmangal`
 
-There are [seven `search_*()` functions](file:///home/steve/Documents/Git/mangal/rmangal/docs/reference/index.html#section-explore-database) to explore the content of Mangal, for
+There are [seven `search_*()` functions](https://mangal.io/doc/r/reference/index.html#section-explore-database) to explore the content of Mangal, for
 instance `search_datasets()`:
 
 ```r
@@ -107,7 +107,7 @@ R> class(tg)
 ```
 
 :book: Note that the vignette ["Get started with
-rmangal"](https://mangal-wg.github.io/rmangal/articles/rmangal.html) will guide
+rmangal"](https://mangal.io/doc/r/articles/rmangal.html) will guide
 the reader through several examples and provide further details about **rmangal** features.
 
 ## How to publish ecological networks
@@ -134,7 +134,7 @@ We are grateful to [Noam Ross](https://github.com/noamross) for acting as an edi
 
 ## Code of conduct
 
-Please note that the `rmangal` project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.
+Please note that the `rmangal` project is released with a [Contributor Code of Conduct](https://mangal.io/doc/r/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
 
 ## Meta
 
