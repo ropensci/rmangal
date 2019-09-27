@@ -20,9 +20,4 @@ Get entries based on foreign key
 \details{
 See endpoints available with \code{endpoints()}
 }
-\examples{
-\dontrun{
-get_from_fkey(endpoints()$node, network_id = 926)
-}
-}
 \keyword{internal}
