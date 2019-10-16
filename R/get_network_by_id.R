@@ -87,7 +87,7 @@ get_network_by_id_indiv <- function(id, as_sf = FALSE, verbose = TRUE) {
 #' @method print mgNetwork
 #' @export
 print.mgNetwork <- function(x, ...) {
-  cat(print_net_info(x$network$id, x$dataset$id, x$network$description,
+  cat(print_net_info(x$network$network_id, x$dataset$dataset_id, x$network$description,
         nrow(x$interactions), nrow(x$nodes)),
     print_taxo_ids(x$nodes), print_pub_info(x$reference), "\n\n", sep = "")
 }

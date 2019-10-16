@@ -366,7 +366,7 @@ print_pub_info <- function(x) {
 
 print_net_info <- function(net_id, dat_id, descr, n_edg, n_nod) {
   paste0(
-    "* Network #", net_id, " included in data set #", dat_id, "\n",
+    "* Network #", net_id, " included in dataset #", dat_id, "\n",
     "* Description: ", descr, "\n",
     "* Includes ", n_edg, " edges and ", n_nod, " nodes \n"
   )

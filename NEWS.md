@@ -1,3 +1,9 @@
+# rmangal 2.0.1
+
+* Fix a minor bug in the print method for `mgNetwork` objects see [#94]
+
+
+
 # rmangal 2.0.0
 
 * Revisions see https://github.com/ropensci/software-review/issues/332;

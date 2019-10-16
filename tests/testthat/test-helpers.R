@@ -12,7 +12,7 @@ df <- data.frame(
 txt0 <- "* Current taxonomic IDs coverage for nodes of this network: \n  --> "
 txt1 <- "ITIS: 100%, BOLD: 100%, EOL: 50%, COL: 100%, GBIF: 100%, NCBI: 100%\n"
 txt2 <- "* Published in ref #1 DOI:2"
-txt3 <- "* Network #1 included in data set #1\n* Description: 1\n* Includes 1 edges and 1 nodes \n"
+txt3 <- "* Network #1 included in dataset #1\n* Description: 1\n* Includes 1 edges and 1 nodes \n"
 
 
 
