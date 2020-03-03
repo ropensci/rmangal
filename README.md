@@ -41,7 +41,7 @@ R> library("rmangal")
 
 ## How to use `rmangal`
 
-There are [seven `search_*()` functions](https://mangal.io/doc/r/reference/index.html#section-explore-database) to explore the content of Mangal, for
+There are [seven `search_*()` functions](https://docs.ropensci.org/rmangal/reference/index.html#section-explore-database) to explore the content of Mangal, for
 instance `search_datasets()`:
 
 ```r
@@ -105,7 +105,7 @@ R> class(tg)
 ```
 
 :book: Note that the vignette ["Get started with
-rmangal"](https://mangal.io/doc/r/articles/rmangal.html) will guide
+rmangal"](https://docs.ropensci.org/rmangal/articles/rmangal.html) will guide
 the reader through several examples and provide further details about **rmangal** features.
 
 ## How to publish ecological networks
