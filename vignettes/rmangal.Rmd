@@ -63,7 +63,7 @@ networks added and the API entirely rewritten. Consequently, [the first release 
 
 <div class = "row">
 <div class = "col-md-6">
-<img width="100%" src="https://raw.githubusercontent.com/mangal-wg/rmangal/gh-pages/reference/figures/data_structure.png" alt="Mangal data structure"/>
+<img width="100%" src="https://raw.githubusercontent.com/ropensci/rmangal/gh-pages/reference/figures/data_structure.png" alt="Mangal data structure"/>
 </div>
 <div class = "col-md-6">
 
@@ -254,6 +254,13 @@ area <- us_states(state = "california")
 in_CA <- search_networks_sf(area, verbose = FALSE)
 ```
 
+```{R, eval = FALSE}
+mapView(st_geometry(area), color = "red", legend = FALSE, col.regions = "#FF000033") + mapView(in_CA, legend = FALSE) 
+```
+
+<img width="60%" src="https://raw.githubusercontent.com/ropensci/rmangal/gh-pages/reference/figures/map1.png"/>
+
+
 ### Search for a specific taxon
 
 
@@ -357,6 +364,11 @@ mg_lag_sf <- search_datasets(query = 'lagoon') %>% get_collection(as_sf = TRUE)
 class(mg_lag_sf[[1]]$network)
 ```
 
+```{R, eval = FALSE}
+# let's combine all these sf object into a single one
+mapView(mg_lag_sf[[1]]$network) + mapView(mg_lag_sf[[2]]$network)
+```
+<img width="60%" src="https://raw.githubusercontent.com/ropensci/rmangal/gh-pages/reference/figures/map2.png"/>
 
 ## Taxonomic analysis with `taxize`
 
