@@ -20,7 +20,6 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
-webshot::install_phantomjs()
 ```
 
 
@@ -248,14 +247,19 @@ networks included in the spatial extent of this object. For instance, one can
 retrieve all Californian networks included in Mangal like so:
 
 
+```{R, include = FALSE}
+if(is.null(webshot:::find_phantom())) webshot::install_phantomjs()
+```
+
 ```{R}
 library(sf)
 library(mapview)
 library(USAboundaries)
+
 area <- us_states(state = "california")
 in_CA <- search_networks_sf(area)
 
-mapView(in_CA, legend = FALSE) + mapview(sf::st_cast(area,"MULTILINESTRING"), color = "red", legend = FALSE)
+mapview(in_CA, legend = FALSE) + mapview(sf::st_cast(area,"MULTILINESTRING"), color = "red", legend = FALSE)
 ```
 
 

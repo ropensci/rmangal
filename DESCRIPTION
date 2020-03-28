@@ -33,7 +33,7 @@ Imports:
     jsonlite (>= 1.5),
     memoise,
     purrr
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
 Suggests:
     ggraph (>= 2.0.0),
     knitr,

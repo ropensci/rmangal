@@ -11,6 +11,7 @@ A programmatic interface to the Mangal API \url{https://mangal-wg.github.io/mang
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://docs.ropensci.org/rmangal}
   \item \url{https://mangal.io}
   \item \url{https://github.com/ropensci/rmangal}
   \item Report bugs at \url{https://github.com/ropensci/rmangal/issues}
@@ -18,11 +19,11 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Steve Vissault \email{steve.vissault@usherbrooke.ca} (0000-0002-0866-4376)
+\strong{Maintainer}: Steve Vissault \email{steve.vissault@usherbrooke.ca} (\href{https://orcid.org/0000-0002-0866-4376}{ORCID})
 
 Authors:
 \itemize{
-  \item Kevin Cazelles \email{kcazelle@uoguelph.ca} (0000-0001-6619-9874) [contributor]
+  \item Kevin Cazelles \email{kcazelle@uoguelph.ca} (\href{https://orcid.org/0000-0001-6619-9874}{ORCID}) [contributor]
   \item Gabriel Bergeron \email{gabriel.bergeron3@usherbrooke.ca} [contributor]
   \item Benjamin Mercier \email{Benjamin.B.Mercier@usherbrooke.ca} [contributor]
   \item Clément Violet \email{Clement.Violet@etudiant.univ-brest.fr} [contributor]
@@ -32,8 +33,8 @@ Authors:
 
 Other contributors:
 \itemize{
-  \item Thomas Lin Pedersen (0000-0002-5147-4711) [reviewer]
-  \item Anna Willoughby (0000-0002-0504-0605) [reviewer]
+  \item Thomas Lin Pedersen (\href{https://orcid.org/0000-0002-5147-4711}{ORCID}) [reviewer]
+  \item Anna Willoughby (\href{https://orcid.org/0000-0002-0504-0605}{ORCID}) [reviewer]
 }
 
 }

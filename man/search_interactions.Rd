@@ -4,8 +4,13 @@
 \alias{search_interactions}
 \title{Query interactions}
 \usage{
-search_interactions(query, type = NULL, expand_node = FALSE,
-  verbose = TRUE, ...)
+search_interactions(
+  query,
+  type = NULL,
+  expand_node = FALSE,
+  verbose = TRUE,
+  ...
+)
 }
 \arguments{
 \item{query}{either a character string including a single keyword or a list containing a custom query (see details section below).

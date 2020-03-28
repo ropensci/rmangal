@@ -29,7 +29,7 @@ get_collection(x, ...)
 }
 \arguments{
 \item{x}{\code{numeric} vector of Mangal network IDs or an object returned by
-by one of the \code{search_*()} functions.}
+by one of the \verb{search_*()} functions.}
 
 \item{...}{arguments to be passed on to \code{\link[rmangal:get_network_by_id]{rmangal::get_network_by_id()}}.}
 }
@@ -40,7 +40,7 @@ If there is only one network to be retrieved, \code{get_collection()} returns a
 objects \code{\link[rmangal:get_network_by_id]{rmangal::get_network_by_id()}}).
 }
 \description{
-Retrieve a set of networks based on the results of one of the \code{search_*()}
+Retrieve a set of networks based on the results of one of the \verb{search_*()}
 function. The function also accept a numeric vector of Mangal network IDs.
 }
 \section{Methods (by class)}{
