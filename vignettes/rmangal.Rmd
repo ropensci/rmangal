@@ -252,6 +252,11 @@ if(is.null(webshot:::find_phantom())) webshot::install_phantomjs()
 ```
 
 ```{R}
+webshot:::find_phantom()
+```
+
+
+```{R}
 library(sf)
 library(mapview)
 library(USAboundaries)
