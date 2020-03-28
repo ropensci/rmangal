@@ -248,11 +248,7 @@ retrieve all Californian networks included in Mangal like so:
 
 
 ```{R, include = FALSE}
-if(is.null(webshot:::find_phantom())) webshot::install_phantomjs()
-```
-
-```{R}
-print(webshot:::find_phantom())
+if(!webshot::is_phantomjs_installed()) webshot::install_phantomjs()
 ```
 
 
@@ -262,9 +258,9 @@ library(mapview)
 library(USAboundaries)
 
 area <- us_states(state = "california")
-in_CA <- search_networks_sf(area)
+in_CA <- search_networks_sf(area, verbose = FALSE)
 
-mapview(in_CA, legend = FALSE) + mapview(sf::st_cast(area,"MULTILINESTRING"), color = "red", legend = FALSE)
+mapView(st_geometry(area), color = "red", legend = FALSE, col.regions = "#FF000033") + mapView(in_CA, legend = FALSE) 
 ```
 
 
