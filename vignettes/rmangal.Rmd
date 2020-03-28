@@ -239,7 +239,6 @@ comp_interac <- search_interactions(type="competition")
 nrow(comp_interac)
 ```
 
-
 `search_networks_sf()` handles spatial queries: argument `query_sf` takes a
 [`sf`](https://cran.r-project.org/package=sf) object as input and returns all
 networks included in the spatial extent of this object. For instance, one can
@@ -254,10 +253,10 @@ library(USAboundaries)
 area <- us_states(state = "california")
 in_CA <- search_networks_sf(area, verbose = FALSE)
 ```
-
+<!-- 
 ```{R, eval = webshot::is_phantomjs_installed()}
 mapView(st_geometry(area), color = "red", legend = FALSE, col.regions = "#FF000033") + mapView(in_CA, legend = FALSE) 
-```
+``` -->
 
 ### Search for a specific taxon
 
@@ -361,11 +360,11 @@ geolocalize the networks retrieved from Mangal.
 mg_lag_sf <- search_datasets(query = 'lagoon') %>% get_collection(as_sf = TRUE)
 class(mg_lag_sf[[1]]$network)
 ```
-
+<!-- 
 ```{R, eval = webshot::is_phantomjs_installed()}
 # let's combine all these sf object into a single one
 mapView(mg_lag_sf[[1]]$network) + mapView(mg_lag_sf[[2]]$network)
-```
+``` -->
 
 
 ## Taxonomic analysis with `taxize`
