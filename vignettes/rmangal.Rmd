@@ -63,10 +63,9 @@ networks added and the API entirely rewritten. Consequently, [the first release 
 
 <div class = "row">
 <div class = "col-md-6">
-<img src="https://raw.githubusercontent.com/mangal-wg/rmangal/gh-pages/reference/figures/data_structure.png" alt="Mangal data structure"/>
+<img width="100%" src="https://raw.githubusercontent.com/mangal-wg/rmangal/gh-pages/reference/figures/data_structure.png" alt="Mangal data structure"/>
 </div>
 <div class = "col-md-6">
-
 
 The diagram on the left side represents the structure of the Mangal database. All *references*
 included in Mangal correspond to a specific publication that includes one or several *dataset(s)*. This dataset is
@@ -247,11 +246,6 @@ networks included in the spatial extent of this object. For instance, one can
 retrieve all Californian networks included in Mangal like so:
 
 
-```{R, include = FALSE}
-if(!webshot::is_phantomjs_installed()) webshot::install_phantomjs()
-```
-
-
 ```{R}
 library(sf)
 library(mapview)
@@ -259,8 +253,14 @@ library(USAboundaries)
 
 area <- us_states(state = "california")
 in_CA <- search_networks_sf(area, verbose = FALSE)
+```
 
+```{R, eval = webshot::is_phantomjs_installed()}
 mapView(st_geometry(area), color = "red", legend = FALSE, col.regions = "#FF000033") + mapView(in_CA, legend = FALSE) 
+```
+
+```{R, eval = !webshot::is_phantomjs_installed()} 
+
 ```
 
 
@@ -331,7 +331,7 @@ Note that `mgNetworksCollection` objects are lists of `mgNetwork` object which a
 names(nets_lagoons[[1]])
 glimpse(nets_lagoons[[1]]$network)
 glimpse(nets_lagoons[[1]]$nodes)
-glimpse(nets_lagoons[[1]]$edges)
+glimpse(nets_lagoons[[1]]$interactions)
 glimpse(nets_lagoons[[1]]$dataset)
 glimpse(nets_lagoons[[1]]$reference)
 ```
