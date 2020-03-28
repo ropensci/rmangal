@@ -5,6 +5,7 @@ cache: packages
 
 matrix:
   include:
+    - r: oldrel
     - os: linux
       dist: trusty
       r: release
