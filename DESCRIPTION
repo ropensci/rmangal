@@ -47,5 +47,6 @@ Suggests:
     testthat,
     tibble,
     USAboundaries,
+    webshot,
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
