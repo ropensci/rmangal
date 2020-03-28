@@ -63,7 +63,9 @@ networks added and the API entirely rewritten. Consequently, [the first release 
 
 <div class = "row">
 <div class = "col-md-6">
-<img width="100%" src="https://raw.githubusercontent.com/ropensci/rmangal/gh-pages/reference/figures/data_structure.png" alt="Mangal data structure"/>
+```{r  out.width = "100%", echo = FALSE}
+knitr::include_graphics("img/data_structure.png") 
+```
 </div>
 <div class = "col-md-6">
 
@@ -258,8 +260,9 @@ in_CA <- search_networks_sf(area, verbose = FALSE)
 mapView(st_geometry(area), color = "red", legend = FALSE, col.regions = "#FF000033") + mapView(in_CA, legend = FALSE) 
 ```
 
-<img width="60%" src="https://raw.githubusercontent.com/ropensci/rmangal/gh-pages/reference/figures/map1.png"/>
-
+```{r  out.width = "60%", echo = FALSE}
+knitr::include_graphics("img/map1.png") 
+```
 
 ### Search for a specific taxon
 
@@ -368,8 +371,9 @@ class(mg_lag_sf[[1]]$network)
 # let's combine all these sf object into a single one
 mapView(mg_lag_sf[[1]]$network) + mapView(mg_lag_sf[[2]]$network)
 ```
-<img width="60%" src="https://raw.githubusercontent.com/ropensci/rmangal/gh-pages/reference/figures/map2.png"/>
-
+```{r  out.width = "60%", echo = FALSE}
+knitr::include_graphics("img/map2.png") 
+```
 ## Taxonomic analysis with `taxize`
 
 
