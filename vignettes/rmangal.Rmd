@@ -259,11 +259,6 @@ in_CA <- search_networks_sf(area, verbose = FALSE)
 mapView(st_geometry(area), color = "red", legend = FALSE, col.regions = "#FF000033") + mapView(in_CA, legend = FALSE) 
 ```
 
-```{R, eval = !webshot::is_phantomjs_installed()} 
-
-```
-
-
 ### Search for a specific taxon
 
 
@@ -365,6 +360,9 @@ geolocalize the networks retrieved from Mangal.
 # assuming sf and mapview are is loaded (as we did above)
 mg_lag_sf <- search_datasets(query = 'lagoon') %>% get_collection(as_sf = TRUE)
 class(mg_lag_sf[[1]]$network)
+```
+
+```{R, eval = webshot::is_phantomjs_installed()}
 # let's combine all these sf object into a single one
 mapView(mg_lag_sf[[1]]$network) + mapView(mg_lag_sf[[2]]$network)
 ```
