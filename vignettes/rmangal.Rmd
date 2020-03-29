@@ -450,16 +450,9 @@ ggraph(tg_lagoons, layout = "stress") +
 We can easily print the BibTeX of all publications involved in the networks collection.
 
 ```{R, message = FALSE}
-# library(RefManageR)
-# tmpf <- tempfile(, fileext = ".bib")
-search_datasets(query = 'lagoon') %>%
-  get_collection %>% get_citation %>% cat(sep = "\n")
-# file = tmpf)
-# ReadBib(tmpf)
+   search_datasets(query = 'lagoon') %>%
+   get_collection %>% get_citation %>% cat(sep = "\n\n")
 ```
-
-
-
 
 
 
