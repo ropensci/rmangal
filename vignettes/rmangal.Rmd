@@ -63,10 +63,11 @@ networks added and the API entirely rewritten. Consequently, [the first release 
 
 <div class = "row">
 <div class = "col-md-6">
-<img src="https://raw.githubusercontent.com/mangal-wg/rmangal/gh-pages/reference/figures/data_structure.png" alt="Mangal data structure"/>
+```{r  out.width = "100%", echo = FALSE}
+knitr::include_graphics("img/data_structure.png") 
+```
 </div>
 <div class = "col-md-6">
-
 
 The diagram on the left side represents the structure of the Mangal database. All *references*
 included in Mangal correspond to a specific publication that includes one or several *dataset(s)*. This dataset is
@@ -240,7 +241,6 @@ comp_interac <- search_interactions(type="competition")
 nrow(comp_interac)
 ```
 
-
 `search_networks_sf()` handles spatial queries: argument `query_sf` takes a
 [`sf`](https://cran.r-project.org/package=sf) object as input and returns all
 networks included in the spatial extent of this object. For instance, one can
@@ -251,12 +251,18 @@ retrieve all Californian networks included in Mangal like so:
 library(sf)
 library(mapview)
 library(USAboundaries)
-area <- us_states(state = "california")
-in_CA <- search_networks_sf(area)
 
-mapView(in_CA, legend = FALSE) + mapview(sf::st_cast(area,"MULTILINESTRING"), color = "red", legend = FALSE)
+area <- us_states(state = "california")
+in_CA <- search_networks_sf(area, verbose = FALSE)
 ```
 
+```{R, eval = FALSE}
+mapView(st_geometry(area), color = "red", legend = FALSE, col.regions = "#FF000033") + mapView(in_CA, legend = FALSE) 
+```
+
+```{r  out.width = "60%", echo = FALSE}
+knitr::include_graphics("img/map1.png") 
+```
 
 ### Search for a specific taxon
 
@@ -325,7 +331,7 @@ Note that `mgNetworksCollection` objects are lists of `mgNetwork` object which a
 names(nets_lagoons[[1]])
 glimpse(nets_lagoons[[1]]$network)
 glimpse(nets_lagoons[[1]]$nodes)
-glimpse(nets_lagoons[[1]]$edges)
+glimpse(nets_lagoons[[1]]$interactions)
 glimpse(nets_lagoons[[1]]$dataset)
 glimpse(nets_lagoons[[1]]$reference)
 ```
@@ -359,11 +365,15 @@ geolocalize the networks retrieved from Mangal.
 # assuming sf and mapview are is loaded (as we did above)
 mg_lag_sf <- search_datasets(query = 'lagoon') %>% get_collection(as_sf = TRUE)
 class(mg_lag_sf[[1]]$network)
+```
+
+```{R, eval = FALSE}
 # let's combine all these sf object into a single one
 mapView(mg_lag_sf[[1]]$network) + mapView(mg_lag_sf[[2]]$network)
 ```
-
-
+```{r  out.width = "60%", echo = FALSE}
+knitr::include_graphics("img/map2.png") 
+```
 ## Taxonomic analysis with `taxize`
 
 
@@ -440,16 +450,9 @@ ggraph(tg_lagoons, layout = "stress") +
 We can easily print the BibTeX of all publications involved in the networks collection.
 
 ```{R, message = FALSE}
-# library(RefManageR)
-# tmpf <- tempfile(, fileext = ".bib")
-search_datasets(query = 'lagoon') %>%
-  get_collection %>% get_citation %>% cat(sep = "\n")
-# file = tmpf)
-# ReadBib(tmpf)
+   search_datasets(query = 'lagoon') %>%
+   get_collection %>% get_citation %>% cat(sep = "\n\n")
 ```
-
-
-
 
 
 

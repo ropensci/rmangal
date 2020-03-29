@@ -10,7 +10,6 @@ install:
 environment:
   R_ARCH: x64
   USE_RTOOLS: true
-  R_VERSION: devel
 
 # Adapt as necessary starting from here
 build_script:

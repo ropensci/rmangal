@@ -4,8 +4,17 @@
 \alias{search_taxonomy}
 \title{Query taxonomy}
 \usage{
-search_taxonomy(query, tsn = NULL, gbif = NULL, eol = NULL,
-  col = NULL, bold = NULL, ncbi = NULL, verbose = TRUE, ...)
+search_taxonomy(
+  query,
+  tsn = NULL,
+  gbif = NULL,
+  eol = NULL,
+  col = NULL,
+  bold = NULL,
+  ncbi = NULL,
+  verbose = TRUE,
+  ...
+)
 }
 \arguments{
 \item{query}{a character string including a single keyword.

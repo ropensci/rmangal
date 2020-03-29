@@ -1,24 +1,14 @@
 language: r
 warnings_are_errors: true
-sudo: required
 cache: packages
 
 matrix:
   include:
+    - r: oldrel
     - os: linux
       dist: trusty
       r: release
       env: NOT_CRAN=true
-      addons:
-        apt:
-          sources:
-            - sourceline: 'ppa:opencpu/jq'
-            - sourceline: 'ppa:ubuntugis/ubuntugis-unstable'
-          packages:
-            - libudunits2-dev
-            - libproj-dev
-            - libgeos-dev
-            - libgdal-dev
     - os: osx
       r: release
       env: NOT_CRAN=true
@@ -30,13 +20,6 @@ matrix:
       dist: xenial
       r: devel
       env: NOT_CRAN=false
-      addons:
-        apt:
-          packages:
-            - libudunits2-dev
-            - libproj-dev
-            - libgeos-dev
-            - libgdal-dev
       r_github_packages:
         - r-lib/covr
       before_deploy: Rscript -e 'remotes::install_cran("pkgdown")'
@@ -46,18 +29,23 @@ matrix:
         skip_cleanup: true
       after_success:
         - Rscript -e 'covr::codecov()'
-
+addons:
+  apt:
+    sources:
+      - sourceline: 'ppa:opencpu/jq'
+      - sourceline: 'ppa:ubuntugis/ubuntugis-unstable'
+    packages:
+      - libudunits2-dev
+      - libproj-dev
+      - libgeos-dev
+      - libgdal-dev
 notifications:
-  slack:
-    rooms: insileco:c6N7g4s36dNHpAxrI2QdattF
-    on_success: always # change or never
-    on_failure: always # change or never
-    template:
-      - "%{repository} (%{commit}) : %{message} %{foo} "
-      - "See on Travis: %{build_url}"
-      - "duration: %{duration}"
   email:
-    on_success: never # change or always
-    on_failure: never # change or always
+    recipients:
+      - s.vissault@yahoo.fr
+      - kevin.cazelles@gmail.com
+    on_success: always
+    on_failure: always
+        
 
 

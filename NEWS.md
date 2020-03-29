@@ -2,7 +2,7 @@
 
 * Fix a minor bug in the print method for `mgNetwork` objects see [#94]
 * Fix broken URIs in README
-
+* Remove mapview from vignette (CRAN issue with missing PhantomJS)
 
 # rmangal 2.0.0
 
