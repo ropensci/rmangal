@@ -6,7 +6,7 @@ matrix:
   include:
     - r: oldrel
     - os: linux
-      dist: trusty
+      dist: bionic
       r: release
       env: NOT_CRAN=true
     - os: osx
@@ -17,7 +17,7 @@ matrix:
           packages:
           - cairo
     - os: linux
-      dist: xenial
+      dist: focal
       r: devel
       env: NOT_CRAN=false
       r_github_packages:
@@ -26,9 +26,6 @@ matrix:
         - Rscript -e 'covr::codecov()'
 addons:
   apt:
-    sources:
-      - sourceline: 'ppa:opencpu/jq'
-      - sourceline: 'ppa:ubuntugis/ubuntugis-unstable'
     packages:
       - libudunits2-dev
       - libproj-dev
