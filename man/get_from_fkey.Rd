@@ -12,7 +12,7 @@ get_from_fkey(endpoint, verbose = TRUE, ...)
 \item{...}{foreign key column name with the id}
 }
 \value{
-Object returned by \code{\link[rmangal:get_gen]{rmangal::get_gen()}}
+Object returned by \code{\link[=get_gen]{get_gen()}}
 }
 \description{
 Get entries based on foreign key
