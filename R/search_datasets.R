@@ -61,15 +61,25 @@ search_datasets <- function(query, verbose = TRUE, ...) {
   # Attached references and networks
   # No need for test because if NULL function stopped above
   references <- networks <- list()
+
   for (i in seq_len(nrow(datasets))) {
-    tmp <- get_from_fkey_net(endpoints()$network,
+
+    # Appending networks
+    tmp_networks <- get_from_fkey_net(endpoints()$network,
       dataset_id = datasets$id[i], verbose = verbose)
-    if (!is.null(tmp)) {
-      networks[[i]] <- tmp
+    if (!is.null(tmp_networks)) {
+      networks[[i]] <- tmp_networks
     } else networks[[i]] <- NA
-    references[[i]] <- resp_to_df(get_singletons(endpoints()$reference,
+
+    # Apppending references
+    tmp_references <- resp_to_df(get_singletons(endpoints()$reference,
       ids = datasets$ref_id[i], verbose = verbose)$body)
+    if (!is.null(tmp_references)) {
+      networks[[i]] <- tmp_references
+    } else networks[[i]] <- NA
+
   }
+  
   datasets$references <- references
   datasets$networks <- networks
 
