@@ -71,12 +71,12 @@ search_datasets <- function(query, verbose = TRUE, ...) {
       networks[[i]] <- tmp_networks
     } else networks[[i]] <- NA
 
-    # Apppending references
+    # Appending references
     tmp_references <- resp_to_df(get_singletons(endpoints()$reference,
       ids = datasets$ref_id[i], verbose = verbose)$body)
     if (!is.null(tmp_references)) {
-      networks[[i]] <- tmp_references
-    } else networks[[i]] <- NA
+      references[[i]] <- tmp_references
+    } else references[[i]] <- NA
 
   }
   
