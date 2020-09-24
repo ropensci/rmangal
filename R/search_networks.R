@@ -34,9 +34,10 @@
 #' # Retrieve the search results
 #' nets_insect <- get_collection(mg_insect)
 #' # Spatial query
+#' library(sf)
 #' library(USAboundaries)
 #' area <- us_states(state="california")
-#' networks_in_area <- search_networks(area, verbose = FALSE)
+#' networks_in_area <- search_networks_sf(area, verbose = FALSE)
 #' plot(networks_in_area)
 #' }
 #' # Retrieve network ID 5013
@@ -72,7 +73,7 @@ search_networks_sf <- function(query_sf, verbose = TRUE, ...) {
   stopifnot("sf" %in% class(query_sf))
   stop_if_missing_sf()
 
-  # API doesn't allow spatial search yet, so we used sf
+  # API doesn't allow spatial search yet, so we call sf
   sp_networks_all <- resp_to_spatial(
       get_gen(endpoints()$network, verbose = verbose, ...)$body,
       as_sf = TRUE)

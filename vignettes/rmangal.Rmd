@@ -203,7 +203,7 @@ Note that if an empty character is passed, i.e. `""`, all entries are returned. 
 
 
 ```{R}
-all_datasets <- search_datasets("")
+all_datasets <- search_datasets("", verbose = FALSE)
 glimpse(all_datasets)
 ```
 

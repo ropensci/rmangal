@@ -4,9 +4,9 @@ Title: 'Mangal' Client
 Version: 2.0.1
 Authors@R: c(
     person(given = "Steve", family = "Vissault", comment = c(ORCID = "0000-0002-0866-4376"),
-      email = "steve.vissault@usherbrooke.ca", role = c("aut", "cre")),
+      email = "steve.vissault@usherbrooke.ca", role = c("aut", "ctb")),
     person(given = "Kevin", family = "Cazelles", comment = c(ORCID = "0000-0001-6619-9874"),
-        email = "kcazelle@uoguelph.ca", role = c("aut","ctb")),
+        email = "kcazelle@uoguelph.ca", role = c("aut","cre")),
     person(given = "Gabriel", family = "Bergeron",
       email = "gabriel.bergeron3@usherbrooke.ca", role = c("aut","ctb")),
     person(given = "Benjamin", family = "Mercier",
@@ -33,7 +33,7 @@ Imports:
     jsonlite (>= 1.5),
     memoise,
     purrr
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.1
 Suggests:
     ggraph (>= 2.0.0),
     knitr,

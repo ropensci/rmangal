@@ -52,9 +52,10 @@ mg_insect <- search_networks(query="insect\%")
 # Retrieve the search results
 nets_insect <- get_collection(mg_insect)
 # Spatial query
+library(sf)
 library(USAboundaries)
 area <- us_states(state="california")
-networks_in_area <- search_networks(area, verbose = FALSE)
+networks_in_area <- search_networks_sf(area, verbose = FALSE)
 plot(networks_in_area)
 }
 # Retrieve network ID 5013

@@ -19,11 +19,11 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Steve Vissault \email{steve.vissault@usherbrooke.ca} (\href{https://orcid.org/0000-0002-0866-4376}{ORCID})
+\strong{Maintainer}: Kevin Cazelles \email{kcazelle@uoguelph.ca} (\href{https://orcid.org/0000-0001-6619-9874}{ORCID})
 
 Authors:
 \itemize{
-  \item Kevin Cazelles \email{kcazelle@uoguelph.ca} (\href{https://orcid.org/0000-0001-6619-9874}{ORCID}) [contributor]
+  \item Steve Vissault \email{steve.vissault@usherbrooke.ca} (\href{https://orcid.org/0000-0002-0866-4376}{ORCID}) [contributor]
   \item Gabriel Bergeron \email{gabriel.bergeron3@usherbrooke.ca} [contributor]
   \item Benjamin Mercier \email{Benjamin.B.Mercier@usherbrooke.ca} [contributor]
   \item Clément Violet \email{Clement.Violet@etudiant.univ-brest.fr} [contributor]
