@@ -1,3 +1,8 @@
+# rmangal 2.0.2
+
+* Fix a minor bug `search_datasets()` related to absent networks attached on a dataset 
+* Update travis environment test 
+
 # rmangal 2.0.1
 
 * Fix a minor bug in the print method for `mgNetwork` objects see [#94]
