@@ -50,3 +50,6 @@ Suggests:
     webshot,
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
+X-schema.org-applicationCategory: ecologicalNetworks
+X-schema.org-keywords: ecology, networks, food webs, interactions, data publications, open access
+X-schema.org-isPartOf: https://ropensci.org
