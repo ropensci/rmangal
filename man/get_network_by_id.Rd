@@ -22,13 +22,13 @@ get_network_by_id_indiv(id, as_sf = FALSE, verbose = TRUE)
 \method{summary}{mgNetworksCollection}(object, ...)
 }
 \arguments{
-\item{ids}{a vector of Mangal ID for networks (\code{numeric}).}
+\item{ids}{a vector of Mangal ID for networks `numeric`).}
 
 \item{as_sf}{a logical. Should networks metadata be converted into an sf object? Note that to use this feature \code{sf} must be installed.}
 
 \item{verbose}{a logical. Should extra information be reported on progress?}
 
-\item{id}{a single ID network (\code{numeric}).}
+\item{id}{a single ID network `numeric`).}
 
 \item{x}{an object of class \code{mgNetwork} or \code{mgNetworksCollection}.}
 
