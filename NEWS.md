@@ -1,13 +1,18 @@
+# rmangal 2.0.2
+
+* Fix a minor bug `search_datasets()` related to absent networks attached on a dataset (see #97 and #98);
+* Update Travis CI environment test (`travis.yml`).
+
 # rmangal 2.0.1
 
-* Fix a minor bug in the print method for `mgNetwork` objects see [#94]
-* Fix broken URIs in README
-* Remove mapview from vignette (CRAN issue with missing PhantomJS)
+* Fix a minor bug in the print method for `mgNetwork` objects see #94;
+* Fix broken URIs in README;
+* Remove mapview from vignette (CRAN issue with missing PhantomJS).
 
 # rmangal 2.0.0
 
 * Revisions see https://github.com/ropensci/software-review/issues/332;
-* add summary method [#87];
+* add summary method []#87];
 * `mg_to_igraph` is now `as.igraph()`;
 * `search_references()` has been rewritten [#85];
 * vignette now includes examples to use `tigygraph` and `ggraph`;
@@ -18,7 +23,7 @@
 
 # rmangal 1.9.0.9000
 
-* Version submitted to ROpenSci for review.
+* Version submitted to ROpenSci for review;
 * Added a `NEWS.md` file to track changes to the package.
 
 

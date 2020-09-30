@@ -1,12 +1,12 @@
 Package: rmangal
 Type: Package
 Title: 'Mangal' Client
-Version: 2.0.1
+Version: 2.0.2
 Authors@R: c(
     person(given = "Steve", family = "Vissault", comment = c(ORCID = "0000-0002-0866-4376"),
-      email = "steve.vissault@usherbrooke.ca", role = c("aut", "ctb")),
+      email = "steve.vissault@usherbrooke.ca", role = c("aut", "cre")),
     person(given = "Kevin", family = "Cazelles", comment = c(ORCID = "0000-0001-6619-9874"),
-        email = "kcazelle@uoguelph.ca", role = c("aut","cre")),
+        email = "kcazelle@uoguelph.ca", role = c("aut","ctb")),
     person(given = "Gabriel", family = "Bergeron",
       email = "gabriel.bergeron3@usherbrooke.ca", role = c("aut","ctb")),
     person(given = "Benjamin", family = "Mercier",
@@ -50,3 +50,6 @@ Suggests:
     webshot,
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
+X-schema.org-applicationCategory: ecologicalNetworks
+X-schema.org-keywords: ecology, networks, food webs, interactions, data publications, open access
+X-schema.org-isPartOf: https://ropensci.org
