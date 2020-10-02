@@ -14,10 +14,10 @@
 #' @details
 #' Names of the list should match one of the column names within the table. 
 #' For the `networks` table, those are:
-#' - id: unique identifier of the nodes
-#' - original_name: taxonomic name as in the original publication
-#' - node_level: either population, taxon or individu
-#' - network_id: Mangal network identifier
+#' - id: unique identifier of the nodes;
+#' - original_name: taxonomic name as in the original publication;
+#' - node_level: either population, taxon or individual;
+#' - network_id: Mangal network identifier.
 #'
 #' Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
 #'

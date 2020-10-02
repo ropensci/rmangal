@@ -11,6 +11,6 @@ bibentry(bibtype = "Manual",
                     person("Clément", "Violet"),
                     person("Dominique", "Gravel"),
                     person("Timothée", "Poisot")),
-         year = 2019,
+         year = 2020,
          note = note,
-         url = "https://ropensci.github.io/rmangal/")
+         url = "https://docs.ropensci.org/rmangal/")

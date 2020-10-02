@@ -29,10 +29,10 @@ Alternatively, a named list can be used to look for an exact match in a specific
 Names of the list should match one of the column names within the table.
 For the \code{networks} table, those are:
 \itemize{
-\item id: unique identifier of the nodes
-\item original_name: taxonomic name as in the original publication
-\item node_level: either population, taxon or individu
-\item network_id: Mangal network identifier
+\item id: unique identifier of the nodes;
+\item original_name: taxonomic name as in the original publication;
+\item node_level: either population, taxon or individual;
+\item network_id: Mangal network identifier.
 }
 
 Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.

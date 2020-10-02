@@ -11,7 +11,7 @@ A programmatic interface to the Mangal API \url{https://mangal-wg.github.io/mang
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://docs.ropensci.org/rmangal}
+  \item \url{https://docs.ropensci.org/rmangal/}
   \item \url{https://mangal.io}
   \item \url{https://github.com/ropensci/rmangal}
   \item Report bugs at \url{https://github.com/ropensci/rmangal/issues}
@@ -19,11 +19,11 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Kevin Cazelles \email{kcazelle@uoguelph.ca} (\href{https://orcid.org/0000-0001-6619-9874}{ORCID})
+\strong{Maintainer}: Steve Vissault \email{s.vissault@yahoo.fr} (\href{https://orcid.org/0000-0002-0866-4376}{ORCID})
 
 Authors:
 \itemize{
-  \item Steve Vissault \email{steve.vissault@usherbrooke.ca} (\href{https://orcid.org/0000-0002-0866-4376}{ORCID}) [contributor]
+  \item Kevin Cazelles \email{kcazelle@uoguelph.ca} (\href{https://orcid.org/0000-0001-6619-9874}{ORCID}) [contributor]
   \item Gabriel Bergeron \email{gabriel.bergeron3@usherbrooke.ca} [contributor]
   \item Benjamin Mercier \email{Benjamin.B.Mercier@usherbrooke.ca} [contributor]
   \item Clément Violet \email{Clement.Violet@etudiant.univ-brest.fr} [contributor]
