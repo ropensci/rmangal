@@ -39,7 +39,7 @@ Please change http --> https, add trailing slashes, or follow moved content as a
 Response from the authors:
 ====
 
-We have updated the URL documented within the package to comply with the requests.
+We have updated the URLs documented within the package to comply with the requests.
 We added the trailing slash when needed. We ensured that all URLs are now secured and used the HTTPS protocol. We followed the guidelines provided at this address: https://cran.r-project.org/web/packages/URL_checks.html. We performed the following test: `curl -I -L https://eol.org/` and we think that the time out is related to a server side issue, because the test performed well on our side.
 
 
