@@ -1,4 +1,3 @@
 library(testthat)
-library(rmangal)
-
+library(vcr)
 test_check("rmangal")

@@ -113,8 +113,8 @@ handle_geom <- function(x) {
       geom_type = x$geom$type,
       stringsAsFactors = FALSE
     )
-    out$geom_lon <- list(tmp[,1])
-    out$geom_lat <- list(tmp[,2])
+    out$geom_lon <- list(tmp[, 1])
+    out$geom_lat <- list(tmp[, 2])
     out
   }
 }

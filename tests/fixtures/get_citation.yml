@@ -1,0 +1,607 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network/18
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:48 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '420'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"1a4-rPSuifvTYRE9aZI5f0D+ecqpl2U"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":18,"name":"mosquin_martin_1967_19650731_18","date":"1965-07-31T00:00:00.000Z","geom":{"type":"Point","coordinates":[-114.966667,75]},"description":"Occurence
+        of flower-visiting insect on plant species, two miles north of Bailey Point,
+        Melville Island, N.W.T., Canada","public":true,"all_interactions":false,"created_at":"2019-02-22T18:38:37.491Z","updated_at":"2019-02-22T18:38:37.491Z","dataset_id":4,"user_id":3}'
+  recorded_at: 2020-10-25 21:52:49 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node?network_id=18&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:48 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '11551'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-28/29
+      etag: W/"2d1f-GuJWU97zo3lL1R0lbKVn9Mt7Aq4"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":2599,"original_name":"Spilogona sanctipauli","node_level":"taxon","network_id":18,"taxonomy_id":1591,"created_at":"2019-02-22T18:38:40.906Z","updated_at":"2019-02-22T18:38:40.906Z","taxonomy":{"id":1591,"name":"Spilogona
+        sanctipauli","ncbi":1790216,"tsn":151014,"eol":730414,"bold":365798,"gbif":1532196,"col":"833656371e40bd4782961b44abeda797","rank":"species","created_at":"2019-02-21T22:09:57.694Z","updated_at":"2019-06-14T15:21:26.240Z"}},{"id":2600,"original_name":"Bombus
+        polaris","node_level":"taxon","network_id":18,"taxonomy_id":1956,"created_at":"2019-02-22T18:38:40.950Z","updated_at":"2019-02-22T18:38:40.950Z","taxonomy":{"id":1956,"name":"Bombus
+        polaris","ncbi":130708,"tsn":714831,"eol":1065341,"bold":31789,"gbif":1340367,"col":"2a7dd1d3a99176092d09b17c65ddc7ac","rank":"species","created_at":"2019-02-21T22:14:44.947Z","updated_at":"2019-06-14T15:21:45.817Z"}},{"id":2602,"original_name":"Colias
+        hecla","node_level":"taxon","network_id":18,"taxonomy_id":1540,"created_at":"2019-02-22T18:38:41.004Z","updated_at":"2019-02-22T18:38:41.004Z","taxonomy":{"id":1540,"name":"Colias
+        hecla","ncbi":78613,"tsn":188527,"eol":175775,"bold":69799,"gbif":5137595,"col":"b29021e7e9bbe5b36ea0883f69094f3c","rank":"species","created_at":"2019-02-21T22:09:54.188Z","updated_at":"2019-06-14T15:21:23.797Z"}},{"id":2604,"original_name":"Boloria
+        improba ","node_level":"taxon","network_id":18,"taxonomy_id":1959,"created_at":"2019-02-22T18:38:41.070Z","updated_at":"2019-02-22T18:38:41.070Z","taxonomy":{"id":1959,"name":"Boloria
+        improba","ncbi":977890,"tsn":777984,"eol":46796765,"bold":100095,"gbif":4299581,"col":null,"rank":null,"created_at":"2019-02-21T22:14:45.385Z","updated_at":"2019-06-14T13:28:24.681Z"}},{"id":2606,"original_name":"Spilogona
+        latilamina","node_level":"taxon","network_id":18,"taxonomy_id":1589,"created_at":"2019-02-22T18:38:41.141Z","updated_at":"2019-02-22T18:38:41.141Z","taxonomy":{"id":1589,"name":"Spilogona
+        latilamina","ncbi":null,"tsn":150919,"eol":732134,"bold":null,"gbif":1532457,"col":"c50081d3fc1cb533742f5fc97ceae294","rank":"species","created_at":"2019-02-21T22:09:57.560Z","updated_at":"2019-06-14T15:21:26.140Z"}},{"id":2607,"original_name":"Boreellus
+        atriceps","node_level":"taxon","network_id":18,"taxonomy_id":1596,"created_at":"2019-02-22T18:38:41.186Z","updated_at":"2019-02-22T18:38:41.186Z","taxonomy":{"id":1596,"name":"Protophormia
+        atriceps","ncbi":142853,"tsn":151675,"eol":730025,"bold":174016,"gbif":1504855,"col":"7a56b6074179b43d135a324bbb63a1b4","rank":"species","created_at":"2019-02-21T22:09:58.048Z","updated_at":"2019-06-14T15:21:26.390Z"}},{"id":2608,"original_name":"Spilogona
+        dorsata","node_level":"taxon","network_id":18,"taxonomy_id":1588,"created_at":"2019-02-22T18:38:41.236Z","updated_at":"2019-02-22T18:38:41.236Z","taxonomy":{"id":1588,"name":"Spilogona
+        dorsata","ncbi":1790214,"tsn":150885,"eol":732619,"bold":365794,"gbif":1532388,"col":"ca103165c6dfd8291f92af8dcb80e1c3","rank":"species","created_at":"2019-02-21T22:09:57.497Z","updated_at":"2019-06-14T15:21:26.084Z"}},{"id":2609,"original_name":"Spilogona
+        projecta ","node_level":"taxon","network_id":18,"taxonomy_id":1961,"created_at":"2019-02-22T18:38:41.279Z","updated_at":"2019-02-22T18:38:41.279Z","taxonomy":{"id":1961,"name":"Spilogona
+        projecta","ncbi":null,"tsn":150990,"eol":747098,"bold":null,"gbif":1532068,"col":"adfc31f20f0cdc196531afbae032247b","rank":"species","created_at":"2019-02-21T22:14:45.571Z","updated_at":"2019-06-14T15:21:45.975Z"}},{"id":2611,"original_name":"Spilogona
+        melanosoma","node_level":"taxon","network_id":18,"taxonomy_id":1590,"created_at":"2019-02-22T18:38:41.363Z","updated_at":"2019-02-22T18:38:41.363Z","taxonomy":{"id":1590,"name":"Spilogona
+        melanosoma","ncbi":1291949,"tsn":150939,"eol":732129,"bold":228564,"gbif":1532288,"col":"a90335e943094b5aa7b5731298d7f32c","rank":"species","created_at":"2019-02-21T22:09:57.628Z","updated_at":"2019-06-14T15:21:26.189Z"}},{"id":2613,"original_name":"Colias
+        nastes ","node_level":"taxon","network_id":18,"taxonomy_id":1963,"created_at":"2019-02-22T18:38:41.445Z","updated_at":"2019-02-22T18:38:41.445Z","taxonomy":{"id":1963,"name":"Colias
+        tyche","ncbi":596546,"tsn":777742,"eol":176091,"bold":56199,"gbif":5137636,"col":"61c6c6607a34995a112b2b3e69426c41","rank":"species","created_at":"2019-02-21T22:14:45.683Z","updated_at":"2019-06-14T15:21:46.101Z"}},{"id":2614,"original_name":"Protocalliphora
+        sp1 M_PL_024","node_level":"taxon","network_id":18,"taxonomy_id":1964,"created_at":"2019-02-22T18:38:41.486Z","updated_at":"2019-02-22T18:38:41.486Z","taxonomy":{"id":1964,"name":"Protocalliphora","ncbi":142901,"tsn":151690,"eol":54973,"bold":7818,"gbif":null,"col":"811ccfc276427457d30bc0410c28fcf4","rank":"genus","created_at":"2019-02-21T22:14:45.743Z","updated_at":"2019-06-14T15:21:46.151Z"}},{"id":2615,"original_name":"Rhamphomyia
+        sp1 M_PL_024","node_level":"taxon","network_id":18,"taxonomy_id":1573,"created_at":"2019-02-22T18:38:41.530Z","updated_at":"2019-02-22T18:38:41.530Z","taxonomy":{"id":1573,"name":"Rhamphomyia","ncbi":192612,"tsn":136123,"eol":55386,"bold":365789,"gbif":null,"col":"38e7268f477057b1ca7bfb837e4401bd","rank":"genus","created_at":"2019-02-21T22:09:56.302Z","updated_at":"2019-06-14T15:21:25.622Z"}},{"id":2616,"original_name":"Spilogona
+        hurdiana ","node_level":"taxon","network_id":18,"taxonomy_id":1965,"created_at":"2019-02-22T18:38:41.573Z","updated_at":"2019-02-22T18:38:41.573Z","taxonomy":{"id":1965,"name":"Spilogona
+        hurdiana","ncbi":null,"tsn":150908,"eol":747112,"bold":null,"gbif":1532425,"col":"e5a1094d75c80006b3c42a0b830d7283","rank":"species","created_at":"2019-02-21T22:14:45.805Z","updated_at":"2019-06-14T15:21:46.200Z"}},{"id":2617,"original_name":"Potentilla
+        vahliana ","node_level":"taxon","network_id":18,"taxonomy_id":1966,"created_at":"2019-02-22T18:38:41.604Z","updated_at":"2019-02-22T18:38:41.604Z","taxonomy":{"id":1966,"name":"Potentilla
+        vahliana","ncbi":667290,"tsn":24758,"eol":301054,"bold":263269,"gbif":5368522,"col":"baa98384a6ec81390e2314ff01b49e89","rank":"species","created_at":"2019-02-21T22:14:45.867Z","updated_at":"2019-06-14T15:21:46.250Z"}},{"id":2618,"original_name":"Dryas
+        integrifolia","node_level":"taxon","network_id":18,"taxonomy_id":1504,"created_at":"2019-02-22T18:38:41.637Z","updated_at":"2019-02-22T18:38:41.637Z","taxonomy":{"id":1504,"name":"Dryas
+        integrifolia","ncbi":395290,"tsn":24614,"eol":629466,"bold":260153,"gbif":5364129,"col":"2ebd643d118b04180fa802d332cca458","rank":"species","created_at":"2019-02-21T22:09:51.972Z","updated_at":"2019-06-14T15:21:21.990Z"}},{"id":2619,"original_name":"Taraxacum
+        sp1 M_PL_024","node_level":"taxon","network_id":18,"taxonomy_id":1967,"created_at":"2019-02-22T18:38:41.680Z","updated_at":"2019-02-22T18:38:41.680Z","taxonomy":{"id":1967,"name":"Taraxacum","ncbi":49743,"tsn":36199,"eol":468411,"bold":121527,"gbif":null,"col":"7633c8aa30d05f0ca2dfe7b290752e33","rank":"genus","created_at":"2019-02-21T22:14:45.953Z","updated_at":"2019-06-14T15:21:46.300Z"}},{"id":2620,"original_name":"Caltha
+        palustris ","node_level":"taxon","network_id":18,"taxonomy_id":1968,"created_at":"2019-02-22T18:38:41.721Z","updated_at":"2019-02-22T18:38:41.721Z","taxonomy":{"id":1968,"name":"Caltha
+        palustris","ncbi":3449,"tsn":18454,"eol":596646,"bold":121193,"gbif":5371685,"col":"075c72b100babb3494b8013ca3ec7c71","rank":"species","created_at":"2019-02-21T22:14:46.028Z","updated_at":"2019-06-14T15:21:46.353Z"}},{"id":2621,"original_name":"Cerastium
+        alpinum","node_level":"taxon","network_id":18,"taxonomy_id":1499,"created_at":"2019-02-22T18:38:41.761Z","updated_at":"2019-02-22T18:38:41.761Z","taxonomy":{"id":1499,"name":"Cerastium
+        alpinum","ncbi":271556,"tsn":19946,"eol":589306,"bold":263405,"gbif":3085450,"col":"d5f840b6667189d5e1aebfb21587f266","rank":"species","created_at":"2019-02-21T22:09:51.597Z","updated_at":"2019-06-14T15:21:21.725Z"}},{"id":2622,"original_name":"Arnica
+        alpina","node_level":"taxon","network_id":18,"taxonomy_id":1496,"created_at":"2019-02-22T18:38:41.808Z","updated_at":"2019-02-22T18:38:41.808Z","taxonomy":{"id":1496,"name":"Arnica
+        angustifolia alpina","ncbi":null,"tsn":36556,"eol":47141408,"bold":null,"gbif":null,"col":"92905ad648f17b749082a644f485607f","rank":"infraspecies","created_at":"2019-02-21T22:09:51.310Z","updated_at":"2019-06-14T15:21:21.538Z"}},{"id":2623,"original_name":"Astragalus
+        alpinus","node_level":"taxon","network_id":18,"taxonomy_id":1969,"created_at":"2019-02-22T18:38:41.843Z","updated_at":"2019-02-22T18:38:41.843Z","taxonomy":{"id":1969,"name":"Astragalus
+        alpinus","ncbi":20403,"tsn":25393,"eol":418736,"bold":257037,"gbif":5345014,"col":"cda432f84391f3ee23659f3249ca12f3","rank":"species","created_at":"2019-02-21T22:14:46.086Z","updated_at":"2019-06-14T15:21:46.408Z"}},{"id":2624,"original_name":"Petasites
+        frigidus ","node_level":"taxon","network_id":18,"taxonomy_id":1970,"created_at":"2019-02-22T18:38:41.887Z","updated_at":"2019-02-22T18:38:41.887Z","taxonomy":{"id":1970,"name":"Petasites
+        frigidus","ncbi":56019,"tsn":36054,"eol":47141412,"bold":263274,"gbif":3088323,"col":"64c006c4f71868a82831637310d0fe2f","rank":"species","created_at":"2019-02-21T22:14:46.142Z","updated_at":"2019-06-14T15:21:46.997Z"}},{"id":2625,"original_name":"Papaver
+        radicatum","node_level":"taxon","network_id":18,"taxonomy_id":1510,"created_at":"2019-02-22T18:38:41.985Z","updated_at":"2019-02-22T18:38:41.985Z","taxonomy":{"id":1510,"name":"Papaver
+        radicatum","ncbi":357475,"tsn":518422,"eol":47158290,"bold":501588,"gbif":2888444,"col":"f0d646a14db7351ca7c469085610436d","rank":"species","created_at":"2019-02-21T22:09:52.318Z","updated_at":"2019-06-14T15:21:22.191Z"}},{"id":2626,"original_name":"Geum
+        rossii ","node_level":"taxon","network_id":18,"taxonomy_id":1971,"created_at":"2019-02-22T18:38:42.143Z","updated_at":"2019-02-22T18:38:42.143Z","taxonomy":{"id":1971,"name":"Geum
+        rossii","ncbi":148884,"tsn":24660,"eol":52202147,"bold":351819,"gbif":5369874,"col":"32913186edafb38121fdc5f0fa875f36","rank":"species","created_at":"2019-02-21T22:14:46.197Z","updated_at":"2019-06-14T15:21:47.051Z"}},{"id":2627,"original_name":"Oxytropis
+        arctica ","node_level":"taxon","network_id":18,"taxonomy_id":1972,"created_at":"2019-02-22T18:38:42.240Z","updated_at":"2019-02-22T18:38:42.240Z","taxonomy":{"id":1972,"name":"Oxytropis
+        arctica","ncbi":180075,"tsn":26163,"eol":415929,"bold":260104,"gbif":5360834,"col":"7faf3755d44ee5a31b259a8c65b1bcac","rank":"species","created_at":"2019-02-21T22:14:46.255Z","updated_at":"2019-06-14T15:21:47.102Z"}},{"id":2612,"original_name":"Anarta
+        richardsoni","node_level":"taxon","network_id":18,"taxonomy_id":null,"created_at":"2019-02-22T18:38:41.405Z","updated_at":"2019-02-22T18:38:41.405Z","taxonomy":null},{"id":2601,"original_name":"Spilogona
+        almquistii ","node_level":"taxon","network_id":18,"taxonomy_id":null,"created_at":"2019-02-22T18:38:40.980Z","updated_at":"2019-02-22T18:38:40.980Z","taxonomy":null},{"id":2603,"original_name":"Eupogonomyia
+        probilofensis ","node_level":"taxon","network_id":18,"taxonomy_id":null,"created_at":"2019-02-22T18:38:41.039Z","updated_at":"2019-02-22T18:38:41.039Z","taxonomy":null},{"id":2605,"original_name":"Pogonomyiodes
+        segnis ","node_level":"taxon","network_id":18,"taxonomy_id":null,"created_at":"2019-02-22T18:38:41.103Z","updated_at":"2019-02-22T18:38:41.103Z","taxonomy":null},{"id":2610,"original_name":"Spilogona
+        aesturium ","node_level":"taxon","network_id":18,"taxonomy_id":null,"created_at":"2019-02-22T18:38:41.329Z","updated_at":"2019-02-22T18:38:41.329Z","taxonomy":null}]'
+  recorded_at: 2020-10-25 21:52:49 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node?network_id=18&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:48 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '11551'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-28/29
+      etag: W/"2d1f-GuJWU97zo3lL1R0lbKVn9Mt7Aq4"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":2599,"original_name":"Spilogona sanctipauli","node_level":"taxon","network_id":18,"taxonomy_id":1591,"created_at":"2019-02-22T18:38:40.906Z","updated_at":"2019-02-22T18:38:40.906Z","taxonomy":{"id":1591,"name":"Spilogona
+        sanctipauli","ncbi":1790216,"tsn":151014,"eol":730414,"bold":365798,"gbif":1532196,"col":"833656371e40bd4782961b44abeda797","rank":"species","created_at":"2019-02-21T22:09:57.694Z","updated_at":"2019-06-14T15:21:26.240Z"}},{"id":2600,"original_name":"Bombus
+        polaris","node_level":"taxon","network_id":18,"taxonomy_id":1956,"created_at":"2019-02-22T18:38:40.950Z","updated_at":"2019-02-22T18:38:40.950Z","taxonomy":{"id":1956,"name":"Bombus
+        polaris","ncbi":130708,"tsn":714831,"eol":1065341,"bold":31789,"gbif":1340367,"col":"2a7dd1d3a99176092d09b17c65ddc7ac","rank":"species","created_at":"2019-02-21T22:14:44.947Z","updated_at":"2019-06-14T15:21:45.817Z"}},{"id":2602,"original_name":"Colias
+        hecla","node_level":"taxon","network_id":18,"taxonomy_id":1540,"created_at":"2019-02-22T18:38:41.004Z","updated_at":"2019-02-22T18:38:41.004Z","taxonomy":{"id":1540,"name":"Colias
+        hecla","ncbi":78613,"tsn":188527,"eol":175775,"bold":69799,"gbif":5137595,"col":"b29021e7e9bbe5b36ea0883f69094f3c","rank":"species","created_at":"2019-02-21T22:09:54.188Z","updated_at":"2019-06-14T15:21:23.797Z"}},{"id":2604,"original_name":"Boloria
+        improba ","node_level":"taxon","network_id":18,"taxonomy_id":1959,"created_at":"2019-02-22T18:38:41.070Z","updated_at":"2019-02-22T18:38:41.070Z","taxonomy":{"id":1959,"name":"Boloria
+        improba","ncbi":977890,"tsn":777984,"eol":46796765,"bold":100095,"gbif":4299581,"col":null,"rank":null,"created_at":"2019-02-21T22:14:45.385Z","updated_at":"2019-06-14T13:28:24.681Z"}},{"id":2606,"original_name":"Spilogona
+        latilamina","node_level":"taxon","network_id":18,"taxonomy_id":1589,"created_at":"2019-02-22T18:38:41.141Z","updated_at":"2019-02-22T18:38:41.141Z","taxonomy":{"id":1589,"name":"Spilogona
+        latilamina","ncbi":null,"tsn":150919,"eol":732134,"bold":null,"gbif":1532457,"col":"c50081d3fc1cb533742f5fc97ceae294","rank":"species","created_at":"2019-02-21T22:09:57.560Z","updated_at":"2019-06-14T15:21:26.140Z"}},{"id":2607,"original_name":"Boreellus
+        atriceps","node_level":"taxon","network_id":18,"taxonomy_id":1596,"created_at":"2019-02-22T18:38:41.186Z","updated_at":"2019-02-22T18:38:41.186Z","taxonomy":{"id":1596,"name":"Protophormia
+        atriceps","ncbi":142853,"tsn":151675,"eol":730025,"bold":174016,"gbif":1504855,"col":"7a56b6074179b43d135a324bbb63a1b4","rank":"species","created_at":"2019-02-21T22:09:58.048Z","updated_at":"2019-06-14T15:21:26.390Z"}},{"id":2608,"original_name":"Spilogona
+        dorsata","node_level":"taxon","network_id":18,"taxonomy_id":1588,"created_at":"2019-02-22T18:38:41.236Z","updated_at":"2019-02-22T18:38:41.236Z","taxonomy":{"id":1588,"name":"Spilogona
+        dorsata","ncbi":1790214,"tsn":150885,"eol":732619,"bold":365794,"gbif":1532388,"col":"ca103165c6dfd8291f92af8dcb80e1c3","rank":"species","created_at":"2019-02-21T22:09:57.497Z","updated_at":"2019-06-14T15:21:26.084Z"}},{"id":2609,"original_name":"Spilogona
+        projecta ","node_level":"taxon","network_id":18,"taxonomy_id":1961,"created_at":"2019-02-22T18:38:41.279Z","updated_at":"2019-02-22T18:38:41.279Z","taxonomy":{"id":1961,"name":"Spilogona
+        projecta","ncbi":null,"tsn":150990,"eol":747098,"bold":null,"gbif":1532068,"col":"adfc31f20f0cdc196531afbae032247b","rank":"species","created_at":"2019-02-21T22:14:45.571Z","updated_at":"2019-06-14T15:21:45.975Z"}},{"id":2611,"original_name":"Spilogona
+        melanosoma","node_level":"taxon","network_id":18,"taxonomy_id":1590,"created_at":"2019-02-22T18:38:41.363Z","updated_at":"2019-02-22T18:38:41.363Z","taxonomy":{"id":1590,"name":"Spilogona
+        melanosoma","ncbi":1291949,"tsn":150939,"eol":732129,"bold":228564,"gbif":1532288,"col":"a90335e943094b5aa7b5731298d7f32c","rank":"species","created_at":"2019-02-21T22:09:57.628Z","updated_at":"2019-06-14T15:21:26.189Z"}},{"id":2613,"original_name":"Colias
+        nastes ","node_level":"taxon","network_id":18,"taxonomy_id":1963,"created_at":"2019-02-22T18:38:41.445Z","updated_at":"2019-02-22T18:38:41.445Z","taxonomy":{"id":1963,"name":"Colias
+        tyche","ncbi":596546,"tsn":777742,"eol":176091,"bold":56199,"gbif":5137636,"col":"61c6c6607a34995a112b2b3e69426c41","rank":"species","created_at":"2019-02-21T22:14:45.683Z","updated_at":"2019-06-14T15:21:46.101Z"}},{"id":2614,"original_name":"Protocalliphora
+        sp1 M_PL_024","node_level":"taxon","network_id":18,"taxonomy_id":1964,"created_at":"2019-02-22T18:38:41.486Z","updated_at":"2019-02-22T18:38:41.486Z","taxonomy":{"id":1964,"name":"Protocalliphora","ncbi":142901,"tsn":151690,"eol":54973,"bold":7818,"gbif":null,"col":"811ccfc276427457d30bc0410c28fcf4","rank":"genus","created_at":"2019-02-21T22:14:45.743Z","updated_at":"2019-06-14T15:21:46.151Z"}},{"id":2615,"original_name":"Rhamphomyia
+        sp1 M_PL_024","node_level":"taxon","network_id":18,"taxonomy_id":1573,"created_at":"2019-02-22T18:38:41.530Z","updated_at":"2019-02-22T18:38:41.530Z","taxonomy":{"id":1573,"name":"Rhamphomyia","ncbi":192612,"tsn":136123,"eol":55386,"bold":365789,"gbif":null,"col":"38e7268f477057b1ca7bfb837e4401bd","rank":"genus","created_at":"2019-02-21T22:09:56.302Z","updated_at":"2019-06-14T15:21:25.622Z"}},{"id":2616,"original_name":"Spilogona
+        hurdiana ","node_level":"taxon","network_id":18,"taxonomy_id":1965,"created_at":"2019-02-22T18:38:41.573Z","updated_at":"2019-02-22T18:38:41.573Z","taxonomy":{"id":1965,"name":"Spilogona
+        hurdiana","ncbi":null,"tsn":150908,"eol":747112,"bold":null,"gbif":1532425,"col":"e5a1094d75c80006b3c42a0b830d7283","rank":"species","created_at":"2019-02-21T22:14:45.805Z","updated_at":"2019-06-14T15:21:46.200Z"}},{"id":2617,"original_name":"Potentilla
+        vahliana ","node_level":"taxon","network_id":18,"taxonomy_id":1966,"created_at":"2019-02-22T18:38:41.604Z","updated_at":"2019-02-22T18:38:41.604Z","taxonomy":{"id":1966,"name":"Potentilla
+        vahliana","ncbi":667290,"tsn":24758,"eol":301054,"bold":263269,"gbif":5368522,"col":"baa98384a6ec81390e2314ff01b49e89","rank":"species","created_at":"2019-02-21T22:14:45.867Z","updated_at":"2019-06-14T15:21:46.250Z"}},{"id":2618,"original_name":"Dryas
+        integrifolia","node_level":"taxon","network_id":18,"taxonomy_id":1504,"created_at":"2019-02-22T18:38:41.637Z","updated_at":"2019-02-22T18:38:41.637Z","taxonomy":{"id":1504,"name":"Dryas
+        integrifolia","ncbi":395290,"tsn":24614,"eol":629466,"bold":260153,"gbif":5364129,"col":"2ebd643d118b04180fa802d332cca458","rank":"species","created_at":"2019-02-21T22:09:51.972Z","updated_at":"2019-06-14T15:21:21.990Z"}},{"id":2619,"original_name":"Taraxacum
+        sp1 M_PL_024","node_level":"taxon","network_id":18,"taxonomy_id":1967,"created_at":"2019-02-22T18:38:41.680Z","updated_at":"2019-02-22T18:38:41.680Z","taxonomy":{"id":1967,"name":"Taraxacum","ncbi":49743,"tsn":36199,"eol":468411,"bold":121527,"gbif":null,"col":"7633c8aa30d05f0ca2dfe7b290752e33","rank":"genus","created_at":"2019-02-21T22:14:45.953Z","updated_at":"2019-06-14T15:21:46.300Z"}},{"id":2620,"original_name":"Caltha
+        palustris ","node_level":"taxon","network_id":18,"taxonomy_id":1968,"created_at":"2019-02-22T18:38:41.721Z","updated_at":"2019-02-22T18:38:41.721Z","taxonomy":{"id":1968,"name":"Caltha
+        palustris","ncbi":3449,"tsn":18454,"eol":596646,"bold":121193,"gbif":5371685,"col":"075c72b100babb3494b8013ca3ec7c71","rank":"species","created_at":"2019-02-21T22:14:46.028Z","updated_at":"2019-06-14T15:21:46.353Z"}},{"id":2621,"original_name":"Cerastium
+        alpinum","node_level":"taxon","network_id":18,"taxonomy_id":1499,"created_at":"2019-02-22T18:38:41.761Z","updated_at":"2019-02-22T18:38:41.761Z","taxonomy":{"id":1499,"name":"Cerastium
+        alpinum","ncbi":271556,"tsn":19946,"eol":589306,"bold":263405,"gbif":3085450,"col":"d5f840b6667189d5e1aebfb21587f266","rank":"species","created_at":"2019-02-21T22:09:51.597Z","updated_at":"2019-06-14T15:21:21.725Z"}},{"id":2622,"original_name":"Arnica
+        alpina","node_level":"taxon","network_id":18,"taxonomy_id":1496,"created_at":"2019-02-22T18:38:41.808Z","updated_at":"2019-02-22T18:38:41.808Z","taxonomy":{"id":1496,"name":"Arnica
+        angustifolia alpina","ncbi":null,"tsn":36556,"eol":47141408,"bold":null,"gbif":null,"col":"92905ad648f17b749082a644f485607f","rank":"infraspecies","created_at":"2019-02-21T22:09:51.310Z","updated_at":"2019-06-14T15:21:21.538Z"}},{"id":2623,"original_name":"Astragalus
+        alpinus","node_level":"taxon","network_id":18,"taxonomy_id":1969,"created_at":"2019-02-22T18:38:41.843Z","updated_at":"2019-02-22T18:38:41.843Z","taxonomy":{"id":1969,"name":"Astragalus
+        alpinus","ncbi":20403,"tsn":25393,"eol":418736,"bold":257037,"gbif":5345014,"col":"cda432f84391f3ee23659f3249ca12f3","rank":"species","created_at":"2019-02-21T22:14:46.086Z","updated_at":"2019-06-14T15:21:46.408Z"}},{"id":2624,"original_name":"Petasites
+        frigidus ","node_level":"taxon","network_id":18,"taxonomy_id":1970,"created_at":"2019-02-22T18:38:41.887Z","updated_at":"2019-02-22T18:38:41.887Z","taxonomy":{"id":1970,"name":"Petasites
+        frigidus","ncbi":56019,"tsn":36054,"eol":47141412,"bold":263274,"gbif":3088323,"col":"64c006c4f71868a82831637310d0fe2f","rank":"species","created_at":"2019-02-21T22:14:46.142Z","updated_at":"2019-06-14T15:21:46.997Z"}},{"id":2625,"original_name":"Papaver
+        radicatum","node_level":"taxon","network_id":18,"taxonomy_id":1510,"created_at":"2019-02-22T18:38:41.985Z","updated_at":"2019-02-22T18:38:41.985Z","taxonomy":{"id":1510,"name":"Papaver
+        radicatum","ncbi":357475,"tsn":518422,"eol":47158290,"bold":501588,"gbif":2888444,"col":"f0d646a14db7351ca7c469085610436d","rank":"species","created_at":"2019-02-21T22:09:52.318Z","updated_at":"2019-06-14T15:21:22.191Z"}},{"id":2626,"original_name":"Geum
+        rossii ","node_level":"taxon","network_id":18,"taxonomy_id":1971,"created_at":"2019-02-22T18:38:42.143Z","updated_at":"2019-02-22T18:38:42.143Z","taxonomy":{"id":1971,"name":"Geum
+        rossii","ncbi":148884,"tsn":24660,"eol":52202147,"bold":351819,"gbif":5369874,"col":"32913186edafb38121fdc5f0fa875f36","rank":"species","created_at":"2019-02-21T22:14:46.197Z","updated_at":"2019-06-14T15:21:47.051Z"}},{"id":2627,"original_name":"Oxytropis
+        arctica ","node_level":"taxon","network_id":18,"taxonomy_id":1972,"created_at":"2019-02-22T18:38:42.240Z","updated_at":"2019-02-22T18:38:42.240Z","taxonomy":{"id":1972,"name":"Oxytropis
+        arctica","ncbi":180075,"tsn":26163,"eol":415929,"bold":260104,"gbif":5360834,"col":"7faf3755d44ee5a31b259a8c65b1bcac","rank":"species","created_at":"2019-02-21T22:14:46.255Z","updated_at":"2019-06-14T15:21:47.102Z"}},{"id":2612,"original_name":"Anarta
+        richardsoni","node_level":"taxon","network_id":18,"taxonomy_id":null,"created_at":"2019-02-22T18:38:41.405Z","updated_at":"2019-02-22T18:38:41.405Z","taxonomy":null},{"id":2601,"original_name":"Spilogona
+        almquistii ","node_level":"taxon","network_id":18,"taxonomy_id":null,"created_at":"2019-02-22T18:38:40.980Z","updated_at":"2019-02-22T18:38:40.980Z","taxonomy":null},{"id":2603,"original_name":"Eupogonomyia
+        probilofensis ","node_level":"taxon","network_id":18,"taxonomy_id":null,"created_at":"2019-02-22T18:38:41.039Z","updated_at":"2019-02-22T18:38:41.039Z","taxonomy":null},{"id":2605,"original_name":"Pogonomyiodes
+        segnis ","node_level":"taxon","network_id":18,"taxonomy_id":null,"created_at":"2019-02-22T18:38:41.103Z","updated_at":"2019-02-22T18:38:41.103Z","taxonomy":null},{"id":2610,"original_name":"Spilogona
+        aesturium ","node_level":"taxon","network_id":18,"taxonomy_id":null,"created_at":"2019-02-22T18:38:41.329Z","updated_at":"2019-02-22T18:38:41.329Z","taxonomy":null}]'
+  recorded_at: 2020-10-25 21:52:49 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/interaction?network_id=18&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:48 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '19879'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-37/38
+      etag: W/"4da7-redMKJhDxwwUi9RQST6euk0NHY0"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":52630,"node_from":2599,"node_to":2617,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":19,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.049Z","updated_at":"2019-02-24T21:34:01.049Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52631,"node_from":2599,"node_to":2618,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":15,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.117Z","updated_at":"2019-02-24T21:34:01.117Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52632,"node_from":2599,"node_to":2619,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.158Z","updated_at":"2019-02-24T21:34:01.158Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52633,"node_from":2599,"node_to":2620,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":3,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.195Z","updated_at":"2019-02-24T21:34:01.195Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52634,"node_from":2599,"node_to":2621,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":3,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.251Z","updated_at":"2019-02-24T21:34:01.251Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52635,"node_from":2599,"node_to":2622,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":2,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.302Z","updated_at":"2019-02-24T21:34:01.302Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52636,"node_from":2600,"node_to":2623,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":15,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.356Z","updated_at":"2019-02-24T21:34:01.356Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52637,"node_from":2600,"node_to":2624,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.461Z","updated_at":"2019-02-24T21:34:01.461Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52638,"node_from":2601,"node_to":2617,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":5,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.557Z","updated_at":"2019-02-24T21:34:01.557Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52639,"node_from":2601,"node_to":2618,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":3,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.603Z","updated_at":"2019-02-24T21:34:01.603Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52640,"node_from":2601,"node_to":2619,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":3,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.649Z","updated_at":"2019-02-24T21:34:01.649Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52641,"node_from":2601,"node_to":2620,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.699Z","updated_at":"2019-02-24T21:34:01.699Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52642,"node_from":2601,"node_to":2622,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.759Z","updated_at":"2019-02-24T21:34:01.759Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52643,"node_from":2601,"node_to":2625,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.802Z","updated_at":"2019-02-24T21:34:01.802Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52644,"node_from":2601,"node_to":2626,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.860Z","updated_at":"2019-02-24T21:34:01.860Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52645,"node_from":2602,"node_to":2623,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":11,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.917Z","updated_at":"2019-02-24T21:34:01.917Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52646,"node_from":2603,"node_to":2617,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":7,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.969Z","updated_at":"2019-02-24T21:34:01.969Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52647,"node_from":2603,"node_to":2618,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":2,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.002Z","updated_at":"2019-02-24T21:34:02.002Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52648,"node_from":2603,"node_to":2622,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.055Z","updated_at":"2019-02-24T21:34:02.055Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52649,"node_from":2604,"node_to":2618,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":8,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.098Z","updated_at":"2019-02-24T21:34:02.098Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52650,"node_from":2605,"node_to":2617,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.142Z","updated_at":"2019-02-24T21:34:02.142Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52651,"node_from":2605,"node_to":2618,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":5,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.267Z","updated_at":"2019-02-24T21:34:02.267Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52652,"node_from":2605,"node_to":2625,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.309Z","updated_at":"2019-02-24T21:34:02.309Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52653,"node_from":2606,"node_to":2617,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":5,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.359Z","updated_at":"2019-02-24T21:34:02.359Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52654,"node_from":2607,"node_to":2617,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":3,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.405Z","updated_at":"2019-02-24T21:34:02.405Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52655,"node_from":2607,"node_to":2619,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.460Z","updated_at":"2019-02-24T21:34:02.460Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52656,"node_from":2608,"node_to":2617,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":2,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.529Z","updated_at":"2019-02-24T21:34:02.529Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52657,"node_from":2608,"node_to":2620,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.576Z","updated_at":"2019-02-24T21:34:02.576Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52658,"node_from":2609,"node_to":2618,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.622Z","updated_at":"2019-02-24T21:34:02.622Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52659,"node_from":2609,"node_to":2621,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":2,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.661Z","updated_at":"2019-02-24T21:34:02.661Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52660,"node_from":2610,"node_to":2619,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":2,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.731Z","updated_at":"2019-02-24T21:34:02.731Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52661,"node_from":2611,"node_to":2617,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.777Z","updated_at":"2019-02-24T21:34:02.777Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52662,"node_from":2611,"node_to":2620,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.817Z","updated_at":"2019-02-24T21:34:02.817Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52663,"node_from":2612,"node_to":2627,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.854Z","updated_at":"2019-02-24T21:34:02.854Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52664,"node_from":2613,"node_to":2623,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.912Z","updated_at":"2019-02-24T21:34:02.912Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52665,"node_from":2614,"node_to":2617,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.962Z","updated_at":"2019-02-24T21:34:02.962Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52666,"node_from":2615,"node_to":2619,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:03.015Z","updated_at":"2019-02-24T21:34:03.015Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52667,"node_from":2616,"node_to":2620,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:03.059Z","updated_at":"2019-02-24T21:34:03.059Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}}]'
+  recorded_at: 2020-10-25 21:52:49 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/interaction?network_id=18&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:48 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '19879'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-37/38
+      etag: W/"4da7-redMKJhDxwwUi9RQST6euk0NHY0"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":52630,"node_from":2599,"node_to":2617,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":19,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.049Z","updated_at":"2019-02-24T21:34:01.049Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52631,"node_from":2599,"node_to":2618,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":15,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.117Z","updated_at":"2019-02-24T21:34:01.117Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52632,"node_from":2599,"node_to":2619,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.158Z","updated_at":"2019-02-24T21:34:01.158Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52633,"node_from":2599,"node_to":2620,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":3,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.195Z","updated_at":"2019-02-24T21:34:01.195Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52634,"node_from":2599,"node_to":2621,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":3,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.251Z","updated_at":"2019-02-24T21:34:01.251Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52635,"node_from":2599,"node_to":2622,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":2,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.302Z","updated_at":"2019-02-24T21:34:01.302Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52636,"node_from":2600,"node_to":2623,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":15,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.356Z","updated_at":"2019-02-24T21:34:01.356Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52637,"node_from":2600,"node_to":2624,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.461Z","updated_at":"2019-02-24T21:34:01.461Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52638,"node_from":2601,"node_to":2617,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":5,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.557Z","updated_at":"2019-02-24T21:34:01.557Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52639,"node_from":2601,"node_to":2618,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":3,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.603Z","updated_at":"2019-02-24T21:34:01.603Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52640,"node_from":2601,"node_to":2619,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":3,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.649Z","updated_at":"2019-02-24T21:34:01.649Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52641,"node_from":2601,"node_to":2620,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.699Z","updated_at":"2019-02-24T21:34:01.699Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52642,"node_from":2601,"node_to":2622,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.759Z","updated_at":"2019-02-24T21:34:01.759Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52643,"node_from":2601,"node_to":2625,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.802Z","updated_at":"2019-02-24T21:34:01.802Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52644,"node_from":2601,"node_to":2626,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.860Z","updated_at":"2019-02-24T21:34:01.860Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52645,"node_from":2602,"node_to":2623,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":11,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.917Z","updated_at":"2019-02-24T21:34:01.917Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52646,"node_from":2603,"node_to":2617,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":7,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:01.969Z","updated_at":"2019-02-24T21:34:01.969Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52647,"node_from":2603,"node_to":2618,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":2,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.002Z","updated_at":"2019-02-24T21:34:02.002Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52648,"node_from":2603,"node_to":2622,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.055Z","updated_at":"2019-02-24T21:34:02.055Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52649,"node_from":2604,"node_to":2618,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":8,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.098Z","updated_at":"2019-02-24T21:34:02.098Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52650,"node_from":2605,"node_to":2617,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.142Z","updated_at":"2019-02-24T21:34:02.142Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52651,"node_from":2605,"node_to":2618,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":5,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.267Z","updated_at":"2019-02-24T21:34:02.267Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52652,"node_from":2605,"node_to":2625,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.309Z","updated_at":"2019-02-24T21:34:02.309Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52653,"node_from":2606,"node_to":2617,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":5,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.359Z","updated_at":"2019-02-24T21:34:02.359Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52654,"node_from":2607,"node_to":2617,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":3,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.405Z","updated_at":"2019-02-24T21:34:02.405Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52655,"node_from":2607,"node_to":2619,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.460Z","updated_at":"2019-02-24T21:34:02.460Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52656,"node_from":2608,"node_to":2617,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":2,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.529Z","updated_at":"2019-02-24T21:34:02.529Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52657,"node_from":2608,"node_to":2620,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.576Z","updated_at":"2019-02-24T21:34:02.576Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52658,"node_from":2609,"node_to":2618,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.622Z","updated_at":"2019-02-24T21:34:02.622Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52659,"node_from":2609,"node_to":2621,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":2,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.661Z","updated_at":"2019-02-24T21:34:02.661Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52660,"node_from":2610,"node_to":2619,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":2,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.731Z","updated_at":"2019-02-24T21:34:02.731Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52661,"node_from":2611,"node_to":2617,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.777Z","updated_at":"2019-02-24T21:34:02.777Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52662,"node_from":2611,"node_to":2620,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.817Z","updated_at":"2019-02-24T21:34:02.817Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52663,"node_from":2612,"node_to":2627,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.854Z","updated_at":"2019-02-24T21:34:02.854Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52664,"node_from":2613,"node_to":2623,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.912Z","updated_at":"2019-02-24T21:34:02.912Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52665,"node_from":2614,"node_to":2617,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:02.962Z","updated_at":"2019-02-24T21:34:02.962Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52666,"node_from":2615,"node_to":2619,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:03.015Z","updated_at":"2019-02-24T21:34:03.015Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}},{"id":52667,"node_from":2616,"node_to":2620,"date":"1965-07-31T00:00:00.000Z","direction":"directed","type":"mutualism","method":"field
+        observation/capture","attr_id":3,"value":1,"geom":null,"public":true,"network_id":18,"created_at":"2019-02-24T21:34:03.059Z","updated_at":"2019-02-24T21:34:03.059Z","attribute":{"id":3,"name":"number
+        of pollinator","description":"Number of insects captured while pollination","unit":"individual
+        captured","created_at":"2019-02-22T16:45:42.655Z","updated_at":"2019-02-22T16:45:42.655Z"}}]'
+  recorded_at: 2020-10-25 21:52:49 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/dataset/4
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:49 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '289'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"121-N0AxmfsUDXm1O1dV5f4lE+Obsqs"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":4,"name":"mosquin_martin_1967","description":"Occurence of flower-visiting
+        insect on plant species, two miles north of Bailey Point, Melville Island,
+        N.W.T., Canada","public":true,"created_at":"2019-02-22T16:45:59.451Z","updated_at":"2019-02-22T16:45:59.451Z","ref_id":4,"user_id":3}'
+  recorded_at: 2020-10-25 21:52:49 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/reference/4
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:49 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '602'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"25a-ycqPaAaXH2g2ss1InDvTZIvLPKM"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":4,"doi":null,"first_author":"mosquin","year":"1967","jstor":null,"pmid":null,"bibtex":"@article{article,
+        author = {Mosquin, Theodore and Martin, J. E. H.}, year = {1967}, pages =
+        {201-205}, title = {Observations on the pollination biology of plants on Melville
+        Island, N.W.T., Canada}, journal = {Canadian Field Naturalist}, volume = {81}}","paper_url":"https://www.biodiversitylibrary.org/pdf4/075601100090098.pdf","data_url":"https://www.nceas.ucsb.edu/interactionweb/data/plant_pollinator/excel/mosquin_1967.xls","created_at":"2019-02-22T16:45:54.246Z","updated_at":"2019-02-22T16:45:54.246Z"}'
+  recorded_at: 2020-10-25 21:52:49 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network?q=lagoon&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:49 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '1020'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-2/3
+      etag: W/"3fc-8ssqLXOR4aVJfASjwsU1n992ocQ"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":86,"name":"zetina_2003_20030101_86","date":"2003-01-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-106.10993,22.985307]},"description":"Dietary
+        matrix of the Huizache–Caimanero lagoon","public":true,"all_interactions":false,"created_at":"2019-02-23T17:04:34.046Z","updated_at":"2019-02-23T17:04:34.046Z","dataset_id":22,"user_id":3},{"id":927,"name":"yanez_1978_19730901_927","date":"1973-09-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-100.365564,17.069151]},"description":"Food
+        web of the Brackish lagoon","public":true,"all_interactions":false,"created_at":"2019-02-25T15:09:11.020Z","updated_at":"2019-02-25T15:09:11.020Z","dataset_id":52,"user_id":3},{"id":926,"name":"yanez_1978_19730901_926","date":"1973-09-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-100.365564,17.069151]},"description":"Food
+        web of the Costal lagoon","public":true,"all_interactions":false,"created_at":"2019-02-25T15:09:10.651Z","updated_at":"2019-02-25T15:09:10.651Z","dataset_id":52,"user_id":3}]'
+  recorded_at: 2020-10-25 21:52:49 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network?q=lagoon&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:49 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '1020'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-2/3
+      etag: W/"3fc-8ssqLXOR4aVJfASjwsU1n992ocQ"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":86,"name":"zetina_2003_20030101_86","date":"2003-01-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-106.10993,22.985307]},"description":"Dietary
+        matrix of the Huizache–Caimanero lagoon","public":true,"all_interactions":false,"created_at":"2019-02-23T17:04:34.046Z","updated_at":"2019-02-23T17:04:34.046Z","dataset_id":22,"user_id":3},{"id":927,"name":"yanez_1978_19730901_927","date":"1973-09-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-100.365564,17.069151]},"description":"Food
+        web of the Brackish lagoon","public":true,"all_interactions":false,"created_at":"2019-02-25T15:09:11.020Z","updated_at":"2019-02-25T15:09:11.020Z","dataset_id":52,"user_id":3},{"id":926,"name":"yanez_1978_19730901_926","date":"1973-09-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-100.365564,17.069151]},"description":"Food
+        web of the Costal lagoon","public":true,"all_interactions":false,"created_at":"2019-02-25T15:09:10.651Z","updated_at":"2019-02-25T15:09:10.651Z","dataset_id":52,"user_id":3}]'
+  recorded_at: 2020-10-25 21:52:49 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0

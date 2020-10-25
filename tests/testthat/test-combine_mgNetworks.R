@@ -1,13 +1,17 @@
 context("combine_mgNetworks")
 
-net_19 <- search_networks(list(dataset_id = 19))
-mg_19 <- get_collection(net_19)
-mg_lagoon <- get_collection(search_datasets(query='lagoon%'))
 
-res1 <- combine_mgNetworks(mg_19, mg_lagoon)
-res2 <- combine_mgNetworks(list(mg_19, mg_lagoon))
-res3 <- combine_mgNetworks(mg_19)
-res4 <- combine_mgNetworks(mg_lagoon)
+vcr::use_cassette(name = "combine_mgNetwork", {
+  net_19 <- search_networks(list(dataset_id = 19))
+  mg_19 <- get_collection(net_19)
+  mg_lagoon <- get_collection(search_datasets(query='lagoon%'))
+
+  res1 <- combine_mgNetworks(mg_19, mg_lagoon)
+  res2 <- combine_mgNetworks(list(mg_19, mg_lagoon))
+  res3 <- combine_mgNetworks(mg_19)
+  res4 <- combine_mgNetworks(mg_lagoon)
+})
+
 
 test_that("expected behavior", {
   expect_equal(class(res1), "mgNetworksCollection")

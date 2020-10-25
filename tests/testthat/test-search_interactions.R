@@ -1,9 +1,11 @@
 context("search_interactions")
 
-res1 <- search_interactions(type = "competition")
-res2 <- search_interactions(type = "competition", expand_node = TRUE)
-res3 <- search_interactions(list(network_id = 926))
-res4 <- search_interactions(list(network_id = 926), expand_node = TRUE)
+vcr::use_cassette(name = "search_interactions", {
+  res1 <- search_interactions(type = "competition")
+  res2 <- search_interactions(type = "competition", expand_node = TRUE)
+  res3 <- search_interactions(list(network_id = 926))
+  res4 <- search_interactions(list(network_id = 926), expand_node = TRUE)
+})
 
 test_that("expected behavior", {
   expect_identical(search_interactions("wrong"), data.frame())
@@ -26,5 +28,4 @@ test_that("get_collection", {
   expect_equal(class(resc), "mgNetworksCollection")
   expect_equal(class(resc[[1L]]), "mgNetwork")
   expect_equal(names(resc[[1L]]), nm_co)
-
 })

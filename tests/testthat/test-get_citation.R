@@ -1,9 +1,10 @@
 context("get_citation")
 
-ref <- get_citation(get_network_by_id(18))
-netws <- get_collection(search_networks("lagoon"))
-ref2 <- get_citation(netws)
-
+vcr::use_cassette(name = "get_citation", {
+  ref <- get_citation(get_network_by_id(18))
+  netws <- get_collection(search_networks("lagoon"))
+  ref2 <- get_citation(netws)
+})
 
 test_that("expected behavior", {
   expect_equal(length(ref), 1)

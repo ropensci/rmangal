@@ -2,12 +2,16 @@ context("search_networks")
 
 library(sf)
 library(USAboundaries)
-res1 <- search_networks("lagoon")
-area <- us_states(state="california")
-res2 <- search_networks_sf(area)
-res2b <- search_networks_sf(area)
-resw <- search_networks("does not exist")
-ress <- search_networks(query="insect%")
+
+vcr::use_cassette(name = "search_networks", {
+  res1 <- search_networks("lagoon")
+  area <- us_states(state = "california")
+  res2 <- search_networks_sf(area)
+  res2b <- search_networks_sf(area)
+  resw <- search_networks("does not exist")
+  ress <- search_networks(query = "insect%")
+})
+
 
 test_that("errors caught", {
   expect_error(search_networks(query = 2011))

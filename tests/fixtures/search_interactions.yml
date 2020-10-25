@@ -1,0 +1,1035 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/interaction?type=competition&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:00 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '6171'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-11/12
+      etag: W/"181b-ivf0wUNZCVBquywn0F7RqBRM7vc"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":97641,"node_from":24343,"node_to":24344,"date":"1973-03-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation/experiment","attr_id":25,"value":1,"geom":null,"public":true,"network_id":1477,"created_at":"2019-03-05T15:50:33.839Z","updated_at":"2019-03-05T15:50:33.839Z","attribute":{"id":25,"name":"presence/absence","description":"Presence
+        or absence of interaction","unit":null,"created_at":"2019-03-01T16:03:38.993Z","updated_at":"2019-03-01T16:03:38.993Z"}},{"id":97652,"node_from":24352,"node_to":24351,"date":"1973-03-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation/experiment","attr_id":25,"value":1,"geom":null,"public":true,"network_id":1478,"created_at":"2019-03-05T15:50:38.469Z","updated_at":"2019-03-05T15:50:38.469Z","attribute":{"id":25,"name":"presence/absence","description":"Presence
+        or absence of interaction","unit":null,"created_at":"2019-03-01T16:03:38.993Z","updated_at":"2019-03-01T16:03:38.993Z"}},{"id":97709,"node_from":24370,"node_to":24378,"date":"1973-03-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation/experiment","attr_id":25,"value":1,"geom":null,"public":true,"network_id":1480,"created_at":"2019-03-05T15:50:55.947Z","updated_at":"2019-03-05T15:50:55.947Z","attribute":{"id":25,"name":"presence/absence","description":"Presence
+        or absence of interaction","unit":null,"created_at":"2019-03-01T16:03:38.993Z","updated_at":"2019-03-01T16:03:38.993Z"}},{"id":97679,"node_from":24357,"node_to":24358,"date":"1973-03-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation/experiment","attr_id":25,"value":1,"geom":null,"public":true,"network_id":1479,"created_at":"2019-03-05T15:50:47.266Z","updated_at":"2019-03-05T15:50:47.266Z","attribute":{"id":25,"name":"presence/absence","description":"Presence
+        or absence of interaction","unit":null,"created_at":"2019-03-01T16:03:38.993Z","updated_at":"2019-03-01T16:03:38.993Z"}},{"id":100173,"node_from":25149,"node_to":25149,"date":"1976-02-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation/experiment","attr_id":25,"value":1,"geom":null,"public":true,"network_id":1502,"created_at":"2019-03-06T21:41:55.180Z","updated_at":"2019-03-06T21:41:55.180Z","attribute":{"id":25,"name":"presence/absence","description":"Presence
+        or absence of interaction","unit":null,"created_at":"2019-03-01T16:03:38.993Z","updated_at":"2019-03-01T16:03:38.993Z"}},{"id":100174,"node_from":25149,"node_to":25150,"date":"1976-02-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation/experiment","attr_id":25,"value":1,"geom":null,"public":true,"network_id":1502,"created_at":"2019-03-06T21:41:55.330Z","updated_at":"2019-03-06T21:41:55.330Z","attribute":{"id":25,"name":"presence/absence","description":"Presence
+        or absence of interaction","unit":null,"created_at":"2019-03-01T16:03:38.993Z","updated_at":"2019-03-01T16:03:38.993Z"}},{"id":101348,"node_from":25576,"node_to":25577,"date":"1970-01-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation, gut content and literature","attr_id":25,"value":1,"geom":null,"public":true,"network_id":1523,"created_at":"2019-03-11T20:53:55.935Z","updated_at":"2019-03-11T20:53:55.935Z","attribute":{"id":25,"name":"presence/absence","description":"Presence
+        or absence of interaction","unit":null,"created_at":"2019-03-01T16:03:38.993Z","updated_at":"2019-03-01T16:03:38.993Z"}},{"id":101349,"node_from":25576,"node_to":25578,"date":"1970-01-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation, gut content and literature","attr_id":25,"value":1,"geom":null,"public":true,"network_id":1523,"created_at":"2019-03-11T20:53:56.023Z","updated_at":"2019-03-11T20:53:56.023Z","attribute":{"id":25,"name":"presence/absence","description":"Presence
+        or absence of interaction","unit":null,"created_at":"2019-03-01T16:03:38.993Z","updated_at":"2019-03-01T16:03:38.993Z"}},{"id":101350,"node_from":25576,"node_to":25571,"date":"1970-01-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation, gut content and literature","attr_id":25,"value":1,"geom":null,"public":true,"network_id":1523,"created_at":"2019-03-11T20:53:56.120Z","updated_at":"2019-03-11T20:53:56.120Z","attribute":{"id":25,"name":"presence/absence","description":"Presence
+        or absence of interaction","unit":null,"created_at":"2019-03-01T16:03:38.993Z","updated_at":"2019-03-01T16:03:38.993Z"}},{"id":101351,"node_from":25577,"node_to":25578,"date":"1970-01-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation, gut content and literature","attr_id":25,"value":1,"geom":null,"public":true,"network_id":1523,"created_at":"2019-03-11T20:53:56.250Z","updated_at":"2019-03-11T20:53:56.250Z","attribute":{"id":25,"name":"presence/absence","description":"Presence
+        or absence of interaction","unit":null,"created_at":"2019-03-01T16:03:38.993Z","updated_at":"2019-03-01T16:03:38.993Z"}},{"id":101352,"node_from":25577,"node_to":25571,"date":"1970-01-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation, gut content and literature","attr_id":25,"value":1,"geom":null,"public":true,"network_id":1523,"created_at":"2019-03-11T20:53:56.328Z","updated_at":"2019-03-11T20:53:56.328Z","attribute":{"id":25,"name":"presence/absence","description":"Presence
+        or absence of interaction","unit":null,"created_at":"2019-03-01T16:03:38.993Z","updated_at":"2019-03-01T16:03:38.993Z"}},{"id":101353,"node_from":25578,"node_to":25571,"date":"1970-01-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation, gut content and literature","attr_id":25,"value":1,"geom":null,"public":true,"network_id":1523,"created_at":"2019-03-11T20:53:56.431Z","updated_at":"2019-03-11T20:53:56.431Z","attribute":{"id":25,"name":"presence/absence","description":"Presence
+        or absence of interaction","unit":null,"created_at":"2019-03-01T16:03:38.993Z","updated_at":"2019-03-01T16:03:38.993Z"}}]'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/interaction?type=competition&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:00 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '6171'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-11/12
+      etag: W/"181b-ivf0wUNZCVBquywn0F7RqBRM7vc"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":97641,"node_from":24343,"node_to":24344,"date":"1973-03-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation/experiment","attr_id":25,"value":1,"geom":null,"public":true,"network_id":1477,"created_at":"2019-03-05T15:50:33.839Z","updated_at":"2019-03-05T15:50:33.839Z","attribute":{"id":25,"name":"presence/absence","description":"Presence
+        or absence of interaction","unit":null,"created_at":"2019-03-01T16:03:38.993Z","updated_at":"2019-03-01T16:03:38.993Z"}},{"id":97652,"node_from":24352,"node_to":24351,"date":"1973-03-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation/experiment","attr_id":25,"value":1,"geom":null,"public":true,"network_id":1478,"created_at":"2019-03-05T15:50:38.469Z","updated_at":"2019-03-05T15:50:38.469Z","attribute":{"id":25,"name":"presence/absence","description":"Presence
+        or absence of interaction","unit":null,"created_at":"2019-03-01T16:03:38.993Z","updated_at":"2019-03-01T16:03:38.993Z"}},{"id":97709,"node_from":24370,"node_to":24378,"date":"1973-03-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation/experiment","attr_id":25,"value":1,"geom":null,"public":true,"network_id":1480,"created_at":"2019-03-05T15:50:55.947Z","updated_at":"2019-03-05T15:50:55.947Z","attribute":{"id":25,"name":"presence/absence","description":"Presence
+        or absence of interaction","unit":null,"created_at":"2019-03-01T16:03:38.993Z","updated_at":"2019-03-01T16:03:38.993Z"}},{"id":97679,"node_from":24357,"node_to":24358,"date":"1973-03-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation/experiment","attr_id":25,"value":1,"geom":null,"public":true,"network_id":1479,"created_at":"2019-03-05T15:50:47.266Z","updated_at":"2019-03-05T15:50:47.266Z","attribute":{"id":25,"name":"presence/absence","description":"Presence
+        or absence of interaction","unit":null,"created_at":"2019-03-01T16:03:38.993Z","updated_at":"2019-03-01T16:03:38.993Z"}},{"id":100173,"node_from":25149,"node_to":25149,"date":"1976-02-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation/experiment","attr_id":25,"value":1,"geom":null,"public":true,"network_id":1502,"created_at":"2019-03-06T21:41:55.180Z","updated_at":"2019-03-06T21:41:55.180Z","attribute":{"id":25,"name":"presence/absence","description":"Presence
+        or absence of interaction","unit":null,"created_at":"2019-03-01T16:03:38.993Z","updated_at":"2019-03-01T16:03:38.993Z"}},{"id":100174,"node_from":25149,"node_to":25150,"date":"1976-02-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation/experiment","attr_id":25,"value":1,"geom":null,"public":true,"network_id":1502,"created_at":"2019-03-06T21:41:55.330Z","updated_at":"2019-03-06T21:41:55.330Z","attribute":{"id":25,"name":"presence/absence","description":"Presence
+        or absence of interaction","unit":null,"created_at":"2019-03-01T16:03:38.993Z","updated_at":"2019-03-01T16:03:38.993Z"}},{"id":101348,"node_from":25576,"node_to":25577,"date":"1970-01-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation, gut content and literature","attr_id":25,"value":1,"geom":null,"public":true,"network_id":1523,"created_at":"2019-03-11T20:53:55.935Z","updated_at":"2019-03-11T20:53:55.935Z","attribute":{"id":25,"name":"presence/absence","description":"Presence
+        or absence of interaction","unit":null,"created_at":"2019-03-01T16:03:38.993Z","updated_at":"2019-03-01T16:03:38.993Z"}},{"id":101349,"node_from":25576,"node_to":25578,"date":"1970-01-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation, gut content and literature","attr_id":25,"value":1,"geom":null,"public":true,"network_id":1523,"created_at":"2019-03-11T20:53:56.023Z","updated_at":"2019-03-11T20:53:56.023Z","attribute":{"id":25,"name":"presence/absence","description":"Presence
+        or absence of interaction","unit":null,"created_at":"2019-03-01T16:03:38.993Z","updated_at":"2019-03-01T16:03:38.993Z"}},{"id":101350,"node_from":25576,"node_to":25571,"date":"1970-01-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation, gut content and literature","attr_id":25,"value":1,"geom":null,"public":true,"network_id":1523,"created_at":"2019-03-11T20:53:56.120Z","updated_at":"2019-03-11T20:53:56.120Z","attribute":{"id":25,"name":"presence/absence","description":"Presence
+        or absence of interaction","unit":null,"created_at":"2019-03-01T16:03:38.993Z","updated_at":"2019-03-01T16:03:38.993Z"}},{"id":101351,"node_from":25577,"node_to":25578,"date":"1970-01-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation, gut content and literature","attr_id":25,"value":1,"geom":null,"public":true,"network_id":1523,"created_at":"2019-03-11T20:53:56.250Z","updated_at":"2019-03-11T20:53:56.250Z","attribute":{"id":25,"name":"presence/absence","description":"Presence
+        or absence of interaction","unit":null,"created_at":"2019-03-01T16:03:38.993Z","updated_at":"2019-03-01T16:03:38.993Z"}},{"id":101352,"node_from":25577,"node_to":25571,"date":"1970-01-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation, gut content and literature","attr_id":25,"value":1,"geom":null,"public":true,"network_id":1523,"created_at":"2019-03-11T20:53:56.328Z","updated_at":"2019-03-11T20:53:56.328Z","attribute":{"id":25,"name":"presence/absence","description":"Presence
+        or absence of interaction","unit":null,"created_at":"2019-03-01T16:03:38.993Z","updated_at":"2019-03-01T16:03:38.993Z"}},{"id":101353,"node_from":25578,"node_to":25571,"date":"1970-01-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation, gut content and literature","attr_id":25,"value":1,"geom":null,"public":true,"network_id":1523,"created_at":"2019-03-11T20:53:56.431Z","updated_at":"2019-03-11T20:53:56.431Z","attribute":{"id":25,"name":"presence/absence","description":"Presence
+        or absence of interaction","unit":null,"created_at":"2019-03-01T16:03:38.993Z","updated_at":"2019-03-01T16:03:38.993Z"}}]'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node/24343
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:00 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '446'
+      connection: close
+      x-powered-by: Express
+      etag: W/"1be-MvtsiIosUpjFwnjgfJUz5TrNp3I"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":24343,"original_name":"Balanus balanoides","node_level":"taxon","network_id":1477,"taxonomy_id":5580,"created_at":"2019-03-05T15:50:31.982Z","updated_at":"2019-03-05T15:50:31.982Z","taxonomy":{"id":5580,"name":"Semibalanus
+        balanoides","ncbi":94630,"tsn":89687,"eol":336009,"bold":14241,"gbif":2115784,"col":"f9ad62e6d1a8e7f71ccf96ec38629e2c","rank":"species","created_at":"2019-03-01T19:43:03.509Z","updated_at":"2019-06-14T15:26:50.874Z"}}'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node/24352
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:00 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '446'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"1be-Qar468O5dsLWghYJJYqyWjmBHPw"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":24352,"original_name":"Balanus balanoides","node_level":"taxon","network_id":1478,"taxonomy_id":5580,"created_at":"2019-03-05T15:50:35.411Z","updated_at":"2019-03-05T15:50:35.411Z","taxonomy":{"id":5580,"name":"Semibalanus
+        balanoides","ncbi":94630,"tsn":89687,"eol":336009,"bold":14241,"gbif":2115784,"col":"f9ad62e6d1a8e7f71ccf96ec38629e2c","rank":"species","created_at":"2019-03-01T19:43:03.509Z","updated_at":"2019-06-14T15:26:50.874Z"}}'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node/24370
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:01 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '422'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"1a6-bNNsA8PHesATH5JdHzEj7yDakcM"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":24370,"original_name":"acorn barnacles","node_level":"taxon","network_id":1480,"taxonomy_id":5789,"created_at":"2019-03-05T15:50:48.717Z","updated_at":"2019-03-05T15:50:48.717Z","taxonomy":{"id":5789,"name":"Sessilia","ncbi":116167,"tsn":621154,"eol":7020,"bold":391,"gbif":null,"col":"a0b12351692ad48b198e039953982a82","rank":"order","created_at":"2019-03-05T15:49:54.866Z","updated_at":"2019-06-14T15:27:02.349Z"}}'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node/24357
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:01 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '422'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"1a6-9Bb3sN4F2S5RKHTFLGHF8WtL+qU"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":24357,"original_name":"acorn barnacles","node_level":"taxon","network_id":1479,"taxonomy_id":5789,"created_at":"2019-03-05T15:50:39.558Z","updated_at":"2019-03-05T15:50:39.558Z","taxonomy":{"id":5789,"name":"Sessilia","ncbi":116167,"tsn":621154,"eol":7020,"bold":391,"gbif":null,"col":"a0b12351692ad48b198e039953982a82","rank":"order","created_at":"2019-03-05T15:49:54.866Z","updated_at":"2019-06-14T15:27:02.349Z"}}'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node/25149
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:01 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '446'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"1be-tTthmhG88WZ/sVmpyzaLCgSVcGE"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":25149,"original_name":"Cephaloleia neglecta","node_level":"taxon","network_id":1502,"taxonomy_id":6244,"created_at":"2019-03-06T21:41:50.466Z","updated_at":"2019-03-06T21:41:50.466Z","taxonomy":{"id":6244,"name":"Cephaloleia
+        neglecta","ncbi":null,"tsn":843068,"eol":3290387,"bold":null,"gbif":6272996,"col":"076c3c03fa6990412f2485264db36389","rank":"species","created_at":"2019-03-06T20:26:44.495Z","updated_at":"2019-06-14T15:27:26.488Z"}}'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node/25576
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:01 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '444'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"1bc-M9+LFcQrbjNnkvcJr0x40crmtl8"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":25576,"original_name":"Ambystoma laterale","node_level":"taxon","network_id":1523,"taxonomy_id":6467,"created_at":"2019-03-11T20:53:27.621Z","updated_at":"2019-03-11T20:53:27.621Z","taxonomy":{"id":6467,"name":"Ambystoma
+        laterale","ncbi":8298,"tsn":173599,"eol":18656039,"bold":27370,"gbif":2432014,"col":"e405f3bb66ba4022b1249c36c5e37d05","rank":"species","created_at":"2019-03-11T20:53:24.535Z","updated_at":"2019-06-14T15:27:39.012Z"}}'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node/25577
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:01 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '440'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"1b8-L4OqmJwpNeO16re5ZqVXgD7S/oY"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":25577,"original_name":"A. maculatum","node_level":"taxon","network_id":1523,"taxonomy_id":6468,"created_at":"2019-03-11T20:53:27.779Z","updated_at":"2019-03-11T20:53:27.779Z","taxonomy":{"id":6468,"name":"Ambystoma
+        maculatum","ncbi":43114,"tsn":173590,"eol":13546029,"bold":65538,"gbif":2431951,"col":"b23fb78f242a76a272f118eec3e3c33a","rank":"species","created_at":"2019-03-11T20:53:24.577Z","updated_at":"2019-06-14T15:27:39.073Z"}}'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node/25578
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:01 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '439'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"1b7-y1UtcJfjZ2Dwe0z/Pqn3v1LX4mw"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":25578,"original_name":"A. tremblayi","node_level":"taxon","network_id":1523,"taxonomy_id":6469,"created_at":"2019-03-11T20:53:27.913Z","updated_at":"2019-03-11T20:53:27.913Z","taxonomy":{"id":6469,"name":"Ambystoma
+        jeffersonianum","ncbi":null,"tsn":null,"eol":31942720,"bold":95130,"gbif":null,"col":"20340a2d951dad85a7e209c87649968e","rank":"species","created_at":"2019-03-11T20:53:24.633Z","updated_at":"2019-06-14T15:27:39.139Z"}}'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node/24344
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:01 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '435'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"1b3-cUpNSRjw67OWmqJoH7Y2d2QSa4w"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":24344,"original_name":"Mytilus edulis","node_level":"taxon","network_id":1477,"taxonomy_id":5579,"created_at":"2019-03-05T15:50:32.017Z","updated_at":"2019-03-05T15:50:32.017Z","taxonomy":{"id":5579,"name":"Mytilus
+        edulis","ncbi":6550,"tsn":79454,"eol":46466840,"bold":28313,"gbif":8288896,"col":"fd90faaa60b00c787b864db5935122a0","rank":"species","created_at":"2019-03-01T19:43:03.456Z","updated_at":"2019-06-14T15:26:50.819Z"}}'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node/24351
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:01 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '435'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"1b3-QFDs4VEQTsbFY3iulXGXW8CC0TY"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":24351,"original_name":"Mytilus edulis","node_level":"taxon","network_id":1478,"taxonomy_id":5579,"created_at":"2019-03-05T15:50:35.257Z","updated_at":"2019-03-05T15:50:35.257Z","taxonomy":{"id":5579,"name":"Mytilus
+        edulis","ncbi":6550,"tsn":79454,"eol":46466840,"bold":28313,"gbif":8288896,"col":"fd90faaa60b00c787b864db5935122a0","rank":"species","created_at":"2019-03-01T19:43:03.456Z","updated_at":"2019-06-14T15:26:50.819Z"}}'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node/24378
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:01 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '447'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"1bf-hG8U+hNRaSNt1W0kDNN3L3L395M"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":24378,"original_name":"Mytilus californianus","node_level":"taxon","network_id":1480,"taxonomy_id":5790,"created_at":"2019-03-05T15:50:49.012Z","updated_at":"2019-03-05T15:50:49.012Z","taxonomy":{"id":5790,"name":"Mytilus
+        californianus","ncbi":6549,"tsn":79455,"eol":449960,"bold":33413,"gbif":2285680,"col":"073e0f457f10e18f5ea034cfe0c48c20","rank":"species","created_at":"2019-03-05T15:49:54.919Z","updated_at":"2019-06-14T15:27:02.403Z"}}'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node/24358
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:01 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '447'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"1bf-5/2Am7AnKlQyCGX5hSiGqv2RgUY"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":24358,"original_name":"Mytilus californianus","node_level":"taxon","network_id":1479,"taxonomy_id":5790,"created_at":"2019-03-05T15:50:39.608Z","updated_at":"2019-03-05T15:50:39.608Z","taxonomy":{"id":5790,"name":"Mytilus
+        californianus","ncbi":6549,"tsn":79455,"eol":449960,"bold":33413,"gbif":2285680,"col":"073e0f457f10e18f5ea034cfe0c48c20","rank":"species","created_at":"2019-03-05T15:49:54.919Z","updated_at":"2019-06-14T15:27:02.403Z"}}'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node/25150
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:01 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '440'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"1b8-hk2i5YWDE0z2cZDpye0p/Wkulfw"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":25150,"original_name":"Copestuylum roraima","node_level":"taxon","network_id":1502,"taxonomy_id":6245,"created_at":"2019-03-06T21:41:50.504Z","updated_at":"2019-03-06T21:41:50.504Z","taxonomy":{"id":6245,"name":"Copestylum
+        roraima","ncbi":null,"tsn":null,"eol":752750,"bold":null,"gbif":1543982,"col":"23536c6ab4ed6c1728742a4af4643878","rank":"species","created_at":"2019-03-06T20:26:44.545Z","updated_at":"2019-06-14T15:27:26.545Z"}}'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node/25571
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:02 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '441'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"1b9-j48oJaB3V+AofS2SJn9bX1kxfG8"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":25571,"original_name":"Rana sylvatica","node_level":"taxon","network_id":1523,"taxonomy_id":6465,"created_at":"2019-03-11T20:53:27.371Z","updated_at":"2019-03-11T20:53:27.371Z","taxonomy":{"id":6465,"name":"Lithobates
+        sylvaticus","ncbi":45438,"tsn":null,"eol":21593520,"bold":8701,"gbif":2427072,"col":"becede7cbd4aee03abbaa7fa733c9aee","rank":"species","created_at":"2019-03-11T20:53:24.388Z","updated_at":"2019-06-14T15:27:38.906Z"}}'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/interaction?network_id=926&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:02 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '16423'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-33/34
+      etag: W/"4027-TOvBO00JiVt7rJC1VMsGtXxt30E"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":55272,"node_from":6450,"node_to":6443,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.714Z","updated_at":"2019-02-25T16:00:58.714Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55251,"node_from":6443,"node_to":6453,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:57.904Z","updated_at":"2019-02-25T16:00:57.904Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55252,"node_from":6444,"node_to":6453,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:57.973Z","updated_at":"2019-02-25T16:00:57.973Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55253,"node_from":6443,"node_to":6454,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.010Z","updated_at":"2019-02-25T16:00:58.010Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55254,"node_from":6444,"node_to":6454,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.045Z","updated_at":"2019-02-25T16:00:58.045Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55255,"node_from":6445,"node_to":6453,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.080Z","updated_at":"2019-02-25T16:00:58.080Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55256,"node_from":6445,"node_to":6454,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.111Z","updated_at":"2019-02-25T16:00:58.111Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55257,"node_from":6445,"node_to":6455,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.147Z","updated_at":"2019-02-25T16:00:58.147Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55258,"node_from":6446,"node_to":6454,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.179Z","updated_at":"2019-02-25T16:00:58.179Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55259,"node_from":6446,"node_to":6455,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.212Z","updated_at":"2019-02-25T16:00:58.212Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55260,"node_from":6447,"node_to":6454,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.244Z","updated_at":"2019-02-25T16:00:58.244Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55261,"node_from":6447,"node_to":6455,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.278Z","updated_at":"2019-02-25T16:00:58.278Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55262,"node_from":6448,"node_to":6453,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.313Z","updated_at":"2019-02-25T16:00:58.313Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55263,"node_from":6448,"node_to":6443,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.350Z","updated_at":"2019-02-25T16:00:58.350Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55264,"node_from":6448,"node_to":6444,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.427Z","updated_at":"2019-02-25T16:00:58.427Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55265,"node_from":6448,"node_to":6445,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.465Z","updated_at":"2019-02-25T16:00:58.465Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55266,"node_from":6449,"node_to":6453,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.495Z","updated_at":"2019-02-25T16:00:58.495Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55267,"node_from":6449,"node_to":6454,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.528Z","updated_at":"2019-02-25T16:00:58.528Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55268,"node_from":6449,"node_to":6443,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.567Z","updated_at":"2019-02-25T16:00:58.567Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55269,"node_from":6449,"node_to":6444,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.605Z","updated_at":"2019-02-25T16:00:58.605Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55270,"node_from":6450,"node_to":6454,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.647Z","updated_at":"2019-02-25T16:00:58.647Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55271,"node_from":6450,"node_to":6455,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.679Z","updated_at":"2019-02-25T16:00:58.679Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55273,"node_from":6450,"node_to":6444,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.748Z","updated_at":"2019-02-25T16:00:58.748Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55274,"node_from":6450,"node_to":6445,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.785Z","updated_at":"2019-02-25T16:00:58.785Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55275,"node_from":6450,"node_to":6446,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.823Z","updated_at":"2019-02-25T16:00:58.823Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55276,"node_from":6450,"node_to":6447,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.859Z","updated_at":"2019-02-25T16:00:58.859Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55277,"node_from":6450,"node_to":6448,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.895Z","updated_at":"2019-02-25T16:00:58.895Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55278,"node_from":6450,"node_to":6449,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.929Z","updated_at":"2019-02-25T16:00:58.929Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55279,"node_from":6451,"node_to":6454,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.962Z","updated_at":"2019-02-25T16:00:58.962Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55280,"node_from":6451,"node_to":6445,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.995Z","updated_at":"2019-02-25T16:00:58.995Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55281,"node_from":6451,"node_to":6447,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:59.030Z","updated_at":"2019-02-25T16:00:59.030Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55282,"node_from":6451,"node_to":6450,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:59.062Z","updated_at":"2019-02-25T16:00:59.062Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55283,"node_from":6452,"node_to":6450,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:59.095Z","updated_at":"2019-02-25T16:00:59.095Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55284,"node_from":6452,"node_to":6451,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:59.132Z","updated_at":"2019-02-25T16:00:59.132Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}}]'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/interaction?network_id=926&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:02 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '16423'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-33/34
+      etag: W/"4027-TOvBO00JiVt7rJC1VMsGtXxt30E"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":55272,"node_from":6450,"node_to":6443,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.714Z","updated_at":"2019-02-25T16:00:58.714Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55251,"node_from":6443,"node_to":6453,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:57.904Z","updated_at":"2019-02-25T16:00:57.904Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55252,"node_from":6444,"node_to":6453,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:57.973Z","updated_at":"2019-02-25T16:00:57.973Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55253,"node_from":6443,"node_to":6454,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.010Z","updated_at":"2019-02-25T16:00:58.010Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55254,"node_from":6444,"node_to":6454,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.045Z","updated_at":"2019-02-25T16:00:58.045Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55255,"node_from":6445,"node_to":6453,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.080Z","updated_at":"2019-02-25T16:00:58.080Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55256,"node_from":6445,"node_to":6454,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.111Z","updated_at":"2019-02-25T16:00:58.111Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55257,"node_from":6445,"node_to":6455,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.147Z","updated_at":"2019-02-25T16:00:58.147Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55258,"node_from":6446,"node_to":6454,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.179Z","updated_at":"2019-02-25T16:00:58.179Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55259,"node_from":6446,"node_to":6455,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.212Z","updated_at":"2019-02-25T16:00:58.212Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55260,"node_from":6447,"node_to":6454,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.244Z","updated_at":"2019-02-25T16:00:58.244Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55261,"node_from":6447,"node_to":6455,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.278Z","updated_at":"2019-02-25T16:00:58.278Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55262,"node_from":6448,"node_to":6453,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.313Z","updated_at":"2019-02-25T16:00:58.313Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55263,"node_from":6448,"node_to":6443,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.350Z","updated_at":"2019-02-25T16:00:58.350Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55264,"node_from":6448,"node_to":6444,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.427Z","updated_at":"2019-02-25T16:00:58.427Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55265,"node_from":6448,"node_to":6445,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.465Z","updated_at":"2019-02-25T16:00:58.465Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55266,"node_from":6449,"node_to":6453,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.495Z","updated_at":"2019-02-25T16:00:58.495Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55267,"node_from":6449,"node_to":6454,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.528Z","updated_at":"2019-02-25T16:00:58.528Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55268,"node_from":6449,"node_to":6443,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.567Z","updated_at":"2019-02-25T16:00:58.567Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55269,"node_from":6449,"node_to":6444,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.605Z","updated_at":"2019-02-25T16:00:58.605Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55270,"node_from":6450,"node_to":6454,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.647Z","updated_at":"2019-02-25T16:00:58.647Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55271,"node_from":6450,"node_to":6455,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.679Z","updated_at":"2019-02-25T16:00:58.679Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55273,"node_from":6450,"node_to":6444,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.748Z","updated_at":"2019-02-25T16:00:58.748Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55274,"node_from":6450,"node_to":6445,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.785Z","updated_at":"2019-02-25T16:00:58.785Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55275,"node_from":6450,"node_to":6446,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.823Z","updated_at":"2019-02-25T16:00:58.823Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55276,"node_from":6450,"node_to":6447,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.859Z","updated_at":"2019-02-25T16:00:58.859Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55277,"node_from":6450,"node_to":6448,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.895Z","updated_at":"2019-02-25T16:00:58.895Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55278,"node_from":6450,"node_to":6449,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.929Z","updated_at":"2019-02-25T16:00:58.929Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55279,"node_from":6451,"node_to":6454,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.962Z","updated_at":"2019-02-25T16:00:58.962Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55280,"node_from":6451,"node_to":6445,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:58.995Z","updated_at":"2019-02-25T16:00:58.995Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55281,"node_from":6451,"node_to":6447,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:59.030Z","updated_at":"2019-02-25T16:00:59.030Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55282,"node_from":6451,"node_to":6450,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:59.062Z","updated_at":"2019-02-25T16:00:59.062Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55283,"node_from":6452,"node_to":6450,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:59.095Z","updated_at":"2019-02-25T16:00:59.095Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}},{"id":55284,"node_from":6452,"node_to":6451,"date":"1973-09-01T00:00:00.000Z","direction":"directed","type":"unspecified","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":926,"created_at":"2019-02-25T16:00:59.132Z","updated_at":"2019-02-25T16:00:59.132Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of a recorded interaction","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2019-02-21T21:17:01.496Z"}}]'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node/6450
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:02 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '431'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"1af-7Sn/JvuzVfFU353Xs2zt8tQRF9I"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":6450,"original_name":"fishes (type 1)","node_level":"taxon","network_id":926,"taxonomy_id":4173,"created_at":"2019-02-25T15:09:24.765Z","updated_at":"2019-02-25T15:09:24.765Z","taxonomy":{"id":4173,"name":"Salmo
+        trutta","ncbi":8032,"tsn":161997,"eol":206777,"bold":47318,"gbif":8215487,"col":"3d9e5032ec6a0c4b846544e2db56fa0a","rank":"species","created_at":"2019-02-22T22:40:06.067Z","updated_at":"2019-06-14T15:25:36.207Z"}}'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node/6443
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:02 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '189'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"bd-23zd7bGTSxSmdC+c4aq4Np/KN7s"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":6443,"original_name":"micro-","node_level":"taxon","network_id":926,"taxonomy_id":null,"created_at":"2019-02-25T15:09:24.496Z","updated_at":"2019-02-25T15:09:24.496Z","taxonomy":null}'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node/6444
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:02 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '195'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"c3-uofSeJVJjuJq06cYsjqx1m4RNTs"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":6444,"original_name":"meio-benthos","node_level":"taxon","network_id":926,"taxonomy_id":null,"created_at":"2019-02-25T15:09:24.543Z","updated_at":"2019-02-25T15:09:24.543Z","taxonomy":null}'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node/6445
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:03 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '410'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"19a-YmJN50tjS3h9OMxL8p0gxsJ7MVg"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":6445,"original_name":"mollusks","node_level":"taxon","network_id":926,"taxonomy_id":4336,"created_at":"2019-02-25T15:09:24.587Z","updated_at":"2019-02-25T15:09:24.587Z","taxonomy":{"id":4336,"name":"Mollusca","ncbi":6447,"tsn":69458,"eol":2195,"bold":23,"gbif":null,"col":"70a72224d52b24f5ee0b1d09387d1703","rank":"phylum","created_at":"2019-02-23T14:59:23.089Z","updated_at":"2019-06-14T15:25:44.735Z"}}'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node/6446
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:03 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '194'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"c2-RrMFC4h+IHybRdtUQNfrSxMm+Ws"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":6446,"original_name":"zooplankton","node_level":"taxon","network_id":926,"taxonomy_id":null,"created_at":"2019-02-25T15:09:24.625Z","updated_at":"2019-02-25T15:09:24.625Z","taxonomy":null}'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node/6447
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:03 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '406'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"196-8a88phW5BqiKovqJZfMegz7NQq4"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":6447,"original_name":"insects","node_level":"taxon","network_id":926,"taxonomy_id":4650,"created_at":"2019-02-25T15:09:24.658Z","updated_at":"2019-02-25T15:09:24.658Z","taxonomy":{"id":4650,"name":"Insecta","ncbi":50557,"tsn":4703,"eol":344,"bold":82,"gbif":null,"col":"ae304a1e0beadcfec04932589049bb5a","rank":"class","created_at":"2019-02-24T18:56:42.545Z","updated_at":"2019-06-14T15:25:59.300Z"}}'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node/6448
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:03 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '421'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"1a5-0tu5pA4MzkHUtHoUEuwtRuS4qus"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":6448,"original_name":"Callinectes","node_level":"taxon","network_id":926,"taxonomy_id":3823,"created_at":"2019-02-25T15:09:24.701Z","updated_at":"2019-02-25T15:09:24.701Z","taxonomy":{"id":3823,"name":"Callinectes","ncbi":6762,"tsn":13951,"eol":46508442,"bold":4985,"gbif":null,"col":"8c9d5b7b0ef67ba0ca49a80b06665541","rank":"genus","created_at":"2019-02-22T14:55:39.819Z","updated_at":"2019-06-14T15:25:29.810Z"}}'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node/6449
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:03 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '415'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"19f-iz3kD0nh8GonUzB9dQvw01QNo/k"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":6449,"original_name":"Penaeus","node_level":"taxon","network_id":926,"taxonomy_id":4806,"created_at":"2019-02-25T15:09:24.733Z","updated_at":"2019-02-25T15:09:24.733Z","taxonomy":{"id":4806,"name":"Penaeus","ncbi":133894,"tsn":95603,"eol":46502054,"bold":5629,"gbif":null,"col":"854dd2c279c74204cd65501818d105d4","rank":"genus","created_at":"2019-02-24T23:42:56.274Z","updated_at":"2019-06-14T15:26:06.793Z"}}'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node/6451
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:03 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '198'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"c6-bU+TD6fofq2fBkC5myLnQ1SuPGg"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":6451,"original_name":"fishes (type 2)","node_level":"taxon","network_id":926,"taxonomy_id":null,"created_at":"2019-02-25T15:09:24.799Z","updated_at":"2019-02-25T15:09:24.799Z","taxonomy":null}'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node/6452
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:03 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '438'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"1b6-J8R/BgggCX7m0rC0YufW75nYKmc"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":6452,"original_name":"fishes (type 3)","node_level":"taxon","network_id":926,"taxonomy_id":4807,"created_at":"2019-02-25T15:09:24.843Z","updated_at":"2019-02-25T15:09:24.843Z","taxonomy":{"id":4807,"name":"Salvelinus
+        alpinus","ncbi":8036,"tsn":162001,"eol":1156463,"bold":80552,"gbif":4284021,"col":"2b256e111056ab998c15402950cf0b1b","rank":"species","created_at":"2019-02-24T23:42:56.358Z","updated_at":"2019-06-14T15:26:06.915Z"}}'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node/6453
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:04 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '429'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"1ad-Ab9jWH6cBboji3TU8p6/t/G9LTA"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":6453,"original_name":"benthic algae","node_level":"taxon","network_id":926,"taxonomy_id":4309,"created_at":"2019-02-25T15:09:24.890Z","updated_at":"2019-02-25T15:09:24.890Z","taxonomy":{"id":4309,"name":"Archanara
+        algae","ncbi":131213,"tsn":9417,"eol":522707,"bold":22849,"gbif":null,"col":"f78d2ff8715be72fd77608d38b07cf32","rank":"species","created_at":"2019-02-23T14:12:12.304Z","updated_at":"2019-06-14T15:25:43.663Z"}}'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node/6454
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:04 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '191'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"bf-YI9FIWmpLRFTgmtAA8NpXWQNd1w"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":6454,"original_name":"detritus","node_level":"taxon","network_id":926,"taxonomy_id":null,"created_at":"2019-02-25T15:09:24.933Z","updated_at":"2019-02-25T15:09:24.933Z","taxonomy":null}'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node/6455
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:04 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '196'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"c4-MrntpLknarFdjUaFIQO+Yhr6GDg"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":6455,"original_name":"phytoplankton","node_level":"taxon","network_id":926,"taxonomy_id":null,"created_at":"2019-02-25T15:09:24.979Z","updated_at":"2019-02-25T15:09:24.979Z","taxonomy":null}'
+  recorded_at: 2020-10-25 21:53:04 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0

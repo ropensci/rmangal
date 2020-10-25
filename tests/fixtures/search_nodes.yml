@@ -1,0 +1,213 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node?q=Acer&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:13 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '2167'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-4/5
+      etag: W/"877-9C9A7eWba0+5/zfrW2jPwfNIvNE"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":2629,"original_name":"Acer negundo","node_level":"taxon","network_id":19,"taxonomy_id":2,"created_at":"2019-02-22T18:48:49.433Z","updated_at":"2019-02-22T18:48:49.433Z","taxonomy":{"id":2,"name":"Acer
+        negundo","ncbi":4023,"tsn":28749,"eol":583069,"bold":100987,"gbif":3189866,"col":"90203e29e2f59e5754167f89b9eba3cc","rank":"species","created_at":"2019-02-21T21:17:12.585Z","updated_at":"2019-06-14T15:20:36.273Z"}},{"id":2630,"original_name":"Acer
+        saccharinum","node_level":"taxon","network_id":19,"taxonomy_id":3,"created_at":"2019-02-22T18:48:49.465Z","updated_at":"2019-02-22T18:48:49.465Z","taxonomy":{"id":3,"name":"Acer
+        saccharinum","ncbi":75745,"tsn":28757,"eol":583072,"bold":101028,"gbif":3189837,"col":"1582ed5db846e241f3e18da418a2a477","rank":"species","created_at":"2019-02-21T21:17:12.637Z","updated_at":"2019-06-14T15:20:36.328Z"}},{"id":8895,"original_name":"Acer
+        shirasawanum","node_level":"taxon","network_id":948,"taxonomy_id":3117,"created_at":"2019-02-25T20:52:53.654Z","updated_at":"2019-02-25T20:52:53.654Z","taxonomy":{"id":3117,"name":"Acer
+        shirasawanum","ncbi":66216,"tsn":null,"eol":5613162,"bold":485602,"gbif":7263086,"col":"25b4371fbbdc5b1cd43fad895050cc05","rank":"species","created_at":"2019-02-22T00:31:49.729Z","updated_at":"2019-06-14T15:24:56.217Z"}},{"id":8923,"original_name":"Acer
+        ukurunduense","node_level":"taxon","network_id":948,"taxonomy_id":3144,"created_at":"2019-02-25T20:52:54.835Z","updated_at":"2019-02-25T20:52:54.835Z","taxonomy":{"id":3144,"name":"Acer
+        caudatum","ncbi":290844,"tsn":null,"eol":2888949,"bold":102168,"gbif":7263099,"col":"1211e426bdec174da9a7526348c26fb9","rank":"species","created_at":"2019-02-22T00:31:52.729Z","updated_at":"2019-06-14T15:24:57.854Z"}},{"id":8930,"original_name":"Acer
+        japonicum","node_level":"taxon","network_id":948,"taxonomy_id":3151,"created_at":"2019-02-25T20:52:55.175Z","updated_at":"2019-02-25T20:52:55.175Z","taxonomy":{"id":3151,"name":"Acer
+        japonicum","ncbi":47966,"tsn":837855,"eol":2888970,"bold":448667,"gbif":8010851,"col":"3388e995334d5638aeb11ef84f98b319","rank":"species","created_at":"2019-02-22T00:31:53.328Z","updated_at":"2019-06-14T15:24:58.251Z"}}]'
+  recorded_at: 2020-10-25 21:53:13 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node?q=Acer&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:13 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '2167'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-4/5
+      etag: W/"877-9C9A7eWba0+5/zfrW2jPwfNIvNE"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":2629,"original_name":"Acer negundo","node_level":"taxon","network_id":19,"taxonomy_id":2,"created_at":"2019-02-22T18:48:49.433Z","updated_at":"2019-02-22T18:48:49.433Z","taxonomy":{"id":2,"name":"Acer
+        negundo","ncbi":4023,"tsn":28749,"eol":583069,"bold":100987,"gbif":3189866,"col":"90203e29e2f59e5754167f89b9eba3cc","rank":"species","created_at":"2019-02-21T21:17:12.585Z","updated_at":"2019-06-14T15:20:36.273Z"}},{"id":2630,"original_name":"Acer
+        saccharinum","node_level":"taxon","network_id":19,"taxonomy_id":3,"created_at":"2019-02-22T18:48:49.465Z","updated_at":"2019-02-22T18:48:49.465Z","taxonomy":{"id":3,"name":"Acer
+        saccharinum","ncbi":75745,"tsn":28757,"eol":583072,"bold":101028,"gbif":3189837,"col":"1582ed5db846e241f3e18da418a2a477","rank":"species","created_at":"2019-02-21T21:17:12.637Z","updated_at":"2019-06-14T15:20:36.328Z"}},{"id":8895,"original_name":"Acer
+        shirasawanum","node_level":"taxon","network_id":948,"taxonomy_id":3117,"created_at":"2019-02-25T20:52:53.654Z","updated_at":"2019-02-25T20:52:53.654Z","taxonomy":{"id":3117,"name":"Acer
+        shirasawanum","ncbi":66216,"tsn":null,"eol":5613162,"bold":485602,"gbif":7263086,"col":"25b4371fbbdc5b1cd43fad895050cc05","rank":"species","created_at":"2019-02-22T00:31:49.729Z","updated_at":"2019-06-14T15:24:56.217Z"}},{"id":8923,"original_name":"Acer
+        ukurunduense","node_level":"taxon","network_id":948,"taxonomy_id":3144,"created_at":"2019-02-25T20:52:54.835Z","updated_at":"2019-02-25T20:52:54.835Z","taxonomy":{"id":3144,"name":"Acer
+        caudatum","ncbi":290844,"tsn":null,"eol":2888949,"bold":102168,"gbif":7263099,"col":"1211e426bdec174da9a7526348c26fb9","rank":"species","created_at":"2019-02-22T00:31:52.729Z","updated_at":"2019-06-14T15:24:57.854Z"}},{"id":8930,"original_name":"Acer
+        japonicum","node_level":"taxon","network_id":948,"taxonomy_id":3151,"created_at":"2019-02-25T20:52:55.175Z","updated_at":"2019-02-25T20:52:55.175Z","taxonomy":{"id":3151,"name":"Acer
+        japonicum","ncbi":47966,"tsn":837855,"eol":2888970,"bold":448667,"gbif":8010851,"col":"3388e995334d5638aeb11ef84f98b319","rank":"species","created_at":"2019-02-22T00:31:53.328Z","updated_at":"2019-06-14T15:24:58.251Z"}}]'
+  recorded_at: 2020-10-25 21:53:13 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node?network_id=926&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:13 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '4127'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-12/13
+      etag: W/"101f-016ok97Ro+i0tfZV/xRnyNU0ZHc"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":6445,"original_name":"mollusks","node_level":"taxon","network_id":926,"taxonomy_id":4336,"created_at":"2019-02-25T15:09:24.587Z","updated_at":"2019-02-25T15:09:24.587Z","taxonomy":{"id":4336,"name":"Mollusca","ncbi":6447,"tsn":69458,"eol":2195,"bold":23,"gbif":null,"col":"70a72224d52b24f5ee0b1d09387d1703","rank":"phylum","created_at":"2019-02-23T14:59:23.089Z","updated_at":"2019-06-14T15:25:44.735Z"}},{"id":6447,"original_name":"insects","node_level":"taxon","network_id":926,"taxonomy_id":4650,"created_at":"2019-02-25T15:09:24.658Z","updated_at":"2019-02-25T15:09:24.658Z","taxonomy":{"id":4650,"name":"Insecta","ncbi":50557,"tsn":4703,"eol":344,"bold":82,"gbif":null,"col":"ae304a1e0beadcfec04932589049bb5a","rank":"class","created_at":"2019-02-24T18:56:42.545Z","updated_at":"2019-06-14T15:25:59.300Z"}},{"id":6448,"original_name":"Callinectes","node_level":"taxon","network_id":926,"taxonomy_id":3823,"created_at":"2019-02-25T15:09:24.701Z","updated_at":"2019-02-25T15:09:24.701Z","taxonomy":{"id":3823,"name":"Callinectes","ncbi":6762,"tsn":13951,"eol":46508442,"bold":4985,"gbif":null,"col":"8c9d5b7b0ef67ba0ca49a80b06665541","rank":"genus","created_at":"2019-02-22T14:55:39.819Z","updated_at":"2019-06-14T15:25:29.810Z"}},{"id":6449,"original_name":"Penaeus","node_level":"taxon","network_id":926,"taxonomy_id":4806,"created_at":"2019-02-25T15:09:24.733Z","updated_at":"2019-02-25T15:09:24.733Z","taxonomy":{"id":4806,"name":"Penaeus","ncbi":133894,"tsn":95603,"eol":46502054,"bold":5629,"gbif":null,"col":"854dd2c279c74204cd65501818d105d4","rank":"genus","created_at":"2019-02-24T23:42:56.274Z","updated_at":"2019-06-14T15:26:06.793Z"}},{"id":6450,"original_name":"fishes
+        (type 1)","node_level":"taxon","network_id":926,"taxonomy_id":4173,"created_at":"2019-02-25T15:09:24.765Z","updated_at":"2019-02-25T15:09:24.765Z","taxonomy":{"id":4173,"name":"Salmo
+        trutta","ncbi":8032,"tsn":161997,"eol":206777,"bold":47318,"gbif":8215487,"col":"3d9e5032ec6a0c4b846544e2db56fa0a","rank":"species","created_at":"2019-02-22T22:40:06.067Z","updated_at":"2019-06-14T15:25:36.207Z"}},{"id":6452,"original_name":"fishes
+        (type 3)","node_level":"taxon","network_id":926,"taxonomy_id":4807,"created_at":"2019-02-25T15:09:24.843Z","updated_at":"2019-02-25T15:09:24.843Z","taxonomy":{"id":4807,"name":"Salvelinus
+        alpinus","ncbi":8036,"tsn":162001,"eol":1156463,"bold":80552,"gbif":4284021,"col":"2b256e111056ab998c15402950cf0b1b","rank":"species","created_at":"2019-02-24T23:42:56.358Z","updated_at":"2019-06-14T15:26:06.915Z"}},{"id":6453,"original_name":"benthic
+        algae","node_level":"taxon","network_id":926,"taxonomy_id":4309,"created_at":"2019-02-25T15:09:24.890Z","updated_at":"2019-02-25T15:09:24.890Z","taxonomy":{"id":4309,"name":"Archanara
+        algae","ncbi":131213,"tsn":9417,"eol":522707,"bold":22849,"gbif":null,"col":"f78d2ff8715be72fd77608d38b07cf32","rank":"species","created_at":"2019-02-23T14:12:12.304Z","updated_at":"2019-06-14T15:25:43.663Z"}},{"id":6454,"original_name":"detritus","node_level":"taxon","network_id":926,"taxonomy_id":null,"created_at":"2019-02-25T15:09:24.933Z","updated_at":"2019-02-25T15:09:24.933Z","taxonomy":null},{"id":6446,"original_name":"zooplankton","node_level":"taxon","network_id":926,"taxonomy_id":null,"created_at":"2019-02-25T15:09:24.625Z","updated_at":"2019-02-25T15:09:24.625Z","taxonomy":null},{"id":6451,"original_name":"fishes
+        (type 2)","node_level":"taxon","network_id":926,"taxonomy_id":null,"created_at":"2019-02-25T15:09:24.799Z","updated_at":"2019-02-25T15:09:24.799Z","taxonomy":null},{"id":6455,"original_name":"phytoplankton","node_level":"taxon","network_id":926,"taxonomy_id":null,"created_at":"2019-02-25T15:09:24.979Z","updated_at":"2019-02-25T15:09:24.979Z","taxonomy":null},{"id":6443,"original_name":"micro-","node_level":"taxon","network_id":926,"taxonomy_id":null,"created_at":"2019-02-25T15:09:24.496Z","updated_at":"2019-02-25T15:09:24.496Z","taxonomy":null},{"id":6444,"original_name":"meio-benthos","node_level":"taxon","network_id":926,"taxonomy_id":null,"created_at":"2019-02-25T15:09:24.543Z","updated_at":"2019-02-25T15:09:24.543Z","taxonomy":null}]'
+  recorded_at: 2020-10-25 21:53:13 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node?network_id=926&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:13 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '4127'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-12/13
+      etag: W/"101f-016ok97Ro+i0tfZV/xRnyNU0ZHc"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":6445,"original_name":"mollusks","node_level":"taxon","network_id":926,"taxonomy_id":4336,"created_at":"2019-02-25T15:09:24.587Z","updated_at":"2019-02-25T15:09:24.587Z","taxonomy":{"id":4336,"name":"Mollusca","ncbi":6447,"tsn":69458,"eol":2195,"bold":23,"gbif":null,"col":"70a72224d52b24f5ee0b1d09387d1703","rank":"phylum","created_at":"2019-02-23T14:59:23.089Z","updated_at":"2019-06-14T15:25:44.735Z"}},{"id":6447,"original_name":"insects","node_level":"taxon","network_id":926,"taxonomy_id":4650,"created_at":"2019-02-25T15:09:24.658Z","updated_at":"2019-02-25T15:09:24.658Z","taxonomy":{"id":4650,"name":"Insecta","ncbi":50557,"tsn":4703,"eol":344,"bold":82,"gbif":null,"col":"ae304a1e0beadcfec04932589049bb5a","rank":"class","created_at":"2019-02-24T18:56:42.545Z","updated_at":"2019-06-14T15:25:59.300Z"}},{"id":6448,"original_name":"Callinectes","node_level":"taxon","network_id":926,"taxonomy_id":3823,"created_at":"2019-02-25T15:09:24.701Z","updated_at":"2019-02-25T15:09:24.701Z","taxonomy":{"id":3823,"name":"Callinectes","ncbi":6762,"tsn":13951,"eol":46508442,"bold":4985,"gbif":null,"col":"8c9d5b7b0ef67ba0ca49a80b06665541","rank":"genus","created_at":"2019-02-22T14:55:39.819Z","updated_at":"2019-06-14T15:25:29.810Z"}},{"id":6449,"original_name":"Penaeus","node_level":"taxon","network_id":926,"taxonomy_id":4806,"created_at":"2019-02-25T15:09:24.733Z","updated_at":"2019-02-25T15:09:24.733Z","taxonomy":{"id":4806,"name":"Penaeus","ncbi":133894,"tsn":95603,"eol":46502054,"bold":5629,"gbif":null,"col":"854dd2c279c74204cd65501818d105d4","rank":"genus","created_at":"2019-02-24T23:42:56.274Z","updated_at":"2019-06-14T15:26:06.793Z"}},{"id":6450,"original_name":"fishes
+        (type 1)","node_level":"taxon","network_id":926,"taxonomy_id":4173,"created_at":"2019-02-25T15:09:24.765Z","updated_at":"2019-02-25T15:09:24.765Z","taxonomy":{"id":4173,"name":"Salmo
+        trutta","ncbi":8032,"tsn":161997,"eol":206777,"bold":47318,"gbif":8215487,"col":"3d9e5032ec6a0c4b846544e2db56fa0a","rank":"species","created_at":"2019-02-22T22:40:06.067Z","updated_at":"2019-06-14T15:25:36.207Z"}},{"id":6452,"original_name":"fishes
+        (type 3)","node_level":"taxon","network_id":926,"taxonomy_id":4807,"created_at":"2019-02-25T15:09:24.843Z","updated_at":"2019-02-25T15:09:24.843Z","taxonomy":{"id":4807,"name":"Salvelinus
+        alpinus","ncbi":8036,"tsn":162001,"eol":1156463,"bold":80552,"gbif":4284021,"col":"2b256e111056ab998c15402950cf0b1b","rank":"species","created_at":"2019-02-24T23:42:56.358Z","updated_at":"2019-06-14T15:26:06.915Z"}},{"id":6453,"original_name":"benthic
+        algae","node_level":"taxon","network_id":926,"taxonomy_id":4309,"created_at":"2019-02-25T15:09:24.890Z","updated_at":"2019-02-25T15:09:24.890Z","taxonomy":{"id":4309,"name":"Archanara
+        algae","ncbi":131213,"tsn":9417,"eol":522707,"bold":22849,"gbif":null,"col":"f78d2ff8715be72fd77608d38b07cf32","rank":"species","created_at":"2019-02-23T14:12:12.304Z","updated_at":"2019-06-14T15:25:43.663Z"}},{"id":6454,"original_name":"detritus","node_level":"taxon","network_id":926,"taxonomy_id":null,"created_at":"2019-02-25T15:09:24.933Z","updated_at":"2019-02-25T15:09:24.933Z","taxonomy":null},{"id":6446,"original_name":"zooplankton","node_level":"taxon","network_id":926,"taxonomy_id":null,"created_at":"2019-02-25T15:09:24.625Z","updated_at":"2019-02-25T15:09:24.625Z","taxonomy":null},{"id":6451,"original_name":"fishes
+        (type 2)","node_level":"taxon","network_id":926,"taxonomy_id":null,"created_at":"2019-02-25T15:09:24.799Z","updated_at":"2019-02-25T15:09:24.799Z","taxonomy":null},{"id":6455,"original_name":"phytoplankton","node_level":"taxon","network_id":926,"taxonomy_id":null,"created_at":"2019-02-25T15:09:24.979Z","updated_at":"2019-02-25T15:09:24.979Z","taxonomy":null},{"id":6443,"original_name":"micro-","node_level":"taxon","network_id":926,"taxonomy_id":null,"created_at":"2019-02-25T15:09:24.496Z","updated_at":"2019-02-25T15:09:24.496Z","taxonomy":null},{"id":6444,"original_name":"meio-benthos","node_level":"taxon","network_id":926,"taxonomy_id":null,"created_at":"2019-02-25T15:09:24.543Z","updated_at":"2019-02-25T15:09:24.543Z","taxonomy":null}]'
+  recorded_at: 2020-10-25 21:53:13 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node?q=wrong&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:13 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '2'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-0/0
+      etag: W/"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[]'
+  recorded_at: 2020-10-25 21:53:13 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node?q=wrong&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:53:13 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '2'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-0/0
+      etag: W/"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[]'
+  recorded_at: 2020-10-25 21:53:13 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0

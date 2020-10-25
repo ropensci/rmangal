@@ -1,13 +1,15 @@
 context("search_taxonomy")
 
-res1 <- search_taxonomy("Acer")
-res2 <- search_taxonomy("Acer japonicum")
-resTsn <- search_taxonomy(tsn = 28749)
-resNcbi <- search_taxonomy(ncbi = 47966)
-resEol <- search_taxonomy(eol =  583069)
-resBold <- search_taxonomy(bold = 100987)
-resw <- search_taxonomy("Does not work")
-res_j <- get_collection(res2)
+vcr::use_cassette(name = "search_taxonomy", {
+  res1 <- search_taxonomy("Acer")
+  res2 <- search_taxonomy("Acer japonicum")
+  resTsn <- search_taxonomy(tsn = 28749)
+  resNcbi <- search_taxonomy(ncbi = 47966)
+  resEol <- search_taxonomy(eol =  583069)
+  resBold <- search_taxonomy(bold = 100987)
+  resw <- search_taxonomy("Does not work")
+  res_j <- get_collection(res2)
+})
 
 test_that("expected behavior", {
   expect_true("mgSearchTaxonomy" %in% class(res1))

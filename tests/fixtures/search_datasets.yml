@@ -1,0 +1,1459 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/dataset?q=lagoon&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:53 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '412'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-1/2
+      etag: W/"19c-5bS/yNG9a7JHOK33TQApozEiK2U"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":22,"name":"zetina_2003","description":"Dietary matrix of the
+        Huizache–Caimanero lagoon","public":true,"created_at":"2019-02-23T17:04:32.017Z","updated_at":"2019-02-23T17:04:32.017Z","ref_id":22,"user_id":3},{"id":52,"name":"yanez_1978","description":"Food
+        web of the Guerrero lagoon","public":true,"created_at":"2019-02-24T23:42:52.062Z","updated_at":"2019-02-24T23:42:52.062Z","ref_id":53,"user_id":3}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/dataset?q=lagoon&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:53 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '412'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-1/2
+      etag: W/"19c-5bS/yNG9a7JHOK33TQApozEiK2U"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":22,"name":"zetina_2003","description":"Dietary matrix of the
+        Huizache–Caimanero lagoon","public":true,"created_at":"2019-02-23T17:04:32.017Z","updated_at":"2019-02-23T17:04:32.017Z","ref_id":22,"user_id":3},{"id":52,"name":"yanez_1978","description":"Food
+        web of the Guerrero lagoon","public":true,"created_at":"2019-02-24T23:42:52.062Z","updated_at":"2019-02-24T23:42:52.062Z","ref_id":53,"user_id":3}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network?dataset_id=22&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:53 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '352'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-0/1
+      etag: W/"160-O3poC6y0lUse0AZblvCsovy1JhY"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":86,"name":"zetina_2003_20030101_86","date":"2003-01-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-106.10993,22.985307]},"description":"Dietary
+        matrix of the Huizache–Caimanero lagoon","public":true,"all_interactions":false,"created_at":"2019-02-23T17:04:34.046Z","updated_at":"2019-02-23T17:04:34.046Z","dataset_id":22,"user_id":3}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network?dataset_id=22&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:53 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '352'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-0/1
+      etag: W/"160-O3poC6y0lUse0AZblvCsovy1JhY"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":86,"name":"zetina_2003_20030101_86","date":"2003-01-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-106.10993,22.985307]},"description":"Dietary
+        matrix of the Huizache–Caimanero lagoon","public":true,"all_interactions":false,"created_at":"2019-02-23T17:04:34.046Z","updated_at":"2019-02-23T17:04:34.046Z","dataset_id":22,"user_id":3}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/reference/22
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:53 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '830'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"33e-b0urjHsEEKcA+SzAR+lesboTp0A"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":22,"doi":"10.1016/s0272-7714(02)00410-9","first_author":"manuel
+        j. zetina-rejon","year":"2003","jstor":null,"pmid":null,"bibtex":"@article{Zetina_Rej_n_2003,
+        doi = {10.1016/s0272-7714(02)00410-9}, url = {https://doi.org/10.1016%2Fs0272-7714%2802%2900410-9},
+        year = 2003, month = {aug}, publisher = {Elsevier {BV}}, volume = {57}, number
+        = {5-6}, pages = {803--815}, author = {Manuel J. Zetina-Rejón and Francisco
+        Arreguí-Sánchez and Ernesto A. Chávez}, title = {Trophic structure and flows
+        of energy in the Huizache{\textendash}Caimanero lagoon complex on the Pacific
+        coast of Mexico},journal = {Estuarine, Coastal and Shelf Science}}","paper_url":"https://doi.org/10.1016%2Fs0272-7714%2802%2900410-9","data_url":"https://globalwebdb.com/","created_at":"2019-02-23T17:04:28.307Z","updated_at":"2019-02-23T17:04:28.307Z"}'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network?dataset_id=52&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:53 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '669'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-1/2
+      etag: W/"29d-B1hSCG8Mf4fdJbAq47gfNcVtj/M"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":927,"name":"yanez_1978_19730901_927","date":"1973-09-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-100.365564,17.069151]},"description":"Food
+        web of the Brackish lagoon","public":true,"all_interactions":false,"created_at":"2019-02-25T15:09:11.020Z","updated_at":"2019-02-25T15:09:11.020Z","dataset_id":52,"user_id":3},{"id":926,"name":"yanez_1978_19730901_926","date":"1973-09-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-100.365564,17.069151]},"description":"Food
+        web of the Costal lagoon","public":true,"all_interactions":false,"created_at":"2019-02-25T15:09:10.651Z","updated_at":"2019-02-25T15:09:10.651Z","dataset_id":52,"user_id":3}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network?dataset_id=52&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:53 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '669'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-1/2
+      etag: W/"29d-B1hSCG8Mf4fdJbAq47gfNcVtj/M"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":927,"name":"yanez_1978_19730901_927","date":"1973-09-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-100.365564,17.069151]},"description":"Food
+        web of the Brackish lagoon","public":true,"all_interactions":false,"created_at":"2019-02-25T15:09:11.020Z","updated_at":"2019-02-25T15:09:11.020Z","dataset_id":52,"user_id":3},{"id":926,"name":"yanez_1978_19730901_926","date":"1973-09-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-100.365564,17.069151]},"description":"Food
+        web of the Costal lagoon","public":true,"all_interactions":false,"created_at":"2019-02-25T15:09:10.651Z","updated_at":"2019-02-25T15:09:10.651Z","dataset_id":52,"user_id":3}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/reference/53
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:53 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '680'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"2a8-Hy5tzG7X5zgpwGq8CbDq7wn2Avw"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":53,"doi":null,"first_author":"yanez-arancibia, alejandro","year":"1978","jstor":null,"pmid":null,"bibtex":"@book{yanez_1978,
+        Author = {Yáñez-Arancibia, Alejandro}, Editor = {Universidad Nacional Autónoma
+        de México, Centro de Ciencias del Mar y Limnología. Ciudad Universitaria,
+        México, D.F. -- 1a ed.},Title = {Taxonomía, ecología y estructura de las comunidades
+        de peces en lagunas costeras con bocas efímeras del Pacífico de México}, Year
+        = {1978}}","paper_url":"http://biblioweb.tic.unam.mx/cienciasdelmar/especiales/1978-2/articulo455.html","data_url":"https://globalwebdb.com/","created_at":"2019-02-24T23:42:48.052Z","updated_at":"2019-02-24T23:42:48.052Z"}'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/dataset?name=kemp_1977&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:54 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '203'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-0/1
+      etag: W/"cb-vQYWqEcyECr41tyqY2c5fp0xX5I"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":16,"name":"kemp_1977","description":"Food web for the Crystal
+        River estuary","public":true,"created_at":"2019-02-23T03:02:31.697Z","updated_at":"2019-02-23T03:02:31.697Z","ref_id":16,"user_id":3}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/dataset?name=kemp_1977&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:54 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '203'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-0/1
+      etag: W/"cb-vQYWqEcyECr41tyqY2c5fp0xX5I"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":16,"name":"kemp_1977","description":"Food web for the Crystal
+        River estuary","public":true,"created_at":"2019-02-23T03:02:31.697Z","updated_at":"2019-02-23T03:02:31.697Z","ref_id":16,"user_id":3}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network?dataset_id=16&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:54 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '339'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-0/1
+      etag: W/"153-mxE9Ui2jZUM+uCrqGGsrMon8l8I"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":80,"name":"kemp_1977_19770101_80","date":"1977-01-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-82.685704,28.846405]},"description":"Food
+        web for the Crystal River estuary","public":true,"all_interactions":false,"created_at":"2019-02-23T03:03:04.151Z","updated_at":"2019-02-23T03:03:04.151Z","dataset_id":16,"user_id":3}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network?dataset_id=16&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:54 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '339'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-0/1
+      etag: W/"153-mxE9Ui2jZUM+uCrqGGsrMon8l8I"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":80,"name":"kemp_1977_19770101_80","date":"1977-01-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-82.685704,28.846405]},"description":"Food
+        web for the Crystal River estuary","public":true,"all_interactions":false,"created_at":"2019-02-23T03:03:04.151Z","updated_at":"2019-02-23T03:03:04.151Z","dataset_id":16,"user_id":3}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/reference/16
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:54 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '625'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"271-5f9iWfJMK6rdLPlElnJjfpFDnRU"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":16,"doi":null,"first_author":"w. m. kemp","year":"1977","jstor":null,"pmid":null,"bibtex":"@inbook{kemp_1977,
+        place={New York}, title={Energy cost-benefit analysis applied to power plants
+        near Crystal River, Florida}, booktitle={Ecosystem Modeling in Theory and
+        Practice: An Introduction with Case Histories}, publisher={Wiley}, author={Kemp,
+        W. M. and Smith, W. H. B. and McKellar, H. N. and Lehman, M. E. and Homer,
+        M. and Young, D. L. and Odum, H. T.}, pages={507–543, p. 512}}","paper_url":null,"data_url":"https://globalwebdb.com/","created_at":"2019-02-23T03:01:41.925Z","updated_at":"2019-02-23T03:01:41.925Z"}'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/dataset?q=2011&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:54 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '2117'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-8/9
+      etag: W/"845-C1xB8C2dDDYCIOWwIKxRu3FM9Io"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":32,"name":"gontikaki_2011","description":"Food web of a sub-arctic
+        deep-sea benthic community","public":true,"created_at":"2019-02-24T15:16:24.404Z","updated_at":"2019-02-24T15:16:24.404Z","ref_id":32,"user_id":3},{"id":70,"name":"kohler_2011","description":"Hummingbirds-flowers
+        interactions in an altitudinal gradient in the Brazilian Atlantic Rainforest","public":true,"created_at":"2019-02-25T21:28:48.689Z","updated_at":"2019-02-25T21:28:48.689Z","ref_id":69,"user_id":2},{"id":73,"name":"filgueira_2011","description":"Food
+        web of the Ria de Vigo","public":true,"created_at":"2019-02-26T19:15:58.087Z","updated_at":"2019-02-26T19:15:58.087Z","ref_id":72,"user_id":3},{"id":74,"name":"baeta_2011","description":"Food
+        web of the Mondego bay estuary","public":true,"created_at":"2019-02-26T19:50:23.243Z","updated_at":"2019-02-26T19:50:23.243Z","ref_id":73,"user_id":3},{"id":79,"name":"douglas_2011","description":"Food
+        web of the Chesapeake''s Bay Eelgrass Bed","public":true,"created_at":"2019-02-27T00:20:35.186Z","updated_at":"2019-02-27T00:20:35.186Z","ref_id":78,"user_id":3},{"id":94,"name":"fetahi_et_al_2011","description":"Food
+        web structure and diet composition based on an Ecopath model in Lake Hayq,
+        Ethiopia","public":true,"created_at":"2019-03-01T20:10:53.367Z","updated_at":"2019-03-01T20:10:53.367Z","ref_id":93,"user_id":4},{"id":97,"name":"hampton_et_al_2011","description":"Food
+        web structure of a deep oligotrophic lake (Lake Crescent), Washington, USA","public":true,"created_at":"2019-03-04T15:45:31.613Z","updated_at":"2019-03-04T15:45:31.613Z","ref_id":96,"user_id":4},{"id":155,"name":"filgueira_castro_2011","description":"Food
+        web structure of an intertidal zone in San Simon Bay, Spain","public":true,"created_at":"2019-03-15T16:14:00.003Z","updated_at":"2019-03-15T16:14:00.003Z","ref_id":152,"user_id":4},{"id":163,"name":"stewart_sprules_2011","description":"Food
+        web structure of the offshore community at different times, Lake Ontario,
+        Ontario, Canada","public":true,"created_at":"2019-03-20T18:16:14.977Z","updated_at":"2019-03-20T18:16:14.977Z","ref_id":160,"user_id":4}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/dataset?q=2011&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:54 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '2117'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-8/9
+      etag: W/"845-C1xB8C2dDDYCIOWwIKxRu3FM9Io"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":32,"name":"gontikaki_2011","description":"Food web of a sub-arctic
+        deep-sea benthic community","public":true,"created_at":"2019-02-24T15:16:24.404Z","updated_at":"2019-02-24T15:16:24.404Z","ref_id":32,"user_id":3},{"id":70,"name":"kohler_2011","description":"Hummingbirds-flowers
+        interactions in an altitudinal gradient in the Brazilian Atlantic Rainforest","public":true,"created_at":"2019-02-25T21:28:48.689Z","updated_at":"2019-02-25T21:28:48.689Z","ref_id":69,"user_id":2},{"id":73,"name":"filgueira_2011","description":"Food
+        web of the Ria de Vigo","public":true,"created_at":"2019-02-26T19:15:58.087Z","updated_at":"2019-02-26T19:15:58.087Z","ref_id":72,"user_id":3},{"id":74,"name":"baeta_2011","description":"Food
+        web of the Mondego bay estuary","public":true,"created_at":"2019-02-26T19:50:23.243Z","updated_at":"2019-02-26T19:50:23.243Z","ref_id":73,"user_id":3},{"id":79,"name":"douglas_2011","description":"Food
+        web of the Chesapeake''s Bay Eelgrass Bed","public":true,"created_at":"2019-02-27T00:20:35.186Z","updated_at":"2019-02-27T00:20:35.186Z","ref_id":78,"user_id":3},{"id":94,"name":"fetahi_et_al_2011","description":"Food
+        web structure and diet composition based on an Ecopath model in Lake Hayq,
+        Ethiopia","public":true,"created_at":"2019-03-01T20:10:53.367Z","updated_at":"2019-03-01T20:10:53.367Z","ref_id":93,"user_id":4},{"id":97,"name":"hampton_et_al_2011","description":"Food
+        web structure of a deep oligotrophic lake (Lake Crescent), Washington, USA","public":true,"created_at":"2019-03-04T15:45:31.613Z","updated_at":"2019-03-04T15:45:31.613Z","ref_id":96,"user_id":4},{"id":155,"name":"filgueira_castro_2011","description":"Food
+        web structure of an intertidal zone in San Simon Bay, Spain","public":true,"created_at":"2019-03-15T16:14:00.003Z","updated_at":"2019-03-15T16:14:00.003Z","ref_id":152,"user_id":4},{"id":163,"name":"stewart_sprules_2011","description":"Food
+        web structure of the offshore community at different times, Lake Ontario,
+        Ontario, Canada","public":true,"created_at":"2019-03-20T18:16:14.977Z","updated_at":"2019-03-20T18:16:14.977Z","ref_id":160,"user_id":4}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network?dataset_id=32&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:54 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '356'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-0/1
+      etag: W/"164-bRtJEUdlJZvjuwhW5s6T/xSoxi4"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":96,"name":"gontikaki_2011_20070501_96","date":"2007-05-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-2.666583,61.219111]},"description":"Food
+        web of a sub-arctic deep-sea benthic community","public":true,"all_interactions":false,"created_at":"2019-02-24T15:16:25.766Z","updated_at":"2019-02-24T15:16:25.766Z","dataset_id":32,"user_id":3}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network?dataset_id=32&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:54 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '356'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-0/1
+      etag: W/"164-bRtJEUdlJZvjuwhW5s6T/xSoxi4"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":96,"name":"gontikaki_2011_20070501_96","date":"2007-05-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-2.666583,61.219111]},"description":"Food
+        web of a sub-arctic deep-sea benthic community","public":true,"all_interactions":false,"created_at":"2019-02-24T15:16:25.766Z","updated_at":"2019-02-24T15:16:25.766Z","dataset_id":32,"user_id":3}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/reference/32
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:54 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '715'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"2cb-/HSvk3KMtVb7ZWybybsJ9BGVDIM"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":32,"doi":"10.1016/j.pocean.2010.12.014","first_author":"e. gontikaki","year":"2011","jstor":null,"pmid":null,"bibtex":"@article{Gontikaki_2011,
+        doi = {10.1016/j.pocean.2010.12.014}, url = {https://doi.org/10.1016%2Fj.pocean.2010.12.014},
+        year = 2011, month = {nov}, publisher = {Elsevier {BV}}, volume = {91}, number
+        = {3}, pages = {245--259}, author = {E. Gontikaki and D. van Oevelen and K.
+        Soetaert and U. Witte}, title = {Food web flows through a sub-arctic deep-sea
+        benthic community}, journal = {Progress in Oceanography}}","paper_url":"https://doi.org/10.1016%2Fj.pocean.2010.12.014","data_url":"https://globalwebdb.com/","created_at":"2019-02-24T15:16:21.123Z","updated_at":"2019-02-24T15:16:21.123Z"}'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network?dataset_id=70&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:55 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '1100'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-2/3
+      etag: W/"44c-UdnAknnaPSRdRQU2qrPHAtRhOcM"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":954,"name":"kohler_2011_20110101_954","date":"2011-01-01T00:00:00.000Z","geom":null,"description":"Hummingbirds-flowers
+        interactions in an altitudinal gradient in the Brazilian Atlantic Rainforest,
+        850 to 1100 m","public":true,"all_interactions":false,"created_at":"2019-02-25T21:33:46.148Z","updated_at":"2019-02-25T21:33:46.148Z","dataset_id":70,"user_id":2},{"id":953,"name":"kohler_2011_20110101_953","date":"2011-01-01T00:00:00.000Z","geom":null,"description":"Hummingbirds-flowers
+        interactions in an altitudinal gradient in the Brazilian Atlantic Rainforest,
+        600 to 850 m","public":true,"all_interactions":false,"created_at":"2019-02-25T21:32:20.359Z","updated_at":"2019-02-25T21:32:20.359Z","dataset_id":70,"user_id":2},{"id":952,"name":"kohler_2011_20110101_952","date":"2011-01-01T00:00:00.000Z","geom":null,"description":"Hummingbirds-flowers
+        interactions in an altitudinal gradient in the Brazilian Atlantic Rainforest,
+        350 to 600 m","public":true,"all_interactions":false,"created_at":"2019-02-25T21:30:34.123Z","updated_at":"2019-02-25T21:30:34.123Z","dataset_id":70,"user_id":2}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network?dataset_id=70&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:55 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '1100'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-2/3
+      etag: W/"44c-UdnAknnaPSRdRQU2qrPHAtRhOcM"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":954,"name":"kohler_2011_20110101_954","date":"2011-01-01T00:00:00.000Z","geom":null,"description":"Hummingbirds-flowers
+        interactions in an altitudinal gradient in the Brazilian Atlantic Rainforest,
+        850 to 1100 m","public":true,"all_interactions":false,"created_at":"2019-02-25T21:33:46.148Z","updated_at":"2019-02-25T21:33:46.148Z","dataset_id":70,"user_id":2},{"id":953,"name":"kohler_2011_20110101_953","date":"2011-01-01T00:00:00.000Z","geom":null,"description":"Hummingbirds-flowers
+        interactions in an altitudinal gradient in the Brazilian Atlantic Rainforest,
+        600 to 850 m","public":true,"all_interactions":false,"created_at":"2019-02-25T21:32:20.359Z","updated_at":"2019-02-25T21:32:20.359Z","dataset_id":70,"user_id":2},{"id":952,"name":"kohler_2011_20110101_952","date":"2011-01-01T00:00:00.000Z","geom":null,"description":"Hummingbirds-flowers
+        interactions in an altitudinal gradient in the Brazilian Atlantic Rainforest,
+        350 to 600 m","public":true,"all_interactions":false,"created_at":"2019-02-25T21:30:34.123Z","updated_at":"2019-02-25T21:30:34.123Z","dataset_id":70,"user_id":2}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/reference/69
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:55 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '272'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"110-53wHNw7LHSN1v/JGYDTibOOI8RI"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":69,"doi":null,"first_author":"kohler","year":"2011","jstor":null,"pmid":null,"bibtex":null,"paper_url":"null","data_url":"https://www.nceas.ucsb.edu/interactionweb/html/kohler2011.html","created_at":"2019-02-25T21:28:45.856Z","updated_at":"2019-02-25T21:28:45.856Z"}'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network?dataset_id=73&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:55 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '558'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-0/1
+      etag: W/"22e-dzB7dr5trfxmfEoJIcsKcQW7Muk"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":1115,"name":"filgueira_2011_20000201_1115","date":"2000-02-01T00:00:00.000Z","geom":{"type":"Polygon","coordinates":[[[-8.64527777777778,42.2936111111111],[-8.5725,42.3430555555556],[-8.61638888888889,42.32],[-8.61638888888889,42.3238888888889],[-8.61583333333333,42.3247222222222],[-8.64527777777778,42.2936111111111],[-8.64527777777778,42.2936111111111]]]},"description":"Food
+        web of the Ria de Vigo","public":true,"all_interactions":false,"created_at":"2019-02-27T00:32:16.559Z","updated_at":"2019-02-27T00:32:16.559Z","dataset_id":73,"user_id":3}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network?dataset_id=73&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:55 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '558'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-0/1
+      etag: W/"22e-dzB7dr5trfxmfEoJIcsKcQW7Muk"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":1115,"name":"filgueira_2011_20000201_1115","date":"2000-02-01T00:00:00.000Z","geom":{"type":"Polygon","coordinates":[[[-8.64527777777778,42.2936111111111],[-8.5725,42.3430555555556],[-8.61638888888889,42.32],[-8.61638888888889,42.3238888888889],[-8.61583333333333,42.3247222222222],[-8.64527777777778,42.2936111111111],[-8.64527777777778,42.2936111111111]]]},"description":"Food
+        web of the Ria de Vigo","public":true,"all_interactions":false,"created_at":"2019-02-27T00:32:16.559Z","updated_at":"2019-02-27T00:32:16.559Z","dataset_id":73,"user_id":3}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/reference/72
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:55 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '693'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"2b5-+43/a4il8Z7UPzg90QEOyVGuXQM"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":72,"doi":"10.1016/j.csr.2010.10.010","first_author":"r. filgueira","year":"2011","jstor":null,"pmid":null,"bibtex":"@article{Filgueira_2011,
+        doi = {10.1016/j.csr.2010.10.010}, url = {https://doi.org/10.1016%2Fj.csr.2010.10.010},
+        year = 2011, month = {apr}, publisher = {Elsevier {BV}}, volume = {31}, number
+        = {5}, pages = {476--487}, author = {R. Filgueira and B.G. Castro}, title
+        = {Study of the trophic web of San Simón Bay (Ría de Vigo) by using stable
+        isotopes}, journal = {Continental Shelf Research}}","paper_url":"https://doi.org/10.1016%2Fj.csr.2010.10.010","data_url":"https://globalwebdb.com/","created_at":"2019-02-26T19:15:55.050Z","updated_at":"2019-02-26T19:15:55.050Z"}'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network?dataset_id=74&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:55 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '2206'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-5/6
+      etag: W/"89e-hVTtiZ9eBE6FkLlaxi6mgKKvswE"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":1068,"name":"baeta_2011_19990101_1068","date":"1999-01-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-8.856905,40.141109]},"description":"Food
+        web of the Zoostera ecosystem of the Mondego bay estuary","public":true,"all_interactions":false,"created_at":"2019-02-26T19:50:25.588Z","updated_at":"2019-02-26T19:50:25.588Z","dataset_id":74,"user_id":3},{"id":1065,"name":"baeta_2011_19990101_1065","date":"1999-01-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-8.856905,40.141109]},"description":"Food
+        web of the bare sediment ecosystem of the Mondego bay estuary","public":true,"all_interactions":false,"created_at":"2019-02-26T19:50:24.951Z","updated_at":"2019-02-26T19:50:24.951Z","dataset_id":74,"user_id":3},{"id":1066,"name":"baeta_2011_20010101_1066","date":"2001-01-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-8.856905,40.141109]},"description":"Food
+        web of the bare sediment ecosystem of the Mondego bay estuary","public":true,"all_interactions":false,"created_at":"2019-02-26T19:50:25.127Z","updated_at":"2019-02-26T19:50:25.127Z","dataset_id":74,"user_id":3},{"id":1064,"name":"baeta_2011_19930101_1064","date":"1993-01-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-8.856905,40.141109]},"description":"Food
+        web of the bare sediment ecosystem of the Mondego bay estuary","public":true,"all_interactions":false,"created_at":"2019-02-26T19:50:24.755Z","updated_at":"2019-02-26T19:50:24.755Z","dataset_id":74,"user_id":3},{"id":1069,"name":"baeta_2011_20010101_1069","date":"2001-01-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-8.856905,40.141109]},"description":"Food
+        web of the Zoostera ecosystem of the Mondego bay estuary","public":true,"all_interactions":false,"created_at":"2019-02-26T19:50:25.810Z","updated_at":"2019-02-26T19:50:25.810Z","dataset_id":74,"user_id":3},{"id":1067,"name":"baeta_2011_19930101_1067","date":"1993-01-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-8.856905,40.141109]},"description":"Food
+        web of the Zoostera ecosystem of the Mondego bay estuary","public":true,"all_interactions":false,"created_at":"2019-02-26T19:50:25.346Z","updated_at":"2019-02-26T19:50:25.346Z","dataset_id":74,"user_id":3}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network?dataset_id=74&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:55 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '2206'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-5/6
+      etag: W/"89e-hVTtiZ9eBE6FkLlaxi6mgKKvswE"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":1068,"name":"baeta_2011_19990101_1068","date":"1999-01-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-8.856905,40.141109]},"description":"Food
+        web of the Zoostera ecosystem of the Mondego bay estuary","public":true,"all_interactions":false,"created_at":"2019-02-26T19:50:25.588Z","updated_at":"2019-02-26T19:50:25.588Z","dataset_id":74,"user_id":3},{"id":1065,"name":"baeta_2011_19990101_1065","date":"1999-01-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-8.856905,40.141109]},"description":"Food
+        web of the bare sediment ecosystem of the Mondego bay estuary","public":true,"all_interactions":false,"created_at":"2019-02-26T19:50:24.951Z","updated_at":"2019-02-26T19:50:24.951Z","dataset_id":74,"user_id":3},{"id":1066,"name":"baeta_2011_20010101_1066","date":"2001-01-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-8.856905,40.141109]},"description":"Food
+        web of the bare sediment ecosystem of the Mondego bay estuary","public":true,"all_interactions":false,"created_at":"2019-02-26T19:50:25.127Z","updated_at":"2019-02-26T19:50:25.127Z","dataset_id":74,"user_id":3},{"id":1064,"name":"baeta_2011_19930101_1064","date":"1993-01-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-8.856905,40.141109]},"description":"Food
+        web of the bare sediment ecosystem of the Mondego bay estuary","public":true,"all_interactions":false,"created_at":"2019-02-26T19:50:24.755Z","updated_at":"2019-02-26T19:50:24.755Z","dataset_id":74,"user_id":3},{"id":1069,"name":"baeta_2011_20010101_1069","date":"2001-01-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-8.856905,40.141109]},"description":"Food
+        web of the Zoostera ecosystem of the Mondego bay estuary","public":true,"all_interactions":false,"created_at":"2019-02-26T19:50:25.810Z","updated_at":"2019-02-26T19:50:25.810Z","dataset_id":74,"user_id":3},{"id":1067,"name":"baeta_2011_19930101_1067","date":"1993-01-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-8.856905,40.141109]},"description":"Food
+        web of the Zoostera ecosystem of the Mondego bay estuary","public":true,"all_interactions":false,"created_at":"2019-02-26T19:50:25.346Z","updated_at":"2019-02-26T19:50:25.346Z","dataset_id":74,"user_id":3}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/reference/73
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:56 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '797'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"31d-LIDTW6g5gavzFh3RyDuCerDz3jk"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":73,"doi":"10.1016/j.ecolmodel.2010.12.010","first_author":"alexandra
+        baeta","year":"2011","jstor":null,"pmid":null,"bibtex":"@article{Baeta_2011,
+        doi = {10.1016/j.ecolmodel.2010.12.010}, url = {https://doi.org/10.1016%2Fj.ecolmodel.2010.12.010},
+        year = 2011, month = {mar}, publisher = {Elsevier {BV}}, volume = {222}, number
+        = {6}, pages = {1209--1221}, author = {Alexandra Baeta and Nathalie Niquil
+        and João C. Marques and Joana Patrício}, title = {Modelling the effects of
+        eutrophication, mitigation measures and an extreme flood event on estuarine
+        benthic food webs}, journal = {Ecological Modelling}}","paper_url":"https://doi.org/10.1016%2Fj.ecolmodel.2010.12.010","data_url":"https://globalwebdb.com/","created_at":"2019-02-26T19:50:17.974Z","updated_at":"2019-02-26T19:50:17.974Z"}'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network?dataset_id=79&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:56 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '1098'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-2/3
+      etag: W/"44a-avDpagRvFokTS5rdbAGoMKDYxSE"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":1113,"name":"douglas_2011_20060519_1113","date":"2006-05-19T00:00:00.000Z","geom":{"type":"Point","coordinates":[-76.383333,37.216667]},"description":"Food
+        web of the Chesapeake''s Bay Eelgrass Bed in May 2006","public":true,"all_interactions":false,"created_at":"2019-02-27T00:24:27.139Z","updated_at":"2019-02-27T00:24:27.139Z","dataset_id":79,"user_id":3},{"id":1114,"name":"douglas_2011_20060821_1114","date":"2006-08-21T00:00:00.000Z","geom":{"type":"Point","coordinates":[-76.383333,37.216667]},"description":"Food
+        web of the Chesapeake''s Bay Eelgrass Bed in August 2006","public":true,"all_interactions":false,"created_at":"2019-02-27T00:24:27.551Z","updated_at":"2019-02-27T00:24:27.551Z","dataset_id":79,"user_id":3},{"id":1112,"name":"douglas_2011_20050421_1112","date":"2005-04-21T00:00:00.000Z","geom":{"type":"Point","coordinates":[-76.383333,37.216667]},"description":"Food
+        web of the Chesapeake''s Bay Eelgrass Bed in April 2005","public":true,"all_interactions":false,"created_at":"2019-02-27T00:24:26.697Z","updated_at":"2019-02-27T00:24:26.697Z","dataset_id":79,"user_id":3}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network?dataset_id=79&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:56 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '1098'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-2/3
+      etag: W/"44a-avDpagRvFokTS5rdbAGoMKDYxSE"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":1113,"name":"douglas_2011_20060519_1113","date":"2006-05-19T00:00:00.000Z","geom":{"type":"Point","coordinates":[-76.383333,37.216667]},"description":"Food
+        web of the Chesapeake''s Bay Eelgrass Bed in May 2006","public":true,"all_interactions":false,"created_at":"2019-02-27T00:24:27.139Z","updated_at":"2019-02-27T00:24:27.139Z","dataset_id":79,"user_id":3},{"id":1114,"name":"douglas_2011_20060821_1114","date":"2006-08-21T00:00:00.000Z","geom":{"type":"Point","coordinates":[-76.383333,37.216667]},"description":"Food
+        web of the Chesapeake''s Bay Eelgrass Bed in August 2006","public":true,"all_interactions":false,"created_at":"2019-02-27T00:24:27.551Z","updated_at":"2019-02-27T00:24:27.551Z","dataset_id":79,"user_id":3},{"id":1112,"name":"douglas_2011_20050421_1112","date":"2005-04-21T00:00:00.000Z","geom":{"type":"Point","coordinates":[-76.383333,37.216667]},"description":"Food
+        web of the Chesapeake''s Bay Eelgrass Bed in April 2005","public":true,"all_interactions":false,"created_at":"2019-02-27T00:24:26.697Z","updated_at":"2019-02-27T00:24:26.697Z","dataset_id":79,"user_id":3}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/reference/78
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:56 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '763'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"2fb-aNgCcVw6BtbcAA+vxSByRdJAbTg"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":78,"doi":"10.1007/s12237-010-9356-4","first_author":"james g.
+        douglass","year":"2011","jstor":null,"pmid":null,"bibtex":"@article{Douglass_2011,
+        doi = {10.1007/s12237-010-9356-4}, url = {https://doi.org/10.1007%2Fs12237-010-9356-4},
+        year = 2011, month = {jan}, publisher = {Springer Nature}, volume = {34},
+        number = {4}, pages = {701--711}, author = {James G. Douglass and J. Emmett
+        Duffy and Elizabeth A. Canuel}, title = {Food Web Structure in a Chesapeake
+        Bay Eelgrass Bed as Determined through Gut Contents and 13C and 15N Isotope
+        Analysis}, journal = {Estuaries and Coasts}}","paper_url":"https://doi.org/10.1007%2Fs12237-010-9356-4","data_url":"https://globalwebdb.com/","created_at":"2019-02-27T00:18:12.227Z","updated_at":"2019-02-27T00:18:12.227Z"}'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network?dataset_id=94&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:56 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '400'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-0/1
+      etag: W/"190-EnGW9F7H3C1Q9LMfOjHLNIT9KFk"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":1464,"name":"fetahi_et_al_2011_20071001_1464","date":"2007-10-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[39.711131,11.344538]},"description":"Food
+        web structure and diet composition based on an Ecopath model in Lake Hayq,
+        Ethiopia","public":true,"all_interactions":false,"created_at":"2019-03-01T20:11:20.176Z","updated_at":"2019-03-01T20:11:20.176Z","dataset_id":94,"user_id":4}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network?dataset_id=94&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:56 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '400'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-0/1
+      etag: W/"190-EnGW9F7H3C1Q9LMfOjHLNIT9KFk"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":1464,"name":"fetahi_et_al_2011_20071001_1464","date":"2007-10-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[39.711131,11.344538]},"description":"Food
+        web structure and diet composition based on an Ecopath model in Lake Hayq,
+        Ethiopia","public":true,"all_interactions":false,"created_at":"2019-03-01T20:11:20.176Z","updated_at":"2019-03-01T20:11:20.176Z","dataset_id":94,"user_id":4}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/reference/93
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:56 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '776'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"308-36hnxNs+qrIIfME+IEnSGxmBVm8"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":93,"doi":"10.1016/j.ecolmodel.2010.09.038","first_author":"fetahi","year":"2011","jstor":null,"pmid":null,"bibtex":"@article{Fetahi_2011,
+        doi = {10.1016/j.ecolmodel.2010.09.038}, url = {https://doi.org/10.1016%2Fj.ecolmodel.2010.09.038},
+        year = 2011, month = {feb}, publisher = {Elsevier {BV}}, volume = {222}, number
+        = {3}, pages = {804--813}, author = {Tadesse Fetahi and Michael Schagerl and
+        Seyoum Mengistou and Simone Libralato}, title = {Food web structure and trophic
+        interactions of the tropical highland lake Hayq, Ethiopia}, journal = {Ecological
+        Modelling}}","paper_url":"https://www.sciencedirect.com/science/article/pii/S0304380010005259","data_url":"https://globalwebdb.com/","created_at":"2019-03-01T20:10:49.500Z","updated_at":"2019-03-01T20:10:49.500Z"}'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network?dataset_id=97&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:56 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '394'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-0/1
+      etag: W/"18a-T3a1TTRGEzR1n0SgTAexIhCfPh0"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":1469,"name":"hampton_et_al_2011_20040601_1469","date":"2004-06-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-123.816401,48.059156]},"description":"Food
+        web structure of a deep oligotrophic lake (Lake Crescent), Washington, USA","public":true,"all_interactions":false,"created_at":"2019-03-04T15:45:32.611Z","updated_at":"2019-03-04T15:45:32.611Z","dataset_id":97,"user_id":4}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network?dataset_id=97&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:57 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '394'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-0/1
+      etag: W/"18a-T3a1TTRGEzR1n0SgTAexIhCfPh0"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":1469,"name":"hampton_et_al_2011_20040601_1469","date":"2004-06-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-123.816401,48.059156]},"description":"Food
+        web structure of a deep oligotrophic lake (Lake Crescent), Washington, USA","public":true,"all_interactions":false,"created_at":"2019-03-04T15:45:32.611Z","updated_at":"2019-03-04T15:45:32.611Z","dataset_id":97,"user_id":4}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/reference/96
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:57 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '880'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"370-15wCYCCJCcfyrY/y6qeOwB93BjE"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":96,"doi":"10.1071/mf10229","first_author":"hampton","year":"2011","jstor":null,"pmid":null,"bibtex":"@article{Hampton_2011,\tdoi
+        = {10.1071/mf10229}, url = {https://doi.org/10.1071%2Fmf10229},  year = 2011,
+        publisher = {{CSIRO} Publishing}, volume = {62}, number = {4}, pages = {350},
+        author = {Stephanie E. Hampton and Steven C. Fradkin and Peter R. Leavitt
+        and Elizabeth E. Rosenberger}, title = {Disproportionate importance of nearshore
+        habitat for the food web of a deep oligotrophic lake}, journal = {Marine and
+        Freshwater Research}}","paper_url":"https://www.researchgate.net/profile/Peter_Leavitt/publication/262993345_Disproportionate_importance_of_nearshore_habitat_for_the_food_web_of_a_deep_oligotrophic_lake/links/54025f970cf2c48563af8977.pdf","data_url":"https://globalwebdb.com/","created_at":"2019-03-04T15:45:28.214Z","updated_at":"2019-03-04T15:45:28.214Z"}'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network?dataset_id=155&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:57 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '378'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-0/1
+      etag: W/"17a-zg2ZdRV7GmSEGpbiglXJVIVKpFg"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":1567,"name":"filgueira_castro_2011","date":"2000-02-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-8.61648922723,42.331571652621]},"description":"Food
+        web structure of an intertidal zone in San Simon Bay, Spain","public":true,"all_interactions":false,"created_at":"2019-03-15T16:14:00.896Z","updated_at":"2019-03-15T16:14:00.896Z","dataset_id":155,"user_id":4}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network?dataset_id=155&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:57 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '378'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-0/1
+      etag: W/"17a-zg2ZdRV7GmSEGpbiglXJVIVKpFg"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":1567,"name":"filgueira_castro_2011","date":"2000-02-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-8.61648922723,42.331571652621]},"description":"Food
+        web structure of an intertidal zone in San Simon Bay, Spain","public":true,"all_interactions":false,"created_at":"2019-03-15T16:14:00.896Z","updated_at":"2019-03-15T16:14:00.896Z","dataset_id":155,"user_id":4}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/reference/152
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:57 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '713'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"2c9-EjF79XUAYidMqeAVqhsCDWdEK2U"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":152,"doi":"10.1016/j.csr.2010.10.010","first_author":"filgueira","year":"2011","jstor":null,"pmid":null,"bibtex":"@article{Filgueira_2011,
+        doi = {10.1016/j.csr.2010.10.010}, url = {https://doi.org/10.1016%2Fj.csr.2010.10.010},
+        year = 2011, month = {apr}, publisher = {Elsevier {BV}}, volume = {31}, number
+        = {5}, pages = {476--487}, author = {R. Filgueira and B.G. Castro}, title
+        = {Study of the trophic web of San Simon Bay (Ria de Vigo) by using stable
+        isotopes}, journal = {Continental Shelf Research}}","paper_url":"https://www.sciencedirect.com/science/article/pii/S0278434310003274","data_url":"https://globalwebdb.com/","created_at":"2019-03-15T16:13:58.017Z","updated_at":"2019-03-15T16:13:58.017Z"}'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network?dataset_id=163&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:58 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '763'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-1/2
+      etag: W/"2fb-Ixsh/9DQ0v0a0ofehppVwPO3UGw"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":1594,"name":"stewart_sprules_2011_1","date":"1987-05-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-77,43.7]},"description":"Food
+        web structure of the offshore community (1987-1991) in Lake Ontario, Ontario,
+        Canada","public":true,"all_interactions":false,"created_at":"2019-03-20T18:18:44.622Z","updated_at":"2019-03-20T18:18:44.622Z","dataset_id":163,"user_id":4},{"id":1595,"name":"stewart_sprules_2011_2","date":"2001-05-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-77,43.7]},"description":"Food
+        web structure of the offshore community (2001-2005) in Lake Ontario, Ontario,
+        Canada","public":true,"all_interactions":false,"created_at":"2019-03-20T18:19:03.629Z","updated_at":"2019-03-20T18:19:03.629Z","dataset_id":163,"user_id":4}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network?dataset_id=163&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:58 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '763'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-1/2
+      etag: W/"2fb-Ixsh/9DQ0v0a0ofehppVwPO3UGw"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":1594,"name":"stewart_sprules_2011_1","date":"1987-05-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-77,43.7]},"description":"Food
+        web structure of the offshore community (1987-1991) in Lake Ontario, Ontario,
+        Canada","public":true,"all_interactions":false,"created_at":"2019-03-20T18:18:44.622Z","updated_at":"2019-03-20T18:18:44.622Z","dataset_id":163,"user_id":4},{"id":1595,"name":"stewart_sprules_2011_2","date":"2001-05-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[-77,43.7]},"description":"Food
+        web structure of the offshore community (2001-2005) in Lake Ontario, Ontario,
+        Canada","public":true,"all_interactions":false,"created_at":"2019-03-20T18:19:03.629Z","updated_at":"2019-03-20T18:19:03.629Z","dataset_id":163,"user_id":4}]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/reference/160
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:58 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '839'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"347-6lcgLDhC8/Bdd8OouDV6lQaItyo"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":160,"doi":"10.1016/j.ecolmodel.2010.10.024","first_author":"stewart","year":"2011","jstor":null,"pmid":null,"bibtex":"@article{Stewart_2011,\tdoi
+        = {10.1016/j.ecolmodel.2010.10.024}, url = {https://doi.org/10.1016%2Fj.ecolmodel.2010.10.024},
+        year = 2011, month = {feb}, publisher = {Elsevier {BV}}, volume = {222}, number
+        = {3}, pages = {692--708}, author = {Thomas. J. Stewart and W. Gary Sprules},
+        title = {Carbon-based balanced trophic structure and flows in the offshore
+        Lake Ontario food web before (1987{\textendash}1991) and after (2001{\textendash}2005)
+        invasion-induced ecosystem change}, journal = {Ecological Modelling}}","paper_url":"https://www.sciencedirect.com/science/article/pii/S0304380010005843","data_url":"https://globalwebdb.com/","created_at":"2019-03-20T18:16:13.452Z","updated_at":"2019-03-20T18:16:13.452Z"}'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/dataset?q=does%20not%20exist&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:58 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '2'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-0/0
+      etag: W/"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/dataset?q=does%20not%20exist&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sun, 25 Oct 2020 21:52:58 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '2'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-0/0
+      etag: W/"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[]'
+  recorded_at: 2020-10-25 21:52:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0

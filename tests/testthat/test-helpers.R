@@ -15,7 +15,6 @@ txt2 <- "* Published in ref #1 DOI:2"
 txt3 <- "* Network #1 included in dataset #1\n* Description: 1\n* Includes 1 edges and 1 nodes \n"
 
 
-
 test_that("expected behavior", {
   expect_equal(percent_id(df$taxonomy.eol), 50)
   expect_equal(print_taxo_ids(df), paste0(txt0, txt1))
@@ -27,7 +26,12 @@ test_that("expected behavior", {
 
 df1 <- data.frame(var = 1, geom_type = "wrong", geom_lon = 1,  geom_lat = 2)
 
-resp <- httr::GET("http://httpbin.org/status/404")
+
+vcr::use_cassette(name = "get_404", {
+  resp <- httr::GET("http://httpbin.org/status/404")
+})
+
+
 test_that("fail gracefully", {
   expect_error(switch_df(df1))
   expect_error(stop_if_missing_sf("xx_xx"))

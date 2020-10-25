@@ -3,11 +3,12 @@ context("test search_datasets")
 # number of variables (columns)
 nvr <- 10
 
-res1 <- search_datasets(query = "lagoon")
-res2 <- search_datasets(query = list(name = "kemp_1977"))
-res3 <- search_datasets(query = "2011")
-
-resw <- search_datasets(query = "does not exist")
+vcr::use_cassette(name = "search_datasets", {
+  res1 <- search_datasets(query = "lagoon")
+  res2 <- search_datasets(query = list(name = "kemp_1977"))
+  res3 <- search_datasets(query = "2011")
+  resw <- search_datasets(query = "does not exist")
+})
 
 test_that("errors caught", {
   expect_error(search_datasets(query = 2011))
