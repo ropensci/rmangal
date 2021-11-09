@@ -1,3 +1,8 @@
+# rmangal (devel)
+
+* Tests now use `vcr`.
+* Remove Travis and Appveyor, use GitHub Actions.
+
 # rmangal 2.0.2
 
 * Fix a minor bug `search_datasets()` related to absent networks attached on a dataset (see #97 and #98);

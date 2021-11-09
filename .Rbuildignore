@@ -5,12 +5,9 @@
 ^docs$
 ^\.Rproj\.user$
 ^.*\.Rproj$
-^appveyor\.yml$
-^\.travis\.yml$
 ^\.gitignore
 ^README\.Rmd
 ^README\.gfm
-^CODE_OF_CONDUCT.md
 ^\.github/
 ^\.Renviron
 ^cran-comments.md

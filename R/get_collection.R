@@ -1,7 +1,7 @@
 #' Get a collection of networks
 #'
 #' Retrieve a set of networks based on the results of one of the `search_*()`
-#' function. The function also accept a numeric vector of Mangal network IDs.
+#' function. The function also accepts a numeric vector of Mangal network IDs.
 #'
 #' @param x `numeric` vector of Mangal network IDs or an object returned by
 #' by one of the `search_*()` functions.
