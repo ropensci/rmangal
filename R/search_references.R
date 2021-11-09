@@ -30,9 +30,11 @@
 #' Metadata available at <https://mangal-wg.github.io/mangal-api/#references>
 #'
 #' @examples
-#' search_references(doi = "10.2307/3225248")
-#' search_references(list(jstor = 3683041))
-#' search_references(list(year = 2010))
+#' \donttest{
+#'  search_references(doi = "10.2307/3225248")
+#'  search_references(list(jstor = 3683041))
+#'  search_references(list(year = 2010))
+#' }
 #' @export
 
 search_references <- function(query, doi = NULL, verbose = TRUE, ...) {

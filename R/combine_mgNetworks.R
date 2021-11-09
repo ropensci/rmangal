@@ -9,9 +9,11 @@
 #' An object of class `mgNetworksCollection`
 #'
 #' @examples
-#' mg_random_1071 <- get_collection(c(1071), verbose = FALSE)
-#' mg_random_1074 <- get_collection(c(1074), verbose = FALSE)
-#' combine_mgNetworks(mg_random_1071, mg_random_1074)
+#' \donttest{
+#'  mg_random_1071 <- get_collection(c(1071))
+#'  mg_random_1074 <- get_collection(c(1074))
+#'  combine_mgNetworks(mg_random_1071, mg_random_1074)
+#' } 
 #'
 #' @export
 combine_mgNetworks <- function(...) {

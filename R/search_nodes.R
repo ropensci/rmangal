@@ -32,9 +32,10 @@
 #' Metadata available at <https://mangal-wg.github.io/mangal-api/#nodes>
 #'
 #' @examples
-#' res_acer <- search_nodes("Acer")
-#' res_926 <- search_nodes(list(network_id = 926))
-#'
+#' \donttest{
+#'  res_acer <- search_nodes("Acer")
+#'  res_926 <- search_nodes(list(network_id = 926))
+#' }
 #' @export
 
 search_nodes <- function(query, verbose = TRUE, ...) {
@@ -43,7 +44,8 @@ search_nodes <- function(query, verbose = TRUE, ...) {
 
   nodes <- resp_to_df_flt(get_gen(endpoints()$node, query = query,
       verbose = verbose, ...)$body)
-  if (all(dim(nodes) == 1)) return(data.frame())
+  if (all(dim(nodes) == 1)) 
+    return(data.frame())
 
   nodes <- nodes[, names(nodes)[names(nodes) != "taxonomy"]]
 

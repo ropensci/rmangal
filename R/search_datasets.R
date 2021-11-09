@@ -32,16 +32,16 @@
 #'
 #' @examples
 #' \donttest{
-#' # Return all datasets (takes time)
-#' all_datasets <- search_datasets("", verbose = FALSE)
-#' all_datasets
-#' class(all_datasets)
+#'  # Return all datasets (takes time)
+#'  all_datasets <- search_datasets("")
+#'  all_datasets
+#'  class(all_datasets)
+#'  # Search with keyword
+#'  mg_lagoon <- search_datasets(query = 'lagoon')
+#'  # Search with a custom query (specific column)
+#'  mg_kemp <- search_datasets(query = list(name = 'kemp_1977'))
+#'  mg_16 <- search_datasets(query = list(ref_id = 16))
 #' }
-#' # Search with keyword
-#' mg_lagoon <- search_datasets(query = 'lagoon', verbose = FALSE)
-#' # Search with a custom query (specific column)
-#' mg_kemp <- search_datasets(query = list(name = 'kemp_1977'), verbose = FALSE)
-#' mg_16 <- search_datasets(query = list(ref_id = 16), verbose = FALSE)
 #' @export
 
 search_datasets <- function(query, verbose = TRUE, ...) {
