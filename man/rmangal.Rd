@@ -6,7 +6,7 @@
 \alias{rmangal-package}
 \title{rmangal}
 \description{
-A programmatic interface to the Mangal API \url{https://mangal-wg.github.io/mangal-api//}.
+A programmatic interface to the Mangal API \url{https://mangal-interactions.github.io/mangal-api/}.
 }
 \seealso{
 Useful links:

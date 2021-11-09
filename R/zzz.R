@@ -1,6 +1,6 @@
 #' rmangal
 #'
-#' A programmatic interface to the Mangal API <https://mangal-wg.github.io/mangal-api//>.
+#' A programmatic interface to the Mangal API <https://mangal-interactions.github.io/mangal-api/>.
 #'
 #' @docType package
 #' @importFrom methods is

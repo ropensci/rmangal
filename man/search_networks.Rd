@@ -65,5 +65,8 @@ Note that for lists with more than one element, only the first element is used, 
 
 }
 \references{
-Metadata available at \url{https://mangal-wg.github.io/mangal-api/#networks}
+\itemize{
+\item \url{https://mangal.io/#/}
+\item \url{https://mangal-interactions.github.io/mangal-api/#networks}
+}
 }

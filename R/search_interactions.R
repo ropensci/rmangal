@@ -32,7 +32,8 @@
 #' Examples covering custom queries are provided below.
 
 #' @references
-#' Metadata available at <https://mangal-wg.github.io/mangal-api/#interactions>
+#' * <https://mangal.io/#/>
+#' * <https://mangal-interactions.github.io/mangal-api/#taxonomy>
 #'
 #' @examples
 #' \donttest{

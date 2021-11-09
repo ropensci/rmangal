@@ -24,9 +24,9 @@
 #' - public: network publicly available
 #'
 #' Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
-#'
 #' @references
-#' Metadata available at <https://mangal-wg.github.io/mangal-api/#networks>
+#' * <https://mangal.io/#/>
+#' * <https://mangal-interactions.github.io/mangal-api/#networks>
 #'
 #' @examples
 #' \donttest{

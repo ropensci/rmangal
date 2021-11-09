@@ -40,7 +40,7 @@ knitr::opts_chunk$set(
 
 3. provides:
   - [a data explorer](https://mangal.io/#/) to visualize and download data available;
-  - a [RESTful Application Programming Interface (API)](https://mangal-wg.github.io/mangal-api/);
+  - a [RESTful Application Programming Interface (API)](https://mangal-interactions.github.io/mangal-api/);
   - a client library for Julia: [Mangal.jl](https://github.com/EcoJulia/Mangal.jl);
   - a client of this API for R: the **rmangal** package described below.
 
@@ -50,7 +50,7 @@ networks](https://mangal.io/#/network). In 2016, the first paper describing the 
 published and introduced the first release of **rmangal** [@poisot_mangal_2016]. Since then, the
 structure of the database has been improved (new fields have been added), several ecological
 networks added and the API entirely rewritten. Consequently, [the first release of the
-**rmangal**](https://github.com/mangal-wg/rmangal-v1) is obsolete (and archived) and we introduce
+**rmangal**](https://github.com/mangal-interactions/rmangal-v1) is obsolete (and archived) and we introduce
 **rmangal v2.0** in this vignette.
 
 
@@ -277,7 +277,7 @@ sr_ficus <- search_taxonomy("Ficus")
 This function allows to search for a specific taxonomic entity using it's validated
 name or unique identifiers, i.e. EOL, TSN, GBIF, COL, BOLD and NCBI IDs.
 Taxon names of the `taxonomy` table were validated with
-TNRS (see <http://tnrs.iplantcollaborative.org/> and/or GNR (see <https://resolver.globalnames.org/>). The taxon names in this table
+TNRS (see <https://tnrs.biendata.org/> and/or GNR (see <https://resolver.globalnames.org/>). The taxon names in this table
 might not be the taxon name documented in the original publication.
 In order to identify relevant networks with the original name, use
 [search_nodes()].
@@ -285,7 +285,7 @@ In order to identify relevant networks with the original name, use
 The validation of taxon names was performed by an automated
 procedure using taxize [@chamberlain_2019] and if there is any doubt, the original names recorded
 by authors should be regarded as the most reliable information. Please
-report any issue related to taxonomy at <https://github.com/mangal-wg/mangal-datasets/issues>.
+report any issue related to taxonomy at <https://github.com/mangal-interactions/contribute/issues/new/choose>.
 
 
 ```{R}

@@ -53,5 +53,8 @@ Examples covering custom queries are provided below.
 }
 }
 \references{
-Metadata available at \url{https://mangal-wg.github.io/mangal-api/#datasets}
+\itemize{
+\item \url{https://mangal.io/#/}
+\item \url{https://mangal-interactions.github.io/mangal-api/#datasets}
+}
 }

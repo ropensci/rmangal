@@ -29,7 +29,8 @@
 #' All networks in which taxa are involved are also attached to the `data.frame`.
 #'
 #' @references
-#' Metadata available at <https://mangal-wg.github.io/mangal-api/#nodes>
+#' * <https://mangal.io/#/>
+#' * <https://mangal-interactions.github.io/mangal-api/#nodes>
 #'
 #' @examples
 #' \donttest{

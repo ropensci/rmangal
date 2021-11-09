@@ -3,7 +3,7 @@
 [![](https://badges.ropensci.org/332_status.svg)](https://github.com/ropensci/software-review/issues/332)
 [![Build Status](https://travis-ci.org/ropensci/rmangal.svg?branch=master)](https://travis-ci.org/ropensci/rmangal)
 [![Build status](https://ci.appveyor.com/api/projects/status/mibs2ni969xiqgrd?svg=true)](https://ci.appveyor.com/project/KevCaz/rmangal)
-[![codecov](https://codecov.io/gh/ropensci/rmangal/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/rmangal)
+[![codecov](https://app.codecov.io/gh/ropensci/rmangal/branch/master/graph/badge.svg?token=lGqUVLM2o3)](https://app.codecov.io/gh/ropensci/ropensci/rmangal)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![CRAN status](https://www.r-pkg.org:443/badges/version/rmangal)](https://CRAN.R-project.org/package=rmangal)
 
