@@ -19,7 +19,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Steve Vissault \email{s.vissault@yahoo.fr} (\href{https://orcid.org/0000-0002-0866-4376}{ORCID})
+\strong{Maintainer}: Steve Vissault \email{kevin.cazelles@gmail.com} (\href{https://orcid.org/0000-0002-0866-4376}{ORCID})
 
 Authors:
 \itemize{

@@ -4,7 +4,7 @@ Title: 'Mangal' Client
 Version: 2.0.2.9000
 Authors@R: c(
     person(given = "Steve", family = "Vissault", comment = c(ORCID = "0000-0002-0866-4376"),
-      email = "s.vissault@yahoo.fr", role = c("aut", "cre")),
+      email = "kevin.cazelles@gmail.com", role = c("aut", "cre")),
     person(given = "Kevin", family = "Cazelles", comment = c(ORCID = "0000-0001-6619-9874"),
         email = "kcazelle@uoguelph.ca", role = c("aut","ctb")),
     person(given = "Gabriel", family = "Bergeron",
@@ -48,8 +48,7 @@ Suggests:
     testthat,
     tibble,
     USAboundaries,
-    vcr,
-    webshot
+    vcr
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
 X-schema.org-applicationCategory: ecologicalNetworks
