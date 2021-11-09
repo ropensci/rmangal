@@ -328,7 +328,8 @@ msg_request_fail <- function(resp) {
 
 
 handle_query <- function(query, names_available) {
-  if (is.character(query)) return(list(q = query))
+  if (is.character(query)) 
+    return(list(q = query))
   if (!is.list(query))
     stop("`query` should either be a list or a character string.",
       call. = FALSE)

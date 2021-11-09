@@ -70,7 +70,7 @@ search_networks <- function(query, verbose = TRUE, ...) {
 #' @export
 search_networks_sf <- function(query_sf, verbose = TRUE, ...) {
 
-  stopifnot("sf" %in% class(query_sf))
+  stopifnot(is(query_sf, "sf"))
   stop_if_missing_sf()
 
   # API doesn't allow spatial search yet, so we call sf

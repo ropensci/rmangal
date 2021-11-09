@@ -33,7 +33,7 @@ Imports:
     jsonlite (>= 1.5),
     memoise,
     purrr
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 Suggests:
     ggraph (>= 2.0.0),
     knitr,
@@ -54,3 +54,4 @@ Roxygen: list(markdown = TRUE)
 X-schema.org-applicationCategory: ecologicalNetworks
 X-schema.org-keywords: ecology, networks, food webs, interactions, data publications, open access
 X-schema.org-isPartOf: https://ropensci.org
+Config/testthat/edition: 3
