@@ -35,10 +35,10 @@ jobs:
       
       - uses: r-lib/actions/setup-pandoc@v1
       
-      # - name: Install Windows dependencies for igraph
-      #   if: runner.os == 'Windows'
-      #   run: |
-      #     pacman -Sy --noconfirm mingw-w64-i686-glpk mingw-w64-i686-libxml2 mingw-w64-i686-gmp mingw-w64-x86_64-glpk mingw-w64-x86_64-libxml2 mingw-w64-x86_64-gmp
+      - name: Install Windows dependencies for igraph
+        if: runner.os == 'Windows'
+        run: |
+          pacman -Sy --noconfirm mingw-w64-i686-glpk mingw-w64-i686-libxml2 mingw-w64-i686-gmp mingw-w64-x86_64-glpk mingw-w64-x86_64-libxml2 mingw-w64-x86_64-gmp
 
       - uses: r-lib/actions/setup-r@v1
         with:
