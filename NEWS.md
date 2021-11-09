@@ -1,3 +1,12 @@
+# rmangal (devel)
+
+* All examples are within the `\donttest` tag (see #100).
+* `get_collection()` methods always return an object of class `mgNetworksCollection` (see #100).
+* `get_network_by_id()` gains an argument `force_collection` to force the class collection (see #100).
+* Vignette now precomputed (see #100).
+* Tests now use `vcr` (see #100).
+* Travis and Appveyor removed, use GitHub Actions (see #100).
+
 # rmangal 2.0.2
 
 * Fix a minor bug `search_datasets()` related to absent networks attached on a dataset (see #97 and #98);
@@ -29,4 +38,4 @@
 
 # Previous version rmangal
 
-* See https://github.com/mangal-wg/rmangal-v1 for the first version. Note that due to changes in the RESTful API, there is not backward compatibility.
+* See https://github.com/mangal-wg/rmangal-v1 for the first version. Note that due to changes in the RESTful API, there is no backward compatibility.

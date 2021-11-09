@@ -34,14 +34,12 @@ by one of the \verb{search_*()} functions.}
 \item{...}{arguments to be passed on to \code{\link[=get_network_by_id]{get_network_by_id()}}.}
 }
 \value{
-If there is only one network to be retrieved, \code{get_collection()} returns a
-\code{mgNetwork} object, otherwise it returns a object of class
-\code{mgNetworksCollection} which is a collection (a list) of \code{mgNetwork}
-objects \code{\link[=get_network_by_id]{get_network_by_id()}}).
+Returns a object of class \code{mgNetworksCollection} which is a collection
+(actually, a list) of \code{mgNetwork} objects \code{\link[=get_network_by_id]{get_network_by_id()}}).
 }
 \description{
 Retrieve a set of networks based on the results of one of the \verb{search_*()}
-function. The function also accept a numeric vector of Mangal network IDs.
+function. The function also accepts a numeric vector of Mangal network IDs.
 }
 \section{Methods (by class)}{
 \itemize{
@@ -62,8 +60,8 @@ function. The function also accept a numeric vector of Mangal network IDs.
 
 \examples{
 \donttest{
-mg_2 <- get_collection(c(1076:1077), verbose = FALSE)
-mg_anemone <- get_collection(search_networks(query='anemone\%'), verbose = FALSE)
+ mg_2 <- get_collection(c(1076:1077), verbose = FALSE)
+ mg_anemone <- get_collection(search_networks(query='anemone\%'), verbose = FALSE)
 }
 }
 \seealso{

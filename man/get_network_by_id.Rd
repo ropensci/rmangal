@@ -7,9 +7,9 @@
 \alias{print.mgNetworksCollection}
 \alias{summary.mgNetwork}
 \alias{summary.mgNetworksCollection}
-\title{Retrieve network informations, nodes, edges and references for a given set of Mangal network IDs}
+\title{Retrieve network information, nodes, edges and references for a given set of Mangal network IDs}
 \usage{
-get_network_by_id(ids, as_sf = FALSE, verbose = TRUE)
+get_network_by_id(ids, as_sf = FALSE, force_collection = FALSE, verbose = TRUE)
 
 get_network_by_id_indiv(id, as_sf = FALSE, verbose = TRUE)
 
@@ -25,6 +25,8 @@ get_network_by_id_indiv(id, as_sf = FALSE, verbose = TRUE)
 \item{ids}{a vector of Mangal ID for networks (\code{numeric}).}
 
 \item{as_sf}{a logical. Should networks metadata be converted into an sf object? Note that to use this feature \code{sf} must be installed.}
+
+\item{force_collection}{a logical. Should the output to be of class  \code{mgNetworksCollection} even if it includes only one network.}
 
 \item{verbose}{a logical. Should extra information be reported on progress?}
 
@@ -66,6 +68,9 @@ Summarize mgNetworksCollection properties.
 }}
 
 \examples{
-net18 <- get_network_by_id(id = 18)
-nets <- get_network_by_id(id = c(18, 23))
+\donttest{
+ net18 <- get_network_by_id(id = 18)
+ net18_c <- get_network_by_id(id = 18, force_collection = TRUE)  
+ nets <- get_network_by_id(id = c(18, 23))
+}
 }

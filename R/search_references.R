@@ -6,7 +6,7 @@
 #' partial match was found are returned.
 #' Alternatively, a named list can be used to look for an exact match in a specific column (see Details section)
 #'
-#' @param query either a character string including a single keyword or a list containing a custom query (see details section below).
+#' @param query either a character string including a single keyword or a named list containing a custom query (see details section below).
 #' Note that if an empty character string is passed, then all datasets available are returned.
 #' @param doi `character` a Digital Object Identifier  (DOI) of the article. Note that `query` is ignored if `doi` is specified.
 #' @param verbose a `logical`. Should extra information be reported on progress?
@@ -27,12 +27,15 @@
 #' Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
 #'
 #' @references
-#' Metadata available at <https://mangal-wg.github.io/mangal-api/#references>
+#' * <https://mangal.io/#/>
+#' * <https://mangal-interactions.github.io/mangal-api/#references>
 #'
 #' @examples
-#' search_references(doi = "10.2307/3225248")
-#' search_references(list(jstor = 3683041))
-#' search_references(list(year = 2010))
+#' \donttest{
+#'  search_references(doi = "10.2307/3225248")
+#'  search_references(list(jstor = 3683041))
+#'  search_references(list(year = 2010))
+#' }
 #' @export
 
 search_references <- function(query, doi = NULL, verbose = TRUE, ...) {

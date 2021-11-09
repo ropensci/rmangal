@@ -1,0 +1,29 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://httpbin.org/status/404
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: 404
+      category: Client error
+      reason: Not Found
+      message: 'Client error: (404) Not Found'
+    headers:
+      date: Mon, 08 Nov 2021 23:08:37 GMT
+      content-type: text/html; charset=utf-8
+      content-length: '0'
+      connection: keep-alive
+      server: gunicorn/19.9.0
+      access-control-allow-origin: '*'
+      access-control-allow-credentials: 'true'
+    body:
+      encoding: UTF-8
+      file: no
+      string: ''
+  recorded_at: 2021-11-08 23:08:37 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

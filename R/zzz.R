@@ -1,8 +1,9 @@
 #' rmangal
 #'
-#' A programmatic interface to the Mangal API <https://mangal-wg.github.io/mangal-api//>.
+#' A programmatic interface to the Mangal API <https://mangal-interactions.github.io/mangal-api/>.
 #'
 #' @docType package
+#' @importFrom methods is
 #' @name rmangal
 #' @keywords internal
 "_PACKAGE"
@@ -113,8 +114,8 @@ handle_geom <- function(x) {
       geom_type = x$geom$type,
       stringsAsFactors = FALSE
     )
-    out$geom_lon <- list(tmp[,1])
-    out$geom_lat <- list(tmp[,2])
+    out$geom_lon <- list(tmp[, 1])
+    out$geom_lat <- list(tmp[, 2])
     out
   }
 }
@@ -234,7 +235,7 @@ get_gen <- function(endpoint, query = NULL, limit = 100, verbose = TRUE, ...) {
     if (verbose)
       message("Data retrieval ", signif(100*(page+1)/(pages+1), 3), "%   \r",
         appendLF = FALSE)
-      # cat("Data retrieval", signif(100*(page+1)/(pages+1), 3), "%   \r")
+
     query$page <- page
     resp <- mem_get(url,
       config = httr::add_headers(`Content-type` = "application/json"), ua,
@@ -328,7 +329,8 @@ msg_request_fail <- function(resp) {
 
 
 handle_query <- function(query, names_available) {
-  if (is.character(query)) return(list(q = query))
+  if (is.character(query)) 
+    return(list(q = query))
   if (!is.list(query))
     stop("`query` should either be a list or a character string.",
       call. = FALSE)
@@ -363,7 +365,6 @@ print_pub_info <- function(x) {
   paste0("* Published in ref #",  x$id, " DOI:", x$doi)
 }
 
-
 print_net_info <- function(net_id, dat_id, descr, n_edg, n_nod) {
   paste0(
     "* Network #", net_id, " included in dataset #", dat_id, "\n",
@@ -371,7 +372,4 @@ print_net_info <- function(net_id, dat_id, descr, n_edg, n_nod) {
     "* Includes ", n_edg, " edges and ", n_nod, " nodes \n"
   )
 }
-
-
-
 

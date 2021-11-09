@@ -1,4 +1,4 @@
-#' Retrieve network informations, nodes, edges and references for a given set of Mangal network IDs
+#' Retrieve network information, nodes, edges and references for a given set of Mangal network IDs
 #'
 #' @param ids a vector of Mangal ID for networks (`numeric`).
 #' @param id a single ID network (`numeric`).
@@ -6,6 +6,7 @@
 #' @param object object of of class `mgNetwork` or `mgNetworksCollection`.
 #' @param as_sf a logical. Should networks metadata be converted into an sf object? Note that to use this feature `sf` must be installed.
 #' @param ... ignored.
+#' @param force_collection a logical. Should the output to be of class  `mgNetworksCollection` even if it includes only one network.
 #' @param verbose a logical. Should extra information be reported on progress?
 #'
 #' @rdname get_network_by_id
@@ -26,19 +27,28 @@
 #' * the degree (in, out an total) and the eigenvector centrality of every nodes.
 #'
 #' @examples
-#' net18 <- get_network_by_id(id = 18)
-#' nets <- get_network_by_id(id = c(18, 23))
+#' \donttest{
+#'  net18 <- get_network_by_id(id = 18)
+#'  net18_c <- get_network_by_id(id = 18, force_collection = TRUE)  
+#'  nets <- get_network_by_id(id = c(18, 23))
+#' }
 #' @export
 
-get_network_by_id <- function(ids, as_sf = FALSE, verbose = TRUE) {
-    if (length(ids) > 1) {
-      structure(
-        lapply(ids, get_network_by_id_indiv, as_sf = as_sf, verbose = verbose),
-        class = "mgNetworksCollection"
-      )
+get_network_by_id <- function(ids, as_sf = FALSE, force_collection = FALSE, 
+  verbose = TRUE) {
+    
+    if (!length(ids)) {
+      warning("length(ids) is 0, an empty dataframe is returned.")
+      return(data.frame())
     } else {
-      if (!length(ids)) return(data.frame())
-      get_network_by_id_indiv(ids, as_sf = as_sf, verbose = verbose)
+      if (length(ids) == 1 & !force_collection) {
+        get_network_by_id_indiv(ids, as_sf = as_sf, verbose = verbose)
+      } else {
+        structure(
+          lapply(ids, get_network_by_id_indiv, as_sf = as_sf, verbose = verbose),
+          class = "mgNetworksCollection"
+        )
+      }
     }
 }
 

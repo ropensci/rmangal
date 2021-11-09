@@ -6,7 +6,7 @@
 #' partial match was found are returned.
 #' Alternatively, a named list can be used to look for an exact match in a specific column (see Details section)
 #'
-#' @param query either a character string including a single keyword or a list containing a custom query (see details section below).
+#' @param query either a character string including a single keyword or a named list containing a custom query (see details section below).
 #' Note that if an empty character string is passed, then all datasets available are returned.
 #' @param verbose a logical. Should extra information be reported on progress?
 #' @param ... further arguments to be passed to [httr::GET()].
@@ -17,8 +17,7 @@
 #' the networks and the original reference are attached.
 #'
 #' @details
-#' Names of the list should match one of the column names within the table. 
-#' For the `dataset` table, those are:
+#' If `query` is a named list, the name  used should be one of the following:
 #' - id: unique identifier of the dataset
 #' - name: name of the dataset
 #' - date: date (`YYYY-mm-dd`) of the corresponding publication
@@ -29,20 +28,21 @@
 #' Examples covering custom queries are provided below.
 #'
 #' @references
-#' Metadata available at <https://mangal-wg.github.io/mangal-api/#datasets>
+#' * <https://mangal.io/#/>
+#' * <https://mangal-interactions.github.io/mangal-api/#datasets>
 #'
 #' @examples
 #' \donttest{
-#' # Return all datasets (takes time)
-#' all_datasets <- search_datasets("", verbose = FALSE)
-#' all_datasets
-#' class(all_datasets)
+#'  # Return all datasets (takes time)
+#'  all_datasets <- search_datasets("")
+#'  all_datasets
+#'  class(all_datasets)
+#'  # Search with keyword
+#'  mg_lagoon <- search_datasets(query = 'lagoon')
+#'  # Search with a custom query (specific column)
+#'  mg_kemp <- search_datasets(query = list(name = 'kemp_1977'))
+#'  mg_16 <- search_datasets(query = list(ref_id = 16))
 #' }
-#' # Search with keyword
-#' mg_lagoon <- search_datasets(query = 'lagoon', verbose = FALSE)
-#' # Search with a custom query (specific column)
-#' mg_kemp <- search_datasets(query = list(name = 'kemp_1977'), verbose = FALSE)
-#' mg_16 <- search_datasets(query = list(ref_id = 16), verbose = FALSE)
 #' @export
 
 search_datasets <- function(query, verbose = TRUE, ...) {

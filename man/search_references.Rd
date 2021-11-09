@@ -7,7 +7,7 @@
 search_references(query, doi = NULL, verbose = TRUE, ...)
 }
 \arguments{
-\item{query}{either a character string including a single keyword or a list containing a custom query (see details section below).
+\item{query}{either a character string including a single keyword or a named list containing a custom query (see details section below).
 Note that if an empty character string is passed, then all datasets available are returned.}
 
 \item{doi}{\code{character} a Digital Object Identifier  (DOI) of the article. Note that \code{query} is ignored if \code{doi} is specified.}
@@ -40,10 +40,15 @@ For the \code{reference} table, those are:
 Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
 }
 \examples{
-search_references(doi = "10.2307/3225248")
-search_references(list(jstor = 3683041))
-search_references(list(year = 2010))
+\donttest{
+ search_references(doi = "10.2307/3225248")
+ search_references(list(jstor = 3683041))
+ search_references(list(year = 2010))
+}
 }
 \references{
-Metadata available at \url{https://mangal-wg.github.io/mangal-api/#references}
+\itemize{
+\item \url{https://mangal.io/#/}
+\item \url{https://mangal-interactions.github.io/mangal-api/#references}
+}
 }

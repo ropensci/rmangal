@@ -1,30 +1,36 @@
-context("search_interactions")
+test_that("search_interactions() default works", {
+  vcr::use_cassette(name = "search_interactions_default", {
+    res <- search_interactions(type = "competition", verbose = FALSE)
+    # 
+  })
+  expect_equal(dim(res), c(12, 19))
+  expect_s3_class(res, "mgSearchInteractions")
+})
 
-res1 <- search_interactions(type = "competition")
-res2 <- search_interactions(type = "competition", expand_node = TRUE)
-res3 <- search_interactions(list(network_id = 926))
-res4 <- search_interactions(list(network_id = 926), expand_node = TRUE)
-
-test_that("expected behavior", {
-  expect_identical(search_interactions("wrong"), data.frame())
-  expect_equal(dim(res1), c(12, 19))
-  expect_equal(class(res1), c("data.frame", "mgSearchInteractions"))
-  expect_equal(class(res3), c("data.frame", "mgSearchInteractions"))
+test_that("search_interactions() type and expand_node work", {
+  vcr::use_cassette(name = "search_interactions_type", {
+    res <- search_interactions(type = "competition", expand_node = TRUE)
+  })
   # this may change if we merge data frames
-  expect_equal(dim(res2), c(12, 55))
-  expect_equal(dim(res3), c(34, 19))
-  expect_true(all(res3$network_id == 926))
-  expect_equal(dim(res4), c(34, 57))
-  expect_true(all(res4$network_id == 926))
-  expect_error(search_interactions(list(wrong = "wrong")))
-  expect_warning(search_interactions(list(network_id = 926, wrong = "wrong")))
+  expect_s3_class(res, "mgSearchInteractions")
+  expect_equal(dim(res), c(12, 55))
+  expect_true(all(res$type == "competition"))
+  
 })
 
-
-resc <- get_collection(res1)
-test_that("get_collection", {
-  expect_equal(class(resc), "mgNetworksCollection")
-  expect_equal(class(resc[[1L]]), "mgNetwork")
+test_that("search_interactions()", {
+  vcr::use_cassette(name = "search_interactions_id100", {
+    res <- search_interactions(list(network_id = 100), verbose = FALSE)
+    resc <- get_collection(res)
+  })
+  expect_s3_class(res, "mgSearchInteractions")
+  expect_true(all(res$network_id == 100))
+  #
+  expect_s3_class(resc, "mgNetworksCollection")
   expect_equal(names(resc[[1L]]), nm_co)
-
 })
+
+
+
+
+

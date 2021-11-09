@@ -1,0 +1,61 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/dataset?q=does%20not%20exist&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Mon, 08 Nov 2021 23:08:41 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '2'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-0/0
+      etag: W/"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[]'
+  recorded_at: 2021-11-08 23:08:41 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/dataset?q=does%20not%20exist&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Mon, 08 Nov 2021 23:08:41 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '2'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-0/0
+      etag: W/"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[]'
+  recorded_at: 2021-11-08 23:08:41 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

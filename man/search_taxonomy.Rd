@@ -20,17 +20,17 @@ search_taxonomy(
 \item{query}{a character string including a single keyword.
 Note that if an empty character string is passed, then all datasets available are returned.}
 
-\item{tsn}{a \code{numeric}. Unique taxonomic identifier from Integrated Taxonomic Information System (\url{https://www.itis.gov/}).}
+\item{tsn}{a \code{numeric}. Unique taxonomic identifier from Integrated Taxonomic Information System (\url{https://www.itis.gov}).}
 
-\item{gbif}{a \code{numeric}. Unique taxonomic identifier from Global Biodiversity Information Facility (\url{https://www.gbif.org/}).}
+\item{gbif}{a \code{numeric}. Unique taxonomic identifier from Global Biodiversity Information Facility (\url{https://www.gbif.org}).}
 
-\item{eol}{a \code{numeric}. Unique taxonomic identifier from Encyclopedia of Life (\url{https://eol.org/}).}
+\item{eol}{a \code{numeric}. Unique taxonomic identifier from Encyclopedia of Life (\url{https://eol.org}).}
 
-\item{col}{a \code{numeric}. Unique taxonomic identifier from Catalogue of Life (\url{https://www.catalogueoflife.org/}).}
+\item{col}{a \code{numeric}. Unique taxonomic identifier from Catalogue of Life (\url{https://www.catalogueoflife.org}).}
 
-\item{bold}{a \code{numeric}. Unique taxonomic identifier from Barcode of Life (\url{http://www.boldsystems.org/}).}
+\item{bold}{a \code{numeric}. Unique taxonomic identifier from Barcode of Life (\url{http://www.boldsystems.org}).}
 
-\item{ncbi}{a \code{numeric}. Unique taxonomic identifier from National Center for Biotechnology Information (\url{https://www.ncbi.nlm.nih.gov/}).}
+\item{ncbi}{a \code{numeric}. Unique taxonomic identifier from National Center for Biotechnology Information (\url{https://www.ncbi.nlm.nih.gov}).}
 
 \item{verbose}{a \code{logical}. Should extra information be reported on progress?}
 
@@ -50,7 +50,7 @@ if several taxonomic identifiers are specified, then only the first one is consi
 }
 \details{
 Taxon names of the \code{taxonomy} table were validated with
-TNRS (see \url{http://tnrs.iplantcollaborative.org/} and/or GNR
+TNRS (see \url{https://tnrs.biendata.org} and/or GNR
 might not be the taxon name documented in the original publication.
 In order to identify relevant networks with the original name, use
 \code{\link[=search_nodes]{search_nodes()}}.
@@ -58,15 +58,20 @@ In order to identify relevant networks with the original name, use
 The validation of taxon names was performed by an automated
 procedure and if there is any doubt, the original names recorded
 by authors should be regarded as the most reliable information. Please
-report any issue related to taxonomy at \url{https://github.com/mangal-wg/mangal-datasets/issues}.
+report any issue related to taxonomy at \url{https://github.com/mangal-interactions/contribute/issues/new/choose/}.
 }
 \examples{
-search_taxonomy("Acer")
-# Retrieve higher classification
-tsn_acer <- search_taxonomy("Acer")$taxonomy.tsn
+\donttest{
+ search_taxonomy("Acer")
+ # Retrieve higher classification
+ tsn_acer <- search_taxonomy("Acer")$taxonomy.tsn
+}
 }
 \references{
-Metadata available at \url{https://mangal-wg.github.io/mangal-api/#taxonomy}
+\itemize{
+\item \url{https://mangal.io/#/}
+\item \url{https://mangal-interactions.github.io/mangal-api/#taxonomy}
+}
 }
 \seealso{
 \code{\link[=search_nodes]{search_nodes()}}

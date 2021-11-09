@@ -1,29 +1,23 @@
-context("test search_references")
-
-res1 <- search_references(doi = "10.2307/3225248")
-res2 <- search_references(list(jstor = 3683041))
-res3 <- suppressWarnings(search_references(doi = c("10.2307/3225248", "ok")))
-res4 <- search_references(list(year = 2010))
-resw <- search_references("wrong")
-
-test_that("expected behavior", {
-  expect_error(search_references())
-  expect_equal(class(res1), "mgSearchReferences")
+test_that("search_references() default and collection work", {
+  vcr::use_cassette(name = "search_references_default", {
+    res1 <- search_references(doi = "10.2307/3225248")
+    resc <- get_collection(res1)
+  })
+  expect_s3_class(res1, "mgSearchReferences")
   expect_equal(length(res1), 13)
-  expect_equal(length(res2), 13)
-  expect_equal(length(res4), 13)
-  expect_equal(length(res4$network), 5)
-  expect_warning(search_references(doi = c("10.2307/3225248", "ok")))
-  expect_equal(res2$jstor, "3683041")
-  expect_identical(resw, data.frame())
+  expect_equal(res1$doi, "10.2307/3225248")
+  expect_equal(class(resc), "mgNetworksCollection")
+  expect_identical(names(resc[[1]]), nm_co)
 })
 
-
-resc <- get_collection(res1)
-test_that("get_collection", {
-  expect_equal(class(resc), "mgNetwork")
-  expect_identical(names(resc), nm_co)
+test_that("search_references() using list works", {
+  vcr::use_cassette(name = "search_references_list", {
+    res <- search_references(list(jstor = 3683041))
+  })
+  expect_s3_class(res, "mgSearchReferences")
+  expect_equal(res$jstor, "3683041")
 })
 
-
-res1 <- search_references(doi = "Does not work")
+# something weird with jstor output compare the 1st and 2nd query
+# res3 <- suppressWarnings(search_references(doi = c("ok", "ok")))
+# res4 <- search_references(list(year = 2010))

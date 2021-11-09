@@ -1,0 +1,1012 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network/1035
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Mon, 08 Nov 2021 23:08:33 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '397'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"18d-WlSlvFhgxyDp6ecoDXW6Yr1H0+s"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":1035,"name":"hadfield_2014_20140201_1035","date":"2014-02-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[45.412222,39.208889]},"description":"Flea
+        distribution and abundance on small mammals (Soricomorpha and Rodentia) at
+        Nakhichevan","public":true,"all_interactions":false,"created_at":"2019-02-26T19:28:02.957Z","updated_at":"2019-02-26T21:02:24.670Z","dataset_id":72,"user_id":2}'
+  recorded_at: 2021-11-08 23:08:35 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node?network_id=1035&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Mon, 08 Nov 2021 23:08:34 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '7977'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-18/19
+      etag: W/"1f29-Y12fdGos2cWxIyUZ4yyLVxAoJJk"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":12263,"original_name":"Microtus arvalis","node_level":"taxon","network_id":1035,"taxonomy_id":3543,"created_at":"2019-02-26T19:28:04.302Z","updated_at":"2019-02-26T19:28:04.302Z","taxonomy":{"id":3543,"name":"Microtus
+        arvalis","ncbi":47230,"tsn":632856,"eol":1179634,"bold":29505,"gbif":2438606,"col":"c316d43b9cbe48bea99f1d1a1f0c3f3d","rank":"species","created_at":"2019-02-22T00:35:14.161Z","updated_at":"2019-06-14T15:25:15.979Z"}},{"id":12264,"original_name":"Arvicola
+        terrestris","node_level":"taxon","network_id":1035,"taxonomy_id":3415,"created_at":"2019-02-26T19:28:04.332Z","updated_at":"2019-02-26T19:28:04.332Z","taxonomy":{"id":3415,"name":"Arvicola
+        amphibius","ncbi":1047088,"tsn":970588,"eol":1179597,"bold":162016,"gbif":4265185,"col":"2e7ace9ed0522b2ef99288425947efc8","rank":"species","created_at":"2019-02-22T00:35:00.292Z","updated_at":"2019-06-14T15:25:09.711Z"}},{"id":12265,"original_name":"Dryomys
+        nitedula","node_level":"taxon","network_id":1035,"taxonomy_id":3488,"created_at":"2019-02-26T19:28:04.364Z","updated_at":"2019-02-26T19:28:04.364Z","taxonomy":{"id":3488,"name":"Dryomys
+        nitedula","ncbi":55145,"tsn":584967,"eol":327933,"bold":142625,"gbif":2439688,"col":"0c0c710bf39516619dea5167e8ed2076","rank":"species","created_at":"2019-02-22T00:35:07.817Z","updated_at":"2019-06-14T15:25:13.169Z"}},{"id":12267,"original_name":"Ctenophthalmus
+        wladimiri","node_level":"taxon","network_id":1035,"taxonomy_id":3480,"created_at":"2019-02-26T19:28:04.462Z","updated_at":"2019-02-26T19:28:04.462Z","taxonomy":{"id":3480,"name":"Ctenophthalmus
+        wladimiri","ncbi":null,"tsn":null,"eol":705036,"bold":null,"gbif":5050700,"col":"51c7932f477c29291a7e6be26676847e","rank":"species","created_at":"2019-02-22T00:35:07.019Z","updated_at":"2019-06-14T15:25:12.828Z"}},{"id":12268,"original_name":"Ceratophyllus
+        sciurorum","node_level":"taxon","network_id":1035,"taxonomy_id":3429,"created_at":"2019-02-26T19:28:04.509Z","updated_at":"2019-02-26T19:28:04.509Z","taxonomy":{"id":3429,"name":"Pulex
+        sciurorum","ncbi":1335555,"tsn":null,"eol":46777516,"bold":null,"gbif":6547287,"col":null,"rank":null,"created_at":"2019-02-22T00:35:01.549Z","updated_at":"2019-06-14T15:25:10.337Z"}},{"id":12269,"original_name":"Amphipsylla
+        rossica","node_level":"taxon","network_id":1035,"taxonomy_id":3403,"created_at":"2019-02-26T19:28:04.550Z","updated_at":"2019-02-26T19:28:04.550Z","taxonomy":{"id":3403,"name":"Amphipsylla
+        rossica","ncbi":null,"tsn":null,"eol":705991,"bold":895676,"gbif":1418080,"col":"99e5699211a4959c4f24a0541406da59","rank":"species","created_at":"2019-02-22T00:34:59.089Z","updated_at":"2019-06-14T15:25:09.078Z"}},{"id":12270,"original_name":"Frontopsylla
+        elata","node_level":"taxon","network_id":1035,"taxonomy_id":3495,"created_at":"2019-02-26T19:28:04.593Z","updated_at":"2019-02-26T19:28:04.593Z","taxonomy":{"id":3495,"name":"Frontopsylla
+        elata","ncbi":null,"tsn":null,"eol":419156,"bold":null,"gbif":1417768,"col":"e686eda128c3dfb955d4e6aaf3954eb1","rank":"species","created_at":"2019-02-22T00:35:08.633Z","updated_at":"2019-06-14T15:25:13.528Z"}},{"id":12271,"original_name":"Megabothris
+        walkeri","node_level":"taxon","network_id":1035,"taxonomy_id":3526,"created_at":"2019-02-26T19:28:04.636Z","updated_at":"2019-02-26T19:28:04.636Z","taxonomy":{"id":3526,"name":"Megabothris
+        walkeri","ncbi":1530110,"tsn":null,"eol":705798,"bold":715968,"gbif":1416976,"col":"c584ab07d45811efeea08360d04bc796","rank":"species","created_at":"2019-02-22T00:35:12.032Z","updated_at":"2019-06-14T15:25:15.096Z"}},{"id":12272,"original_name":"Ctenophthalmus
+        bogatschevi","node_level":"taxon","network_id":1035,"taxonomy_id":3457,"created_at":"2019-02-26T19:28:04.680Z","updated_at":"2019-02-26T19:28:04.680Z","taxonomy":{"id":3457,"name":"Ctenophthalmus
+        bogatschevi","ncbi":null,"tsn":null,"eol":705004,"bold":null,"gbif":5050817,"col":"e8db850fbcaa7faa606f9d25d38101a3","rank":"species","created_at":"2019-02-22T00:35:04.555Z","updated_at":"2019-06-14T15:25:11.844Z"}},{"id":12273,"original_name":"Neopsylla
+        pleskei","node_level":"taxon","network_id":1035,"taxonomy_id":3573,"created_at":"2019-02-26T19:28:04.731Z","updated_at":"2019-02-26T19:28:04.731Z","taxonomy":{"id":3573,"name":"Neopsylla
+        pleskei","ncbi":129380,"tsn":null,"eol":705245,"bold":null,"gbif":5051042,"col":"517cf977a5fb501b11a9d8f32ec3ee1b","rank":"species","created_at":"2019-02-22T00:35:19.378Z","updated_at":"2019-06-14T15:25:17.574Z"}},{"id":12274,"original_name":"Nosopsyllus
+        consimilis","node_level":"taxon","network_id":1035,"taxonomy_id":3578,"created_at":"2019-02-26T19:28:04.775Z","updated_at":"2019-02-26T19:28:04.775Z","taxonomy":{"id":3578,"name":"Nosopsyllus
+        consimilis","ncbi":null,"tsn":null,"eol":705834,"bold":null,"gbif":1417299,"col":"4131f5a61777fb2315718c6561024a0f","rank":"species","created_at":"2019-02-22T00:35:20.107Z","updated_at":"2019-06-14T15:25:17.727Z"}},{"id":12275,"original_name":"Hystrichopsylla
+        talpae","node_level":"taxon","network_id":1035,"taxonomy_id":3507,"created_at":"2019-02-26T19:28:04.817Z","updated_at":"2019-02-26T19:28:04.817Z","taxonomy":{"id":3507,"name":"Hystrichopsylla
+        talpae","ncbi":140718,"tsn":null,"eol":705473,"bold":null,"gbif":1419182,"col":"d045818d6c3c1e87e4bd793364697dcb","rank":"species","created_at":"2019-02-22T00:35:09.938Z","updated_at":"2019-06-14T15:25:14.125Z"}},{"id":12276,"original_name":"Palaeopsylla
+        soricis","node_level":"taxon","network_id":1035,"taxonomy_id":3598,"created_at":"2019-02-26T19:28:04.858Z","updated_at":"2019-02-26T19:28:04.858Z","taxonomy":{"id":3598,"name":"Palaeopsylla
+        soricis","ncbi":null,"tsn":null,"eol":705145,"bold":888491,"gbif":1419078,"col":"d551ba683a5564b069c188a89f932684","rank":"species","created_at":"2019-02-22T00:35:23.540Z","updated_at":"2019-06-14T15:25:18.950Z"}},{"id":12277,"original_name":"Callopsylla
+        caspia","node_level":"taxon","network_id":1035,"taxonomy_id":3418,"created_at":"2019-02-26T19:28:04.903Z","updated_at":"2019-02-26T19:28:04.903Z","taxonomy":{"id":3418,"name":"Callopsylla
+        caspia","ncbi":1658352,"tsn":null,"eol":705578,"bold":750961,"gbif":1417429,"col":"3efead43125b918301948dd7e75a2f82","rank":"species","created_at":"2019-02-22T00:35:00.531Z","updated_at":"2019-06-14T15:25:09.871Z"}},{"id":12278,"original_name":"Leptopsylla
+        taschenbergi","node_level":"taxon","network_id":1035,"taxonomy_id":3514,"created_at":"2019-02-26T19:28:04.949Z","updated_at":"2019-02-26T19:28:04.949Z","taxonomy":{"id":3514,"name":"Leptopsylla
+        taschenbergi","ncbi":1658320,"tsn":null,"eol":419225,"bold":715892,"gbif":1417656,"col":"fc135b2018f4e04ecb2c3fbafb773af8","rank":"species","created_at":"2019-02-22T00:35:10.772Z","updated_at":"2019-06-14T15:25:14.504Z"}},{"id":12280,"original_name":"Rhadinopsylla
+        integella","node_level":"taxon","network_id":1035,"taxonomy_id":3637,"created_at":"2019-02-26T19:28:05.051Z","updated_at":"2019-02-26T19:28:05.051Z","taxonomy":{"id":3637,"name":"Rhadinopsylla
+        integella","ncbi":null,"tsn":null,"eol":705370,"bold":null,"gbif":1418862,"col":"17a93c634a3ce1b4801c62543f2130db","rank":"species","created_at":"2019-02-22T00:35:30.616Z","updated_at":"2019-06-14T15:25:21.013Z"}},{"id":12281,"original_name":"Stenoponia
+        ivanovi","node_level":"taxon","network_id":1035,"taxonomy_id":3676,"created_at":"2019-02-26T19:28:05.112Z","updated_at":"2019-02-26T19:28:05.112Z","taxonomy":{"id":3676,"name":"Stenoponia
+        ivanovi","ncbi":null,"tsn":null,"eol":705432,"bold":null,"gbif":1419193,"col":"6848f22a63f56e97f6c575d253800aed","rank":"species","created_at":"2019-02-22T00:35:35.272Z","updated_at":"2019-06-14T15:25:23.137Z"}},{"id":12266,"original_name":"Neomys
+        schelkovnikovi","node_level":"taxon","network_id":1035,"taxonomy_id":null,"created_at":"2019-02-26T19:28:04.424Z","updated_at":"2019-02-26T19:28:04.424Z","taxonomy":null},{"id":12279,"original_name":"Peromyscopsylla
+        bidentata","node_level":"taxon","network_id":1035,"taxonomy_id":null,"created_at":"2019-02-26T19:28:04.994Z","updated_at":"2019-02-26T19:28:04.994Z","taxonomy":null}]'
+  recorded_at: 2021-11-08 23:08:35 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node?network_id=1035&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Mon, 08 Nov 2021 23:08:34 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '7977'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-18/19
+      etag: W/"1f29-Y12fdGos2cWxIyUZ4yyLVxAoJJk"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":12263,"original_name":"Microtus arvalis","node_level":"taxon","network_id":1035,"taxonomy_id":3543,"created_at":"2019-02-26T19:28:04.302Z","updated_at":"2019-02-26T19:28:04.302Z","taxonomy":{"id":3543,"name":"Microtus
+        arvalis","ncbi":47230,"tsn":632856,"eol":1179634,"bold":29505,"gbif":2438606,"col":"c316d43b9cbe48bea99f1d1a1f0c3f3d","rank":"species","created_at":"2019-02-22T00:35:14.161Z","updated_at":"2019-06-14T15:25:15.979Z"}},{"id":12264,"original_name":"Arvicola
+        terrestris","node_level":"taxon","network_id":1035,"taxonomy_id":3415,"created_at":"2019-02-26T19:28:04.332Z","updated_at":"2019-02-26T19:28:04.332Z","taxonomy":{"id":3415,"name":"Arvicola
+        amphibius","ncbi":1047088,"tsn":970588,"eol":1179597,"bold":162016,"gbif":4265185,"col":"2e7ace9ed0522b2ef99288425947efc8","rank":"species","created_at":"2019-02-22T00:35:00.292Z","updated_at":"2019-06-14T15:25:09.711Z"}},{"id":12265,"original_name":"Dryomys
+        nitedula","node_level":"taxon","network_id":1035,"taxonomy_id":3488,"created_at":"2019-02-26T19:28:04.364Z","updated_at":"2019-02-26T19:28:04.364Z","taxonomy":{"id":3488,"name":"Dryomys
+        nitedula","ncbi":55145,"tsn":584967,"eol":327933,"bold":142625,"gbif":2439688,"col":"0c0c710bf39516619dea5167e8ed2076","rank":"species","created_at":"2019-02-22T00:35:07.817Z","updated_at":"2019-06-14T15:25:13.169Z"}},{"id":12267,"original_name":"Ctenophthalmus
+        wladimiri","node_level":"taxon","network_id":1035,"taxonomy_id":3480,"created_at":"2019-02-26T19:28:04.462Z","updated_at":"2019-02-26T19:28:04.462Z","taxonomy":{"id":3480,"name":"Ctenophthalmus
+        wladimiri","ncbi":null,"tsn":null,"eol":705036,"bold":null,"gbif":5050700,"col":"51c7932f477c29291a7e6be26676847e","rank":"species","created_at":"2019-02-22T00:35:07.019Z","updated_at":"2019-06-14T15:25:12.828Z"}},{"id":12268,"original_name":"Ceratophyllus
+        sciurorum","node_level":"taxon","network_id":1035,"taxonomy_id":3429,"created_at":"2019-02-26T19:28:04.509Z","updated_at":"2019-02-26T19:28:04.509Z","taxonomy":{"id":3429,"name":"Pulex
+        sciurorum","ncbi":1335555,"tsn":null,"eol":46777516,"bold":null,"gbif":6547287,"col":null,"rank":null,"created_at":"2019-02-22T00:35:01.549Z","updated_at":"2019-06-14T15:25:10.337Z"}},{"id":12269,"original_name":"Amphipsylla
+        rossica","node_level":"taxon","network_id":1035,"taxonomy_id":3403,"created_at":"2019-02-26T19:28:04.550Z","updated_at":"2019-02-26T19:28:04.550Z","taxonomy":{"id":3403,"name":"Amphipsylla
+        rossica","ncbi":null,"tsn":null,"eol":705991,"bold":895676,"gbif":1418080,"col":"99e5699211a4959c4f24a0541406da59","rank":"species","created_at":"2019-02-22T00:34:59.089Z","updated_at":"2019-06-14T15:25:09.078Z"}},{"id":12270,"original_name":"Frontopsylla
+        elata","node_level":"taxon","network_id":1035,"taxonomy_id":3495,"created_at":"2019-02-26T19:28:04.593Z","updated_at":"2019-02-26T19:28:04.593Z","taxonomy":{"id":3495,"name":"Frontopsylla
+        elata","ncbi":null,"tsn":null,"eol":419156,"bold":null,"gbif":1417768,"col":"e686eda128c3dfb955d4e6aaf3954eb1","rank":"species","created_at":"2019-02-22T00:35:08.633Z","updated_at":"2019-06-14T15:25:13.528Z"}},{"id":12271,"original_name":"Megabothris
+        walkeri","node_level":"taxon","network_id":1035,"taxonomy_id":3526,"created_at":"2019-02-26T19:28:04.636Z","updated_at":"2019-02-26T19:28:04.636Z","taxonomy":{"id":3526,"name":"Megabothris
+        walkeri","ncbi":1530110,"tsn":null,"eol":705798,"bold":715968,"gbif":1416976,"col":"c584ab07d45811efeea08360d04bc796","rank":"species","created_at":"2019-02-22T00:35:12.032Z","updated_at":"2019-06-14T15:25:15.096Z"}},{"id":12272,"original_name":"Ctenophthalmus
+        bogatschevi","node_level":"taxon","network_id":1035,"taxonomy_id":3457,"created_at":"2019-02-26T19:28:04.680Z","updated_at":"2019-02-26T19:28:04.680Z","taxonomy":{"id":3457,"name":"Ctenophthalmus
+        bogatschevi","ncbi":null,"tsn":null,"eol":705004,"bold":null,"gbif":5050817,"col":"e8db850fbcaa7faa606f9d25d38101a3","rank":"species","created_at":"2019-02-22T00:35:04.555Z","updated_at":"2019-06-14T15:25:11.844Z"}},{"id":12273,"original_name":"Neopsylla
+        pleskei","node_level":"taxon","network_id":1035,"taxonomy_id":3573,"created_at":"2019-02-26T19:28:04.731Z","updated_at":"2019-02-26T19:28:04.731Z","taxonomy":{"id":3573,"name":"Neopsylla
+        pleskei","ncbi":129380,"tsn":null,"eol":705245,"bold":null,"gbif":5051042,"col":"517cf977a5fb501b11a9d8f32ec3ee1b","rank":"species","created_at":"2019-02-22T00:35:19.378Z","updated_at":"2019-06-14T15:25:17.574Z"}},{"id":12274,"original_name":"Nosopsyllus
+        consimilis","node_level":"taxon","network_id":1035,"taxonomy_id":3578,"created_at":"2019-02-26T19:28:04.775Z","updated_at":"2019-02-26T19:28:04.775Z","taxonomy":{"id":3578,"name":"Nosopsyllus
+        consimilis","ncbi":null,"tsn":null,"eol":705834,"bold":null,"gbif":1417299,"col":"4131f5a61777fb2315718c6561024a0f","rank":"species","created_at":"2019-02-22T00:35:20.107Z","updated_at":"2019-06-14T15:25:17.727Z"}},{"id":12275,"original_name":"Hystrichopsylla
+        talpae","node_level":"taxon","network_id":1035,"taxonomy_id":3507,"created_at":"2019-02-26T19:28:04.817Z","updated_at":"2019-02-26T19:28:04.817Z","taxonomy":{"id":3507,"name":"Hystrichopsylla
+        talpae","ncbi":140718,"tsn":null,"eol":705473,"bold":null,"gbif":1419182,"col":"d045818d6c3c1e87e4bd793364697dcb","rank":"species","created_at":"2019-02-22T00:35:09.938Z","updated_at":"2019-06-14T15:25:14.125Z"}},{"id":12276,"original_name":"Palaeopsylla
+        soricis","node_level":"taxon","network_id":1035,"taxonomy_id":3598,"created_at":"2019-02-26T19:28:04.858Z","updated_at":"2019-02-26T19:28:04.858Z","taxonomy":{"id":3598,"name":"Palaeopsylla
+        soricis","ncbi":null,"tsn":null,"eol":705145,"bold":888491,"gbif":1419078,"col":"d551ba683a5564b069c188a89f932684","rank":"species","created_at":"2019-02-22T00:35:23.540Z","updated_at":"2019-06-14T15:25:18.950Z"}},{"id":12277,"original_name":"Callopsylla
+        caspia","node_level":"taxon","network_id":1035,"taxonomy_id":3418,"created_at":"2019-02-26T19:28:04.903Z","updated_at":"2019-02-26T19:28:04.903Z","taxonomy":{"id":3418,"name":"Callopsylla
+        caspia","ncbi":1658352,"tsn":null,"eol":705578,"bold":750961,"gbif":1417429,"col":"3efead43125b918301948dd7e75a2f82","rank":"species","created_at":"2019-02-22T00:35:00.531Z","updated_at":"2019-06-14T15:25:09.871Z"}},{"id":12278,"original_name":"Leptopsylla
+        taschenbergi","node_level":"taxon","network_id":1035,"taxonomy_id":3514,"created_at":"2019-02-26T19:28:04.949Z","updated_at":"2019-02-26T19:28:04.949Z","taxonomy":{"id":3514,"name":"Leptopsylla
+        taschenbergi","ncbi":1658320,"tsn":null,"eol":419225,"bold":715892,"gbif":1417656,"col":"fc135b2018f4e04ecb2c3fbafb773af8","rank":"species","created_at":"2019-02-22T00:35:10.772Z","updated_at":"2019-06-14T15:25:14.504Z"}},{"id":12280,"original_name":"Rhadinopsylla
+        integella","node_level":"taxon","network_id":1035,"taxonomy_id":3637,"created_at":"2019-02-26T19:28:05.051Z","updated_at":"2019-02-26T19:28:05.051Z","taxonomy":{"id":3637,"name":"Rhadinopsylla
+        integella","ncbi":null,"tsn":null,"eol":705370,"bold":null,"gbif":1418862,"col":"17a93c634a3ce1b4801c62543f2130db","rank":"species","created_at":"2019-02-22T00:35:30.616Z","updated_at":"2019-06-14T15:25:21.013Z"}},{"id":12281,"original_name":"Stenoponia
+        ivanovi","node_level":"taxon","network_id":1035,"taxonomy_id":3676,"created_at":"2019-02-26T19:28:05.112Z","updated_at":"2019-02-26T19:28:05.112Z","taxonomy":{"id":3676,"name":"Stenoponia
+        ivanovi","ncbi":null,"tsn":null,"eol":705432,"bold":null,"gbif":1419193,"col":"6848f22a63f56e97f6c575d253800aed","rank":"species","created_at":"2019-02-22T00:35:35.272Z","updated_at":"2019-06-14T15:25:23.137Z"}},{"id":12266,"original_name":"Neomys
+        schelkovnikovi","node_level":"taxon","network_id":1035,"taxonomy_id":null,"created_at":"2019-02-26T19:28:04.424Z","updated_at":"2019-02-26T19:28:04.424Z","taxonomy":null},{"id":12279,"original_name":"Peromyscopsylla
+        bidentata","node_level":"taxon","network_id":1035,"taxonomy_id":null,"created_at":"2019-02-26T19:28:04.994Z","updated_at":"2019-02-26T19:28:04.994Z","taxonomy":null}]'
+  recorded_at: 2021-11-08 23:08:35 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/interaction?network_id=1035&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Mon, 08 Nov 2021 23:08:34 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '9904'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-18/19
+      etag: W/"26b0-0FJqtiXRdIJsP1SKHshl4N27FS0"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":61705,"node_from":12267,"node_to":12263,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":88,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:09.681Z","updated_at":"2019-02-26T19:28:09.681Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61706,"node_from":12267,"node_to":12264,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":3,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:09.750Z","updated_at":"2019-02-26T19:28:09.750Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61707,"node_from":12268,"node_to":12265,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":67,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:09.793Z","updated_at":"2019-02-26T19:28:09.793Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61708,"node_from":12269,"node_to":12263,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":39,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:09.852Z","updated_at":"2019-02-26T19:28:09.852Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61709,"node_from":12270,"node_to":12263,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":14,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:09.887Z","updated_at":"2019-02-26T19:28:09.887Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61710,"node_from":12270,"node_to":12264,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:09.920Z","updated_at":"2019-02-26T19:28:09.920Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61711,"node_from":12271,"node_to":12264,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":9,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:09.957Z","updated_at":"2019-02-26T19:28:09.957Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61712,"node_from":12272,"node_to":12263,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":7,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:09.989Z","updated_at":"2019-02-26T19:28:09.989Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61713,"node_from":12272,"node_to":12266,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":1,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:10.027Z","updated_at":"2019-02-26T19:28:10.027Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61714,"node_from":12273,"node_to":12263,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":6,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:10.062Z","updated_at":"2019-02-26T19:28:10.062Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61715,"node_from":12274,"node_to":12263,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":4,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:10.109Z","updated_at":"2019-02-26T19:28:10.109Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61716,"node_from":12274,"node_to":12264,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":1,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:10.163Z","updated_at":"2019-02-26T19:28:10.163Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61717,"node_from":12275,"node_to":12263,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:10.212Z","updated_at":"2019-02-26T19:28:10.212Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61718,"node_from":12276,"node_to":12266,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:10.257Z","updated_at":"2019-02-26T19:28:10.257Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61719,"node_from":12277,"node_to":12263,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":1,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:10.306Z","updated_at":"2019-02-26T19:28:10.306Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61720,"node_from":12278,"node_to":12265,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":1,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:10.354Z","updated_at":"2019-02-26T19:28:10.354Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61721,"node_from":12279,"node_to":12263,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":1,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:10.405Z","updated_at":"2019-02-26T19:28:10.405Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61722,"node_from":12280,"node_to":12263,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":1,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:10.457Z","updated_at":"2019-02-26T19:28:10.457Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61723,"node_from":12281,"node_to":12263,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":1,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:10.520Z","updated_at":"2019-02-26T19:28:10.520Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}}]'
+  recorded_at: 2021-11-08 23:08:35 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/interaction?network_id=1035&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Mon, 08 Nov 2021 23:08:34 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '9904'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-18/19
+      etag: W/"26b0-0FJqtiXRdIJsP1SKHshl4N27FS0"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":61705,"node_from":12267,"node_to":12263,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":88,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:09.681Z","updated_at":"2019-02-26T19:28:09.681Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61706,"node_from":12267,"node_to":12264,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":3,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:09.750Z","updated_at":"2019-02-26T19:28:09.750Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61707,"node_from":12268,"node_to":12265,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":67,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:09.793Z","updated_at":"2019-02-26T19:28:09.793Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61708,"node_from":12269,"node_to":12263,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":39,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:09.852Z","updated_at":"2019-02-26T19:28:09.852Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61709,"node_from":12270,"node_to":12263,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":14,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:09.887Z","updated_at":"2019-02-26T19:28:09.887Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61710,"node_from":12270,"node_to":12264,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:09.920Z","updated_at":"2019-02-26T19:28:09.920Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61711,"node_from":12271,"node_to":12264,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":9,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:09.957Z","updated_at":"2019-02-26T19:28:09.957Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61712,"node_from":12272,"node_to":12263,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":7,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:09.989Z","updated_at":"2019-02-26T19:28:09.989Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61713,"node_from":12272,"node_to":12266,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":1,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:10.027Z","updated_at":"2019-02-26T19:28:10.027Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61714,"node_from":12273,"node_to":12263,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":6,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:10.062Z","updated_at":"2019-02-26T19:28:10.062Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61715,"node_from":12274,"node_to":12263,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":4,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:10.109Z","updated_at":"2019-02-26T19:28:10.109Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61716,"node_from":12274,"node_to":12264,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":1,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:10.163Z","updated_at":"2019-02-26T19:28:10.163Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61717,"node_from":12275,"node_to":12263,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:10.212Z","updated_at":"2019-02-26T19:28:10.212Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61718,"node_from":12276,"node_to":12266,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:10.257Z","updated_at":"2019-02-26T19:28:10.257Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61719,"node_from":12277,"node_to":12263,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":1,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:10.306Z","updated_at":"2019-02-26T19:28:10.306Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61720,"node_from":12278,"node_to":12265,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":1,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:10.354Z","updated_at":"2019-02-26T19:28:10.354Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61721,"node_from":12279,"node_to":12263,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":1,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:10.405Z","updated_at":"2019-02-26T19:28:10.405Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61722,"node_from":12280,"node_to":12263,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":1,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:10.457Z","updated_at":"2019-02-26T19:28:10.457Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61723,"node_from":12281,"node_to":12263,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":1,"geom":null,"public":true,"network_id":1035,"created_at":"2019-02-26T19:28:10.520Z","updated_at":"2019-02-26T19:28:10.520Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}}]'
+  recorded_at: 2021-11-08 23:08:35 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/dataset/72
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Mon, 08 Nov 2021 23:08:34 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '285'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"11d-Ja4K6M2uyJkrRQsjh6hDFSSdxGg"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":72,"name":"hadfield_2014","description":"Flea distribution and
+        abundance on small mammals (Soricomorpha and Rodentia) in 51 different regions
+        of the Palearctic","public":true,"created_at":"2019-02-26T19:15:35.831Z","updated_at":"2019-02-26T19:15:35.831Z","ref_id":71,"user_id":2}'
+  recorded_at: 2021-11-08 23:08:35 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/reference/71
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Mon, 08 Nov 2021 23:08:34 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '743'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"2e7-ExQQ4NeROoTyRW1r0jOaiJNLrMs"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":71,"doi":"10.1086/674445","first_author":"hadfield","year":"2014","jstor":null,"pmid":null,"bibtex":"@article{doi:10.1086/674445,author
+        = {Jarrod D. Hadfield and Boris R. Krasnov and Robert Poulin and Shinichi
+        Nakagawa},title = {A Tale of Two Phylogenies: Comparative Analyses of Ecological
+        Interactions.},journal = {The American Naturalist},volume = {183},number =
+        {2},pages = {174-187},year = {2014},doi = {10.1086/674445},note ={PMID: 24464193},URL
+        = {https://doi.org/10.1086/674445},eprint = { https://doi.org/10.1086/674445}}","paper_url":"http://www.jstor.org/stable/10.1086/674445","data_url":"https://datadryad.org/resource/doi:10.5061/dryad.jf3tj","created_at":"2019-02-26T19:15:31.321Z","updated_at":"2019-02-26T19:15:31.321Z"}'
+  recorded_at: 2021-11-08 23:08:35 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/network/1036
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Mon, 08 Nov 2021 23:08:34 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '397'
+      connection: keep-alive
+      x-powered-by: Express
+      etag: W/"18d-jNQXMnrJqWx4LwM7dnzGEQqD1SQ"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"id":1036,"name":"hadfield_2014_20140201_1036","date":"2014-02-01T00:00:00.000Z","geom":{"type":"Point","coordinates":[74.6,42.866667]},"description":"Flea
+        distribution and abundance on small mammals (Soricomorpha and Rodentia) at
+        North Kyrgyzstan","public":true,"all_interactions":false,"created_at":"2019-02-26T19:28:10.743Z","updated_at":"2019-02-26T21:02:24.719Z","dataset_id":72,"user_id":2}'
+  recorded_at: 2021-11-08 23:08:35 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node?network_id=1036&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Mon, 08 Nov 2021 23:08:34 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '20396'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-48/49
+      etag: W/"4fac-7PlL+Lzn4pmJEAgxcMYrAt5vyBk"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":12282,"original_name":"Spermophilus fulvus","node_level":"taxon","network_id":1036,"taxonomy_id":3667,"created_at":"2019-02-26T19:28:16.099Z","updated_at":"2019-02-26T19:28:16.099Z","taxonomy":{"id":3667,"name":"Spermophilus
+        fulvus","ncbi":99841,"tsn":632449,"eol":313004,"bold":123891,"gbif":2437306,"col":"fa1b38283483ae290eafadf0a8d0e1ab","rank":"species","created_at":"2019-02-22T00:35:34.498Z","updated_at":"2019-06-14T15:25:22.668Z"}},{"id":12283,"original_name":"Meriones
+        tamariscinus","node_level":"taxon","network_id":1036,"taxonomy_id":3530,"created_at":"2019-02-26T19:28:16.158Z","updated_at":"2019-02-26T19:28:16.158Z","taxonomy":{"id":3530,"name":"Meriones
+        tamariscinus","ncbi":504099,"tsn":632986,"eol":1179764,"bold":142634,"gbif":5219727,"col":"f194d66eedb1686b634267136ba39375","rank":"species","created_at":"2019-02-22T00:35:12.454Z","updated_at":"2019-06-14T15:25:15.304Z"}},{"id":12284,"original_name":"Allactaga
+        elater","node_level":"taxon","network_id":1036,"taxonomy_id":3373,"created_at":"2019-02-26T19:28:16.194Z","updated_at":"2019-02-26T19:28:16.194Z","taxonomy":{"id":3373,"name":"Allactaga
+        elater","ncbi":73861,"tsn":609735,"eol":327869,"bold":124124,"gbif":2439489,"col":"ce3e228e87dcb8a313a82a2eb1dedde5","rank":"species","created_at":"2019-02-22T00:34:56.161Z","updated_at":"2019-06-14T15:25:07.677Z"}},{"id":12285,"original_name":"Marmota
+        caudata","node_level":"taxon","network_id":1036,"taxonomy_id":3517,"created_at":"2019-02-26T19:28:16.226Z","updated_at":"2019-02-26T19:28:16.226Z","taxonomy":{"id":3517,"name":"Marmota
+        caudata","ncbi":71802,"tsn":632381,"eol":312106,"bold":112234,"gbif":2437366,"col":"c80fb5434890d6d13e516612d0218992","rank":"species","created_at":"2019-02-22T00:35:11.053Z","updated_at":"2019-06-14T15:25:14.662Z"}},{"id":12286,"original_name":"Cricetulus
+        migratorius","node_level":"taxon","network_id":1036,"taxonomy_id":3448,"created_at":"2019-02-26T19:28:16.260Z","updated_at":"2019-02-26T19:28:16.260Z","taxonomy":{"id":3448,"name":"Cricetulus
+        migratorius","ncbi":10032,"tsn":632732,"eol":1179510,"bold":16141,"gbif":2438772,"col":"0cc413335879b6775c9805c5c9129dc7","rank":"species","created_at":"2019-02-22T00:35:03.567Z","updated_at":"2019-06-14T15:25:11.421Z"}},{"id":12287,"original_name":"Allactaga
+        major","node_level":"taxon","network_id":1036,"taxonomy_id":3374,"created_at":"2019-02-26T19:28:16.302Z","updated_at":"2019-02-26T19:28:16.302Z","taxonomy":{"id":3374,"name":"Allactaga
+        major","ncbi":233182,"tsn":609739,"eol":327877,"bold":124126,"gbif":2439483,"col":"ce22777deb238d80d81075f9171f49c5","rank":"species","created_at":"2019-02-22T00:34:56.317Z","updated_at":"2019-06-14T15:25:07.728Z"}},{"id":12288,"original_name":"Microtus
+        socialis","node_level":"taxon","network_id":1036,"taxonomy_id":3553,"created_at":"2019-02-26T19:28:16.347Z","updated_at":"2019-02-26T19:28:16.347Z","taxonomy":{"id":3553,"name":"Microtus
+        socialis","ncbi":269658,"tsn":632892,"eol":1179670,"bold":90506,"gbif":2438670,"col":"f8602f223763c88aab73ca35f8e020b6","rank":"species","created_at":"2019-02-22T00:35:16.583Z","updated_at":"2019-06-14T15:25:16.591Z"}},{"id":12289,"original_name":"Apodemus
+        uralensis","node_level":"taxon","network_id":1036,"taxonomy_id":3414,"created_at":"2019-02-26T19:28:16.387Z","updated_at":"2019-02-26T19:28:16.387Z","taxonomy":{"id":3414,"name":"Apodemus
+        uralensis","ncbi":134910,"tsn":585145,"eol":1178972,"bold":110993,"gbif":2437775,"col":"ef682fc60276749c795accd84a07958d","rank":"species","created_at":"2019-02-22T00:35:00.181Z","updated_at":"2019-06-14T15:25:09.663Z"}},{"id":12290,"original_name":"Marmota
+        baibacina","node_level":"taxon","network_id":1036,"taxonomy_id":3515,"created_at":"2019-02-26T19:28:16.433Z","updated_at":"2019-02-26T19:28:16.433Z","taxonomy":{"id":3515,"name":"Marmota
+        baibacina","ncbi":93157,"tsn":632378,"eol":1037899,"bold":796314,"gbif":8911743,"col":"1a25c27ee0c0768ed36bcd4f5f482393","rank":"species","created_at":"2019-02-22T00:35:10.866Z","updated_at":"2019-06-14T15:25:14.554Z"}},{"id":12291,"original_name":"Microtus
+        gregalis","node_level":"taxon","network_id":1036,"taxonomy_id":3546,"created_at":"2019-02-26T19:28:16.477Z","updated_at":"2019-02-26T19:28:16.477Z","taxonomy":{"id":3546,"name":"Microtus
+        gregalis","ncbi":1449541,"tsn":180302,"eol":1037792,"bold":90512,"gbif":2438648,"col":"16d141bf8aa1c0a0119bf7794662d097","rank":"species","created_at":"2019-02-22T00:35:14.743Z","updated_at":"2019-06-14T15:25:16.138Z"}},{"id":12292,"original_name":"Ellobius
+        talpinus","node_level":"taxon","network_id":1036,"taxonomy_id":3490,"created_at":"2019-02-26T19:28:16.526Z","updated_at":"2019-02-26T19:28:16.526Z","taxonomy":{"id":3490,"name":"Ellobius
+        talpinus","ncbi":329620,"tsn":632834,"eol":1179612,"bold":142636,"gbif":2438760,"col":"7313e9a58f19b6e3ea40f6906b977cd4","rank":"species","created_at":"2019-02-22T00:35:08.023Z","updated_at":"2019-06-14T15:25:13.269Z"}},{"id":12293,"original_name":"Apodemus
+        agrarius","node_level":"taxon","network_id":1036,"taxonomy_id":3407,"created_at":"2019-02-26T19:28:16.578Z","updated_at":"2019-02-26T19:28:16.578Z","taxonomy":{"id":3407,"name":"Apodemus
+        agrarius","ncbi":39030,"tsn":585125,"eol":1178729,"bold":68555,"gbif":2437761,"col":"881148241e8f1327aa73a5509759183f","rank":"species","created_at":"2019-02-22T00:34:59.431Z","updated_at":"2019-06-14T15:25:09.299Z"}},{"id":12294,"original_name":"Microtus
+        kirgisorum","node_level":"taxon","network_id":1036,"taxonomy_id":3548,"created_at":"2019-02-26T19:28:16.627Z","updated_at":"2019-02-26T19:28:16.627Z","taxonomy":{"id":3548,"name":"Microtus
+        ilaeus","ncbi":1665529,"tsn":970601,"eol":1179650,"bold":796260,"gbif":4265012,"col":"83addf1bcc1316f96c7b16ae055f5042","rank":"species","created_at":"2019-02-22T00:35:15.015Z","updated_at":"2019-06-14T15:25:16.240Z"}},{"id":12295,"original_name":"Alticola
+        argentatus","node_level":"taxon","network_id":1036,"taxonomy_id":3379,"created_at":"2019-02-26T19:28:16.667Z","updated_at":"2019-02-26T19:28:16.667Z","taxonomy":{"id":3379,"name":"Alticola
+        argentatus","ncbi":400184,"tsn":632807,"eol":1179585,"bold":159685,"gbif":2438712,"col":"33e3ae02bcbaa10a1ddcbe36b7814ca9","rank":"species","created_at":"2019-02-22T00:34:56.814Z","updated_at":"2019-06-14T15:25:07.986Z"}},{"id":12296,"original_name":"Clethrionomys
+        centralis","node_level":"taxon","network_id":1036,"taxonomy_id":3438,"created_at":"2019-02-26T19:28:16.709Z","updated_at":"2019-02-26T19:28:16.709Z","taxonomy":{"id":3438,"name":"Myodes
+        centralis","ncbi":537921,"tsn":970611,"eol":1179603,"bold":159690,"gbif":5706767,"col":"eb66daf9531748ee47607530ec380856","rank":"species","created_at":"2019-02-22T00:35:02.484Z","updated_at":"2019-06-14T15:25:10.686Z"}},{"id":12299,"original_name":"Oropsylla
+        ilovaiskii","node_level":"taxon","network_id":1036,"taxonomy_id":3594,"created_at":"2019-02-26T19:28:16.838Z","updated_at":"2019-02-26T19:28:16.838Z","taxonomy":{"id":3594,"name":"Oropsylla
+        ilovaiskii","ncbi":null,"tsn":null,"eol":705887,"bold":null,"gbif":1416859,"col":"93796c60e47623c242979ea3f0318c22","rank":"species","created_at":"2019-02-22T00:35:23.089Z","updated_at":"2019-06-14T15:25:18.737Z"}},{"id":12302,"original_name":"Rhadinopsylla
+        li","node_level":"taxon","network_id":1036,"taxonomy_id":3640,"created_at":"2019-02-26T19:28:16.972Z","updated_at":"2019-02-26T19:28:16.972Z","taxonomy":{"id":3640,"name":"Rhadinopsylla
+        li","ncbi":null,"tsn":null,"eol":705398,"bold":null,"gbif":1418793,"col":"e923fd42fdc78a0789b3ad231fc5744e","rank":"species","created_at":"2019-02-22T00:35:30.987Z","updated_at":"2019-06-14T15:25:21.171Z"}},{"id":12303,"original_name":"Oropsylla
+        silantiewi","node_level":"taxon","network_id":1036,"taxonomy_id":3595,"created_at":"2019-02-26T19:28:17.017Z","updated_at":"2019-02-26T19:28:17.017Z","taxonomy":{"id":3595,"name":"Oropsylla
+        silantiewi","ncbi":1461318,"tsn":null,"eol":705888,"bold":936887,"gbif":1416877,"col":"1e4efb96715d516f7c0b0e0c24c751a7","rank":"species","created_at":"2019-02-22T00:35:23.204Z","updated_at":"2019-06-14T15:25:18.789Z"}},{"id":12304,"original_name":"Neopsylla
+        teratura","node_level":"taxon","network_id":1036,"taxonomy_id":3575,"created_at":"2019-02-26T19:28:17.124Z","updated_at":"2019-02-26T19:28:17.124Z","taxonomy":{"id":3575,"name":"Neopsylla
+        teratura","ncbi":129383,"tsn":null,"eol":705255,"bold":null,"gbif":5051101,"col":"f160b244960a6d3dde5cac6f52b024ad","rank":"species","created_at":"2019-02-22T00:35:19.588Z","updated_at":"2019-06-14T15:25:17.628Z"}},{"id":12305,"original_name":"Frontopsylla
+        elata","node_level":"taxon","network_id":1036,"taxonomy_id":3495,"created_at":"2019-02-26T19:28:17.195Z","updated_at":"2019-02-26T19:28:17.195Z","taxonomy":{"id":3495,"name":"Frontopsylla
+        elata","ncbi":null,"tsn":null,"eol":419156,"bold":null,"gbif":1417768,"col":"e686eda128c3dfb955d4e6aaf3954eb1","rank":"species","created_at":"2019-02-22T00:35:08.633Z","updated_at":"2019-06-14T15:25:13.528Z"}},{"id":12306,"original_name":"Amphipsylla
+        schelkovnikovi","node_level":"taxon","network_id":1036,"taxonomy_id":3404,"created_at":"2019-02-26T19:28:17.255Z","updated_at":"2019-02-26T19:28:17.255Z","taxonomy":{"id":3404,"name":"Amphipsylla
+        schelkovnikovi","ncbi":null,"tsn":null,"eol":705992,"bold":null,"gbif":1418070,"col":"e2e4d2fb75186669b5dc08b2980bfa81","rank":"species","created_at":"2019-02-22T00:34:59.169Z","updated_at":"2019-06-14T15:25:09.131Z"}},{"id":12307,"original_name":"Pectinoctenus
+        nemorosa","node_level":"taxon","network_id":1036,"taxonomy_id":3612,"created_at":"2019-02-26T19:28:17.307Z","updated_at":"2019-02-26T19:28:17.307Z","taxonomy":{"id":3612,"name":"Pectinoctenus
+        nemorosa","ncbi":1851604,"tsn":null,"eol":419222,"bold":716324,"gbif":1417883,"col":"7453e9f99de006f1f2bd962d2c5a7d23","rank":"species","created_at":"2019-02-22T00:35:26.197Z","updated_at":"2019-06-14T15:25:19.695Z"}},{"id":12308,"original_name":"Rhadinopsylla
+        bivirgis","node_level":"taxon","network_id":1036,"taxonomy_id":3633,"created_at":"2019-02-26T19:28:17.355Z","updated_at":"2019-02-26T19:28:17.355Z","taxonomy":{"id":3633,"name":"Rhadinopsylla
+        bivirgis","ncbi":null,"tsn":null,"eol":705400,"bold":null,"gbif":1418783,"col":"ba241e2b5feb92f15c8eca389c3106ba","rank":"species","created_at":"2019-02-22T00:35:30.077Z","updated_at":"2019-06-14T15:25:20.803Z"}},{"id":12309,"original_name":"Mesopsylla
+        hebes","node_level":"taxon","network_id":1036,"taxonomy_id":3538,"created_at":"2019-02-26T19:28:17.400Z","updated_at":"2019-02-26T19:28:17.400Z","taxonomy":{"id":3538,"name":"Mesopsylla
+        hebes","ncbi":1414841,"tsn":null,"eol":419179,"bold":750982,"gbif":1417861,"col":"4dc58dfbac72c89d19b6b5c2c49f013d","rank":"species","created_at":"2019-02-22T00:35:13.444Z","updated_at":"2019-06-14T15:25:15.712Z"}},{"id":12310,"original_name":"Callopsylla
+        caspia","node_level":"taxon","network_id":1036,"taxonomy_id":3418,"created_at":"2019-02-26T19:28:17.446Z","updated_at":"2019-02-26T19:28:17.446Z","taxonomy":{"id":3418,"name":"Callopsylla
+        caspia","ncbi":1658352,"tsn":null,"eol":705578,"bold":750961,"gbif":1417429,"col":"3efead43125b918301948dd7e75a2f82","rank":"species","created_at":"2019-02-22T00:35:00.531Z","updated_at":"2019-06-14T15:25:09.871Z"}},{"id":12311,"original_name":"Nosopsyllus
+        fidus","node_level":"taxon","network_id":1036,"taxonomy_id":3580,"created_at":"2019-02-26T19:28:17.494Z","updated_at":"2019-02-26T19:28:17.494Z","taxonomy":{"id":3580,"name":"Nosopsyllus
+        fidus","ncbi":2480027,"tsn":null,"eol":705839,"bold":936886,"gbif":1417327,"col":"837dca240fa4ec309029db5150c92d95","rank":"species","created_at":"2019-02-22T00:35:20.436Z","updated_at":"2019-06-14T15:25:18.081Z"}},{"id":12312,"original_name":"Amphipsylla
+        rossica","node_level":"taxon","network_id":1036,"taxonomy_id":3403,"created_at":"2019-02-26T19:28:17.537Z","updated_at":"2019-02-26T19:28:17.537Z","taxonomy":{"id":3403,"name":"Amphipsylla
+        rossica","ncbi":null,"tsn":null,"eol":705991,"bold":895676,"gbif":1418080,"col":"99e5699211a4959c4f24a0541406da59","rank":"species","created_at":"2019-02-22T00:34:59.089Z","updated_at":"2019-06-14T15:25:09.078Z"}},{"id":12313,"original_name":"Rhadinopsylla
+        angusta","node_level":"taxon","network_id":1036,"taxonomy_id":3632,"created_at":"2019-02-26T19:28:17.586Z","updated_at":"2019-02-26T19:28:17.586Z","taxonomy":{"id":3632,"name":"Rhadinopsylla
+        angusta","ncbi":null,"tsn":null,"eol":705353,"bold":null,"gbif":1418813,"col":"67a7909a5f0099a419ae90bf854b17c4","rank":"species","created_at":"2019-02-22T00:35:29.846Z","updated_at":"2019-06-14T15:25:20.753Z"}},{"id":12314,"original_name":"Amphipsylla
+        asiatica","node_level":"taxon","network_id":1036,"taxonomy_id":3391,"created_at":"2019-02-26T19:28:17.635Z","updated_at":"2019-02-26T19:28:17.635Z","taxonomy":{"id":3391,"name":"Amphipsylla
+        asiatica","ncbi":null,"tsn":null,"eol":705965,"bold":null,"gbif":1418107,"col":"934ec933f9f335c8e7b82fd9001815e7","rank":"species","created_at":"2019-02-22T00:34:57.960Z","updated_at":"2019-06-14T15:25:08.562Z"}},{"id":12315,"original_name":"Frontopsylla
+        macrophthalma","node_level":"taxon","network_id":1036,"taxonomy_id":3499,"created_at":"2019-02-26T19:28:17.680Z","updated_at":"2019-02-26T19:28:17.680Z","taxonomy":{"id":3499,"name":"Frontopsylla
+        macrophthalma","ncbi":null,"tsn":null,"eol":419137,"bold":null,"gbif":1417832,"col":"6493ec1d6f4ccc2ee3a5924a0fea9552","rank":"species","created_at":"2019-02-22T00:35:09.033Z","updated_at":"2019-06-14T15:25:13.690Z"}},{"id":12316,"original_name":"Amphipsylla
+        anceps","node_level":"taxon","network_id":1036,"taxonomy_id":3389,"created_at":"2019-02-26T19:28:17.725Z","updated_at":"2019-02-26T19:28:17.725Z","taxonomy":{"id":3389,"name":"Amphipsylla
+        anceps","ncbi":null,"tsn":null,"eol":705962,"bold":null,"gbif":1418047,"col":"78929cfb4f562815c22a13f7fba7ccaf","rank":"species","created_at":"2019-02-22T00:34:57.787Z","updated_at":"2019-06-14T15:25:08.461Z"}},{"id":12318,"original_name":"Neopsylla
+        pleskei","node_level":"taxon","network_id":1036,"taxonomy_id":3573,"created_at":"2019-02-26T19:28:17.820Z","updated_at":"2019-02-26T19:28:17.820Z","taxonomy":{"id":3573,"name":"Neopsylla
+        pleskei","ncbi":129380,"tsn":null,"eol":705245,"bold":null,"gbif":5051042,"col":"517cf977a5fb501b11a9d8f32ec3ee1b","rank":"species","created_at":"2019-02-22T00:35:19.378Z","updated_at":"2019-06-14T15:25:17.574Z"}},{"id":12319,"original_name":"Amalaraeus
+        penicilliger","node_level":"taxon","network_id":1036,"taxonomy_id":3387,"created_at":"2019-02-26T19:28:17.868Z","updated_at":"2019-02-26T19:28:17.868Z","taxonomy":{"id":3387,"name":"Amalaraeus
+        penicilliger","ncbi":488444,"tsn":null,"eol":705565,"bold":750960,"gbif":9770335,"col":"569888202c11c0f6ccb90362d8e6c37f","rank":"species","created_at":"2019-02-22T00:34:57.603Z","updated_at":"2019-06-14T15:25:08.353Z"}},{"id":12320,"original_name":"Neopsylla
+        meridiana","node_level":"taxon","network_id":1036,"taxonomy_id":3572,"created_at":"2019-02-26T19:28:17.911Z","updated_at":"2019-02-26T19:28:17.911Z","taxonomy":{"id":3572,"name":"Neopsylla
+        meridiana","ncbi":null,"tsn":null,"eol":705240,"bold":null,"gbif":5051115,"col":"e839ca73c85f6a23948dd5f12b8ebadc","rank":"species","created_at":"2019-02-22T00:35:19.278Z","updated_at":"2019-06-14T15:25:17.519Z"}},{"id":12321,"original_name":"Amphipsylla
+        primaris","node_level":"taxon","network_id":1036,"taxonomy_id":3402,"created_at":"2019-02-26T19:28:17.953Z","updated_at":"2019-02-26T19:28:17.953Z","taxonomy":{"id":3402,"name":"Amphipsylla
+        primaris","ncbi":1658126,"tsn":null,"eol":705986,"bold":750979,"gbif":1418095,"col":"80b7392907632bcf3c687daec6f4d80f","rank":"species","created_at":"2019-02-22T00:34:58.995Z","updated_at":"2019-06-14T15:25:09.027Z"}},{"id":12322,"original_name":"Ctenophthalmus
+        golovi","node_level":"taxon","network_id":1036,"taxonomy_id":3466,"created_at":"2019-02-26T19:28:18.004Z","updated_at":"2019-02-26T19:28:18.004Z","taxonomy":{"id":3466,"name":"Ctenophthalmus
+        golovi","ncbi":null,"tsn":null,"eol":705049,"bold":null,"gbif":5050755,"col":"6494322ae4315f973e4292e3b6cb2c62","rank":"species","created_at":"2019-02-22T00:35:05.589Z","updated_at":"2019-06-14T15:25:12.304Z"}},{"id":12323,"original_name":"Frontopsylla
+        protera","node_level":"taxon","network_id":1036,"taxonomy_id":3501,"created_at":"2019-02-26T19:28:18.050Z","updated_at":"2019-02-26T19:28:18.050Z","taxonomy":{"id":3501,"name":"Frontopsylla
+        protera","ncbi":null,"tsn":null,"eol":419128,"bold":null,"gbif":1417830,"col":"9af100f8d16ba690f49593ac4c6e80ec","rank":"species","created_at":"2019-02-22T00:35:09.286Z","updated_at":"2019-06-14T15:25:13.803Z"}},{"id":12324,"original_name":"Amphipsylla
+        sibirica","node_level":"taxon","network_id":1036,"taxonomy_id":3405,"created_at":"2019-02-26T19:28:18.151Z","updated_at":"2019-02-26T19:28:18.151Z","taxonomy":{"id":3405,"name":"Amphipsylla
+        sibirica","ncbi":506888,"tsn":null,"eol":705993,"bold":888489,"gbif":1418114,"col":"4315ef774a08fd597544535c50c7ae59","rank":"species","created_at":"2019-02-22T00:34:59.261Z","updated_at":"2019-06-14T15:25:09.187Z"}},{"id":12326,"original_name":"Amphipsylla
+        dumalis","node_level":"taxon","network_id":1036,"taxonomy_id":3392,"created_at":"2019-02-26T19:28:18.263Z","updated_at":"2019-02-26T19:28:18.263Z","taxonomy":{"id":3392,"name":"Amphipsylla
+        dumalis","ncbi":null,"tsn":null,"eol":705969,"bold":null,"gbif":1418064,"col":"d7f27ca2c256a44b527ee0ae046ce387","rank":"species","created_at":"2019-02-22T00:34:58.037Z","updated_at":"2019-06-14T15:25:08.613Z"}},{"id":12327,"original_name":"Frontopsylla
+        ornata","node_level":"taxon","network_id":1036,"taxonomy_id":3500,"created_at":"2019-02-26T19:28:18.306Z","updated_at":"2019-02-26T19:28:18.306Z","taxonomy":{"id":3500,"name":"Frontopsylla
+        ornata","ncbi":null,"tsn":null,"eol":419130,"bold":null,"gbif":1417785,"col":"e00ee735fc385398fb421302630adf26","rank":"species","created_at":"2019-02-22T00:35:09.124Z","updated_at":"2019-06-14T15:25:13.745Z"}},{"id":12328,"original_name":"Rhadinopsylla
+        cedestis","node_level":"taxon","network_id":1036,"taxonomy_id":3634,"created_at":"2019-02-26T19:28:18.348Z","updated_at":"2019-02-26T19:28:18.348Z","taxonomy":{"id":3634,"name":"Rhadinopsylla
+        cedestis","ncbi":1982772,"tsn":null,"eol":705401,"bold":null,"gbif":1418861,"col":"d370e7920b85e21f1fccb0aa9e6b661a","rank":"species","created_at":"2019-02-22T00:35:30.262Z","updated_at":"2019-06-14T15:25:20.853Z"}},{"id":12329,"original_name":"Frontopsylla
+        ambigua","node_level":"taxon","network_id":1036,"taxonomy_id":3494,"created_at":"2019-02-26T19:28:18.376Z","updated_at":"2019-02-26T19:28:18.376Z","taxonomy":{"id":3494,"name":"Frontopsylla
+        ambigua","ncbi":null,"tsn":null,"eol":419129,"bold":null,"gbif":1417804,"col":"9115f8b51975cbd53ba61c3921d6b00c","rank":"species","created_at":"2019-02-22T00:35:08.538Z","updated_at":"2019-06-14T15:25:13.478Z"}},{"id":12330,"original_name":"Neopsylla
+        mana","node_level":"taxon","network_id":1036,"taxonomy_id":3571,"created_at":"2019-02-26T19:28:18.403Z","updated_at":"2019-02-26T19:28:18.403Z","taxonomy":{"id":3571,"name":"Neopsylla
+        mana","ncbi":129379,"tsn":null,"eol":705237,"bold":716128,"gbif":5051061,"col":"b784521214bf4b1ea3186e1cf9bd4fbc","rank":"species","created_at":"2019-02-22T00:35:19.174Z","updated_at":"2019-06-14T15:25:17.472Z"}},{"id":12300,"original_name":"Citellophilus
+        lebedewi","node_level":"taxon","network_id":1036,"taxonomy_id":null,"created_at":"2019-02-26T19:28:16.883Z","updated_at":"2019-02-26T19:28:16.883Z","taxonomy":null},{"id":12297,"original_name":"Citellophilus
+        trispinus","node_level":"taxon","network_id":1036,"taxonomy_id":null,"created_at":"2019-02-26T19:28:16.751Z","updated_at":"2019-02-26T19:28:16.751Z","taxonomy":null},{"id":12317,"original_name":"Ctenophthalmus
+        assimilis","node_level":"taxon","network_id":1036,"taxonomy_id":null,"created_at":"2019-02-26T19:28:17.773Z","updated_at":"2019-02-26T19:28:17.773Z","taxonomy":null},{"id":12298,"original_name":"Neopsylla
+        setosa","node_level":"taxon","network_id":1036,"taxonomy_id":null,"created_at":"2019-02-26T19:28:16.792Z","updated_at":"2019-02-26T19:28:16.792Z","taxonomy":null},{"id":12301,"original_name":"Nosopsyllus
+        aralis","node_level":"taxon","network_id":1036,"taxonomy_id":null,"created_at":"2019-02-26T19:28:16.928Z","updated_at":"2019-02-26T19:28:16.928Z","taxonomy":null},{"id":12325,"original_name":"Peromyscopsylla
+        bidentata","node_level":"taxon","network_id":1036,"taxonomy_id":null,"created_at":"2019-02-26T19:28:18.201Z","updated_at":"2019-02-26T19:28:18.201Z","taxonomy":null}]'
+  recorded_at: 2021-11-08 23:08:35 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/node?network_id=1036&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Mon, 08 Nov 2021 23:08:34 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '20396'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-48/49
+      etag: W/"4fac-7PlL+Lzn4pmJEAgxcMYrAt5vyBk"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":12282,"original_name":"Spermophilus fulvus","node_level":"taxon","network_id":1036,"taxonomy_id":3667,"created_at":"2019-02-26T19:28:16.099Z","updated_at":"2019-02-26T19:28:16.099Z","taxonomy":{"id":3667,"name":"Spermophilus
+        fulvus","ncbi":99841,"tsn":632449,"eol":313004,"bold":123891,"gbif":2437306,"col":"fa1b38283483ae290eafadf0a8d0e1ab","rank":"species","created_at":"2019-02-22T00:35:34.498Z","updated_at":"2019-06-14T15:25:22.668Z"}},{"id":12283,"original_name":"Meriones
+        tamariscinus","node_level":"taxon","network_id":1036,"taxonomy_id":3530,"created_at":"2019-02-26T19:28:16.158Z","updated_at":"2019-02-26T19:28:16.158Z","taxonomy":{"id":3530,"name":"Meriones
+        tamariscinus","ncbi":504099,"tsn":632986,"eol":1179764,"bold":142634,"gbif":5219727,"col":"f194d66eedb1686b634267136ba39375","rank":"species","created_at":"2019-02-22T00:35:12.454Z","updated_at":"2019-06-14T15:25:15.304Z"}},{"id":12284,"original_name":"Allactaga
+        elater","node_level":"taxon","network_id":1036,"taxonomy_id":3373,"created_at":"2019-02-26T19:28:16.194Z","updated_at":"2019-02-26T19:28:16.194Z","taxonomy":{"id":3373,"name":"Allactaga
+        elater","ncbi":73861,"tsn":609735,"eol":327869,"bold":124124,"gbif":2439489,"col":"ce3e228e87dcb8a313a82a2eb1dedde5","rank":"species","created_at":"2019-02-22T00:34:56.161Z","updated_at":"2019-06-14T15:25:07.677Z"}},{"id":12285,"original_name":"Marmota
+        caudata","node_level":"taxon","network_id":1036,"taxonomy_id":3517,"created_at":"2019-02-26T19:28:16.226Z","updated_at":"2019-02-26T19:28:16.226Z","taxonomy":{"id":3517,"name":"Marmota
+        caudata","ncbi":71802,"tsn":632381,"eol":312106,"bold":112234,"gbif":2437366,"col":"c80fb5434890d6d13e516612d0218992","rank":"species","created_at":"2019-02-22T00:35:11.053Z","updated_at":"2019-06-14T15:25:14.662Z"}},{"id":12286,"original_name":"Cricetulus
+        migratorius","node_level":"taxon","network_id":1036,"taxonomy_id":3448,"created_at":"2019-02-26T19:28:16.260Z","updated_at":"2019-02-26T19:28:16.260Z","taxonomy":{"id":3448,"name":"Cricetulus
+        migratorius","ncbi":10032,"tsn":632732,"eol":1179510,"bold":16141,"gbif":2438772,"col":"0cc413335879b6775c9805c5c9129dc7","rank":"species","created_at":"2019-02-22T00:35:03.567Z","updated_at":"2019-06-14T15:25:11.421Z"}},{"id":12287,"original_name":"Allactaga
+        major","node_level":"taxon","network_id":1036,"taxonomy_id":3374,"created_at":"2019-02-26T19:28:16.302Z","updated_at":"2019-02-26T19:28:16.302Z","taxonomy":{"id":3374,"name":"Allactaga
+        major","ncbi":233182,"tsn":609739,"eol":327877,"bold":124126,"gbif":2439483,"col":"ce22777deb238d80d81075f9171f49c5","rank":"species","created_at":"2019-02-22T00:34:56.317Z","updated_at":"2019-06-14T15:25:07.728Z"}},{"id":12288,"original_name":"Microtus
+        socialis","node_level":"taxon","network_id":1036,"taxonomy_id":3553,"created_at":"2019-02-26T19:28:16.347Z","updated_at":"2019-02-26T19:28:16.347Z","taxonomy":{"id":3553,"name":"Microtus
+        socialis","ncbi":269658,"tsn":632892,"eol":1179670,"bold":90506,"gbif":2438670,"col":"f8602f223763c88aab73ca35f8e020b6","rank":"species","created_at":"2019-02-22T00:35:16.583Z","updated_at":"2019-06-14T15:25:16.591Z"}},{"id":12289,"original_name":"Apodemus
+        uralensis","node_level":"taxon","network_id":1036,"taxonomy_id":3414,"created_at":"2019-02-26T19:28:16.387Z","updated_at":"2019-02-26T19:28:16.387Z","taxonomy":{"id":3414,"name":"Apodemus
+        uralensis","ncbi":134910,"tsn":585145,"eol":1178972,"bold":110993,"gbif":2437775,"col":"ef682fc60276749c795accd84a07958d","rank":"species","created_at":"2019-02-22T00:35:00.181Z","updated_at":"2019-06-14T15:25:09.663Z"}},{"id":12290,"original_name":"Marmota
+        baibacina","node_level":"taxon","network_id":1036,"taxonomy_id":3515,"created_at":"2019-02-26T19:28:16.433Z","updated_at":"2019-02-26T19:28:16.433Z","taxonomy":{"id":3515,"name":"Marmota
+        baibacina","ncbi":93157,"tsn":632378,"eol":1037899,"bold":796314,"gbif":8911743,"col":"1a25c27ee0c0768ed36bcd4f5f482393","rank":"species","created_at":"2019-02-22T00:35:10.866Z","updated_at":"2019-06-14T15:25:14.554Z"}},{"id":12291,"original_name":"Microtus
+        gregalis","node_level":"taxon","network_id":1036,"taxonomy_id":3546,"created_at":"2019-02-26T19:28:16.477Z","updated_at":"2019-02-26T19:28:16.477Z","taxonomy":{"id":3546,"name":"Microtus
+        gregalis","ncbi":1449541,"tsn":180302,"eol":1037792,"bold":90512,"gbif":2438648,"col":"16d141bf8aa1c0a0119bf7794662d097","rank":"species","created_at":"2019-02-22T00:35:14.743Z","updated_at":"2019-06-14T15:25:16.138Z"}},{"id":12292,"original_name":"Ellobius
+        talpinus","node_level":"taxon","network_id":1036,"taxonomy_id":3490,"created_at":"2019-02-26T19:28:16.526Z","updated_at":"2019-02-26T19:28:16.526Z","taxonomy":{"id":3490,"name":"Ellobius
+        talpinus","ncbi":329620,"tsn":632834,"eol":1179612,"bold":142636,"gbif":2438760,"col":"7313e9a58f19b6e3ea40f6906b977cd4","rank":"species","created_at":"2019-02-22T00:35:08.023Z","updated_at":"2019-06-14T15:25:13.269Z"}},{"id":12293,"original_name":"Apodemus
+        agrarius","node_level":"taxon","network_id":1036,"taxonomy_id":3407,"created_at":"2019-02-26T19:28:16.578Z","updated_at":"2019-02-26T19:28:16.578Z","taxonomy":{"id":3407,"name":"Apodemus
+        agrarius","ncbi":39030,"tsn":585125,"eol":1178729,"bold":68555,"gbif":2437761,"col":"881148241e8f1327aa73a5509759183f","rank":"species","created_at":"2019-02-22T00:34:59.431Z","updated_at":"2019-06-14T15:25:09.299Z"}},{"id":12294,"original_name":"Microtus
+        kirgisorum","node_level":"taxon","network_id":1036,"taxonomy_id":3548,"created_at":"2019-02-26T19:28:16.627Z","updated_at":"2019-02-26T19:28:16.627Z","taxonomy":{"id":3548,"name":"Microtus
+        ilaeus","ncbi":1665529,"tsn":970601,"eol":1179650,"bold":796260,"gbif":4265012,"col":"83addf1bcc1316f96c7b16ae055f5042","rank":"species","created_at":"2019-02-22T00:35:15.015Z","updated_at":"2019-06-14T15:25:16.240Z"}},{"id":12295,"original_name":"Alticola
+        argentatus","node_level":"taxon","network_id":1036,"taxonomy_id":3379,"created_at":"2019-02-26T19:28:16.667Z","updated_at":"2019-02-26T19:28:16.667Z","taxonomy":{"id":3379,"name":"Alticola
+        argentatus","ncbi":400184,"tsn":632807,"eol":1179585,"bold":159685,"gbif":2438712,"col":"33e3ae02bcbaa10a1ddcbe36b7814ca9","rank":"species","created_at":"2019-02-22T00:34:56.814Z","updated_at":"2019-06-14T15:25:07.986Z"}},{"id":12296,"original_name":"Clethrionomys
+        centralis","node_level":"taxon","network_id":1036,"taxonomy_id":3438,"created_at":"2019-02-26T19:28:16.709Z","updated_at":"2019-02-26T19:28:16.709Z","taxonomy":{"id":3438,"name":"Myodes
+        centralis","ncbi":537921,"tsn":970611,"eol":1179603,"bold":159690,"gbif":5706767,"col":"eb66daf9531748ee47607530ec380856","rank":"species","created_at":"2019-02-22T00:35:02.484Z","updated_at":"2019-06-14T15:25:10.686Z"}},{"id":12299,"original_name":"Oropsylla
+        ilovaiskii","node_level":"taxon","network_id":1036,"taxonomy_id":3594,"created_at":"2019-02-26T19:28:16.838Z","updated_at":"2019-02-26T19:28:16.838Z","taxonomy":{"id":3594,"name":"Oropsylla
+        ilovaiskii","ncbi":null,"tsn":null,"eol":705887,"bold":null,"gbif":1416859,"col":"93796c60e47623c242979ea3f0318c22","rank":"species","created_at":"2019-02-22T00:35:23.089Z","updated_at":"2019-06-14T15:25:18.737Z"}},{"id":12302,"original_name":"Rhadinopsylla
+        li","node_level":"taxon","network_id":1036,"taxonomy_id":3640,"created_at":"2019-02-26T19:28:16.972Z","updated_at":"2019-02-26T19:28:16.972Z","taxonomy":{"id":3640,"name":"Rhadinopsylla
+        li","ncbi":null,"tsn":null,"eol":705398,"bold":null,"gbif":1418793,"col":"e923fd42fdc78a0789b3ad231fc5744e","rank":"species","created_at":"2019-02-22T00:35:30.987Z","updated_at":"2019-06-14T15:25:21.171Z"}},{"id":12303,"original_name":"Oropsylla
+        silantiewi","node_level":"taxon","network_id":1036,"taxonomy_id":3595,"created_at":"2019-02-26T19:28:17.017Z","updated_at":"2019-02-26T19:28:17.017Z","taxonomy":{"id":3595,"name":"Oropsylla
+        silantiewi","ncbi":1461318,"tsn":null,"eol":705888,"bold":936887,"gbif":1416877,"col":"1e4efb96715d516f7c0b0e0c24c751a7","rank":"species","created_at":"2019-02-22T00:35:23.204Z","updated_at":"2019-06-14T15:25:18.789Z"}},{"id":12304,"original_name":"Neopsylla
+        teratura","node_level":"taxon","network_id":1036,"taxonomy_id":3575,"created_at":"2019-02-26T19:28:17.124Z","updated_at":"2019-02-26T19:28:17.124Z","taxonomy":{"id":3575,"name":"Neopsylla
+        teratura","ncbi":129383,"tsn":null,"eol":705255,"bold":null,"gbif":5051101,"col":"f160b244960a6d3dde5cac6f52b024ad","rank":"species","created_at":"2019-02-22T00:35:19.588Z","updated_at":"2019-06-14T15:25:17.628Z"}},{"id":12305,"original_name":"Frontopsylla
+        elata","node_level":"taxon","network_id":1036,"taxonomy_id":3495,"created_at":"2019-02-26T19:28:17.195Z","updated_at":"2019-02-26T19:28:17.195Z","taxonomy":{"id":3495,"name":"Frontopsylla
+        elata","ncbi":null,"tsn":null,"eol":419156,"bold":null,"gbif":1417768,"col":"e686eda128c3dfb955d4e6aaf3954eb1","rank":"species","created_at":"2019-02-22T00:35:08.633Z","updated_at":"2019-06-14T15:25:13.528Z"}},{"id":12306,"original_name":"Amphipsylla
+        schelkovnikovi","node_level":"taxon","network_id":1036,"taxonomy_id":3404,"created_at":"2019-02-26T19:28:17.255Z","updated_at":"2019-02-26T19:28:17.255Z","taxonomy":{"id":3404,"name":"Amphipsylla
+        schelkovnikovi","ncbi":null,"tsn":null,"eol":705992,"bold":null,"gbif":1418070,"col":"e2e4d2fb75186669b5dc08b2980bfa81","rank":"species","created_at":"2019-02-22T00:34:59.169Z","updated_at":"2019-06-14T15:25:09.131Z"}},{"id":12307,"original_name":"Pectinoctenus
+        nemorosa","node_level":"taxon","network_id":1036,"taxonomy_id":3612,"created_at":"2019-02-26T19:28:17.307Z","updated_at":"2019-02-26T19:28:17.307Z","taxonomy":{"id":3612,"name":"Pectinoctenus
+        nemorosa","ncbi":1851604,"tsn":null,"eol":419222,"bold":716324,"gbif":1417883,"col":"7453e9f99de006f1f2bd962d2c5a7d23","rank":"species","created_at":"2019-02-22T00:35:26.197Z","updated_at":"2019-06-14T15:25:19.695Z"}},{"id":12308,"original_name":"Rhadinopsylla
+        bivirgis","node_level":"taxon","network_id":1036,"taxonomy_id":3633,"created_at":"2019-02-26T19:28:17.355Z","updated_at":"2019-02-26T19:28:17.355Z","taxonomy":{"id":3633,"name":"Rhadinopsylla
+        bivirgis","ncbi":null,"tsn":null,"eol":705400,"bold":null,"gbif":1418783,"col":"ba241e2b5feb92f15c8eca389c3106ba","rank":"species","created_at":"2019-02-22T00:35:30.077Z","updated_at":"2019-06-14T15:25:20.803Z"}},{"id":12309,"original_name":"Mesopsylla
+        hebes","node_level":"taxon","network_id":1036,"taxonomy_id":3538,"created_at":"2019-02-26T19:28:17.400Z","updated_at":"2019-02-26T19:28:17.400Z","taxonomy":{"id":3538,"name":"Mesopsylla
+        hebes","ncbi":1414841,"tsn":null,"eol":419179,"bold":750982,"gbif":1417861,"col":"4dc58dfbac72c89d19b6b5c2c49f013d","rank":"species","created_at":"2019-02-22T00:35:13.444Z","updated_at":"2019-06-14T15:25:15.712Z"}},{"id":12310,"original_name":"Callopsylla
+        caspia","node_level":"taxon","network_id":1036,"taxonomy_id":3418,"created_at":"2019-02-26T19:28:17.446Z","updated_at":"2019-02-26T19:28:17.446Z","taxonomy":{"id":3418,"name":"Callopsylla
+        caspia","ncbi":1658352,"tsn":null,"eol":705578,"bold":750961,"gbif":1417429,"col":"3efead43125b918301948dd7e75a2f82","rank":"species","created_at":"2019-02-22T00:35:00.531Z","updated_at":"2019-06-14T15:25:09.871Z"}},{"id":12311,"original_name":"Nosopsyllus
+        fidus","node_level":"taxon","network_id":1036,"taxonomy_id":3580,"created_at":"2019-02-26T19:28:17.494Z","updated_at":"2019-02-26T19:28:17.494Z","taxonomy":{"id":3580,"name":"Nosopsyllus
+        fidus","ncbi":2480027,"tsn":null,"eol":705839,"bold":936886,"gbif":1417327,"col":"837dca240fa4ec309029db5150c92d95","rank":"species","created_at":"2019-02-22T00:35:20.436Z","updated_at":"2019-06-14T15:25:18.081Z"}},{"id":12312,"original_name":"Amphipsylla
+        rossica","node_level":"taxon","network_id":1036,"taxonomy_id":3403,"created_at":"2019-02-26T19:28:17.537Z","updated_at":"2019-02-26T19:28:17.537Z","taxonomy":{"id":3403,"name":"Amphipsylla
+        rossica","ncbi":null,"tsn":null,"eol":705991,"bold":895676,"gbif":1418080,"col":"99e5699211a4959c4f24a0541406da59","rank":"species","created_at":"2019-02-22T00:34:59.089Z","updated_at":"2019-06-14T15:25:09.078Z"}},{"id":12313,"original_name":"Rhadinopsylla
+        angusta","node_level":"taxon","network_id":1036,"taxonomy_id":3632,"created_at":"2019-02-26T19:28:17.586Z","updated_at":"2019-02-26T19:28:17.586Z","taxonomy":{"id":3632,"name":"Rhadinopsylla
+        angusta","ncbi":null,"tsn":null,"eol":705353,"bold":null,"gbif":1418813,"col":"67a7909a5f0099a419ae90bf854b17c4","rank":"species","created_at":"2019-02-22T00:35:29.846Z","updated_at":"2019-06-14T15:25:20.753Z"}},{"id":12314,"original_name":"Amphipsylla
+        asiatica","node_level":"taxon","network_id":1036,"taxonomy_id":3391,"created_at":"2019-02-26T19:28:17.635Z","updated_at":"2019-02-26T19:28:17.635Z","taxonomy":{"id":3391,"name":"Amphipsylla
+        asiatica","ncbi":null,"tsn":null,"eol":705965,"bold":null,"gbif":1418107,"col":"934ec933f9f335c8e7b82fd9001815e7","rank":"species","created_at":"2019-02-22T00:34:57.960Z","updated_at":"2019-06-14T15:25:08.562Z"}},{"id":12315,"original_name":"Frontopsylla
+        macrophthalma","node_level":"taxon","network_id":1036,"taxonomy_id":3499,"created_at":"2019-02-26T19:28:17.680Z","updated_at":"2019-02-26T19:28:17.680Z","taxonomy":{"id":3499,"name":"Frontopsylla
+        macrophthalma","ncbi":null,"tsn":null,"eol":419137,"bold":null,"gbif":1417832,"col":"6493ec1d6f4ccc2ee3a5924a0fea9552","rank":"species","created_at":"2019-02-22T00:35:09.033Z","updated_at":"2019-06-14T15:25:13.690Z"}},{"id":12316,"original_name":"Amphipsylla
+        anceps","node_level":"taxon","network_id":1036,"taxonomy_id":3389,"created_at":"2019-02-26T19:28:17.725Z","updated_at":"2019-02-26T19:28:17.725Z","taxonomy":{"id":3389,"name":"Amphipsylla
+        anceps","ncbi":null,"tsn":null,"eol":705962,"bold":null,"gbif":1418047,"col":"78929cfb4f562815c22a13f7fba7ccaf","rank":"species","created_at":"2019-02-22T00:34:57.787Z","updated_at":"2019-06-14T15:25:08.461Z"}},{"id":12318,"original_name":"Neopsylla
+        pleskei","node_level":"taxon","network_id":1036,"taxonomy_id":3573,"created_at":"2019-02-26T19:28:17.820Z","updated_at":"2019-02-26T19:28:17.820Z","taxonomy":{"id":3573,"name":"Neopsylla
+        pleskei","ncbi":129380,"tsn":null,"eol":705245,"bold":null,"gbif":5051042,"col":"517cf977a5fb501b11a9d8f32ec3ee1b","rank":"species","created_at":"2019-02-22T00:35:19.378Z","updated_at":"2019-06-14T15:25:17.574Z"}},{"id":12319,"original_name":"Amalaraeus
+        penicilliger","node_level":"taxon","network_id":1036,"taxonomy_id":3387,"created_at":"2019-02-26T19:28:17.868Z","updated_at":"2019-02-26T19:28:17.868Z","taxonomy":{"id":3387,"name":"Amalaraeus
+        penicilliger","ncbi":488444,"tsn":null,"eol":705565,"bold":750960,"gbif":9770335,"col":"569888202c11c0f6ccb90362d8e6c37f","rank":"species","created_at":"2019-02-22T00:34:57.603Z","updated_at":"2019-06-14T15:25:08.353Z"}},{"id":12320,"original_name":"Neopsylla
+        meridiana","node_level":"taxon","network_id":1036,"taxonomy_id":3572,"created_at":"2019-02-26T19:28:17.911Z","updated_at":"2019-02-26T19:28:17.911Z","taxonomy":{"id":3572,"name":"Neopsylla
+        meridiana","ncbi":null,"tsn":null,"eol":705240,"bold":null,"gbif":5051115,"col":"e839ca73c85f6a23948dd5f12b8ebadc","rank":"species","created_at":"2019-02-22T00:35:19.278Z","updated_at":"2019-06-14T15:25:17.519Z"}},{"id":12321,"original_name":"Amphipsylla
+        primaris","node_level":"taxon","network_id":1036,"taxonomy_id":3402,"created_at":"2019-02-26T19:28:17.953Z","updated_at":"2019-02-26T19:28:17.953Z","taxonomy":{"id":3402,"name":"Amphipsylla
+        primaris","ncbi":1658126,"tsn":null,"eol":705986,"bold":750979,"gbif":1418095,"col":"80b7392907632bcf3c687daec6f4d80f","rank":"species","created_at":"2019-02-22T00:34:58.995Z","updated_at":"2019-06-14T15:25:09.027Z"}},{"id":12322,"original_name":"Ctenophthalmus
+        golovi","node_level":"taxon","network_id":1036,"taxonomy_id":3466,"created_at":"2019-02-26T19:28:18.004Z","updated_at":"2019-02-26T19:28:18.004Z","taxonomy":{"id":3466,"name":"Ctenophthalmus
+        golovi","ncbi":null,"tsn":null,"eol":705049,"bold":null,"gbif":5050755,"col":"6494322ae4315f973e4292e3b6cb2c62","rank":"species","created_at":"2019-02-22T00:35:05.589Z","updated_at":"2019-06-14T15:25:12.304Z"}},{"id":12323,"original_name":"Frontopsylla
+        protera","node_level":"taxon","network_id":1036,"taxonomy_id":3501,"created_at":"2019-02-26T19:28:18.050Z","updated_at":"2019-02-26T19:28:18.050Z","taxonomy":{"id":3501,"name":"Frontopsylla
+        protera","ncbi":null,"tsn":null,"eol":419128,"bold":null,"gbif":1417830,"col":"9af100f8d16ba690f49593ac4c6e80ec","rank":"species","created_at":"2019-02-22T00:35:09.286Z","updated_at":"2019-06-14T15:25:13.803Z"}},{"id":12324,"original_name":"Amphipsylla
+        sibirica","node_level":"taxon","network_id":1036,"taxonomy_id":3405,"created_at":"2019-02-26T19:28:18.151Z","updated_at":"2019-02-26T19:28:18.151Z","taxonomy":{"id":3405,"name":"Amphipsylla
+        sibirica","ncbi":506888,"tsn":null,"eol":705993,"bold":888489,"gbif":1418114,"col":"4315ef774a08fd597544535c50c7ae59","rank":"species","created_at":"2019-02-22T00:34:59.261Z","updated_at":"2019-06-14T15:25:09.187Z"}},{"id":12326,"original_name":"Amphipsylla
+        dumalis","node_level":"taxon","network_id":1036,"taxonomy_id":3392,"created_at":"2019-02-26T19:28:18.263Z","updated_at":"2019-02-26T19:28:18.263Z","taxonomy":{"id":3392,"name":"Amphipsylla
+        dumalis","ncbi":null,"tsn":null,"eol":705969,"bold":null,"gbif":1418064,"col":"d7f27ca2c256a44b527ee0ae046ce387","rank":"species","created_at":"2019-02-22T00:34:58.037Z","updated_at":"2019-06-14T15:25:08.613Z"}},{"id":12327,"original_name":"Frontopsylla
+        ornata","node_level":"taxon","network_id":1036,"taxonomy_id":3500,"created_at":"2019-02-26T19:28:18.306Z","updated_at":"2019-02-26T19:28:18.306Z","taxonomy":{"id":3500,"name":"Frontopsylla
+        ornata","ncbi":null,"tsn":null,"eol":419130,"bold":null,"gbif":1417785,"col":"e00ee735fc385398fb421302630adf26","rank":"species","created_at":"2019-02-22T00:35:09.124Z","updated_at":"2019-06-14T15:25:13.745Z"}},{"id":12328,"original_name":"Rhadinopsylla
+        cedestis","node_level":"taxon","network_id":1036,"taxonomy_id":3634,"created_at":"2019-02-26T19:28:18.348Z","updated_at":"2019-02-26T19:28:18.348Z","taxonomy":{"id":3634,"name":"Rhadinopsylla
+        cedestis","ncbi":1982772,"tsn":null,"eol":705401,"bold":null,"gbif":1418861,"col":"d370e7920b85e21f1fccb0aa9e6b661a","rank":"species","created_at":"2019-02-22T00:35:30.262Z","updated_at":"2019-06-14T15:25:20.853Z"}},{"id":12329,"original_name":"Frontopsylla
+        ambigua","node_level":"taxon","network_id":1036,"taxonomy_id":3494,"created_at":"2019-02-26T19:28:18.376Z","updated_at":"2019-02-26T19:28:18.376Z","taxonomy":{"id":3494,"name":"Frontopsylla
+        ambigua","ncbi":null,"tsn":null,"eol":419129,"bold":null,"gbif":1417804,"col":"9115f8b51975cbd53ba61c3921d6b00c","rank":"species","created_at":"2019-02-22T00:35:08.538Z","updated_at":"2019-06-14T15:25:13.478Z"}},{"id":12330,"original_name":"Neopsylla
+        mana","node_level":"taxon","network_id":1036,"taxonomy_id":3571,"created_at":"2019-02-26T19:28:18.403Z","updated_at":"2019-02-26T19:28:18.403Z","taxonomy":{"id":3571,"name":"Neopsylla
+        mana","ncbi":129379,"tsn":null,"eol":705237,"bold":716128,"gbif":5051061,"col":"b784521214bf4b1ea3186e1cf9bd4fbc","rank":"species","created_at":"2019-02-22T00:35:19.174Z","updated_at":"2019-06-14T15:25:17.472Z"}},{"id":12300,"original_name":"Citellophilus
+        lebedewi","node_level":"taxon","network_id":1036,"taxonomy_id":null,"created_at":"2019-02-26T19:28:16.883Z","updated_at":"2019-02-26T19:28:16.883Z","taxonomy":null},{"id":12297,"original_name":"Citellophilus
+        trispinus","node_level":"taxon","network_id":1036,"taxonomy_id":null,"created_at":"2019-02-26T19:28:16.751Z","updated_at":"2019-02-26T19:28:16.751Z","taxonomy":null},{"id":12317,"original_name":"Ctenophthalmus
+        assimilis","node_level":"taxon","network_id":1036,"taxonomy_id":null,"created_at":"2019-02-26T19:28:17.773Z","updated_at":"2019-02-26T19:28:17.773Z","taxonomy":null},{"id":12298,"original_name":"Neopsylla
+        setosa","node_level":"taxon","network_id":1036,"taxonomy_id":null,"created_at":"2019-02-26T19:28:16.792Z","updated_at":"2019-02-26T19:28:16.792Z","taxonomy":null},{"id":12301,"original_name":"Nosopsyllus
+        aralis","node_level":"taxon","network_id":1036,"taxonomy_id":null,"created_at":"2019-02-26T19:28:16.928Z","updated_at":"2019-02-26T19:28:16.928Z","taxonomy":null},{"id":12325,"original_name":"Peromyscopsylla
+        bidentata","node_level":"taxon","network_id":1036,"taxonomy_id":null,"created_at":"2019-02-26T19:28:18.201Z","updated_at":"2019-02-26T19:28:18.201Z","taxonomy":null}]'
+  recorded_at: 2021-11-08 23:08:35 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/interaction?network_id=1036&count=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Mon, 08 Nov 2021 23:08:35 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '41206'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-78/79
+      etag: W/"a0f6-ZaviaT4SMbJhBUBSeeaSlBFTc4k"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":61724,"node_from":12297,"node_to":12282,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":1879,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:34.850Z","updated_at":"2019-02-26T19:28:34.850Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61725,"node_from":12297,"node_to":12283,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":3,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:34.907Z","updated_at":"2019-02-26T19:28:34.907Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61726,"node_from":12298,"node_to":12282,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":1367,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:34.944Z","updated_at":"2019-02-26T19:28:34.944Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61727,"node_from":12299,"node_to":12282,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":1184,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:34.980Z","updated_at":"2019-02-26T19:28:34.980Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61728,"node_from":12299,"node_to":12283,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":7,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:35.020Z","updated_at":"2019-02-26T19:28:35.020Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61729,"node_from":12299,"node_to":12284,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:35.078Z","updated_at":"2019-02-26T19:28:35.078Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61730,"node_from":12300,"node_to":12285,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":1154,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:35.131Z","updated_at":"2019-02-26T19:28:35.131Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61731,"node_from":12301,"node_to":12282,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":18,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:35.175Z","updated_at":"2019-02-26T19:28:35.175Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61732,"node_from":12301,"node_to":12283,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":709,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:35.344Z","updated_at":"2019-02-26T19:28:35.344Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61733,"node_from":12301,"node_to":12286,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":4,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:35.498Z","updated_at":"2019-02-26T19:28:35.498Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61734,"node_from":12301,"node_to":12284,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:35.573Z","updated_at":"2019-02-26T19:28:35.573Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61735,"node_from":12301,"node_to":12287,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":30,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:35.619Z","updated_at":"2019-02-26T19:28:35.619Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61736,"node_from":12301,"node_to":12288,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:35.668Z","updated_at":"2019-02-26T19:28:35.668Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61737,"node_from":12302,"node_to":12285,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":516,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:35.832Z","updated_at":"2019-02-26T19:28:35.832Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61738,"node_from":12302,"node_to":12289,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:35.996Z","updated_at":"2019-02-26T19:28:35.996Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61739,"node_from":12303,"node_to":12285,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":321,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:36.139Z","updated_at":"2019-02-26T19:28:36.139Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61740,"node_from":12303,"node_to":12290,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":51,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:36.282Z","updated_at":"2019-02-26T19:28:36.282Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61741,"node_from":12304,"node_to":12283,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":7,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:36.327Z","updated_at":"2019-02-26T19:28:36.327Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61742,"node_from":12304,"node_to":12286,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":198,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:36.476Z","updated_at":"2019-02-26T19:28:36.476Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61743,"node_from":12304,"node_to":12291,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":5,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:36.619Z","updated_at":"2019-02-26T19:28:36.619Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61744,"node_from":12304,"node_to":12289,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:36.767Z","updated_at":"2019-02-26T19:28:36.767Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61745,"node_from":12304,"node_to":12288,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":9,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:36.908Z","updated_at":"2019-02-26T19:28:36.908Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61746,"node_from":12304,"node_to":12292,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:36.953Z","updated_at":"2019-02-26T19:28:36.953Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61747,"node_from":12305,"node_to":12283,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":3,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:37.222Z","updated_at":"2019-02-26T19:28:37.222Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61748,"node_from":12305,"node_to":12286,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":4,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:37.394Z","updated_at":"2019-02-26T19:28:37.394Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61749,"node_from":12305,"node_to":12291,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":200,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:37.560Z","updated_at":"2019-02-26T19:28:37.560Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61750,"node_from":12305,"node_to":12289,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":3,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:37.706Z","updated_at":"2019-02-26T19:28:37.706Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61751,"node_from":12306,"node_to":12286,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":193,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:37.849Z","updated_at":"2019-02-26T19:28:37.849Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61752,"node_from":12307,"node_to":12291,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":3,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:37.896Z","updated_at":"2019-02-26T19:28:37.896Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61753,"node_from":12307,"node_to":12289,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":129,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.045Z","updated_at":"2019-02-26T19:28:38.045Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61754,"node_from":12308,"node_to":12283,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":4,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.195Z","updated_at":"2019-02-26T19:28:38.195Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61755,"node_from":12308,"node_to":12286,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":120,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.287Z","updated_at":"2019-02-26T19:28:38.287Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61756,"node_from":12308,"node_to":12287,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":4,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.352Z","updated_at":"2019-02-26T19:28:38.352Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61757,"node_from":12309,"node_to":12283,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":10,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.394Z","updated_at":"2019-02-26T19:28:38.394Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61758,"node_from":12309,"node_to":12286,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.439Z","updated_at":"2019-02-26T19:28:38.439Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61759,"node_from":12309,"node_to":12284,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":78,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.482Z","updated_at":"2019-02-26T19:28:38.482Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61760,"node_from":12309,"node_to":12287,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":35,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.542Z","updated_at":"2019-02-26T19:28:38.542Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61761,"node_from":12310,"node_to":12286,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":21,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.586Z","updated_at":"2019-02-26T19:28:38.586Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61762,"node_from":12310,"node_to":12291,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":64,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.633Z","updated_at":"2019-02-26T19:28:38.633Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61763,"node_from":12310,"node_to":12289,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":7,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.677Z","updated_at":"2019-02-26T19:28:38.677Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61764,"node_from":12311,"node_to":12282,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":13,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.722Z","updated_at":"2019-02-26T19:28:38.722Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61765,"node_from":12311,"node_to":12283,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":7,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.764Z","updated_at":"2019-02-26T19:28:38.764Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61766,"node_from":12311,"node_to":12286,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":8,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.806Z","updated_at":"2019-02-26T19:28:38.806Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61767,"node_from":12311,"node_to":12289,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":4,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.848Z","updated_at":"2019-02-26T19:28:38.848Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61768,"node_from":12311,"node_to":12293,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":10,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.895Z","updated_at":"2019-02-26T19:28:38.895Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61769,"node_from":12311,"node_to":12294,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.943Z","updated_at":"2019-02-26T19:28:38.943Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61770,"node_from":12312,"node_to":12289,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":40,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.997Z","updated_at":"2019-02-26T19:28:38.997Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61771,"node_from":12313,"node_to":12291,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":39,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.038Z","updated_at":"2019-02-26T19:28:39.038Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61772,"node_from":12314,"node_to":12291,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":24,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.092Z","updated_at":"2019-02-26T19:28:39.092Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61773,"node_from":12315,"node_to":12283,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.135Z","updated_at":"2019-02-26T19:28:39.135Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61774,"node_from":12315,"node_to":12284,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":22,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.173Z","updated_at":"2019-02-26T19:28:39.173Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61775,"node_from":12316,"node_to":12286,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":17,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.220Z","updated_at":"2019-02-26T19:28:39.220Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61776,"node_from":12316,"node_to":12291,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.270Z","updated_at":"2019-02-26T19:28:39.270Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61777,"node_from":12316,"node_to":12288,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":4,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.315Z","updated_at":"2019-02-26T19:28:39.315Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61778,"node_from":12317,"node_to":12283,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.379Z","updated_at":"2019-02-26T19:28:39.379Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61779,"node_from":12317,"node_to":12291,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":21,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.423Z","updated_at":"2019-02-26T19:28:39.423Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61780,"node_from":12318,"node_to":12286,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":22,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.466Z","updated_at":"2019-02-26T19:28:39.466Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61781,"node_from":12319,"node_to":12291,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":8,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.503Z","updated_at":"2019-02-26T19:28:39.503Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61782,"node_from":12319,"node_to":12295,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":4,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.536Z","updated_at":"2019-02-26T19:28:39.536Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61783,"node_from":12319,"node_to":12294,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":4,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.577Z","updated_at":"2019-02-26T19:28:39.577Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61784,"node_from":12320,"node_to":12286,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":9,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.635Z","updated_at":"2019-02-26T19:28:39.635Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61785,"node_from":12320,"node_to":12291,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.665Z","updated_at":"2019-02-26T19:28:39.665Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61786,"node_from":12320,"node_to":12295,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":5,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.712Z","updated_at":"2019-02-26T19:28:39.712Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61787,"node_from":12321,"node_to":12285,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":3,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.741Z","updated_at":"2019-02-26T19:28:39.741Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61788,"node_from":12321,"node_to":12295,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":7,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.770Z","updated_at":"2019-02-26T19:28:39.770Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61789,"node_from":12322,"node_to":12289,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":10,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.798Z","updated_at":"2019-02-26T19:28:39.798Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61790,"node_from":12323,"node_to":12295,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":6,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.832Z","updated_at":"2019-02-26T19:28:39.832Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61791,"node_from":12324,"node_to":12288,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":3,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.868Z","updated_at":"2019-02-26T19:28:39.868Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61792,"node_from":12324,"node_to":12296,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.913Z","updated_at":"2019-02-26T19:28:39.913Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61793,"node_from":12325,"node_to":12295,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.957Z","updated_at":"2019-02-26T19:28:39.957Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61794,"node_from":12325,"node_to":12296,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":3,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:40.005Z","updated_at":"2019-02-26T19:28:40.005Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61795,"node_from":12326,"node_to":12286,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:40.049Z","updated_at":"2019-02-26T19:28:40.049Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61796,"node_from":12326,"node_to":12292,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:40.094Z","updated_at":"2019-02-26T19:28:40.094Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61797,"node_from":12327,"node_to":12289,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:40.144Z","updated_at":"2019-02-26T19:28:40.144Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61798,"node_from":12327,"node_to":12295,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:40.186Z","updated_at":"2019-02-26T19:28:40.186Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61799,"node_from":12328,"node_to":12282,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:40.235Z","updated_at":"2019-02-26T19:28:40.235Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61800,"node_from":12328,"node_to":12293,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:40.286Z","updated_at":"2019-02-26T19:28:40.286Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61801,"node_from":12329,"node_to":12289,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":3,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:40.333Z","updated_at":"2019-02-26T19:28:40.333Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61802,"node_from":12330,"node_to":12289,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:40.380Z","updated_at":"2019-02-26T19:28:40.380Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}}]'
+  recorded_at: 2021-11-08 23:08:35 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
+- request:
+    method: get
+    uri: https://mangal.io/api/v2/interaction?network_id=1036&count=100&page=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.14.0 (Ubuntu)
+      date: Mon, 08 Nov 2021 23:08:35 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '41206'
+      connection: keep-alive
+      x-powered-by: Express
+      content-range: items 0-78/79
+      etag: W/"a0f6-ZaviaT4SMbJhBUBSeeaSlBFTc4k"
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"id":61724,"node_from":12297,"node_to":12282,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":1879,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:34.850Z","updated_at":"2019-02-26T19:28:34.850Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61725,"node_from":12297,"node_to":12283,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":3,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:34.907Z","updated_at":"2019-02-26T19:28:34.907Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61726,"node_from":12298,"node_to":12282,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":1367,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:34.944Z","updated_at":"2019-02-26T19:28:34.944Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61727,"node_from":12299,"node_to":12282,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":1184,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:34.980Z","updated_at":"2019-02-26T19:28:34.980Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61728,"node_from":12299,"node_to":12283,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":7,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:35.020Z","updated_at":"2019-02-26T19:28:35.020Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61729,"node_from":12299,"node_to":12284,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:35.078Z","updated_at":"2019-02-26T19:28:35.078Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61730,"node_from":12300,"node_to":12285,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":1154,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:35.131Z","updated_at":"2019-02-26T19:28:35.131Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61731,"node_from":12301,"node_to":12282,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":18,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:35.175Z","updated_at":"2019-02-26T19:28:35.175Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61732,"node_from":12301,"node_to":12283,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":709,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:35.344Z","updated_at":"2019-02-26T19:28:35.344Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61733,"node_from":12301,"node_to":12286,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":4,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:35.498Z","updated_at":"2019-02-26T19:28:35.498Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61734,"node_from":12301,"node_to":12284,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:35.573Z","updated_at":"2019-02-26T19:28:35.573Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61735,"node_from":12301,"node_to":12287,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":30,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:35.619Z","updated_at":"2019-02-26T19:28:35.619Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61736,"node_from":12301,"node_to":12288,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:35.668Z","updated_at":"2019-02-26T19:28:35.668Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61737,"node_from":12302,"node_to":12285,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":516,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:35.832Z","updated_at":"2019-02-26T19:28:35.832Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61738,"node_from":12302,"node_to":12289,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:35.996Z","updated_at":"2019-02-26T19:28:35.996Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61739,"node_from":12303,"node_to":12285,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":321,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:36.139Z","updated_at":"2019-02-26T19:28:36.139Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61740,"node_from":12303,"node_to":12290,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":51,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:36.282Z","updated_at":"2019-02-26T19:28:36.282Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61741,"node_from":12304,"node_to":12283,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":7,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:36.327Z","updated_at":"2019-02-26T19:28:36.327Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61742,"node_from":12304,"node_to":12286,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":198,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:36.476Z","updated_at":"2019-02-26T19:28:36.476Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61743,"node_from":12304,"node_to":12291,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":5,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:36.619Z","updated_at":"2019-02-26T19:28:36.619Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61744,"node_from":12304,"node_to":12289,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:36.767Z","updated_at":"2019-02-26T19:28:36.767Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61745,"node_from":12304,"node_to":12288,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":9,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:36.908Z","updated_at":"2019-02-26T19:28:36.908Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61746,"node_from":12304,"node_to":12292,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:36.953Z","updated_at":"2019-02-26T19:28:36.953Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61747,"node_from":12305,"node_to":12283,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":3,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:37.222Z","updated_at":"2019-02-26T19:28:37.222Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61748,"node_from":12305,"node_to":12286,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":4,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:37.394Z","updated_at":"2019-02-26T19:28:37.394Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61749,"node_from":12305,"node_to":12291,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":200,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:37.560Z","updated_at":"2019-02-26T19:28:37.560Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61750,"node_from":12305,"node_to":12289,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":3,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:37.706Z","updated_at":"2019-02-26T19:28:37.706Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61751,"node_from":12306,"node_to":12286,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":193,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:37.849Z","updated_at":"2019-02-26T19:28:37.849Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61752,"node_from":12307,"node_to":12291,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":3,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:37.896Z","updated_at":"2019-02-26T19:28:37.896Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61753,"node_from":12307,"node_to":12289,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":129,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.045Z","updated_at":"2019-02-26T19:28:38.045Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61754,"node_from":12308,"node_to":12283,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":4,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.195Z","updated_at":"2019-02-26T19:28:38.195Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61755,"node_from":12308,"node_to":12286,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":120,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.287Z","updated_at":"2019-02-26T19:28:38.287Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61756,"node_from":12308,"node_to":12287,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":4,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.352Z","updated_at":"2019-02-26T19:28:38.352Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61757,"node_from":12309,"node_to":12283,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":10,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.394Z","updated_at":"2019-02-26T19:28:38.394Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61758,"node_from":12309,"node_to":12286,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.439Z","updated_at":"2019-02-26T19:28:38.439Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61759,"node_from":12309,"node_to":12284,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":78,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.482Z","updated_at":"2019-02-26T19:28:38.482Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61760,"node_from":12309,"node_to":12287,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":35,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.542Z","updated_at":"2019-02-26T19:28:38.542Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61761,"node_from":12310,"node_to":12286,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":21,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.586Z","updated_at":"2019-02-26T19:28:38.586Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61762,"node_from":12310,"node_to":12291,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":64,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.633Z","updated_at":"2019-02-26T19:28:38.633Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61763,"node_from":12310,"node_to":12289,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":7,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.677Z","updated_at":"2019-02-26T19:28:38.677Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61764,"node_from":12311,"node_to":12282,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":13,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.722Z","updated_at":"2019-02-26T19:28:38.722Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61765,"node_from":12311,"node_to":12283,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":7,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.764Z","updated_at":"2019-02-26T19:28:38.764Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61766,"node_from":12311,"node_to":12286,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":8,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.806Z","updated_at":"2019-02-26T19:28:38.806Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61767,"node_from":12311,"node_to":12289,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":4,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.848Z","updated_at":"2019-02-26T19:28:38.848Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61768,"node_from":12311,"node_to":12293,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":10,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.895Z","updated_at":"2019-02-26T19:28:38.895Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61769,"node_from":12311,"node_to":12294,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.943Z","updated_at":"2019-02-26T19:28:38.943Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61770,"node_from":12312,"node_to":12289,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":40,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:38.997Z","updated_at":"2019-02-26T19:28:38.997Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61771,"node_from":12313,"node_to":12291,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":39,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.038Z","updated_at":"2019-02-26T19:28:39.038Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61772,"node_from":12314,"node_to":12291,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":24,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.092Z","updated_at":"2019-02-26T19:28:39.092Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61773,"node_from":12315,"node_to":12283,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.135Z","updated_at":"2019-02-26T19:28:39.135Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61774,"node_from":12315,"node_to":12284,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":22,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.173Z","updated_at":"2019-02-26T19:28:39.173Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61775,"node_from":12316,"node_to":12286,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":17,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.220Z","updated_at":"2019-02-26T19:28:39.220Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61776,"node_from":12316,"node_to":12291,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.270Z","updated_at":"2019-02-26T19:28:39.270Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61777,"node_from":12316,"node_to":12288,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":4,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.315Z","updated_at":"2019-02-26T19:28:39.315Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61778,"node_from":12317,"node_to":12283,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.379Z","updated_at":"2019-02-26T19:28:39.379Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61779,"node_from":12317,"node_to":12291,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":21,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.423Z","updated_at":"2019-02-26T19:28:39.423Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61780,"node_from":12318,"node_to":12286,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":22,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.466Z","updated_at":"2019-02-26T19:28:39.466Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61781,"node_from":12319,"node_to":12291,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":8,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.503Z","updated_at":"2019-02-26T19:28:39.503Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61782,"node_from":12319,"node_to":12295,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":4,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.536Z","updated_at":"2019-02-26T19:28:39.536Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61783,"node_from":12319,"node_to":12294,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":4,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.577Z","updated_at":"2019-02-26T19:28:39.577Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61784,"node_from":12320,"node_to":12286,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":9,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.635Z","updated_at":"2019-02-26T19:28:39.635Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61785,"node_from":12320,"node_to":12291,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.665Z","updated_at":"2019-02-26T19:28:39.665Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61786,"node_from":12320,"node_to":12295,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":5,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.712Z","updated_at":"2019-02-26T19:28:39.712Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61787,"node_from":12321,"node_to":12285,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":3,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.741Z","updated_at":"2019-02-26T19:28:39.741Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61788,"node_from":12321,"node_to":12295,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":7,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.770Z","updated_at":"2019-02-26T19:28:39.770Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61789,"node_from":12322,"node_to":12289,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":10,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.798Z","updated_at":"2019-02-26T19:28:39.798Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61790,"node_from":12323,"node_to":12295,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":6,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.832Z","updated_at":"2019-02-26T19:28:39.832Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61791,"node_from":12324,"node_to":12288,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":3,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.868Z","updated_at":"2019-02-26T19:28:39.868Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61792,"node_from":12324,"node_to":12296,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.913Z","updated_at":"2019-02-26T19:28:39.913Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61793,"node_from":12325,"node_to":12295,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:39.957Z","updated_at":"2019-02-26T19:28:39.957Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61794,"node_from":12325,"node_to":12296,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":3,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:40.005Z","updated_at":"2019-02-26T19:28:40.005Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61795,"node_from":12326,"node_to":12286,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:40.049Z","updated_at":"2019-02-26T19:28:40.049Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61796,"node_from":12326,"node_to":12292,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:40.094Z","updated_at":"2019-02-26T19:28:40.094Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61797,"node_from":12327,"node_to":12289,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:40.144Z","updated_at":"2019-02-26T19:28:40.144Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61798,"node_from":12327,"node_to":12295,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:40.186Z","updated_at":"2019-02-26T19:28:40.186Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61799,"node_from":12328,"node_to":12282,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:40.235Z","updated_at":"2019-02-26T19:28:40.235Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61800,"node_from":12328,"node_to":12293,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:40.286Z","updated_at":"2019-02-26T19:28:40.286Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61801,"node_from":12329,"node_to":12289,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":3,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:40.333Z","updated_at":"2019-02-26T19:28:40.333Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}},{"id":61802,"node_from":12330,"node_to":12289,"date":"2014-02-01T00:00:00.000Z","direction":"directed","type":"parasitism","method":"field
+        observations","attr_id":19,"value":2,"geom":null,"public":true,"network_id":1036,"created_at":"2019-02-26T19:28:40.380Z","updated_at":"2019-02-26T19:28:40.380Z","attribute":{"id":19,"name":"abundance
+        of fleas on mammals","description":"abundance of flea species on mammal species","unit":"abundance","created_at":"2019-02-26T19:15:26.514Z","updated_at":"2019-02-26T19:15:26.514Z"}}]'
+  recorded_at: 2021-11-08 23:08:35 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

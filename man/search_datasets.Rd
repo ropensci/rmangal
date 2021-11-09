@@ -7,7 +7,7 @@
 search_datasets(query, verbose = TRUE, ...)
 }
 \arguments{
-\item{query}{either a character string including a single keyword or a list containing a custom query (see details section below).
+\item{query}{either a character string including a single keyword or a named list containing a custom query (see details section below).
 Note that if an empty character string is passed, then all datasets available are returned.}
 
 \item{verbose}{a logical. Should extra information be reported on progress?}
@@ -27,8 +27,7 @@ partial match was found are returned.
 Alternatively, a named list can be used to look for an exact match in a specific column (see Details section)
 }
 \details{
-Names of the list should match one of the column names within the table.
-For the \code{dataset} table, those are:
+If \code{query} is a named list, the name  used should be one of the following:
 \itemize{
 \item id: unique identifier of the dataset
 \item name: name of the dataset
@@ -42,17 +41,20 @@ Examples covering custom queries are provided below.
 }
 \examples{
 \donttest{
-# Return all datasets (takes time)
-all_datasets <- search_datasets("", verbose = FALSE)
-all_datasets
-class(all_datasets)
+ # Return all datasets (takes time)
+ all_datasets <- search_datasets("")
+ all_datasets
+ class(all_datasets)
+ # Search with keyword
+ mg_lagoon <- search_datasets(query = 'lagoon')
+ # Search with a custom query (specific column)
+ mg_kemp <- search_datasets(query = list(name = 'kemp_1977'))
+ mg_16 <- search_datasets(query = list(ref_id = 16))
 }
-# Search with keyword
-mg_lagoon <- search_datasets(query = 'lagoon', verbose = FALSE)
-# Search with a custom query (specific column)
-mg_kemp <- search_datasets(query = list(name = 'kemp_1977'), verbose = FALSE)
-mg_16 <- search_datasets(query = list(ref_id = 16), verbose = FALSE)
 }
 \references{
-Metadata available at \url{https://mangal-wg.github.io/mangal-api/#datasets}
+\itemize{
+\item \url{https://mangal.io/#/}
+\item \url{https://mangal-interactions.github.io/mangal-api/#datasets}
+}
 }

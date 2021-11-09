@@ -13,7 +13,7 @@ search_interactions(
 )
 }
 \arguments{
-\item{query}{either a character string including a single keyword or a list containing a custom query (see details section below).
+\item{query}{either a character string including a single keyword or a named list containing a custom query (see details section below).
 Note that if an empty character string is passed, then all datasets available are returned.}
 
 \item{type}{a \code{character} one of the interactions type available, uses \code{\link[=avail_type]{avail_type()}} to see the full list of type available. Note that \code{query} is ignored if \code{type} is used.}
@@ -52,13 +52,16 @@ Note that for lists with more than one element, only the first element is used, 
 Examples covering custom queries are provided below.
 }
 \examples{
-df_inter <- search_interactions(type = "competition", verbose = FALSE)
-# Get all networks containing competition
 \donttest{
-competition_networks <- get_collection(df_inter, verbose = FALSE)
+ df_inter <- search_interactions(type = "competition", verbose = FALSE)
+ # Get all networks containing competition
+ competition_networks <- get_collection(df_inter, verbose = FALSE)
+ df_net_926 <- search_interactions(list(network_id = 926), verbose = FALSE)
 }
-df_net_926 <- search_interactions(list(network_id = 926), verbose = FALSE)
 }
 \references{
-Metadata available at \url{https://mangal-wg.github.io/mangal-api/#interactions}
+\itemize{
+\item \url{https://mangal.io/#/}
+\item \url{https://mangal-interactions.github.io/mangal-api/#taxonomy}
+}
 }

@@ -1,26 +1,26 @@
-context("get_collection")
-
-res0 <- get_collection(c(1035:1036))
-res1 <- get_collection(search_networks(query='insect%'))
-res2 <- get_collection(search_datasets(query='lagoon%'))
-res3 <- get_collection(search_datasets(query='lagoon%'), as_sf = TRUE)
-resw <- get_collection(NULL)
-net18 <- get_network_by_id(id = 18, as_sf = TRUE)
-
-test_that("expected behavior", {
+test_that("get_collection() queries by id work", {
+  vcr::use_cassette(name = "get_collection_id", {
+    res0 <- get_collection(c(1035:1036))
+  })
   expect_equal(res0[[1]]$network$network_id, 1035)
-  expect_equal(class(res0), "mgNetworksCollection")
-  expect_equal(class(res1), "mgNetworksCollection")
-  expect_equal(class(res2), "mgNetworksCollection")
-  expect_equal(class(res3), "mgNetworksCollection")
-  expect_equal(class(net18), "mgNetwork")
-  expect_true(all("sf" == lapply(res3, function(x) class(x$network)[1])))
-  expect_equal(class(net18$network), c("sf", "data.frame"))
+  expect_s3_class(res0, "mgNetworksCollection")
   expect_equal(length(res0), 2)
-  expect_equal(length(res1), 14)
-  expect_equal(length(res2), 3)
-  expect_identical(resw, data.frame())
-  expect_error(suppressWarnings(get_collection("hh")))
-  expect_error(suppressWarnings(get_network_by_id(id = 999999)))
 }
 )
+
+## NB: other methods for get_collection() are tested in other files to 
+## avoid repeating several request
+
+
+test_that("get_collection(NULL) returns an empty dataframe", {
+  expect_warning(get_collection(NULL))
+  expect_identical(suppressWarnings(get_collection(NULL)), data.frame())
+}
+)
+
+test_that("get_collection() expected errors", {
+  vcr::use_cassette(name = "get_collection_errors", {
+    expect_error(suppressWarnings(get_collection("hh")))
+  })
+})
+

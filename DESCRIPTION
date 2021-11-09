@@ -1,10 +1,10 @@
 Package: rmangal
 Type: Package
 Title: 'Mangal' Client
-Version: 2.0.2
+Version: 2.0.2.9000
 Authors@R: c(
     person(given = "Steve", family = "Vissault", comment = c(ORCID = "0000-0002-0866-4376"),
-      email = "s.vissault@yahoo.fr", role = c("aut", "cre")),
+      email = "kevin.cazelles@gmail.com", role = c("aut", "cre")),
     person(given = "Kevin", family = "Cazelles", comment = c(ORCID = "0000-0001-6619-9874"),
         email = "kcazelle@uoguelph.ca", role = c("aut","ctb")),
     person(given = "Gabriel", family = "Bergeron",
@@ -22,7 +22,7 @@ Authors@R: c(
     person(given = "Anna Willoughby", role = "rev",
       comment = c(ORCID = "0000-0002-0504-0605"))
     )
-Description: An interface to the 'Mangal' database - a collection of ecological networks. This package includes functions to work with the 'Mangal RESTful API' methods (<https://mangal.io/doc/api/>).
+Description: An interface to the 'Mangal' database - a collection of ecological networks. This package includes functions to work with the 'Mangal RESTful API' methods (<https://mangal-interactions.github.io/mangal-api/>).
 URL: https://docs.ropensci.org/rmangal/, https://mangal.io, https://github.com/ropensci/rmangal
 BugReports: https://github.com/ropensci/rmangal/issues
 License: MIT + file LICENSE
@@ -32,8 +32,9 @@ Imports:
     igraph,
     jsonlite (>= 1.5),
     memoise,
+    methods,
     purrr
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 Suggests:
     ggraph (>= 2.0.0),
     knitr,
@@ -47,9 +48,10 @@ Suggests:
     testthat,
     tibble,
     USAboundaries,
-    webshot,
+    vcr
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
 X-schema.org-applicationCategory: ecologicalNetworks
 X-schema.org-keywords: ecology, networks, food webs, interactions, data publications, open access
 X-schema.org-isPartOf: https://ropensci.org
+Config/testthat/edition: 3
