@@ -6,8 +6,8 @@ test_that("search_references() default and collection work", {
   expect_s3_class(res1, "mgSearchReferences")
   expect_equal(length(res1), 13)
   expect_equal(res1$doi, "10.2307/3225248")
-  expect_equal(class(resc), "mgNetwork")
-  expect_identical(names(resc), nm_co)
+  expect_equal(class(resc), "mgNetworksCollection")
+  expect_identical(names(resc[[1]]), nm_co)
 })
 
 test_that("search_references() using list works", {

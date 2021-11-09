@@ -4,10 +4,10 @@ test_that("search_taxonomy() default and collection work", {
     net <- get_collection(res)
   })
   expect_s3_class(res, "mgSearchTaxonomy")
-  expect_s3_class(net, "mgNetwork")
+  expect_s3_class(net, "mgNetworksCollection")
   expect_equal(res$taxonomy.name, "Azorina vidalii")
   expect_equal(dim(res), c(1, 18))
-  expect_equal(length(net), 5)
+  expect_equal(length(net[[1L]]), 5)
 })
 
 

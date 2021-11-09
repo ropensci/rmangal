@@ -52,12 +52,12 @@ Note that for lists with more than one element, only the first element is used, 
 Examples covering custom queries are provided below.
 }
 \examples{
-df_inter <- search_interactions(type = "competition", verbose = FALSE)
-# Get all networks containing competition
 \donttest{
-competition_networks <- get_collection(df_inter, verbose = FALSE)
+ df_inter <- search_interactions(type = "competition", verbose = FALSE)
+ # Get all networks containing competition
+ competition_networks <- get_collection(df_inter, verbose = FALSE)
+ df_net_926 <- search_interactions(list(network_id = 926), verbose = FALSE)
 }
-df_net_926 <- search_interactions(list(network_id = 926), verbose = FALSE)
 }
 \references{
 Metadata available at \url{https://mangal-wg.github.io/mangal-api/#interactions}

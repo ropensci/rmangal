@@ -40,9 +40,11 @@ For the \code{reference} table, those are:
 Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
 }
 \examples{
-search_references(doi = "10.2307/3225248")
-search_references(list(jstor = 3683041))
-search_references(list(year = 2010))
+\donttest{
+ search_references(doi = "10.2307/3225248")
+ search_references(list(jstor = 3683041))
+ search_references(list(year = 2010))
+}
 }
 \references{
 Metadata available at \url{https://mangal-wg.github.io/mangal-api/#references}

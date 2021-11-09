@@ -14,8 +14,8 @@ test_that("search_nodes() find 926 and get collection", {
     net <- get_collection(res, verbose = FALSE)
   })
   expect_s3_class(res, "mgSearchNodes")
-  expect_s3_class(net, "mgNetwork")
+  expect_s3_class(net, "mgNetworksCollection")
   expect_true(all(dim(res) == c(13, 18)))
-  expect_true(all(names(net) == nm_co))
+  expect_true(all(names(net[[1]]) == nm_co))
 })
 

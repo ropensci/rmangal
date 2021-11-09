@@ -26,8 +26,8 @@ test_that("search_interactions()", {
   expect_s3_class(res, "mgSearchInteractions")
   expect_true(all(res$network_id == 100))
   #
-  expect_s3_class(resc, "mgNetwork")
-  # expect_equal(names(resc[[1L]]), nm_co)
+  expect_s3_class(resc, "mgNetworksCollection")
+  expect_equal(names(resc[[1L]]), nm_co)
 })
 
 

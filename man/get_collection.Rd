@@ -60,8 +60,8 @@ function. The function also accepts a numeric vector of Mangal network IDs.
 
 \examples{
 \donttest{
-mg_2 <- get_collection(c(1076:1077), verbose = FALSE)
-mg_anemone <- get_collection(search_networks(query='anemone\%'), verbose = FALSE)
+ mg_2 <- get_collection(c(1076:1077), verbose = FALSE)
+ mg_anemone <- get_collection(search_networks(query='anemone\%'), verbose = FALSE)
 }
 }
 \seealso{

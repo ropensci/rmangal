@@ -61,9 +61,11 @@ by authors should be regarded as the most reliable information. Please
 report any issue related to taxonomy at \url{https://github.com/mangal-wg/mangal-datasets/issues}.
 }
 \examples{
-search_taxonomy("Acer")
-# Retrieve higher classification
-tsn_acer <- search_taxonomy("Acer")$taxonomy.tsn
+\donttest{
+ search_taxonomy("Acer")
+ # Retrieve higher classification
+ tsn_acer <- search_taxonomy("Acer")$taxonomy.tsn
+}
 }
 \references{
 Metadata available at \url{https://mangal-wg.github.io/mangal-api/#taxonomy}

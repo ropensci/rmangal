@@ -29,7 +29,7 @@ get_collection <- function(x, ...) {
 #' @describeIn get_collection Get a collection of networks (default).
 #' @export
 get_collection.default <- function(x, ...) {
-  get_network_by_id(x, ...)
+  get_network_by_id(x, force_collection = TRUE, ...)
 }
 
 #' @describeIn get_collection Get a collection of networks from a `mgSearchDatasets` object.
@@ -37,14 +37,14 @@ get_collection.default <- function(x, ...) {
 get_collection.mgSearchDatasets <- function(x, ...) {
   # Get networks ids
   net_ids <- unique(unlist(purrr::map(x$networks, "id")))
-  get_network_by_id(net_ids, ...)
+  get_collection.default(net_ids, ...)
 }
 
 #' @describeIn get_collection Get a collection of networks from a `mgSearchNetworks` object.
 #' @export
 get_collection.mgSearchNetworks <- function(x, ...) {
   # Get networks ids
-  get_network_by_id(x$id, ...)
+  get_collection.default(x$id, ...)
 }
 
 
@@ -53,7 +53,7 @@ get_collection.mgSearchNetworks <- function(x, ...) {
 get_collection.mgSearchReferences <- function(x, ...) {
   # Get networks ids
   net_ids <- unique(unlist(purrr::map(x$networks, "id")))
-  get_network_by_id(net_ids, ...)
+  get_collection.default(net_ids, ...)
 }
 
 #' @describeIn get_collection Get a collection of networks from a `mgSearchNodes` object.
@@ -61,7 +61,7 @@ get_collection.mgSearchReferences <- function(x, ...) {
 get_collection.mgSearchNodes <- function(x, ...) {
   # Get networks ids
   net_ids <- unique(x$network_id)
-  get_network_by_id(net_ids, ...)
+  get_collection.default(net_ids, ...)
 }
 
 #' @describeIn get_collection Get a collection of networks from a `mgSearchTaxa` object.
@@ -69,7 +69,7 @@ get_collection.mgSearchNodes <- function(x, ...) {
 get_collection.mgSearchTaxonomy <- function(x, ...) {
   # Get networks ids
   net_ids <- unique(x$network_id)
-  get_network_by_id(net_ids, ...)
+  get_collection.default(net_ids, ...)
 }
 
 
@@ -78,5 +78,5 @@ get_collection.mgSearchTaxonomy <- function(x, ...) {
 get_collection.mgSearchInteractions <- function(x, ...) {
   # Get networks ids
   net_ids <- unique(x$network_id)
-  get_network_by_id(net_ids, ...)
+  get_collection.default(net_ids, ...)
 }

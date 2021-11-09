@@ -38,9 +38,10 @@ For the \code{networks} table, those are:
 Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
 }
 \examples{
-res_acer <- search_nodes("Acer")
-res_926 <- search_nodes(list(network_id = 926))
-
+\donttest{
+ res_acer <- search_nodes("Acer")
+ res_926 <- search_nodes(list(network_id = 926))
+}
 }
 \references{
 Metadata available at \url{https://mangal-wg.github.io/mangal-api/#nodes}
