@@ -1,4 +1,4 @@
-# rmangal (devel)
+# rmangal 2.1.0
 
 * All examples are within the `\donttest` tag (see #100).
 * `get_collection()` methods always return an object of class `mgNetworksCollection` (see #100).
