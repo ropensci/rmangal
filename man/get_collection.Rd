@@ -41,7 +41,7 @@ objects \code{\link[=get_network_by_id]{get_network_by_id()}}).
 }
 \description{
 Retrieve a set of networks based on the results of one of the \verb{search_*()}
-function. The function also accept a numeric vector of Mangal network IDs.
+function. The function also accepts a numeric vector of Mangal network IDs.
 }
 \section{Methods (by class)}{
 \itemize{

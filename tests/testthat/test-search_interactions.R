@@ -5,9 +5,6 @@ test_that("search_interactions() default works", {
   })
   expect_equal(dim(res), c(12, 19))
   expect_s3_class(res, "mgSearchInteractions")
-  # expect_s3_class(resc, "mgNetworksCollection")
-  # expect_s3_class(resc[[1L]], "mgNetwork")
-  # expect_equal(names(resc[[1L]]), nm_co)
 })
 
 test_that("search_interactions() type and expand_node work", {
@@ -24,7 +21,7 @@ test_that("search_interactions() type and expand_node work", {
 test_that("search_interactions()", {
   vcr::use_cassette(name = "search_interactions_id100", {
     res <- search_interactions(list(network_id = 100), verbose = FALSE)
-    resc <- get_collection(res1)
+    resc <- get_collection(res)
   })
   expect_s3_class(res, "mgSearchInteractions")
   expect_true(all(res$network_id == 100))

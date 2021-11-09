@@ -3,6 +3,7 @@
 #' A programmatic interface to the Mangal API <https://mangal-wg.github.io/mangal-api//>.
 #'
 #' @docType package
+#' @importFrom methods is
 #' @name rmangal
 #' @keywords internal
 "_PACKAGE"

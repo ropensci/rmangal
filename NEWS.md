@@ -1,7 +1,8 @@
 # rmangal (devel)
 
-* Tests now use `vcr`.
-* Remove Travis and Appveyor, use GitHub Actions.
+* Vignette now precomputed (see #100).
+* Tests now use `vcr` (see #100).
+* Remove Travis and Appveyor, use GitHub Actions (see #100).
 
 # rmangal 2.0.2
 
