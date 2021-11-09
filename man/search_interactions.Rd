@@ -13,7 +13,7 @@ search_interactions(
 )
 }
 \arguments{
-\item{query}{either a character string including a single keyword or a list containing a custom query (see details section below).
+\item{query}{either a character string including a single keyword or a named list containing a custom query (see details section below).
 Note that if an empty character string is passed, then all datasets available are returned.}
 
 \item{type}{a \code{character} one of the interactions type available, uses \code{\link[=avail_type]{avail_type()}} to see the full list of type available. Note that \code{query} is ignored if \code{type} is used.}

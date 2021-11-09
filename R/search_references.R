@@ -6,7 +6,7 @@
 #' partial match was found are returned.
 #' Alternatively, a named list can be used to look for an exact match in a specific column (see Details section)
 #'
-#' @param query either a character string including a single keyword or a list containing a custom query (see details section below).
+#' @param query either a character string including a single keyword or a named list containing a custom query (see details section below).
 #' Note that if an empty character string is passed, then all datasets available are returned.
 #' @param doi `character` a Digital Object Identifier  (DOI) of the article. Note that `query` is ignored if `doi` is specified.
 #' @param verbose a `logical`. Should extra information be reported on progress?

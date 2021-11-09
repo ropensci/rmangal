@@ -57,7 +57,7 @@ search_taxonomy <- function(query, tsn = NULL, gbif = NULL, eol = NULL,
 
   if (length(req)) {
       if (length(req) > 1) {
-        stop("Query with multiple criteria not allowed.")
+        stop("Queries with multiple criteria are not allowed.")
       } else query <- req
   } else {
     stopifnot(is.character(query))

@@ -7,7 +7,7 @@
 search_datasets(query, verbose = TRUE, ...)
 }
 \arguments{
-\item{query}{either a character string including a single keyword or a list containing a custom query (see details section below).
+\item{query}{either a character string including a single keyword or a named list containing a custom query (see details section below).
 Note that if an empty character string is passed, then all datasets available are returned.}
 
 \item{verbose}{a logical. Should extra information be reported on progress?}
@@ -27,8 +27,7 @@ partial match was found are returned.
 Alternatively, a named list can be used to look for an exact match in a specific column (see Details section)
 }
 \details{
-Names of the list should match one of the column names within the table.
-For the \code{dataset} table, those are:
+If \code{query} is a named list, the name  used should be one of the following:
 \itemize{
 \item id: unique identifier of the dataset
 \item name: name of the dataset

@@ -10,7 +10,7 @@ search_networks(query, verbose = TRUE, ...)
 search_networks_sf(query_sf, verbose = TRUE, ...)
 }
 \arguments{
-\item{query}{either a character string including a single keyword or a list containing a custom query (see details section below), or a spatial object (see the description of \code{query_sf}).
+\item{query}{either a character string including a single keyword or a named list containing a custom query (see details section below), or a spatial object (see the description of \code{query_sf}).
 Note that if an empty character string is passed, then all datasets available are returned.}
 
 \item{verbose}{a \code{logical}. Should extra information be reported on progress?}

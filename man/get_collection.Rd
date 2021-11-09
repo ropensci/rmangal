@@ -34,10 +34,8 @@ by one of the \verb{search_*()} functions.}
 \item{...}{arguments to be passed on to \code{\link[=get_network_by_id]{get_network_by_id()}}.}
 }
 \value{
-If there is only one network to be retrieved, \code{get_collection()} returns a
-\code{mgNetwork} object, otherwise it returns a object of class
-\code{mgNetworksCollection} which is a collection (a list) of \code{mgNetwork}
-objects \code{\link[=get_network_by_id]{get_network_by_id()}}).
+Returns a object of class \code{mgNetworksCollection} which is a collection
+(actually, a list) of \code{mgNetwork} objects \code{\link[=get_network_by_id]{get_network_by_id()}}).
 }
 \description{
 Retrieve a set of networks based on the results of one of the \verb{search_*()}

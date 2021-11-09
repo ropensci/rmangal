@@ -8,10 +8,8 @@
 #' @param ... arguments to be passed on to [rmangal::get_network_by_id()].
 #'
 #' @return
-#'  If there is only one network to be retrieved, `get_collection()` returns a
-#' `mgNetwork` object, otherwise it returns a object of class
-#' `mgNetworksCollection` which is a collection (a list) of `mgNetwork`
-#' objects [rmangal::get_network_by_id()]).
+#'  Returns a object of class `mgNetworksCollection` which is a collection 
+#' (actually, a list) of `mgNetwork` objects [rmangal::get_network_by_id()]).
 #'
 #' @seealso
 #' [search_datasets()], [search_interactions()], [search_networks()],

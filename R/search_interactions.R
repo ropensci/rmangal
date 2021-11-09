@@ -6,7 +6,7 @@
 #' partial match was found are returned.
 #' Alternatively, a named list can be used to look for an exact match in a specific column (see Details section)
 #'
-#' @param query either a character string including a single keyword or a list containing a custom query (see details section below).
+#' @param query either a character string including a single keyword or a named list containing a custom query (see details section below).
 #' Note that if an empty character string is passed, then all datasets available are returned.
 #' @param type a `character` one of the interactions type available, uses [avail_type()] to see the full list of type available. Note that `query` is ignored if `type` is used.
 #' @param expand_node a logical. Should the function returned extra information pertaining to nodes? Default is set to `FALSE`, which means that only the Mangal IDs of nodes are returned.

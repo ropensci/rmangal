@@ -235,7 +235,7 @@ get_gen <- function(endpoint, query = NULL, limit = 100, verbose = TRUE, ...) {
     if (verbose)
       message("Data retrieval ", signif(100*(page+1)/(pages+1), 3), "%   \r",
         appendLF = FALSE)
-      # cat("Data retrieval", signif(100*(page+1)/(pages+1), 3), "%   \r")
+
     query$page <- page
     resp <- mem_get(url,
       config = httr::add_headers(`Content-type` = "application/json"), ua,
@@ -365,7 +365,6 @@ print_pub_info <- function(x) {
   paste0("* Published in ref #",  x$id, " DOI:", x$doi)
 }
 
-
 print_net_info <- function(net_id, dat_id, descr, n_edg, n_nod) {
   paste0(
     "* Network #", net_id, " included in dataset #", dat_id, "\n",
@@ -373,7 +372,4 @@ print_net_info <- function(net_id, dat_id, descr, n_edg, n_nod) {
     "* Includes ", n_edg, " edges and ", n_nod, " nodes \n"
   )
 }
-
-
-
 

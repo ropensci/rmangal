@@ -1,8 +1,9 @@
 # rmangal (devel)
 
+* `get_network_by_id()` gains an argument `force_collection` to force the class collection (see #100).
 * Vignette now precomputed (see #100).
 * Tests now use `vcr` (see #100).
-* Remove Travis and Appveyor, use GitHub Actions (see #100).
+* Travis and Appveyor removed, use GitHub Actions (see #100).
 
 # rmangal 2.0.2
 
@@ -35,4 +36,4 @@
 
 # Previous version rmangal
 
-* See https://github.com/mangal-wg/rmangal-v1 for the first version. Note that due to changes in the RESTful API, there is not backward compatibility.
+* See https://github.com/mangal-wg/rmangal-v1 for the first version. Note that due to changes in the RESTful API, there is no backward compatibility.

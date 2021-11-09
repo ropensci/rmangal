@@ -13,7 +13,8 @@ test_that("get_collection() queries by id work", {
 
 
 test_that("get_collection(NULL) returns an empty dataframe", {
-  expect_identical(get_collection(NULL), data.frame())
+  expect_warning(get_collection(NULL))
+  expect_identical(suppressWarnings(get_collection(NULL)), data.frame())
 }
 )
 
