@@ -129,13 +129,9 @@ summary.mgNetwork <- function(object, ...) {
   out$n_edges <- nrow(object$nodes)
   out$connectance <- out$n_edges/(out$n_nodes*out$n_nodes)
   out$linkage_density <- out$n_edges/out$n_nodes
-  # out$modularity <- ifelse(
-  #     ids, NA,
-  #     igraph::modularity(ig, igraph::membership(igraph::cluster_walktrap(ig)))
-  #   )
   out$nodes_summary <- data.frame(
     degree_all = igraph::degree(ig, mode = "all"),
-    degree_in = igraph::degree(ig, mode = "out"),
+    degree_in = igraph::degree(ig, mode = "in"),
     degree_out = igraph::degree(ig, mode = "out"),
     centr_eigen = igraph::centr_eigen(ig, ids)$vector
   )
