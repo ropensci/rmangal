@@ -339,7 +339,6 @@ handle_query <- function(query, names_available) {
       " are valid names for custom queries.", call. = FALSE)
   query
 }
-# Remove ==> other message "should be named"
 
 
 
