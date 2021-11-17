@@ -8,7 +8,7 @@
 #'
 #' @param query either a character string including a single keyword or a named list containing a custom query (see details section below).
 #' Note that if an empty character string is passed, then all datasets available are returned.
-#' @param type a `character` one of the interactions type available, uses [avail_type()] to see the full list of type available. Note that `query` is ignored if `type` is used.
+#' @param type a `character` one of the interactions type available (see details). Note that `query` is ignored if `type` is used.
 #' @param expand_node a logical. Should the function returned extra information pertaining to nodes? Default is set to `FALSE`, which means that only the Mangal IDs of nodes are returned.
 #' @param verbose a `logical`. Should extra information be reported on progress?
 #' @param ... further arguments to be passed to [httr::GET()].
@@ -20,17 +20,30 @@
 #' @details
 #' Names of the list should match one of the column names within the table.
 #' For the `interaction` table, those are:
-#' - id: unique identifier of the interaction
-#' - attr_id: identifier of a specific attribute
-#' - direction: edge direction ("directed", "undirected" or "unknown")
-#' - network_id: Mangal network identifier
-#' - node_from: node id which the interaction end to
-#' - node_to: node to which the interaction end to
-#' - type: use argument `type` instead
+#' * id: unique identifier of the interaction
+#' * attr_id: identifier of a specific attribute
+#' * direction: edge direction ("directed", "undirected" or "unknown")
+#' * network_id: Mangal network identifier
+#' * node_from: node id which the interaction end to
+#' * node_to: node to which the interaction end to
+#' * type: use argument `type` instead
 #'
-#' Note that for lists with more than one element, only the first element is used, the others are ignored.
-#' Examples covering custom queries are provided below.
-
+#' Note that for lists with more than one element, only the first element is
+#' used, the others are ignored. The type of interactions (argument `type`)  
+#' currently available are the following
+#' * "competition",
+#' * "amensalism",
+#' * "neutralism",
+#' * "commensalism",
+#' * "mutualism",
+#' * "parasitism",
+#' * "predation",
+#' * "herbivory",
+#' * "symbiosis",
+#' * "scavenger",
+#' * "detritivore",
+#'
+#'
 #' @references
 #' * <https://mangal.io/#/>
 #' * <https://mangal-interactions.github.io/mangal-api/#taxonomy>
@@ -49,7 +62,6 @@ search_interactions <- function(query, type = NULL, expand_node = FALSE,
 
     if (!is.null(type)) {
       if (verbose) message("`type` used, `query` ignored.")
-      # Make sure args match options
       type <- match.arg(type, avail_type())
       query <- list(type = type)
     } else {
@@ -85,7 +97,6 @@ search_interactions <- function(query, type = NULL, expand_node = FALSE,
 }
 
 #' List interactions type contains in mangal-db
-#' @export
 avail_type <- function() c(
   "competition",
   "amensalism",
