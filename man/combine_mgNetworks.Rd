@@ -10,7 +10,7 @@ combine_mgNetworks(...)
 \item{...}{objects of class \code{mgNetworksCollection} or \code{mgNetwork} or a list #' of objects of these classes.}
 }
 \value{
-An object of class \code{mgNetworksCollection}
+An object of class \code{mgNetworksCollection}.
 }
 \description{
 Combine \code{mgNetworksCollection} and \code{mgNetwork} objects into a

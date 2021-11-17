@@ -12,7 +12,7 @@
 #' @rdname get_network_by_id
 #'
 #' @return
-#' A `mgNetwork` object includes five data frame:
+#' A `mgNetwork` object includes five data frames:
 #' * network: includes all generic information on the network (if `as_sf=TRUE` then it is an object of class `sf`);
 #' * nodes: information pertaining to nodes (includes taxonomic information);
 #' * interactions: includes ecological interactions and their attributes;

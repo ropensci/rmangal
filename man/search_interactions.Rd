@@ -16,7 +16,7 @@ search_interactions(
 \item{query}{either a character string including a single keyword or a named list containing a custom query (see details section below).
 Note that if an empty character string is passed, then all datasets available are returned.}
 
-\item{type}{a \code{character} one of the interactions type available, uses \code{\link[=avail_type]{avail_type()}} to see the full list of type available. Note that \code{query} is ignored if \code{type} is used.}
+\item{type}{a \code{character} one of the interactions type available (see details). Note that \code{query} is ignored if \code{type} is used.}
 
 \item{expand_node}{a logical. Should the function returned extra information pertaining to nodes? Default is set to \code{FALSE}, which means that only the Mangal IDs of nodes are returned.}
 
@@ -48,8 +48,22 @@ For the \code{interaction} table, those are:
 \item type: use argument \code{type} instead
 }
 
-Note that for lists with more than one element, only the first element is used, the others are ignored.
-Examples covering custom queries are provided below.
+Note that for lists with more than one element, only the first element is
+used, the others are ignored. The type of interactions (argument \code{type})
+currently available are the following
+\itemize{
+\item "competition",
+\item "amensalism",
+\item "neutralism",
+\item "commensalism",
+\item "mutualism",
+\item "parasitism",
+\item "predation",
+\item "herbivory",
+\item "symbiosis",
+\item "scavenger",
+\item "detritivore",
+}
 }
 \examples{
 \donttest{

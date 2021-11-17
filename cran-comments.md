@@ -5,6 +5,23 @@ Dear CRAN,
 rmangal was archived on 2020-11-02 for policy violation on internet access. 
 This minor release addresses this concern: tests now use `vcr` and the vignette has been precomputed. Minor bugs have been squashed along the way. 
 
+## CRAN comment 
+
+
+### Comment
+
+Missing Rd-tags:
+     avail_type.Rd: \value
+     clear_cache_rmangal.Rd: \value
+
+
+### Answer
+
+1. `avail_type` is no longer exported, instead type of interactions are detailed in the documentation of `search_interactions()`. 
+
+2. \value tag has been added for `clear_cache_rmangal`
+
+
 
 ## Test environments
 

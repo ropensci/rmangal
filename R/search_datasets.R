@@ -13,8 +13,8 @@
 #'
 #' @return
 #' An object of class `mgSearchDatasets`, which basically is a `data.frame`
-#' including all datasets corresponding to the query. For each dataset entry, 
-#' the networks and the original reference are attached.
+#' object including all datasets corresponding to the query. For each dataset 
+#' entry,  the networks and the original reference are attached.
 #'
 #' @details
 #' If `query` is a named list, the name  used should be one of the following:

@@ -16,8 +16,8 @@ Note that if an empty character string is passed, then all datasets available ar
 }
 \value{
 An object of class \code{mgSearchDatasets}, which basically is a \code{data.frame}
-including all datasets corresponding to the query. For each dataset entry,
-the networks and the original reference are attached.
+object including all datasets corresponding to the query. For each dataset
+entry,  the networks and the original reference are attached.
 }
 \description{
 Identify relevant datasets using a keyword or a custom query.

@@ -6,7 +6,7 @@
 #' @param ... objects of class `mgNetworksCollection` or `mgNetwork` or a list #' of objects of these classes.
 #'
 #' @return
-#' An object of class `mgNetworksCollection`
+#' An object of class `mgNetworksCollection`.
 #'
 #' @examples
 #' \donttest{

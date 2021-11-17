@@ -39,7 +39,7 @@ get_network_by_id_indiv(id, as_sf = FALSE, verbose = TRUE)
 \item{object}{object of of class \code{mgNetwork} or \code{mgNetworksCollection}.}
 }
 \value{
-A \code{mgNetwork} object includes five data frame:
+A \code{mgNetwork} object includes five data frames:
 \itemize{
 \item network: includes all generic information on the network (if \code{as_sf=TRUE} then it is an object of class \code{sf});
 \item nodes: information pertaining to nodes (includes taxonomic information);

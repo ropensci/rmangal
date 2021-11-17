@@ -6,6 +6,7 @@
 * Vignette now precomputed (see #100).
 * Tests now use `vcr` (see #100).
 * Travis and Appveyor removed, use GitHub Actions (see #100).
+* `avail_type()` is no longer expoter.
 
 # rmangal 2.0.2
 

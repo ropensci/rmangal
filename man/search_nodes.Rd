@@ -15,7 +15,8 @@ Note that if an empty character string is passed, then all datasets available ar
 \item{...}{further arguments to be passed to \code{\link[httr:GET]{httr::GET()}}.}
 }
 \value{
-An object of class \code{mgSearchNodes}, which is a \code{data.frame} including taxa #' matching the query and corresponding information.
+An object of class \code{mgSearchNodes}, which basically is a \code{data.frame} object
+including taxa that are matching the query and corresponding information.
 All networks in which taxa are involved are also attached to the \code{data.frame}.
 }
 \description{

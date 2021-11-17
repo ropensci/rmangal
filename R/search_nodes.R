@@ -25,7 +25,8 @@
 #' [search_taxonomy()]
 #'
 #' @return
-#' An object of class `mgSearchNodes`, which is a `data.frame` including taxa #' matching the query and corresponding information.
+#' An object of class `mgSearchNodes`, which basically is a `data.frame` object 
+#' including taxa that are matching the query and corresponding information.
 #' All networks in which taxa are involved are also attached to the `data.frame`.
 #'
 #' @references
