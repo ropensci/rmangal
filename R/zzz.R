@@ -212,10 +212,14 @@ get_gen <- function(endpoint, query = NULL, limit = 100, verbose = TRUE, ...) {
   resp <- mem_get(url,
       config = httr::add_headers(`Content-type` = "application/json"), ua,
       query = query, ...)
+      
+  # Stop if server status is problematic
+  httr::stop_for_status(resp)
 
   # Prep output object
   responses <- list()
   errors <- NULL
+  
 
   # Get # pages
   tmp <- unlist(strsplit(httr::headers(resp)$"content-range", split = "\\D"))
