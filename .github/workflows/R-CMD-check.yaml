@@ -1,8 +1,8 @@
 on:
   push:
-    branches: [main, master]
+    branches: main
   pull_request:
-    branches: [main, master]
+    branches: main
 
 name: R CMD Check
 
@@ -18,7 +18,9 @@ jobs:
         config:
           - {os: ubuntu-20.04, r: 'devel'}
           - {os: ubuntu-20.04, r: 'release'}
+          - {os: ubuntu-20.04, r: 'oldrel'}
           - {os: macOS-latest, r: 'release'}
+          - {os: windows-latest, r: 'release'}
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true

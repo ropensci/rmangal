@@ -14,7 +14,7 @@
   ],
   "issueTracker": "https://github.com/ropensci/rmangal/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "2.0.2.9000",
+  "version": "2.1.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -26,14 +26,14 @@
       "@type": "Person",
       "givenName": "Steve",
       "familyName": "Vissault",
-      "email": "kevin.cazelles@gmail.com",
+      "email": "s.vissault@yahoo.fr",
       "@id": "https://orcid.org/0000-0002-0866-4376"
     },
     {
       "@type": "Person",
       "givenName": "Kevin",
       "familyName": "Cazelles",
-      "email": "kcazelle@uoguelph.ca",
+      "email": "kevin.cazelles@gmail.com",
       "@id": "https://orcid.org/0000-0001-6619-9874"
     },
     {
@@ -70,10 +70,10 @@
   "contributor": [
     {
       "@type": "Person",
-      "givenName": "Kevin",
-      "familyName": "Cazelles",
-      "email": "kcazelle@uoguelph.ca",
-      "@id": "https://orcid.org/0000-0001-6619-9874"
+      "givenName": "Steve",
+      "familyName": "Vissault",
+      "email": "s.vissault@yahoo.fr",
+      "@id": "https://orcid.org/0000-0002-0866-4376"
     },
     {
       "@type": "Person",
@@ -99,10 +99,10 @@
   "maintainer": [
     {
       "@type": "Person",
-      "givenName": "Steve",
-      "familyName": "Vissault",
+      "givenName": "Kevin",
+      "familyName": "Cazelles",
       "email": "kevin.cazelles@gmail.com",
-      "@id": "https://orcid.org/0000-0002-0866-4376"
+      "@id": "https://orcid.org/0000-0001-6619-9874"
     }
   ],
   "softwareSuggestions": [
@@ -337,8 +337,8 @@
   "isPartOf": "https://ropensci.org",
   "keywords": ["ecology", "networks", "foodwebs", "interactions", "datapublications", "openaccess"],
   "releaseNotes": "https://github.com/ropensci/rmangal/blob/master/NEWS.md",
-  "readme": "https://github.com/ropensci/rmangal/blob/master/README.md",
-  "fileSize": "3679.864KB",
+  "readme": "https://github.com/ropensci/rmangal/blob/main/README.md",
+  "fileSize": "3680.388KB",
   "contIntegration": ["https://github.com/ropensci/rmangal/actions/workflows/R-CMD-check.yaml", "https://app.codecov.io/gh/ropensci/ropensci/rmangal"],
   "developmentStatus": "https://www.repostatus.org/#active",
   "review": {
