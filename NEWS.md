@@ -6,7 +6,7 @@
 * Vignette now precomputed (see #100).
 * Tests now use `vcr` (see #100).
 * Travis and Appveyor removed, use GitHub Actions (see #100).
-* `avail_type()` is no longer expoter.
+* `avail_type()` is no longer exported.
 
 # rmangal 2.0.2
 
@@ -22,7 +22,7 @@
 # rmangal 2.0.0
 
 * Revisions see https://github.com/ropensci/software-review/issues/332;
-* add summary method []#87];
+* add summary method [#87];
 * `mg_to_igraph` is now `as.igraph()`;
 * `search_references()` has been rewritten [#85];
 * vignette now includes examples to use `tigygraph` and `ggraph`;
