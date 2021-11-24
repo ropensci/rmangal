@@ -17,14 +17,16 @@ Note that if an empty character string is passed, then all datasets available ar
 \item{...}{further arguments to be passed to \code{\link[httr:GET]{httr::GET()}}.}
 }
 \value{
-An object of class \code{mgSearchReferences}, which is a list that includes a wide range of details associated to the reference, including all datasets and networks related to the publication that are included in Mangal database.
+An object of class \code{mgSearchReferences}, which is a list that includes a
+wide range of details associated to the reference, including all datasets
+and networks related to the publication that are included in Mangal database.
 }
 \description{
 Search for a specific reference using a key word or a Digital Object Identifier (DOI).
 If the \code{query} is a character string, then all character columns in the table
 are searched and the entries for which at least one
 partial match was found are returned.
-Alternatively, a named list can be used to look for an exact match in a specific column (see Details section)
+Alternatively, a named list can be used to look for an exact match in a specific column (see Details section).
 }
 \details{
 Names of the list should match one of the column names within the table.

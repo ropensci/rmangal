@@ -20,28 +20,28 @@
 #' @details
 #' Names of the list should match one of the column names within the table.
 #' For the `interaction` table, those are:
-#' * id: unique identifier of the interaction
-#' * attr_id: identifier of a specific attribute
-#' * direction: edge direction ("directed", "undirected" or "unknown")
-#' * network_id: Mangal network identifier
-#' * node_from: node id which the interaction end to
-#' * node_to: node to which the interaction end to
-#' * type: use argument `type` instead
+#' * id: unique identifier of the interaction;
+#' * attr_id: identifier of a specific attribute;
+#' * direction: edge direction ("directed", "undirected" or "unknown");
+#' * network_id: Mangal network identifier;
+#' * node_from: node id which the interaction end to;
+#' * node_to: node to which the interaction end to;
+#' * type: use argument `type` instead.
 #'
 #' Note that for lists with more than one element, only the first element is
 #' used, the others are ignored. The type of interactions (argument `type`)  
 #' currently available are the following
-#' * "competition",
-#' * "amensalism",
-#' * "neutralism",
-#' * "commensalism",
-#' * "mutualism",
-#' * "parasitism",
-#' * "predation",
-#' * "herbivory",
-#' * "symbiosis",
-#' * "scavenger",
-#' * "detritivore",
+#' * "competition";
+#' * "amensalism";
+#' * "neutralism";
+#' * "commensalism";
+#' * "mutualism";
+#' * "parasitism";
+#' * "predation";
+#' * "herbivory";
+#' * "symbiosis";
+#' * "scavenger";
+#' * "detritivore".
 #'
 #'
 #' @references

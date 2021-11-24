@@ -39,30 +39,30 @@ Alternatively, a named list can be used to look for an exact match in a specific
 Names of the list should match one of the column names within the table.
 For the \code{interaction} table, those are:
 \itemize{
-\item id: unique identifier of the interaction
-\item attr_id: identifier of a specific attribute
-\item direction: edge direction ("directed", "undirected" or "unknown")
-\item network_id: Mangal network identifier
-\item node_from: node id which the interaction end to
-\item node_to: node to which the interaction end to
-\item type: use argument \code{type} instead
+\item id: unique identifier of the interaction;
+\item attr_id: identifier of a specific attribute;
+\item direction: edge direction ("directed", "undirected" or "unknown");
+\item network_id: Mangal network identifier;
+\item node_from: node id which the interaction end to;
+\item node_to: node to which the interaction end to;
+\item type: use argument \code{type} instead.
 }
 
 Note that for lists with more than one element, only the first element is
 used, the others are ignored. The type of interactions (argument \code{type})
 currently available are the following
 \itemize{
-\item "competition",
-\item "amensalism",
-\item "neutralism",
-\item "commensalism",
-\item "mutualism",
-\item "parasitism",
-\item "predation",
-\item "herbivory",
-\item "symbiosis",
-\item "scavenger",
-\item "detritivore",
+\item "competition";
+\item "amensalism";
+\item "neutralism";
+\item "commensalism";
+\item "mutualism";
+\item "parasitism";
+\item "predation";
+\item "herbivory";
+\item "symbiosis";
+\item "scavenger";
+\item "detritivore".
 }
 }
 \examples{
