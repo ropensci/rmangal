@@ -29,14 +29,14 @@
 #' @examples
 #' \donttest{
 #'  net18 <- get_network_by_id(id = 18)
-#'  net18_c <- get_network_by_id(id = 18, force_collection = TRUE)  
+#'  net18_c <- get_network_by_id(id = 18, force_collection = TRUE)
 #'  nets <- get_network_by_id(id = c(18, 23))
 #' }
 #' @export
 
-get_network_by_id <- function(ids, as_sf = FALSE, force_collection = FALSE, 
+get_network_by_id <- function(ids, as_sf = FALSE, force_collection = FALSE,
   verbose = TRUE) {
-    
+
     if (!length(ids)) {
       warning("length(ids) is 0, an empty dataframe is returned.")
       return(data.frame())
@@ -125,8 +125,8 @@ summary.mgNetwork <- function(object, ...) {
   ig <- as.igraph(object)
   ids <- igraph::is.directed(ig)
   out <- list()
-  out$n_nodes <- nrow(object$interactions)
-  out$n_edges <- nrow(object$nodes)
+  out$n_nodes <- nrow(object$nodes)
+  out$n_edges <- nrow(object$interactions)
   out$connectance <- out$n_edges/(out$n_nodes*out$n_nodes)
   out$linkage_density <- out$n_edges/out$n_nodes
   out$nodes_summary <- data.frame(
