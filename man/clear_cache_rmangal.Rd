@@ -10,7 +10,8 @@ clear_cache_rmangal()
 \code{TRUE} when the cache has been reset.
 }
 \description{
-Resets the cache of the memoised function used for http GET queries (see \code{\link[memoise:forget]{memoise::forget()}}).
+Resets the cache of the memoised function used for http GET queries
+(see \code{\link[memoise:forget]{memoise::forget()}}).
 }
 \examples{
 clear_cache_rmangal()

@@ -1,12 +1,13 @@
 #' Clear memoise cache
-#' 
-#' Resets the cache of the memoised function used for http GET queries (see [memoise::forget()]).
-#' 
+#'
+#' Resets the cache of the memoised function used for http GET queries
+#' (see [memoise::forget()]).
+#'
 #' @export
 #'
 #' @return
-#' `TRUE` when the cache has been reset. 
-#' 
+#' `TRUE` when the cache has been reset.
+#'
 #' @examples
 #' clear_cache_rmangal()
 

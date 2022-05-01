@@ -1,3 +1,8 @@
+# rmangal (devel)
+
+* Add lintr workflow to automatically.
+* Summary method for `mgNetwork` objects now reports nodes and properly (see nodes #108).
+
 # rmangal 2.1.0
 
 * All examples are within the `\donttest` tag (see #100).
