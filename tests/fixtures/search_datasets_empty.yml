@@ -16,7 +16,7 @@ http_interactions:
       message: 'Success: (200) OK'
     headers:
       server: nginx/1.14.0 (Ubuntu)
-      date: Mon, 08 Nov 2021 23:08:41 GMT
+      date: Sun, 01 May 2022 15:17:22 GMT
       content-type: application/json; charset=utf-8
       content-length: '2'
       connection: keep-alive
@@ -27,7 +27,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[]'
-  recorded_at: 2021-11-08 23:08:41 GMT
+  recorded_at: 2022-05-01 15:17:22 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
@@ -46,7 +46,7 @@ http_interactions:
       message: 'Success: (200) OK'
     headers:
       server: nginx/1.14.0 (Ubuntu)
-      date: Mon, 08 Nov 2021 23:08:41 GMT
+      date: Sun, 01 May 2022 15:17:22 GMT
       content-type: application/json; charset=utf-8
       content-length: '2'
       connection: keep-alive
@@ -57,5 +57,5 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[]'
-  recorded_at: 2021-11-08 23:08:41 GMT
+  recorded_at: 2022-05-01 15:17:22 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0

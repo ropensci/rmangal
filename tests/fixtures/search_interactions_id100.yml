@@ -16,20 +16,17 @@ http_interactions:
       message: 'Success: (200) OK'
     headers:
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 09 Nov 2021 02:10:12 GMT
+      date: Sun, 01 May 2022 15:17:24 GMT
       content-type: application/json; charset=utf-8
       content-length: '20673'
       connection: keep-alive
       x-powered-by: Express
       content-range: items 0-31/32
-      etag: W/"50c1-E393FW13yRAqGG/dtMStMHtelBA"
+      etag: W/"50c1-wIuFt1Clp9nYFk05Htxp9JS2qnQ"
     body:
       encoding: UTF-8
       file: no
-      string: '[{"id":50064,"node_from":5301,"node_to":5297,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"predation","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:09.720Z","updated_at":"2019-02-24T16:30:09.720Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
-        or absence of an interaction; this is a unitless measurement that should be
-        used as the default attribute when no further information is known. Paired
-        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50049,"node_from":5295,"node_to":5308,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"herbivory","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:08.849Z","updated_at":"2019-02-24T16:30:08.849Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+      string: '[{"id":50049,"node_from":5295,"node_to":5308,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"herbivory","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:08.849Z","updated_at":"2019-02-24T16:30:08.849Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
         or absence of an interaction; this is a unitless measurement that should be
         used as the default attribute when no further information is known. Paired
         wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50050,"node_from":5296,"node_to":5308,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"herbivory","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:08.919Z","updated_at":"2019-02-24T16:30:08.919Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
@@ -122,8 +119,11 @@ http_interactions:
         wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50080,"node_from":5307,"node_to":5306,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"predation","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:10.784Z","updated_at":"2019-02-24T16:30:10.784Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
         or absence of an interaction; this is a unitless measurement that should be
         used as the default attribute when no further information is known. Paired
+        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50064,"node_from":5301,"node_to":5297,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"predation","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:09.720Z","updated_at":"2019-02-24T16:30:09.720Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of an interaction; this is a unitless measurement that should be
+        used as the default attribute when no further information is known. Paired
         wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}}]'
-  recorded_at: 2021-11-09 02:10:13 GMT
+  recorded_at: 2022-05-01 15:17:25 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
@@ -142,20 +142,17 @@ http_interactions:
       message: 'Success: (200) OK'
     headers:
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 09 Nov 2021 02:10:12 GMT
+      date: Sun, 01 May 2022 15:17:24 GMT
       content-type: application/json; charset=utf-8
       content-length: '20673'
-      connection: keep-alive
+      connection: close
       x-powered-by: Express
       content-range: items 0-31/32
-      etag: W/"50c1-E393FW13yRAqGG/dtMStMHtelBA"
+      etag: W/"50c1-wIuFt1Clp9nYFk05Htxp9JS2qnQ"
     body:
       encoding: UTF-8
       file: no
-      string: '[{"id":50064,"node_from":5301,"node_to":5297,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"predation","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:09.720Z","updated_at":"2019-02-24T16:30:09.720Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
-        or absence of an interaction; this is a unitless measurement that should be
-        used as the default attribute when no further information is known. Paired
-        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50049,"node_from":5295,"node_to":5308,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"herbivory","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:08.849Z","updated_at":"2019-02-24T16:30:08.849Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+      string: '[{"id":50049,"node_from":5295,"node_to":5308,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"herbivory","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:08.849Z","updated_at":"2019-02-24T16:30:08.849Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
         or absence of an interaction; this is a unitless measurement that should be
         used as the default attribute when no further information is known. Paired
         wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50050,"node_from":5296,"node_to":5308,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"herbivory","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:08.919Z","updated_at":"2019-02-24T16:30:08.919Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
@@ -248,8 +245,11 @@ http_interactions:
         wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50080,"node_from":5307,"node_to":5306,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"predation","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:10.784Z","updated_at":"2019-02-24T16:30:10.784Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
         or absence of an interaction; this is a unitless measurement that should be
         used as the default attribute when no further information is known. Paired
+        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50064,"node_from":5301,"node_to":5297,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"predation","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:09.720Z","updated_at":"2019-02-24T16:30:09.720Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of an interaction; this is a unitless measurement that should be
+        used as the default attribute when no further information is known. Paired
         wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}}]'
-  recorded_at: 2021-11-09 02:10:13 GMT
+  recorded_at: 2022-05-01 15:17:25 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
@@ -268,7 +268,7 @@ http_interactions:
       message: 'Success: (200) OK'
     headers:
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 09 Nov 2021 02:10:12 GMT
+      date: Sun, 01 May 2022 15:17:24 GMT
       content-type: application/json; charset=utf-8
       content-length: '287'
       connection: keep-alive
@@ -279,7 +279,7 @@ http_interactions:
       file: no
       string: '{"id":100,"name":"mackintosh_1967_19450101_100","date":"1945-01-01T00:00:00.000Z","geom":null,"description":"A
         survey of antarctic biology","public":true,"all_interactions":false,"created_at":"2019-02-24T16:29:51.548Z","updated_at":"2019-02-24T16:29:51.548Z","dataset_id":36,"user_id":3}'
-  recorded_at: 2021-11-09 02:10:13 GMT
+  recorded_at: 2022-05-01 15:17:25 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
@@ -298,7 +298,7 @@ http_interactions:
       message: 'Success: (200) OK'
     headers:
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 09 Nov 2021 02:10:12 GMT
+      date: Sun, 01 May 2022 15:17:24 GMT
       content-type: application/json; charset=utf-8
       content-length: '5006'
       connection: keep-alive
@@ -322,7 +322,7 @@ http_interactions:
         sapiens","ncbi":9606,"tsn":180092,"eol":327955,"bold":12439,"gbif":2436436,"col":"e3b90576561f93a8ac8b59e185b01511","rank":"species","created_at":"2019-02-23T16:25:17.989Z","updated_at":"2019-06-14T15:25:46.365Z"}},{"id":5300,"original_name":"fish","node_level":"taxon","network_id":100,"taxonomy_id":null,"created_at":"2019-02-24T16:29:56.215Z","updated_at":"2019-02-24T16:29:56.215Z","taxonomy":null},{"id":5308,"original_name":"phytoplankton","node_level":"taxon","network_id":100,"taxonomy_id":null,"created_at":"2019-02-24T16:29:56.609Z","updated_at":"2019-02-24T16:29:56.609Z","taxonomy":null},{"id":5296,"original_name":"other
         herbivorous plankton","node_level":"taxon","network_id":100,"taxonomy_id":null,"created_at":"2019-02-24T16:29:56.025Z","updated_at":"2019-02-24T16:29:56.025Z","taxonomy":null},{"id":5297,"original_name":"carnivorous
         plankton","node_level":"taxon","network_id":100,"taxonomy_id":null,"created_at":"2019-02-24T16:29:56.079Z","updated_at":"2019-02-24T16:29:56.079Z","taxonomy":null}]'
-  recorded_at: 2021-11-09 02:10:13 GMT
+  recorded_at: 2022-05-01 15:17:25 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
@@ -341,7 +341,7 @@ http_interactions:
       message: 'Success: (200) OK'
     headers:
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 09 Nov 2021 02:10:13 GMT
+      date: Sun, 01 May 2022 15:17:24 GMT
       content-type: application/json; charset=utf-8
       content-length: '5006'
       connection: keep-alive
@@ -365,7 +365,7 @@ http_interactions:
         sapiens","ncbi":9606,"tsn":180092,"eol":327955,"bold":12439,"gbif":2436436,"col":"e3b90576561f93a8ac8b59e185b01511","rank":"species","created_at":"2019-02-23T16:25:17.989Z","updated_at":"2019-06-14T15:25:46.365Z"}},{"id":5300,"original_name":"fish","node_level":"taxon","network_id":100,"taxonomy_id":null,"created_at":"2019-02-24T16:29:56.215Z","updated_at":"2019-02-24T16:29:56.215Z","taxonomy":null},{"id":5308,"original_name":"phytoplankton","node_level":"taxon","network_id":100,"taxonomy_id":null,"created_at":"2019-02-24T16:29:56.609Z","updated_at":"2019-02-24T16:29:56.609Z","taxonomy":null},{"id":5296,"original_name":"other
         herbivorous plankton","node_level":"taxon","network_id":100,"taxonomy_id":null,"created_at":"2019-02-24T16:29:56.025Z","updated_at":"2019-02-24T16:29:56.025Z","taxonomy":null},{"id":5297,"original_name":"carnivorous
         plankton","node_level":"taxon","network_id":100,"taxonomy_id":null,"created_at":"2019-02-24T16:29:56.079Z","updated_at":"2019-02-24T16:29:56.079Z","taxonomy":null}]'
-  recorded_at: 2021-11-09 02:10:13 GMT
+  recorded_at: 2022-05-01 15:17:25 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
@@ -384,20 +384,17 @@ http_interactions:
       message: 'Success: (200) OK'
     headers:
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 09 Nov 2021 02:10:13 GMT
+      date: Sun, 01 May 2022 15:17:24 GMT
       content-type: application/json; charset=utf-8
       content-length: '20673'
       connection: keep-alive
       x-powered-by: Express
       content-range: items 0-31/32
-      etag: W/"50c1-E393FW13yRAqGG/dtMStMHtelBA"
+      etag: W/"50c1-wIuFt1Clp9nYFk05Htxp9JS2qnQ"
     body:
       encoding: UTF-8
       file: no
-      string: '[{"id":50064,"node_from":5301,"node_to":5297,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"predation","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:09.720Z","updated_at":"2019-02-24T16:30:09.720Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
-        or absence of an interaction; this is a unitless measurement that should be
-        used as the default attribute when no further information is known. Paired
-        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50049,"node_from":5295,"node_to":5308,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"herbivory","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:08.849Z","updated_at":"2019-02-24T16:30:08.849Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+      string: '[{"id":50049,"node_from":5295,"node_to":5308,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"herbivory","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:08.849Z","updated_at":"2019-02-24T16:30:08.849Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
         or absence of an interaction; this is a unitless measurement that should be
         used as the default attribute when no further information is known. Paired
         wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50050,"node_from":5296,"node_to":5308,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"herbivory","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:08.919Z","updated_at":"2019-02-24T16:30:08.919Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
@@ -490,8 +487,11 @@ http_interactions:
         wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50080,"node_from":5307,"node_to":5306,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"predation","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:10.784Z","updated_at":"2019-02-24T16:30:10.784Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
         or absence of an interaction; this is a unitless measurement that should be
         used as the default attribute when no further information is known. Paired
+        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50064,"node_from":5301,"node_to":5297,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"predation","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:09.720Z","updated_at":"2019-02-24T16:30:09.720Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of an interaction; this is a unitless measurement that should be
+        used as the default attribute when no further information is known. Paired
         wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}}]'
-  recorded_at: 2021-11-09 02:10:13 GMT
+  recorded_at: 2022-05-01 15:17:25 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
@@ -510,20 +510,17 @@ http_interactions:
       message: 'Success: (200) OK'
     headers:
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 09 Nov 2021 02:10:13 GMT
+      date: Sun, 01 May 2022 15:17:25 GMT
       content-type: application/json; charset=utf-8
       content-length: '20673'
       connection: keep-alive
       x-powered-by: Express
       content-range: items 0-31/32
-      etag: W/"50c1-da1X8jWrhn5PuU4rjDT7LDprmTQ"
+      etag: W/"50c1-wIuFt1Clp9nYFk05Htxp9JS2qnQ"
     body:
       encoding: UTF-8
       file: no
-      string: '[{"id":50064,"node_from":5301,"node_to":5297,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"predation","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:09.720Z","updated_at":"2019-02-24T16:30:09.720Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
-        or absence of an interaction; this is a unitless measurement that should be
-        used as the default attribute when no further information is known. Paired
-        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50049,"node_from":5295,"node_to":5308,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"herbivory","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:08.849Z","updated_at":"2019-02-24T16:30:08.849Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+      string: '[{"id":50049,"node_from":5295,"node_to":5308,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"herbivory","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:08.849Z","updated_at":"2019-02-24T16:30:08.849Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
         or absence of an interaction; this is a unitless measurement that should be
         used as the default attribute when no further information is known. Paired
         wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50050,"node_from":5296,"node_to":5308,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"herbivory","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:08.919Z","updated_at":"2019-02-24T16:30:08.919Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
@@ -568,27 +565,6 @@ http_interactions:
         wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50063,"node_from":5301,"node_to":5296,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"predation","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:09.651Z","updated_at":"2019-02-24T16:30:09.651Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
         or absence of an interaction; this is a unitless measurement that should be
         used as the default attribute when no further information is known. Paired
-        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50074,"node_from":5305,"node_to":5302,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"predation","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:10.490Z","updated_at":"2019-02-24T16:30:10.490Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
-        or absence of an interaction; this is a unitless measurement that should be
-        used as the default attribute when no further information is known. Paired
-        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50075,"node_from":5305,"node_to":5303,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"predation","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:10.540Z","updated_at":"2019-02-24T16:30:10.540Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
-        or absence of an interaction; this is a unitless measurement that should be
-        used as the default attribute when no further information is known. Paired
-        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50076,"node_from":5305,"node_to":5304,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"predation","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:10.586Z","updated_at":"2019-02-24T16:30:10.586Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
-        or absence of an interaction; this is a unitless measurement that should be
-        used as the default attribute when no further information is known. Paired
-        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50077,"node_from":5306,"node_to":5301,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"predation","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:10.634Z","updated_at":"2019-02-24T16:30:10.634Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
-        or absence of an interaction; this is a unitless measurement that should be
-        used as the default attribute when no further information is known. Paired
-        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50078,"node_from":5307,"node_to":5298,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"predation","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:10.682Z","updated_at":"2019-02-24T16:30:10.682Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
-        or absence of an interaction; this is a unitless measurement that should be
-        used as the default attribute when no further information is known. Paired
-        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50079,"node_from":5307,"node_to":5304,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"predation","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:10.723Z","updated_at":"2019-02-24T16:30:10.723Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
-        or absence of an interaction; this is a unitless measurement that should be
-        used as the default attribute when no further information is known. Paired
-        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50080,"node_from":5307,"node_to":5306,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"predation","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:10.784Z","updated_at":"2019-02-24T16:30:10.784Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
-        or absence of an interaction; this is a unitless measurement that should be
-        used as the default attribute when no further information is known. Paired
         wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50065,"node_from":5301,"node_to":5300,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"predation","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:10.001Z","updated_at":"2019-02-24T16:30:10.001Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
         or absence of an interaction; this is a unitless measurement that should be
         used as the default attribute when no further information is known. Paired
@@ -616,8 +592,32 @@ http_interactions:
         wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50073,"node_from":5305,"node_to":5301,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"predation","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:10.429Z","updated_at":"2019-02-24T16:30:10.429Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
         or absence of an interaction; this is a unitless measurement that should be
         used as the default attribute when no further information is known. Paired
+        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50074,"node_from":5305,"node_to":5302,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"predation","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:10.490Z","updated_at":"2019-02-24T16:30:10.490Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of an interaction; this is a unitless measurement that should be
+        used as the default attribute when no further information is known. Paired
+        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50075,"node_from":5305,"node_to":5303,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"predation","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:10.540Z","updated_at":"2019-02-24T16:30:10.540Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of an interaction; this is a unitless measurement that should be
+        used as the default attribute when no further information is known. Paired
+        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50076,"node_from":5305,"node_to":5304,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"predation","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:10.586Z","updated_at":"2019-02-24T16:30:10.586Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of an interaction; this is a unitless measurement that should be
+        used as the default attribute when no further information is known. Paired
+        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50077,"node_from":5306,"node_to":5301,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"predation","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:10.634Z","updated_at":"2019-02-24T16:30:10.634Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of an interaction; this is a unitless measurement that should be
+        used as the default attribute when no further information is known. Paired
+        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50078,"node_from":5307,"node_to":5298,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"predation","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:10.682Z","updated_at":"2019-02-24T16:30:10.682Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of an interaction; this is a unitless measurement that should be
+        used as the default attribute when no further information is known. Paired
+        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50079,"node_from":5307,"node_to":5304,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"predation","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:10.723Z","updated_at":"2019-02-24T16:30:10.723Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of an interaction; this is a unitless measurement that should be
+        used as the default attribute when no further information is known. Paired
+        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50080,"node_from":5307,"node_to":5306,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"predation","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:10.784Z","updated_at":"2019-02-24T16:30:10.784Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of an interaction; this is a unitless measurement that should be
+        used as the default attribute when no further information is known. Paired
+        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":50064,"node_from":5301,"node_to":5297,"date":"1945-01-01T00:00:00.000Z","direction":"directed","type":"predation","method":null,"attr_id":1,"value":1,"geom":null,"public":true,"network_id":100,"created_at":"2019-02-24T16:30:09.720Z","updated_at":"2019-02-24T16:30:09.720Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of an interaction; this is a unitless measurement that should be
+        used as the default attribute when no further information is known. Paired
         wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}}]'
-  recorded_at: 2021-11-09 02:10:13 GMT
+  recorded_at: 2022-05-01 15:17:25 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
@@ -636,7 +636,7 @@ http_interactions:
       message: 'Success: (200) OK'
     headers:
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 09 Nov 2021 02:10:13 GMT
+      date: Sun, 01 May 2022 15:17:25 GMT
       content-type: application/json; charset=utf-8
       content-length: '198'
       connection: keep-alive
@@ -647,7 +647,7 @@ http_interactions:
       file: no
       string: '{"id":36,"name":"mackintosh_1967","description":"A survey of antarctic
         biology","public":true,"created_at":"2019-02-24T16:29:45.863Z","updated_at":"2019-02-24T16:29:45.863Z","ref_id":38,"user_id":3}'
-  recorded_at: 2021-11-09 02:10:13 GMT
+  recorded_at: 2022-05-01 15:17:25 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
@@ -666,7 +666,7 @@ http_interactions:
       message: 'Success: (200) OK'
     headers:
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 09 Nov 2021 02:10:13 GMT
+      date: Sun, 01 May 2022 15:17:25 GMT
       content-type: application/json; charset=utf-8
       content-length: '506'
       connection: keep-alive
@@ -680,5 +680,5 @@ http_interactions:
         antarctique},  author = {N. A. Mackintosh}, editor = {R. Carrick, M. Holdgate,
         J. Prevost},  pages = {3-38}, year = {1967}, publisher = {(Hermann, Paris,
         1964)}}","paper_url":null,"data_url":"https://globalwebdb.com/","created_at":"2019-02-24T16:29:42.251Z","updated_at":"2019-02-24T16:29:42.251Z"}'
-  recorded_at: 2021-11-09 02:10:13 GMT
+  recorded_at: 2022-05-01 15:17:25 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0
