@@ -14,7 +14,7 @@
 #'  mg_18 <- get_network_by_id(18)
 #'  get_citation(mg_18)
 #' }
-#' 
+#'
 #' @export
 get_citation <- function(x) {
   UseMethod("get_citation", x)
@@ -27,5 +27,5 @@ get_citation.mgNetwork <- function(x) x$reference$bibtex
 #' @describeIn get_citation Get BibTeX entries for the publication associated to the networks.
 #' @export
 get_citation.mgNetworksCollection <- function(x) {
-    unique(unlist(purrr::map(x, get_citation)))
+    unique(unlist(lapply(x, function(y) get_citation(y))))
 }
