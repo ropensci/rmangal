@@ -13,13 +13,13 @@
 #'  mg_random_1071 <- get_collection(c(1071))
 #'  mg_random_1074 <- get_collection(c(1074))
 #'  combine_mgNetworks(mg_random_1071, mg_random_1074)
-#' } 
+#' }
 #'
 #' @export
 combine_mgNetworks <- function(...) {
   lsmg <- list(...)
   if (length(lsmg) == 1) {
-    if (class(lsmg[[1L]]) == "mgNetwork") {
+    if (inherits(lsmg[[1L]], "mgNetwork")) {
       return(structure(list(lsmg), class = "mgNetworksCollection"))
     } else lsmg <- unlist(lsmg, recursive = FALSE)
   }
@@ -28,10 +28,10 @@ combine_mgNetworks <- function(...) {
 }
 
 unlist_mgNetworks <- function(x) {
-    if (class(x) == "mgNetworksCollection") {
+    if (inherits(x, "mgNetworksCollection")) {
       unclass(x)
     } else {
-      if (class(x) == "mgNetwork") {
+      if (inherits(x, "mgNetwork")) {
         list(x)
       } else stop("Only 'mgNetwork' and `mgNetworksCollection` objects are
         supported")
