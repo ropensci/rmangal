@@ -8,7 +8,7 @@ test_that("get_collection() queries by id work", {
 }
 )
 
-## NB: other methods for get_collection() are tested in other files to 
+## NB: other methods for get_collection() are tested in other files to
 ## avoid repeating several request
 
 
@@ -19,8 +19,5 @@ test_that("get_collection(NULL) returns an empty dataframe", {
 )
 
 test_that("get_collection() expected errors", {
-  vcr::use_cassette(name = "get_collection_errors", {
     expect_error(suppressWarnings(get_collection("hh")))
-  })
 })
-

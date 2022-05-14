@@ -16,17 +16,29 @@ http_interactions:
       message: 'Success: (200) OK'
     headers:
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 09 Nov 2021 01:11:03 GMT
+      date: Sun, 01 May 2022 15:17:22 GMT
       content-type: application/json; charset=utf-8
       content-length: '8259'
       connection: keep-alive
       x-powered-by: Express
       content-range: items 0-11/12
-      etag: W/"2043-y74WQtatLQfvvDvTeX1bPn+lWs4"
+      etag: W/"2043-lVy2s1E0W70Mr4nwTrlEtlFZIpc"
     body:
       encoding: UTF-8
       file: no
-      string: '[{"id":97679,"node_from":24357,"node_to":24358,"date":"1973-03-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+      string: '[{"id":97641,"node_from":24343,"node_to":24344,"date":"1973-03-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation/experiment","attr_id":1,"value":1,"geom":null,"public":true,"network_id":1477,"created_at":"2019-03-05T15:50:33.839Z","updated_at":"2021-11-02T20:02:59.869Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of an interaction; this is a unitless measurement that should be
+        used as the default attribute when no further information is known. Paired
+        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":97652,"node_from":24352,"node_to":24351,"date":"1973-03-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation/experiment","attr_id":1,"value":1,"geom":null,"public":true,"network_id":1478,"created_at":"2019-03-05T15:50:38.469Z","updated_at":"2021-11-02T20:03:00.081Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of an interaction; this is a unitless measurement that should be
+        used as the default attribute when no further information is known. Paired
+        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":97709,"node_from":24370,"node_to":24378,"date":"1973-03-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation/experiment","attr_id":1,"value":1,"geom":null,"public":true,"network_id":1480,"created_at":"2019-03-05T15:50:55.947Z","updated_at":"2021-11-02T20:23:04.312Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of an interaction; this is a unitless measurement that should be
+        used as the default attribute when no further information is known. Paired
+        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":97679,"node_from":24357,"node_to":24358,"date":"1973-03-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
         observation/experiment","attr_id":1,"value":1,"geom":null,"public":true,"network_id":1479,"created_at":"2019-03-05T15:50:47.266Z","updated_at":"2021-11-02T19:43:54.143Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
         or absence of an interaction; this is a unitless measurement that should be
         used as the default attribute when no further information is known. Paired
@@ -62,20 +74,8 @@ http_interactions:
         observation, gut content and literature","attr_id":1,"value":1,"geom":null,"public":true,"network_id":1523,"created_at":"2019-03-11T20:53:56.431Z","updated_at":"2021-11-02T20:14:21.050Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
         or absence of an interaction; this is a unitless measurement that should be
         used as the default attribute when no further information is known. Paired
-        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":97641,"node_from":24343,"node_to":24344,"date":"1973-03-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
-        observation/experiment","attr_id":1,"value":1,"geom":null,"public":true,"network_id":1477,"created_at":"2019-03-05T15:50:33.839Z","updated_at":"2021-11-02T20:02:59.869Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
-        or absence of an interaction; this is a unitless measurement that should be
-        used as the default attribute when no further information is known. Paired
-        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":97652,"node_from":24352,"node_to":24351,"date":"1973-03-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
-        observation/experiment","attr_id":1,"value":1,"geom":null,"public":true,"network_id":1478,"created_at":"2019-03-05T15:50:38.469Z","updated_at":"2021-11-02T20:03:00.081Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
-        or absence of an interaction; this is a unitless measurement that should be
-        used as the default attribute when no further information is known. Paired
-        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":97709,"node_from":24370,"node_to":24378,"date":"1973-03-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
-        observation/experiment","attr_id":1,"value":1,"geom":null,"public":true,"network_id":1480,"created_at":"2019-03-05T15:50:55.947Z","updated_at":"2021-11-02T20:23:04.312Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
-        or absence of an interaction; this is a unitless measurement that should be
-        used as the default attribute when no further information is known. Paired
         wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}}]'
-  recorded_at: 2021-11-09 01:11:04 GMT
+  recorded_at: 2022-05-01 15:17:23 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
@@ -94,17 +94,29 @@ http_interactions:
       message: 'Success: (200) OK'
     headers:
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 09 Nov 2021 01:11:04 GMT
+      date: Sun, 01 May 2022 15:17:22 GMT
       content-type: application/json; charset=utf-8
       content-length: '8259'
       connection: keep-alive
       x-powered-by: Express
       content-range: items 0-11/12
-      etag: W/"2043-y74WQtatLQfvvDvTeX1bPn+lWs4"
+      etag: W/"2043-lVy2s1E0W70Mr4nwTrlEtlFZIpc"
     body:
       encoding: UTF-8
       file: no
-      string: '[{"id":97679,"node_from":24357,"node_to":24358,"date":"1973-03-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+      string: '[{"id":97641,"node_from":24343,"node_to":24344,"date":"1973-03-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation/experiment","attr_id":1,"value":1,"geom":null,"public":true,"network_id":1477,"created_at":"2019-03-05T15:50:33.839Z","updated_at":"2021-11-02T20:02:59.869Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of an interaction; this is a unitless measurement that should be
+        used as the default attribute when no further information is known. Paired
+        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":97652,"node_from":24352,"node_to":24351,"date":"1973-03-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation/experiment","attr_id":1,"value":1,"geom":null,"public":true,"network_id":1478,"created_at":"2019-03-05T15:50:38.469Z","updated_at":"2021-11-02T20:03:00.081Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of an interaction; this is a unitless measurement that should be
+        used as the default attribute when no further information is known. Paired
+        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":97709,"node_from":24370,"node_to":24378,"date":"1973-03-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
+        observation/experiment","attr_id":1,"value":1,"geom":null,"public":true,"network_id":1480,"created_at":"2019-03-05T15:50:55.947Z","updated_at":"2021-11-02T20:23:04.312Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
+        or absence of an interaction; this is a unitless measurement that should be
+        used as the default attribute when no further information is known. Paired
+        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":97679,"node_from":24357,"node_to":24358,"date":"1973-03-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
         observation/experiment","attr_id":1,"value":1,"geom":null,"public":true,"network_id":1479,"created_at":"2019-03-05T15:50:47.266Z","updated_at":"2021-11-02T19:43:54.143Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
         or absence of an interaction; this is a unitless measurement that should be
         used as the default attribute when no further information is known. Paired
@@ -140,18 +152,6 @@ http_interactions:
         observation, gut content and literature","attr_id":1,"value":1,"geom":null,"public":true,"network_id":1523,"created_at":"2019-03-11T20:53:56.431Z","updated_at":"2021-11-02T20:14:21.050Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
         or absence of an interaction; this is a unitless measurement that should be
         used as the default attribute when no further information is known. Paired
-        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":97641,"node_from":24343,"node_to":24344,"date":"1973-03-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
-        observation/experiment","attr_id":1,"value":1,"geom":null,"public":true,"network_id":1477,"created_at":"2019-03-05T15:50:33.839Z","updated_at":"2021-11-02T20:02:59.869Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
-        or absence of an interaction; this is a unitless measurement that should be
-        used as the default attribute when no further information is known. Paired
-        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":97652,"node_from":24352,"node_to":24351,"date":"1973-03-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
-        observation/experiment","attr_id":1,"value":1,"geom":null,"public":true,"network_id":1478,"created_at":"2019-03-05T15:50:38.469Z","updated_at":"2021-11-02T20:03:00.081Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
-        or absence of an interaction; this is a unitless measurement that should be
-        used as the default attribute when no further information is known. Paired
-        wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}},{"id":97709,"node_from":24370,"node_to":24378,"date":"1973-03-01T00:00:00.000Z","direction":"undirected","type":"competition","method":"field
-        observation/experiment","attr_id":1,"value":1,"geom":null,"public":true,"network_id":1480,"created_at":"2019-03-05T15:50:55.947Z","updated_at":"2021-11-02T20:23:04.312Z","attribute":{"id":1,"name":"presence/absence","description":"Presence
-        or absence of an interaction; this is a unitless measurement that should be
-        used as the default attribute when no further information is known. Paired
         wtih a value of 0, it can represent a true absence","unit":null,"created_at":"2019-02-21T21:17:01.496Z","updated_at":"2021-11-02T20:32:33.821Z"}}]'
-  recorded_at: 2021-11-09 01:11:04 GMT
+  recorded_at: 2022-05-01 15:17:23 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0
