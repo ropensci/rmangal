@@ -212,14 +212,14 @@ get_gen <- function(endpoint, query = NULL, limit = 100, verbose = TRUE, ...) {
   resp <- mem_get(url,
       config = httr::add_headers(`Content-type` = "application/json"), ua,
       query = query, ...)
-      
+
   # Stop if server status is problematic
   httr::stop_for_status(resp)
 
   # Prep output object
   responses <- list()
   errors <- NULL
-  
+
 
   # Get # pages
   tmp <- unlist(strsplit(httr::headers(resp)$"content-range", split = "\\D"))
@@ -252,8 +252,8 @@ get_gen <- function(endpoint, query = NULL, limit = 100, verbose = TRUE, ...) {
 
   # check error here if desired;
   out <- list(
-    body = unlist(purrr::map(responses, "body"), recursive = FALSE),
-    response = purrr::map(responses, "response")
+    body = unlist(lapply(responses, function(x) x$body), recursive = FALSE),
+    response = lapply(responses, function(x) x$response)
   )
   class(out) <- "mgGetResponses"
   out
@@ -325,7 +325,7 @@ msg_request_fail <- function(resp) {
 
 
 handle_query <- function(query, names_available) {
-  if (is.character(query)) 
+  if (is.character(query))
     return(list(q = query))
   if (!is.list(query))
     stop("`query` should either be a list or a character string.",
@@ -367,4 +367,3 @@ print_net_info <- function(net_id, dat_id, descr, n_edg, n_nod) {
     "* Includes ", n_edg, " edges and ", n_nod, " nodes \n"
   )
 }
-

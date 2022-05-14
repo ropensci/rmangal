@@ -8,7 +8,7 @@
 #' @param ... arguments to be passed on to [rmangal::get_network_by_id()].
 #'
 #' @return
-#'  Returns a object of class `mgNetworksCollection` which is a collection 
+#'  Returns a object of class `mgNetworksCollection` which is a collection
 #' (actually, a list) of `mgNetwork` objects [rmangal::get_network_by_id()]).
 #'
 #' @seealso
@@ -36,7 +36,7 @@ get_collection.default <- function(x, ...) {
 #' @export
 get_collection.mgSearchDatasets <- function(x, ...) {
   # Get networks ids
-  net_ids <- unique(unlist(purrr::map(x$networks, "id")))
+  net_ids <- unique(unlist(lapply(x$networks, function(x) x$id)))
   get_collection.default(net_ids, ...)
 }
 
@@ -52,7 +52,7 @@ get_collection.mgSearchNetworks <- function(x, ...) {
 #' @export
 get_collection.mgSearchReferences <- function(x, ...) {
   # Get networks ids
-  net_ids <- unique(unlist(purrr::map(x$networks, "id")))
+  net_ids <- unique(unlist(lapply(x$networks, function(x) x$id)))
   get_collection.default(net_ids, ...)
 }
 

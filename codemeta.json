@@ -1,26 +1,26 @@
 {
-  "@context": [
-    "https://doi.org/10.5063/schema/codemeta-2.0",
-    "http://schema.org"
-  ],
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "rmangal",
   "description": "An interface to the 'Mangal' database - a collection of ecological networks. This package includes functions to work with the 'Mangal RESTful API' methods (<https://mangal-interactions.github.io/mangal-api/>).",
   "name": "rmangal: 'Mangal' Client",
+  "relatedLink": ["https://docs.ropensci.org/rmangal/", "https://mangal.io", "https://CRAN.R-project.org/package=rmangal"],
   "codeRepository": "https://github.com/ropensci/rmangal",
-  "relatedLink": [
-    "https://docs.ropensci.org/rmangal/",
-    "https://mangal.io"
-  ],
   "issueTracker": "https://github.com/ropensci/rmangal/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "2.1.0",
+  "version": "2.1.0.9000",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.1.2 (2021-11-01)",
+  "runtimePlatform": "R version 4.2.0 (2022-04-22)",
+  "provider": {
+    "@id": "https://cran.r-project.org",
+    "@type": "Organization",
+    "name": "Comprehensive R Archive Network (CRAN)",
+    "url": "https://cran.r-project.org"
+  },
   "author": [
     {
       "@type": "Person",
@@ -94,8 +94,6 @@
       "email": "Clement.Violet@etudiant.univ-brest.fr"
     }
   ],
-  "copyrightHolder": {},
-  "funder": {},
   "maintainer": [
     {
       "@type": "Person",
@@ -264,8 +262,8 @@
       "sameAs": "https://CRAN.R-project.org/package=vcr"
     }
   ],
-  "softwareRequirements": [
-    {
+  "softwareRequirements": {
+    "1": {
       "@type": "SoftwareApplication",
       "identifier": "httr",
       "name": "httr",
@@ -278,10 +276,11 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=httr"
     },
-    {
+    "2": {
       "@type": "SoftwareApplication",
       "identifier": "igraph",
       "name": "igraph",
+      "version": ">= 1.2.1",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -290,7 +289,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=igraph"
     },
-    {
+    "3": {
       "@type": "SoftwareApplication",
       "identifier": "jsonlite",
       "name": "jsonlite",
@@ -303,7 +302,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=jsonlite"
     },
-    {
+    "4": {
       "@type": "SoftwareApplication",
       "identifier": "memoise",
       "name": "memoise",
@@ -315,37 +314,17 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=memoise"
     },
-    {
+    "5": {
       "@type": "SoftwareApplication",
       "identifier": "methods",
       "name": "methods"
     },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "purrr",
-      "name": "purrr",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=purrr"
-    }
-  ],
+    "SystemRequirements": null
+  },
   "applicationCategory": "ecologicalNetworks",
   "isPartOf": "https://ropensci.org",
   "keywords": ["ecology", "networks", "foodwebs", "interactions", "datapublications", "openaccess"],
-  "releaseNotes": "https://github.com/ropensci/rmangal/blob/master/NEWS.md",
-  "readme": "https://github.com/ropensci/rmangal/blob/main/README.md",
-  "fileSize": "3680.388KB",
-  "contIntegration": ["https://github.com/ropensci/rmangal/actions/workflows/R-CMD-check.yaml", "https://app.codecov.io/gh/ropensci/ropensci/rmangal"],
-  "developmentStatus": "https://www.repostatus.org/#active",
-  "review": {
-    "@type": "Review",
-    "url": "https://github.com/ropensci/software-review/issues/332",
-    "provider": "https://ropensci.org"
-  },
+  "fileSize": "3445.83KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -388,7 +367,17 @@
         }
       ],
       "name": "rmangal: An R package to interact with Mangal database",
-      "url": "https://docs.ropensci.org/rmangal/"
+      "url": "https://docs.ropensci.org/rmangal/",
+      "description": "R package version 2.1.0.9000"
     }
-  ]
+  ],
+  "releaseNotes": "https://github.com/ropensci/rmangal/blob/master/NEWS.md",
+  "readme": "https://github.com/ropensci/rmangal/blob/main/README.md",
+  "contIntegration": ["https://github.com/ropensci/rmangal/actions/workflows/R-CMD-check.yaml", "https://app.codecov.io/gh/ropensci/ropensci/rmangal"],
+  "developmentStatus": "https://www.repostatus.org/#active",
+  "review": {
+    "@type": "Review",
+    "url": "https://github.com/ropensci/software-review/issues/332",
+    "provider": "https://ropensci.org"
+  }
 }
