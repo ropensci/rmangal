@@ -16,10 +16,10 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {os: ubuntu-latest, r: 'devel', cache: 'false'}
-          - {os: ubuntu-latest, r: 'release', cache: 'false'}
-          - {os: macOS-latest, r: 'release', cache: 'true'}
-          - {os: windows-latest, r: 'release', cache: 'true'}
+          - {os: ubuntu-latest, r: 'devel', cache: 'false', cache-version: 2}
+          - {os: ubuntu-latest, r: 'release', cache: 'false', cache-version: 2}
+          - {os: macOS-latest, r: 'release', cache: 'true', cache-version: 1}
+          - {os: windows-latest, r: 'release', cache: 'true', cache-version: 1}
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
@@ -41,6 +41,7 @@ jobs:
         with:
           extra-packages: rcmdcheck
           cache: ${{ matrix.config.cache }}
+          cache-version: ${{ matrix.config.cache-version }}
 
       - uses: r-lib/actions/check-r-package@v2
 #        with:
