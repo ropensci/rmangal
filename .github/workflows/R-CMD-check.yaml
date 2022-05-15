@@ -37,13 +37,13 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
-        if: matrix.os != 'ubuntu-latest'
+      - if: matrix.os != 'ubuntu-latest'
+        uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: rcmdcheck
 
-      - uses: r-lib/actions/setup-r-dependencies@v1
-        if: matrix.os == 'ubuntu-latest'
+      - if: matrix.os == 'ubuntu-latest'
+        uses: r-lib/actions/setup-r-dependencies@v1
         with:
           extra-packages: rcmdcheck
           cache: false
