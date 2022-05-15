@@ -16,10 +16,10 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {os: ubuntu-latest, r: 'devel', vdep: 'v1'}
-          - {os: ubuntu-latest, r: 'release', vdep: 'v1'}
-          - {os: macOS-latest, r: 'release', vdep: 'v2'}
-          - {os: windows-latest, r: 'release', vdep: 'v2'}
+          - {os: ubuntu-latest, r: 'devel', vdep: 'r-lib/actions/setup-r-dependencies@v1'}
+          - {os: ubuntu-latest, r: 'release', vdep: 'r-lib/actions/setup-r-dependencies@v1'}
+          - {os: macOS-latest, r: 'release', vdep: 'r-lib/actions/setup-r-dependencies@v2'}
+          - {os: windows-latest, r: 'release', vdep: 'r-lib/actions/setup-r-dependencies@v2'}
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
@@ -37,7 +37,7 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
-      - uses: r-lib/actions/setup-r-dependencies@${{ matrix.config.vdep }}
+      - uses: ${{ matrix.config.vdep }}
         with:
           extra-packages: rcmdcheck
 
