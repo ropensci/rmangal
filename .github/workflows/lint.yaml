@@ -23,7 +23,7 @@ jobs:
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: lintr
-          cache-version: 1
+          cache-version: 3
 
       - name: Lint
         run: |
