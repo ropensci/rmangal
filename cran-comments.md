@@ -1,36 +1,20 @@
-## Submission of rmangal v2.1.0
+## Submission of rmangal v2.1.1
 
-Dear CRAN, 
+Dear CRAN,
 
-rmangal was archived on 2020-11-02 for policy violation on internet access. 
-This minor release addresses this concern: tests now use `vcr` and the vignette has been precomputed. Minor bugs have been squashed along the way. 
-
-## CRAN comment 
-
-
-### Comment
-
-Missing Rd-tags:
-     avail_type.Rd: \value
-     clear_cache_rmangal.Rd: \value
-
-
-### Answer
-
-1. `avail_type` is no longer exported, instead type of interactions are detailed in the documentation of `search_interactions()`. 
-
-2. \value tag has been added for `clear_cache_rmangal`
-
+This patch addresses a mistake pertaining to the network details printed in
+one of the summary methods. We took this opportunities to remove one dependency
+(`purrr`, we have used base R instead).
 
 
 ## Test environments
 
   * GitHub Actions, Ubuntu 20.04: R-release,
   * GitHub Actions, Ubuntu 20.04: R-devel,
-  * GitHub Actions, macOS 11.6: R-release,
+  * GitHub Actions, macOS 11.6.5: R-release,
   * GitHub Actions, Microsoft Windows Server 2019 10.0.17763: R-release,
   * win-builder (R-oldrelease, R-release and R-devel),
-  * local Debian 11 (Kernel: 5.14.0-2-amd64 x86_64), R-4.1.1.
+  * local Debian Testing (Kernel: 5.17.0-1-amd64 x86_64), R-4.1.1.
 
 
 ## R CMD check results

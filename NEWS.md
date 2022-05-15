@@ -2,7 +2,7 @@
 
 * `inherits()` is now used to test classes.
 * `purrr` is no longer listed as an imported package.
-* Add lintr workflow to automatically.
+* Add lintr workflow to automatically check stylistic errors.
 * Summary method for `mgNetwork` objects now reports nodes and properly (see nodes #108).
 
 # rmangal 2.1.0
