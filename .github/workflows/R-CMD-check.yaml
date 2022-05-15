@@ -37,11 +37,11 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
+      - uses: r-lib/actions/setup-r-dependencies@v1
         with:
           extra-packages: rcmdcheck
-          cache: ${{ matrix.config.cache }}
-          cache-version: ${{ matrix.config.cache-version }}
+          # cache: ${{ matrix.config.cache }}
+          # cache-version: ${{ matrix.config.cache-version }}
 
       - uses: r-lib/actions/check-r-package@v2
 #        with:
