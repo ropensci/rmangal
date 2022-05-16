@@ -8,7 +8,7 @@
   "codeRepository": "https://github.com/ropensci/rmangal",
   "issueTracker": "https://github.com/ropensci/rmangal/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "2.1.0.9000",
+  "version": "2.1.1",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -324,7 +324,7 @@
   "applicationCategory": "ecologicalNetworks",
   "isPartOf": "https://ropensci.org",
   "keywords": ["ecology", "networks", "foodwebs", "interactions", "datapublications", "openaccess"],
-  "fileSize": "3445.83KB",
+  "fileSize": "3446.043KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -368,12 +368,12 @@
       ],
       "name": "rmangal: An R package to interact with Mangal database",
       "url": "https://docs.ropensci.org/rmangal/",
-      "description": "R package version 2.1.0.9000"
+      "description": "R package version 2.1.1"
     }
   ],
   "releaseNotes": "https://github.com/ropensci/rmangal/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/rmangal/blob/main/README.md",
-  "contIntegration": ["https://github.com/ropensci/rmangal/actions/workflows/R-CMD-check.yaml", "https://app.codecov.io/gh/ropensci/ropensci/rmangal"],
+  "contIntegration": ["https://github.com/ropensci/rmangal/actions/workflows/R-CMD-check.yaml", "https://github.com/ropensci/rmangal/actions/workflows/lint.yaml", "https://app.codecov.io/gh/ropensci/ropensci/rmangal"],
   "developmentStatus": "https://www.repostatus.org/#active",
   "review": {
     "@type": "Review",
