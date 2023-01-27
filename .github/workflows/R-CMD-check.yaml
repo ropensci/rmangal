@@ -16,48 +16,36 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {os: ubuntu-latest, r: 'devel', cache: 'false', cache-version: 2}
-          - {os: ubuntu-latest, r: 'release', cache: 'false', cache-version: 2}
-          - {os: macOS-latest, r: 'release', cache: 'true', cache-version: 1}
-          - {os: windows-latest, r: 'release', cache: 'true', cache-version: 1}
+          - {os: macOS-latest, r: 'devel'}
+          - {os: macOS-latest, r: 'release'}
+          - {os: windows-latest, r: 'devel'}
+          - {os: windows-latest, r: 'release'}
+          - {os: windows-latest, r: 'oldrel'}
+          - {os: ubuntu-20.04, r: 'devel'}
+          - {os: ubuntu-20.04, r: 'release'}
+          - {os: ubuntu-20.04, r: 'oldrel'}
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       _R_CHECK_DONTTEST_EXAMPLES_: false
+      SPECIESPLUS_TOKEN: ${{ secrets.SPECIESPLUS_TOKEN }}
       CRAN: ${{ matrix.config.cran }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - uses: r-lib/actions/setup-pandoc@v2
 
       - uses: r-lib/actions/setup-r@v2
         with:
-          r-version: ${{ matrix.config.r }}
-          http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
-      - uses: r-lib/actions/setup-r-dependencies@v1
+      - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: rcmdcheck
-          # cache: ${{ matrix.config.cache }}
-          # cache-version: ${{ matrix.config.cache-version }}
+          extra-packages: any::rcmdcheck, any::covr
+          needs: check
 
       - uses: r-lib/actions/check-r-package@v2
-#        with:
-#          args: '"--as-cran"'
-
-      - name: Show testthat output
-        if: always()
-        run: find check -name 'testthat.Rout*' -exec cat '{}' \; || true
-        shell: bash
-
-      - name: Upload check results
-        if: failure()
-        uses: actions/upload-artifact@main
-        with:
-          name: ${{ runner.os }}-r${{ matrix.config.r }}-results
-          path: check
 
       - name: Test coverage
         if: matrix.config.os == 'ubuntu-20.04' && matrix.config.r == 'release'
