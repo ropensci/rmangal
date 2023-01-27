@@ -1,4 +1,8 @@
-# rmangal (devel)
+# rmangal 2.1.2
+
+* fixtures are now written in JSON.
+
+# rmangal 2.1.1
 
 * `inherits()` is now used to test classes.
 * `purrr` is no longer listed as an imported package.

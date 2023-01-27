@@ -43,21 +43,21 @@ function. The function also accepts a numeric vector of Mangal network IDs.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{default}: Get a collection of networks (default).
+\item \code{get_collection(default)}: Get a collection of networks (default).
 
-\item \code{mgSearchDatasets}: Get a collection of networks from a \code{mgSearchDatasets} object.
+\item \code{get_collection(mgSearchDatasets)}: Get a collection of networks from a \code{mgSearchDatasets} object.
 
-\item \code{mgSearchNetworks}: Get a collection of networks from a \code{mgSearchNetworks} object.
+\item \code{get_collection(mgSearchNetworks)}: Get a collection of networks from a \code{mgSearchNetworks} object.
 
-\item \code{mgSearchReferences}: Get a collection of networks from a \code{mgSearchReferences} object.
+\item \code{get_collection(mgSearchReferences)}: Get a collection of networks from a \code{mgSearchReferences} object.
 
-\item \code{mgSearchNodes}: Get a collection of networks from a \code{mgSearchNodes} object.
+\item \code{get_collection(mgSearchNodes)}: Get a collection of networks from a \code{mgSearchNodes} object.
 
-\item \code{mgSearchTaxonomy}: Get a collection of networks from a \code{mgSearchTaxa} object.
+\item \code{get_collection(mgSearchTaxonomy)}: Get a collection of networks from a \code{mgSearchTaxa} object.
 
-\item \code{mgSearchInteractions}: Get a collection of networks from a \code{mgSearchTaxa} object.
+\item \code{get_collection(mgSearchInteractions)}: Get a collection of networks from a \code{mgSearchTaxa} object.
+
 }}
-
 \examples{
 \donttest{
  mg_2 <- get_collection(c(1076:1077), verbose = FALSE)

@@ -1,5 +1,9 @@
 library(vcr)
-vcr::vcr_configure(dir = "../fixtures", write_disk_path = "../files")
+vcr::vcr_configure(
+    dir = "../fixtures",
+    write_disk_path = "../files",
+    serialize_with = "json"
+)
 
 rmangal::clear_cache_rmangal()
 cl_df <- c("tbl_df", "tbl",  "data.frame")

@@ -23,8 +23,8 @@ Coerce \code{mgNetworksCollection} or \code{mgNetwork} objects to \code{igraph} 
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{mgNetwork}: Convert \code{mgNetwork} objects to \code{igraph} objects.
+\item \code{as.igraph(mgNetwork)}: Convert \code{mgNetwork} objects to \code{igraph} objects.
 
-\item \code{mgNetworksCollection}: Convert \code{mgNetworksCollection} objects to a list of \code{igraph} objects.
+\item \code{as.igraph(mgNetworksCollection)}: Convert \code{mgNetworksCollection} objects to a list of \code{igraph} objects.
+
 }}
-

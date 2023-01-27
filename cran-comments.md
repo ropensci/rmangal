@@ -1,23 +1,22 @@
-## Submission of rmangal v2.1.1
-
-Dear CRAN,
-
-This patch addresses a mistake pertaining to the network details printed in
-one of the summary methods. We took this opportunity to remove one dependency
-(`purrr`, base R is used instead instead).
+This is a patch release that mainly improves tests (following the recent changes 
+in vcr). 
 
 
 ## Test environments
 
-  * GitHub Actions, Ubuntu 20.04: R-release,
-  * GitHub Actions, Ubuntu 20.04: R-devel,
-  * GitHub Actions, macOS 11.6.5: R-release,
-  * GitHub Actions, Microsoft Windows Server Microsoft Windows Server 2022 (10.0.20348): R-release,
-  * win-builder (R-oldrelease, R-release and R-devel),
-  * local Debian Testing (Kernel: 5.17.0-1-amd64 x86_64), R-4.2.0.
+* GitHub Actions, Ubuntu 20.04.5: R-oldrel,
+* GitHub Actions, Ubuntu 20.04.5: R-release,
+* GitHub Actions, Ubuntu 20.04.5: R-devel,
+* GitHub Actions, macOS 11.7.1: R-release,
+* GitHub Actions, macOS 11.7.1: R-devel,
+* GitHub Actions, Microsoft Windows Server 2022 (10.0.20348): R-release,
+* GitHub Actions, Microsoft Windows Server 2022 (10.0.20348): R-devel,
+* GitHub Actions, Microsoft Windows Server 2022 (10.0.20348): R-release,
+* win-builder (R-release and R-devel),
+* local Ubuntu 22.04 (Kernel: 5.15.0-53-generic x86_64), R-4.2.2
 
 
-## R CMD check results
+## R CMD check results.
 
 0 ERRORs | 0 WARNINGs | 0 NOTES.
 

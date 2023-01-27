@@ -43,9 +43,9 @@ Note that for lists with more than one element, only the first element is used, 
 }
 \section{Functions}{
 \itemize{
-\item \code{search_networks_sf}: Search networks within a spatial object passed as an argument. Note that \code{sf} must be installed to use this function.
-}}
+\item \code{search_networks_sf()}: Search networks within a spatial object passed as an argument. Note that \code{sf} must be installed to use this function.
 
+}}
 \examples{
 \donttest{
  mg_insect <- search_networks(query="insect\%")
