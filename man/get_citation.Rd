@@ -23,11 +23,11 @@ Retrieve all references pertaining to the networks collection or individual netw
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{mgNetwork}: Get BibTeX entries for the publication associated to the network.
+\item \code{get_citation(mgNetwork)}: Get BibTeX entries for the publication associated to the network.
 
-\item \code{mgNetworksCollection}: Get BibTeX entries for the publication associated to the networks.
+\item \code{get_citation(mgNetworksCollection)}: Get BibTeX entries for the publication associated to the networks.
+
 }}
-
 \examples{
 \donttest{
  # network collection

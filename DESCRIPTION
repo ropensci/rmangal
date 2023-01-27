@@ -1,7 +1,7 @@
 Package: rmangal
 Type: Package
 Title: 'Mangal' Client
-Version: 2.1.1
+Version: 2.1.1.9000
 Authors@R: c(
     person(given = "Steve", family = "Vissault", comment = c(ORCID = "0000-0002-0866-4376"),
       email = "s.vissault@yahoo.fr", role = c("aut", "ctb")),
@@ -33,7 +33,7 @@ Imports:
     jsonlite (>= 1.5),
     memoise,
     methods
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
 Suggests:
     ggraph (>= 2.0.0),
     knitr,
