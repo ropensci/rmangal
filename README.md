@@ -125,6 +125,12 @@ study ecological networks properties (i.e. connectance, degree etc.) along large
 environmental gradients, which wasn't possible using the GloBi infrastructure.
 
 
+## Older versions 
+
+* See https://github.com/mangal-interactions/rmangal-v1 for the first version of the client.
+* Note that due to changes in the RESTful API, there is no backward compatibility.
+
+
 ## Acknowledgment
 
 We are grateful to [Noam Ross](https://github.com/noamross) for acting as an editor during the review process. We also thank [Anna Willoughby](https://github.com/arw36) and [Thomas Lin Petersen](https://github.com/thomasp85) for reviewing the package. Their comments strongly contributed to improve the quality of rmangal.
