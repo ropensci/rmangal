@@ -13,4 +13,3 @@ knitr::include_graphics("figs/data_structure.svg")
 library(rmangal)
 library(magrittr) # for the pip %>%
 library(tibble) # to use tibbles, enhanced data frames
-

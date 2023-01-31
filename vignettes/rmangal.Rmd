@@ -15,8 +15,6 @@ vignette: >
 
 
 
-
-
 # Context
 
 
@@ -35,7 +33,7 @@ vignette: >
 3. provides:
   - [a data explorer](https://mangal.io/#/) to visualize and download data available;
   - a [RESTful Application Programming Interface (API)](https://mangal-interactions.github.io/mangal-api/);
-  - a client library for Julia: [Mangal.jl](https://github.com/EcoJulia/Mangal.jl);
+  - a client library for Julia: [Mangal.jl](https://github.com/PoisotLab/Mangal.jl);
   - a client of this API for R: the **rmangal** package described below.
 
 

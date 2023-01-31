@@ -7,13 +7,13 @@ in vcr).
 * GitHub Actions, Ubuntu 20.04.5: R-oldrel,
 * GitHub Actions, Ubuntu 20.04.5: R-release,
 * GitHub Actions, Ubuntu 20.04.5: R-devel,
-* GitHub Actions, macOS 11.7.1: R-release,
-* GitHub Actions, macOS 11.7.1: R-devel,
-* GitHub Actions, Microsoft Windows Server 2022 (10.0.20348): R-release,
+* GitHub Actions, macOS 1: R-release,
+* GitHub Actions, macOS 1: R-devel,
+* GitHub Actions, Microsoft Windows Server 2022 (10.0.20348): R-oldrel,
 * GitHub Actions, Microsoft Windows Server 2022 (10.0.20348): R-devel,
 * GitHub Actions, Microsoft Windows Server 2022 (10.0.20348): R-release,
 * win-builder (R-release and R-devel),
-* local Ubuntu 22.04 (Kernel: 5.15.0-53-generic x86_64), R-4.2.2
+* local Ubuntu 22.04 (Kernel: 5.15.0-53-generic x86_64), R-4.2.2.
 
 
 ## R CMD check results.
