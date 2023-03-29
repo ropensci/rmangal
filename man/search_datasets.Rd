@@ -17,14 +17,14 @@ Note that if an empty character string is passed, then all datasets available ar
 \value{
 An object of class \code{mgSearchDatasets}, which basically is a \code{data.frame}
 object including all datasets corresponding to the query. For each dataset
-entry,  the networks and the original reference are attached.
+entry, the networks and the original reference are attached.
 }
 \description{
 Identify relevant datasets using a keyword or a custom query.
 If the \code{query} is a character string, then all character columns in the table
 are searched and the entries for which at least one
-partial match was found are returned.
-Alternatively, a named list can be used to look for an exact match in a specific column (see Details section)
+partial match was found are returned. Alternatively, a named list can be
+used to look for an exact match in a specific column (see Details section).
 }
 \details{
 If \code{query} is a named list, the name  used should be one of the following:
@@ -36,8 +36,9 @@ If \code{query} is a named list, the name  used should be one of the following:
 \item ref_id: the Mangal identifier of the dataset
 }
 
-Note that for lists with more than one element, only the first element is used, the others are ignored.
-Examples covering custom queries are provided below.
+Note that for lists with more than one element, only the first element is
+used, the others are ignored. Examples covering custom queries are provided
+below.
 }
 \examples{
 \donttest{

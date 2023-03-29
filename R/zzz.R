@@ -133,7 +133,6 @@ switch_sf <- function(x) {
         as.numeric(unlist(x$geom_lon)),
         as.numeric(unlist(x$geom_lat))
     )
-    # print(co)
     switch(
       x$geom_type,
       Point = sf::st_point(co),
@@ -149,7 +148,6 @@ stop_if_missing_sf <- function(pkg = "sf") {
     stop("sf should be installed to use this functionality", call. = FALSE)
   }
 }
-
 
 
 #' Get entries based on foreign key

@@ -10,3 +10,5 @@ Meta
 tests/files/
 CRAN-RELEASE
 CRAN-SUBMISSION
+/doc/
+/Meta/
