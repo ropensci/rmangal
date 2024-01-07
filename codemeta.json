@@ -8,13 +8,13 @@
   "codeRepository": "https://github.com/ropensci/rmangal",
   "issueTracker": "https://github.com/ropensci/rmangal/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "2.1.1",
+  "version": "2.1.2.9000",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.2.0 (2022-04-22)",
+  "runtimePlatform": "R version 4.2.3 (2023-03-15)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -191,18 +191,6 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "taxize",
-      "name": "taxize",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=taxize"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "tidygraph",
       "name": "tidygraph",
       "provider": {
@@ -236,18 +224,6 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=tibble"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "USAboundaries",
-      "name": "USAboundaries",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=USAboundaries"
     },
     {
       "@type": "SoftwareApplication",
@@ -324,7 +300,7 @@
   "applicationCategory": "ecologicalNetworks",
   "isPartOf": "https://ropensci.org",
   "keywords": ["ecology", "networks", "foodwebs", "interactions", "datapublications", "openaccess"],
-  "fileSize": "3446.043KB",
+  "fileSize": "3569.351KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -368,7 +344,7 @@
       ],
       "name": "rmangal: An R package to interact with Mangal database",
       "url": "https://docs.ropensci.org/rmangal/",
-      "description": "R package version 2.1.1"
+      "description": "R package version 2.1.2.9000"
     }
   ],
   "releaseNotes": "https://github.com/ropensci/rmangal/blob/master/NEWS.md",

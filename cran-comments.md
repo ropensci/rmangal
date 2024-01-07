@@ -1,5 +1,6 @@
-This is a patch release that mainly improves tests (following the recent changes 
-in vcr). 
+This is a patch release to remove USAboundaries from 'Suggests' as it as been
+archived. I also remove taxize from that list and sf (also in 'Suggests') is 
+is now use conditionally in example. 
 
 
 ## Test environments
@@ -7,13 +8,13 @@ in vcr).
 * GitHub Actions, Ubuntu 20.04.5: R-oldrel,
 * GitHub Actions, Ubuntu 20.04.5: R-release,
 * GitHub Actions, Ubuntu 20.04.5: R-devel,
-* GitHub Actions, macOS 1: R-release,
-* GitHub Actions, macOS 1: R-devel,
+* GitHub Actions, macOS 12.6.3: R-release,
+* GitHub Actions, macOS 12.6.3: R-devel,
 * GitHub Actions, Microsoft Windows Server 2022 (10.0.20348): R-oldrel,
 * GitHub Actions, Microsoft Windows Server 2022 (10.0.20348): R-devel,
 * GitHub Actions, Microsoft Windows Server 2022 (10.0.20348): R-release,
 * win-builder (R-release and R-devel),
-* local Ubuntu 22.04 (Kernel: 5.15.0-53-generic x86_64), R-4.2.2.
+* local Ubuntu 22.04 (Kernel: 5.19.0-35-generic x86_64), R-4.2.3.
 
 
 ## R CMD check results.

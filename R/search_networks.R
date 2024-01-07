@@ -30,37 +30,40 @@
 #'
 #' @examples
 #' \donttest{
-#'  mg_insect <- search_networks(query="insect%")
-#'  # Retrieve the search results
-#'  nets_insect <- get_collection(mg_insect)
-#'  # Spatial query
-#'  library(sf)
-#'  library(USAboundaries)
-#'  area <- us_states(state="california")
+#' mg_insect <- search_networks(query = "insect%")
+#' # Retrieve the search results
+#' nets_insect <- get_collection(mg_insect)
+#' # Spatial query
+#' if (requireNamespace("sf", quietly = TRUE)) {
+#'  area <- sf::st_read(system.file("shape/nc.shp", package="sf"))
 #'  networks_in_area <- search_networks_sf(area, verbose = FALSE)
 #'  plot(networks_in_area)
-#'  # Retrieve network ID 5013
-#'  net_5013 <- search_networks(query = list(id = 5013))
-#'  # Network(s) of dataset ID 19
-#'  mg_19 <- search_networks(list(dataset_id = 19))
+#' } else warning("Package sf is missing")
+#' # Retrieve network ID 5013
+#' net_5013 <- search_networks(query = list(id = 5013))
+#' # Network(s) of dataset ID 19
+#' mg_19 <- search_networks(list(dataset_id = 19))
 #' }
 #'
 #' @export
 
 search_networks <- function(query, verbose = TRUE, ...) {
-
   query <- handle_query(query, c("id", "public", "all_interactions", "dataset_id"))
 
-  networks <- resp_to_spatial(get_gen(endpoints()$network, query = query,
-    verbose = verbose, ...)$body)
+  networks <- resp_to_spatial(get_gen(endpoints()$network,
+    query = query,
+    verbose = verbose, ...
+  )$body)
   if (is.null(networks)) {
-    if (verbose)
+    if (verbose) {
       message("No network found.")
+    }
     return(data.frame())
   }
 
-  if (verbose)
+  if (verbose) {
     message(sprintf("Found %s networks", nrow(networks)))
+  }
 
   class(networks) <- append(class(networks), "mgSearchNetworks")
   networks
@@ -69,18 +72,19 @@ search_networks <- function(query, verbose = TRUE, ...) {
 #' @describeIn search_networks Search networks within a spatial object passed as an argument. Note that `sf` must be installed to use this function.
 #' @export
 search_networks_sf <- function(query_sf, verbose = TRUE, ...) {
-
   stopifnot(is(query_sf, "sf"))
   stop_if_missing_sf()
 
   # API doesn't allow spatial search yet, so we call sf
   sp_networks_all <- resp_to_spatial(
-      get_gen(endpoints()$network, verbose = verbose, ...)$body,
-      as_sf = TRUE)
+    get_gen(endpoints()$network, verbose = verbose, ...)$body,
+    as_sf = TRUE
+  )
   # sf_networks_all to WGS 84 / World Mercator, a planar CRS
   id <- unlist(sf::st_contains(
-        sf::st_transform(query_sf, crs = 3395),
-        sf::st_transform(sp_networks_all, crs = 3395)))
+    sf::st_transform(query_sf, crs = 3395),
+    sf::st_transform(sp_networks_all, crs = 3395)
+  ))
   class(sp_networks_all) <- append(class(sp_networks_all), "mgSearchNetworks")
   sp_networks_all[id, ]
 }

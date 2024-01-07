@@ -1,7 +1,3 @@
-library(sf)
-library(USAboundaries)
-
-
 test_that("search_networks() default and collection work", {
   vcr::use_cassette(name = "search_networks_def", {
     res1 <- search_networks("lagoon")
@@ -19,15 +15,12 @@ test_that("search_networks() default and collection work", {
 test_that("search_networks_sf() spatial queries work", {
   vcr::use_cassette(name = "search_networks_spat", {
     # search_networks_sf() gets all ids, will keep growing
-    # at some point the yaml might get too heavy 
-    area <- us_states(state = "Wyoming")
+    # at some point the yaml might get too heavy
+    area <- sf::st_read(system.file("shape/nc.shp", package = "sf"))
     res <- search_networks_sf(area)
     # resc <- get_collection(res1) # don't think it's needed
   })
   expect_s3_class(res, "mgSearchNetworks")
   expect_s3_class(res, "sf")
-  expect_equal(nrow(res), 1)
+  expect_equal(nrow(res), 5)
 })
-
-
-# ress <- search_networks(query = "insect%")

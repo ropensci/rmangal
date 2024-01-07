@@ -1,6 +1,10 @@
+# rmangal 2.1.3
+
+* Remove USAboundaries and Taxize from the list of 'Suggested' packages (see #114).
+
 # rmangal 2.1.2
 
-* Fixtures are now written in JSON.
+* Fixtures are now written in JSON (see #112).
 
 # rmangal 2.1.1
 

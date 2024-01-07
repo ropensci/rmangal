@@ -48,19 +48,19 @@ Note that for lists with more than one element, only the first element is used, 
 }}
 \examples{
 \donttest{
- mg_insect <- search_networks(query="insect\%")
- # Retrieve the search results
- nets_insect <- get_collection(mg_insect)
- # Spatial query
- library(sf)
- library(USAboundaries)
- area <- us_states(state="california")
+mg_insect <- search_networks(query = "insect\%")
+# Retrieve the search results
+nets_insect <- get_collection(mg_insect)
+# Spatial query
+if (requireNamespace("sf", quietly = TRUE)) {
+ area <- sf::st_read(system.file("shape/nc.shp", package="sf"))
  networks_in_area <- search_networks_sf(area, verbose = FALSE)
  plot(networks_in_area)
- # Retrieve network ID 5013
- net_5013 <- search_networks(query = list(id = 5013))
- # Network(s) of dataset ID 19
- mg_19 <- search_networks(list(dataset_id = 19))
+} else warning("Package sf is missing")
+# Retrieve network ID 5013
+net_5013 <- search_networks(query = list(id = 5013))
+# Network(s) of dataset ID 19
+mg_19 <- search_networks(list(dataset_id = 19))
 }
 
 }
