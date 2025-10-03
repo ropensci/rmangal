@@ -123,7 +123,7 @@ print.mgNetworksCollection <- function(x, ...) {
 #' @export
 summary.mgNetwork <- function(object, ...) {
   ig <- as.igraph(object)
-  ids <- igraph::is.directed(ig)
+  ids <- igraph::is_directed(ig)
   out <- list()
   out$n_nodes <- nrow(object$nodes)
   out$n_edges <- nrow(object$interactions)
