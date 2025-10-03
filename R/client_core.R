@@ -14,9 +14,9 @@ rmangal_request <- function(endpoint = "", query = NULL, limit = 100, verbose = 
     req <- rmangal_api_url() |>
         httr2::req_url_path_append(rmangal_endpoint_path(endpoint)) |>
         httr2::req_user_agent("rmangal") |>
-        httr2::req_url_query(q = query, count = limit) |>
-        # httr2::req_cache(tempdir()) |>
+        httr2::req_url_query(!!!c(query, count = limit)) |>
         httr2::req_headers("Content-type" = "application/json") |>
+        # httr2::req_cache(tempdir()) |>
         # httr2::req_throttle()  |>
         httr2::req_error(is_error = \(resp) FALSE)
 

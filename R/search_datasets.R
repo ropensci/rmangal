@@ -49,14 +49,15 @@
 search_datasets <- function(query, verbose = TRUE, ...) {
 
   query <- handle_query(query, c("id", "name", "date", "description", "ref_id"))
-  datasets <- resp_to_df(get_gen(endpoints()$dataset, query = query,
-    verbose = verbose, ...)$body)
+  datasets <- rmangal_request(
+    endpoint = "dataset", query = query, verbose = verbose, ...)$body  |>
+  resp_to_df()
 
   if (is.null(datasets)) {
-    if (verbose) message("No dataset found.")
+    if (verbose) cli::cli_inform("No dataset found.")
     return(data.frame())
   } else {
-    if (verbose) message(sprintf("Found %s datasets", nrow(datasets)))
+    if (verbose) cli::cli_inform(sprintf("Found %s datasets", nrow(datasets)))
   }
 
   # Attached references and networks
