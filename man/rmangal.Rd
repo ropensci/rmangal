@@ -2,8 +2,8 @@
 % Please edit documentation in R/zzz.R
 \docType{package}
 \name{rmangal}
-\alias{rmangal}
 \alias{rmangal-package}
+\alias{rmangal}
 \title{rmangal}
 \description{
 A programmatic interface to the Mangal API \url{https://mangal-interactions.github.io/mangal-api/}.

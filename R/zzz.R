@@ -8,6 +8,7 @@
 #' @keywords internal
 "_PACKAGE"
 
+
 # HELPER FUNCTIONS
 # Basic
 server <- function() "https://mangal.io"
@@ -16,6 +17,7 @@ base <- function() "/api/v2"
 # bearer <- function() ifelse(file.exists(".httr-oauth"),
 #   as.character(readRDS(".httr-oauth")), NA)
 ua <- httr::user_agent("rmangal")
+
 
 # Endpoints
 endpoints <- function() {
@@ -145,7 +147,7 @@ switch_sf <- function(x) {
 
 stop_if_missing_sf <- function(pkg = "sf") {
   if (!requireNamespace(pkg, quietly = TRUE)) {
-    stop("sf should be installed to use this functionality", call. = FALSE)
+    stop("sf should be installed to use this feature", call. = FALSE)
   }
 }
 

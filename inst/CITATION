@@ -14,3 +14,15 @@ bibentry(bibtype = "Manual",
          year = 2020,
          note = note,
          url = "https://docs.ropensci.org/rmangal/")
+
+bibentry(
+    bibtype = "misc",
+    title = "rmangal: An R package to interact with Mangal database",
+    author = c(
+        person("Kevin", "Cazelles"),
+        person("Steve", "Vissault")
+    ),
+    year = 2019,
+    url = "https://docs.ropensci.org/rmangal/",
+    doi = "https://doi.org/10.59350/51nby-5v347"
+)
