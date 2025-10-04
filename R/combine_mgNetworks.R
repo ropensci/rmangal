@@ -3,7 +3,7 @@
 #' Combine `mgNetworksCollection` and `mgNetwork` objects into a
 #' `mgNetworksCollection` object.
 #'
-#' @param ... objects of class `mgNetworksCollection` or `mgNetwork` or a list #' of objects of these classes.
+#' @param ... objects of class `mgNetworksCollection` or `mgNetwork` or a list of objects of these classes.
 #'
 #' @return
 #' An object of class `mgNetworksCollection`.

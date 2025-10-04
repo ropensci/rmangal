@@ -13,7 +13,7 @@
 #' @param ... further arguments to be passed to [httr::GET()].
 #'
 #' @return
-#' An object of class `mgSearchReferences`, which is a list that includes a 
+#' An object of class `mgSearchReferences`, which is a list that includes a
 #' wide range of details associated to the reference, including all datasets
 #' and networks related to the publication that are included in Mangal database.
 #'
@@ -34,45 +34,57 @@
 #'
 #' @examples
 #' \donttest{
-#'  search_references(doi = "10.2307/3225248")
-#'  search_references(list(jstor = 3683041))
-#'  search_references(list(year = 2010))
+#' search_references(doi = "10.2307/3225248")
+#' search_references(list(jstor = 3683041))
+#' search_references(list(year = 2010))
 #' }
 #' @export
 
 search_references <- function(query, doi = NULL, verbose = TRUE, ...) {
-
   if (!is.null(doi)) {
     if (length(doi) > 1) {
-      warning("Only the first doi is used.")
+      cli::cli_warn("Only the first doi is used.")
       doi <- doi[1L]
     }
     query <- list(doi = as.character(doi))
-  } else query <- handle_query(query, c("id" ,"author", "doi", "jstor", "year"))
+  } else {
+    query <- handle_query(query, c("id", "author", "doi", "jstor", "year"))
+  }
 
-  ref <- resp_to_df(get_gen(endpoints()$reference, query = query,
-    verbose = verbose, ...)$body)
+  ref <- rmangal_request(
+    endpoint = "reference", query = query, verbose = verbose, ...
+  )$body |>
+    resp_to_df()
 
   if (is.null(ref)) {
-     if (verbose) message("No dataset found!")
-     return(data.frame())
-   }
+    if (verbose) cli::cli_inform("No dataset found!")
+    return(data.frame())
+  }
 
-  if (verbose)
-    message(sprintf("Found %s reference(s)", nrow(ref)))
+  if (verbose) {
+    cli::cli_inform("Found {nrow(ref)} reference{?s}")
+  }
 
   # Attach dataset(s)
   ref$datasets <- do.call(
-      rbind,
-      lapply(ref$id, function(x)
-        get_from_fkey(endpoints()$dataset, ref_id = x, verbose = verbose))
+    rbind,
+    lapply(ref$id, \(x)
+    get_from_fkey("dataset", ref_id = x, verbose = verbose))
   )
 
   # Attach network(s)
-  ref$networks <- lapply(ref$datasets$id, function(x)
-      get_from_fkey_net(endpoints()$network, dataset_id = x,
-      verbose = verbose))
-
+  ref$networks <- lapply(
+    ref$datasets$id,
+    \(x) rmangal_request(
+      endpoint = "network",
+      query = list(dataset_id = x),
+      verbose = verbose
+    )$body[[1]] |> 
+    null_to_na() 
+    )  |> 
+    lapply(resp_to_spatial)  
+  
   class(ref) <- "mgSearchReferences"
   ref
 }
+#

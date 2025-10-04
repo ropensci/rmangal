@@ -44,9 +44,11 @@ search_nodes <- function(query, verbose = TRUE, ...) {
 
   query <- handle_query(query, c("original_name", "node_level", "network_id"))
 
-  nodes <- resp_to_df_flt(get_gen(endpoints()$node, query = query,
-      verbose = verbose, ...)$body)
-  if (all(dim(nodes) == 1)) 
+  nodes <- rmangal_request(
+    endpoint = "node", query = query, verbose = verbose, ...)$body |>
+    resp_to_df_flt()
+
+  if (all(dim(nodes) == 1))
     return(data.frame())
 
   nodes <- nodes[, names(nodes)[names(nodes) != "taxonomy"]]

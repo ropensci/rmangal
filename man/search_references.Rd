@@ -43,9 +43,9 @@ Note that for lists with more than one element, only the first element is used, 
 }
 \examples{
 \donttest{
- search_references(doi = "10.2307/3225248")
- search_references(list(jstor = 3683041))
- search_references(list(year = 2010))
+search_references(doi = "10.2307/3225248")
+search_references(list(jstor = 3683041))
+search_references(list(year = 2010))
 }
 }
 \references{

@@ -73,7 +73,7 @@ get_collection.mgSearchTaxonomy <- function(x, ...) {
 }
 
 
-#' @describeIn get_collection Get a collection of networks from a `mgSearchTaxa` object.
+#' @describeIn get_collection Get a collection of networks from a `mgSearchInteractions` object.
 #' @export
 get_collection.mgSearchInteractions <- function(x, ...) {
   # Get networks ids

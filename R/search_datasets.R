@@ -3,7 +3,7 @@
 #' Identify relevant datasets using a keyword or a custom query.
 #' If the `query` is a character string, then all character columns in the table
 #' are searched and the entries for which at least one
-#' partial match was found are returned. Alternatively, a named list can be 
+#' partial match was found are returned. Alternatively, a named list can be
 #' used to look for an exact match in a specific column (see Details section).
 #'
 #' @param query either a character string including a single keyword or a named list containing a custom query (see details section below).
@@ -13,7 +13,7 @@
 #'
 #' @return
 #' An object of class `mgSearchDatasets`, which basically is a `data.frame`
-#' object including all datasets corresponding to the query. For each dataset 
+#' object including all datasets corresponding to the query. For each dataset
 #' entry, the networks and the original reference are attached.
 #'
 #' @details
@@ -24,7 +24,7 @@
 #' - description: a brief description of the data set
 #' - ref_id: the Mangal identifier of the dataset
 #'
-#' Note that for lists with more than one element, only the first element is 
+#' Note that for lists with more than one element, only the first element is
 #' used, the others are ignored. Examples covering custom queries are provided
 #' below.
 #'
@@ -34,24 +34,24 @@
 #'
 #' @examples
 #' \donttest{
-#'  # Return all datasets (takes time)
-#'  all_datasets <- search_datasets("")
-#'  all_datasets
-#'  class(all_datasets)
-#'  # Search with keyword
-#'  mg_lagoon <- search_datasets(query = 'lagoon')
-#'  # Search with a custom query (specific column)
-#'  mg_kemp <- search_datasets(query = list(name = 'kemp_1977'))
-#'  mg_16 <- search_datasets(query = list(ref_id = 16))
+#' # Return all datasets (takes time)
+#' # all_datasets <- search_datasets("")
+#' # all_datasets
+#' # class(all_datasets)
+#' # Search with keyword
+#' mg_lagoon <- search_datasets(query = "lagoon")
+#' # Search with a custom query (specific column)
+#' mg_kemp <- search_datasets(query = list(name = "kemp_1977"))
+#' mg_16 <- search_datasets(query = list(ref_id = 16))
 #' }
 #' @export
 
 search_datasets <- function(query, verbose = TRUE, ...) {
-
   query <- handle_query(query, c("id", "name", "date", "description", "ref_id"))
   datasets <- rmangal_request(
-    endpoint = "dataset", query = query, verbose = verbose, ...)$body  |>
-  resp_to_df()
+    endpoint = "dataset", query = query, verbose = verbose, ...
+  )$body |>
+    resp_to_df()
 
   if (is.null(datasets)) {
     if (verbose) cli::cli_inform("No dataset found.")
@@ -63,25 +63,27 @@ search_datasets <- function(query, verbose = TRUE, ...) {
   # Attached references and networks
   # No need for test because if NULL function stopped above
   references <- networks <- list()
-
   for (i in seq_len(nrow(datasets))) {
-
-    # Appending networks
-    tmp_networks <- get_from_fkey_net(endpoints()$network,
-      dataset_id = datasets$id[i], verbose = verbose)
-    if (!is.null(tmp_networks)) {
-      networks[[i]] <- tmp_networks
-    } else networks[[i]] <- NA
+    # Appending networks adding progress bar
+    tmp_network <- rmangal_request(
+      "network",
+      query = list(dataset_id = datasets$ref_id[i]),
+      verbose = verbose
+    )$body
+    if (is.null(tmp_network)) {
+      networks[[i]] <- NA
+    } else {
+      networks[[i]] <- tmp_network[[1]] |> resp_to_spatial()
+    }
 
     # Appending references
-    tmp_references <- resp_to_df(get_singletons(endpoints()$reference,
-      ids = datasets$ref_id[i], verbose = verbose)$body)
-    if (!is.null(tmp_references)) {
-      references[[i]] <- tmp_references
-    } else references[[i]] <- NA
-
+    references[[i]] <- rmangal_request_singleton(
+      "reference",
+      id = datasets$ref_id[i], verbose = verbose
+    )$body |>
+      null_to_na() |>
+      as.data.frame()
   }
-  
   datasets$references <- references
   datasets$networks <- networks
 

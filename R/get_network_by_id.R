@@ -36,7 +36,6 @@
 
 get_network_by_id <- function(ids, as_sf = FALSE, force_collection = FALSE,
   verbose = TRUE) {
-
     if (!length(ids)) {
       warning("length(ids) is 0, an empty dataframe is returned.")
       return(data.frame())
@@ -53,34 +52,37 @@ get_network_by_id <- function(ids, as_sf = FALSE, force_collection = FALSE,
 }
 
 
-#' @describeIn get_network_by_id Retrieve a network by its  collection of networks (default).
+#' @describeIn get_network_by_id Retrieve a network by its collection of networks (default).
 #' @export
 get_network_by_id_indiv <- function(id, as_sf = FALSE, verbose = TRUE) {
-
   id <- as.numeric(id)
   stopifnot(length(id) == 1 & !is.na(id))
+  net <- rmangal_request_singleton("network", id = id, verbose = verbose)
 
-  mg_network <- structure(list(network =
-    resp_to_spatial(get_singletons(endpoints()$network, ids = id,
-    verbose = verbose)$body, as_sf = as_sf)), class = "mgNetwork")
-
+  mg_network <- structure(
+    list(
+      network = net$body |> resp_to_spatial(as_sf = as_sf)
+    ), class = "mgNetwork")
+  
   if (is.null(mg_network$network))
     stop(sprintf("network id %s not found", id))
 
   # if (verbose) message("Retrieving nodes\n")
-  mg_network$nodes <- get_from_fkey_flt(endpoints()$node,
+  mg_network$nodes <- get_from_fkey_flt("node",
     network_id = mg_network$network$id, verbose = verbose)
   # if (verbose) message("done!\nRetrieving interaction\n")
-  mg_network$interactions <- get_from_fkey_flt(endpoints()$interaction,
+  mg_network$interactions <- get_from_fkey_flt("interaction",
     network_id = mg_network$network$id, verbose = verbose)
   # if (verbose) message("done")
   # retrieve dataset informations
-  mg_network$dataset <- resp_to_df(get_singletons(endpoints()$dataset,
-    ids = unique(mg_network$network$dataset_id, verbose = verbose))$body)
+  mg_network$dataset <- rmangal_request_singleton("dataset",
+    id = unique(mg_network$network$dataset_id), verbose = verbose)$body |>
+    list() |> resp_to_df()
 
   # retrieve reference
-  mg_network$reference <- resp_to_df(get_singletons(endpoints()$reference,
-    ids = unique(mg_network$dataset$ref_id), verbose = verbose)$body)
+  mg_network$reference <- rmangal_request_singleton("reference",
+    id = unique(mg_network$dataset$ref_id), verbose = verbose)$body |>
+    list() |> resp_to_df()
 
 
   # Renames ids columns

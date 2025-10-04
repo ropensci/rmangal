@@ -3,7 +3,7 @@ test_that("search_interactions() default works", {
     res <- search_interactions(type = "competition", verbose = FALSE)
     # 
   })
-  expect_equal(dim(res), c(12, 19))
+  expect_equal(dim(res), c(12, 20))
   expect_s3_class(res, "mgSearchInteractions")
 })
 
@@ -13,7 +13,7 @@ test_that("search_interactions() type and expand_node work", {
   })
   # this may change if we merge data frames
   expect_s3_class(res, "mgSearchInteractions")
-  expect_equal(dim(res), c(12, 55))
+  expect_equal(dim(res), c(12, 56))
   expect_true(all(res$type == "competition"))
   
 })
@@ -29,8 +29,3 @@ test_that("search_interactions()", {
   expect_s3_class(resc, "mgNetworksCollection")
   expect_equal(names(resc[[1L]]), nm_co)
 })
-
-
-
-
-

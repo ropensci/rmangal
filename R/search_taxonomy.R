@@ -20,8 +20,8 @@
 #'
 #' @details
 #' Taxon names of the `taxonomy` table were validated with
-#' TNRS (see <https://tnrs.biendata.org> and/or GNR
-# ' (see <https://resolver.globalnames.org/>). The taxon names in this table
+#' TNRS (see <https://tnrs.biendata.org>) and/or GNR
+#' (see <https://resolver.globalnames.org/>). The taxon names in this table
 #' might not be the taxon name documented in the original publication.
 #' In order to identify relevant networks with the original name, use
 #' [search_nodes()].
@@ -67,23 +67,24 @@ search_taxonomy <- function(query, tsn = NULL, gbif = NULL, eol = NULL,
     query <- list(q = query)
   }
 
-  taxa <- resp_to_df(get_gen(endpoints()$taxonomy, query = query,
-      verbose = verbose, ...)$body)
+  taxa <- rmangal_request(
+    endpoint = "taxonomy", query = query, verbose = verbose, ...)$body |>
+    resp_to_df()
 
   if (length(taxa)) {
       # retrieve corresponding nodes
       nodes <- do.call(rbind, lapply(taxa$id, function(x)
-        get_from_fkey_flt(endpoints()$node, taxonomy_id = x,
+        get_from_fkey_flt("node", taxonomy_id = x,
           verbose = verbose, ...)))
       # Store network ids
       network_ids <- nodes$network_id
     } else {
-      if (verbose) message("No taxon found.")
+      if (verbose) cli::cli_inform("No taxon found.")
       return(data.frame())
     }
 
   if (verbose)
-    message(sprintf("Found %s taxa involved in %s network(s)",
+    cli::cli_inform(sprintf("Found %s taxa involved in %s network(s)",
       nrow(taxa), nrow(network_ids)))
 
   class(nodes) <- append(class(nodes), "mgSearchTaxonomy")

@@ -6,6 +6,7 @@ test_that("search_datasets() query and collection work", {
     res1 <- search_datasets(query = "lagoon")
     resc <- get_collection(res1)
   })
+  expect_s3_class(res1, "mgSearchDatasets")
   expect_equal(dim(res1), c(2, nvr))
   expect_equal(class(resc), "mgNetworksCollection")
   expect_equal(class(resc[[1L]]), "mgNetwork")
