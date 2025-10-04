@@ -10,7 +10,9 @@ rmangal_api_url <- function(base = "https://mangal.io/api", version = "v2") {
 }
 
 
-rmangal_request <- function(endpoint = "", query = NULL, limit = 100, verbose = TRUE, ...) {
+rmangal_request <- function(endpoint = "", query = NULL, limit = 100, verbose = TRUE, id = NULL, ...) {
+    if (is.character(query)) query <- list(q = query)
+
     req <- rmangal_api_url() |>
         httr2::req_url_path_append(rmangal_endpoint_path(endpoint)) |>
         httr2::req_user_agent("rmangal") |>
@@ -19,6 +21,7 @@ rmangal_request <- function(endpoint = "", query = NULL, limit = 100, verbose = 
         # httr2::req_cache(tempdir()) |>
         # httr2::req_throttle()  |>
         httr2::req_error(is_error = \(resp) FALSE)
+
 
     resp <- do_request(req)
     if (is.null(resp)) {
@@ -29,25 +32,24 @@ rmangal_request <- function(endpoint = "", query = NULL, limit = 100, verbose = 
     }
 
     resps <- httr2::req_perform_iterative(
-        req, 
+        req,
         httr2::iterate_with_offset(
             "page",
             start = 0,
-        resp_pages = \(resp) {
-            pag  <- resp |>
-                httr2::resp_headers("Content-Range") |>
-                as.character() |>
-                strsplit(split = "\\D+") |>
-                unlist() |>
-                as.numeric() |>
-                Filter(f = Negate(is.na))
-            (pag[3] %/% limit) + 1
-        }
-        ), 
+            resp_pages = \(resp) {
+                pag <- resp |>
+                    httr2::resp_headers("Content-Range") |>
+                    as.character() |>
+                    strsplit(split = "\\D+") |>
+                    unlist() |>
+                    as.numeric() |>
+                    Filter(f = Negate(is.na))
+                (pag[3] %/% limit) + 1
+            }
+        ),
         on_error = "return"
     )
- 
-    # check error here if desired;
+
     structure(list(
         body = resps |>
             lapply(httr2::resp_body_json) |>
@@ -56,6 +58,30 @@ rmangal_request <- function(endpoint = "", query = NULL, limit = 100, verbose = 
     ), class = "mgGetResponses")
 }
 
+
+rmangal_request_singleton <- function(endpoint = "", id, verbose = TRUE, ...) {
+    stopifnot(length(id) == 1)
+    req <- rmangal_api_url() |>
+        httr2::req_url_path_append(rmangal_endpoint_path(endpoint)) |>
+        httr2::req_url_path_append(id) |>
+        httr2::req_user_agent("rmangal") |>
+        httr2::req_headers("Content-type" = "application/json") |>
+        # httr2::req_cache(tempdir()) |>
+        httr2::req_error(is_error = \(resp) FALSE)
+
+    resp <- do_request(req)
+    if (is.null(resp)) {
+        if (verbose) {
+            cli::cli_inform("Empty response.")
+        }
+        return(NULL)
+    }
+
+    structure(list(
+        body = resp |> httr2::resp_body_json(),
+        response = resp
+    ), class = "mgGetResponses")
+}
 
 
 do_request <- function(req) {
@@ -77,12 +103,35 @@ do_request <- function(req) {
     resp
 }
 
-
 rmangal_endpoint_path <- function(endpoint) {
     if (!endpoint %in% rmangal::rmangal_endpoints$name) {
+        print(endpoint)
         cli::cli_abort(
-            "Unknown enpoint, see the list of endpoint rmangal::rmangal_endpoints"
+            "Unknown endpoint, see the list of endpoints in rmangal::rmangal_endpoints"
         )
     }
     rmangal::rmangal_endpoints$path[rmangal::rmangal_endpoints$name == endpoint]
+}
+
+
+handle_query <- function(query, names_available) {
+    if (is.character(query)) {
+        return(list(q = query))
+    }
+    if (!is.list(query)) {
+        stop("`query` should either be a list or a character string.",
+            call. = FALSE
+        )
+    }
+    if (length(query) > 1) {
+        warning("Only the first element of the list is considered.", call. = FALSE)
+        query <- query[1L]
+    }
+    if (!names(query) %in% names_available) {
+        stop("Only ", paste(names_available, collapse = ", "),
+            " are valid names for custom queries.",
+            call. = FALSE
+        )
+    }
+    query
 }

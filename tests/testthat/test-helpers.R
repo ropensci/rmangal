@@ -19,9 +19,6 @@ test_that("basic prints work", {
   expect_equal(print_net_info(1, 1, 1, 1, 1), txt3)
 })
 
-test_that("clear cache works", {
-  expect_true(clear_cache_rmangal())
-})
 
 test_that("handle_query works", {
     expect_identical(handle_query("cool", c("id")), list(q = "cool"))
@@ -45,7 +42,6 @@ test_that("fail gracefully", {
   })
   expect_error(switch_df(df1))
   expect_error(stop_if_missing_sf("xx_xx"))
-  expect_warning(msg_request_fail(resp), "API request failed: error 404")
 })
 
 

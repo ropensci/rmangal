@@ -50,7 +50,8 @@ if several taxonomic identifiers are specified, then only the first one is consi
 }
 \details{
 Taxon names of the \code{taxonomy} table were validated with
-TNRS (see \url{https://tnrs.biendata.org} and/or GNR
+TNRS (see \url{https://tnrs.biendata.org}) and/or GNR
+(see \url{https://resolver.globalnames.org/}). The taxon names in this table
 might not be the taxon name documented in the original publication.
 In order to identify relevant networks with the original name, use
 \code{\link[=search_nodes]{search_nodes()}}.

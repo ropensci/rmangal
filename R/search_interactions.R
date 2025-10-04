@@ -1,10 +1,11 @@
 #' Query interactions
 #'
 #' Search for specific interactions using a keyword or a specific type of
-#' interactions (e.g. mutualism). If the `query` is a character string, then all character columns in the table
-#' are searched and the entries for which at least one
-#' partial match was found are returned.
-#' Alternatively, a named list can be used to look for an exact match in a specific column (see Details section)
+#' interactions (e.g. mutualism). If the `query` is a character string, then 
+#' all character columns in the table are searched and the entries for which at 
+#' least one partial match was found are returned.
+#' Alternatively, a named list can be used to look for an exact match in a 
+#' specific column (see Details).
 #'
 #' @param query either a character string including a single keyword or a named list containing a custom query (see details section below).
 #' Note that if an empty character string is passed, then all datasets available are returned.
@@ -43,7 +44,6 @@
 #' * "scavenger";
 #' * "detritivore".
 #'
-#'
 #' @references
 #' * <https://mangal.io/#/>
 #' * <https://mangal-interactions.github.io/mangal-api/#taxonomy>
@@ -61,35 +61,38 @@ search_interactions <- function(query, type = NULL, expand_node = FALSE,
   verbose = TRUE, ...) {
 
     if (!is.null(type)) {
-      if (verbose) message("`type` used, `query` ignored.")
+      if (verbose) cli::cli_inform("`type` used, `query` ignored.")
       type <- match.arg(type, avail_type())
       query <- list(type = type)
     } else {
       query <- handle_query(query,
-        c("id" ,"attr_id", "direction", "network_id", "node_from", "node_to", "type"))
+        c("id", "attr_id", "direction", "network_id", "node_from", "node_to", "type"))
     }
 
     # Get interactions based on the type
-    interactions <- resp_to_spatial(get_gen(endpoints()$interaction,
-      query = query, verbose = verbose, ...)$body, keep_geom = FALSE)
+    interactions <- rmangal_request(
+      endpoint = "interaction", query = query, verbose = verbose, ...)$body |>
+      resp_to_df()
 
     if (is.null(interactions)) {
-      if (verbose) message("No interactions found.")
+      if (verbose) cli::cli_inform("No interactions found.")
       return(data.frame())
     }
 
     # Add extra info about nodes if desired
     if (expand_node) {
-      tmp <- resp_to_df_flt(get_singletons(endpoints()$node,
-        interactions$node_from, verbose = verbose, ...)$body)
+      tmp <- lapply(interactions$node_from, function(id) {
+        rmangal_request_singleton("node", id = id, verbose = verbose)$body
+      }) |> resp_to_df_flt()
       interactions[, paste0("node_from_", names(tmp))] <- tmp
       #
-      tmp <- resp_to_df_flt(get_singletons(endpoints()$node,
-        interactions$node_to, verbose = verbose, ...)$body)
+      tmp <- lapply(interactions$node_to, function(id) {
+        rmangal_request_singleton("node", id = id, verbose = verbose)$body
+      }) |> resp_to_df_flt()
       interactions[, paste0("node_to_", names(tmp))] <- tmp
     }
 
-    if (verbose) message(sprintf("Found %s interactions", nrow(interactions)))
+    if (verbose) cli::cli_inform(sprintf("Found %s interactions", nrow(interactions)))
 
     class(interactions) <- append(class(interactions), "mgSearchInteractions")
     interactions

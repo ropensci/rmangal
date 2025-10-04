@@ -55,7 +55,7 @@ function. The function also accepts a numeric vector of Mangal network IDs.
 
 \item \code{get_collection(mgSearchTaxonomy)}: Get a collection of networks from a \code{mgSearchTaxa} object.
 
-\item \code{get_collection(mgSearchInteractions)}: Get a collection of networks from a \code{mgSearchTaxa} object.
+\item \code{get_collection(mgSearchInteractions)}: Get a collection of networks from a \code{mgSearchInteractions} object.
 
 }}
 \examples{

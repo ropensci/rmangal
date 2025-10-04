@@ -7,7 +7,7 @@
 combine_mgNetworks(...)
 }
 \arguments{
-\item{...}{objects of class \code{mgNetworksCollection} or \code{mgNetwork} or a list #' of objects of these classes.}
+\item{...}{objects of class \code{mgNetworksCollection} or \code{mgNetwork} or a list of objects of these classes.}
 }
 \value{
 An object of class \code{mgNetworksCollection}.

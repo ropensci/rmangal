@@ -5,6 +5,5 @@ vcr::vcr_configure(
     serialize_with = "json"
 )
 
-rmangal::clear_cache_rmangal()
 cl_df <- c("tbl_df", "tbl",  "data.frame")
 nm_co <-  c("network", "nodes", "interactions", "dataset", "reference")

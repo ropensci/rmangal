@@ -64,7 +64,7 @@ Summarize mgNetworksCollection properties.
 }
 \section{Functions}{
 \itemize{
-\item \code{get_network_by_id_indiv()}: Retrieve a network by its  collection of networks (default).
+\item \code{get_network_by_id_indiv()}: Retrieve a network by its collection of networks (default).
 
 }}
 \examples{
