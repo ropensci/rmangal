@@ -12,7 +12,7 @@
 #' @param type a `character` one of the interactions type available (see details). Note that `query` is ignored if `type` is used.
 #' @param expand_node a logical. Should the function returned extra information pertaining to nodes? Default is set to `FALSE`, which means that only the Mangal IDs of nodes are returned.
 #' @param verbose a `logical`. Should extra information be reported on progress?
-#' @param ... further arguments to be passed to [httr::GET()].
+#' @param ... ignored.
 #'
 #' @return
 #' An object of class `mgSearchInteractions`, i.e. a `data.frame` object including interactions.

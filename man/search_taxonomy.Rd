@@ -34,7 +34,7 @@ Note that if an empty character string is passed, then all datasets available ar
 
 \item{verbose}{a \code{logical}. Should extra information be reported on progress?}
 
-\item{...}{further arguments to be passed to \code{\link[httr:GET]{httr::GET()}}.}
+\item{...}{ignored.}
 }
 \value{
 An object of class \code{mgSearchTaxonomy}, which is a \code{data.frame} including

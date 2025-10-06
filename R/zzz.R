@@ -18,14 +18,6 @@ null_to_na <- function(x) {
   }
 }
 
-##
-resp_raw <- function(x) {
-  jsonlite::fromJSON(
-    httr::content(x, as = "text", encoding = "UTF-8"),
-    simplifyVector = FALSE, flatten = TRUE
-  )
-}
-
 ## Response => data.frame
 resp_to_df <- function(x) {
   if (is.null(x)) {
@@ -60,7 +52,7 @@ fill_df <- function(x, nms) {
 }
 
 
-resp_to_spatial <- function(x, as_sf = FALSE, keep_geom = TRUE) {
+resp_to_spatial <- function(x, as_sf = FALSE) {
   if (is.null(x)) {
     NA
   } else {
@@ -150,28 +142,44 @@ get_from_fkey_flt <- function(endpoint, verbose = TRUE, ...) {
 
 
 # message
+
+
 percent_id <- function(y) round(100 * sum(!is.na(y)) / length(y))
 
 print_taxo_ids <- function(x) {
-  paste0(
-    "* Current taxonomic IDs coverage for nodes of this network: \n  --> ",
-    "ITIS: ", percent_id(x$taxonomy.tsn), "%, ",
-    "BOLD: ", percent_id(x$taxonomy.bold), "%, ",
-    "EOL: ", percent_id(x$taxonomy.eol), "%, ",
-    "COL: ", percent_id(x$taxonomy.col), "%, ",
-    "GBIF: ", percent_id(x$taxonomy.gbif), "%, ",
-    "NCBI: ", percent_id(x$taxonomy.ncbi), "%\n"
+  cli::cli_text(
+    "{cli::symbol$bullet} Taxonomic IDs coverage for nodes:"
   )
+  cli::cli_text(
+    "{cli::col_cyan('ITIS')}: {percent_id(x$taxonomy.tsn)}%, ",
+    "{cli::col_cyan('BOLD')}: {percent_id(x$taxonomy.bold)}%, ",
+    "{cli::col_cyan('EOL')}: {percent_id(x$taxonomy.eol)}%, ",
+    "{cli::col_cyan('COL')}: {percent_id(x$taxonomy.col)}%, ",
+    "{cli::col_cyan('GBIF')}: {percent_id(x$taxonomy.gbif)}%, ",
+    "{cli::col_cyan('NCBI')}: {percent_id(x$taxonomy.ncbi)}%"
+  )
+  invisible()
 }
 
 print_pub_info <- function(x) {
-  paste0("* Published in ref #", x$id, " DOI:", x$doi)
+  cli::cli_text(
+    "{cli::symbol$bullet} Published in reference {cli::col_blue('#{x$id}')} ",
+    "DOI: {cli::col_grey(x$doi)}"
+  )
+  invisible()
 }
 
 print_net_info <- function(net_id, dat_id, descr, n_edg, n_nod) {
-  paste0(
-    "* Network #", net_id, " included in dataset #", dat_id, "\n",
-    "* Description: ", descr, "\n",
-    "* Includes ", n_edg, " edges and ", n_nod, " nodes \n"
+  cli::cli_h2("Network {cli::col_blue('#{net_id}')}")
+  cli::cli_text(
+    "{cli::symbol$bullet} Dataset: {cli::col_blue('#{dat_id}')}"
   )
+  cli::cli_text(
+    "{cli::symbol$bullet} Description: {descr}"
+  )
+  cli::cli_text(
+    "{cli::symbol$bullet} Size: {cli::col_green(n_edg)} edge{?s}, ",
+    "{cli::col_green(n_nod)} node{?s}"
+  )
+  invisible()
 }

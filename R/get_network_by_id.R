@@ -5,9 +5,9 @@
 #' @param x an object of class `mgNetwork` or `mgNetworksCollection`.
 #' @param object object of of class `mgNetwork` or `mgNetworksCollection`.
 #' @param as_sf a logical. Should networks metadata be converted into an sf object? Note that to use this feature `sf` must be installed.
-#' @param ... ignored.
 #' @param force_collection a logical. Should the output to be of class  `mgNetworksCollection` even if it includes only one network.
 #' @param verbose a logical. Should extra information be reported on progress?
+#' @param ... ignored.
 #'
 #' @rdname get_network_by_id
 #'
@@ -28,27 +28,28 @@
 #'
 #' @examples
 #' \donttest{
-#'  net18 <- get_network_by_id(id = 18)
-#'  net18_c <- get_network_by_id(id = 18, force_collection = TRUE)
-#'  nets <- get_network_by_id(id = c(18, 23))
+#' net18 <- get_network_by_id(id = 18)
+#' net18_c <- get_network_by_id(id = 18, force_collection = TRUE)
+#' nets <- get_network_by_id(id = c(18, 23))
 #' }
 #' @export
 
-get_network_by_id <- function(ids, as_sf = FALSE, force_collection = FALSE,
-  verbose = TRUE) {
-    if (!length(ids)) {
-      warning("length(ids) is 0, an empty dataframe is returned.")
-      return(data.frame())
+get_network_by_id <- function(
+    ids, as_sf = FALSE, force_collection = FALSE,
+    verbose = TRUE) {
+  if (!length(ids)) {
+    warning("length(ids) is 0, an empty dataframe is returned.")
+    return(data.frame())
+  } else {
+    if (length(ids) == 1 & !force_collection) {
+      get_network_by_id_indiv(ids, as_sf = as_sf, verbose = verbose)
     } else {
-      if (length(ids) == 1 & !force_collection) {
-        get_network_by_id_indiv(ids, as_sf = as_sf, verbose = verbose)
-      } else {
-        structure(
-          lapply(ids, get_network_by_id_indiv, as_sf = as_sf, verbose = verbose),
-          class = "mgNetworksCollection"
-        )
-      }
+      structure(
+        lapply(ids, get_network_by_id_indiv, as_sf = as_sf, verbose = verbose),
+        class = "mgNetworksCollection"
+      )
     }
+  }
 }
 
 
@@ -62,27 +63,36 @@ get_network_by_id_indiv <- function(id, as_sf = FALSE, verbose = TRUE) {
   mg_network <- structure(
     list(
       network = net$body |> resp_to_spatial(as_sf = as_sf)
-    ), class = "mgNetwork")
-  
-  if (is.null(mg_network$network))
+    ),
+    class = "mgNetwork"
+  )
+
+  if (is.null(mg_network$network)) {
     stop(sprintf("network id %s not found", id))
+  }
 
   # if (verbose) message("Retrieving nodes\n")
   mg_network$nodes <- get_from_fkey_flt("node",
-    network_id = mg_network$network$id, verbose = verbose)
+    network_id = mg_network$network$id, verbose = verbose
+  )
   # if (verbose) message("done!\nRetrieving interaction\n")
   mg_network$interactions <- get_from_fkey_flt("interaction",
-    network_id = mg_network$network$id, verbose = verbose)
+    network_id = mg_network$network$id, verbose = verbose
+  )
   # if (verbose) message("done")
   # retrieve dataset informations
   mg_network$dataset <- rmangal_request_singleton("dataset",
-    id = unique(mg_network$network$dataset_id), verbose = verbose)$body |>
-    list() |> resp_to_df()
+    id = unique(mg_network$network$dataset_id), verbose = verbose
+  )$body |>
+    list() |>
+    resp_to_df()
 
   # retrieve reference
   mg_network$reference <- rmangal_request_singleton("reference",
-    id = unique(mg_network$dataset$ref_id), verbose = verbose)$body |>
-    list() |> resp_to_df()
+    id = unique(mg_network$dataset$ref_id), verbose = verbose
+  )$body |>
+    list() |>
+    resp_to_df()
 
 
   # Renames ids columns
@@ -99,19 +109,30 @@ get_network_by_id_indiv <- function(id, as_sf = FALSE, verbose = TRUE) {
 #' @method print mgNetwork
 #' @export
 print.mgNetwork <- function(x, ...) {
-  cat(print_net_info(x$network$network_id, x$dataset$dataset_id, x$network$description,
-        nrow(x$interactions), nrow(x$nodes)),
-    print_taxo_ids(x$nodes), print_pub_info(x$reference), "\n\n", sep = "")
+  print_net_info(
+    x$network$network_id, x$dataset$dataset_id, x$network$description,
+    nrow(x$interactions), nrow(x$nodes)
+  )
+  print_taxo_ids(x$nodes)
+  print_pub_info(x$reference)
+  cli::cli_text("")
+  invisible(x)
 }
 
 #' @rdname get_network_by_id
 #' @method print mgNetworksCollection
 #' @export
 print.mgNetworksCollection <- function(x, ...) {
-  cat("A collection of", length(x), "networks\n\n")
+  cli::cli_h1("Network Collection")
+  cli::cli_text("{cli::col_green(length(x))} network{?s} in collection")
+  cli::cli_text("")
   nb <- min(length(x), 6)
   for (i in seq_len(nb)) print(x[[i]])
-  if (length(x) > 6) cat(length(x) - 6, "network(s) not shown. \n\n")
+  if (length(x) > 6) {
+    cli::cli_text("{cli::col_grey('{length(x) - 6} network{?s} not shown')}")
+    cli::cli_text("")
+  }
+  invisible(x)
 }
 
 
@@ -129,8 +150,8 @@ summary.mgNetwork <- function(object, ...) {
   out <- list()
   out$n_nodes <- nrow(object$nodes)
   out$n_edges <- nrow(object$interactions)
-  out$connectance <- out$n_edges/(out$n_nodes*out$n_nodes)
-  out$linkage_density <- out$n_edges/out$n_nodes
+  out$connectance <- out$n_edges / (out$n_nodes * out$n_nodes)
+  out$linkage_density <- out$n_edges / out$n_nodes
   out$nodes_summary <- data.frame(
     degree_all = igraph::degree(ig, mode = "all"),
     degree_in = igraph::degree(ig, mode = "in"),
