@@ -55,7 +55,7 @@ if (requireNamespace("sf", quietly = TRUE)) {
   networks_in_area <- search_networks_sf(area)
   plot(networks_in_area)
 } else {
-  warning("Package sf is missing")
+  cli::cli_warn("Package sf is missing")
 }
 # Retrieve network ID 5013
 net_5013 <- search_networks(query = list(id = 5013))

@@ -1,4 +1,5 @@
-#' Retrieve all references pertaining to the networks collection or individual network
+#' Retrieve all references pertaining to the networks collection or individual 
+#' network
 #'
 #' @param x an object of class `mgNetworksCollection` or `mgNetworks`.
 #'

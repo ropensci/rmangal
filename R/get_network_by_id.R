@@ -35,7 +35,7 @@
 
 get_network_by_id <- function(ids, as_sf = FALSE, force_collection = FALSE) {
   if (!length(ids)) {
-    warning("length(ids) is 0, an empty dataframe is returned.")
+    cli::cli_warn("length(ids) is 0, an empty dataframe is returned.")
     return(data.frame())
   } else {
     if (length(ids) == 1 & !force_collection) {

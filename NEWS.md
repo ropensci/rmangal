@@ -2,7 +2,7 @@
 
 * The option `rmangal.verbose` controls the verbosity of the package (see #116).
 * The core of the client has been rewritten using `httr2`, `httr` and `memoise`
-has been removed from the dependency list. The new function `rmangal_request()` is now the main internal request function `httr2`.
+has been removed from the dependency list. The new function `rmangal_request()` is now the main internal request function using `httr2`.
 
 
 # rmangal 2.1.3
@@ -18,7 +18,7 @@ has been removed from the dependency list. The new function `rmangal_request()` 
 * `inherits()` is now used to test classes.
 * `purrr` is no longer listed as an imported package.
 * Add lintr workflow to automatically check stylistic errors.
-* Summary method for `mgNetwork` objects now reports nodes and properly (see nodes #108).
+* Summary method for `mgNetwork` objects now reports nodes and properly (see #108).
 
 # rmangal 2.1.0
 
@@ -32,26 +32,26 @@ has been removed from the dependency list. The new function `rmangal_request()` 
 
 # rmangal 2.0.2
 
-* Fix a minor bug `search_datasets()` related to absent networks attached on a dataset (see #97 and #98);
+* Fix a minor bug in `search_datasets()` related to absent networks attached on a dataset (see #97 and #98).
 * Update Travis CI environment test (`travis.yml`).
 
 # rmangal 2.0.1
 
-* Fix a minor bug in the print method for `mgNetwork` objects see #94;
-* Fix broken URIs in README;
+* Fix a minor bug in the print method for `mgNetwork` objects see #94.
+* Fix broken URIs in README.
 * Remove `mapview` from vignette (CRAN issue with missing PhantomJS).
 
 # rmangal 2.0.0
 
 * Revisions see https://github.com/ropensci/software-review/issues/332;
-* Add summary method [#87];
-* `mg_to_igraph` is now `as.igraph()`;
-* `search_references()` has been rewritten [#85];
-* Vignette now includes examples to use `tigygraph` and `ggraph`;
-* pkgdown website is now deployed by Travis CI [#86];
-* `geom` column has been removed from `mgSearchInteractions` objects;
-* `sf` features are only used in `search_networks_sf()` and when argument `as_sf` is set to `TRUE` [#89];
+* Add summary method [#87].
+* `mg_to_igraph` is now `as.igraph()`.
+* `search_references()` has been rewritten [#85].
+* Vignette now includes examples to use `tidygraph` and `ggraph`.
+* `geom` column has been removed from `mgSearchInteractions` objects.
+* `sf` features are only used in `search_networks_sf()` and when argument `as_sf` is set to `TRUE` [#89].
 * Query with spatial (`sf`) objects are handle in `query_networks_sf()` that is now exported.
+
 
 # rmangal 1.9.0.9000
 

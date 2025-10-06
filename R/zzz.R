@@ -115,7 +115,7 @@ switch_sf <- function(x) {
     switch(x$geom_type,
       Point = sf::st_point(co),
       Polygon = sf::st_polygon(list(co)),
-      stop("Only `Point` and `Polygon` are supported.")
+      cli::cli_abort("Only `Point` and `Polygon` are supported.")
     )
   }
 }
@@ -123,7 +123,7 @@ switch_sf <- function(x) {
 
 stop_if_missing_sf <- function(pkg = "sf") {
   if (!requireNamespace(pkg, quietly = TRUE)) {
-    stop("sf should be installed to use this feature", call. = FALSE)
+    cli::cli_abort("sf should be installed to use this feature", call. = FALSE)
   }
 }
 
