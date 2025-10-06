@@ -5,15 +5,13 @@
 \alias{search_networks_sf}
 \title{Query networks}
 \usage{
-search_networks(query, verbose = TRUE, ...)
+search_networks(query, ...)
 
-search_networks_sf(query_sf, verbose = TRUE, ...)
+search_networks_sf(query_sf, ...)
 }
 \arguments{
 \item{query}{either a character string including a single keyword or a named list containing a custom query (see details section below), or a spatial object (see the description of \code{query_sf}).
 Note that if an empty character string is passed, then all datasets available are returned.}
-
-\item{verbose}{a \code{logical}. Should extra information be reported on progress?}
 
 \item{...}{ignored}
 
@@ -54,7 +52,7 @@ nets_insect <- get_collection(mg_insect)
 # Spatial query
 if (requireNamespace("sf", quietly = TRUE)) {
   area <- sf::st_read(system.file("shape/nc.shp", package = "sf"))
-  networks_in_area <- search_networks_sf(area, verbose = FALSE)
+  networks_in_area <- search_networks_sf(area)
   plot(networks_in_area)
 } else {
   warning("Package sf is missing")

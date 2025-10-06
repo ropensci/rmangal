@@ -10,7 +10,7 @@ rmangal_api_url <- function(base = "https://mangal.io/api", version = "v2") {
 }
 
 
-rmangal_request <- function(endpoint = "", query = NULL, limit = 100, verbose = TRUE, ...) {
+rmangal_request <- function(endpoint = "", query = NULL, limit = 100, ...) {
     if (is.character(query)) query <- list(q = query)
 
     req <- rmangal_api_url() |>
@@ -25,9 +25,7 @@ rmangal_request <- function(endpoint = "", query = NULL, limit = 100, verbose = 
 
     resp <- do_request(req)
     if (is.null(resp)) {
-        if (verbose) {
-            cli::cli_inform("Empty response.")
-        }
+        rmangal_inform("Empty response.")
         return(NULL)
     }
 
@@ -59,7 +57,7 @@ rmangal_request <- function(endpoint = "", query = NULL, limit = 100, verbose = 
 }
 
 
-rmangal_request_singleton <- function(endpoint = "", id, verbose = TRUE, ...) {
+rmangal_request_singleton <- function(endpoint = "", id, ...) {
     stopifnot(length(id) == 1)
     req <- rmangal_api_url() |>
         httr2::req_url_path_append(rmangal_endpoint_path(endpoint)) |>
@@ -71,9 +69,7 @@ rmangal_request_singleton <- function(endpoint = "", id, verbose = TRUE, ...) {
 
     resp <- do_request(req)
     if (is.null(resp)) {
-        if (verbose) {
-            cli::cli_inform("Empty response.")
-        }
+        rmangal_inform("Empty response.")
         return(NULL)
     }
 

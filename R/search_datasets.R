@@ -6,10 +6,9 @@
 #' partial match was found are returned. Alternatively, a named list can be
 #' used to look for an exact match in a specific column (see Details section).
 #'
-#' @param query either a character string including a single keyword or a named 
-#' list containing a custom query (see details section below). Note that if an 
+#' @param query either a character string including a single keyword or a named
+#' list containing a custom query (see details section below). Note that if an
 #' empty character string is passed, then all datasets available are returned.
-#' @param verbose a logical. Should extra information be reported on progress?
 #' @param ... ignored.
 #'
 #' @return
@@ -47,18 +46,18 @@
 #' }
 #' @export
 
-search_datasets <- function(query, verbose = TRUE, ...) {
+search_datasets <- function(query, ...) {
   query <- handle_query(query, c("id", "name", "date", "description", "ref_id"))
   datasets <- rmangal_request(
-    endpoint = "dataset", query = query, verbose = verbose, ...
+    endpoint = "dataset", query = query, ...
   )$body |>
     resp_to_df()
 
   if (is.null(datasets)) {
-    if (verbose) cli::cli_inform("No dataset found.")
+    rmangal_inform("No dataset found.")
     return(data.frame())
   } else {
-    if (verbose) cli::cli_inform(sprintf("Found %s datasets", nrow(datasets)))
+    rmangal_inform("Found {nrow(datasets)} dataset{?s}")
   }
 
   # Attached references and networks
@@ -68,8 +67,7 @@ search_datasets <- function(query, verbose = TRUE, ...) {
     # Appending networks adding progress bar
     tmp_network <- rmangal_request(
       "network",
-      query = list(dataset_id = datasets$ref_id[i]),
-      verbose = verbose
+      query = list(dataset_id = datasets$ref_id[i])
     )$body
     if (is.null(tmp_network)) {
       networks[[i]] <- NA
@@ -80,7 +78,7 @@ search_datasets <- function(query, verbose = TRUE, ...) {
     # Appending references
     references[[i]] <- rmangal_request_singleton(
       "reference",
-      id = datasets$ref_id[i], verbose = verbose
+      id = datasets$ref_id[i]
     )$body |>
       null_to_na() |>
       as.data.frame()

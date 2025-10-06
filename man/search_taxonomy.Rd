@@ -17,20 +17,26 @@ search_taxonomy(
 )
 }
 \arguments{
-\item{query}{a character string including a single keyword.
-Note that if an empty character string is passed, then all datasets available are returned.}
+\item{query}{a character string including a single keyword. Note that if an
+empty character string is passed, then all datasets available are returned.}
 
-\item{tsn}{a \code{numeric}. Unique taxonomic identifier from Integrated Taxonomic Information System (\url{https://www.itis.gov}).}
+\item{tsn}{a \code{numeric}. Unique taxonomic identifier from Integrated
+Taxonomic Information System (\url{https://www.itis.gov}).}
 
-\item{gbif}{a \code{numeric}. Unique taxonomic identifier from Global Biodiversity Information Facility (\url{https://www.gbif.org}).}
+\item{gbif}{a \code{numeric}. Unique taxonomic identifier from Global
+Biodiversity Information Facility (\url{https://www.gbif.org}).}
 
-\item{eol}{a \code{numeric}. Unique taxonomic identifier from Encyclopedia of Life (\url{https://eol.org}).}
+\item{eol}{a \code{numeric}. Unique taxonomic identifier from Encyclopedia of
+Life (\url{https://eol.org}).}
 
-\item{col}{a \code{numeric}. Unique taxonomic identifier from Catalogue of Life (\url{https://www.catalogueoflife.org}).}
+\item{col}{a \code{numeric}. Unique taxonomic identifier from Catalogue of Life
+(\url{https://www.catalogueoflife.org}).}
 
-\item{bold}{a \code{numeric}. Unique taxonomic identifier from Barcode of Life (\url{http://www.boldsystems.org}).}
+\item{bold}{a \code{numeric}. Unique taxonomic identifier from Barcode of Life
+(\url{http://www.boldsystems.org}).}
 
-\item{ncbi}{a \code{numeric}. Unique taxonomic identifier from National Center for Biotechnology Information (\url{https://www.ncbi.nlm.nih.gov}).}
+\item{ncbi}{a \code{numeric}. Unique taxonomic identifier from National Center
+for Biotechnology Information (\url{https://www.ncbi.nlm.nih.gov}).}
 
 \item{verbose}{a \code{logical}. Should extra information be reported on progress?}
 
@@ -42,11 +48,13 @@ all taxa matching the query.
 }
 \description{
 Search network by taxon names and unique taxonomic identifiers.
-This function offers the opportunity to retrieve taxon based on (i) known identifier
-such as the taxonomic serial number (TSN), GBIF ID etc. or (ii) text search using partial match.
-Have a look at the list of arguments to see the complete list of identifiers accessible.
-If any unique identifier argument is used (i.e. tsn etc.), then \code{query} is ignored. Moreover,
-if several taxonomic identifiers are specified, then only the first one is considered.
+This function offers the opportunity to retrieve taxon based on (i) known
+identifier such as the taxonomic serial number (TSN), GBIF ID etc. or (ii)
+text search using partial match. Have a look at the list of arguments to see
+the complete list of identifiers accessible. If any unique identifier
+argument is used (i.e. tsn etc.), then \code{query} is ignored. Moreover, if
+several taxonomic identifiers are specified, then only the first one is
+considered.
 }
 \details{
 Taxon names of the \code{taxonomy} table were validated with
@@ -63,9 +71,9 @@ report any issue related to taxonomy at \url{https://github.com/mangal-interacti
 }
 \examples{
 \donttest{
- search_taxonomy("Acer")
- # Retrieve higher classification
- tsn_acer <- search_taxonomy("Acer")$taxonomy.tsn
+search_taxonomy("Acer")
+# Retrieve higher classification
+tsn_acer <- search_taxonomy("Acer")$taxonomy.tsn
 }
 }
 \references{
