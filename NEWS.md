@@ -1,12 +1,13 @@
 # rmangal (devel)
 
-* New function `rmangal_request()` that rewrites the main request 
-
+* The option `rmangal.verbose` controls the verbosity of the package (see #116).
+* The core of the client has been rewritten using `httr2`, `httr` and `memoise`
+has been removed from the dependency list. The new function `rmangal_request()` is now the main internal request function `httr2`.
 
 
 # rmangal 2.1.3
 
-* Remove USAboundaries and Taxize from the list of 'Suggested' packages (see #114).
+* Remove `USAboundaries` and `taxize` from the list of 'Suggested' packages (see #114).
 
 # rmangal 2.1.2
 
@@ -38,7 +39,7 @@
 
 * Fix a minor bug in the print method for `mgNetwork` objects see #94;
 * Fix broken URIs in README;
-* Remove mapview from vignette (CRAN issue with missing PhantomJS).
+* Remove `mapview` from vignette (CRAN issue with missing PhantomJS).
 
 # rmangal 2.0.0
 

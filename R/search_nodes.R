@@ -8,7 +8,6 @@
 #'
 #' @param query either a character string including a single keyword or a named list containing a custom query (see details section below).
 #' Note that if an empty character string is passed, then all datasets available are returned.
-#' @param verbose a `logical`. Should extra information be reported on progress?
 #' @param ... ignored.
 #'
 #' @details
@@ -40,12 +39,12 @@
 #' }
 #' @export
 
-search_nodes <- function(query, verbose = TRUE, ...) {
+search_nodes <- function(query, ...) {
 
   query <- handle_query(query, c("original_name", "node_level", "network_id"))
 
   nodes <- rmangal_request(
-    endpoint = "node", query = query, verbose = verbose, ...)$body |>
+    endpoint = "node", query = query,  ...)$body |>
     resp_to_df_flt()
 
   if (all(dim(nodes) == 1))

@@ -4,13 +4,11 @@
 \alias{search_nodes}
 \title{Query nodes}
 \usage{
-search_nodes(query, verbose = TRUE, ...)
+search_nodes(query, ...)
 }
 \arguments{
 \item{query}{either a character string including a single keyword or a named list containing a custom query (see details section below).
 Note that if an empty character string is passed, then all datasets available are returned.}
-
-\item{verbose}{a \code{logical}. Should extra information be reported on progress?}
 
 \item{...}{ignored.}
 }

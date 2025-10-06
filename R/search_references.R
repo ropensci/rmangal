@@ -52,38 +52,33 @@ search_references <- function(query, doi = NULL, verbose = TRUE, ...) {
   }
 
   ref <- rmangal_request(
-    endpoint = "reference", query = query, verbose = verbose, ...
+    endpoint = "reference", query = query, ...
   )$body |>
     resp_to_df()
 
   if (is.null(ref)) {
-    if (verbose) cli::cli_inform("No dataset found!")
+    rmangal_inform("No dataset found!")
     return(data.frame())
   }
-
-  if (verbose) {
-    cli::cli_inform("Found {nrow(ref)} reference{?s}")
-  }
+  rmangal_inform("Found {nrow(ref)} reference{?s}.")
 
   # Attach dataset(s)
   ref$datasets <- do.call(
     rbind,
     lapply(ref$id, \(x)
-    get_from_fkey("dataset", ref_id = x, verbose = verbose))
+    get_from_fkey("dataset", ref_id = x))
   )
 
   # Attach network(s)
   ref$networks <- lapply(
     ref$datasets$id,
     \(x) rmangal_request(
-      endpoint = "network",
-      query = list(dataset_id = x),
-      verbose = verbose
-    )$body[[1]] |> 
-    null_to_na() 
-    )  |> 
-    lapply(resp_to_spatial)  
-  
+      endpoint = "network", query = list(dataset_id = x)
+    )$body[[1]] |>
+      null_to_na()
+  ) |>
+    lapply(resp_to_spatial)
+
   class(ref) <- "mgSearchReferences"
   ref
 }

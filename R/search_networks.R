@@ -9,7 +9,6 @@
 #' @param query either a character string including a single keyword or a named list containing a custom query (see details section below), or a spatial object (see the description of `query_sf`).
 #' Note that if an empty character string is passed, then all datasets available are returned.
 #' @param query_sf a spatial object of class `sf` used to search in a specific geographical area.
-#' @param verbose a `logical`. Should extra information be reported on progress?
 #' @param ... ignored
 #'
 #' @return
@@ -36,7 +35,7 @@
 #' # Spatial query
 #' if (requireNamespace("sf", quietly = TRUE)) {
 #'   area <- sf::st_read(system.file("shape/nc.shp", package = "sf"))
-#'   networks_in_area <- search_networks_sf(area, verbose = FALSE)
+#'   networks_in_area <- search_networks_sf(area)
 #'   plot(networks_in_area)
 #' } else {
 #'   warning("Package sf is missing")
@@ -49,11 +48,11 @@
 #'
 #' @export
 
-search_networks <- function(query, verbose = TRUE, ...) {
+search_networks <- function(query, ...) {
   query <- handle_query(query, c("id", "public", "all_interactions", "dataset_id"))
 
   networks <- rmangal_request(
-    endpoint = "network", query = query, verbose = verbose, ...
+    endpoint = "network", query = query,  ...
   )$body |>
     lapply(
       resp_to_spatial
@@ -61,15 +60,10 @@ search_networks <- function(query, verbose = TRUE, ...) {
     do.call(what = rbind)
 
   if (is.null(networks)) {
-    if (verbose) {
-      cli::cli_inform("No network found.")
-    }
+    rmangal_inform("No network found.")
     return(data.frame())
   }
-
-  if (verbose) {
-    cli::cli_inform(sprintf("Found %s networks", nrow(networks)))
-  }
+  rmangal_inform("Found {nrow(networks)} network{?s}.")
 
   class(networks) <- append(class(networks), "mgSearchNetworks")
   networks
@@ -77,13 +71,13 @@ search_networks <- function(query, verbose = TRUE, ...) {
 
 #' @describeIn search_networks Search networks within a spatial object passed as an argument. Note that `sf` must be installed to use this function.
 #' @export
-search_networks_sf <- function(query_sf, verbose = TRUE, ...) {
+search_networks_sf <- function(query_sf, ...) {
   stopifnot(is(query_sf, "sf"))
   stop_if_missing_sf()
 
   # API doesn't allow spatial search yet, so we call sf
   sp_networks_all <- rmangal_request(
-    endpoint = "network", query = NULL, verbose = verbose, ...
+    endpoint = "network", query = NULL,  ...
   )$body |> 
     null_to_na() |> 
     lapply(resp_to_spatial, as_sf = TRUE) |> do.call(

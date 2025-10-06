@@ -178,7 +178,7 @@ Note that if an empty character is passed, i.e. `""`, all entries are returned. 
 
 
 ```r
-all_datasets <- search_datasets("", verbose = FALSE)
+all_datasets <- search_datasets("")
 head(all_datasets)
 #> # A tibble: 6 × 10
 #>      id name                  description                                                                        public created_at               updated_at               ref_id user_id references    networks
@@ -261,7 +261,7 @@ area <- sf::st_read(system.file("shape/nc.shp", package="sf"))
 #> Dimension:     XY
 #> Bounding box:  xmin: -84.32385 ymin: 33.88199 xmax: -75.45698 ymax: 36.58965
 #> Geodetic CRS:  NAD27
-in_NC <- search_networks_sf(area, verbose = FALSE)
+in_NC <- search_networks_sf(area)
 ```
 
 

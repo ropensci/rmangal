@@ -172,7 +172,7 @@ Note that if an empty character is passed, i.e. `""`, all entries are returned. 
 
 
 ```{R}
-all_datasets <- search_datasets("", verbose = FALSE)
+all_datasets <- search_datasets("")
 head(all_datasets)
 ```
 
@@ -214,7 +214,7 @@ library(sf)
 library(mapview)
 
 area <- sf::st_read(system.file("shape/nc.shp", package="sf"))
-in_NC <- search_networks_sf(area, verbose = FALSE)
+in_NC <- search_networks_sf(area)
 ```
 
 ```{R}

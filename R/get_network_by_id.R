@@ -6,7 +6,6 @@
 #' @param object object of of class `mgNetwork` or `mgNetworksCollection`.
 #' @param as_sf a logical. Should networks metadata be converted into an sf object? Note that to use this feature `sf` must be installed.
 #' @param force_collection a logical. Should the output to be of class  `mgNetworksCollection` even if it includes only one network.
-#' @param verbose a logical. Should extra information be reported on progress?
 #' @param ... ignored.
 #'
 #' @rdname get_network_by_id
@@ -34,18 +33,16 @@
 #' }
 #' @export
 
-get_network_by_id <- function(
-    ids, as_sf = FALSE, force_collection = FALSE,
-    verbose = TRUE) {
+get_network_by_id <- function(ids, as_sf = FALSE, force_collection = FALSE) {
   if (!length(ids)) {
     warning("length(ids) is 0, an empty dataframe is returned.")
     return(data.frame())
   } else {
     if (length(ids) == 1 & !force_collection) {
-      get_network_by_id_indiv(ids, as_sf = as_sf, verbose = verbose)
+      get_network_by_id_indiv(ids, as_sf = as_sf)
     } else {
       structure(
-        lapply(ids, get_network_by_id_indiv, as_sf = as_sf, verbose = verbose),
+        lapply(ids, get_network_by_id_indiv, as_sf = as_sf),
         class = "mgNetworksCollection"
       )
     }
@@ -55,10 +52,10 @@ get_network_by_id <- function(
 
 #' @describeIn get_network_by_id Retrieve a network by its collection of networks (default).
 #' @export
-get_network_by_id_indiv <- function(id, as_sf = FALSE, verbose = TRUE) {
+get_network_by_id_indiv <- function(id, as_sf = FALSE) {
   id <- as.numeric(id)
   stopifnot(length(id) == 1 & !is.na(id))
-  net <- rmangal_request_singleton("network", id = id, verbose = verbose)
+  net <- rmangal_request_singleton("network", id = id)
 
   mg_network <- structure(
     list(
@@ -68,28 +65,27 @@ get_network_by_id_indiv <- function(id, as_sf = FALSE, verbose = TRUE) {
   )
 
   if (is.null(mg_network$network)) {
-    stop(sprintf("network id %s not found", id))
+    cli::cli_abort("network id {id} not found.")
   }
 
-  # if (verbose) message("Retrieving nodes\n")
   mg_network$nodes <- get_from_fkey_flt("node",
-    network_id = mg_network$network$id, verbose = verbose
+    network_id = mg_network$network$id
   )
-  # if (verbose) message("done!\nRetrieving interaction\n")
+
   mg_network$interactions <- get_from_fkey_flt("interaction",
-    network_id = mg_network$network$id, verbose = verbose
+    network_id = mg_network$network$id
   )
-  # if (verbose) message("done")
+
   # retrieve dataset informations
   mg_network$dataset <- rmangal_request_singleton("dataset",
-    id = unique(mg_network$network$dataset_id), verbose = verbose
+    id = unique(mg_network$network$dataset_id)
   )$body |>
     list() |>
     resp_to_df()
 
   # retrieve reference
   mg_network$reference <- rmangal_request_singleton("reference",
-    id = unique(mg_network$dataset$ref_id), verbose = verbose
+    id = unique(mg_network$dataset$ref_id)
   )$body |>
     list() |>
     resp_to_df()
@@ -134,7 +130,6 @@ print.mgNetworksCollection <- function(x, ...) {
   }
   invisible(x)
 }
-
 
 
 

@@ -16,7 +16,8 @@ test_that("search_networks_sf() spatial queries work", {
   vcr::use_cassette(name = "search_networks_spat", {
     # search_networks_sf() gets all ids, will keep growing
     # at some point the yaml might get too heavy
-    area <- sf::st_read(system.file("shape/nc.shp", package = "sf"))
+    area <- system.file("shape/nc.shp", package = "sf") |>
+      sf::st_read(quiet = TRUE)
     res <- search_networks_sf(area)
     # resc <- get_collection(res1) # don't think it's needed
   })

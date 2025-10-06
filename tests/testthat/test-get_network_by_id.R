@@ -8,7 +8,7 @@ test_that("get_network_by_id() works", {
 
   net_100 <- as.igraph(mg100)
   expect_s3_class(net_100, "igraph")
-  expect_error(suppressWarnings(get_network_by_id(id = 999999)))
+  expect_error(suppressMessages(get_network_by_id(id = 999999)))
 
   smy <- summary(mg100)
   expect_equal(length(smy), 5)

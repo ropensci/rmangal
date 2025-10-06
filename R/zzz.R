@@ -127,22 +127,29 @@ stop_if_missing_sf <- function(pkg = "sf") {
   }
 }
 
-get_from_fkey <- function(endpoint, verbose = TRUE, ...) {
+get_from_fkey <- function(endpoint, ...) {
   rmangal_request(
-    endpoint = endpoint, query = list(...), verbose = verbose
+    endpoint = endpoint, query = list(...)
   )$body |> resp_to_df()
 }
 
-get_from_fkey_flt <- function(endpoint, verbose = TRUE, ...) {
+get_from_fkey_flt <- function(endpoint, ...) {
   rmangal_request(
-    endpoint = endpoint, query = list(...), verbose = verbose
+    endpoint = endpoint, query = list(...)
   )$body |> resp_to_df_flt()
 }
 
 
 
 # message
-
+rmangal_inform <- function(..., .envir = parent.frame()) {
+  is_verbose_mode <- getOption("rmangal.verbose", "verbose") == "verbose"
+  if (is_verbose_mode) {
+    # Options local to this function only; reset on exit!
+    rlang::local_options(rlib_message_verbosity = "verbose")
+    cli::cli_inform(..., .envir = .envir)
+  }
+}
 
 percent_id <- function(y) round(100 * sum(!is.na(y)) / length(y))
 

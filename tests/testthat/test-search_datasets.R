@@ -31,7 +31,8 @@ test_that("search_datasets() querying via list works", {
 
 test_that("search_datasets() no match works", {
   vcr::use_cassette(name = "search_datasets_empty", {
-    expect_message(res <- search_datasets(query = "does not exist"))
+    withr::local_options(list(rmangal.verbose = "verbose"))
+    expect_snapshot(res <- search_datasets(query = "does not exist"))
   })
   expect_s3_class(res, "data.frame")
   expect_equal(dim(res), c(0, 0))
