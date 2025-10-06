@@ -115,18 +115,15 @@ handle_query <- function(query, names_available) {
         return(list(q = query))
     }
     if (!is.list(query)) {
-        stop("`query` should either be a list or a character string.",
-            call. = FALSE
-        )
+        cli::cli_abort("`query` should either be a list or a character string.")
     }
     if (length(query) > 1) {
-        warning("Only the first element of the list is considered.", call. = FALSE)
+        cli::cli_warn("Only the first element of the list is considered.")
         query <- query[1L]
     }
     if (!names(query) %in% names_available) {
-        stop("Only ", paste(names_available, collapse = ", "),
-            " are valid names for custom queries.",
-            call. = FALSE
+        cli::cli_abort(
+            "Only {names_available} are valid names for custom queries."
         )
     }
     query

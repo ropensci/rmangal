@@ -10,9 +10,9 @@
 #'
 #' @examples
 #' \donttest{
-#'  mg_random_1071 <- get_collection(c(1071))
-#'  mg_random_1074 <- get_collection(c(1074))
-#'  combine_mgNetworks(mg_random_1071, mg_random_1074)
+#' mg_random_1071 <- get_collection(c(1071))
+#' mg_random_1074 <- get_collection(c(1074))
+#' combine_mgNetworks(mg_random_1071, mg_random_1074)
 #' }
 #'
 #' @export
@@ -21,19 +21,24 @@ combine_mgNetworks <- function(...) {
   if (length(lsmg) == 1) {
     if (inherits(lsmg[[1L]], "mgNetwork")) {
       return(structure(list(lsmg), class = "mgNetworksCollection"))
-    } else lsmg <- unlist(lsmg, recursive = FALSE)
+    } else {
+      lsmg <- unlist(lsmg, recursive = FALSE)
+    }
   }
-   structure(do.call(c, lapply(lsmg, unlist_mgNetworks)),
-    class = "mgNetworksCollection")
+  structure(do.call(c, lapply(lsmg, unlist_mgNetworks)),
+    class = "mgNetworksCollection"
+  )
 }
 
 unlist_mgNetworks <- function(x) {
-    if (inherits(x, "mgNetworksCollection")) {
-      unclass(x)
+  if (inherits(x, "mgNetworksCollection")) {
+    unclass(x)
+  } else {
+    if (inherits(x, "mgNetwork")) {
+      list(x)
     } else {
-      if (inherits(x, "mgNetwork")) {
-        list(x)
-      } else stop("Only 'mgNetwork' and `mgNetworksCollection` objects are
+      cli::cli_abort("Only 'mgNetwork' and `mgNetworksCollection` objects are
         supported")
     }
   }
+}

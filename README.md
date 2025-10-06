@@ -94,6 +94,8 @@ analyze networks and **rmangal** provides functions to convert `mgNetwork` to
 `igraph` and `tbl_graph` so that the user can easily benefit from those
 packages.
 
+
+
 ```r
 R> ig <- as.igraph(mgn[[1]])
 R> class(ig)

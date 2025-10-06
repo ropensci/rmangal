@@ -18,9 +18,9 @@ Combine \code{mgNetworksCollection} and \code{mgNetwork} objects into a
 }
 \examples{
 \donttest{
- mg_random_1071 <- get_collection(c(1071))
- mg_random_1074 <- get_collection(c(1074))
- combine_mgNetworks(mg_random_1071, mg_random_1074)
+mg_random_1071 <- get_collection(c(1071))
+mg_random_1074 <- get_collection(c(1074))
+combine_mgNetworks(mg_random_1071, mg_random_1074)
 }
 
 }

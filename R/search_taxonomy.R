@@ -69,7 +69,7 @@ search_taxonomy <- function(
 
   if (length(req)) {
     if (length(req) > 1) {
-      stop("Queries with multiple criteria are not allowed.")
+      cli::cli_abort("Queries with multiple criteria are not allowed.")
     } else {
       query <- req
     }

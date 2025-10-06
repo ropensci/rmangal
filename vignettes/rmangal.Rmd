@@ -68,7 +68,7 @@ of the networks.
 **Networks** -- Metadata of the networks attached to a dataset. It provides the sampling location, date and
 specific description of the network.
 
-**Nodes** -- Information on the population, taxa or individu in the network. Each node has the
+**Nodes** -- Information on the population, taxa or individual in the network. Each node has the
 original taxon name documented and taxonomic backbone provided by all services embedded in taxize
 [@chamberlain_2019].
 

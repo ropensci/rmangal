@@ -4,7 +4,8 @@
 \alias{get_citation}
 \alias{get_citation.mgNetwork}
 \alias{get_citation.mgNetworksCollection}
-\title{Retrieve all references pertaining to the networks collection or individual network}
+\title{Retrieve all references pertaining to the networks collection or individual
+network}
 \usage{
 get_citation(x)
 
@@ -19,7 +20,8 @@ get_citation(x)
 Bibtex entries as a character vector.
 }
 \description{
-Retrieve all references pertaining to the networks collection or individual network
+Retrieve all references pertaining to the networks collection or individual
+network
 }
 \section{Methods (by class)}{
 \itemize{
