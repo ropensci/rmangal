@@ -10,7 +10,7 @@
 #' Note that if an empty character string is passed, then all datasets available are returned.
 #' @param doi `character` a Digital Object Identifier  (DOI) of the article. Note that `query` is ignored if `doi` is specified.
 #' @param verbose a `logical`. Should extra information be reported on progress?
-#' @param ... further arguments to be passed to [httr::GET()].
+#' @param ... ignored.
 #'
 #' @return
 #' An object of class `mgSearchReferences`, which is a list that includes a

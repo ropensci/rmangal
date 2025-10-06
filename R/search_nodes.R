@@ -9,7 +9,7 @@
 #' @param query either a character string including a single keyword or a named list containing a custom query (see details section below).
 #' Note that if an empty character string is passed, then all datasets available are returned.
 #' @param verbose a `logical`. Should extra information be reported on progress?
-#' @param ... further arguments to be passed to [httr::GET()].
+#' @param ... ignored.
 #'
 #' @details
 #' Names of the list should match one of the column names within the table. 

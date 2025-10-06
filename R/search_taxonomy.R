@@ -16,7 +16,7 @@
 #' @param bold a `numeric`. Unique taxonomic identifier from Barcode of Life (<http://www.boldsystems.org>).
 #' @param ncbi a `numeric`. Unique taxonomic identifier from National Center for Biotechnology Information (<https://www.ncbi.nlm.nih.gov>).
 #' @param verbose a `logical`. Should extra information be reported on progress?
-#' @param ... further arguments to be passed to [httr::GET()].
+#' @param ... ignored.
 #'
 #' @details
 #' Taxon names of the `taxonomy` table were validated with

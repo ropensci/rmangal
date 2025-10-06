@@ -7,16 +7,11 @@ df <- data.frame(
     taxonomy.ncbi = c(1 ,2)
 )
 
-txt0 <- "* Current taxonomic IDs coverage for nodes of this network: \n  --> "
-txt1 <- "ITIS: 100%, BOLD: 100%, EOL: 50%, COL: 100%, GBIF: 100%, NCBI: 100%\n"
-txt2 <- "* Published in ref #1 DOI:2"
-txt3 <- "* Network #1 included in dataset #1\n* Description: 1\n* Includes 1 edges and 1 nodes \n"
-
 test_that("basic prints work", {
   expect_equal(percent_id(df$taxonomy.eol), 50)
-  expect_equal(print_taxo_ids(df), paste0(txt0, txt1))
-  expect_equal(print_pub_info(list(doi = 2, id = 1)), txt2)
-  expect_equal(print_net_info(1, 1, 1, 1, 1), txt3)
+  expect_snapshot(print_taxo_ids(df))
+  expect_snapshot(print_pub_info(list(doi = 2, id = 1)))
+  expect_snapshot(print_net_info(1, 1, 1, 1, 1))
 })
 
 
@@ -32,19 +27,6 @@ test_that("handle_query works", {
       "Only id are valid names for custom queries\\."
     )
 })
-
-
-
-test_that("fail gracefully", {
-  df1 <- data.frame(var = 1, geom_type = "wrong", geom_lon = 1,  geom_lat = 2)
-  vcr::use_cassette(name = "get_404", {
-    resp <- httr::GET("http://httpbin.org/status/404")
-  })
-  expect_error(switch_df(df1))
-  expect_error(stop_if_missing_sf("xx_xx"))
-})
-
-
 
 
 

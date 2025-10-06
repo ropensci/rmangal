@@ -10,7 +10,7 @@
 #' Note that if an empty character string is passed, then all datasets available are returned.
 #' @param query_sf a spatial object of class `sf` used to search in a specific geographical area.
 #' @param verbose a `logical`. Should extra information be reported on progress?
-#' @param ... further arguments to be passed to [httr::GET()].
+#' @param ... ignored
 #'
 #' @return
 #' An object of class `mgSearchNetworks`, which is a `data.frame` object with all networks informations
