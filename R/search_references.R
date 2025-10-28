@@ -9,7 +9,6 @@
 #' @param query either a character string including a single keyword or a named list containing a custom query (see details section below).
 #' Note that if an empty character string is passed, then all datasets available are returned.
 #' @param doi `character` a Digital Object Identifier  (DOI) of the article. Note that `query` is ignored if `doi` is specified.
-#' @param verbose a `logical`. Should extra information be reported on progress?
 #' @param ... ignored.
 #'
 #' @return
@@ -40,7 +39,7 @@
 #' }
 #' @export
 
-search_references <- function(query, doi = NULL, verbose = TRUE, ...) {
+search_references <- function(query, doi = NULL, ...) {
   if (!is.null(doi)) {
     if (length(doi) > 1) {
       cli::cli_warn("Only the first doi is used.")
@@ -57,7 +56,7 @@ search_references <- function(query, doi = NULL, verbose = TRUE, ...) {
     resp_to_df()
 
   if (is.null(ref)) {
-    rmangal_inform("No dataset found!")
+    rmangal_inform("No reference found!")
     return(data.frame())
   }
   rmangal_inform("Found {nrow(ref)} reference{?s}.")
@@ -82,4 +81,3 @@ search_references <- function(query, doi = NULL, verbose = TRUE, ...) {
   class(ref) <- "mgSearchReferences"
   ref
 }
-#

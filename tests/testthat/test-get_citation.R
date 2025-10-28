@@ -1,4 +1,4 @@
-test_that("expected behavior", {
+test_that("get_citation() works", {
   vcr::use_cassette(name = "get_citation", {
     ref <- get_citation(get_network_by_id(18))
     netws <- get_collection(search_networks("lagoon"))

@@ -11,7 +11,6 @@ test_that("search_taxonomy() default and collection work", {
 })
 
 
-
 test_that("search_taxonomy() querying specific id works", {
   vcr::use_cassette(name = "search_taxonomy_taxid", {
     resTsn <- search_taxonomy(tsn = 28749)

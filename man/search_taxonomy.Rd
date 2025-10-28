@@ -12,7 +12,6 @@ search_taxonomy(
   col = NULL,
   bold = NULL,
   ncbi = NULL,
-  verbose = TRUE,
   ...
 )
 }
@@ -37,8 +36,6 @@ Life (\url{https://eol.org}).}
 
 \item{ncbi}{a \code{numeric}. Unique taxonomic identifier from National Center
 for Biotechnology Information (\url{https://www.ncbi.nlm.nih.gov}).}
-
-\item{verbose}{a \code{logical}. Should extra information be reported on progress?}
 
 \item{...}{ignored.}
 }
