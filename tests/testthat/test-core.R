@@ -3,7 +3,7 @@ test_that("rmangal_request() works", {
   vcr::use_cassette(name = "rmangal_request", {
     lag <- rmangal_request(endpoint = "network", query = "lagoon")
     lag_hc <- rmangal_request(
-      endpoint = "network", 
+      endpoint = "network",
       query = "Dietary matrix of the Huizache–Caimanero lagoon"
     )
   })
@@ -22,4 +22,3 @@ test_that("rmangal_request_singleton() works", {
   expect_true(inherits(net86, "mgGetResponses"))
   expect_identical(length(net86$body), 1L)
 })
-

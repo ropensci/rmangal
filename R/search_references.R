@@ -1,14 +1,19 @@
 #' Query references
 #'
-#' Search for a specific reference using a key word or a Digital Object Identifier (DOI).
+#' Search for a specific reference using a key word or a Digital Object
+#' Identifier (DOI).
 #' If the `query` is a character string, then all character columns in the table
 #' are searched and the entries for which at least one
 #' partial match was found are returned.
-#' Alternatively, a named list can be used to look for an exact match in a specific column (see Details section).
+#' Alternatively, a named list can be used to look for an exact match in a
+#' specific column (see Details section).
 #'
-#' @param query either a character string including a single keyword or a named list containing a custom query (see details section below).
-#' Note that if an empty character string is passed, then all datasets available are returned.
-#' @param doi `character` a Digital Object Identifier  (DOI) of the article. Note that `query` is ignored if `doi` is specified.
+#' @param query either a character string including a single keyword or a named
+#' list containing a custom query (see details section below).
+#' Note that if an empty character string is passed, then all datasets
+#' available are returned.
+#' @param doi `character` a Digital Object Identifier  (DOI) of the article.
+#' Note that `query` is ignored if `doi` is specified.
 #' @param ... ignored.
 #'
 #' @return
@@ -25,7 +30,8 @@
 #' * jstor: JSTOR identifier
 #' * year: year of publication.
 #'
-#' Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
+#' Note that for lists with more than one element, only the first element is
+#' used, the others are ignored. An example is provided below.
 #'
 #' @references
 #' * <https://mangal.io/#/>
@@ -64,17 +70,18 @@ search_references <- function(query, doi = NULL, ...) {
   # Attach dataset(s)
   ref$datasets <- do.call(
     rbind,
-    lapply(ref$id, \(x)
-    get_from_fkey("dataset", ref_id = x))
+    lapply(ref$id, \(x) get_from_fkey("dataset", ref_id = x))
   )
 
   # Attach network(s)
   ref$networks <- lapply(
     ref$datasets$id,
-    \(x) rmangal_request(
-      endpoint = "network", query = list(dataset_id = x)
-    )$body[[1]] |>
-      null_to_na()
+    \(x) {
+      rmangal_request(
+        endpoint = "network", query = list(dataset_id = x)
+      )$body[[1]] |>
+        null_to_na()
+    }
   ) |>
     lapply(resp_to_spatial)
 

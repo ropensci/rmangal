@@ -62,16 +62,20 @@ search_datasets <- function(query, ...) {
   # No need for test because if NULL function stopped above
   datasets$networks <- lapply(
     datasets$ref_id,
-    \(x) rmangal_request("network", query = list(dataset_id = x))$body |>
-      lapply(resp_to_spatial) |>
-      do.call(what = rbind)
+    \(x) {
+      rmangal_request("network", query = list(dataset_id = x))$body |>
+        lapply(resp_to_spatial) |>
+        do.call(what = rbind)
+    }
   )
 
   datasets$references <- lapply(
     datasets$ref_id,
-    \(x) rmangal_request_singleton("reference", id = x)$body |>
-      null_to_na() |>
-      as.data.frame()
+    \(x) {
+      rmangal_request_singleton("reference", id = x)$body |>
+        null_to_na() |>
+        as.data.frame()
+    }
   )
 
   class(datasets) <- c("tbl_df", "tbl", "data.frame", "mgSearchDatasets")

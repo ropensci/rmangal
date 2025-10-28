@@ -1,0 +1,12 @@
+linters: linters_with_defaults(
+    line_length_linter(120L),
+    indentation_linter(indent = 2L),
+    object_length_linter(60L),
+    commented_code_linter = NULL
+  )  
+exclusions: list(
+    "inst",
+    "man",
+    "vignettes"
+  )
+encoding: "UTF-8"

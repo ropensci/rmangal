@@ -4,27 +4,31 @@
 #' If the `query` is a character string, then all character columns in the table
 #' are searched and the entries for which at least one
 #' partial match was found are returned.
-#' Alternatively, a named list can be used to look for an exact match in a specific column (see Details section)
+#' Alternatively, a named list can be used to look for an exact match in a
+#' specific column (see Details section)
 #'
-#' @param query either a character string including a single keyword or a named list containing a custom query (see details section below).
-#' Note that if an empty character string is passed, then all datasets available are returned.
+#' @param query either a character string including a single keyword or a named
+#' list containing a custom query (see details section below).
+#' Note that if an empty character string is passed, then all datasets
+#' available are returned.
 #' @param ... ignored.
 #'
 #' @details
-#' Names of the list should match one of the column names within the table. 
+#' Names of the list should match one of the column names within the table.
 #' For the `networks` table, those are:
 #' * id: unique identifier of the nodes;
 #' * original_name: taxonomic name as in the original publication;
 #' * node_level: either population, taxon or individual;
 #' * network_id: Mangal network identifier.
 #'
-#' Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
+#' Note that for lists with more than one element, only the first element is
+#' used, the others are ignored. An example is provided below.
 #'
 #' @seealso
 #' [search_taxonomy()]
 #'
 #' @return
-#' An object of class `mgSearchNodes`, which basically is a `data.frame` object 
+#' An object of class `mgSearchNodes`, which basically is a `data.frame` object
 #' including taxa that are matching the query and corresponding information.
 #' All networks in which taxa are involved are also attached to the `data.frame`.
 #'
@@ -34,25 +38,25 @@
 #'
 #' @examples
 #' \donttest{
-#'  res_acer <- search_nodes("Acer")
-#'  res_926 <- search_nodes(list(network_id = 926))
+#' res_acer <- search_nodes("Acer")
+#' res_926 <- search_nodes(list(network_id = 926))
 #' }
 #' @export
 
 search_nodes <- function(query, ...) {
-
   query <- handle_query(query, c("original_name", "node_level", "network_id"))
 
   nodes <- rmangal_request(
-    endpoint = "node", query = query,  ...)$body |>
+    endpoint = "node", query = query, ...
+  )$body |>
     resp_to_df_flt()
 
-  if (all(dim(nodes) == 1))
+  if (all(dim(nodes) == 1)) {
     return(data.frame())
+  }
 
   nodes <- nodes[, names(nodes)[names(nodes) != "taxonomy"]]
 
   class(nodes) <- append(class(nodes), "mgSearchNodes")
   nodes
-
 }

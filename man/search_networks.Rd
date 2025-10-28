@@ -10,12 +10,16 @@ search_networks(query, ...)
 search_networks_sf(query_sf, ...)
 }
 \arguments{
-\item{query}{either a character string including a single keyword or a named list containing a custom query (see details section below), or a spatial object (see the description of \code{query_sf}).
-Note that if an empty character string is passed, then all datasets available are returned.}
+\item{query}{either a character string including a single keyword or a named
+list containing a custom query (see details section below), or a spatial
+object (see the description of \code{query_sf}).
+Note that if an empty character string is passed, then all datasets
+available are returned.}
 
 \item{...}{ignored}
 
-\item{query_sf}{a spatial object of class \code{sf} used to search in a specific geographical area.}
+\item{query_sf}{a spatial object of class \code{sf} used to search in a specific
+geographical area.}
 }
 \value{
 An object of class \code{mgSearchNetworks}, which is a \code{data.frame} object with all networks informations
@@ -25,23 +29,27 @@ Search over all networks using a keyword, a custom query or a spatial object
 If the \code{query} is a character string, then all character columns in the table
 are searched and the entries for which at least one
 partial match was found are returned.
-Alternatively, a named list can be used to look for an exact match in a specific column (see Details section)
+Alternatively, a named list can be used to look for an exact match in a
+specific column (see Details section)
 }
 \details{
 Names of the list should match one of the column names within the table.
 For the \code{networks} table, those are
 \itemize{
 \item id: unique identifier of the network;
-\item all_interactions: false interaction can be considered as real false interaction
+\item all_interactions: false interaction can be considered as real false
+interaction
 \item dataset_id: the identifier of the dataset;
 \item public: network publicly available;
 }
 
-Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
+Note that for lists with more than one element, only the first element is
+used, the others are ignored. An example is provided below.
 }
 \section{Functions}{
 \itemize{
-\item \code{search_networks_sf()}: Search networks within a spatial object passed as an argument. Note that \code{sf} must be installed to use this function.
+\item \code{search_networks_sf()}: Search networks within a spatial object passed
+as an argument. Note that \code{sf} must be installed to use this function.
 
 }}
 \examples{

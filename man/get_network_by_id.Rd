@@ -24,9 +24,11 @@ get_network_by_id_indiv(id, as_sf = FALSE)
 \arguments{
 \item{ids}{a vector of Mangal ID for networks (\code{numeric}).}
 
-\item{as_sf}{a logical. Should networks metadata be converted into an sf object? Note that to use this feature \code{sf} must be installed.}
+\item{as_sf}{a logical. Should networks metadata be converted into an sf
+object? Note that to use this feature \code{sf} must be installed.}
 
-\item{force_collection}{a logical. Should the output to be of class  \code{mgNetworksCollection} even if it includes only one network.}
+\item{force_collection}{a logical. Should the output to be of class
+\code{mgNetworksCollection} even if it includes only one network.}
 
 \item{id}{a single ID network (\code{numeric}).}
 
@@ -39,14 +41,16 @@ get_network_by_id_indiv(id, as_sf = FALSE)
 \value{
 A \code{mgNetwork} object includes five data frames:
 \itemize{
-\item network: includes all generic information on the network (if \code{as_sf=TRUE} then it is an object of class \code{sf});
+\item network: includes all generic information on the network (if \code{as_sf=TRUE}
+then it is an object of class \code{sf});
 \item nodes: information pertaining to nodes (includes taxonomic information);
 \item interactions: includes ecological interactions and their attributes;
 \item dataset: information pertaining to the original dataset;
 \item reference: details about the original publication.
 }
 
-A summary method is available for objects of class \code{mgNetwork} object and returns the following network properties:
+A summary method is available for objects of class \code{mgNetwork} object and
+returns the following network properties:
 \itemize{
 \item the number of nodes;
 \item the number of edges;

@@ -52,7 +52,7 @@ fill_df <- function(x, nms) {
 }
 
 resp_to_spatial <- function(x, as_sf = FALSE) {
-  x  <- null_to_na(x)
+  x <- null_to_na(x)
   if (length(x) == 1 && is.na(x)) {
     x
   } else {
@@ -138,7 +138,6 @@ get_from_fkey_flt <- function(endpoint, ...) {
     endpoint = endpoint, query = list(...)
   )$body |> resp_to_df_flt()
 }
-
 
 
 # message

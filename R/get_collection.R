@@ -17,8 +17,8 @@
 #'
 #' @examples
 #' \donttest{
-#'  mg_2 <- get_collection(c(1076:1077))
-#'  mg_anemone <- get_collection(search_networks(query='anemone%'))
+#' mg_2 <- get_collection(c(1076:1077))
+#' mg_anemone <- get_collection(search_networks(query = "anemone%"))
 #' }
 #' @export
 

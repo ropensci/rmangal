@@ -7,15 +7,21 @@
 #' Alternatively, a named list can be used to look for an exact match in a
 #' specific column (see Details).
 #'
-#' @param query either a character string including a single keyword or a named list containing a custom query (see details section below).
-#' Note that if an empty character string is passed, then all datasets available are returned.
-#' @param type a `character` one of the interactions type available (see details). Note that `query` is ignored if `type` is used.
-#' @param expand_node a logical. Should the function returned extra information pertaining to nodes? Default is set to `FALSE`, which means that only the Mangal IDs of nodes are returned.
+#' @param query either a character string including a single keyword or a named
+#' list containing a custom query (see details section below). Note that if an
+#' empty character string is passed, then all datasets available are returned.
+#' @param type a `character` one of the interactions type available (see
+#' details). Note that `query` is ignored if `type` is used.
+#' @param expand_node a logical. Should the function returned extra information
+#' pertaining to nodes? Default is set to `FALSE`, which means that only the
+#' Mangal IDs of nodes are returned.
 #' @param ... ignored.
 #'
 #' @return
-#' An object of class `mgSearchInteractions`, i.e. a `data.frame` object including interactions.
-#' All networks in which interactions are involved are also attached to the `data.frame`.
+#' An object of class `mgSearchInteractions`, i.e. a `data.frame` object
+#' including interactions.
+#' All networks in which interactions are involved are also attached to the
+#' `data.frame`.
 #'
 #' @details
 #' Names of the list should match one of the column names within the table.

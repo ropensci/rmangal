@@ -7,8 +7,10 @@
 search_nodes(query, ...)
 }
 \arguments{
-\item{query}{either a character string including a single keyword or a named list containing a custom query (see details section below).
-Note that if an empty character string is passed, then all datasets available are returned.}
+\item{query}{either a character string including a single keyword or a named
+list containing a custom query (see details section below).
+Note that if an empty character string is passed, then all datasets
+available are returned.}
 
 \item{...}{ignored.}
 }
@@ -22,7 +24,8 @@ Search for networks by querying the nodes table.
 If the \code{query} is a character string, then all character columns in the table
 are searched and the entries for which at least one
 partial match was found are returned.
-Alternatively, a named list can be used to look for an exact match in a specific column (see Details section)
+Alternatively, a named list can be used to look for an exact match in a
+specific column (see Details section)
 }
 \details{
 Names of the list should match one of the column names within the table.
@@ -34,12 +37,13 @@ For the \code{networks} table, those are:
 \item network_id: Mangal network identifier.
 }
 
-Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
+Note that for lists with more than one element, only the first element is
+used, the others are ignored. An example is provided below.
 }
 \examples{
 \donttest{
- res_acer <- search_nodes("Acer")
- res_926 <- search_nodes(list(network_id = 926))
+res_acer <- search_nodes("Acer")
+res_926 <- search_nodes(list(network_id = 926))
 }
 }
 \references{
