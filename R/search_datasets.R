@@ -48,43 +48,31 @@
 
 search_datasets <- function(query, ...) {
   query <- handle_query(query, c("id", "name", "date", "description", "ref_id"))
-  datasets <- rmangal_request(
-    endpoint = "dataset", query = query, ...
-  )$body |>
+  datasets <- rmangal_request(endpoint = "dataset", query = query, ...)$body |>
     resp_to_df()
 
   if (is.null(datasets)) {
     rmangal_inform("No dataset found.")
     return(data.frame())
   } else {
-    rmangal_inform("Found {nrow(datasets)} dataset{?s}")
+    rmangal_inform("Found {nrow(datasets)} dataset{?s}.")
   }
 
   # Attached references and networks
   # No need for test because if NULL function stopped above
-  references <- networks <- list()
-  for (i in seq_len(nrow(datasets))) {
-    # Appending networks adding progress bar
-    tmp_network <- rmangal_request(
-      "network",
-      query = list(dataset_id = datasets$ref_id[i])
-    )$body
-    if (is.null(tmp_network)) {
-      networks[[i]] <- NA
-    } else {
-      networks[[i]] <- tmp_network[[1]] |> resp_to_spatial()
-    }
+  datasets$networks <- lapply(
+    datasets$ref_id,
+    \(x) rmangal_request("network", query = list(dataset_id = x))$body |>
+      lapply(resp_to_spatial) |>
+      do.call(what = rbind)
+  )
 
-    # Appending references
-    references[[i]] <- rmangal_request_singleton(
-      "reference",
-      id = datasets$ref_id[i]
-    )$body |>
+  datasets$references <- lapply(
+    datasets$ref_id,
+    \(x) rmangal_request_singleton("reference", id = x)$body |>
       null_to_na() |>
       as.data.frame()
-  }
-  datasets$references <- references
-  datasets$networks <- networks
+  )
 
   class(datasets) <- c("tbl_df", "tbl", "data.frame", "mgSearchDatasets")
   datasets

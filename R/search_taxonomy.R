@@ -23,7 +23,6 @@
 #' (<http://www.boldsystems.org>).
 #' @param ncbi a `numeric`. Unique taxonomic identifier from National Center
 #' for Biotechnology Information (<https://www.ncbi.nlm.nih.gov>).
-#' @param verbose a `logical`. Should extra information be reported on progress?
 #' @param ... ignored.
 #'
 #' @details
@@ -60,7 +59,7 @@
 
 search_taxonomy <- function(
     query, tsn = NULL, gbif = NULL, eol = NULL,
-    col = NULL, bold = NULL, ncbi = NULL, verbose = TRUE, ...) {
+    col = NULL, bold = NULL, ncbi = NULL, ...) {
   # prep query
   req <- Filter(
     Negate(is.null),

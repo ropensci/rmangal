@@ -59,7 +59,9 @@ get_network_by_id_indiv <- function(id, as_sf = FALSE) {
 
   mg_network <- structure(
     list(
-      network = net$body |> resp_to_spatial(as_sf = as_sf)
+      network = net$body |> 
+        lapply(resp_to_spatial, as_sf = as_sf)  |>
+        do.call(what = rbind)
     ),
     class = "mgNetwork"
   )

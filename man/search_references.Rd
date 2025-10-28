@@ -4,15 +4,13 @@
 \alias{search_references}
 \title{Query references}
 \usage{
-search_references(query, doi = NULL, verbose = TRUE, ...)
+search_references(query, doi = NULL, ...)
 }
 \arguments{
 \item{query}{either a character string including a single keyword or a named list containing a custom query (see details section below).
 Note that if an empty character string is passed, then all datasets available are returned.}
 
 \item{doi}{\code{character} a Digital Object Identifier  (DOI) of the article. Note that \code{query} is ignored if \code{doi} is specified.}
-
-\item{verbose}{a \code{logical}. Should extra information be reported on progress?}
 
 \item{...}{ignored.}
 }

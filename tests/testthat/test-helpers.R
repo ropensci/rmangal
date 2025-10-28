@@ -28,5 +28,3 @@ test_that("handle_query works", {
     )
 })
 
-
-

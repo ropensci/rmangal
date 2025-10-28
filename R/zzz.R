@@ -9,7 +9,7 @@
 "_PACKAGE"
 
 
-# NULL to NA
+# NULL to NA recursively
 null_to_na <- function(x) {
   if (is.list(x)) {
     lapply(x, null_to_na)
@@ -51,10 +51,10 @@ fill_df <- function(x, nms) {
   x
 }
 
-
 resp_to_spatial <- function(x, as_sf = FALSE) {
-  if (is.null(x)) {
-    NA
+  x  <- null_to_na(x)
+  if (length(x) == 1 && is.na(x)) {
+    x
   } else {
     dat <- cbind(
       x[!names(x) %in% "geom"] |> as.data.frame(),
