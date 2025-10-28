@@ -58,8 +58,9 @@
 #' @export
 
 search_taxonomy <- function(
-    query, tsn = NULL, gbif = NULL, eol = NULL,
-    col = NULL, bold = NULL, ncbi = NULL, ...) {
+  query, tsn = NULL, gbif = NULL, eol = NULL,
+  col = NULL, bold = NULL, ncbi = NULL, ...
+) {
   # prep query
   req <- Filter(
     Negate(is.null),
@@ -90,15 +91,13 @@ search_taxonomy <- function(
         ...
       )
     }))
-    # Store network ids
-    network_ids <- nodes$network_id
   } else {
     rmangal_inform("No taxon found.")
     return(data.frame())
   }
 
   rmangal_inform(
-    "Found {nrow(taxa)} tax{?on/a} involved in {nrow(network_ids)} network{?s}"
+    "Found {nrow(taxa)} tax{?on/a} involved in {nrow(nodes)} network{?s}"
   )
 
   class(nodes) <- append(class(nodes), "mgSearchTaxonomy")

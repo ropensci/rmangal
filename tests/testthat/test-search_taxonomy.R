@@ -1,6 +1,6 @@
 test_that("search_taxonomy() default and collection work", {
   vcr::use_cassette(name = "search_taxonomy_default", {
-    res <- search_taxonomy("Azorina vidalii") 
+    res <- search_taxonomy("Azorina vidalii")
     net <- get_collection(res)
   })
   expect_s3_class(res, "mgSearchTaxonomy")
@@ -13,21 +13,21 @@ test_that("search_taxonomy() default and collection work", {
 
 test_that("search_taxonomy() querying specific id works", {
   vcr::use_cassette(name = "search_taxonomy_taxid", {
-    resTsn <- search_taxonomy(tsn = 28749)
-    resNcbi <- search_taxonomy(ncbi = 47966)
-    resEol <- search_taxonomy(eol =  583069)
-    resBold <- search_taxonomy(bold = 100987)
+    res_tsn <- search_taxonomy(tsn = 28749)
+    res_ncbi <- search_taxonomy(ncbi = 47966)
+    res_eol <- search_taxonomy(eol = 583069)
+    res_bold <- search_taxonomy(bold = 100987)
   })
-    expect_equal(resTsn$taxonomy.tsn, 28749)
-    expect_equal(resNcbi$taxonomy.ncbi, 47966)
-    expect_equal(resEol$taxonomy.eol, 583069)
-    expect_equal(resBold$taxonomy.bold, 100987)
-    # All Acer negundo
-    expect_true(identical(resBold, resEol))
-    expect_true(identical(resTsn, resEol))
+  expect_equal(res_tsn$taxonomy.tsn, 28749)
+  expect_equal(res_ncbi$taxonomy.ncbi, 47966)
+  expect_equal(res_eol$taxonomy.eol, 583069)
+  expect_equal(res_bold$taxonomy.bold, 100987)
+  # All Acer negundo
+  expect_true(identical(res_bold, res_eol))
+  expect_true(identical(res_tsn, res_eol))
 })
 
-# 
-# 
+#
+#
 # expect_error(search_taxonomy(tsn = 123, bold = 456))
 # expect_error(search_taxonomy(list(wrong = 123)))

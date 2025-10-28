@@ -101,7 +101,7 @@ do_request <- function(req) {
 rmangal_endpoint_path <- function(endpoint) {
   if (!endpoint %in% rmangal::rmangal_endpoints$name) {
     cli::cli_abort(
-      "Unknown endpoint, see the list of endpoints in 
+      "Unknown endpoint, see the list of endpoints in
       `rmangal::rmangal_endpoints()`"
     )
   }

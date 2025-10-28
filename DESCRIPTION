@@ -27,6 +27,7 @@ URL: https://docs.ropensci.org/rmangal/, https://mangal.io, https://github.com/r
 BugReports: https://github.com/ropensci/rmangal/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
+Language: en-US
 LazyData: true
 Depends: 
     R (>= 4.1)

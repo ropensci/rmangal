@@ -4,21 +4,25 @@
 #' @param id a single ID network (`numeric`).
 #' @param x an object of class `mgNetwork` or `mgNetworksCollection`.
 #' @param object object of of class `mgNetwork` or `mgNetworksCollection`.
-#' @param as_sf a logical. Should networks metadata be converted into an sf object? Note that to use this feature `sf` must be installed.
-#' @param force_collection a logical. Should the output to be of class  `mgNetworksCollection` even if it includes only one network.
+#' @param as_sf a logical. Should networks metadata be converted into an sf
+#' object? Note that to use this feature `sf` must be installed.
+#' @param force_collection a logical. Should the output to be of class
+#' `mgNetworksCollection` even if it includes only one network.
 #' @param ... ignored.
 #'
 #' @rdname get_network_by_id
 #'
 #' @return
 #' A `mgNetwork` object includes five data frames:
-#' * network: includes all generic information on the network (if `as_sf=TRUE` then it is an object of class `sf`);
+#' * network: includes all generic information on the network (if `as_sf=TRUE`
+#' then it is an object of class `sf`);
 #' * nodes: information pertaining to nodes (includes taxonomic information);
 #' * interactions: includes ecological interactions and their attributes;
 #' * dataset: information pertaining to the original dataset;
 #' * reference: details about the original publication.
 #'
-#' A summary method is available for objects of class `mgNetwork` object and returns the following network properties:
+#' A summary method is available for objects of class `mgNetwork` object and
+#' returns the following network properties:
 #' * the number of nodes;
 #' * the number of edges;
 #' * the connectance;
@@ -38,7 +42,7 @@ get_network_by_id <- function(ids, as_sf = FALSE, force_collection = FALSE) {
     cli::cli_warn("length(ids) is 0, an empty dataframe is returned.")
     return(data.frame())
   } else {
-    if (length(ids) == 1 & !force_collection) {
+    if (length(ids) == 1 && !force_collection) {
       get_network_by_id_indiv(ids, as_sf = as_sf)
     } else {
       structure(
@@ -59,8 +63,8 @@ get_network_by_id_indiv <- function(id, as_sf = FALSE) {
 
   mg_network <- structure(
     list(
-      network = net$body |> 
-        lapply(resp_to_spatial, as_sf = as_sf)  |>
+      network = net$body |>
+        lapply(resp_to_spatial, as_sf = as_sf) |>
         do.call(what = rbind)
     ),
     class = "mgNetwork"
@@ -132,7 +136,6 @@ print.mgNetworksCollection <- function(x, ...) {
   }
   invisible(x)
 }
-
 
 
 #' Summarize mgNetwork properties

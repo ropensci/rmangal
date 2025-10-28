@@ -17,8 +17,9 @@ test_that("search_datasets() query and collection work", {
 
 test_that("search_datasets() bad input format", {
   expect_error(
-    search_datasets(query = 2011), 
-    regex = "a list or a character string\\.$")
+    search_datasets(query = 2011),
+    regex = "a list or a character string\\.$"
+  )
 })
 
 test_that("search_datasets() querying via list works", {
@@ -37,5 +38,3 @@ test_that("search_datasets() no match works", {
   expect_s3_class(res, "data.frame")
   expect_equal(dim(res), c(0, 0))
 })
-
-

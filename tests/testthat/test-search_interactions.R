@@ -1,7 +1,7 @@
 test_that("search_interactions() default works", {
   vcr::use_cassette(name = "search_interactions_default", {
     res <- search_interactions(type = "competition")
-    # 
+    #
   })
   expect_equal(dim(res), c(12, 20))
   expect_s3_class(res, "mgSearchInteractions")
@@ -15,7 +15,6 @@ test_that("search_interactions() type and expand_node work", {
   expect_s3_class(res, "mgSearchInteractions")
   expect_equal(dim(res), c(12, 56))
   expect_true(all(res$type == "competition"))
-  
 })
 
 test_that("search_interactions()", {

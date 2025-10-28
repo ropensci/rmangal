@@ -34,5 +34,4 @@ test_that("get_network_by_id() works", {
   expect_equal(length(cbn4), 4)
 
   expect_error(combine_mgNetworks(list(list(mg100))))
-
 })

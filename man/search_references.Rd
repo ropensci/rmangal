@@ -7,10 +7,13 @@
 search_references(query, doi = NULL, ...)
 }
 \arguments{
-\item{query}{either a character string including a single keyword or a named list containing a custom query (see details section below).
-Note that if an empty character string is passed, then all datasets available are returned.}
+\item{query}{either a character string including a single keyword or a named
+list containing a custom query (see details section below).
+Note that if an empty character string is passed, then all datasets
+available are returned.}
 
-\item{doi}{\code{character} a Digital Object Identifier  (DOI) of the article. Note that \code{query} is ignored if \code{doi} is specified.}
+\item{doi}{\code{character} a Digital Object Identifier  (DOI) of the article.
+Note that \code{query} is ignored if \code{doi} is specified.}
 
 \item{...}{ignored.}
 }
@@ -20,11 +23,13 @@ wide range of details associated to the reference, including all datasets
 and networks related to the publication that are included in Mangal database.
 }
 \description{
-Search for a specific reference using a key word or a Digital Object Identifier (DOI).
+Search for a specific reference using a key word or a Digital Object
+Identifier (DOI).
 If the \code{query} is a character string, then all character columns in the table
 are searched and the entries for which at least one
 partial match was found are returned.
-Alternatively, a named list can be used to look for an exact match in a specific column (see Details section).
+Alternatively, a named list can be used to look for an exact match in a
+specific column (see Details section).
 }
 \details{
 Names of the list should match one of the column names within the table.
@@ -37,7 +42,8 @@ For the \code{reference} table, those are:
 \item year: year of publication.
 }
 
-Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
+Note that for lists with more than one element, only the first element is
+used, the others are ignored. An example is provided below.
 }
 \examples{
 \donttest{
