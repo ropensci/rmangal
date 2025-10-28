@@ -5,6 +5,7 @@ test_that("get_collection() queries by id work", {
   expect_equal(res0[[1]]$network$network_id, 1035)
   expect_s3_class(res0, "mgNetworksCollection")
   expect_equal(length(res0), 2)
+  expect_snapshot(res0)
 })
 
 ## NB: other methods for get_collection() are tested in other files to

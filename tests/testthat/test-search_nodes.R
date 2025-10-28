@@ -4,6 +4,7 @@ test_that("search_nodes() default works", {
   })
   expect_s3_class(res, "mgSearchNodes")
   expect_true(all(dim(res) == c(5, 18)))
+  expect_snapshot(res)
 })
 
 

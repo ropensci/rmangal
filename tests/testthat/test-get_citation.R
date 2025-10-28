@@ -9,4 +9,6 @@ test_that("get_citation() works", {
   expect_true(grepl("^@article", ref))
   expect_true(grepl("^@article", ref2[1]))
   expect_true(grepl("^@book", ref2[2]))
+  expect_snapshot(ref)
+  expect_snapshot(netws)
 })

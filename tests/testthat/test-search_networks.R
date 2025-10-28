@@ -10,6 +10,7 @@ test_that("search_networks() default and collection work", {
   # at least one network per dataset
   expect_true(length(resc) == nrow(res1))
   expect_equal(names(resc[[1L]]), nm_co)
+  expect_snapshot(res1)
 })
 
 test_that("search_networks_sf() spatial queries work", {
