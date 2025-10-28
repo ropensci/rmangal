@@ -5,6 +5,7 @@ test_that("search_interactions() default works", {
   })
   expect_equal(dim(res), c(12, 20))
   expect_s3_class(res, "mgSearchInteractions")
+  expect_snapshot(res)
 })
 
 test_that("search_interactions() type and expand_node work", {

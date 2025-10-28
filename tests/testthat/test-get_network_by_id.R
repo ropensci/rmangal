@@ -1,7 +1,8 @@
 # Prep test on mgNetwork
 test_that("get_network_by_id() works", {
-  vcr::use_cassette("mg100", {
+  vcr::use_cassette("get_network_by_id", {
     mg100 <- get_network_by_id(100)
+    mg_100c <- get_network_by_id(id = 100, force_collection = TRUE)
   })
   expect_s3_class(mg100, "mgNetwork")
   expect_equal(mg100$network$network_id, 100)
@@ -15,7 +16,10 @@ test_that("get_network_by_id() works", {
   expect_equal(ncol(smy$nodes_summary), 4)
   expect_equal(smy$n_edges, length(igraph::E(net_100)))
   expect_equal(smy$n_nodes, length(igraph::V(net_100)))
+  expect_snapshot(mg100)
 
+  expect_s3_class(mg_100c, "mgNetworksCollection")
+  expect_snapshot(mg_100c)
 
   cbn <- combine_mgNetworks(mg100, mg100)
   expect_s3_class(cbn, "mgNetworksCollection")
