@@ -15,7 +15,7 @@ get_network_by_id_indiv(id, as_sf = FALSE)
 
 \method{print}{mgNetwork}(x, ...)
 
-\method{print}{mgNetworksCollection}(x, ...)
+\method{print}{mgNetworksCollection}(x, n = 6, ...)
 
 \method{summary}{mgNetwork}(object, ...)
 
@@ -35,6 +35,8 @@ object? Note that to use this feature \code{sf} must be installed.}
 \item{x}{an object of class \code{mgNetwork} or \code{mgNetworksCollection}.}
 
 \item{...}{ignored.}
+
+\item{n}{maximum number of networks to display.}
 
 \item{object}{object of of class \code{mgNetwork} or \code{mgNetworksCollection}.}
 }

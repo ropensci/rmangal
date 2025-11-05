@@ -2,8 +2,7 @@
 
 [![](https://badges.ropensci.org/332_status.svg)](https://github.com/ropensci/software-review/issues/332)
 [![R CMD Check](https://github.com/ropensci/rmangal/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ropensci/rmangal/actions/workflows/R-CMD-check.yaml)
-[![lint](https://github.com/ropensci/rmangal/actions/workflows/lint.yaml/badge.svg)](https://github.com/ropensci/rmangal/actions/workflows/lint.yaml)
-[![codecov](https://app.codecov.io/gh/ropensci/rmangal/branch/master/graph/badge.svg?token=lGqUVLM2o3)](https://app.codecov.io/gh/ropensci/ropensci/rmangal)
+[![codecov](https://codecov.io/gh/ropensci/rmangal/graph/badge.svg?token=lGqUVLM2o3)](https://codecov.io/gh/ropensci/rmangal)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![CRAN status](https://www.r-pkg.org:443/badges/version/rmangal)](https://CRAN.R-project.org/package=rmangal)
 
@@ -14,11 +13,11 @@
 serializes ecological interaction matrices into nodes (e.g. taxon, individuals
 or population) and interactions (i.e. edges). For each network, Mangal offers
 the opportunity to store study context such as the location, sampling
-environment, inventory date and informations pertaining to the original
+environment, inventory date and information pertaining to the original
 publication. For every nodes involved in the ecological networks, Mangal
 references unique taxonomic identifiers such as Encyclopedia of Life (EOL),
 Catalogue of Life (COL), Global Biodiversity Information Facility (GBIF) etc.
-and can extend nodes informations to individual traits.
+and can extend nodes information to individual traits.
 
 **rmangal** is an R client to the Mangal database and provides various functions
 to explore his content through search functions. It offers methods to retrieve
@@ -109,6 +108,24 @@ R> class(tg)
 :book: Note that the vignette ["Get started with
 rmangal"](https://docs.ropensci.org/rmangal/articles/rmangal.html) will guide
 the reader through several examples and provide further details about **rmangal** features.
+
+
+## Verbosity 
+
+Since `rmangal` version 2.2, the function verbosity is controlled by the option
+`rmangal.verbose`. To quiet all rmangal function, use: 
+
+```R
+options(rmangal.verbose = "quiet")
+```
+
+and to switch on the verbosity do:
+
+```R
+options(rmangal.verbose = "verbose")
+```
+
+
 
 ## How to publish ecological networks
 

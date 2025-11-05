@@ -1,5 +1,7 @@
 # rmangal (devel)
 
+* `print.mgNetworksCollection()` gains an argument `n` to control the number of 
+networks displayed.
 * The option `rmangal.verbose` controls the verbosity of the package (see #116).
 * The core of the client has been rewritten using `httr2`, `httr` and `memoise`
 has been removed from the dependency list. The new function `rmangal_request()` is now the main internal request function using `httr2` (see #106).

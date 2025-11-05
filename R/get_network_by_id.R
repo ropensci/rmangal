@@ -117,22 +117,27 @@ print.mgNetwork <- function(x, ...) {
   )
   print_taxo_ids(x$nodes)
   print_pub_info(x$reference)
-  cli::cli_text("")
   invisible(x)
 }
 
 #' @rdname get_network_by_id
 #' @method print mgNetworksCollection
+#' @param n maximum number of networks to display.
 #' @export
-print.mgNetworksCollection <- function(x, ...) {
-  cli::cli_h1("Network Collection")
-  cli::cli_text("{cli::col_green(length(x))} network{?s} in collection")
-  cli::cli_text("")
-  nb <- min(length(x), 6)
+print.mgNetworksCollection <- function(x, n = 6, ...) {
+  cli::cli_h2("Network Collection")
+  cli::cli_text(
+    "{cli::pluralize('{length(x)} network{?s}') |> cli::col_green()}
+    in collection"
+  )
+  nb <- min(length(x), n)
   for (i in seq_len(nb)) print(x[[i]])
-  if (length(x) > 6) {
-    cli::cli_text("{cli::col_grey('{length(x) - 6} network{?s} not shown')}")
-    cli::cli_text("")
+  if (length(x) > n) {
+    cli::pluralize("# {cli::symbol$info} {length(x) - n} network{?s} not shown.") |>
+      cli::col_grey() |>
+      cli::cli_text()
+    cli::col_grey("# Use `print(..., n = )` 'to show more networks.") |>
+      cli::cli_text()
   }
   invisible(x)
 }
