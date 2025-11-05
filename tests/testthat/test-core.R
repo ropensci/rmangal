@@ -3,8 +3,9 @@ test_that("rmangal_request() works", {
   vcr::use_cassette(name = "rmangal_request", {
     lag <- rmangal_request(endpoint = "network", query = "lagoon")
     lag_hc <- rmangal_request(
-      endpoint = "network",
-      query = "Dietary matrix of the Huizache–Caimanero lagoon"
+      endpoint = "network", 
+      query = "Dietary matrix of the Huizache–Caimanero lagoon",
+      cache = TRUE
     )
   })
   expect_true(inherits(lag, "mgGetResponses"))

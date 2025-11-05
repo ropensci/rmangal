@@ -10,7 +10,7 @@ rmangal_api_url <- function(base = "https://mangal.io/api", version = "v2") {
 }
 
 
-rmangal_request <- function(endpoint = "", query = NULL, limit = 100, ...) {
+rmangal_request <- function(endpoint = "", query = NULL, limit = 100, cache = FALSE, ...) {
   if (is.character(query)) query <- list(q = query)
 
   req <- rmangal_api_url() |>
@@ -18,9 +18,9 @@ rmangal_request <- function(endpoint = "", query = NULL, limit = 100, ...) {
     httr2::req_user_agent("rmangal") |>
     httr2::req_url_query(!!!c(query, count = limit)) |>
     httr2::req_headers("Content-type" = "application/json") |>
-    # httr2::req_cache(tempdir()) |>
-    # httr2::req_throttle()  |>
-    httr2::req_error(is_error = \(resp) FALSE)
+    httr2::req_error(is_error = \(resp) FALSE) |>
+    cache_request(cache)
+
 
   resp <- do_request(req)
   if (is.null(resp)) {
@@ -56,15 +56,15 @@ rmangal_request <- function(endpoint = "", query = NULL, limit = 100, ...) {
 }
 
 
-rmangal_request_singleton <- function(endpoint = "", id, ...) {
+rmangal_request_singleton <- function(endpoint = "", id, cache = FALSE, ...) {
   stopifnot(length(id) == 1)
   req <- rmangal_api_url() |>
     httr2::req_url_path_append(rmangal_endpoint_path(endpoint)) |>
     httr2::req_url_path_append(id) |>
     httr2::req_user_agent("rmangal") |>
     httr2::req_headers("Content-type" = "application/json") |>
-    # httr2::req_cache(tempdir()) |>
-    httr2::req_error(is_error = \(resp) FALSE)
+    httr2::req_error(is_error = \(resp) FALSE) |>
+    cache_request(cache)
 
   resp <- do_request(req)
   if (is.null(resp)) {
@@ -98,6 +98,8 @@ do_request <- function(req) {
   resp
 }
 
+
+
 rmangal_endpoint_path <- function(endpoint) {
   if (!endpoint %in% rmangal::rmangal_endpoints$name) {
     cli::cli_abort(
@@ -126,4 +128,17 @@ handle_query <- function(query, names_available) {
     )
   }
   query
+}
+
+
+cache_request <- function(req, cache) {
+  if (!isFALSE(cache)) {
+    if (isTRUE(cache)) {
+      req |> httr2::req_cache(tempdir())
+    } else {
+      req |> httr2::req_cache(cache)
+    }
+  } else {
+    req
+  }
 }
