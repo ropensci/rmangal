@@ -11,7 +11,7 @@
     Code
       print_pub_info(list(doi = 2, id = 1))
     Message
-      * Published in reference #{x$id} DOI: 2
+      * Published in reference #1 DOI: 2
 
 ---
 
@@ -19,9 +19,8 @@
       print_net_info(1, 1, 1, 1, 1)
     Message
       
-      -- Network #{net_id} --
-      
-      * Dataset: #{dat_id}
+      -- Network #1 
+      * Dataset: #1
       * Description: 1
       * Size: 1 edge, 1 node
 

@@ -10,7 +10,7 @@ rmangal_api_url <- function(base = "https://mangal.io/api", version = "v2") {
 }
 
 
-rmangal_request <- function(endpoint = "", query = NULL, limit = 100, cache = FALSE, ...) {
+rmangal_request <- function(endpoint, query = NULL, limit = 100, cache = FALSE, ...) {
   if (is.character(query)) query <- list(q = query)
 
   req <- rmangal_api_url() |>
@@ -97,7 +97,6 @@ do_request <- function(req) {
   }
   resp
 }
-
 
 
 rmangal_endpoint_path <- function(endpoint) {
