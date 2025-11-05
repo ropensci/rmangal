@@ -114,7 +114,7 @@ the reader through several examples and provide further details about **rmangal*
 
 We are working on that part. The networks publication process will be
 facilitated with structured objects and tests suite to maintain data integrity
-and quality.Comments and suggestions are welcome, feel free to open issues.
+and quality. Comments and suggestions are welcome, feel free to open issues.
 
 ## `rmangal` vs `rglobi`
 
