@@ -16,13 +16,15 @@ object (see the description of \code{query_sf}).
 Note that if an empty character string is passed, then all datasets
 available are returned.}
 
-\item{...}{ignored}
+\item{...}{Further arguments passed to \code{\link[=rmangal_request]{rmangal_request()}}, including the
+argument \code{cache} that allow requests caching.}
 
 \item{query_sf}{a spatial object of class \code{sf} used to search in a specific
 geographical area.}
 }
 \value{
-An object of class \code{mgSearchNetworks}, which is a \code{data.frame} object with all networks informations
+An object of class \code{mgSearchNetworks}, which is a \code{data.frame} object with
+all networks information.
 }
 \description{
 Search over all networks using a keyword, a custom query or a spatial object

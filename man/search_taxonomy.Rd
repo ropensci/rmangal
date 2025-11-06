@@ -37,7 +37,8 @@ Life (\url{https://eol.org}).}
 \item{ncbi}{a \code{numeric}. Unique taxonomic identifier from National Center
 for Biotechnology Information (\url{https://www.ncbi.nlm.nih.gov}).}
 
-\item{...}{ignored.}
+\item{...}{Further arguments passed to \code{\link[=rmangal_request]{rmangal_request()}}, including the
+argument \code{cache} that allow requests caching.}
 }
 \value{
 An object of class \code{mgSearchTaxonomy}, which is a \code{data.frame} including
