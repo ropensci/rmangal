@@ -82,3 +82,10 @@
       11             NA 2019-02-21T21:17:01.496Z 2021-11-02T20:32:33.821Z
       12             NA 2019-02-21T21:17:01.496Z 2021-11-02T20:32:33.821Z
 
+# search_interactions() handles 404
+
+    Code
+      res1 <- search_interactions(query = "this_is_wrong")
+    Message
+      No interactions found.
+

@@ -27,7 +27,9 @@ test_that("search_taxonomy() querying specific id works", {
   expect_true(identical(res_tsn, res_eol))
 })
 
-#
-#
-# expect_error(search_taxonomy(tsn = 123, bold = 456))
-# expect_error(search_taxonomy(list(wrong = 123)))
+test_that("search_taxonomy() handles 404", {
+  vcr::use_cassette(name = "search_taxonomy_404", {
+    expect_snapshot(res1 <- search_references(query = "this_is_wrong"))
+  })
+  expect_identical(res1, data.frame())
+})

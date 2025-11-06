@@ -20,7 +20,6 @@ PhantomJS
 README
 RESTful
 ROpenSci
-S3
 TNRS
 TSN
 URIs
@@ -28,6 +27,7 @@ Willoughby
 amensalism
 attr
 codecov
+commensalism
 connectance
 crossref
 detritivore
@@ -42,8 +42,11 @@ lintr
 mangal
 mgNetwork
 mgNetworksCollection
+mutualism
+precomputed
+predation
 rofooter
 taxize
 tidyverse
 tsn
-v2
+undirected

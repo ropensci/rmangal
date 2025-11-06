@@ -34,3 +34,8 @@
       4 2019-02-22T00:31:52.729Z 2019-06-14T15:24:57.854Z
       5 2019-02-22T00:31:53.328Z 2019-06-14T15:24:58.251Z
 
+# search_networks() handles 404
+
+    Code
+      res1 <- search_nodes(query = "this_is_wrong")
+

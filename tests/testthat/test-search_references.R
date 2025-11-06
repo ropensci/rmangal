@@ -18,6 +18,9 @@ test_that("search_references() using list works", {
   expect_equal(res$jstor, "3683041")
 })
 
-# something weird with jstor output compare the 1st and 2nd query
-# res3 <- suppressWarnings(search_references(doi = c("ok", "ok")))
-# res4 <- search_references(list(year = 2010))
+test_that("search_references() handles 404", {
+  vcr::use_cassette(name = "search_references_404", {
+    expect_snapshot(res1 <- search_references(query = "this_is_wrong"))
+  })
+  expect_identical(res1, data.frame())
+})
