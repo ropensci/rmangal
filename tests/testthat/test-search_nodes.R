@@ -18,3 +18,11 @@ test_that("search_nodes() find 926 and get collection", {
   expect_true(all(dim(res) == c(13, 18)))
   expect_true(all(names(net[[1]]) == nm_co))
 })
+
+
+test_that("search_networks() handles 404", {
+  vcr::use_cassette(name = "search_nodes_404", {
+    expect_snapshot(res1 <- search_nodes(query = "this_is_wrong"))
+  })
+  expect_identical(res1, data.frame())
+})

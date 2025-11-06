@@ -5,3 +5,10 @@
     Message
       No dataset found.
 
+# search_datasets() handles 404
+
+    Code
+      res1 <- search_datasets(query = "this_is_wrong")
+    Message
+      No dataset found.
+

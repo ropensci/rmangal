@@ -20,3 +20,10 @@
       2     Point -100.3656 17.06915
       3     Point -100.3656 17.06915
 
+# search_networks() handles 404
+
+    Code
+      res1 <- search_networks(query = "this_is_wrong")
+    Message
+      No network found.
+

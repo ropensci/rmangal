@@ -29,3 +29,11 @@ test_that("search_interactions()", {
   expect_s3_class(resc, "mgNetworksCollection")
   expect_equal(names(resc[[1L]]), nm_co)
 })
+
+
+test_that("search_interactions() handles 404", {
+  vcr::use_cassette(name = "search_interactions_404", {
+    expect_snapshot(res1 <- search_interactions(query = "this_is_wrong"))
+  })
+  expect_identical(res1, data.frame())
+})

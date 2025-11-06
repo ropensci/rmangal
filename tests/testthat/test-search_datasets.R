@@ -38,3 +38,11 @@ test_that("search_datasets() no match works", {
   expect_s3_class(res, "data.frame")
   expect_equal(dim(res), c(0, 0))
 })
+
+
+test_that("search_datasets() handles 404", {
+  vcr::use_cassette(name = "search_datasets_404", {
+    expect_snapshot(res1 <- search_datasets(query = "this_is_wrong"))
+  })  
+  expect_identical(res1, data.frame())
+})

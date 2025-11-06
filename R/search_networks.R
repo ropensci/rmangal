@@ -17,7 +17,8 @@
 #' @param ... ignored
 #'
 #' @return
-#' An object of class `mgSearchNetworks`, which is a `data.frame` object with all networks informations
+#' An object of class `mgSearchNetworks`, which is a `data.frame` object with 
+#' all networks information.
 #'
 #' @details
 #' Names of the list should match one of the column names within the table.
