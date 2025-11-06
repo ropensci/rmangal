@@ -9,7 +9,7 @@ test_that("get_network_by_id() works", {
 
   net_100 <- as.igraph(mg100)
   expect_s3_class(net_100, "igraph")
-  expect_error(suppressMessages(get_network_by_id(id = 999999)))
+  expect_error(get_network_by_id(id = "wrong"), "All ids must be integers")
 
   smy <- summary(mg100)
   expect_equal(length(smy), 5)
@@ -38,4 +38,14 @@ test_that("get_network_by_id() works", {
   expect_equal(length(cbn4), 4)
 
   expect_error(combine_mgNetworks(list(list(mg100))))
+})
+
+
+test_that("get_network_by_id() handles 404", {
+  vcr::use_cassette("get_network_by_id_404", {
+    expect_snapshot(res <- get_network_by_id(id = c(18, 100000000)))
+  })
+
+  expect_s3_class(res, "mgNetworksCollection")
+  expect_identical(length(res), 1L)
 })

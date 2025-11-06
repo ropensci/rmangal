@@ -22,7 +22,7 @@ get_network_by_id_indiv(id, as_sf = FALSE)
 \method{summary}{mgNetworksCollection}(object, ...)
 }
 \arguments{
-\item{ids}{a vector of Mangal ID for networks (\code{numeric}).}
+\item{ids}{a vector of Mangal ID for networks (\code{integer}).}
 
 \item{as_sf}{a logical. Should networks metadata be converted into an sf
 object? Note that to use this feature \code{sf} must be installed.}
@@ -30,7 +30,7 @@ object? Note that to use this feature \code{sf} must be installed.}
 \item{force_collection}{a logical. Should the output to be of class
 \code{mgNetworksCollection} even if it includes only one network.}
 
-\item{id}{a single ID network (\code{numeric}).}
+\item{id}{a single ID network (``integer`).}
 
 \item{x}{an object of class \code{mgNetwork} or \code{mgNetworksCollection}.}
 

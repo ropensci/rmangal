@@ -30,3 +30,10 @@
       ITIS: 71%, BOLD: 64%, EOL: 71%, COL: 57%, GBIF: 29%, NCBI: 71%
       * Published in reference # DOI: NA
 
+# get_network_by_id() handles 404
+
+    Code
+      res <- get_network_by_id(id = c(18, 1e+08))
+    Message
+      x network id 100000000 not found.
+
