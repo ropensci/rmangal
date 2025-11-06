@@ -1,7 +1,7 @@
 #' Retrieve network information, nodes, edges and references for a given set of Mangal network IDs
 #'
-#' @param ids a vector of Mangal ID for networks (`numeric`).
-#' @param id a single ID network (`numeric`).
+#' @param ids a vector of Mangal ID for networks (`integer`).
+#' @param id a single ID network (``integer`).
 #' @param x an object of class `mgNetwork` or `mgNetworksCollection`.
 #' @param object object of of class `mgNetwork` or `mgNetworksCollection`.
 #' @param as_sf a logical. Should networks metadata be converted into an sf
@@ -38,15 +38,21 @@
 #' @export
 
 get_network_by_id <- function(ids, as_sf = FALSE, force_collection = FALSE) {
+
+  ids <- suppressWarnings(as.integer(ids))
+  if (any(is.na(ids))) {
+    cli::cli_abort("All ids must be integers")
+  }
   if (!length(ids)) {
-    cli::cli_warn("length(ids) is 0, an empty dataframe is returned.")
+    cli::cli_warn("`length(ids) == 0`, an empty data frame is returned.")
     return(data.frame())
   } else {
     if (length(ids) == 1 && !force_collection) {
       get_network_by_id_indiv(ids, as_sf = as_sf)
     } else {
       structure(
-        lapply(ids, get_network_by_id_indiv, as_sf = as_sf),
+        lapply(ids, get_network_by_id_indiv, as_sf = as_sf)  |>
+          Filter(f = Negate(is.null)),
         class = "mgNetworksCollection"
       )
     }
@@ -57,38 +63,39 @@ get_network_by_id <- function(ids, as_sf = FALSE, force_collection = FALSE) {
 #' @describeIn get_network_by_id Retrieve a network by its collection of networks (default).
 #' @export
 get_network_by_id_indiv <- function(id, as_sf = FALSE) {
-  id <- as.numeric(id)
-  stopifnot(length(id) == 1 & !is.na(id))
-  net <- rmangal_request_singleton("network", id = id)
-
-  mg_network <- structure(
-    list(
-      network = net$body |>
-        lapply(resp_to_spatial, as_sf = as_sf) |>
-        do.call(what = rbind)
-    ),
-    class = "mgNetwork"
-  )
-
-  if (is.null(mg_network$network)) {
-    cli::cli_abort("network id {id} not found.")
+  id <- suppressWarnings(as.integer(id))
+  stopifnot(length(id) == 1)
+  if (is.na(id)) {
+    cli::cli_alert_danger("`id` must be an integer")
   }
 
+  net <- suppressMessages(rmangal_request_singleton("network", id = id))
+
+  if (is.null(net)) {
+    cli::cli_alert_danger("network id {id} not found.")
+    return(NULL)
+  }
+
+  mg_network <- structure(
+    list(network = net$body |>
+        lapply(resp_to_spatial, as_sf = as_sf) |>
+        do.call(what = rbind)),
+    class = "mgNetwork"
+  )
+  #
   mg_network$nodes <- get_from_fkey_flt("node",
     network_id = mg_network$network$id
   )
-
+  #
   mg_network$interactions <- get_from_fkey_flt("interaction",
     network_id = mg_network$network$id
   )
-
-  # retrieve dataset informations
+  # retrieve dataset information
   mg_network$dataset <- rmangal_request_singleton("dataset",
     id = unique(mg_network$network$dataset_id)
   )$body |>
     list() |>
     resp_to_df()
-
   # retrieve reference
   mg_network$reference <- rmangal_request_singleton("reference",
     id = unique(mg_network$dataset$ref_id)
@@ -96,13 +103,12 @@ get_network_by_id_indiv <- function(id, as_sf = FALSE) {
     list() |>
     resp_to_df()
 
-
   # Renames ids columns
-  names(mg_network$network)[1] <- "network_id"
-  names(mg_network$nodes)[1] <- "node_id"
-  names(mg_network$interactions)[1] <- "interaction_id"
-  names(mg_network$dataset)[1] <- "dataset_id"
-  names(mg_network$reference)[1] <- "ref_id"
+  names(mg_network$network)[1L] <- "network_id"
+  names(mg_network$nodes)[1L] <- "node_id"
+  names(mg_network$interactions)[1L] <- "interaction_id"
+  names(mg_network$dataset)[1L] <- "dataset_id"
+  names(mg_network$reference)[1L] <- "ref_id"
 
   mg_network
 }
