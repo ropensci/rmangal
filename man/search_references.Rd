@@ -8,14 +8,14 @@ search_references(query, doi = NULL, ...)
 }
 \arguments{
 \item{query}{either a character string including a single keyword or a named
-list containing a custom query (see details section below).
-Note that if an empty character string is passed, then all datasets
-available are returned.}
+list containing a custom query (see details section below). Note that if an
+empty character string is passed, then all available entries are returned.}
 
 \item{doi}{\code{character} a Digital Object Identifier  (DOI) of the article.
 Note that \code{query} is ignored if \code{doi} is specified.}
 
-\item{...}{ignored.}
+\item{...}{Further arguments passed to \code{\link[=rmangal_request]{rmangal_request()}}, including the
+argument \code{cache} that allow requests caching.}
 }
 \value{
 An object of class \code{mgSearchReferences}, which is a list that includes a

@@ -14,7 +14,8 @@
 #' available are returned.
 #' @param query_sf a spatial object of class `sf` used to search in a specific
 #' geographical area.
-#' @param ... ignored
+#' @param ... Further arguments passed to [rmangal_request()], including the
+#' argument `cache` that allow requests caching.
 #'
 #' @return
 #' An object of class `mgSearchNetworks`, which is a `data.frame` object with 

@@ -7,11 +7,7 @@
 #' Alternatively, a named list can be used to look for an exact match in a
 #' specific column (see Details section)
 #'
-#' @param query either a character string including a single keyword or a named
-#' list containing a custom query (see details section below).
-#' Note that if an empty character string is passed, then all datasets
-#' available are returned.
-#' @param ... ignored.
+#' @inheritParams search_datasets
 #'
 #' @details
 #' Names of the list should match one of the column names within the table.

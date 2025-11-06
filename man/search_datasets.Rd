@@ -9,9 +9,10 @@ search_datasets(query, ...)
 \arguments{
 \item{query}{either a character string including a single keyword or a named
 list containing a custom query (see details section below). Note that if an
-empty character string is passed, then all datasets available are returned.}
+empty character string is passed, then all available entries are returned.}
 
-\item{...}{ignored.}
+\item{...}{Further arguments passed to \code{\link[=rmangal_request]{rmangal_request()}}, including the
+argument \code{cache} that allow requests caching.}
 }
 \value{
 An object of class \code{mgSearchDatasets}, which basically is a \code{data.frame}

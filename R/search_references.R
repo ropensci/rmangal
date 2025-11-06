@@ -8,13 +8,9 @@
 #' Alternatively, a named list can be used to look for an exact match in a
 #' specific column (see Details section).
 #'
-#' @param query either a character string including a single keyword or a named
-#' list containing a custom query (see details section below).
-#' Note that if an empty character string is passed, then all datasets
-#' available are returned.
+#' @inheritParams search_datasets
 #' @param doi `character` a Digital Object Identifier  (DOI) of the article.
 #' Note that `query` is ignored if `doi` is specified.
-#' @param ... ignored.
 #'
 #' @return
 #' An object of class `mgSearchReferences`, which is a list that includes a

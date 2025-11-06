@@ -23,7 +23,8 @@
 #' (<http://www.boldsystems.org>).
 #' @param ncbi a `numeric`. Unique taxonomic identifier from National Center
 #' for Biotechnology Information (<https://www.ncbi.nlm.nih.gov>).
-#' @param ... ignored.
+#' @param ... Further arguments passed to [rmangal_request()], including the 
+#' argument `cache` that allow requests caching.
 #'
 #' @details
 #' Taxon names of the `taxonomy` table were validated with
