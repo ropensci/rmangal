@@ -121,6 +121,20 @@ returns a `mgNetwork` object, otherwise it returns an object of class
 Below, we exemplify how to use the search functions, how to get a collection of
 networks and how to use other packages to carry out specific analyses.
 
+### Verbosity
+Verbosity is defined at the package level in `rmangal`, controlled by the option `rmangal.verbose`.
+
+To quiet all rmangal function, use: 
+
+```R
+options(rmangal.verbose = "quiet")
+```
+
+and to switch on the verbosity do:
+
+```R
+options(rmangal.verbose = "verbose")
+```
 
 ## Search functions
 
