@@ -56,7 +56,7 @@ rmangal_request <- function(endpoint, query = NULL, limit = 100, cache = FALSE, 
 }
 
 
-rmangal_request_singleton <- function(endpoint = "", id, cache = FALSE, ...) {
+rmangal_request_singleton <- function(endpoint, id, cache = FALSE, ...) {
   stopifnot(length(id) == 1)
   req <- rmangal_api_url() |>
     httr2::req_url_path_append(rmangal_endpoint_path(endpoint)) |>
