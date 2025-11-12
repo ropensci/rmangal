@@ -4,7 +4,7 @@ author:
   - name: Steve Vissault & Kevin Cazelles
 bibliography:
   - ../inst/bib/main.bib
-date: "2023-03-29"
+date: "2025-11-11"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Get started with rmangal}
@@ -38,13 +38,13 @@ knitr::opts_chunk$set(
   - a client library for Julia: [Mangal.jl](https://github.com/PoisotLab/Mangal.jl);
   - a client of this API for R: the **rmangal** package described below.
 
-Currently, 172 datasets are including in the database representing over [1300 ecological
+Currently, 175 datasets are including in the database representing over [1300 ecological
 networks](https://mangal.io/#/network). In 2016, the first paper describing the project was
 published and introduced the first release of **rmangal** [@poisot_mangal_2016]. Since then, the
 structure of the database has been improved (new fields have been added), several ecological
 networks added and the API entirely rewritten. Consequently, [the first release of the
 **rmangal**](https://github.com/mangal-interactions/rmangal-v1) is obsolete (and archived) and we introduce
-**rmangal v2.0** in this vignette.
+**rmangal v2.0** in this vignette. This vignette was reviewed on November 2022, when version 2.2 was released.
 
 
 ## Data structure
@@ -91,13 +91,14 @@ two nodes.
 ## Authentication
 
 So far, the `rmangal` package provides methods to get access to the data store. Data requests
-(performed via `httr::GET()`) do not require any authentication.
+(performed via `rmangal_request()` or `rmangal_request_singleton()`) do not require any authentication.
 
 A bearer authentication strategy using [ORCID](https://orcid.org/) credentials
 (as a third-party services) has been implemented on all `POST`, `DELETE`, `PUT`
 API operations to allow the user to add and delete new ecological to the data
 base. These features are not currently included in the **rmangal** package, but
-are under consideration for future major releases.
+remain under consideration for future major releases.
+
 
 
 
@@ -120,14 +121,22 @@ to retrieve the corresponding set of ecological networks with
 `get_collection()`. Hence, the user can easily retrieve data in two steps:
 
 ```r
-networks <- search_*() %>% get_collection()
+networks <- search_*(query = "your query") |> get_collection()
 ```
 
-Note that if there is only one network to be retrieved, `get_collection()`
+If there is only one network to be retrieved, `get_collection()`
 returns a `mgNetwork` object, otherwise it returns an object of class
 `mgNetworksCollection` which is a collection (a list) of `mgNetwork` objects.
 Below, we exemplify how to use the search functions, how to get a collection of
 networks and how to use other packages to carry out specific analyses.
+
+Request could be cached (`rmangal` leverages `httr2::req_cache()`) either by 
+setting the argument `cache` to `TRUE` or by porviding he path to the cache 
+directory, e.g:
+
+```r
+networks <- search_*(query = "your query", cache = TRUE) |> get_collection()
+```
 
 
 ## Search functions
@@ -144,7 +153,6 @@ Let's load **rmangal** as well as two helper packages:
 
 ```{R load_packages}
 library(rmangal)
-library(magrittr) # for the pipe %>%
 library(tibble) # to use tibble (enhanced data frames)
 ```
 
@@ -168,19 +176,18 @@ lagoon_zetina <- search_datasets(list(ref_id = 22))
 lagoon_zetina
 ```
 
-Note that if an empty character is passed, i.e. `""`, all entries are returned. We can use this behavior to list all datasets available:
-
+Note that if an empty character is passed, i.e. `""`, all entries are returned. 
 
 ```{R}
 all_datasets <- search_datasets("")
 head(all_datasets)
+length(all_datasets)
 ```
 
 As shown in the diagram above, a dataset comes from a specific reference and `search_references()`
 queries the reference table directly. A handy argument of this function is `doi` as it
 allows to pass a Digital Object Identifier and so to retrieve all datasets attached to a specific
 publication.
-
 
 ```{R}
 zetina_2003 <- search_references(doi = "10.1016/s0272-7714(02)00410-9")
@@ -226,7 +233,7 @@ mapView(
   ) + mapView(in_NC, legend = FALSE) 
 ```
 
-```{r  out.width = "60%", echo = FALSE}
+```{r out.width = "80%", echo = FALSE}
 knitr::include_graphics("img/map1.png") 
 ```
 
@@ -240,13 +247,15 @@ sr_ficus <- search_taxonomy("Ficus")
 ```
 
 This function allows to search for a specific taxonomic entity using it's validated name or unique identifiers, i.e. EOL, TSN, GBIF, COL, BOLD and NCBI IDs. Taxon names of the `taxonomy` table were validated with
-TNRS (see <https://tnrs.biendata.org/>) and/or GNR (see <https://resolver.globalnames.org/>). The taxon names in this table
-might not be the taxon name documented in the original publication.
+TNRS (see <https://tnrs.biendata.org/>) and/or GNR (see <https://resolver.globalnames.org/>). 
+The taxon names in this table might not be the taxon name documented in the original publication.
 In order to identify relevant networks with the original name, use
-[search_nodes()].
+`search_nodes()`.
 
-The validation of taxon names was performed by an automated
-procedure using taxize [@chamberlain_2019] and if there is any doubt, the original names recorded by authors should be regarded as the most reliable information. Please report any issue related to taxonomy at <https://github.com/mangal-interactions/contribute/issues/new/choose>.
+The validation of taxon names was performed by an automated procedure using 
+taxize [@chamberlain_2019] and if there is any doubt, the original names 
+recorded by authors should be regarded as the most reliable information. 
+Please report any issue related to taxonomy at <https://github.com/mangal-interactions/contribute/issues/new/choose>.
 
 
 ```{R}
@@ -268,9 +277,9 @@ returned with `get_collection()`:
 
 
 ```{R}
-nets_lagoons <- lagoon %>% get_collection
-nets_in_NC <- in_NC %>% get_collection
-nets_competition <- comp_interac %>% get_collection
+nets_lagoons <- lagoon |> get_collection()
+nets_in_NC <- in_NC |> get_collection()
+nets_competition <- comp_interac |> get_collection()
 ```
 
 ```{R}
@@ -278,7 +287,9 @@ nets_lagoons
 class(nets_lagoons)
 ```
 
-Note that `mgNetworksCollection` objects are lists of `mgNetwork` object which are a list of five datasets reflecting the 5 tables presented in the diagram in the first section:
+Note that `mgNetworksCollection` objects are lists of `mgNetwork` object which 
+are a list of five datasets reflecting the 5 tables presented in the diagram in 
+the first section:
 
 
 ```{R}
@@ -304,9 +315,9 @@ over a vector or a list of queries. Below we exemplify how to do so using
 
 ```{R}
 tsn <- c(837855, 169237)
-mgn <- lapply(tsn, function(x) search_taxonomy(tsn = x)) %>%
-  lapply(get_collection) %>%
-  combine_mgNetworks
+mgn <- lapply(tsn, function(x) search_taxonomy(tsn = x))  |>
+  lapply(get_collection)  |>
+  combine_mgNetworks()
 mgn
 ```
 
@@ -317,7 +328,8 @@ geolocalize the networks retrieved from Mangal.
 
 ```{R as_sf}
 # assuming sf and mapview are is loaded (as we did above)
-mg_lag_sf <- search_datasets(query = 'lagoon') %>% get_collection(as_sf = TRUE)
+mg_lag_sf <- search_datasets(query = 'lagoon') |> 
+  get_collection(as_sf = TRUE)
 class(mg_lag_sf[[1]]$network)
 ```
 
@@ -344,7 +356,7 @@ website](https://igraph.org/r/)) object and then to carry out network analysis:
 
 ```{R igraph}
 library(igraph)
-mg_lagoons <- search_datasets(query = 'lagoon') %>% get_collection
+mg_lagoons <- search_datasets(query = 'lagoon')  |> get_collection()
 # NB the line below returns a list of igraph objects
 ig_lagoons <- as.igraph(mg_lagoons)
 ## Modularity analysis for the first network
@@ -361,7 +373,8 @@ networks as two tidy tables (one for the edges and one for the nodes) that can
 be modified using the grammar of data manipulation developed in the
 [tidyverse](https://www.tidyverse.org/). Moreover, `tidygraph` wraps over most
 of the `igraph` functions so that the user can call a vast variety of algorithms
-to properly analysis networks. Fortunately, objects of class `mgNetwork` can
+to properly analysis networks. 
+Fortunately, objects of class `mgNetwork` can
 readily be converted into `tbl_graph` objects which allows the user to benefit
 from all the tools included in `tidygraph`:
 
@@ -369,10 +382,10 @@ from all the tools included in `tidygraph`:
 ```{R tidygraph}
 library(tidygraph)
 # NB the line below would not work with a mgNetworksCollection (use lapply)
-tg_lagoons <-  as_tbl_graph(mg_lagoons[[1]]) %>%
+tg_lagoons <-  as_tbl_graph(mg_lagoons[[1]])  |>
   mutate(centrality_dg = centrality_degree(mode = 'in'))
-tg_lagoons %E>% as_tibble
-tg_lagoons %N>% as_tibble %>%
+tg_lagoons %E>% as_tibble()
+tg_lagoons %N>% as_tibble() |>
   select(original_name, taxonomy.tsn, centrality_dg)
 ```
 
@@ -383,8 +396,12 @@ offers various functions (theme, geoms, etc.) to efficiently visualize networks:
 ```{R ggraph}
 library(ggraph)
 ggraph(tg_lagoons, layout = "stress") +
-  geom_edge_parallel(end_cap = circle(.5), start_cap = circle(.5),
-        arrow = arrow(length = unit(1, 'mm'), type = 'closed')) +
+  geom_edge_parallel(
+    end_cap = circle(.5),
+    start_cap = circle(.5),
+    arrow = arrow(length = unit(1, 'mm'),
+    type = 'closed')
+  ) +
   geom_node_point(aes(colour = taxonomy.rank), size = 8) +
   theme_graph(background = "grey40", foreground = NA, text_colour = 'white')
 ```
@@ -396,8 +413,10 @@ ggraph(tg_lagoons, layout = "stress") +
 We can easily print the BibTeX of all publications involved in the networks collection.
 
 ```{R, message = FALSE}
-search_datasets(query = 'lagoon') %>%
-   get_collection %>% get_citation %>% cat(sep = "\n\n")
+search_datasets(query = 'lagoon') |>
+  get_collection() |> 
+  get_citation() |> 
+  cat(sep = "\n\n")
 ```
 
 

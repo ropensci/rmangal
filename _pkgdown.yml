@@ -1,6 +1,5 @@
 template:
-  params:
-    bootswatch: flatly
+  bootstrap: 5
 
 authors:
   Steve Vissault:
@@ -38,7 +37,8 @@ reference:
   contents:
   - '`as.igraph.mgNetwork`'
   - '`combine_mgNetworks`'
-- title: Cache
-  desc: Manipulate `rmangal` cache
+- title: Core functions
+  desc: Internation functions that handle API calls 
   contents:
-  - '`clear_cache_rmangal`'
+  - '`rmangal_endpoints`'
+  - '`rmangal_request`'

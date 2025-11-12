@@ -10,7 +10,7 @@
 #' list containing a custom query (see details section below). Note that if an
 #' empty character string is passed, then all available entries are returned.
 #' @param ... Further arguments passed to [rmangal_request()], including the 
-#' argument `cache` that allow requests caching.
+#' argument `cache` that allows requests caching.
 #'
 #' @return
 #' An object of class `mgSearchDatasets`, which basically is a `data.frame`

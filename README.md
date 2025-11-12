@@ -1,4 +1,4 @@
-# rmangal :package: - an R Client for the Mangal database <img src="man/figures/logo.png" width="130" align="right"/>
+# rmangal :package: - an R Client for the Mangal database <img src="man/figures/logo.png" width="130" align="right" alt="rmangal logo"/>
 
 [![](https://badges.ropensci.org/332_status.svg)](https://github.com/ropensci/software-review/issues/332)
 [![R CMD Check](https://github.com/ropensci/rmangal/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ropensci/rmangal/actions/workflows/R-CMD-check.yaml)
