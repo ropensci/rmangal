@@ -45,5 +45,5 @@
       ITIS: 16%, BOLD: 42%, EOL: 89%, COL: 84%, GBIF: 89%, NCBI: 47%
       * Published in reference # DOI: 10.1086/674445
       # i 1 network not shown.
-      # Use `print(..., n = )` 'to show more networks.
+      # Use `print(..., n = )` to show more networks.
 

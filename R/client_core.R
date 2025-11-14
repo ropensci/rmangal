@@ -17,8 +17,8 @@
 #' @return An object of class `mgGetResponses` containing the response body
 #'   and the raw HTTP response(s).
 #' 
-#' @describeIn rmangal_request These function send a request to a specified 
-#' endpoint of the Mangal API and returns all matching results.
+#' @describeIn rmangal_request Send a request to a specified endpoint of the 
+#' Mangal API and returns all matching results.
 #'
 #' @export
 #'
@@ -76,7 +76,7 @@ rmangal_request <- function(endpoint, query = NULL, limit = 100, cache = FALSE, 
 }
 
 
-#' @describeIn rmangal_request retrieves a single resource by its ID from a 
+#' @describeIn rmangal_request Retrieves a single resource by its ID from a 
 #' specified endpoint of the Mangal API.
 #'
 #' @param id An integer or character specifying the unique identifier of the

@@ -47,7 +47,6 @@ To run all tests
 devtools::test()
 ```
 
-If you are running tests that have `skip_on_cran()` in them, set `Sys.setenv(NOT_CRAN = "true")` prior to running tests.
 
 
 ### Making changes

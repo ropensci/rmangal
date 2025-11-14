@@ -9,7 +9,7 @@
 #' @param query either a character string including a single keyword or a named
 #' list containing a custom query (see details section below). Note that if an
 #' empty character string is passed, then all available entries are returned.
-#' @param ... Further arguments passed to [rmangal_request()], including the 
+#' @param ... Additional arguments passed to [rmangal_request()], including the 
 #' argument `cache` that allows requests caching.
 #'
 #' @return
@@ -19,11 +19,11 @@
 #'
 #' @details
 #' If `query` is a named list, the name  used should be one of the following:
-#' - id: unique identifier of the dataset
-#' - name: name of the dataset
-#' - date: date (`YYYY-mm-dd`) of the corresponding publication
-#' - description: a brief description of the data set
-#' - ref_id: the Mangal identifier of the dataset
+#' - `id`: unique identifier of the dataset
+#' - `name`: name of the dataset
+#' - `date`: date (`YYYY-mm-dd`) of the corresponding publication
+#' - `description`: a brief description of the dataset
+#' - `ref_id`: the Mangal identifier of the dataset
 #'
 #' Note that for lists with more than one element, only the first element is
 #' used, the others are ignored. Examples covering custom queries are provided
@@ -59,8 +59,7 @@ search_datasets <- function(query, ...) {
     rmangal_inform("Found {nrow(datasets)} dataset{?s}.")
   }
 
-  # Attached references and networks
-  # No need for test because if NULL function stopped above
+  # Attach references and networks
   datasets$networks <- lapply(
     datasets$ref_id,
     \(x) {

@@ -1,9 +1,10 @@
-#' Retrieve network information, nodes, edges and references for a given set of Mangal network IDs
+#' Retrieve network information, nodes, edges and references for a given set of 
+#' Mangal network IDs
 #'
-#' @param ids a vector of Mangal ID for networks (`integer`).
-#' @param id a single ID network (``integer`).
+#' @param ids a vector of Mangal identifier for networks (`integer`).
+#' @param id a single network identifier (`integer`).
 #' @param x an object of class `mgNetwork` or `mgNetworksCollection`.
-#' @param object object of of class `mgNetwork` or `mgNetworksCollection`.
+#' @param object object of class `mgNetwork` or `mgNetworksCollection`.
 #' @param as_sf a logical. Should networks metadata be converted into an sf
 #' object? Note that to use this feature `sf` must be installed.
 #' @param force_collection a logical. Should the output to be of class
@@ -60,7 +61,8 @@ get_network_by_id <- function(ids, as_sf = FALSE, force_collection = FALSE) {
 }
 
 
-#' @describeIn get_network_by_id Retrieve a network by its collection of networks (default).
+#' @describeIn get_network_by_id Retrieve an individual network by its
+#' identifier.
 #' @export
 get_network_by_id_indiv <- function(id, as_sf = FALSE) {
   id <- suppressWarnings(as.integer(id))
@@ -142,7 +144,7 @@ print.mgNetworksCollection <- function(x, n = 6, ...) {
     cli::pluralize("# {cli::symbol$info} {length(x) - n} network{?s} not shown.") |>
       cli::col_grey() |>
       cli::cli_text()
-    cli::col_grey("# Use `print(..., n = )` 'to show more networks.") |>
+    cli::col_grey("# Use `print(..., n = )` to show more networks.") |>
       cli::cli_text()
   }
   invisible(x)

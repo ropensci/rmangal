@@ -14,8 +14,8 @@ empty character string is passed, then all available entries are returned.}
 \item{doi}{\code{character} a Digital Object Identifier  (DOI) of the article.
 Note that \code{query} is ignored if \code{doi} is specified.}
 
-\item{...}{Further arguments passed to \code{\link[=rmangal_request]{rmangal_request()}}, including the
-argument \code{cache} that allow requests caching.}
+\item{...}{Additional arguments passed to \code{\link[=rmangal_request]{rmangal_request()}}, including the
+argument \code{cache} that allows requests caching.}
 }
 \value{
 An object of class \code{mgSearchReferences}, which is a list that includes a
@@ -23,7 +23,7 @@ wide range of details associated to the reference, including all datasets
 and networks related to the publication that are included in Mangal database.
 }
 \description{
-Search for a specific reference using a key word or a Digital Object
+Search for a specific reference using a keyword or a Digital Object
 Identifier (DOI).
 If the \code{query} is a character string, then all character columns in the table
 are searched and the entries for which at least one
@@ -35,11 +35,11 @@ specific column (see Details section).
 Names of the list should match one of the column names within the table.
 For the \code{reference} table, those are:
 \itemize{
-\item id: unique identifier of the reference
-\item first_author: first author
-\item doi: use \code{doi} instead
-\item jstor: JSTOR identifier
-\item year: year of publication.
+\item \code{id}: unique identifier of the reference
+\item \code{first_author}: first author
+\item \code{doi}: use \code{doi} instead
+\item \code{jstor}: JSTOR identifier
+\item \code{year}: year of publication.
 }
 
 Note that for lists with more than one element, only the first element is

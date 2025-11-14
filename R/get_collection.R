@@ -3,8 +3,8 @@
 #' Retrieve a set of networks based on the results of one of the `search_*()`
 #' function. The function also accepts a numeric vector of Mangal network IDs.
 #'
-#' @param x `numeric` vector of Mangal network IDs or an object returned by
-#' by one of the `search_*()` functions.
+#' @param x `numeric` vector of Mangal network IDs or an object returned from
+#' any `search_*()` function.
 #' @param ... arguments to be passed on to [rmangal::get_network_by_id()].
 #'
 #' @return
@@ -64,7 +64,7 @@ get_collection.mgSearchNodes <- function(x, ...) {
   get_collection.default(net_ids, ...)
 }
 
-#' @describeIn get_collection Get a collection of networks from a `mgSearchTaxa` object.
+#' @describeIn get_collection Get a collection of networks from a `mgSearchTaxonomy` object.
 #' @export
 get_collection.mgSearchTaxonomy <- function(x, ...) {
   # Get networks ids

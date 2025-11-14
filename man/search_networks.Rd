@@ -13,11 +13,11 @@ search_networks_sf(query_sf, ...)
 \item{query}{either a character string including a single keyword or a named
 list containing a custom query (see details section below), or a spatial
 object (see the description of \code{query_sf}).
-Note that if an empty character string is passed, then all datasets
+Note that if an empty character string is passed, then all networks
 available are returned.}
 
 \item{...}{Further arguments passed to \code{\link[=rmangal_request]{rmangal_request()}}, including the
-argument \code{cache} that allow requests caching.}
+argument \code{cache} that allows requests caching.}
 
 \item{query_sf}{a spatial object of class \code{sf} used to search in a specific
 geographical area.}
@@ -32,7 +32,7 @@ If the \code{query} is a character string, then all character columns in the tab
 are searched and the entries for which at least one
 partial match was found are returned.
 Alternatively, a named list can be used to look for an exact match in a
-specific column (see Details section)
+specific column (see 'Details' section).
 }
 \details{
 Names of the list should match one of the column names within the table.

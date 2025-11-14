@@ -7,7 +7,8 @@
 \alias{print.mgNetworksCollection}
 \alias{summary.mgNetwork}
 \alias{summary.mgNetworksCollection}
-\title{Retrieve network information, nodes, edges and references for a given set of Mangal network IDs}
+\title{Retrieve network information, nodes, edges and references for a given set of
+Mangal network IDs}
 \usage{
 get_network_by_id(ids, as_sf = FALSE, force_collection = FALSE)
 
@@ -22,7 +23,7 @@ get_network_by_id_indiv(id, as_sf = FALSE)
 \method{summary}{mgNetworksCollection}(object, ...)
 }
 \arguments{
-\item{ids}{a vector of Mangal ID for networks (\code{integer}).}
+\item{ids}{a vector of Mangal identifier for networks (\code{integer}).}
 
 \item{as_sf}{a logical. Should networks metadata be converted into an sf
 object? Note that to use this feature \code{sf} must be installed.}
@@ -30,7 +31,7 @@ object? Note that to use this feature \code{sf} must be installed.}
 \item{force_collection}{a logical. Should the output to be of class
 \code{mgNetworksCollection} even if it includes only one network.}
 
-\item{id}{a single ID network (``integer`).}
+\item{id}{a single network identifier (\code{integer}).}
 
 \item{x}{an object of class \code{mgNetwork} or \code{mgNetworksCollection}.}
 
@@ -38,7 +39,7 @@ object? Note that to use this feature \code{sf} must be installed.}
 
 \item{n}{maximum number of networks to display.}
 
-\item{object}{object of of class \code{mgNetwork} or \code{mgNetworksCollection}.}
+\item{object}{object of class \code{mgNetwork} or \code{mgNetworksCollection}.}
 }
 \value{
 A \code{mgNetwork} object includes five data frames:
@@ -68,7 +69,8 @@ Summarize mgNetworksCollection properties.
 }
 \section{Functions}{
 \itemize{
-\item \code{get_network_by_id_indiv()}: Retrieve a network by its collection of networks (default).
+\item \code{get_network_by_id_indiv()}: Retrieve an individual network by its
+identifier.
 
 }}
 \examples{
