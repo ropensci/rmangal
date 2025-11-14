@@ -12,15 +12,15 @@
 #' @param query a character string including a single keyword. Note that if an
 #' empty character string is passed, then all datasets available are returned.
 #' @param tsn a `numeric`. Unique taxonomic identifier from Integrated
-#' Taxonomic Information System (<https://www.itis.gov>).
+#' Taxonomic Information System (<itis.gov>).
 #' @param gbif a `numeric`. Unique taxonomic identifier from Global
-#' Biodiversity Information Facility (<https://www.gbif.org>).
+#' Biodiversity Information Facility (<www.gbif.org>).
 #' @param eol a `numeric`. Unique taxonomic identifier from Encyclopedia of
-#' Life (<https://eol.org>).
+#' Life (<eol.org>).
 #' @param col a `numeric`. Unique taxonomic identifier from Catalogue of Life
 #' (<https://www.catalogueoflife.org>).
 #' @param bold a `numeric`. Unique taxonomic identifier from Barcode of Life
-#' (<http://www.boldsystems.org>).
+#' (<https://boldsystems.org/>).
 #' @param ncbi a `numeric`. Unique taxonomic identifier from National Center
 #' for Biotechnology Information (<https://www.ncbi.nlm.nih.gov>).
 #' @param ... Further arguments passed to [rmangal_request()], including the 

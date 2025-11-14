@@ -20,19 +20,19 @@ search_taxonomy(
 empty character string is passed, then all datasets available are returned.}
 
 \item{tsn}{a \code{numeric}. Unique taxonomic identifier from Integrated
-Taxonomic Information System (\url{https://www.itis.gov}).}
+Taxonomic Information System (<itis.gov>).}
 
 \item{gbif}{a \code{numeric}. Unique taxonomic identifier from Global
-Biodiversity Information Facility (\url{https://www.gbif.org}).}
+Biodiversity Information Facility (<www.gbif.org>).}
 
 \item{eol}{a \code{numeric}. Unique taxonomic identifier from Encyclopedia of
-Life (\url{https://eol.org}).}
+Life (<eol.org>).}
 
 \item{col}{a \code{numeric}. Unique taxonomic identifier from Catalogue of Life
 (\url{https://www.catalogueoflife.org}).}
 
 \item{bold}{a \code{numeric}. Unique taxonomic identifier from Barcode of Life
-(\url{http://www.boldsystems.org}).}
+(\url{https://boldsystems.org/}).}
 
 \item{ncbi}{a \code{numeric}. Unique taxonomic identifier from National Center
 for Biotechnology Information (\url{https://www.ncbi.nlm.nih.gov}).}
