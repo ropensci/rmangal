@@ -4,6 +4,7 @@
 [![R CMD Check](https://github.com/ropensci/rmangal/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ropensci/rmangal/actions/workflows/R-CMD-check.yaml)
 [![codecov](https://codecov.io/gh/ropensci/rmangal/graph/badge.svg?token=lGqUVLM2o3)](https://codecov.io/gh/ropensci/rmangal)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![rmangal status badge](https://ropensci.r-universe.dev/rmangal/badges/version)](https://ropensci.r-universe.dev/rmangal)
 [![CRAN status](https://www.r-pkg.org:443/badges/version/rmangal)](https://CRAN.R-project.org/package=rmangal)
 
 

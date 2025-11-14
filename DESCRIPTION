@@ -1,7 +1,7 @@
 Package: rmangal
 Type: Package
 Title: 'Mangal' Client
-Version: 2.1.3.9005
+Version: 2.2.0
 Authors@R: c(
     person(given = "Steve", family = "Vissault", comment = c(ORCID = "0000-0002-0866-4376"),
       email = "s.vissault@yahoo.fr", role = c("aut", "ctb")),

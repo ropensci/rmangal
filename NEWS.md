@@ -1,4 +1,4 @@
-# rmangal (devel)
+# rmangal 2.2.0
 
 * Expose core functions `rmangal_request()` and `rmangal_request_singleton()`.
 * `print.mgNetworksCollection()` gains an argument `n` to control the number of 
