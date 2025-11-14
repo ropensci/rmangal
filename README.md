@@ -14,13 +14,13 @@ serializes ecological interaction matrices into nodes (e.g. taxon, individuals
 or population) and interactions (i.e. edges). For each network, Mangal offers
 the opportunity to store study context such as the location, sampling
 environment, inventory date and information pertaining to the original
-publication. For every nodes involved in the ecological networks, Mangal
+publication. For all nodes involved in the ecological networks, Mangal
 references unique taxonomic identifiers such as Encyclopedia of Life (EOL),
 Catalogue of Life (COL), Global Biodiversity Information Facility (GBIF) etc.
 and can extend nodes information to individual traits.
 
 **rmangal** is an R client to the Mangal database and provides various functions
-to explore his content through search functions. It offers methods to retrieve
+to explore its content through search functions. It offers methods to retrieve
 networks structured as `mgNetwork` or `mgNetworksCollection` S3 objects and
 methods to convert `mgNetwork` to other class objects in order to analyze and
 visualize networks properties: [`igraph`](https://igraph.org/r/),
@@ -40,15 +40,14 @@ R> library("rmangal")
 
 ## How to use `rmangal`
 
-There are [seven `search_*()` functions](https://docs.ropensci.org/rmangal/reference/index.html#section-explore-database) to explore the content of Mangal, for
-instance `search_datasets()`:
+There are [seven `search_*()` functions](https://docs.ropensci.org/rmangal/reference/index.html#section-explore-database) to explore the content of Mangal, for instance `search_datasets()`:
 
 ```r
 R> mgs <- search_datasets("lagoon")
-Found 2 datasets
+Found 2 datasets.
 ```
 
-Once this first step achieved, networks found can be retrieved with the `get_collection()` function.
+Once this first step is achieved, networks found can be retrieved with the `get_collection()` function.
 
 ```r
 R> mgn <- get_collection(mgs)
@@ -63,28 +62,58 @@ returned, otherwise an object `mgNetworkCollection`, which is a list of
 R> class(mgn)
 [1] "mgNetworksCollection"
 R> mgn
-A collection of 3 networks
+── Network Collection ──
 
-* Network # from data set #
-* Description: Dietary matrix of the Huizache–Caimanero lagoon
-* Includes 189 edges and 26 nodes
-* Current taxonomic IDs coverage for nodes of this network:
-  --> ITIS: 81%, BOLD: 81%, EOL: 85%, COL: 81%, GBIF: 0%, NCBI: 85%
-* Published in ref # DOI:10.1016/s0272-7714(02)00410-9
+6 networks in collection
 
-* Network # from data set #
-* Description: Food web of the Brackish lagoon
-* Includes 27 edges and 11 nodes
-* Current taxonomic IDs coverage for nodes of this network:
-  --> ITIS: 45%, BOLD: 45%, EOL: 45%, COL: 45%, GBIF: 18%, NCBI: 45%
-* Published in ref # DOI:NA
+── Network #86 
+• Dataset: #22
+• Description: Dietary matrix of the Huizache–Caimanero lagoon
+• Size: 189 edges, 26 nodes
+• Taxonomic IDs coverage for nodes:
+ITIS: 81%, BOLD: 81%, EOL: 85%, COL: 81%, GBIF: 0%, NCBI: 85%
+• Published in reference # DOI: 10.1016/s0272-7714(02)00410-9
 
-* Network # from data set #
-* Description: Food web of the Costal lagoon
-* Includes 34 edges and 13 nodes
-* Current taxonomic IDs coverage for nodes of this network:
-  --> ITIS: 54%, BOLD: 54%, EOL: 54%, COL: 54%, GBIF: 15%, NCBI: 54%
-* Published in ref # DOI:NA
+── Network #1104 
+• Dataset: #53
+• Description: Food web of the shallow sublittoral at Cape Ann
+• Size: 107 edges, 35 nodes
+• Taxonomic IDs coverage for nodes:
+ITIS: 77%, BOLD: 71%, EOL: 77%, COL: 74%, GBIF: 3%, NCBI: 71%
+• Published in reference # DOI: 10.2307/1948658
+
+── Network #1108 
+• Dataset: #53
+• Description: Food web of the high salt marsh at Cape Ann
+• Size: 44 edges, 19 nodes
+• Taxonomic IDs coverage for nodes:
+ITIS: 58%, BOLD: 53%, EOL: 58%, COL: 53%, GBIF: 11%, NCBI: 53%
+• Published in reference # DOI: 10.2307/1948658
+
+── Network #1105 
+• Dataset: #53
+• Description: Food web of the rocky shore at Cape Ann
+• Size: 124 edges, 29 nodes
+• Taxonomic IDs coverage for nodes:
+ITIS: 90%, BOLD: 86%, EOL: 90%, COL: 86%, GBIF: 10%, NCBI: 86%
+• Published in reference # DOI: 10.2307/1948658
+
+── Network #1107 
+• Dataset: #53
+• Description: Food web of the low salt marsh at Cape Ann
+• Size: 60 edges, 25 nodes
+• Taxonomic IDs coverage for nodes:
+ITIS: 80%, BOLD: 68%, EOL: 76%, COL: 68%, GBIF: 12%, NCBI: 72%
+• Published in reference # DOI: 10.2307/1948658
+
+── Network #1106 
+• Dataset: #53
+• Description: Food web of the mudflat at Cape Ann
+• Size: 175 edges, 37 nodes
+• Taxonomic IDs coverage for nodes:
+ITIS: 86%, BOLD: 84%, EOL: 86%, COL: 84%, GBIF: 3%, NCBI: 84%
+• Published in reference # DOI: 10.2307/1948658
+
 ```
 
 [`igraph`](https://igraph.org/r/) and
@@ -113,7 +142,7 @@ the reader through several examples and provide further details about **rmangal*
 ## Verbosity 
 
 Since `rmangal` version 2.2, the function verbosity is controlled by the option
-`rmangal.verbose`. To quiet all rmangal function, use: 
+`rmangal.verbose`. To quiet all rmangal functions, use: 
 
 ```R
 options(rmangal.verbose = "quiet")
@@ -135,7 +164,7 @@ and quality. Comments and suggestions are welcome, feel free to open issues.
 
 ## `rmangal` vs `rglobi`
 
-Those interested only in pairwise interactions among taxons may consider using
+Those interested only in pairwise interactions among taxa may consider using
 `rglobi`, an R package that provides an interface to the [GloBi
 infrastructure](https://www.globalbioticinteractions.org/about.html). GloBi
 provides open access to aggregated interactions from heterogeneous sources. In
@@ -152,7 +181,7 @@ environmental gradients, which wasn't possible using the GloBi infrastructure.
 
 ## Acknowledgment
 
-We are grateful to [Noam Ross](https://github.com/noamross) for acting as an editor during the review process. We also thank [Anna Willoughby](https://github.com/arw36) and [Thomas Lin Petersen](https://github.com/thomasp85) for reviewing the package. Their comments strongly contributed to improve the quality of `rmangal`.
+We are grateful to [Noam Ross](https://github.com/noamross) for acting as an editor during the review process. We also thank [Anna Willoughby](https://github.com/arw36) and [Thomas Lin Petersen](https://github.com/thomasp85) for reviewing the package. Their comments strongly contributed to improving the quality of `rmangal`.
 
 
 ## Code of conduct
