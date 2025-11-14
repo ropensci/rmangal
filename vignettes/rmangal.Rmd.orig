@@ -46,7 +46,7 @@ Since then, the structure of the database has been improved (new fields have bee
 several ecological networks have been added and the API entirely rewritten. 
 Consequently, [the first release of the
 **rmangal**](https://github.com/mangal-interactions/rmangal-v1) is obsolete (and archived) and we introduce
-**rmangal v2.0** in this vignette. This vignette was reviewed on November 2022, when version 2.2 was released.
+**rmangal v2.0** in this vignette. This vignette was reviewed on November 2025, when version 2.2 was released.
 
 
 ## Data structure
@@ -370,7 +370,7 @@ lapply(ig_lagoons, degree)
 The package [`tidygraph`](https://github.com/thomasp85/tidygraph) treats
 networks as two tidy tables (one for the edges and one for the nodes) that can
 be modified using the grammar of data manipulation developed in the
-[tidyverse](https://www.tidyverse.org/). Moreover, `tidygraph` wraps over most
+[tidyverse](https://tidyverse.org/). Moreover, `tidygraph` wraps over most
 of the `igraph` functions so that the user can call a vast variety of algorithms
 to properly analysis networks. 
 Fortunately, objects of class `mgNetwork` can
