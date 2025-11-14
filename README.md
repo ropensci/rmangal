@@ -1,6 +1,6 @@
 # rmangal :package: - an R Client for the Mangal database <img src="man/figures/logo.png" width="130" align="right" alt="rmangal logo"/>
 
-[![](https://badges.ropensci.org/332_status.svg)](https://github.com/ropensci/software-review/issues/332)
+[![Status at rOpenSci Software Peer Review](https://badges.ropensci.org/332_status.svg)](https://github.com/ropensci/software-review/issues/332)
 [![R CMD Check](https://github.com/ropensci/rmangal/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ropensci/rmangal/actions/workflows/R-CMD-check.yaml)
 [![codecov](https://codecov.io/gh/ropensci/rmangal/graph/badge.svg?token=lGqUVLM2o3)](https://codecov.io/gh/ropensci/rmangal)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)

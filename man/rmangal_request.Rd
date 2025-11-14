@@ -41,10 +41,10 @@ These functions send a request to a specified endpoint of the Mangal API.
 }
 \section{Functions}{
 \itemize{
-\item \code{rmangal_request()}: These function send a request to a specified
-endpoint of the Mangal API and returns all matching results.
+\item \code{rmangal_request()}: Send a request to a specified endpoint of the
+Mangal API and returns all matching results.
 
-\item \code{rmangal_request_singleton()}: retrieves a single resource by its ID from a
+\item \code{rmangal_request_singleton()}: Retrieves a single resource by its ID from a
 specified endpoint of the Mangal API.
 
 }}

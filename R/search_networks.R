@@ -5,17 +5,17 @@
 #' are searched and the entries for which at least one
 #' partial match was found are returned.
 #' Alternatively, a named list can be used to look for an exact match in a
-#' specific column (see Details section)
+#' specific column (see 'Details' section).
 #'
 #' @param query either a character string including a single keyword or a named
 #' list containing a custom query (see details section below), or a spatial
 #' object (see the description of `query_sf`).
-#' Note that if an empty character string is passed, then all datasets
+#' Note that if an empty character string is passed, then all networks
 #' available are returned.
 #' @param query_sf a spatial object of class `sf` used to search in a specific
 #' geographical area.
 #' @param ... Further arguments passed to [rmangal_request()], including the
-#' argument `cache` that allow requests caching.
+#' argument `cache` that allows requests caching.
 #'
 #' @return
 #' An object of class `mgSearchNetworks`, which is a `data.frame` object with 

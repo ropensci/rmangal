@@ -2,10 +2,10 @@
 % Please edit documentation in R/search_interactions.R
 \name{avail_type}
 \alias{avail_type}
-\title{List interactions type contains in mangal-db}
+\title{List interactions type contained in mangal-db}
 \usage{
 avail_type()
 }
 \description{
-List interactions type contains in mangal-db
+List interactions type contained in mangal-db
 }

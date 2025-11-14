@@ -1,6 +1,6 @@
 #' Query references
 #'
-#' Search for a specific reference using a key word or a Digital Object
+#' Search for a specific reference using a keyword or a Digital Object
 #' Identifier (DOI).
 #' If the `query` is a character string, then all character columns in the table
 #' are searched and the entries for which at least one
@@ -20,11 +20,11 @@
 #' @details
 #' Names of the list should match one of the column names within the table.
 #' For the `reference` table, those are:
-#' * id: unique identifier of the reference
-#' * first_author: first author
-#' * doi: use `doi` instead
-#' * jstor: JSTOR identifier
-#' * year: year of publication.
+#' * `id`: unique identifier of the reference
+#' * `first_author`: first author
+#' * `doi`: use `doi` instead
+#' * `jstor`: JSTOR identifier
+#' * `year`: year of publication.
 #'
 #' Note that for lists with more than one element, only the first element is
 #' used, the others are ignored. An example is provided below.

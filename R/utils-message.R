@@ -1,4 +1,4 @@
-#' Messages Utils 
+#' Message Utilities
 #' 
 #' @noRd 
 

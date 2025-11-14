@@ -16,3 +16,4 @@
 ^data-raw$
 ^\.vscode$
 ^\.lintr$
+^pkgdown$

@@ -11,8 +11,8 @@ search_nodes(query, ...)
 list containing a custom query (see details section below). Note that if an
 empty character string is passed, then all available entries are returned.}
 
-\item{...}{Further arguments passed to \code{\link[=rmangal_request]{rmangal_request()}}, including the
-argument \code{cache} that allow requests caching.}
+\item{...}{Additional arguments passed to \code{\link[=rmangal_request]{rmangal_request()}}, including the
+argument \code{cache} that allows requests caching.}
 }
 \value{
 An object of class \code{mgSearchNodes}, which basically is a \code{data.frame} object
@@ -29,12 +29,12 @@ specific column (see Details section)
 }
 \details{
 Names of the list should match one of the column names within the table.
-For the \code{networks} table, those are:
+For the \code{nodes} table, those are:
 \itemize{
-\item id: unique identifier of the nodes;
-\item original_name: taxonomic name as in the original publication;
-\item node_level: either population, taxon or individual;
-\item network_id: Mangal network identifier.
+\item \code{id}: unique identifier of the nodes;
+\item \code{original_name}: taxonomic name as in the original publication;
+\item \code{node_level}: either population, taxon or individual;
+\item \code{network_id}: Mangal network identifier.
 }
 
 Note that for lists with more than one element, only the first element is

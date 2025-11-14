@@ -11,8 +11,8 @@ search_datasets(query, ...)
 list containing a custom query (see details section below). Note that if an
 empty character string is passed, then all available entries are returned.}
 
-\item{...}{Further arguments passed to \code{\link[=rmangal_request]{rmangal_request()}}, including the
-argument \code{cache} that allow requests caching.}
+\item{...}{Additional arguments passed to \code{\link[=rmangal_request]{rmangal_request()}}, including the
+argument \code{cache} that allows requests caching.}
 }
 \value{
 An object of class \code{mgSearchDatasets}, which basically is a \code{data.frame}
@@ -29,11 +29,11 @@ used to look for an exact match in a specific column (see Details section).
 \details{
 If \code{query} is a named list, the name  used should be one of the following:
 \itemize{
-\item id: unique identifier of the dataset
-\item name: name of the dataset
-\item date: date (\code{YYYY-mm-dd}) of the corresponding publication
-\item description: a brief description of the data set
-\item ref_id: the Mangal identifier of the dataset
+\item \code{id}: unique identifier of the dataset
+\item \code{name}: name of the dataset
+\item \code{date}: date (\code{YYYY-mm-dd}) of the corresponding publication
+\item \code{description}: a brief description of the dataset
+\item \code{ref_id}: the Mangal identifier of the dataset
 }
 
 Note that for lists with more than one element, only the first element is

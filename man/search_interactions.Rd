@@ -18,8 +18,8 @@ details). Note that \code{query} is ignored if \code{type} is used.}
 pertaining to nodes? Default is set to \code{FALSE}, which means that only the
 Mangal IDs of nodes are returned.}
 
-\item{...}{Further arguments passed to \code{\link[=rmangal_request]{rmangal_request()}}, including the
-argument \code{cache} that allow requests caching.}
+\item{...}{Additional arguments passed to \code{\link[=rmangal_request]{rmangal_request()}}, including the
+argument \code{cache} that allows requests caching.}
 }
 \value{
 An object of class \code{mgSearchInteractions}, i.e. a \code{data.frame} object
@@ -39,13 +39,13 @@ specific column (see Details).
 Names of the list should match one of the column names within the table.
 For the \code{interaction} table, those are:
 \itemize{
-\item id: unique identifier of the interaction;
-\item attr_id: identifier of a specific attribute;
-\item direction: edge direction ("directed", "undirected" or "unknown");
-\item network_id: Mangal network identifier;
-\item node_from: node id which the interaction end to;
-\item node_to: node to which the interaction end to;
-\item type: use argument \code{type} instead.
+\item \code{id}: unique identifier of the interaction;
+\item \code{attr_id}: identifier of a specific attribute;
+\item \code{direction}: edge direction ("directed", "undirected" or "unknown");
+\item \code{network_id}: Mangal network identifier;
+\item \code{node_from}: node id which the interaction originates;
+\item \code{node_to}: node to which the interaction goes;
+\item \code{type}: use argument \code{type} instead.
 }
 
 Note that for lists with more than one element, only the first element is

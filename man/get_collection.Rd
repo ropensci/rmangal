@@ -28,8 +28,8 @@ get_collection(x, ...)
 \method{get_collection}{mgSearchInteractions}(x, ...)
 }
 \arguments{
-\item{x}{\code{numeric} vector of Mangal network IDs or an object returned by
-by one of the \verb{search_*()} functions.}
+\item{x}{\code{numeric} vector of Mangal network IDs or an object returned from
+any \verb{search_*()} function.}
 
 \item{...}{arguments to be passed on to \code{\link[=get_network_by_id]{get_network_by_id()}}.}
 }
@@ -53,7 +53,7 @@ function. The function also accepts a numeric vector of Mangal network IDs.
 
 \item \code{get_collection(mgSearchNodes)}: Get a collection of networks from a \code{mgSearchNodes} object.
 
-\item \code{get_collection(mgSearchTaxonomy)}: Get a collection of networks from a \code{mgSearchTaxa} object.
+\item \code{get_collection(mgSearchTaxonomy)}: Get a collection of networks from a \code{mgSearchTaxonomy} object.
 
 \item \code{get_collection(mgSearchInteractions)}: Get a collection of networks from a \code{mgSearchInteractions} object.
 

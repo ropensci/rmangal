@@ -23,13 +23,13 @@
 #' @details
 #' Names of the list should match one of the column names within the table.
 #' For the `interaction` table, those are:
-#' * id: unique identifier of the interaction;
-#' * attr_id: identifier of a specific attribute;
-#' * direction: edge direction ("directed", "undirected" or "unknown");
-#' * network_id: Mangal network identifier;
-#' * node_from: node id which the interaction end to;
-#' * node_to: node to which the interaction end to;
-#' * type: use argument `type` instead.
+#' * `id`: unique identifier of the interaction;
+#' * `attr_id`: identifier of a specific attribute;
+#' * `direction`: edge direction ("directed", "undirected" or "unknown");
+#' * `network_id`: Mangal network identifier;
+#' * `node_from`: node id which the interaction originates;
+#' * `node_to`: node to which the interaction goes;
+#' * `type`: use argument `type` instead.
 #'
 #' Note that for lists with more than one element, only the first element is
 #' used, the others are ignored. The type of interactions (argument `type`)
@@ -101,7 +101,7 @@ search_interactions <- function(query, type = NULL, expand_node = FALSE, ...) {
   interactions
 }
 
-#' List interactions type contains in mangal-db
+#' List interactions type contained in mangal-db
 avail_type <- function() {
   c(
     "competition",
