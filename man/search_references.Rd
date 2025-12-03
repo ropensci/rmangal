@@ -49,7 +49,7 @@ used, the others are ignored. An example is provided below.
 \donttest{
 search_references(doi = "10.2307/3225248")
 search_references(list(jstor = 3683041))
-search_references(list(year = 2010))
+search_references(list(year = 2001))
 }
 }
 \references{
