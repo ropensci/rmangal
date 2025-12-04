@@ -1,3 +1,7 @@
+# rmangal 2.2.1
+
+* Fix URLs to avoid CRAN notes.
+
 # rmangal 2.2.0
 
 * Expose core functions `rmangal_request()` and `rmangal_request_singleton()`.
