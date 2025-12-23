@@ -1,3 +1,4 @@
+skip_if_not_installed("vcr")
 test_that("search_references() default and collection work", {
   vcr::use_cassette(name = "search_references_default", {
     res1 <- search_references(doi = "10.2307/3225248")

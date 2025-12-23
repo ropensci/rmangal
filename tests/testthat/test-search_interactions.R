@@ -1,3 +1,4 @@
+skip_if_not_installed("vcr")
 test_that("search_interactions() default works", {
   vcr::use_cassette(name = "search_interactions_default", {
     res <- search_interactions(type = "competition")

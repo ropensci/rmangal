@@ -1,3 +1,5 @@
+skip_if_not_installed("vcr")
+
 test_that("get_collection() queries by id work", {
   vcr::use_cassette(name = "get_collection_id", {
     res0 <- get_collection(c(1035:1036))

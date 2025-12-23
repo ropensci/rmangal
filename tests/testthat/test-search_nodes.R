@@ -1,3 +1,4 @@
+skip_if_not_installed("vcr")
 test_that("search_nodes() default works", {
   vcr::use_cassette(name = "search_nodes_default", {
     res <- search_nodes("Acer")

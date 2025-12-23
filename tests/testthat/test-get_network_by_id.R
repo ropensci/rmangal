@@ -1,3 +1,5 @@
+skip_if_not_installed("vcr")
+
 # Prep test on mgNetwork
 test_that("get_network_by_id() works", {
   vcr::use_cassette("get_network_by_id", {

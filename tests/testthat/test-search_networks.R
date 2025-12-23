@@ -1,3 +1,4 @@
+skip_if_not_installed("vcr")
 test_that("search_networks() default and collection work", {
   vcr::use_cassette(name = "search_networks_def", {
     res1 <- search_networks("lagoon")
