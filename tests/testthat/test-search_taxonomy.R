@@ -1,3 +1,4 @@
+skip_if_not_installed("vcr")
 test_that("search_taxonomy() default and collection work", {
   vcr::use_cassette(name = "search_taxonomy_default", {
     res <- search_taxonomy("Azorina vidalii")

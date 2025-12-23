@@ -1,3 +1,4 @@
+skip_if_not_installed("vcr")
 # number of variables (columns)
 nvr <- 10
 

@@ -1,3 +1,5 @@
+skip_if_not_installed("vcr")
+
 test_that("get_citation() works", {
   vcr::use_cassette(name = "get_citation", {
     ref <- get_citation(get_network_by_id(18))

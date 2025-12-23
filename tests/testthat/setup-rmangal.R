@@ -1,9 +1,10 @@
-library(vcr)
-vcr::vcr_configure(
-  dir = "../fixtures",
-  write_disk_path = "../files",
-  serialize_with = "json"
-)
+if (requireNamespace("vcr")) {
+  vcr::vcr_configure(
+    dir = "../fixtures",
+    write_disk_path = "../files",
+    serialize_with = "json"
+  )
+}
 
 cl_df <- c("tbl_df", "tbl", "data.frame")
 nm_co <- c("network", "nodes", "interactions", "dataset", "reference")

@@ -1,3 +1,5 @@
+skip_if_not_installed("vcr")
+
 test_that("rmangal_request() works", {
   expect_error(rmangal_request("wrong"), "Unknown endpoint")
   vcr::use_cassette(name = "rmangal_request", {
