@@ -1,7 +1,10 @@
+# rmangal 2.2.2
+
+* Fix vcr loading and skip tests if missing.
+
 # rmangal 2.2.1
 
 * Fix URLs to avoid CRAN notes.
-* Fix vcr loading.
 
 # rmangal 2.2.0
 

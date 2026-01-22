@@ -1,6 +1,6 @@
 On 2024-03-01, rmangal was archived because packages that rely on internet resources must fail gracefully with an informative message if a resource is unavailable or has changed, rather than producing check warnings or errors. We addressed this issue and made several major improvements to strengthen the package. The package now uses httr2, all core API-calling functions fail gracefully, and additional tests have been added to ensure this behaviour.
 
-Please note that the check with noSuggest will fail as tests require `vcr` to work.
+Tests are now skipped if vcr is missing.
 
 
 ## Test environments
